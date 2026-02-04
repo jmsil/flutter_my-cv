@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../ui/scroller.dart';
 import '../ui/strings.dart';
-import 'mobile_scaffold.dart';
 import 'desktop_scaffold.dart';
+import 'mobile_scaffold.dart';
 
 class MainScaffold extends StatefulWidget {
   @override
@@ -16,28 +16,27 @@ class _State extends State {
     return MaterialApp(
       title: AppStrings.appName,
       scrollBehavior: AppScrollBehavior(),
-      home: Builder(
-        builder: (context) {
-          final Size screenSize = MediaQuery.of(context).size;
-          return screenSize.width > 1024
-            ? DesktopScaffold(
-                screenSize.width > 1400,
-                onPressedPt, onPressedEn
-              )
-            : MobileScaffold(
-                screenSize.width <= screenSize.height,
-                onPressedPt, onPressedEn
-              );
-        }
-      ),
-      builder: (context, homeChild) {
-        final MediaQueryData data = MediaQuery.of(context);
-        return MediaQuery(
-          data: data.copyWith(textScaler: TextScaler.linear(1)),
-          child: homeChild!
-        );
-      },
+      home: Builder(builder: buildScaffold),
+      builder: buildMediaQuery,
       debugShowCheckedModeBanner: false
+    );
+  }
+
+  Widget buildScaffold(BuildContext context) {
+    final double screenWidth = MediaQuery.of(context).size.width;
+    return screenWidth > 1024
+      ? DesktopScaffold(
+          screenWidth > 1540,
+          onPressedPt, onPressedEn
+        )
+      : MobileScaffold(onPressedPt, onPressedEn);
+  }
+
+  Widget buildMediaQuery(BuildContext context, Widget? homeChild) {
+    final MediaQueryData data = MediaQuery.of(context);
+    return MediaQuery(
+      data: data.copyWith(textScaler: TextScaler.linear(1)),
+      child: homeChild!
     );
   }
 
