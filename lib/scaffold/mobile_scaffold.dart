@@ -8,14 +8,14 @@ import '../ui/container/container.dart';
 import '../ui/strings.dart';
 import '../ui/theme.dart';
 
-class AppbarScaffold extends StatelessWidget {
+class MobileScaffold extends StatelessWidget {
   static final GlobalKey<DrawerControllerState> _drawerKey = GlobalKey();
 
   final bool isPortrait;
   final Function() onPressedPt;
   final Function() onPressedEn;
 
-  AppbarScaffold(this.isPortrait, this.onPressedPt, this.onPressedEn);
+  MobileScaffold(this.isPortrait, this.onPressedPt, this.onPressedEn);
 
   @override
   Widget build(BuildContext context) {

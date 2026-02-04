@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../ui/scroller.dart';
 import '../ui/strings.dart';
-import 'appbar_scaffold.dart';
+import 'mobile_scaffold.dart';
 import 'desktop_scaffold.dart';
 
 class MainScaffold extends StatefulWidget {
@@ -24,7 +24,7 @@ class _State extends State {
                 screenSize.width > 1400,
                 onPressedPt, onPressedEn
               )
-            : AppbarScaffold(
+            : MobileScaffold(
                 screenSize.width <= screenSize.height,
                 onPressedPt, onPressedEn
               );
