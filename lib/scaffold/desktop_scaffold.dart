@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import '../content/content.dart';
 import '../content/sidebar.dart';
 
-class SidebarScaffold extends StatelessWidget {
-  final bool isDoubleContent;
+class DesktopScaffold extends StatelessWidget {
+  final bool isDoublePanel;
   final Function() onPressedPt;
   final Function() onPressedEn;
 
-  SidebarScaffold(this.isDoubleContent, this.onPressedPt, this.onPressedEn);
+  DesktopScaffold(this.isDoublePanel, this.onPressedPt, this.onPressedEn);
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +19,8 @@ class SidebarScaffold extends StatelessWidget {
           child: AppSidebar(null, onPressedPt, onPressedEn)
         ),
         Expanded(
-          flex: isDoubleContent ? 3 : 2,
-          child: AppContent(isDoubleContent, false)
+          flex: isDoublePanel ? 3 : 2,
+          child: AppContent(isDoublePanel, false)
         )
       ]
     );

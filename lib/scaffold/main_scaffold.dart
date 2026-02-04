@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../ui/scroller.dart';
 import '../ui/strings.dart';
 import 'appbar_scaffold.dart';
-import 'sidebar_scaffold.dart';
+import 'desktop_scaffold.dart';
 
 class MainScaffold extends StatefulWidget {
   @override
@@ -20,7 +20,7 @@ class _State extends State {
         builder: (context) {
           final Size screenSize = MediaQuery.of(context).size;
           return screenSize.width > 1024
-            ? SidebarScaffold(
+            ? DesktopScaffold(
                 screenSize.width > 1400,
                 onPressedPt, onPressedEn
               )
