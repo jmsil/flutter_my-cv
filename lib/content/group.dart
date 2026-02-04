@@ -57,7 +57,7 @@ class ContentGroup extends StatelessWidget {
           color: AppTheme.lowLightColor,
           margin: const EdgeInsets.fromLTRB(16, _topExtraMargin, 16, 0),
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          borderColor: AppTheme.darkBlue.withOpacity(0.36),
+          borderColor: AppTheme.darkBlue.withValues(alpha: 0.36),
           borderRadius: AppTheme.defaultRadius,
           hasShadow: true,
           child: Row(

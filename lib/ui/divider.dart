@@ -8,6 +8,6 @@ class AppDivider extends Divider {
     super(
       height: 8,
       thickness: thickness,
-      color: AppTheme.lightBlue.withOpacity(0.36)
+      color: AppTheme.lightBlue.withValues(alpha: 0.36)
     );
 }

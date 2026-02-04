@@ -25,7 +25,7 @@ class _State extends State<AppHeaderExpandable> {
 
   @override
   Widget build(BuildContext context) {
-    final effectsColor = AppTheme.lowLightColor.withOpacity(0.32);
+    final effectsColor = AppTheme.lowLightColor.withValues(alpha: 0.32);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

@@ -24,7 +24,7 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final effectsColor = AppTheme.lowLightColor.withOpacity(0.32);
+    final effectsColor = AppTheme.lowLightColor.withValues(alpha: 0.32);
     return IconButton(
       iconSize: _containerSize,
       splashColor: effectsColor,
