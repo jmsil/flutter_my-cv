@@ -14,7 +14,7 @@ class AppButton extends StatelessWidget {
     :
     child = Text(
       label,
-      style: isSelected ? AppTheme.normalLightBlueStyle : AppTheme.normalLightStyle
+      style: isSelected ? AppTheme.lightBlueStyle : AppTheme.lightStyle
     );
 
   AppButton.icon(IconData icon, this.onPressed)

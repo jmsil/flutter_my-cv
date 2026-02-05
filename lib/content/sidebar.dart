@@ -10,8 +10,7 @@ import '../ui/text.dart';
 import '../ui/theme.dart';
 
 class AppSidebar extends StatelessWidget {
-  static const double _headerExpandedHeight = 220;
-  static const EdgeInsets _headerPadding = EdgeInsets.fromLTRB(32, 32, 32, 40);
+  static Color _sectionColor = AppTheme.darkColor.withValues(alpha: 0.32);
 
   final GlobalKey<DrawerControllerState>? drawerKey;
   final Function() onPressedPt;
@@ -21,77 +20,46 @@ class AppSidebar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Widget headerWidget = Column(
-      children: [
-        Flexible(
-          child: AspectRatio(
-            aspectRatio: 1,
-            child: AppContainer(
-              borderSize: 2,
-              borderColor: AppTheme.highLightColor,
-              borderRadius: BorderRadius.circular(1000),
-              isClipped: true,
-              child: Image.asset('assets/photo.jpg', fit: BoxFit.cover)
-            )
-          )
-        ),
-        AppUiConst.vsep16,
-        Text('João Marques da Silva', style: AppTheme.largeLightBlueStyle),
-        AppUiConst.vsep8,
-        SizedBox(width: 96, child: AppDivider(4)),
-        AppUiConst.vsep8,
-        Text(AppStrings.role, style: AppTheme.largeLightBlueStyle)
-      ]
+    final Widget sliverProfile = SliverAppBar(
+      stretch: true,
+      elevation: 0,
+      automaticallyImplyLeading: false,
+      backgroundColor: Colors.transparent,
+      expandedHeight: 360,
+      collapsedHeight: 196,
+      leading: drawerKey == null
+        ? null
+        : AppButton.icon(
+            AppIcons.back,
+            () => drawerKey?.currentState?.close()
+          ),
+      flexibleSpace: _ProfileSection()
     );
 
-    final List<Widget> infosWidget = [
-      // Details
-      AppSidebarTitleDivider(AppStrings.details),
-      AppUiConst.vsep16,
-      AppIconText(AppIcons.local, AppStrings.brazil, true),
-      AppUiConst.vsep12,
-      AppIconText(AppIcons.phone, '+55 62 99497-1154', true),
-      AppUiConst.vsep12,
-      AppIconText(AppIcons.mail, 'jmsilva.inbox@gmail.com', true),
-      AppUiConst.vsep12,
-      AppIconText(AppIcons.code, 'https://github.com/Jmsil', true, true),
-      AppUiConst.vsep40,
-
-      // Skills
-      AppSidebarTitleDivider(AppStrings.skills),
-      AppUiConst.vsep16,
-      AppIconText(AppIcons.arrow_right, 'Dart/Flutter', true),
-      AppUiConst.vsep8,
-      AppIconText(AppIcons.arrow_right, 'Android SDK', true),
-      AppUiConst.vsep8,
-      AppIconText(AppIcons.arrow_right, 'Java', true),
-      AppUiConst.vsep8,
-      AppIconText(AppIcons.arrow_right, 'C/C++', true),
-      AppUiConst.vsep8,
-      AppIconText(AppIcons.arrow_right, 'Oracle Database', true),
-      AppUiConst.vsep8,
-      AppIconText(AppIcons.arrow_right, 'MySQL Database', true),
-      AppUiConst.vsep8,
-      AppIconText(AppIcons.arrow_right, 'SQL/PL SQL', true),
-      AppUiConst.vsep8,
-      AppIconText(AppIcons.arrow_right, 'Git', true),
-      AppUiConst.vsep40,
-
-      // About Me & Expectations
-      AppSidebarTitleDivider(AppStrings.aboutAndExpectationsTitle),
-      AppUiConst.vsep16,
-      Text(AppStrings.aboutAndExpectationsText, style: AppTheme.normalLightStyle)
-    ];
+    final Widget sliverInfo = SliverPadding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      sliver: SliverList(
+        delegate: SliverChildListDelegate(
+          [
+            _DetailsSection(),
+            AppUiConst.vsep16,
+            _SkillsSection(),
+            AppUiConst.vsep16,
+            _AboutSection()
+          ]
+        )
+      )
+    );
 
     final Widget footerWidget = AppContainer(
-      color: AppTheme.midDarkColor,
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      color: _sectionColor,
+      padding: const EdgeInsets.all(12),
       child: Row(
         children: [
           FlutterLogo(size: 32),
           AppUiConst.hsep8,
           Expanded(
-            child: Text(AppStrings.powredByFlutter, style: AppTheme.normalLightStyle)
+            child: Text(AppStrings.powredByFlutter, style: AppTheme.lightStyle)
           ),
           AppUiConst.hsep8,
           AppButton.label(AppStrings.langIdx == 0, 'Pt', onPressedPt),
@@ -102,46 +70,26 @@ class AppSidebar extends StatelessWidget {
 
     final containerWidget = AppContainer(
       width: 420,
-      color: AppTheme.highDarkColor,
+      color: AppTheme.midDarkColor,
       child: SafeArea(
         child: Stack(
           fit: StackFit.expand,
           children: [
-            Image.asset('assets/background.png', fit: BoxFit.cover),
+            Image.asset(
+              'assets/background.png',
+              fit: BoxFit.cover,
+              alignment: Alignment.topCenter
+            ),
             Column(
               children: [
                 Expanded(
                   child: AppSliverScroller(
                     [
-                      SliverAppBar(
-                        stretch: true,
-                        elevation: 0,
-                        automaticallyImplyLeading: false,
-                        backgroundColor: Colors.transparent,
-                        expandedHeight: _headerExpandedHeight + _headerPadding.vertical,
-                        collapsedHeight: 85 + _headerPadding.vertical,
-                        leading: drawerKey == null
-                          ? null
-                          : AppButton.icon(
-                              AppIcons.back,
-                              () => drawerKey?.currentState?.close()
-                            ),
-                        flexibleSpace: Padding(
-                          padding: _headerPadding,
-                          child: headerWidget
-                        )
-                      ),
-
-                      SliverPadding(
-                        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                        sliver: SliverList(
-                          delegate: SliverChildListDelegate(infosWidget)
-                        )
-                      )
+                      sliverProfile,
+                      sliverInfo
                     ]
                   )
                 ),
-
                 AppUiConst.vsep16,
                 footerWidget
               ]
@@ -159,4 +107,107 @@ class AppSidebar extends StatelessWidget {
           child: containerWidget
         );
   }
+}
+
+class _ProfileSection extends AppContainer {
+  _ProfileSection()
+    : super(
+        color: AppSidebar._sectionColor,
+        borderRadius: AppTheme.sectionRadius,
+        margin: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(36),
+        child: Column(
+          children: [
+            Flexible(
+              child: AspectRatio(
+                aspectRatio: 1,
+                child: AppContainer(
+                  borderSize: 2,
+                  borderColor: AppTheme.lightBlue,
+                  borderRadius: BorderRadius.circular(1000),
+                  isClipped: true,
+                  child: Image.asset('assets/profile_photo.jpeg', fit: BoxFit.cover)
+                )
+              )
+            ),
+            AppUiConst.vsep16,
+            Text('João Marques da Silva', style: AppTheme.lightBlueStyle),
+            AppUiConst.vsep8,
+            SizedBox(width: 96, child: AppDivider(4)),
+            AppUiConst.vsep8,
+            Text(AppStrings.role, style: AppTheme.lightBlueStyle)
+          ]
+        )
+      );
+}
+
+class _DetailsSection extends AppContainer {
+  _DetailsSection()
+    : super(
+        color: AppSidebar._sectionColor,
+        borderRadius: AppTheme.sectionRadius,
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(AppStrings.details, style: AppTheme.lightBlueStyle),
+            AppUiConst.vsep16,
+            AppIconText(AppIcons.local, AppStrings.brazil, true),
+            AppUiConst.vsep12,
+            AppIconText(AppIcons.phone, '+55 62 99497-1154', true),
+            AppUiConst.vsep12,
+            AppIconText(AppIcons.mail, 'jmsilva.inbox@gmail.com', true),
+            AppUiConst.vsep12,
+            AppIconText(AppIcons.code, 'https://github.com/Jmsil', true, true)
+          ]
+        )
+      );
+}
+
+class _SkillsSection extends AppContainer {
+  _SkillsSection()
+    : super(
+        color: AppSidebar._sectionColor,
+        borderRadius: AppTheme.sectionRadius,
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(AppStrings.skills, style: AppTheme.lightBlueStyle),
+            AppUiConst.vsep16,
+            AppIconText(AppIcons.arrow_right, 'Dart/Flutter', true),
+            AppUiConst.vsep8,
+            AppIconText(AppIcons.arrow_right, 'Android SDK', true),
+            AppUiConst.vsep8,
+            AppIconText(AppIcons.arrow_right, 'Java', true),
+            AppUiConst.vsep8,
+            AppIconText(AppIcons.arrow_right, 'C/C++', true),
+            AppUiConst.vsep8,
+            AppIconText(AppIcons.arrow_right, 'Oracle Database', true),
+            AppUiConst.vsep8,
+            AppIconText(AppIcons.arrow_right, 'MySQL Database', true),
+            AppUiConst.vsep8,
+            AppIconText(AppIcons.arrow_right, 'SQL/PL SQL', true),
+            AppUiConst.vsep8,
+            AppIconText(AppIcons.arrow_right, 'Git', true)
+          ]
+        )
+      );
+}
+
+class _AboutSection extends AppContainer {
+  _AboutSection()
+    : super(
+        color: AppSidebar._sectionColor,
+        borderRadius: AppTheme.sectionRadius,
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(AppStrings.aboutAndExpectationsTitle, style: AppTheme.lightBlueStyle),
+            AppUiConst.vsep16,
+            Text(AppStrings.aboutAndExpectationsText, style: AppTheme.lightStyle)
+          ]
+        )
+      );
 }

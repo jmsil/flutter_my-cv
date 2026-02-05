@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../ui/const.dart';
 import '../ui/scroller.dart';
 import '../ui/strings.dart';
-import '../ui/theme.dart';
 import 'courses_books.dart';
 import 'education.dart';
 import 'items.dart';
@@ -11,10 +10,10 @@ import 'professional_experience.dart';
 import 'professional_summary.dart';
 
 class AppContent extends StatelessWidget {
-  final bool isDoubleContent;
-  final bool isOverlayStyle;
+  final bool isDoublePanel;
+  final bool isMobileStyle;
 
-  AppContent(this.isDoubleContent, this.isOverlayStyle);
+  AppContent(this.isDoublePanel, this.isMobileStyle);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +21,7 @@ class AppContent extends StatelessWidget {
       ProfessionalSummaryGroup(),
       AppUiConst.vsep16,
 
-      if (!isDoubleContent)
+      if (!isDoublePanel)
         ...[
           ProfessionalExperienceGroup(false),
           AppUiConst.vsep16
@@ -49,37 +48,28 @@ class AppContent extends StatelessWidget {
       )
     ];
 
-    final Widget contentWidget = isDoubleContent
+    return isDoublePanel
       ? Row(
           children: [
             Expanded(
               flex: 3,
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(12, 12, 0, 12),
+                padding: const EdgeInsets.all(16),
                 child: ProfessionalExperienceGroup(true)
               )
             ),
             Expanded(
               flex: 2,
-              child: Padding(
-                padding: const EdgeInsets.all(12),
-                child: AppListView(children: contentItems)
+              child: AppListView(
+                padding: const EdgeInsets.fromLTRB(0, 16, 16, 16),
+                children: contentItems
               )
             )
           ]
         )
       : AppListView(
-          padding: EdgeInsets.fromLTRB(12, isOverlayStyle ? 0 : 24, 12, 12),
+          padding: EdgeInsets.fromLTRB(16, isMobileStyle ? 0 : 16, 16, 16),
           children: contentItems
-        );
-
-    return isOverlayStyle
-      ? contentWidget
-      : Material(
-          color: AppTheme.midLightColor,
-          child: SafeArea(
-            child: contentWidget
-          )
         );
   }
 }

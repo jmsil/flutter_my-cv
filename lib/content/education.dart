@@ -11,10 +11,10 @@ class EducationGroup extends ContentGroup {
         icon: AppIcons.education,
         title: AppStrings.educationTitle,
         children: [
-          Text(AppStrings.educationUniversityTitle, style: AppTheme.normalDarkBlueBoldStyle),
-          Text('2006 - 2008', style: AppTheme.normalDarkBlueItalicStyle),
+          Text(AppStrings.educationUniversityTitle, style: AppTheme.darkBlueBoldStyle),
+          Text('2006 - 2008', style: AppTheme.darkBlueItalicStyle),
           AppUiConst.vsep16,
-          Text(AppStrings.educationUniversityText, style: AppTheme.normalDarkStyle)
+          Text(AppStrings.educationUniversityText, style: AppTheme.darkStyle)
         ]
       );
 }

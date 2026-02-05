@@ -66,7 +66,7 @@ class ContentGroup extends StatelessWidget {
               Icon(icon, color: AppTheme.darkColor),
               AppUiConst.hsep8,
               Flexible(
-                child: Text(title, style: AppTheme.largeDarkBoldStyle)
+                child: Text(title, style: AppTheme.darkBoldStyle)
               )
             ]
           )
@@ -76,7 +76,7 @@ class ContentGroup extends StatelessWidget {
           child: Stack(
             children: [
               Icon(AppIcons.pin, size: _pinSize, color: AppTheme.highLightColor),
-              Icon(AppIcons.pin_outlined, size: _pinSize, color: AppTheme.lowDarkColor)
+              Icon(AppIcons.pin_outlined, size: _pinSize, color: AppTheme.midDarkColor)
             ]
           )
         )

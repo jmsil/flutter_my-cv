@@ -47,9 +47,9 @@ class MobileScaffold extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('João Marques da Silva', style: AppTheme.largeLightStyle),
+                  Text('João Marques da Silva', style: AppTheme.lightStyle),
                   AppUiConst.vsep4,
-                  Text(AppStrings.role, style: AppTheme.normalLowLightStyle)
+                  Text(AppStrings.role, style: AppTheme.lowLightStyle)
                 ]
               )
             )

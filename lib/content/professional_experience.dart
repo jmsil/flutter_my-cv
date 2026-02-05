@@ -69,12 +69,12 @@ class ProfessionalExperienceGroup extends StatelessWidget {
       headerContent: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title, style: AppTheme.normalDarkBlueBoldStyle),
-          Text(period, style: AppTheme.normalDarkBlueItalicStyle)
+          Text(title, style: AppTheme.darkBlueBoldStyle),
+          Text(period, style: AppTheme.darkBlueItalicStyle)
         ]
       ),
       fixedContent: fixedContent,
-      expandableContent: Text(expandableContent, style: AppTheme.normalDarkStyle)
+      expandableContent: Text(expandableContent, style: AppTheme.darkStyle)
     );
     _children.add(child);
 

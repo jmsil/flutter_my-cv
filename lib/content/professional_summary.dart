@@ -11,7 +11,7 @@ class ProfessionalSummaryGroup extends ContentGroup {
         icon: AppIcons.summary,
         title: AppStrings.professionalSummaryTitle,
         children: [
-          Text(AppStrings.professionalSummaryText, style: AppTheme.normalDarkStyle)
+          Text(AppStrings.professionalSummaryText, style: AppTheme.darkStyle)
         ]
       );
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart' as urll;
 
 import 'const.dart';
-import 'divider.dart';
 import 'theme.dart';
 
 class AppIconText extends StatelessWidget {
@@ -27,35 +26,13 @@ class AppIconText extends StatelessWidget {
             ? AppLink(text, isSidebar)
             : Text(
                 text,
-                style: isSidebar ? AppTheme.normalLightStyle : AppTheme.normalDarkStyle
+                style: isSidebar ? AppTheme.lightStyle : AppTheme.darkStyle
               )
         )
       ]
     );
   }
 }
-
-class AppSidebarTitleDivider extends StatelessWidget {
-  final String text;
-
-  AppSidebarTitleDivider(this.text);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        Text(text, style: AppTheme.largeLightBlueStyle),
-        AppUiConst.hsep8,
-        Expanded(
-          child: AppDivider()
-        )
-      ]
-    );
-  }
-}
-
-
 
 class AppLink extends StatefulWidget {
   final String text;
@@ -82,8 +59,8 @@ class _AppLinkState extends State<AppLink> {
       child: Text(
         widget.text,
         style: widget.isSidebar
-          ? _hovered ? AppTheme.normalLightBlueStyle : AppTheme.normalLightStyle
-          : _hovered ? AppTheme.normalDarkBlueStyle : AppTheme.normalDarkStyle
+          ? _hovered ? AppTheme.lightBlueStyle : AppTheme.lightStyle
+          : _hovered ? AppTheme.darkBlueStyle : AppTheme.darkStyle
       )
     );
   }

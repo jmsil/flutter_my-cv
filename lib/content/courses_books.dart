@@ -41,11 +41,11 @@ class CoursesAndBooksGroup extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                title, style: AppTheme.normalDarkBoldStyle,
+                title, style: AppTheme.darkBoldStyle,
                 softWrap: false,
                 overflow: TextOverflow.fade,
               ),
-              Text(detail, style: AppTheme.normalDarkItalicStyle)
+              Text(detail, style: AppTheme.darkItalicStyle)
             ]
           )
         )
