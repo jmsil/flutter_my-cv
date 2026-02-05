@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../ui/const.dart';
+import '../ui/container/container.dart';
 import '../ui/container/header_expandable.dart';
 import '../ui/strings.dart';
 import '../ui/text.dart';
@@ -71,11 +72,25 @@ class ProfessionalExperienceGroup extends StatelessWidget {
       headerContentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       fixedContentPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
       expandableContentPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
-      headerContent: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      headerContent: Row(
         children: [
-          Text(title, style: AppTheme.darkBlueBoldStyle),
-          Text(period, style: AppTheme.darkBlueItalicStyle)
+          AppContainer(
+            width: 8,
+            height: 48,
+            color: AppTheme.darkBlue.withValues(alpha: 0.36),
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(8), bottomLeft: Radius.circular(8)
+            ),
+            child: SizedBox()
+          ),
+          AppUiConst.hsep8,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(title, style: AppTheme.darkBlueBoldStyle),
+              Text(period, style: AppTheme.darkBlueItalicStyle)
+            ]
+          )
         ]
       ),
       fixedContent: fixedContent,
