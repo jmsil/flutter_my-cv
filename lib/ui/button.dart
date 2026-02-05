@@ -31,6 +31,8 @@ class AppButton extends StatelessWidget {
       hoverColor: effectsColor,
       highlightColor: effectsColor,
       icon: AppContainer(
+        width: 36,
+        height: 36,
         borderSize: 2,
         borderColor: isSelected ? AppTheme.lightBlue : AppTheme.highLightColor,
         borderRadius: BorderRadius.circular(_containerSize),

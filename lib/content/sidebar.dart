@@ -53,7 +53,7 @@ class AppSidebar extends StatelessWidget {
 
     final Widget footerWidget = AppContainer(
       color: _sectionColor,
-      padding: const EdgeInsets.all(12),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       child: Row(
         children: [
           FlutterLogo(size: 32),
