@@ -17,10 +17,11 @@ class ProfessionalExperienceGroup extends StatelessWidget {
   Widget build(BuildContext context) {
     _addChild(
       AppStrings.fortlevExperienceTitle, AppStrings.fortlevExperiencePeriod,
-      Column(
+      Wrap(
+        direction: Axis.horizontal,
+        spacing: 36,
         children: [
           AppIconText(AppIcons.link, 'https://www.bci-consulting.com', false, true),
-          AppUiConst.vsep8,
           AppIconText(AppIcons.link, 'https://www.fortlev.com.br', false, true)
         ]
       ),

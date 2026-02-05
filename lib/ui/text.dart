@@ -15,20 +15,19 @@ class AppIconText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisSize: MainAxisSize.min,
       children: [
         Icon(
           icon,
           color: isSidebar ? AppTheme.highLightColor : AppTheme.darkColor
         ),
         AppUiConst.hsep8,
-        Expanded(
-          child: isLink
-            ? AppLink(text, isSidebar)
-            : Text(
-                text,
-                style: isSidebar ? AppTheme.lightStyle : AppTheme.darkStyle
-              )
-        )
+        isLink
+          ? AppLink(text, isSidebar)
+          : Text(
+              text,
+              style: isSidebar ? AppTheme.lightStyle : AppTheme.darkStyle
+            )
       ]
     );
   }
