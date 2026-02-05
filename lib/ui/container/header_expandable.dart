@@ -6,11 +6,13 @@ import 'container.dart';
 import 'expandable.dart';
 
 class AppHeaderExpandable extends StatefulWidget {
+  final Color arrowColor;
   final Widget headerContent;
   final Widget? fixedContent;
   final Widget expandableContent;
 
   AppHeaderExpandable({
+    required this.arrowColor,
     required this.headerContent,
     this.fixedContent,
     required this.expandableContent
@@ -50,7 +52,7 @@ class _State extends State<AppHeaderExpandable> {
                   AppUiConst.hsep16,
                   Icon(
                     expandableKey.isExpanded ? AppIcons.arrow_up : AppIcons.arrow_down,
-                    color: AppTheme.darkBlue
+                    color: widget.arrowColor
                   )
                 ]
               )
