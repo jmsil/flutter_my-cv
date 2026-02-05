@@ -68,6 +68,9 @@ class ProfessionalExperienceGroup extends StatelessWidget {
   {
     final Widget child = AppHeaderExpandable(
       arrowColor: AppTheme.darkBlue,
+      headerContentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      fixedContentPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+      expandableContentPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
       headerContent: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

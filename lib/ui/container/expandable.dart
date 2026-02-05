@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AppExpandable extends StatefulWidget {
-  static const EdgeInsets padding = EdgeInsets.symmetric(horizontal: 12, vertical: 8);
-
+  final EdgeInsets padding;
   final Widget child;
 
-  AppExpandable(AppExpandableKey key, this.child) : super(key: key);
+  AppExpandable(AppExpandableKey key, this.padding, this.child) : super(key: key);
 
   @override
   _State createState() => _State();
@@ -56,7 +55,7 @@ class _State extends State<AppExpandable> with SingleTickerProviderStateMixin {
           );
         },
         child: Padding(
-          padding: AppExpandable.padding,
+          padding: widget.padding,
           child: widget.child
         )
       )

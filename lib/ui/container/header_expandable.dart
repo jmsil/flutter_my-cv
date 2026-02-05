@@ -7,12 +7,18 @@ import 'expandable.dart';
 
 class AppHeaderExpandable extends StatefulWidget {
   final Color arrowColor;
+  final EdgeInsets headerContentPadding;
+  final EdgeInsets? fixedContentPadding;
+  final EdgeInsets expandableContentPadding;
   final Widget headerContent;
   final Widget? fixedContent;
   final Widget expandableContent;
 
   AppHeaderExpandable({
     required this.arrowColor,
+    required this.headerContentPadding,
+    this.fixedContentPadding,
+    required this.expandableContentPadding,
     required this.headerContent,
     this.fixedContent,
     required this.expandableContent
@@ -27,7 +33,15 @@ class _State extends State<AppHeaderExpandable> {
 
   @override
   Widget build(BuildContext context) {
+    Widget? fixedContent = widget.fixedContent;
     final effectsColor = AppTheme.lowLightColor.withValues(alpha: 0.32);
+
+    if (fixedContent != null && widget.fixedContentPadding != null) {
+      fixedContent = Padding(
+        padding: widget.fixedContentPadding!,
+        child: widget.fixedContent
+      );
+    }
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,7 +57,7 @@ class _State extends State<AppHeaderExpandable> {
             mouseCursor: SystemMouseCursors.basic,
             onTap: () => setState(() => expandableKey.switchExpandedState()),
             child: Padding(
-              padding: AppExpandable.padding,
+              padding: widget.headerContentPadding,
               child: Row(
                 children: [
                   Expanded(
@@ -60,13 +74,10 @@ class _State extends State<AppHeaderExpandable> {
           )
         ),
 
-        if (widget.fixedContent != null)
-          Padding(
-            padding: AppExpandable.padding,
-            child: widget.fixedContent
-          ),
+        if (fixedContent != null)
+          fixedContent,
 
-        AppExpandable(expandableKey, widget.expandableContent)
+        AppExpandable(expandableKey, widget.expandableContentPadding, widget.expandableContent)
       ]
     );
   }
