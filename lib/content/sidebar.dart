@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../ui/button.dart';
 import '../ui/const.dart';
 import '../ui/container/container.dart';
+import '../ui/container/header_expandable.dart';
 import '../ui/divider.dart';
 import '../ui/scroller.dart';
 import '../ui/strings.dart';
@@ -146,20 +147,24 @@ class _DetailsSection extends AppContainer {
     : super(
         color: AppSidebar._sectionColor,
         borderRadius: AppTheme.sectionRadius,
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(AppStrings.details, style: AppTheme.lightBlueStyle),
-            AppUiConst.vsep16,
-            AppIconText(AppIcons.local, AppStrings.brazil, true),
-            AppUiConst.vsep12,
-            AppIconText(AppIcons.phone, '+55 62 99497-1154', true),
-            AppUiConst.vsep12,
-            AppIconText(AppIcons.mail, 'jmsilva.inbox@gmail.com', true),
-            AppUiConst.vsep12,
-            AppIconText(AppIcons.code, 'https://github.com/Jmsil', true, true)
-          ]
+        isClipped: true,
+        child: AppHeaderExpandable(
+          arrowColor: AppTheme.lightBlue,
+          headerContentPadding: const EdgeInsets.all(24),
+          expandableContentPadding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+          headerContent: Text(AppStrings.details, style: AppTheme.lightBlueStyle),
+          expandableContent: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AppIconText(AppIcons.local, AppStrings.brazil, true),
+              AppUiConst.vsep12,
+              AppIconText(AppIcons.phone, '+55 62 99497-1154', true),
+              AppUiConst.vsep12,
+              AppIconText(AppIcons.mail, 'jmsilva.inbox@gmail.com', true),
+              AppUiConst.vsep12,
+              AppIconText(AppIcons.code, 'https://github.com/Jmsil', true, true)
+            ]
+          )
         )
       );
 }
@@ -169,28 +174,32 @@ class _SkillsSection extends AppContainer {
     : super(
         color: AppSidebar._sectionColor,
         borderRadius: AppTheme.sectionRadius,
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(AppStrings.skills, style: AppTheme.lightBlueStyle),
-            AppUiConst.vsep16,
-            AppIconText(AppIcons.arrow_right, 'Dart/Flutter', true),
-            AppUiConst.vsep8,
-            AppIconText(AppIcons.arrow_right, 'Android SDK', true),
-            AppUiConst.vsep8,
-            AppIconText(AppIcons.arrow_right, 'Java', true),
-            AppUiConst.vsep8,
-            AppIconText(AppIcons.arrow_right, 'C/C++', true),
-            AppUiConst.vsep8,
-            AppIconText(AppIcons.arrow_right, 'Oracle Database', true),
-            AppUiConst.vsep8,
-            AppIconText(AppIcons.arrow_right, 'MySQL Database', true),
-            AppUiConst.vsep8,
-            AppIconText(AppIcons.arrow_right, 'SQL/PL SQL', true),
-            AppUiConst.vsep8,
-            AppIconText(AppIcons.arrow_right, 'Git', true)
-          ]
+        isClipped: true,
+        child: AppHeaderExpandable(
+          arrowColor: AppTheme.lightBlue,
+          headerContentPadding: const EdgeInsets.all(24),
+          expandableContentPadding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+          headerContent: Text(AppStrings.skills, style: AppTheme.lightBlueStyle),
+          expandableContent: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AppIconText(AppIcons.arrow_right, 'Dart/Flutter', true),
+              AppUiConst.vsep8,
+              AppIconText(AppIcons.arrow_right, 'Android SDK', true),
+              AppUiConst.vsep8,
+              AppIconText(AppIcons.arrow_right, 'Java', true),
+              AppUiConst.vsep8,
+              AppIconText(AppIcons.arrow_right, 'C/C++', true),
+              AppUiConst.vsep8,
+              AppIconText(AppIcons.arrow_right, 'Oracle Database', true),
+              AppUiConst.vsep8,
+              AppIconText(AppIcons.arrow_right, 'MySQL Database', true),
+              AppUiConst.vsep8,
+              AppIconText(AppIcons.arrow_right, 'SQL/PL SQL', true),
+              AppUiConst.vsep8,
+              AppIconText(AppIcons.arrow_right, 'Git', true)
+            ]
+          )
         )
       );
 }
@@ -200,14 +209,17 @@ class _AboutSection extends AppContainer {
     : super(
         color: AppSidebar._sectionColor,
         borderRadius: AppTheme.sectionRadius,
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(AppStrings.aboutAndExpectationsTitle, style: AppTheme.lightBlueStyle),
-            AppUiConst.vsep16,
-            Text(AppStrings.aboutAndExpectationsText, style: AppTheme.lightStyle)
-          ]
+        isClipped: true,
+        child: AppHeaderExpandable(
+          arrowColor: AppTheme.lightBlue,
+          headerContentPadding: const EdgeInsets.all(24),
+          expandableContentPadding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
+          headerContent: Text(
+            AppStrings.aboutAndExpectationsTitle, style: AppTheme.lightBlueStyle
+          ),
+          expandableContent: Text(
+            AppStrings.aboutAndExpectationsText, style: AppTheme.lightStyle
+          )
         )
       );
 }
