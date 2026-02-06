@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class AppExpandable extends StatefulWidget {
+  final bool startOpen;
   final EdgeInsets padding;
   final Widget child;
 
-  AppExpandable(AppExpandableKey key, this.padding, this.child) : super(key: key);
+  AppExpandable(AppExpandableKey key, this.startOpen, this.padding, this.child)
+    : super(key: key);
 
   @override
   _State createState() => _State();
@@ -24,6 +26,13 @@ class _State extends State<AppExpandable> with SingleTickerProviderStateMixin {
 
     controller = AnimationController(vsync: this);
     controller.addStatusListener(animationStatusListener);
+
+    if (widget.startOpen) {
+      isOffstage = false;
+      isExpanded = true;
+      controller.animateTo(1, duration: Duration.zero);
+    }
+
     curvedAnimation = CurvedAnimation(
       parent: controller,
       curve: Curves.decelerate,

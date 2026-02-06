@@ -6,6 +6,7 @@ import 'container.dart';
 import 'expandable.dart';
 
 class AppHeaderExpandable extends StatefulWidget {
+  final bool startOpen;
   final Color arrowColor;
   final EdgeInsets headerContentPadding;
   final EdgeInsets? fixedContentPadding;
@@ -15,6 +16,7 @@ class AppHeaderExpandable extends StatefulWidget {
   final Widget expandableContent;
 
   AppHeaderExpandable({
+    this.startOpen = false,
     required this.arrowColor,
     required this.headerContentPadding,
     this.fixedContentPadding,
@@ -77,7 +79,10 @@ class _State extends State<AppHeaderExpandable> {
         if (fixedContent != null)
           fixedContent,
 
-        AppExpandable(expandableKey, widget.expandableContentPadding, widget.expandableContent)
+        AppExpandable(
+          expandableKey, widget.startOpen,
+          widget.expandableContentPadding, widget.expandableContent
+        )
       ]
     );
   }

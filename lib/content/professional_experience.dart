@@ -26,28 +26,28 @@ class ProfessionalExperienceGroup extends StatelessWidget {
           AppIconText(AppIcons.link, 'https://www.fortlev.com.br', false, true)
         ]
       ),
-      AppStrings.fortlevExperienceText, true
+      AppStrings.fortlevExperienceText, true, true
     );
 
     _addChild(
       AppStrings.flutterExperienceTitle, '2021', null,
-      AppStrings.flutterExperienceText, true
+      AppStrings.flutterExperienceText, true, false
     );
 
     _addChild(
       AppStrings.mobileGameExperienceTitle, '2013 - 2020', null,
-      AppStrings.mobileGameExperienceText, true
+      AppStrings.mobileGameExperienceText, true, false
     );
 
     _addChild(
       AppStrings.santriExperienceTitle, AppStrings.santriExperiencePeriod,
       AppIconText(AppIcons.link, 'https://www.santri.com.br', false, true),
-      AppStrings.santriExperienceText, true
+      AppStrings.santriExperienceText, true, false
     );
 
     _addChild(
       AppStrings.smallERPTitle, '2006/2007', null,
-      AppStrings.smallERPText, false
+      AppStrings.smallERPText, false, false
     );
 
     return ContentGroup(
@@ -64,10 +64,12 @@ class ProfessionalExperienceGroup extends StatelessWidget {
       String period,
       Widget? fixedContent,
       String expandableContent,
-      bool addSeparator
+      bool addSeparator,
+      bool startOpen
     )
   {
     final Widget child = AppHeaderExpandable(
+      startOpen: startOpen,
       arrowColor: AppTheme.darkBlue,
       headerContentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       fixedContentPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),

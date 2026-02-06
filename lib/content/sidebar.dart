@@ -11,7 +11,7 @@ import '../ui/text.dart';
 import '../ui/theme.dart';
 
 class AppSidebar extends StatelessWidget {
-  static Color _sectionColor = AppTheme.darkColor.withValues(alpha: 0.32);
+  static Color _sectionColor = Colors.black26;
 
   final GlobalKey<DrawerControllerState>? drawerKey;
   final Function() onPressedPt;
@@ -53,7 +53,7 @@ class AppSidebar extends StatelessWidget {
     );
 
     final Widget footerWidget = AppContainer(
-      color: _sectionColor,
+      color: AppTheme.darkColor.withValues(alpha: 0.48),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       child: Row(
         children: [
@@ -105,6 +105,7 @@ class AppSidebar extends StatelessWidget {
       : DrawerController(
           key: drawerKey,
           alignment: DrawerAlignment.start,
+          scrimColor: Colors.black26,
           child: containerWidget
         );
   }
@@ -149,6 +150,7 @@ class _DetailsSection extends AppContainer {
         borderRadius: AppTheme.sectionRadius,
         isClipped: true,
         child: AppHeaderExpandable(
+          startOpen: true,
           arrowColor: AppTheme.lightBlue,
           headerContentPadding: const EdgeInsets.all(24),
           expandableContentPadding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
@@ -176,6 +178,7 @@ class _SkillsSection extends AppContainer {
         borderRadius: AppTheme.sectionRadius,
         isClipped: true,
         child: AppHeaderExpandable(
+          startOpen: true,
           arrowColor: AppTheme.lightBlue,
           headerContentPadding: const EdgeInsets.all(24),
           expandableContentPadding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
