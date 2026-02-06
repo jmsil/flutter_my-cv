@@ -12,6 +12,8 @@ import '../ui/theme.dart';
 
 class AppSidebar extends StatelessWidget {
   static const Color _sectionColor = Colors.black26;
+  static const EdgeInsets sectionHeaderPadding = EdgeInsets.fromLTRB(24, 16, 16, 16);
+  static const EdgeInsets sectionContentPadding = EdgeInsets.fromLTRB(24, 8, 24, 24);
 
   final bool addBackButton;
   final Function() onPressedPt;
@@ -50,13 +52,12 @@ class AppSidebar extends StatelessWidget {
       color: AppTheme.darkColor.withValues(alpha: 0.48),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       child: Row(
+        spacing: 8,
         children: [
           FlutterLogo(size: 32),
-          AppUiConst.hsep8,
           Expanded(
             child: Text(AppStrings.powredByFlutter, style: AppTheme.lightStyle)
           ),
-          AppUiConst.hsep8,
           AppButton.label(AppStrings.langIdx == 0, 'Pt', onPressedPt),
           AppButton.label(AppStrings.langIdx == 1, 'En', onPressedEn)
         ]
@@ -76,6 +77,7 @@ class AppSidebar extends StatelessWidget {
               alignment: Alignment.topCenter
             ),
             Column(
+              spacing: 16,
               children: [
                 Expanded(
                   child: AppSliverScroller(
@@ -85,7 +87,6 @@ class AppSidebar extends StatelessWidget {
                     ]
                   )
                 ),
-                AppUiConst.vsep16,
                 footerWidget
               ]
             )
@@ -106,6 +107,7 @@ class _ProfileSection extends StatelessWidget {
     final double padding = addBackButton ? 12 : 36;
 
     Widget child = Column(
+      spacing: 8,
       children: [
         Flexible(
           child: AspectRatio(
@@ -119,11 +121,9 @@ class _ProfileSection extends StatelessWidget {
             )
           )
         ),
-        AppUiConst.vsep16,
+        AppUiConst.vsep8,
         Text('João Marques da Silva', style: AppTheme.lightBlueStyle),
-        AppUiConst.vsep8,
         SizedBox(width: 96, child: AppDivider(4)),
-        AppUiConst.vsep8,
         Text(AppStrings.role, style: AppTheme.lightBlueStyle)
       ]
     );
@@ -157,86 +157,68 @@ class _ProfileSection extends StatelessWidget {
   }
 }
 
-class _DetailsSection extends AppContainer {
+class _DetailsSection extends _Section {
   _DetailsSection()
     : super(
-        color: AppSidebar._sectionColor,
-        borderRadius: AppTheme.sectionRadius,
-        isClipped: true,
-        child: AppHeaderExpandable(
-          startOpen: true,
-          arrowColor: AppTheme.lightBlue,
-          headerContentPadding: const EdgeInsets.all(24),
-          expandableContentPadding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
-          headerContent: Text(AppStrings.details, style: AppTheme.lightBlueStyle),
-          expandableContent: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              AppIconText(AppIcons.local, AppStrings.brazil, true),
-              AppUiConst.vsep12,
-              AppIconText(AppIcons.phone, '+55 62 99497-1154', true),
-              AppUiConst.vsep12,
-              AppIconText(AppIcons.mail, 'jmsilva.inbox@gmail.com', true),
-              AppUiConst.vsep12,
-              AppIconText(AppIcons.code, 'https://github.com/Jmsil', true, true)
-            ]
-          )
+        true,
+        Text(AppStrings.details, style: AppTheme.lightBlueStyle),
+        Column(
+          spacing: 12,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AppIconText(AppIcons.local, AppStrings.brazil, true),
+            AppIconText(AppIcons.phone, '+55 62 99497-1154', true),
+            AppIconText(AppIcons.mail, 'jmsilva.inbox@gmail.com', true),
+            AppIconText(AppIcons.code, 'https://github.com/Jmsil', true, true)
+          ]
         )
       );
 }
 
-class _SkillsSection extends AppContainer {
+class _SkillsSection extends _Section {
   _SkillsSection()
     : super(
-        color: AppSidebar._sectionColor,
-        borderRadius: AppTheme.sectionRadius,
-        isClipped: true,
-        child: AppHeaderExpandable(
-          startOpen: true,
-          arrowColor: AppTheme.lightBlue,
-          headerContentPadding: const EdgeInsets.all(24),
-          expandableContentPadding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
-          headerContent: Text(AppStrings.skills, style: AppTheme.lightBlueStyle),
-          expandableContent: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              AppIconText(AppIcons.arrow_right, 'Dart/Flutter', true),
-              AppUiConst.vsep8,
-              AppIconText(AppIcons.arrow_right, 'Android SDK', true),
-              AppUiConst.vsep8,
-              AppIconText(AppIcons.arrow_right, 'Java', true),
-              AppUiConst.vsep8,
-              AppIconText(AppIcons.arrow_right, 'C/C++', true),
-              AppUiConst.vsep8,
-              AppIconText(AppIcons.arrow_right, 'Oracle Database', true),
-              AppUiConst.vsep8,
-              AppIconText(AppIcons.arrow_right, 'MySQL Database', true),
-              AppUiConst.vsep8,
-              AppIconText(AppIcons.arrow_right, 'SQL/PL SQL', true),
-              AppUiConst.vsep8,
-              AppIconText(AppIcons.arrow_right, 'Git', true)
-            ]
-          )
+        true,
+        Text(AppStrings.skills, style: AppTheme.lightBlueStyle),
+        Column(
+          spacing: 8,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            AppIconText(AppIcons.arrow_right, 'Dart/Flutter', true),
+            AppIconText(AppIcons.arrow_right, 'Android SDK', true),
+            AppIconText(AppIcons.arrow_right, 'Java', true),
+            AppIconText(AppIcons.arrow_right, 'C/C++', true),
+            AppIconText(AppIcons.arrow_right, 'Oracle Database', true),
+            AppIconText(AppIcons.arrow_right, 'MySQL Database', true),
+            AppIconText(AppIcons.arrow_right, 'SQL/PL SQL', true),
+            AppIconText(AppIcons.arrow_right, 'Git', true)
+          ]
         )
       );
 }
 
-class _AboutSection extends AppContainer {
+class _AboutSection extends _Section {
   _AboutSection()
+    : super(
+        false,
+        Text(AppStrings.aboutAndExpectationsTitle, style: AppTheme.lightBlueStyle),
+        Text(AppStrings.aboutAndExpectationsText, style: AppTheme.lightStyle)
+      );
+}
+
+class _Section extends AppContainer {
+  _Section(bool startOpen, Widget headerWidget, Widget contentWidget)
     : super(
         color: AppSidebar._sectionColor,
         borderRadius: AppTheme.sectionRadius,
         isClipped: true,
         child: AppHeaderExpandable(
+          startOpen: startOpen,
           arrowColor: AppTheme.lightBlue,
-          headerContentPadding: const EdgeInsets.all(24),
-          expandableContentPadding: const EdgeInsets.fromLTRB(24, 0, 24, 24),
-          headerContent: Text(
-            AppStrings.aboutAndExpectationsTitle, style: AppTheme.lightBlueStyle
-          ),
-          expandableContent: Text(
-            AppStrings.aboutAndExpectationsText, style: AppTheme.lightStyle
-          )
+          headerContentPadding: AppSidebar.sectionHeaderPadding,
+          expandableContentPadding: AppSidebar.sectionContentPadding,
+          headerContent: headerWidget,
+          expandableContent: contentWidget
         )
       );
 }
