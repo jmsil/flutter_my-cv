@@ -13,10 +13,11 @@ import '../ui/theme.dart';
 class AppSidebar extends StatelessWidget {
   static Color _sectionColor = Colors.black26;
 
+  final bool addLeadingButton;
   final Function() onPressedPt;
   final Function() onPressedEn;
 
-  AppSidebar(this.onPressedPt, this.onPressedEn);
+  AppSidebar(this.addLeadingButton, this.onPressedPt, this.onPressedEn);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class AppSidebar extends StatelessWidget {
       backgroundColor: Colors.transparent,
       expandedHeight: 360,
       collapsedHeight: 196,
-      leading: Navigator.canPop(context)
+      leading: addLeadingButton
         ? AppButton.icon(
             AppIcons.back,
             () => Navigator.pop(context)

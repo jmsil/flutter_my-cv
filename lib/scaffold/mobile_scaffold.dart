@@ -86,7 +86,7 @@ class _State extends State<MobileScaffold> {
           key: drawerKey,
           alignment: DrawerAlignment.start,
           scrimColor: Colors.black26,
-          child: AppSidebar(widget.onPressedPt, widget.onPressedEn)
+          child: AppSidebar(true, widget.onPressedPt, widget.onPressedEn)
         )
       ]
     );

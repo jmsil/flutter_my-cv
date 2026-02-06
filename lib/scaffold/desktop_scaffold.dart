@@ -17,7 +17,7 @@ class DesktopScaffold extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
-          child: AppSidebar(onPressedPt, onPressedEn)
+          child: AppSidebar(false, onPressedPt, onPressedEn)
         ),
         Expanded(
           flex: isDoublePanel ? 3 : 2,
