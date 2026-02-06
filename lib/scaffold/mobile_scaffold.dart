@@ -7,13 +7,24 @@ import '../ui/const.dart';
 import '../ui/strings.dart';
 import '../ui/theme.dart';
 
-class MobileScaffold extends StatelessWidget {
-  static final GlobalKey<DrawerControllerState> _drawerKey = GlobalKey();
-
+class MobileScaffold extends StatefulWidget {
   final Function() onPressedPt;
   final Function() onPressedEn;
 
   MobileScaffold(this.onPressedPt, this.onPressedEn);
+
+  @override
+  _State createState() => _State();
+}
+
+class _State extends State<MobileScaffold> {
+  static final GlobalKey<DrawerControllerState> drawerKey = GlobalKey();
+
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(milliseconds: 500), openDrawer);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +52,7 @@ class MobileScaffold extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Row(
           children: [
-            AppButton.icon(AppIcons.menu, () => _drawerKey.currentState?.open()),
+            AppButton.icon(AppIcons.menu, openDrawer),
             AppUiConst.hsep8,
             Expanded(
               child: Column(
@@ -72,12 +83,16 @@ class MobileScaffold extends StatelessWidget {
           )
         ),
         DrawerController(
-          key: _drawerKey,
+          key: drawerKey,
           alignment: DrawerAlignment.start,
           scrimColor: Colors.black26,
-          child: AppSidebar(onPressedPt, onPressedEn)
+          child: AppSidebar(widget.onPressedPt, widget.onPressedEn)
         )
       ]
     );
+  }
+
+  void openDrawer() {
+    drawerKey.currentState?.open();
   }
 }
