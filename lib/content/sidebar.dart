@@ -11,30 +11,24 @@ import '../ui/text.dart';
 import '../ui/theme.dart';
 
 class AppSidebar extends StatelessWidget {
-  static Color _sectionColor = Colors.black26;
+  static const Color _sectionColor = Colors.black26;
 
-  final bool addLeadingButton;
+  final bool addBackButton;
   final Function() onPressedPt;
   final Function() onPressedEn;
 
-  AppSidebar(this.addLeadingButton, this.onPressedPt, this.onPressedEn);
+  AppSidebar(this.addBackButton, this.onPressedPt, this.onPressedEn);
 
   @override
   Widget build(BuildContext context) {
     final Widget sliverProfile = SliverAppBar(
+      expandedHeight: 360,
+      collapsedHeight: 196,
       stretch: true,
       elevation: 0,
       automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
-      expandedHeight: 360,
-      collapsedHeight: 196,
-      leading: addLeadingButton
-        ? AppButton.icon(
-            AppIcons.back,
-            () => Navigator.pop(context)
-          )
-        : null,
-      flexibleSpace: _ProfileSection()
+      flexibleSpace: _ProfileSection(addBackButton)
     );
 
     final Widget sliverInfo = SliverPadding(
@@ -102,36 +96,65 @@ class AppSidebar extends StatelessWidget {
   }
 }
 
-class _ProfileSection extends AppContainer {
-  _ProfileSection()
-    : super(
-        color: AppSidebar._sectionColor,
-        borderRadius: AppTheme.sectionRadius,
-        margin: const EdgeInsets.all(16),
-        padding: const EdgeInsets.all(36),
-        child: Column(
-          children: [
-            Flexible(
-              child: AspectRatio(
-                aspectRatio: 1,
-                child: AppContainer(
-                  borderSize: 2,
-                  borderColor: AppTheme.lightBlue,
-                  borderRadius: BorderRadius.circular(1000),
-                  isClipped: true,
-                  child: Image.asset('assets/profile_photo.jpeg', fit: BoxFit.cover)
-                )
-              )
-            ),
-            AppUiConst.vsep16,
-            Text('João Marques da Silva', style: AppTheme.lightBlueStyle),
-            AppUiConst.vsep8,
-            SizedBox(width: 96, child: AppDivider(4)),
-            AppUiConst.vsep8,
-            Text(AppStrings.role, style: AppTheme.lightBlueStyle)
-          ]
-        )
+class _ProfileSection extends StatelessWidget {
+  final bool addBackButton;
+
+  _ProfileSection(this.addBackButton);
+
+  @override
+  Widget build(BuildContext context) {
+    final double padding = addBackButton ? 12 : 36;
+
+    Widget child = Column(
+      children: [
+        Flexible(
+          child: AspectRatio(
+            aspectRatio: 1,
+            child: AppContainer(
+              borderSize: 2,
+              borderColor: AppTheme.lightBlue,
+              borderRadius: BorderRadius.circular(1000),
+              isClipped: true,
+              child: Image.asset('assets/profile_photo.jpeg', fit: BoxFit.cover)
+            )
+          )
+        ),
+        AppUiConst.vsep16,
+        Text('João Marques da Silva', style: AppTheme.lightBlueStyle),
+        AppUiConst.vsep8,
+        SizedBox(width: 96, child: AppDivider(4)),
+        AppUiConst.vsep8,
+        Text(AppStrings.role, style: AppTheme.lightBlueStyle)
+      ]
+    );
+
+    if (addBackButton) {
+      child = Stack(
+        fit: StackFit.expand,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(24),
+            child: child
+          ),
+          Align(
+            alignment: Alignment.topLeft,
+            child: AppButton.icon(
+              AppIcons.back,
+              () => Navigator.pop(context)
+            )
+          )
+        ]
       );
+    }
+
+    return AppContainer(
+      color: AppSidebar._sectionColor,
+      borderRadius: AppTheme.sectionRadius,
+      margin: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(padding),
+      child: child
+    );
+  }
 }
 
 class _DetailsSection extends AppContainer {
