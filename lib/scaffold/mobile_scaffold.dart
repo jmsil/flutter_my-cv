@@ -58,7 +58,7 @@ class _State extends State<MobileScaffold> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('João Marques da Silva', style: AppTheme.lightStyle),
+                  Text('João Marques da Silva', style: AppTheme.highLightStyle),
                   AppUiConst.vsep4,
                   Text(AppStrings.role, style: AppTheme.lowLightStyle)
                 ]

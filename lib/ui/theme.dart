@@ -16,7 +16,7 @@ class AppTheme {
   static final Color darkColor = Colors.black;
 
 
-  static final TextStyle lightStyle =
+  static final TextStyle highLightStyle =
     TextStyle(fontSize: _fontSize, color: highLightColor);
   static final TextStyle lowLightStyle =
     TextStyle(fontSize: _fontSize, color: lowLightColor);

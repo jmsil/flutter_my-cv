@@ -56,7 +56,7 @@ class AppSidebar extends StatelessWidget {
         children: [
           FlutterLogo(size: 32),
           Expanded(
-            child: Text(AppStrings.powredByFlutter, style: AppTheme.lightStyle)
+            child: Text(AppStrings.powredByFlutter, style: AppTheme.highLightStyle)
           ),
           AppButton.label(AppStrings.langIdx == 0, 'Pt', onPressedPt),
           AppButton.label(AppStrings.langIdx == 1, 'En', onPressedEn)
@@ -202,7 +202,7 @@ class _AboutSection extends _Section {
     : super(
         false,
         Text(AppStrings.aboutAndExpectationsTitle, style: AppTheme.lightBlueStyle),
-        Text(AppStrings.aboutAndExpectationsText, style: AppTheme.lightStyle)
+        Text(AppStrings.aboutAndExpectationsText, style: AppTheme.highLightStyle)
       );
 }
 

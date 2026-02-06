@@ -26,7 +26,7 @@ class AppIconText extends StatelessWidget {
           ? AppLink(text, isSidebar)
           : Text(
               text,
-              style: isSidebar ? AppTheme.lightStyle : AppTheme.darkStyle
+              style: isSidebar ? AppTheme.highLightStyle : AppTheme.darkStyle
             )
       ]
     );
@@ -58,7 +58,7 @@ class _AppLinkState extends State<AppLink> {
       child: Text(
         widget.text,
         style: widget.isSidebar
-          ? _hovered ? AppTheme.lightBlueStyle : AppTheme.lightStyle
+          ? _hovered ? AppTheme.lightBlueStyle : AppTheme.highLightStyle
           : _hovered ? AppTheme.darkBlueStyle : AppTheme.darkStyle
       )
     );
