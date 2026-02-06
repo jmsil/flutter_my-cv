@@ -71,7 +71,12 @@ class MobileScaffold extends StatelessWidget {
             ]
           )
         ),
-        AppSidebar(_drawerKey, onPressedPt, onPressedEn)
+        DrawerController(
+          key: _drawerKey,
+          alignment: DrawerAlignment.start,
+          scrimColor: Colors.black26,
+          child: AppSidebar(onPressedPt, onPressedEn)
+        )
       ]
     );
   }

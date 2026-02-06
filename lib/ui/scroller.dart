@@ -19,6 +19,7 @@ class AppSliverScroller extends CustomScrollView {
     : super(
         primary: false,
         cacheExtent: double.infinity,
+        physics: AlwaysScrollableScrollPhysics(),
         slivers: slivers
       );
 }

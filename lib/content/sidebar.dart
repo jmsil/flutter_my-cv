@@ -13,11 +13,10 @@ import '../ui/theme.dart';
 class AppSidebar extends StatelessWidget {
   static Color _sectionColor = Colors.black26;
 
-  final GlobalKey<DrawerControllerState>? drawerKey;
   final Function() onPressedPt;
   final Function() onPressedEn;
 
-  AppSidebar(this.drawerKey, this.onPressedPt, this.onPressedEn);
+  AppSidebar(this.onPressedPt, this.onPressedEn);
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +27,12 @@ class AppSidebar extends StatelessWidget {
       backgroundColor: Colors.transparent,
       expandedHeight: 360,
       collapsedHeight: 196,
-      leading: drawerKey == null
-        ? null
-        : AppButton.icon(
+      leading: Navigator.canPop(context)
+        ? AppButton.icon(
             AppIcons.back,
-            () => drawerKey?.currentState?.close()
-          ),
+            () => Navigator.pop(context)
+          )
+        : null,
       flexibleSpace: _ProfileSection()
     );
 
@@ -69,7 +68,7 @@ class AppSidebar extends StatelessWidget {
       )
     );
 
-    final containerWidget = AppContainer(
+    return AppContainer(
       width: 420,
       color: AppTheme.midDarkColor,
       child: SafeArea(
@@ -99,15 +98,6 @@ class AppSidebar extends StatelessWidget {
         )
       )
     );
-
-    return drawerKey == null
-      ? containerWidget
-      : DrawerController(
-          key: drawerKey,
-          alignment: DrawerAlignment.start,
-          scrimColor: Colors.black26,
-          child: containerWidget
-        );
   }
 }
 
