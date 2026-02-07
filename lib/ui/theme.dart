@@ -4,6 +4,7 @@ class AppTheme {
   AppTheme._();
 
   static const double _fontSize = 15;
+  static const double _largeFontSize = 16;
 
   static final Color highLightColor = Colors.blueGrey[50]!;
   static final Color midLightColor = Colors.blueGrey[200]!;
@@ -35,7 +36,9 @@ class AppTheme {
   static final TextStyle darkItalicStyle =
     TextStyle(fontSize: _fontSize, color: darkColor, fontStyle: FontStyle.italic);
 
+  static final TextStyle largeDarkBoldStyle =
+    TextStyle(fontSize: _largeFontSize, color: darkColor, fontWeight: FontWeight.bold);
 
-  static const BorderRadius defaultRadius = BorderRadius.all(Radius.circular(8));
-  static const BorderRadius sectionRadius = BorderRadius.all(Radius.circular(16));
+
+  static const BorderRadius appThemeRadius = BorderRadius.all(Radius.circular(16));
 }

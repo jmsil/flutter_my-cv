@@ -6,9 +6,10 @@ import '../ui/scroller.dart';
 import '../ui/theme.dart';
 
 class ContentGroup extends StatelessWidget {
-  static const double _pinSize = 32;
+  static const double _baseSpace = 16;
+  static const double _iconSize = 32;
+  static const double _iconContainerSize = _iconSize * 2;
   static const double _headerHeight = 40;
-  static const double _topExtraMargin = 10;
 
   final IconData icon;
   final String title;
@@ -26,21 +27,21 @@ class ContentGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double padding = hasPadding ? _baseSpace : 0;
     final EdgeInsets contentPadding = EdgeInsets.fromLTRB(
-      hasPadding ? 12 : 0,
-      _headerHeight / 2 + (hasPadding ? 16 : 8),
-      hasPadding ? 12 : 0,
-      hasPadding ? 16 : 8
+      padding,
+      _iconContainerSize / 2 + _baseSpace,
+      padding,
+      _baseSpace
     );
 
     return Stack(
-      alignment: Alignment.topRight,
       children: [
         AppContainer(
           color: AppTheme.highLightColor,
-          margin: const EdgeInsets.only(top: _headerHeight / 2 + _topExtraMargin),
+          margin: const EdgeInsets.only(top: _iconContainerSize / 2),
           padding: hasListView ? EdgeInsets.zero : contentPadding,
-          borderRadius: AppTheme.defaultRadius,
+          borderRadius: AppTheme.appThemeRadius,
           isClipped: hasListView,
           child: hasListView
             ? AppListView(
@@ -52,33 +53,47 @@ class ContentGroup extends StatelessWidget {
                 children: children
               )
         ),
+
         AppContainer(
           height: _headerHeight,
           color: AppTheme.lowLightColor,
-          margin: const EdgeInsets.fromLTRB(16, _topExtraMargin, 16, 0),
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          margin: const EdgeInsets.only(
+            left: _baseSpace + _iconContainerSize / 2,
+            top: _iconContainerSize / 2 - _headerHeight / 2,
+            right: _baseSpace
+          ),
           borderColor: AppTheme.darkBlue.withValues(alpha: 0.36),
-          borderRadius: AppTheme.defaultRadius,
+          borderRadius: AppTheme.appThemeRadius,
           hasShadow: true,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(icon, color: AppTheme.darkColor),
-              AppUiConst.hsep8,
-              Flexible(
-                child: Text(title, style: AppTheme.darkBoldStyle)
-              )
-            ]
+          child: Center(
+            child: Text(title, style: AppTheme.largeDarkBoldStyle)
           )
         ),
-        Padding(
-          padding: const EdgeInsets.only(right: 20),
-          child: Stack(
-            children: [
-              Icon(AppIcons.pin, size: _pinSize, color: AppTheme.highLightColor),
-              Icon(AppIcons.pin_outlined, size: _pinSize, color: AppTheme.midDarkColor)
-            ]
+
+        Align(
+          alignment: Alignment.topRight,
+          child: Padding(
+            padding: const EdgeInsets.only(
+              top: _iconContainerSize / 2 - _iconSize + 2,
+              right: _baseSpace + 4
+            ),
+            child: Stack(
+              children: [
+                Icon(AppIcons.pin, size: _iconSize, color: AppTheme.highLightColor),
+                Icon(AppIcons.pin_outlined, size: _iconSize, color: AppTheme.midDarkColor)
+              ]
+            )
           )
+        ),
+
+        AppContainer(
+          width: _iconContainerSize,
+          height: _iconContainerSize,
+          color: AppTheme.midDarkColor,
+          borderRadius: BorderRadius.circular(_iconContainerSize),
+          margin: const EdgeInsets.only(left: _baseSpace),
+          hasShadow: true,
+          child: Icon(icon, size: _iconSize, color: AppTheme.highLightColor)
         )
       ]
     );

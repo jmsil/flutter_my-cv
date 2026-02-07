@@ -25,7 +25,7 @@ class AppSidebar extends StatelessWidget {
   Widget build(BuildContext context) {
     final Widget sliverProfile = SliverAppBar(
       expandedHeight: 360,
-      collapsedHeight: 196,
+      collapsedHeight: 204,
       stretch: true,
       elevation: 0,
       automaticallyImplyLeading: false,
@@ -149,7 +149,7 @@ class _ProfileSection extends StatelessWidget {
 
     return AppContainer(
       color: AppSidebar._sectionColor,
-      borderRadius: AppTheme.sectionRadius,
+      borderRadius: AppTheme.appThemeRadius,
       margin: const EdgeInsets.all(16),
       padding: EdgeInsets.all(padding),
       child: child
@@ -210,7 +210,7 @@ class _Section extends AppContainer {
   _Section(bool startOpen, Widget headerWidget, Widget contentWidget)
     : super(
         color: AppSidebar._sectionColor,
-        borderRadius: AppTheme.sectionRadius,
+        borderRadius: AppTheme.appThemeRadius,
         isClipped: true,
         child: AppHeaderExpandable(
           startOpen: startOpen,
