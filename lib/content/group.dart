@@ -14,14 +14,14 @@ class ContentGroup extends StatelessWidget {
   final IconData icon;
   final String title;
   final bool hasPadding;
-  final bool hasListView;
+  final bool scrollable;
   final List<Widget> children;
 
   ContentGroup({
     required this.icon,
     required this.title,
     this.hasPadding = true,
-    this.hasListView = false,
+    this.scrollable = false,
     required this.children,
   });
 
@@ -40,10 +40,10 @@ class ContentGroup extends StatelessWidget {
         AppContainer(
           color: AppTheme.highLightColor,
           margin: const EdgeInsets.only(top: _iconContainerSize / 2),
-          padding: hasListView ? EdgeInsets.zero : contentPadding,
+          padding: scrollable ? EdgeInsets.zero : contentPadding,
           borderRadius: AppTheme.appThemeRadius,
-          isClipped: hasListView,
-          child: hasListView
+          isClipped: scrollable,
+          child: scrollable
             ? AppListView(
                 padding: contentPadding,
                 children: children

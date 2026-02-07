@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
-
 import '../ui/const.dart';
 import '../ui/strings.dart';
-import '../ui/theme.dart';
+import 'expandable_info.dart';
 import 'group.dart';
 
 class EducationGroup extends ContentGroup {
@@ -10,11 +8,13 @@ class EducationGroup extends ContentGroup {
     : super(
         icon: AppIcons.education,
         title: AppStrings.educationTitle,
+        hasPadding: false,
         children: [
-          Text(AppStrings.educationUniversityTitle, style: AppTheme.darkBlueBoldStyle),
-          Text('2006 - 2008', style: AppTheme.darkBlueItalicStyle),
-          AppUiConst.vsep16,
-          Text(AppStrings.educationUniversityText, style: AppTheme.darkStyle)
+          ExpandableInfo(
+            title: AppStrings.educationUniversityTitle,
+            subtitle: '2006 - 2008',
+            info: AppStrings.educationUniversityText
+          )
         ]
       );
 }
