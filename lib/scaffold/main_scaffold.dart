@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../ui/scroller.dart';
 import '../ui/strings.dart';
+import '../ui/theme.dart';
 import 'desktop_scaffold.dart';
 import 'mobile_scaffold.dart';
 
@@ -24,12 +25,12 @@ class _State extends State {
 
   Widget buildScaffold(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
-    return screenWidth > 1024
-      ? DesktopScaffold(
-          screenWidth > 1540,
-          onPressedPt, onPressedEn
-        )
-      : MobileScaffold(onPressedPt, onPressedEn);
+    return Material(
+      color: AppTheme.midLightColor,
+      child: screenWidth > 1200
+        ? DesktopScaffold(screenWidth > 1580, onPressedPt, onPressedEn)
+        : MobileScaffold(onPressedPt, onPressedEn)
+    );
   }
 
   Widget buildMediaQuery(BuildContext context, Widget? homeChild) {

@@ -5,6 +5,7 @@ class AppTheme {
 
   static const double _fontSize = 15;
   static const double _largeFontSize = 16;
+  static const double _scaffoldMargin = 16;
 
   static final Color highLightColor = Colors.blueGrey[50]!;
   static final Color midLightColor = Colors.blueGrey[200]!;
@@ -38,6 +39,15 @@ class AppTheme {
 
   static final TextStyle largeDarkBoldStyle =
     TextStyle(fontSize: _largeFontSize, color: darkColor, fontWeight: FontWeight.bold);
+
+
+  static const EdgeInsets scaffoldAllMargin = EdgeInsets.all(_scaffoldMargin);
+  static const EdgeInsets scaffoldNoLeftMargin = EdgeInsets.fromLTRB(
+    0, _scaffoldMargin, _scaffoldMargin, _scaffoldMargin
+  );
+  static const EdgeInsets scaffoldNoRightMargin = EdgeInsets.fromLTRB(
+    _scaffoldMargin, _scaffoldMargin, 0, _scaffoldMargin
+  );
 
 
   static const BorderRadius appThemeRadius = BorderRadius.all(Radius.circular(16));

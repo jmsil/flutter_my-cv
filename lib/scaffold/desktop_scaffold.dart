@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../content/content.dart';
 import '../content/sidebar.dart';
-import '../ui/theme.dart';
 
 class DesktopScaffold extends StatelessWidget {
   final bool isDoublePanel;
@@ -14,18 +13,14 @@ class DesktopScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
           child: AppSidebar(false, onPressedPt, onPressedEn)
         ),
         Expanded(
           flex: isDoublePanel ? 3 : 2,
-          child: Material(
-            color: AppTheme.midLightColor,
-            child: SafeArea(
-              child: AppContent(isDoublePanel, false)
-            )
+          child: SafeArea(
+            child: AppContent(isDoublePanel)
           )
         )
       ]

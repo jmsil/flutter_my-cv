@@ -28,56 +28,41 @@ class _State extends State<MobileScaffold> {
 
   @override
   Widget build(BuildContext context) {
-    final Widget background = Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Material(
-          color: AppTheme.highDarkColor,
-          child: SafeArea(
-            bottom: false,
-            child: const SizedBox(height: 144)
-          )
-        ),
-        Expanded(
-          child: Material(
-            color: AppTheme.midLightColor
-          )
-        )
-      ]
-    );
-
-    final Widget headerWidget = Material(
-      type: MaterialType.transparency,
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Row(
-          children: [
-            AppButton.icon(AppIcons.menu, openDrawer),
-            AppUiConst.hsep8,
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('João Marques da Silva', style: AppTheme.highLightStyle),
-                  AppUiConst.vsep4,
-                  Text(AppStrings.role, style: AppTheme.lowLightStyle)
-                ]
-              )
+    final Widget headerWidget = Padding(
+      padding: const EdgeInsets.all(16),
+      child: Row(
+        spacing: 8,
+        children: [
+          AppButton.icon(AppIcons.menu, openDrawer),
+          Expanded(
+            child: Column(
+              spacing: 4,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('João Marques da Silva', style: AppTheme.highLightStyle),
+                Text(AppStrings.role, style: AppTheme.lowLightStyle)
+              ]
             )
-          ]
-        )
+          )
+        ]
       )
     );
 
     return Stack(
       children: [
-        background,
+        Container(
+          color: AppTheme.highDarkColor,
+          child: SafeArea(
+            bottom: false,
+            child: const SizedBox(width: double.infinity, height: 180)
+          )
+        ),
         SafeArea(
           child: Column(
             children: [
               headerWidget,
               Expanded(
-                child: AppContent(false, true)
+                child: AppContent(false)
               )
             ]
           )

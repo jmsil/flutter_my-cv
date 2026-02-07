@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../ui/const.dart';
 import '../ui/scroller.dart';
 import '../ui/strings.dart';
+import '../ui/theme.dart';
 import 'courses_books.dart';
 import 'education.dart';
 import 'items.dart';
@@ -11,9 +12,8 @@ import 'professional_summary.dart';
 
 class AppContent extends StatelessWidget {
   final bool isDoublePanel;
-  final bool isMobileStyle;
 
-  AppContent(this.isDoublePanel, this.isMobileStyle);
+  AppContent(this.isDoublePanel);
 
   @override
   Widget build(BuildContext context) {
@@ -54,21 +54,21 @@ class AppContent extends StatelessWidget {
             Expanded(
               flex: 3,
               child: Padding(
-                padding: const EdgeInsets.all(16),
+                padding: AppTheme.scaffoldAllMargin,
                 child: ProfessionalExperienceGroup(true)
               )
             ),
             Expanded(
               flex: 2,
               child: AppListView(
-                padding: const EdgeInsets.fromLTRB(0, 16, 16, 16),
+                padding: AppTheme.scaffoldNoLeftMargin,
                 children: contentItems
               )
             )
           ]
         )
       : AppListView(
-          padding: EdgeInsets.fromLTRB(16, isMobileStyle ? 0 : 16, 16, 16),
+          padding: AppTheme.scaffoldAllMargin,
           children: contentItems
         );
   }

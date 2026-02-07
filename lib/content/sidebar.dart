@@ -11,7 +11,8 @@ import '../ui/text.dart';
 import '../ui/theme.dart';
 
 class AppSidebar extends StatelessWidget {
-  static const Color _sectionColor = Colors.black26;
+  static const Color _sectionMidDarkColor = Colors.black26;
+  static Color _sectionHighDarkColor = AppTheme.darkColor.withValues(alpha: 0.48);
   static const EdgeInsets sectionHeaderPadding = EdgeInsets.fromLTRB(24, 16, 16, 16);
   static const EdgeInsets sectionContentPadding = EdgeInsets.fromLTRB(24, 8, 24, 24);
 
@@ -49,7 +50,7 @@ class AppSidebar extends StatelessWidget {
     );
 
     final Widget footerWidget = AppContainer(
-      color: AppTheme.darkColor.withValues(alpha: 0.48),
+      color: _sectionHighDarkColor,
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       child: Row(
         spacing: 8,
@@ -67,6 +68,9 @@ class AppSidebar extends StatelessWidget {
     return AppContainer(
       width: 420,
       color: AppTheme.midDarkColor,
+      margin: AppTheme.scaffoldNoRightMargin,
+      borderRadius: AppTheme.appThemeRadius,
+      isClipped: true,
       child: SafeArea(
         child: Stack(
           fit: StackFit.expand,
@@ -96,6 +100,7 @@ class AppSidebar extends StatelessWidget {
     );
   }
 }
+
 
 class _ProfileSection extends StatelessWidget {
   final bool addBackButton;
@@ -148,7 +153,7 @@ class _ProfileSection extends StatelessWidget {
     }
 
     return AppContainer(
-      color: AppSidebar._sectionColor,
+      color: AppSidebar._sectionHighDarkColor,
       borderRadius: AppTheme.appThemeRadius,
       margin: const EdgeInsets.all(16),
       padding: EdgeInsets.all(padding),
@@ -156,6 +161,7 @@ class _ProfileSection extends StatelessWidget {
     );
   }
 }
+
 
 class _DetailsSection extends _Section {
   _DetailsSection()
@@ -174,6 +180,7 @@ class _DetailsSection extends _Section {
         )
       );
 }
+
 
 class _SkillsSection extends _Section {
   _SkillsSection()
@@ -197,6 +204,7 @@ class _SkillsSection extends _Section {
       );
 }
 
+
 class _AboutSection extends _Section {
   _AboutSection()
     : super(
@@ -206,10 +214,11 @@ class _AboutSection extends _Section {
       );
 }
 
+
 class _Section extends AppContainer {
   _Section(bool startOpen, Widget headerWidget, Widget contentWidget)
     : super(
-        color: AppSidebar._sectionColor,
+        color: AppSidebar._sectionMidDarkColor,
         borderRadius: AppTheme.appThemeRadius,
         isClipped: true,
         child: AppHeaderExpandable(
