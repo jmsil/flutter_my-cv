@@ -31,8 +31,6 @@ class AppIcons {
   static const IconData mail = Icons.mail_outlined;
   static const IconData menu = Icons.menu;
   static const IconData phone = Icons.phone_outlined;
-  static const IconData pin = Icons.push_pin;
-  static const IconData pin_outlined = Icons.push_pin_outlined;
   static const IconData studying = Icons.local_library_outlined;
   static const IconData summary = Icons.summarize_outlined;
 }

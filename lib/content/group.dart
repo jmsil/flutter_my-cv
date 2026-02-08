@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../ui/const.dart';
 import '../ui/container/container.dart';
 import '../ui/scroller.dart';
 import '../ui/theme.dart';
@@ -67,22 +66,6 @@ class ContentGroup extends StatelessWidget {
           hasShadow: true,
           child: Center(
             child: Text(title, style: AppTheme.largeDarkBoldStyle)
-          )
-        ),
-
-        Align(
-          alignment: Alignment.topRight,
-          child: Padding(
-            padding: const EdgeInsets.only(
-              top: _iconContainerSize / 2 - _iconSize + 2,
-              right: _baseSpace + 4
-            ),
-            child: Stack(
-              children: [
-                Icon(AppIcons.pin, size: _iconSize, color: AppTheme.highLightColor),
-                Icon(AppIcons.pin_outlined, size: _iconSize, color: AppTheme.midDarkColor)
-              ]
-            )
           )
         ),
 
