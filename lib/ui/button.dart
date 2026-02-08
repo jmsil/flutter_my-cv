@@ -5,6 +5,7 @@ import 'theme.dart';
 
 class AppButton extends StatelessWidget {
   static const double _containerSize = 36;
+  static Color _effectsColor = AppTheme.lowLightColor.withValues(alpha: 0.32);
 
   final bool isSelected;
   final Widget child;
@@ -24,15 +25,14 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final effectsColor = AppTheme.lowLightColor.withValues(alpha: 0.32);
     return IconButton(
       iconSize: _containerSize,
-      splashColor: effectsColor,
-      hoverColor: effectsColor,
-      highlightColor: effectsColor,
+      splashColor: _effectsColor,
+      hoverColor: _effectsColor,
+      highlightColor: _effectsColor,
       icon: AppContainer(
-        width: 36,
-        height: 36,
+        width: _containerSize,
+        height: _containerSize,
         borderSize: 2,
         borderColor: isSelected ? AppTheme.lightBlue : AppTheme.highLightColor,
         borderRadius: BorderRadius.circular(_containerSize),
@@ -44,4 +44,34 @@ class AppButton extends StatelessWidget {
       onPressed: onPressed
     );
   }
+}
+
+
+class AppImageSlider extends AppContainer {
+  static const double _padding = 12;
+  static const double _width = 120;
+  static const double _height = (_width - _padding * 2) / 3 * 2 + _padding * 2;
+
+  AppImageSlider(Function()? onPressed)
+    : super(
+        width: _width,
+        height: _height,
+        borderColor: AppTheme.lightBlue,
+        borderRadius: AppTheme.appThemeRadius,
+        isClipped: true,
+        child: InkResponse(
+          focusColor: Colors.transparent,
+          hoverColor: AppButton._effectsColor,
+          splashColor: AppButton._effectsColor,
+          highlightColor: AppButton._effectsColor,
+          highlightShape: BoxShape.rectangle,
+          splashFactory: InkRipple.splashFactory,
+          mouseCursor: SystemMouseCursors.basic,
+          onTap: onPressed,
+          child: Padding(
+            padding: const EdgeInsets.all(_padding),
+            child: Image.asset('assets/image_slider.png', fit: BoxFit.fill)
+          )
+        )
+      );
 }
