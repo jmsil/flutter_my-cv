@@ -76,7 +76,7 @@ class AppSidebar extends StatelessWidget {
           fit: StackFit.expand,
           children: [
             Image.asset(
-              'assets/background.png',
+              'assets/images/background.png',
               fit: BoxFit.cover,
               alignment: Alignment.topCenter
             ),
@@ -122,7 +122,7 @@ class _ProfileSection extends StatelessWidget {
               borderColor: AppTheme.lightBlue,
               borderRadius: BorderRadius.circular(1000),
               isClipped: true,
-              child: Image.asset('assets/profile_photo.jpeg', fit: BoxFit.cover)
+              child: Image.asset('assets/images/profile_photo.jpeg', fit: BoxFit.cover)
             )
           )
         ),

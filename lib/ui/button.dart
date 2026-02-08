@@ -70,7 +70,7 @@ class AppImageSlider extends AppContainer {
           onTap: onPressed,
           child: Padding(
             padding: const EdgeInsets.all(_padding),
-            child: Image.asset('assets/image_slider.png', fit: BoxFit.fill)
+            child: Image.asset('assets/images/image_slider.png', fit: BoxFit.fill)
           )
         )
       );
