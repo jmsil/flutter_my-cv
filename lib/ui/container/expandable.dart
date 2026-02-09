@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AppExpandable extends StatefulWidget {
-  final bool startOpen;
   final EdgeInsets padding;
   final Widget child;
 
-  AppExpandable(AppExpandableKey key, this.startOpen, this.padding, this.child)
+  AppExpandable(AppExpandableKey key, this.padding, this.child)
     : super(key: key);
 
   @override
@@ -13,8 +12,8 @@ class AppExpandable extends StatefulWidget {
 }
 
 class _State extends State<AppExpandable> with SingleTickerProviderStateMixin {
-  bool isOffstage = true;
-  bool isExpanded = false;
+  late bool isOffstage;
+  late bool isExpanded;
   double contentHeight = 0;
   final GlobalKey contentKey = GlobalKey();
   late final AnimationController controller;
@@ -24,14 +23,16 @@ class _State extends State<AppExpandable> with SingleTickerProviderStateMixin {
   void initState() {
     super.initState();
 
+    final bool startOpen = (widget.key as AppExpandableKey).startOpen;
+
+    isOffstage = !startOpen;
+    isExpanded = startOpen;
+
     controller = AnimationController(vsync: this);
     controller.addStatusListener(animationStatusListener);
 
-    if (widget.startOpen) {
-      isOffstage = false;
-      isExpanded = true;
+    if (startOpen)
       controller.animateTo(1, duration: Duration.zero);
-    }
 
     curvedAnimation = CurvedAnimation(
       parent: controller,
@@ -96,11 +97,13 @@ class _State extends State<AppExpandable> with SingleTickerProviderStateMixin {
 }
 
 class AppExpandableKey extends GlobalKey {
-  AppExpandableKey() : super.constructor();
+  final bool startOpen;
 
-  _State? get _state => (currentState as _State?);
+  AppExpandableKey(this.startOpen) : super.constructor();
+
+  _State? get _state => currentState as _State?;
 
   void switchExpandedState() => _state?.switchExpandedState();
 
-  bool get isExpanded => _state?.isExpanded ?? false;
+  bool get isExpanded => _state?.isExpanded ?? startOpen;
 }

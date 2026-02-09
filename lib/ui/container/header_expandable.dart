@@ -27,11 +27,13 @@ class AppHeaderExpandable extends StatefulWidget {
   });
 
   @override
-  _State createState() => _State();
+  _State createState() => _State(startOpen);
 }
 
 class _State extends State<AppHeaderExpandable> {
-  final AppExpandableKey expandableKey = AppExpandableKey();
+  final AppExpandableKey expandableKey;
+
+  _State(bool startOpen) : expandableKey = AppExpandableKey(startOpen);
 
   @override
   Widget build(BuildContext context) {
@@ -79,10 +81,7 @@ class _State extends State<AppHeaderExpandable> {
         if (fixedContent != null)
           fixedContent,
 
-        AppExpandable(
-          expandableKey, widget.startOpen,
-          widget.expandableContentPadding, widget.expandableContent
-        )
+        AppExpandable(expandableKey, widget.expandableContentPadding, widget.expandableContent)
       ]
     );
   }
