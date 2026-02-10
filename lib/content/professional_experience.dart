@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../ui/assets.dart';
+import '../ui/button.dart';
 import '../ui/const.dart';
 import '../ui/strings.dart';
 import '../ui/text.dart';
 import 'expandable_info.dart';
+import 'gallery.dart';
 import 'group.dart';
 
 class ProfessionalExperienceGroup extends StatelessWidget {
@@ -19,20 +22,7 @@ class ProfessionalExperienceGroup extends StatelessWidget {
       hasPadding: false,
       scrollable: scrollable,
       children: [
-        ExpandableInfo(
-          title: AppStrings.fortlevExperienceTitle,
-          subtitle: AppStrings.fortlevExperiencePeriod,
-          fixedContent: Wrap(
-            direction: Axis.horizontal,
-            spacing: 36,
-            children: [
-              AppIconText(AppIcons.link, 'https://www.bci-consulting.com', false, true),
-              AppIconText(AppIcons.link, 'https://www.fortlev.com.br', false, true)
-            ]
-          ),
-          info: AppStrings.fortlevExperienceText,
-          startOpen: true
-        ),
+        _BciForlevExperience(),
         AppUiConst.vsep16,
 
         ExpandableInfo(
@@ -64,5 +54,36 @@ class ProfessionalExperienceGroup extends StatelessWidget {
         )
       ]
     );
+  }
+}
+
+class _BciForlevExperience extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ExpandableInfo(
+      title: AppStrings.fortlevExperienceTitle,
+      subtitle: AppStrings.fortlevExperiencePeriod,
+      fixedContent: Row(
+        spacing: 36,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          AppImageSlider(() => onPressed(context)),
+          Column(
+            spacing: 8,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AppIconText(AppIcons.link, 'https://www.bci-consulting.com', false, true),
+              AppIconText(AppIcons.link, 'https://www.fortlev.com.br', false, true)
+            ]
+          )
+        ]
+      ),
+      info: AppStrings.fortlevExperienceText,
+      startOpen: true
+    );
+  }
+
+  void onPressed(BuildContext context) {
+    AppGallery.show(context, AppAssets.bciFortlevDriverAppAssetsFolder);
   }
 }

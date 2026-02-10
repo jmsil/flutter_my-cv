@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 
 class AppListView extends ListView {
   AppListView({
-    EdgeInsets padding = EdgeInsets.zero,
-    required List<Widget> children
+    super.scrollDirection,
+    super.padding,
+    super.children
   })
     : super(
         primary: false,
         cacheExtent: double.infinity,
-        padding: padding,
-        children: children
+        physics: AlwaysScrollableScrollPhysics()
       );
 }
 

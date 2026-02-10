@@ -16,6 +16,7 @@ class AppTheme {
   static final Color lightBlue = Colors.blue[200]!;
   static final Color darkBlue = Colors.blue[900]!;
   static final Color darkColor = Colors.black;
+  static final Color navigatorBackgroundColor = Colors.black38;
 
 
   static final TextStyle highLightStyle =

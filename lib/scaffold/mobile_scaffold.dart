@@ -70,7 +70,7 @@ class _State extends State<MobileScaffold> {
         DrawerController(
           key: drawerKey,
           alignment: DrawerAlignment.start,
-          scrimColor: Colors.black26,
+          scrimColor: AppTheme.navigatorBackgroundColor,
           child: AppSidebar(true, widget.onPressedPt, widget.onPressedEn)
         )
       ]

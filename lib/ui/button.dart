@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'assets.dart';
 import 'container/container.dart';
 import 'theme.dart';
 
@@ -46,7 +47,6 @@ class AppButton extends StatelessWidget {
   }
 }
 
-
 class AppImageSlider extends AppContainer {
   static const double _padding = 12;
   static const double _width = 120;
@@ -70,7 +70,7 @@ class AppImageSlider extends AppContainer {
           onTap: onPressed,
           child: Padding(
             padding: const EdgeInsets.all(_padding),
-            child: Image.asset('assets/images/image_slider.png', fit: BoxFit.fill)
+            child: Image.asset(AppAssets.image_slider, fit: BoxFit.fill)
           )
         )
       );

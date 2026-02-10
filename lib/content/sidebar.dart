@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../ui/assets.dart';
 import '../ui/button.dart';
 import '../ui/const.dart';
 import '../ui/container/container.dart';
@@ -75,11 +76,7 @@ class AppSidebar extends StatelessWidget {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            Image.asset(
-              'assets/images/background.png',
-              fit: BoxFit.cover,
-              alignment: Alignment.topCenter
-            ),
+            Image.asset(AppAssets.background, fit: BoxFit.cover, alignment: Alignment.topCenter),
             Column(
               spacing: 16,
               children: [
@@ -122,7 +119,7 @@ class _ProfileSection extends StatelessWidget {
               borderColor: AppTheme.lightBlue,
               borderRadius: BorderRadius.circular(1000),
               isClipped: true,
-              child: Image.asset('assets/images/profile_photo.jpeg', fit: BoxFit.cover)
+              child: Image.asset(AppAssets.profile_photo, fit: BoxFit.cover)
             )
           )
         ),
