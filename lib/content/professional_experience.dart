@@ -6,7 +6,6 @@ import '../ui/const.dart';
 import '../ui/strings.dart';
 import '../ui/text.dart';
 import 'expandable_info.dart';
-import 'gallery.dart';
 import 'group.dart';
 
 class ProfessionalExperienceGroup extends StatelessWidget {
@@ -67,7 +66,7 @@ class _BciForlevExperience extends StatelessWidget {
         spacing: 36,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          AppImageSlider(() => onPressed(context)),
+          AppImageGalleryButton(AppAssets.bciFortlevDriverAppAssetsFolder),
           Column(
             spacing: 8,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,9 +80,5 @@ class _BciForlevExperience extends StatelessWidget {
       info: AppStrings.fortlevExperienceText,
       startOpen: true
     );
-  }
-
-  void onPressed(BuildContext context) {
-    AppGallery.show(context, AppAssets.bciFortlevDriverAppAssetsFolder);
   }
 }

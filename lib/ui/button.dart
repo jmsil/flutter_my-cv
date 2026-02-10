@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../content/gallery.dart';
 import 'assets.dart';
 import 'container/container.dart';
 import 'theme.dart';
@@ -47,31 +48,70 @@ class AppButton extends StatelessWidget {
   }
 }
 
-class AppImageSlider extends AppContainer {
-  static const double _padding = 12;
-  static const double _width = 120;
-  static const double _height = (_width - _padding * 2) / 3 * 2 + _padding * 2;
+class AppImageGalleryButton extends StatefulWidget {
+  final AssetsFolder assetsFolder;
 
-  AppImageSlider(Function()? onPressed)
-    : super(
-        width: _width,
-        height: _height,
-        borderColor: AppTheme.lightBlue,
-        borderRadius: AppTheme.appThemeRadius,
-        isClipped: true,
-        child: InkResponse(
-          focusColor: Colors.transparent,
-          hoverColor: AppButton._effectsColor,
-          splashColor: AppButton._effectsColor,
-          highlightColor: AppButton._effectsColor,
-          highlightShape: BoxShape.rectangle,
-          splashFactory: InkRipple.splashFactory,
-          mouseCursor: SystemMouseCursors.basic,
-          onTap: onPressed,
-          child: Padding(
-            padding: const EdgeInsets.all(_padding),
-            child: Image.asset(AppAssets.image_slider, fit: BoxFit.fill)
-          )
+  AppImageGalleryButton(this.assetsFolder);
+
+  @override
+  _AppImageGalleryButtonState createState() => _AppImageGalleryButtonState();
+}
+
+class _AppImageGalleryButtonState extends State<AppImageGalleryButton> {
+  static const double padding = 12;
+  static const double width = 120;
+  static const double height = (width - padding * 2) / 3 * 2 + padding * 2;
+
+  bool isProcessing = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final child = isProcessing
+      ? Center(
+          child: CircularProgressIndicator(
+            color: AppTheme.darkBlue,
+            strokeWidth: 4,
+            backgroundColor: AppTheme.darkBlue.withValues(alpha: 0.26)
+          ),
         )
-      );
+      : Image.asset(AppAssets.image_slider, fit: BoxFit.fill);
+
+    return AppContainer(
+      width: width,
+      height: height,
+      borderColor: AppTheme.lightBlue,
+      borderRadius: AppTheme.appThemeRadius,
+      isClipped: true,
+      child: InkResponse(
+        focusColor: Colors.transparent,
+        hoverColor: AppButton._effectsColor,
+        splashColor: AppButton._effectsColor,
+        highlightColor: AppButton._effectsColor,
+        highlightShape: BoxShape.rectangle,
+        splashFactory: InkRipple.splashFactory,
+        mouseCursor: SystemMouseCursors.basic,
+        onTap: onPressed,
+        child: Padding(
+          padding: const EdgeInsets.all(padding),
+          child: child
+        )
+      )
+    );
+  }
+
+  void onPressed() async {
+    if (isProcessing)
+      return;
+
+    setState(() => isProcessing = true);
+
+    try {
+      await widget.assetsFolder.precache(context);
+      await Future.delayed(Duration(milliseconds: 450));
+      AppGallery.show(context, widget.assetsFolder);
+    }
+    finally {
+      setState(() => isProcessing = false);
+    }
+  }
 }

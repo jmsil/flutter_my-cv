@@ -27,6 +27,5 @@ class AssetsFolder {
   Future<void> precache(BuildContext context) async {
     for (String fileName in _fileNames)
       await precacheImage(AssetImage(fileName), context);
-    await Future.delayed(Duration(milliseconds: 500));
   }
 }
