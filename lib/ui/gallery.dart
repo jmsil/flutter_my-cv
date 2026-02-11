@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_cv/ui/const.dart';
 
-import '../ui/assets.dart';
-import '../ui/container/container.dart';
-import '../ui/scroller.dart';
-import '../ui/theme.dart';
+import 'assets.dart';
+import 'container/container.dart';
+import 'scroller.dart';
+import 'theme.dart';
 
 class AppGallery extends StatelessWidget {
   final AssetsFolder assetsFolder;

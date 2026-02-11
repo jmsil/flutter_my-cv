@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../content/gallery.dart';
 import 'assets.dart';
 import 'container/container.dart';
+import 'gallery.dart';
 import 'theme.dart';
 
 class AppButton extends StatelessWidget {
