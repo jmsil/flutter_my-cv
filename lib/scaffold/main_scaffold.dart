@@ -18,7 +18,7 @@ class _State extends State {
       title: AppStrings.appName,
       scrollBehavior: AppScrollBehavior(),
       home: Builder(builder: buildScaffold),
-      builder: buildMediaQuery,
+      builder: builder,
       debugShowCheckedModeBanner: false
     );
   }
@@ -33,7 +33,7 @@ class _State extends State {
     );
   }
 
-  Widget buildMediaQuery(BuildContext context, Widget? homeChild) {
+  Widget builder(BuildContext context, Widget? homeChild) {
     final MediaQueryData data = MediaQuery.of(context);
     return MediaQuery(
       data: data.copyWith(textScaler: TextScaler.linear(1)),
@@ -42,12 +42,12 @@ class _State extends State {
   }
 
   void onPressedPt() {
-    if (AppStrings.setLanguage(0))
+    if (AppStrings.setLanguage('pt'))
       setState(() {});
   }
 
   void onPressedEn() {
-    if (AppStrings.setLanguage(1))
+    if (AppStrings.setLanguage('en'))
       setState(() {});
   }
 }

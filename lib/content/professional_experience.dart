@@ -47,9 +47,9 @@ class ProfessionalExperienceGroup extends StatelessWidget {
         AppUiConst.vsep16,
 
         ExpandableInfo(
-          title: AppStrings.smallERPTitle,
+          title: AppStrings.smallErpTitle,
           subtitle: '2006/2007',
-          info: AppStrings.smallERPText
+          info: AppStrings.smallErpText
         )
       ]
     );

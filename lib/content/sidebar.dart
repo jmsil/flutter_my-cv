@@ -60,8 +60,8 @@ class AppSidebar extends StatelessWidget {
           Expanded(
             child: Text(AppStrings.powredByFlutter, style: AppTheme.highLightStyle)
           ),
-          AppButton.label(AppStrings.langIdx == 0, 'Pt', onPressedPt),
-          AppButton.label(AppStrings.langIdx == 1, 'En', onPressedEn)
+          AppButton.label(AppStrings.langCode == 'pt', 'Pt', onPressedPt),
+          AppButton.label(AppStrings.langCode != 'pt', 'En', onPressedEn)
         ]
       )
     );
