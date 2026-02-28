@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../ui/const.dart';
+import '../ui/container/rounded_overlay.dart';
 import '../ui/scroller.dart';
 import '../ui/strings.dart';
 import '../ui/theme.dart';
@@ -11,9 +12,10 @@ import 'professional_experience.dart';
 import 'professional_summary.dart';
 
 class AppContent extends StatelessWidget {
+  final bool isMobileScaffold;
   final bool isDoublePanel;
 
-  AppContent(this.isDoublePanel);
+  AppContent(this.isMobileScaffold, this.isDoublePanel);
 
   @override
   Widget build(BuildContext context) {
@@ -48,28 +50,33 @@ class AppContent extends StatelessWidget {
       )
     ];
 
+    final Widget appListView = RoundedOverlay(
+      padding: isMobileScaffold ? AppTheme.scaffoldPaddingValue : 0,
+      radius: AppTheme.radiusValue,
+      startSize: isMobileScaffold ? 80 : 0,
+      startColor: isMobileScaffold ? AppTheme.highDarkColor : AppTheme.midLightColor,
+      startWithBackground: isMobileScaffold,
+      endColor: isMobileScaffold ? null : AppTheme.midLightColor,
+      child: AppListView(
+        padding: isMobileScaffold ? AppTheme.scaffoldPadding.copyWith(top: 0) : null,
+        children: contentItems
+      )
+    );
+
     return isDoublePanel
       ? Row(
+          spacing: 16,
           children: [
             Expanded(
               flex: 3,
-              child: Padding(
-                padding: AppTheme.scaffoldAllMargin,
-                child: ProfessionalExperienceGroup(true)
-              )
+              child: ProfessionalExperienceGroup(true)
             ),
             Expanded(
               flex: 2,
-              child: AppListView(
-                padding: AppTheme.scaffoldNoLeftMargin,
-                children: contentItems
-              )
+              child: appListView
             )
           ]
         )
-      : AppListView(
-          padding: AppTheme.scaffoldAllMargin,
-          children: contentItems
-        );
+      : appListView;
   }
 }

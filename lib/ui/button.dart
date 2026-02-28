@@ -80,7 +80,7 @@ class _AppImageGalleryButtonState extends State<AppImageGalleryButton> {
       width: width,
       height: height,
       borderColor: AppTheme.lightBlue,
-      borderRadius: AppTheme.appThemeRadius,
+      borderRadius: AppTheme.allRadius,
       isClipped: true,
       child: InkResponse(
         focusColor: Colors.transparent,

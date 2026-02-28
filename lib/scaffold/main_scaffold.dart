@@ -27,8 +27,8 @@ class _State extends State {
     final double screenWidth = MediaQuery.of(context).size.width;
     return Material(
       color: AppTheme.midLightColor,
-      child: screenWidth > 1200
-        ? DesktopScaffold(screenWidth > 1580, onPressedPt, onPressedEn)
+      child: screenWidth >= 1280
+        ? DesktopScaffold(screenWidth >= 1744, onPressedPt, onPressedEn)
         : MobileScaffold(onPressedPt, onPressedEn)
     );
   }

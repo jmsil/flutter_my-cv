@@ -11,7 +11,7 @@ class AppAssets {
   static const String profile_photo = '${_startupAssetsPath}profile_photo.heic';
 
   static AssetsFolder bciFortlevDriverAppAssetsFolder = AssetsFolder._(
-    'assets/images/BciFortlevDriverApp/', 16
+    'assets/images/BciFortlevDriverApp/', 24
   );
 }
 

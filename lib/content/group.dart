@@ -35,12 +35,13 @@ class ContentGroup extends StatelessWidget {
     );
 
     return Stack(
+      clipBehavior: Clip.none,
       children: [
         AppContainer(
           color: AppTheme.highLightColor,
           margin: const EdgeInsets.only(top: _iconContainerSize / 2),
           padding: scrollable ? EdgeInsets.zero : contentPadding,
-          borderRadius: AppTheme.appThemeRadius,
+          borderRadius: AppTheme.allRadius,
           isClipped: scrollable,
           child: scrollable
             ? AppListView(
@@ -61,8 +62,8 @@ class ContentGroup extends StatelessWidget {
             top: _iconContainerSize / 2 - _headerHeight / 2,
             right: _baseSpace
           ),
-          borderColor: AppTheme.darkBlue.withValues(alpha: 0.36),
-          borderRadius: AppTheme.appThemeRadius,
+          borderColor: AppTheme.midDarkColor.withValues(alpha: 0.5),
+          borderRadius: AppTheme.allRadius,
           hasShadow: true,
           child: Center(
             child: Text(title, style: AppTheme.largeDarkBoldStyle)

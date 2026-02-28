@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../content/content.dart';
 import '../content/sidebar.dart';
+import '../ui/theme.dart';
 
 class DesktopScaffold extends StatelessWidget {
   final bool isDoublePanel;
@@ -12,18 +13,17 @@ class DesktopScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: AppSidebar(false, onPressedPt, onPressedEn)
-        ),
-        Expanded(
-          flex: isDoublePanel ? 3 : 2,
-          child: SafeArea(
-            child: AppContent(isDoublePanel)
+    return Padding(
+      padding: AppTheme.scaffoldPadding,
+      child: Row(
+        spacing: 16,
+        children: [
+          AppSidebar(false, onPressedPt, onPressedEn),
+          Expanded(
+            child: AppContent(false, isDoublePanel)
           )
-        )
-      ]
+        ]
+      )
     );
   }
 }

@@ -17,11 +17,11 @@ class AppSidebar extends StatelessWidget {
   static const EdgeInsets sectionHeaderPadding = EdgeInsets.fromLTRB(24, 16, 16, 16);
   static const EdgeInsets sectionContentPadding = EdgeInsets.fromLTRB(24, 8, 24, 24);
 
-  final bool addBackButton;
+  final bool isMobileScaffold;
   final Function() onPressedPt;
   final Function() onPressedEn;
 
-  AppSidebar(this.addBackButton, this.onPressedPt, this.onPressedEn);
+  AppSidebar(this.isMobileScaffold, this.onPressedPt, this.onPressedEn);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class AppSidebar extends StatelessWidget {
       elevation: 0,
       automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
-      flexibleSpace: _ProfileSection(addBackButton)
+      flexibleSpace: _ProfileSection(isMobileScaffold)
     );
 
     final Widget sliverInfo = SliverPadding(
@@ -67,32 +67,31 @@ class AppSidebar extends StatelessWidget {
     );
 
     return AppContainer(
-      width: 420,
+      width: 480,
       color: AppTheme.midDarkColor,
-      margin: AppTheme.scaffoldNoRightMargin,
-      borderRadius: AppTheme.appThemeRadius,
+      margin: isMobileScaffold ? AppTheme.scaffoldPadding : null,
+      borderRadius: AppTheme.allRadius,
       isClipped: true,
-      child: SafeArea(
-        child: Stack(
-          fit: StackFit.expand,
-          children: [
-            Image.asset(AppAssets.background, fit: BoxFit.cover, alignment: Alignment.topCenter),
-            Column(
-              spacing: 16,
-              children: [
-                Expanded(
-                  child: AppSliverScroller(
-                    [
-                      sliverProfile,
-                      sliverInfo
-                    ]
-                  )
-                ),
-                footerWidget
-              ]
-            )
-          ]
-        )
+      child: Stack(
+        fit: StackFit.expand,
+        clipBehavior: Clip.none,
+        children: [
+          Image.asset(AppAssets.background, fit: BoxFit.cover, alignment: Alignment.topCenter),
+          Column(
+            spacing: 16,
+            children: [
+              Expanded(
+                child: AppSliverScroller(
+                  [
+                    sliverProfile,
+                    sliverInfo
+                  ]
+                )
+              ),
+              footerWidget
+            ]
+          )
+        ]
       )
     );
   }
@@ -133,6 +132,7 @@ class _ProfileSection extends StatelessWidget {
     if (addBackButton) {
       child = Stack(
         fit: StackFit.expand,
+        clipBehavior: Clip.none,
         children: [
           Padding(
             padding: const EdgeInsets.all(24),
@@ -151,7 +151,7 @@ class _ProfileSection extends StatelessWidget {
 
     return AppContainer(
       color: AppSidebar._sectionHighDarkColor,
-      borderRadius: AppTheme.appThemeRadius,
+      borderRadius: AppTheme.allRadius,
       margin: const EdgeInsets.all(16),
       padding: EdgeInsets.all(padding),
       child: child
@@ -216,7 +216,7 @@ class _Section extends AppContainer {
   _Section(bool startOpen, Widget headerWidget, Widget contentWidget)
     : super(
         color: AppSidebar._sectionMidDarkColor,
-        borderRadius: AppTheme.appThemeRadius,
+        borderRadius: AppTheme.allRadius,
         isClipped: true,
         child: AppHeaderExpandable(
           startOpen: startOpen,

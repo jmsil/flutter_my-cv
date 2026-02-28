@@ -3,6 +3,7 @@ import 'package:my_cv/ui/const.dart';
 
 import 'assets.dart';
 import 'container/container.dart';
+import 'container/rounded_overlay.dart';
 import 'scroller.dart';
 import 'theme.dart';
 
@@ -17,7 +18,7 @@ class AppGallery extends StatelessWidget {
 
     for (String fileName in assetsFolder.fileNames) {
       Widget imageWidget = ClipRRect(
-        borderRadius: AppTheme.appThemeRadius,
+        borderRadius: AppTheme.allRadius,
         child: Image.asset(fileName)
       );
       imageWidgets.add(imageWidget);
@@ -34,10 +35,16 @@ class AppGallery extends StatelessWidget {
         margin: const EdgeInsets.all(24),
         padding: const EdgeInsets.all(36),
         borderColor: AppTheme.lightBlue,
-        borderRadius: AppTheme.appThemeRadius,
-        child: AppListView(
-          scrollDirection: Axis.horizontal,
-          children: imageWidgets
+        borderRadius: AppTheme.allRadius,
+        child: RoundedOverlay(
+          direction: Axis.horizontal,
+          radius: AppTheme.radiusValue,
+          startColor: AppTheme.midDarkColor,
+          endColor: AppTheme.midDarkColor,
+          child: AppListView(
+            scrollDirection: Axis.horizontal,
+            children: imageWidgets
+          )
         )
       )
     );

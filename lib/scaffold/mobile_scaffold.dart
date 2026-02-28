@@ -4,6 +4,7 @@ import '../content/content.dart';
 import '../content/sidebar.dart';
 import '../ui/button.dart';
 import '../ui/const.dart';
+import '../ui/container/container.dart';
 import '../ui/strings.dart';
 import '../ui/theme.dart';
 
@@ -28,7 +29,8 @@ class _State extends State<MobileScaffold> {
 
   @override
   Widget build(BuildContext context) {
-    final Widget headerWidget = Padding(
+    final Widget headerWidget = AppContainer(
+      color: AppTheme.highDarkColor,
       padding: const EdgeInsets.all(16),
       child: Row(
         spacing: 8,
@@ -49,23 +51,15 @@ class _State extends State<MobileScaffold> {
     );
 
     return Stack(
+      clipBehavior: Clip.none,
       children: [
-        Container(
-          color: AppTheme.highDarkColor,
-          child: SafeArea(
-            bottom: false,
-            child: const SizedBox(width: double.infinity, height: 180)
-          )
-        ),
-        SafeArea(
-          child: Column(
-            children: [
-              headerWidget,
-              Expanded(
-                child: AppContent(false)
-              )
-            ]
-          )
+        Column(
+          children: [
+            headerWidget,
+            Expanded(
+              child: AppContent(true, false)
+            )
+          ]
         ),
         DrawerController(
           key: drawerKey,
