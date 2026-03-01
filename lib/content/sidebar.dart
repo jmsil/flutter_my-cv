@@ -14,8 +14,6 @@ import '../ui/theme.dart';
 class AppSidebar extends StatelessWidget {
   static const Color _sectionMidDarkColor = Colors.black26;
   static Color _sectionHighDarkColor = AppTheme.darkColor.withValues(alpha: 0.48);
-  static const EdgeInsets sectionHeaderPadding = EdgeInsets.fromLTRB(24, 16, 16, 16);
-  static const EdgeInsets sectionContentPadding = EdgeInsets.fromLTRB(24, 8, 24, 24);
 
   final bool isMobileScaffold;
   final Function() onPressedPt;
@@ -26,7 +24,7 @@ class AppSidebar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Widget sliverProfile = SliverAppBar(
-      expandedHeight: 360,
+      expandedHeight: 420,
       collapsedHeight: 204,
       stretch: true,
       elevation: 0,
@@ -116,7 +114,7 @@ class _ProfileSection extends StatelessWidget {
             child: AppContainer(
               borderSize: 2,
               borderColor: AppTheme.lightBlue,
-              borderRadius: BorderRadius.circular(1000),
+              borderRadius: AppUiConst.circleRadius,
               isClipped: true,
               child: Image.asset(AppAssets.profile_photo, fit: BoxFit.cover)
             )
@@ -213,6 +211,9 @@ class _AboutSection extends _Section {
 
 
 class _Section extends AppContainer {
+  static const EdgeInsets sectionHeaderPadding = EdgeInsets.fromLTRB(24, 16, 16, 16);
+  static const EdgeInsets sectionContentPadding = EdgeInsets.fromLTRB(24, 8, 24, 24);
+
   _Section(bool startOpen, Widget headerWidget, Widget contentWidget)
     : super(
         color: AppSidebar._sectionMidDarkColor,
@@ -221,8 +222,8 @@ class _Section extends AppContainer {
         child: AppHeaderExpandable(
           startOpen: startOpen,
           arrowColor: AppTheme.lightBlue,
-          headerContentPadding: AppSidebar.sectionHeaderPadding,
-          expandableContentPadding: AppSidebar.sectionContentPadding,
+          headerContentPadding: sectionHeaderPadding,
+          expandableContentPadding: sectionContentPadding,
           headerContent: headerWidget,
           expandableContent: contentWidget
         )

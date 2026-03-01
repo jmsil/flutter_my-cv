@@ -21,27 +21,18 @@ class AppContent extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Widget> contentItems = [
       ProfessionalSummaryGroup(),
-      AppUiConst.vsep16,
 
       if (!isDoublePanel)
-        ...[
-          ProfessionalExperienceGroup(false),
-          AppUiConst.vsep16
-        ],
+        ProfessionalExperienceGroup(false),
 
       EducationGroup(),
-      AppUiConst.vsep16,
       CoursesAndBooksGroup(),
-      AppUiConst.vsep16,
-
       ItemsGroup(
         AppIcons.language,
         AppStrings.languagesTitle,
         AppStrings.languagePtText,
         AppStrings.languageEnText
       ),
-      AppUiConst.vsep16,
-
       ItemsGroup(
         AppIcons.availability,
         AppStrings.availabilityTitle,
@@ -53,10 +44,10 @@ class AppContent extends StatelessWidget {
     final Widget appListView = RoundedOverlay(
       padding: isMobileScaffold ? AppTheme.scaffoldPaddingValue : 0,
       radius: AppTheme.radiusValue,
-      startSize: isMobileScaffold ? 80 : 0,
-      startColor: isMobileScaffold ? AppTheme.highDarkColor : AppTheme.midLightColor,
+      startSize: isMobileScaffold ? 32 : 0,
+      startColor: isMobileScaffold ? AppTheme.highDarkColor : AppTheme.highLightColor,
       startWithBackground: isMobileScaffold,
-      endColor: isMobileScaffold ? null : AppTheme.midLightColor,
+      endColor: isMobileScaffold ? null : AppTheme.highLightColor,
       child: AppListView(
         padding: isMobileScaffold ? AppTheme.scaffoldPadding.copyWith(top: 0) : null,
         children: contentItems
@@ -65,7 +56,7 @@ class AppContent extends StatelessWidget {
 
     return isDoublePanel
       ? Row(
-          spacing: 16,
+          spacing: 32,
           children: [
             Expanded(
               flex: 3,

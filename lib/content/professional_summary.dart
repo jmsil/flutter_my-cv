@@ -10,6 +10,8 @@ class ProfessionalSummaryGroup extends ContentGroup {
     : super(
         icon: AppIcons.summary,
         title: AppStrings.professionalSummaryTitle,
+        withPadding: true,
+        scrollable: false,
         children: [
           Text(AppStrings.professionalSummaryText, style: AppTheme.darkStyle)
         ]

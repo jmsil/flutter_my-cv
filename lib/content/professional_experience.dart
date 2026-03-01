@@ -15,43 +15,45 @@ class ProfessionalExperienceGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> children = [
+      _BciForlevExperience(),
+      AppUiConst.vsep16,
+
+      ExpandableInfo(
+        title: AppStrings.flutterExperienceTitle,
+        subtitle: '2021',
+        info: AppStrings.flutterExperienceText
+      ),
+      AppUiConst.vsep16,
+
+      ExpandableInfo(
+        title: AppStrings.mobileGameExperienceTitle,
+        subtitle: '2013 - 2020',
+        info: AppStrings.mobileGameExperienceText
+      ),
+      AppUiConst.vsep16,
+
+      ExpandableInfo(
+        title: AppStrings.santriExperienceTitle,
+        subtitle: AppStrings.santriExperiencePeriod,
+        fixedContent: AppIconText(AppIcons.link, 'https://www.santri.com.br', false, true),
+        info: AppStrings.santriExperienceText
+      ),
+      AppUiConst.vsep16,
+
+      ExpandableInfo(
+        title: AppStrings.smallErpTitle,
+        subtitle: '2006/2007',
+        info: AppStrings.smallErpText
+      )
+    ];
+
     return ContentGroup(
       icon: AppIcons.experience,
       title: AppStrings.professionalExperienceTitle,
-      hasPadding: false,
+      withPadding: false,
       scrollable: scrollable,
-      children: [
-        _BciForlevExperience(),
-        AppUiConst.vsep16,
-
-        ExpandableInfo(
-          title: AppStrings.flutterExperienceTitle,
-          subtitle: '2021',
-          info: AppStrings.flutterExperienceText
-        ),
-        AppUiConst.vsep16,
-
-        ExpandableInfo(
-          title: AppStrings.mobileGameExperienceTitle,
-          subtitle: '2013 - 2020',
-          info: AppStrings.mobileGameExperienceText
-        ),
-        AppUiConst.vsep16,
-
-        ExpandableInfo(
-          title: AppStrings.santriExperienceTitle,
-          subtitle: AppStrings.santriExperiencePeriod,
-          fixedContent: AppIconText(AppIcons.link, 'https://www.santri.com.br', false, true),
-          info: AppStrings.santriExperienceText
-        ),
-        AppUiConst.vsep16,
-
-        ExpandableInfo(
-          title: AppStrings.smallErpTitle,
-          subtitle: '2006/2007',
-          info: AppStrings.smallErpText
-        )
-      ]
+      children: children
     );
   }
 }

@@ -9,6 +9,8 @@ class ItemsGroup extends ContentGroup {
     : super(
         icon: icon,
         title: title,
+        withPadding: true,
+        scrollable: false,
         children: [
           AppIconText(AppIcons.arrow_right, item1, false),
           AppUiConst.vsep8,

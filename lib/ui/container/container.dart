@@ -53,8 +53,8 @@ class AppContainer extends StatelessWidget {
             )
           : BorderSide.none
       ),
-      shadowColor: Colors.black54,
-      elevation: hasShadow ? 6 : 0,
+      shadowColor: Colors.black,
+      elevation: hasShadow ? 8 : 0,
       clipBehavior: isClipped ? Clip.hardEdge : Clip.none,
       child: rWidget
     );

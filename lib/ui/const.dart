@@ -8,6 +8,8 @@ class AppUiConst {
   static const SizedBox hsep16 = SizedBox(width: 16);
   static const SizedBox vsep16 = SizedBox(height: 16);
   static const SizedBox hsep36 = SizedBox(width: 36);
+
+  static final BorderRadius circleRadius = BorderRadius.circular(999999);
 }
 
 class AppIcons {

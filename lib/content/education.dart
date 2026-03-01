@@ -8,7 +8,8 @@ class EducationGroup extends ContentGroup {
     : super(
         icon: AppIcons.education,
         title: AppStrings.educationTitle,
-        hasPadding: false,
+        withPadding: false,
+        scrollable: false,
         children: [
           ExpandableInfo(
             title: AppStrings.educationUniversityTitle,

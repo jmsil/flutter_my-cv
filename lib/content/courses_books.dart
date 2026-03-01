@@ -13,29 +13,37 @@ class CoursesAndBooksGroup extends StatelessWidget {
     _addChild(
       "Clean Architecture - A Craftsman's Guide to Software structure and Design",
       'Robert C. Martin',
-      false, true
+      false
     );
 
     _addChild(
       'Clean Code - A Handbook of Agile Sortware Craftsmanship',
       'Robert C. Martin',
-      false, true
+      false
     );
 
-    _addChild(AppStrings.courseOracleOcaOcpTitle, '2010', true, false);
+    _addChild(AppStrings.courseOracleOcaOcpTitle, '2010', true);
+
+    _children.removeLast();
 
     return ContentGroup(
       icon: AppIcons.studying,
       title: AppStrings.coursesAndBooksTitle,
+      withPadding: true,
+      scrollable: false,
       children: _children
     );
   }
 
-  _addChild(String title, String detail, bool isCourse, bool addSeparator) {
+  _addChild(String title, String detail, bool isCourse) {
     final Widget child = Row(
+      spacing: 8,
       children: [
-        Icon(isCourse ? AppIcons.course : AppIcons.book, color: AppTheme.darkColor),
-        AppUiConst.hsep8,
+        Icon(
+          isCourse ? AppIcons.course : AppIcons.book,
+          size: 32,
+          color: AppTheme.darkColor
+        ),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,8 +60,6 @@ class CoursesAndBooksGroup extends StatelessWidget {
       ]
     );
     _children.add(child);
-
-    if (addSeparator)
-      _children.add(AppUiConst.vsep16);
+    _children.add(AppUiConst.vsep16);
   }
 }

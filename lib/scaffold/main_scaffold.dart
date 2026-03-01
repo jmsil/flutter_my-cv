@@ -26,9 +26,9 @@ class _State extends State {
   Widget buildScaffold(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
     return Material(
-      color: AppTheme.midLightColor,
+      color: AppTheme.highLightColor,
       child: screenWidth >= 1280
-        ? DesktopScaffold(screenWidth >= 1744, onPressedPt, onPressedEn)
+        ? DesktopScaffold(screenWidth >= 1760, onPressedPt, onPressedEn)
         : MobileScaffold(onPressedPt, onPressedEn)
     );
   }
