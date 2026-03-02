@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../content/appbar.dart';
 import '../content/content.dart';
 import '../content/sidebar.dart';
 import '../ui/theme.dart';
@@ -15,13 +16,22 @@ class DesktopScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: AppTheme.scaffoldPadding,
-      child: Row(
-        spacing: 16,
+      child: Stack(
+        clipBehavior: Clip.none,
         children: [
-          AppSidebar(false, onPressedPt, onPressedEn),
-          Expanded(
-            child: AppContent(false, isDoublePanel)
-          )
+          Row(
+            spacing: 16,
+            children: [
+              AppSidebar(false, onPressedPt, onPressedEn),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(top: DesktopAppbar.verticalSpace),
+                  child: AppContent(false, isDoublePanel),
+                )
+              )
+            ]
+          ),
+          DesktopAppbar()
         ]
       )
     );

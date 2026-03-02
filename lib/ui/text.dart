@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart' as urll;
 
-import 'const.dart';
 import 'theme.dart';
 
 class AppIconText extends StatelessWidget {
@@ -14,20 +13,16 @@ class AppIconText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextStyle textStyle = isSidebar ? AppTheme.highLightBlueStyle : AppTheme.darkStyle;
+
     return Row(
+      spacing: 8,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(
-          icon,
-          color: isSidebar ? AppTheme.highLightColor : AppTheme.darkColor
-        ),
-        AppUiConst.hsep8,
+        Icon(icon, color: textStyle.color),
         isLink
           ? AppLink(text, isSidebar)
-          : Text(
-              text,
-              style: isSidebar ? AppTheme.highLightStyle : AppTheme.darkStyle
-            )
+          : Text(text, style: textStyle)
       ]
     );
   }
@@ -58,7 +53,7 @@ class _AppLinkState extends State<AppLink> {
       child: Text(
         widget.text,
         style: widget.isSidebar
-          ? _hovered ? AppTheme.lightBlueStyle : AppTheme.highLightStyle
+          ? _hovered ? AppTheme.lightBlueStyle : AppTheme.highLightBlueStyle
           : _hovered ? AppTheme.darkBlueStyle : AppTheme.darkStyle
       )
     );

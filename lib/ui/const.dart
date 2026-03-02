@@ -9,7 +9,7 @@ class AppUiConst {
   static const SizedBox vsep16 = SizedBox(height: 16);
   static const SizedBox hsep36 = SizedBox(width: 36);
 
-  static final BorderRadius circleRadius = BorderRadius.circular(999999);
+  static const BorderRadius circleBorderRadius = BorderRadius.all(Radius.circular(999999));
 }
 
 class AppIcons {
@@ -29,7 +29,6 @@ class AppIcons {
   static const IconData link = Icons.link;
   static const IconData local = Icons.room_outlined;
   static const IconData mail = Icons.mail_outlined;
-  static const IconData menu = Icons.menu;
   static const IconData phone = Icons.phone_outlined;
   static const IconData studying = Icons.local_library_outlined;
   static const IconData summary = Icons.summarize_outlined;

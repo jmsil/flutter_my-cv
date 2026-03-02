@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../theme.dart';
+
 class AppContainer extends StatelessWidget {
   final double? width;
   final double? height;
@@ -53,7 +55,7 @@ class AppContainer extends StatelessWidget {
             )
           : BorderSide.none
       ),
-      shadowColor: Colors.black,
+      shadowColor: AppTheme.highDarkColor,
       elevation: hasShadow ? 8 : 0,
       clipBehavior: isClipped ? Clip.hardEdge : Clip.none,
       child: rWidget

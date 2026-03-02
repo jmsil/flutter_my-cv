@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../content/appbar.dart';
 import '../content/content.dart';
 import '../content/sidebar.dart';
-import '../ui/button.dart';
-import '../ui/const.dart';
-import '../ui/container/container.dart';
-import '../ui/strings.dart';
 import '../ui/theme.dart';
 
 class MobileScaffold extends StatefulWidget {
@@ -29,33 +26,12 @@ class _State extends State<MobileScaffold> {
 
   @override
   Widget build(BuildContext context) {
-    final Widget headerWidget = AppContainer(
-      color: AppTheme.highDarkColor,
-      padding: const EdgeInsets.all(16),
-      child: Row(
-        spacing: 8,
-        children: [
-          AppButton.icon(AppIcons.menu, openDrawer),
-          Expanded(
-            child: Column(
-              spacing: 4,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('João Marques da Silva', style: AppTheme.highLightStyle),
-                Text(AppStrings.role, style: AppTheme.lowLightStyle)
-              ]
-            )
-          )
-        ]
-      )
-    );
-
     return Stack(
       clipBehavior: Clip.none,
       children: [
         Column(
           children: [
-            headerWidget,
+            MobileAppbar(),
             Expanded(
               child: AppContent(true, false)
             )

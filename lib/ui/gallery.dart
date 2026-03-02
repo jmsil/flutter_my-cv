@@ -18,7 +18,7 @@ class AppGallery extends StatelessWidget {
 
     for (String fileName in assetsFolder.fileNames) {
       Widget imageWidget = ClipRRect(
-        borderRadius: AppTheme.allRadius,
+        borderRadius: AppTheme.allBorderRadius,
         child: Image.asset(fileName)
       );
       imageWidgets.add(imageWidget);
@@ -31,16 +31,16 @@ class AppGallery extends StatelessWidget {
       child: AppContainer(
         width: 1600,
         height: 900,
-        color: AppTheme.midDarkColor,
+        color: AppTheme.lowDarkColor,
         margin: const EdgeInsets.all(24),
         padding: const EdgeInsets.all(36),
         borderColor: AppTheme.lightBlue,
-        borderRadius: AppTheme.allRadius,
+        borderRadius: AppTheme.allBorderRadius,
         child: RoundedOverlay(
           direction: Axis.horizontal,
           radius: AppTheme.radiusValue,
-          startColor: AppTheme.midDarkColor,
-          endColor: AppTheme.midDarkColor,
+          startColor: AppTheme.lowDarkColor,
+          endColor: AppTheme.lowDarkColor,
           child: AppListView(
             scrollDirection: Axis.horizontal,
             children: imageWidgets

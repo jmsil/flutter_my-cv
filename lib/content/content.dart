@@ -9,7 +9,6 @@ import 'courses_books.dart';
 import 'education.dart';
 import 'items.dart';
 import 'professional_experience.dart';
-import 'professional_summary.dart';
 
 class AppContent extends StatelessWidget {
   final bool isMobileScaffold;
@@ -20,7 +19,6 @@ class AppContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Widget> contentItems = [
-      ProfessionalSummaryGroup(),
 
       if (!isDoublePanel)
         ProfessionalExperienceGroup(false),

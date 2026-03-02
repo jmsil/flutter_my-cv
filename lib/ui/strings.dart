@@ -1,11 +1,17 @@
 class AppStrings {
+  static const String personalName = 'João Marques da Silva';
+
   static const String _appNamePt = 'Meu CV';
   static const String _appNameEn = 'My CV';
   static String get appName => _select(_appNamePt, _appNameEn);
 
-  static const String _rolePt = 'Desenvolvedor Flutter';
-  static const String _roleEn = 'Flutter Developer';
-  static String get role => _select(_rolePt, _roleEn);
+  static const String _flutterRolePt = 'Desenvolvedor Flutter';
+  static const String _flutterRoleEn = 'Flutter Developer';
+  static String get flutterRole => _select(_flutterRolePt, _flutterRoleEn);
+
+  static const String _integrationRolePt = 'Desenvolvedor SAP Integration Suite';
+  static const String _integrationRoleEn = 'SAP Integration Suite Developer';
+  static String get integrationRole => _select(_integrationRolePt, _integrationRoleEn);
 
   static const String _detailsPt = 'Detalhes';
   static const String _detailsEn = 'Details';

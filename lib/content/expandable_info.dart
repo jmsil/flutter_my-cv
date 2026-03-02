@@ -26,7 +26,7 @@ class ExpandableInfo extends AppHeaderExpandable {
             AppContainer(
               width: 8,
               height: 48,
-              color: AppTheme.highDarkColor.withValues(alpha: 0.36),
+              color: AppTheme.highDarkColor.withValues(alpha: 0.32),
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(8), bottomLeft: Radius.circular(8)
               ),

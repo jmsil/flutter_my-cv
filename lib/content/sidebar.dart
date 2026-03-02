@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:my_cv/content/profile_photo.dart';
 
 import '../ui/assets.dart';
 import '../ui/button.dart';
 import '../ui/const.dart';
 import '../ui/container/container.dart';
 import '../ui/container/header_expandable.dart';
-import '../ui/divider.dart';
 import '../ui/scroller.dart';
 import '../ui/strings.dart';
 import '../ui/text.dart';
 import '../ui/theme.dart';
+import 'appbar.dart';
 
 class AppSidebar extends StatelessWidget {
-  static const Color _sectionMidDarkColor = Colors.black26;
-  static Color _sectionHighDarkColor = AppTheme.darkColor.withValues(alpha: 0.48);
+  static const double _containerWidth = 480;
 
   final bool isMobileScaffold;
   final Function() onPressedPt;
@@ -23,40 +23,15 @@ class AppSidebar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Widget sliverProfile = SliverAppBar(
-      expandedHeight: 420,
-      collapsedHeight: 204,
-      stretch: true,
-      elevation: 0,
-      automaticallyImplyLeading: false,
-      backgroundColor: Colors.transparent,
-      flexibleSpace: _ProfileSection(isMobileScaffold)
-    );
-
-    final Widget sliverInfo = SliverPadding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      sliver: SliverList(
-        delegate: SliverChildListDelegate(
-          [
-            _DetailsSection(),
-            AppUiConst.vsep16,
-            _SkillsSection(),
-            AppUiConst.vsep16,
-            _AboutSection()
-          ]
-        )
-      )
-    );
-
     final Widget footerWidget = AppContainer(
-      color: _sectionHighDarkColor,
+      color: AppTheme.highDarkColor,
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       child: Row(
         spacing: 8,
         children: [
           FlutterLogo(size: 32),
           Expanded(
-            child: Text(AppStrings.powredByFlutter, style: AppTheme.highLightStyle)
+            child: Text(AppStrings.powredByFlutter, style: AppTheme.lightBlueStyle)
           ),
           AppButton.label(AppStrings.langCode == 'pt', 'Pt', onPressedPt),
           AppButton.label(AppStrings.langCode != 'pt', 'En', onPressedEn)
@@ -65,10 +40,10 @@ class AppSidebar extends StatelessWidget {
     );
 
     return AppContainer(
-      width: 480,
-      color: AppTheme.midDarkColor,
+      width: _containerWidth,
+      color: AppTheme.lowDarkColor,
       margin: isMobileScaffold ? AppTheme.scaffoldPadding : null,
-      borderRadius: AppTheme.allRadius,
+      borderRadius: AppTheme.allBorderRadius,
       isClipped: true,
       child: Stack(
         fit: StackFit.expand,
@@ -79,12 +54,9 @@ class AppSidebar extends StatelessWidget {
             spacing: 16,
             children: [
               Expanded(
-                child: AppSliverScroller(
-                  [
-                    sliverProfile,
-                    sliverInfo
-                  ]
-                )
+                child: isMobileScaffold
+                  ? _MobileList()
+                  : _DesktopList()
               ),
               footerWidget
             ]
@@ -96,45 +68,77 @@ class AppSidebar extends StatelessWidget {
 }
 
 
-class _ProfileSection extends StatelessWidget {
-  final bool addBackButton;
-
-  _ProfileSection(this.addBackButton);
-
+class _MobileList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final double padding = addBackButton ? 12 : 36;
+    return AppSliverScroller(
+      [
+        SliverAppBar(
+          expandedHeight: AppSidebar._containerWidth,
+          collapsedHeight: 108,
+          stretch: true,
+          elevation: 0,
+          automaticallyImplyLeading: false,
+          backgroundColor: Colors.transparent,
+          flexibleSpace: _ProfileSection()
+        ),
 
-    Widget child = Column(
-      spacing: 8,
-      children: [
-        Flexible(
-          child: AspectRatio(
-            aspectRatio: 1,
-            child: AppContainer(
-              borderSize: 2,
-              borderColor: AppTheme.lightBlue,
-              borderRadius: AppUiConst.circleRadius,
-              isClipped: true,
-              child: Image.asset(AppAssets.profile_photo, fit: BoxFit.cover)
+        SliverPadding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          sliver: SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                _DetailsSection(),
+                AppUiConst.vsep16,
+                _SkillsSection(),
+                AppUiConst.vsep16,
+                _AboutSection()
+              ]
             )
           )
-        ),
-        AppUiConst.vsep8,
-        Text('João Marques da Silva', style: AppTheme.lightBlueStyle),
-        SizedBox(width: 96, child: AppDivider(4)),
-        Text(AppStrings.role, style: AppTheme.lightBlueStyle)
+        )
       ]
     );
+  }
+}
 
-    if (addBackButton) {
-      child = Stack(
+
+class _DesktopList extends Padding {
+  static final EdgeInsets _padding = EdgeInsets.fromLTRB(16, DesktopAppbar.verticalSpace, 16, 0);
+
+  _DesktopList()
+    : super(
+        padding: _padding,
+        child: AppListView(
+          children: [
+            _DetailsSection(),
+            AppUiConst.vsep16,
+            _SkillsSection(),
+            AppUiConst.vsep16,
+            _AboutSection()
+          ]
+        )
+      );
+}
+
+
+class _ProfileSection extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return AppContainer(
+      color: AppTheme.darkColor.withValues(alpha: 0.48),
+      borderRadius: AppTheme.allBorderRadius,
+      margin: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(12),
+      child: Stack(
         fit: StackFit.expand,
         clipBehavior: Clip.none,
         children: [
           Padding(
-            padding: const EdgeInsets.all(24),
-            child: child
+            padding: const EdgeInsets.all(12),
+            child: Center(
+              child: ProfilePhoto(false)
+            )
           ),
           Align(
             alignment: Alignment.topLeft,
@@ -144,15 +148,7 @@ class _ProfileSection extends StatelessWidget {
             )
           )
         ]
-      );
-    }
-
-    return AppContainer(
-      color: AppSidebar._sectionHighDarkColor,
-      borderRadius: AppTheme.allRadius,
-      margin: const EdgeInsets.all(16),
-      padding: EdgeInsets.all(padding),
-      child: child
+      )
     );
   }
 }
@@ -162,7 +158,7 @@ class _DetailsSection extends _Section {
   _DetailsSection()
     : super(
         true,
-        Text(AppStrings.details, style: AppTheme.lightBlueStyle),
+        AppStrings.details,
         Column(
           spacing: 12,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -181,7 +177,7 @@ class _SkillsSection extends _Section {
   _SkillsSection()
     : super(
         true,
-        Text(AppStrings.skills, style: AppTheme.lightBlueStyle),
+        AppStrings.skills,
         Column(
           spacing: 8,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -204,8 +200,8 @@ class _AboutSection extends _Section {
   _AboutSection()
     : super(
         false,
-        Text(AppStrings.aboutAndExpectationsTitle, style: AppTheme.lightBlueStyle),
-        Text(AppStrings.aboutAndExpectationsText, style: AppTheme.highLightStyle)
+        AppStrings.aboutAndExpectationsTitle,
+        Text(AppStrings.aboutAndExpectationsText, style: AppTheme.highLightBlueStyle)
       );
 }
 
@@ -214,17 +210,17 @@ class _Section extends AppContainer {
   static const EdgeInsets sectionHeaderPadding = EdgeInsets.fromLTRB(24, 16, 16, 16);
   static const EdgeInsets sectionContentPadding = EdgeInsets.fromLTRB(24, 8, 24, 24);
 
-  _Section(bool startOpen, Widget headerWidget, Widget contentWidget)
+  _Section(bool startOpen, String title, Widget contentWidget)
     : super(
-        color: AppSidebar._sectionMidDarkColor,
-        borderRadius: AppTheme.allRadius,
+        color: Colors.black26,
+        borderRadius: AppTheme.allBorderRadius,
         isClipped: true,
         child: AppHeaderExpandable(
           startOpen: startOpen,
           arrowColor: AppTheme.lightBlue,
           headerContentPadding: sectionHeaderPadding,
           expandableContentPadding: sectionContentPadding,
-          headerContent: headerWidget,
+          headerContent: Text(title, style: AppTheme.largeLightBlueBoldStyle),
           expandableContent: contentWidget
         )
       );

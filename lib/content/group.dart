@@ -42,9 +42,8 @@ class ContentGroup extends StatelessWidget {
               height: 40,
               color: AppTheme.lowLightColor,
               margin: const EdgeInsets.only(left: _iconContainerSize / 2),
-              borderColor: AppTheme.midDarkColor.withValues(alpha: 0.5),
-              borderRadius: AppUiConst.circleRadius,
-              hasShadow: true,
+              borderColor: AppTheme.lowDarkColor.withValues(alpha: 0.5),
+              borderRadius: AppUiConst.circleBorderRadius,
               child: Center(
                 child: Text(title, style: AppTheme.largeDarkBoldStyle)
               )
@@ -52,9 +51,8 @@ class ContentGroup extends StatelessWidget {
             AppContainer(
               width: _iconContainerSize,
               height: _iconContainerSize,
-              color: AppTheme.midDarkColor,
-              borderRadius: AppUiConst.circleRadius,
-              hasShadow: true,
+              color: AppTheme.lowDarkColor,
+              borderRadius: AppUiConst.circleBorderRadius,
               child: Icon(icon, size: _iconSize, color: AppTheme.highLightColor)
             )
           ]

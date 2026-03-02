@@ -15,16 +15,14 @@ class AppButton extends StatelessWidget {
   final Function() onPressed;
 
   AppButton.label(this.isSelected, String label, this.onPressed)
-    :
-    child = Text(
-      label,
-      style: isSelected ? AppTheme.lightBlueStyle : AppTheme.highLightStyle
-    );
+    : child = Text(
+        label,
+        style: isSelected ? AppTheme.lightBlueBoldStyle : AppTheme.highLightBlueStyle
+      );
 
   AppButton.icon(IconData icon, this.onPressed)
-    :
-    isSelected = false,
-    child = Icon(icon, size: 24, color: AppTheme.highLightColor);
+    : isSelected = false,
+      child = Icon(icon, size: 24, color: AppTheme.highLightBlue);
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +34,9 @@ class AppButton extends StatelessWidget {
       icon: AppContainer(
         width: _containerSize,
         height: _containerSize,
-        borderSize: 2,
-        borderColor: isSelected ? AppTheme.lightBlue : AppTheme.highLightColor,
-        borderRadius: AppUiConst.circleRadius,
+        borderSize: isSelected ? 3 : 1,
+        borderColor: isSelected ? AppTheme.lightBlue : AppTheme.highLightBlue,
+        borderRadius: AppUiConst.circleBorderRadius,
         child: Center(
           child: child
         )
@@ -81,7 +79,7 @@ class _AppImageGalleryButtonState extends State<AppImageGalleryButton> {
       width: width,
       height: height,
       borderColor: AppTheme.lightBlue,
-      borderRadius: AppTheme.allRadius,
+      borderRadius: AppTheme.allBorderRadius,
       isClipped: true,
       child: InkResponse(
         focusColor: Colors.transparent,
