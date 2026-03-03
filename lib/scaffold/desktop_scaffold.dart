@@ -20,7 +20,7 @@ class DesktopScaffold extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           Row(
-            spacing: 16,
+            spacing: AppTheme.normalSpacingValue,
             children: [
               AppSidebar(false, onPressedPt, onPressedEn),
               Expanded(

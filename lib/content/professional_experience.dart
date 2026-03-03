@@ -5,6 +5,7 @@ import '../ui/button.dart';
 import '../ui/const.dart';
 import '../ui/strings.dart';
 import '../ui/text.dart';
+import '../ui/theme.dart';
 import 'expandable_info.dart';
 import 'group.dart';
 
@@ -17,21 +18,21 @@ class ProfessionalExperienceGroup extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> children = [
       _BciForlevExperience(),
-      AppUiConst.vsep16,
+      AppTheme.normalVerticalSpacing,
 
       ExpandableInfo(
         title: AppStrings.flutterExperienceTitle,
         subtitle: '2021',
         info: AppStrings.flutterExperienceText
       ),
-      AppUiConst.vsep16,
+      AppTheme.normalVerticalSpacing,
 
       ExpandableInfo(
         title: AppStrings.mobileGameExperienceTitle,
         subtitle: '2013 - 2020',
         info: AppStrings.mobileGameExperienceText
       ),
-      AppUiConst.vsep16,
+      AppTheme.normalVerticalSpacing,
 
       ExpandableInfo(
         title: AppStrings.santriExperienceTitle,
@@ -39,7 +40,7 @@ class ProfessionalExperienceGroup extends StatelessWidget {
         fixedContent: AppIconText(AppIcons.link, 'https://www.santri.com.br', false, true),
         info: AppStrings.santriExperienceText
       ),
-      AppUiConst.vsep16,
+      AppTheme.normalVerticalSpacing,
 
       ExpandableInfo(
         title: AppStrings.smallErpTitle,
@@ -65,12 +66,12 @@ class _BciForlevExperience extends StatelessWidget {
       title: AppStrings.fortlevExperienceTitle,
       subtitle: AppStrings.fortlevExperiencePeriod,
       fixedContent: Row(
-        spacing: 36,
+        spacing: AppTheme.xLargeSpacingValue,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           AppImageGalleryButton(AppAssets.bciFortlevDriverAppAssetsFolder),
           Column(
-            spacing: 8,
+            spacing: AppTheme.smallSpacingValue,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AppIconText(AppIcons.link, 'https://www.bci-consulting.com', false, true),

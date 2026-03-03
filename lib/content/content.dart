@@ -56,7 +56,7 @@ class AppContent extends StatelessWidget {
 
     return isDoublePanel
       ? Row(
-          spacing: 32,
+          spacing: AppTheme.xLargeSpacingValue,
           children: [
             Expanded(
               flex: 3,

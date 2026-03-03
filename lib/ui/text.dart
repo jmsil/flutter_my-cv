@@ -16,7 +16,7 @@ class AppIconText extends StatelessWidget {
     final TextStyle textStyle = isSidebar ? AppTheme.highLightBlueStyle : AppTheme.darkStyle;
 
     return Row(
-      spacing: 8,
+      spacing: AppTheme.smallSpacingValue,
       mainAxisSize: MainAxisSize.min,
       children: [
         Icon(icon, color: textStyle.color),

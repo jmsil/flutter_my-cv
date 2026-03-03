@@ -37,7 +37,7 @@ class CoursesAndBooksGroup extends StatelessWidget {
 
   _addChild(String title, String detail, bool isCourse) {
     final Widget child = Row(
-      spacing: 8,
+      spacing: AppTheme.smallSpacingValue,
       children: [
         Icon(
           isCourse ? AppIcons.course : AppIcons.book,
@@ -60,6 +60,6 @@ class CoursesAndBooksGroup extends StatelessWidget {
       ]
     );
     _children.add(child);
-    _children.add(AppUiConst.vsep16);
+    _children.add(AppTheme.normalVerticalSpacing);
   }
 }

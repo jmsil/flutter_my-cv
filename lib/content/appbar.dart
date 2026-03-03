@@ -14,10 +14,10 @@ class MobileAppbar extends StatelessWidget {
       color: AppTheme.highDarkColor,
       padding: const ThemedEdgeInsets.normal(bottom: ThemedEdgeInsets.xLargeValue),
       child: Column(
-        spacing: 16,
+        spacing: AppTheme.normalSpacingValue,
         children: [
           Row(
-            spacing: 32,
+            spacing: AppTheme.xLargeSpacingValue,
             children: [
               SizedBox(
                 height: 110,
@@ -49,7 +49,7 @@ class DesktopAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Widget professionalSummary = Column(
-      spacing: 8,
+      spacing: AppTheme.smallSpacingValue,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(AppStrings.professionalSummaryTitle, style: AppTheme.xxLargeLightBlueBoldStyle),
@@ -160,7 +160,7 @@ class _ProfileDetails extends StatelessWidget {
     else {
       Widget roles = Expanded(
         child: Column(
-          spacing: 8,
+          spacing: AppTheme.smallSpacingValue,
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -173,7 +173,7 @@ class _ProfileDetails extends StatelessWidget {
     }
 
     return Column(
-      spacing: isMobileScaffold ? 4 : 8,
+      spacing: AppTheme.smallSpacingValue / (isMobileScaffold ? 2 : 1),
       crossAxisAlignment: CrossAxisAlignment.start,
       children: children
     );

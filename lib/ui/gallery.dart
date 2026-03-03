@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_cv/ui/const.dart';
 
 import 'assets.dart';
 import 'container/container.dart';
@@ -22,7 +21,7 @@ class AppGallery extends StatelessWidget {
         child: Image.asset(fileName)
       );
       imageWidgets.add(imageWidget);
-      imageWidgets.add(AppUiConst.hsep36);
+      imageWidgets.add(AppTheme.xLargeHorizontalSpacing);
     }
 
     imageWidgets.removeLast();

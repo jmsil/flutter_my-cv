@@ -63,11 +63,11 @@ class _State extends State<AppHeaderExpandable> {
             child: Padding(
               padding: widget.headerContentPadding,
               child: Row(
+                spacing: 16,
                 children: [
                   Expanded(
                     child: widget.headerContent
                   ),
-                  AppUiConst.hsep16,
                   Icon(
                     expandableKey.isExpanded ? AppIcons.arrow_up : AppIcons.arrow_down,
                     color: widget.arrowColor

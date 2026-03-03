@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../ui/const.dart';
 import '../ui/text.dart';
+import '../ui/theme.dart';
 import 'group.dart';
 
 class ItemsGroup extends ContentGroup {
@@ -13,7 +14,7 @@ class ItemsGroup extends ContentGroup {
         scrollable: false,
         children: [
           AppIconText(AppIcons.arrow_right, item1, false),
-          AppUiConst.vsep8,
+          AppTheme.smallVerticalSpacing,
           AppIconText(AppIcons.arrow_right, item2, false)
         ]
       );

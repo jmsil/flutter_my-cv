@@ -23,7 +23,7 @@ class ExpandableInfo extends AppHeaderExpandable {
         fixedContentPadding: _padding,
         expandableContentPadding: _padding,
         headerContent: Row(
-          spacing: 8,
+          spacing: AppTheme.smallSpacingValue,
           children: [
             AppContainer(
               width: 8,

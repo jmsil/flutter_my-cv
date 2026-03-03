@@ -2,13 +2,6 @@ import 'package:flutter/material.dart';
 
 class AppUiConst {
   AppUiConst._();
-
-  static const SizedBox hsep8 = SizedBox(width: 8);
-  static const SizedBox vsep8 = SizedBox(height: 8);
-  static const SizedBox hsep16 = SizedBox(width: 16);
-  static const SizedBox vsep16 = SizedBox(height: 16);
-  static const SizedBox hsep36 = SizedBox(width: 36);
-
   static const BorderRadius circleBorderRadius = BorderRadius.all(Radius.circular(999999));
 }
 

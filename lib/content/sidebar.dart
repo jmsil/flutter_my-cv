@@ -30,7 +30,7 @@ class AppSidebar extends StatelessWidget {
         vertical: ThemedEdgeInsets.smallValue
       ),
       child: Row(
-        spacing: 8,
+        spacing: AppTheme.smallSpacingValue,
         children: [
           FlutterLogo(size: 32),
           Expanded(
@@ -54,7 +54,7 @@ class AppSidebar extends StatelessWidget {
         children: [
           Image.asset(AppAssets.background, fit: BoxFit.cover, alignment: Alignment.topCenter),
           Column(
-            spacing: 16,
+            spacing: AppTheme.normalSpacingValue,
             children: [
               Expanded(
                 child: isMobileScaffold
@@ -92,9 +92,9 @@ class _MobileList extends StatelessWidget {
             delegate: SliverChildListDelegate(
               [
                 _DetailsSection(),
-                AppUiConst.vsep16,
+                AppTheme.normalVerticalSpacing,
                 _SkillsSection(),
-                AppUiConst.vsep16,
+                AppTheme.normalVerticalSpacing,
                 _AboutSection()
               ]
             )
@@ -117,9 +117,9 @@ class _DesktopList extends Padding {
         child: AppListView(
           children: [
             _DetailsSection(),
-            AppUiConst.vsep16,
+            AppTheme.normalVerticalSpacing,
             _SkillsSection(),
-            AppUiConst.vsep16,
+            AppTheme.normalVerticalSpacing,
             _AboutSection()
           ]
         )
@@ -167,7 +167,7 @@ class _DetailsSection extends _Section {
         true,
         AppStrings.details,
         Column(
-          spacing: 12,
+          spacing: AppTheme.normalSpacingValue,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AppIconText(AppIcons.local, AppStrings.brazil, true),
@@ -186,7 +186,7 @@ class _SkillsSection extends _Section {
         true,
         AppStrings.skills,
         Column(
-          spacing: 8,
+          spacing: AppTheme.smallSpacingValue,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AppIconText(AppIcons.arrow_right, 'Dart/Flutter', true),
