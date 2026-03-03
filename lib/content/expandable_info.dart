@@ -5,7 +5,9 @@ import '../ui/container/header_expandable.dart';
 import '../ui/theme.dart';
 
 class ExpandableInfo extends AppHeaderExpandable {
-  static const EdgeInsets _padding = const EdgeInsets.symmetric(horizontal: 16, vertical: 8);
+  static const EdgeInsets _padding = EdgeInsets.symmetric(
+    horizontal: ThemedEdgeInsets.normalValue, vertical: ThemedEdgeInsets.smallValue
+  );
 
   ExpandableInfo({
     required String title,

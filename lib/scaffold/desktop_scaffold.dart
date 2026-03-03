@@ -15,7 +15,7 @@ class DesktopScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: AppTheme.scaffoldPadding,
+      padding: const ThemedEdgeInsets.normal(),
       child: Stack(
         clipBehavior: Clip.none,
         children: [
@@ -25,7 +25,7 @@ class DesktopScaffold extends StatelessWidget {
               AppSidebar(false, onPressedPt, onPressedEn),
               Expanded(
                 child: Padding(
-                  padding: EdgeInsets.only(top: DesktopAppbar.verticalSpace),
+                  padding: EdgeInsets.only(top: DesktopAppbar.verticalEdgeInsets),
                   child: AppContent(false, isDoublePanel),
                 )
               )

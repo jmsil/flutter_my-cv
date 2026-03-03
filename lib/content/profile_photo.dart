@@ -10,7 +10,7 @@ class ProfilePhoto extends AspectRatio {
     : super(
         aspectRatio: 1,
         child: AppContainer(
-          margin: withMargin ? const EdgeInsets.all(16) : null,
+          margin: withMargin ? const ThemedEdgeInsets.normal() : null,
           borderSize: 2,
           borderColor: AppTheme.lightBlue,
           borderRadius: AppUiConst.circleBorderRadius,

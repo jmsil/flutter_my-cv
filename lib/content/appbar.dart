@@ -12,7 +12,7 @@ class MobileAppbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppContainer(
       color: AppTheme.highDarkColor,
-      padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+      padding: const ThemedEdgeInsets.normal(bottom: ThemedEdgeInsets.xLargeValue),
       child: Column(
         spacing: 16,
         children: [
@@ -36,9 +36,15 @@ class MobileAppbar extends StatelessWidget {
 
 
 class DesktopAppbar extends StatelessWidget {
-  static final double verticalSpace = _size + _margin.vertical;
-  static const double _size = 230;
-  static const EdgeInsets _margin = EdgeInsets.fromLTRB(16, 16, 0, 16);
+  static final double verticalEdgeInsets = _appbarHeight + _appbarMargin.vertical;
+
+  static const double _appbarHeight = 230;
+  static const double _neededSummaryHeight = 154;
+  static const double _profileAndSummaryPaddingValue = (_appbarHeight - _neededSummaryHeight) / 2;
+  static const EdgeInsets _profileAndSummaryPadding = const EdgeInsets.fromLTRB(
+    0, _profileAndSummaryPaddingValue, ThemedEdgeInsets.largeValue, _profileAndSummaryPaddingValue
+  );
+  static const EdgeInsets _appbarMargin = ThemedEdgeInsets.normal(right: 0);
 
   @override
   Widget build(BuildContext context) {
@@ -58,11 +64,11 @@ class DesktopAppbar extends StatelessWidget {
     );
 
     return AppContainer(
-      height: _size,
+      height: _appbarHeight,
       color: AppTheme.highDarkColor,
-      margin: _margin,
+      margin: _appbarMargin,
       borderRadius: const BorderRadius.horizontal(
-        left: const Radius.circular(_size / 2),
+        left: const Radius.circular(_appbarHeight / 2),
         right: const Radius.circular(AppTheme.radiusValue)
       ),
       hasShadow: true,
@@ -81,7 +87,7 @@ class DesktopAppbar extends StatelessWidget {
 
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 36, 24, 36),
+                  padding: _profileAndSummaryPadding,
                   child: Row(
                     children: [
                       Expanded(

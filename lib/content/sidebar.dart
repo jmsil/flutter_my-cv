@@ -25,7 +25,10 @@ class AppSidebar extends StatelessWidget {
   Widget build(BuildContext context) {
     final Widget footerWidget = AppContainer(
       color: AppTheme.highDarkColor,
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      padding: const EdgeInsets.symmetric(
+        horizontal: ThemedEdgeInsets.normalValue,
+        vertical: ThemedEdgeInsets.smallValue
+      ),
       child: Row(
         spacing: 8,
         children: [
@@ -42,7 +45,7 @@ class AppSidebar extends StatelessWidget {
     return AppContainer(
       width: _containerWidth,
       color: AppTheme.lowDarkColor,
-      margin: isMobileScaffold ? AppTheme.scaffoldPadding : null,
+      margin: isMobileScaffold ? const ThemedEdgeInsets.normal() : null,
       borderRadius: AppTheme.allBorderRadius,
       isClipped: true,
       child: Stack(
@@ -84,7 +87,7 @@ class _MobileList extends StatelessWidget {
         ),
 
         SliverPadding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(horizontal: ThemedEdgeInsets.normalValue),
           sliver: SliverList(
             delegate: SliverChildListDelegate(
               [
@@ -104,7 +107,9 @@ class _MobileList extends StatelessWidget {
 
 
 class _DesktopList extends Padding {
-  static final EdgeInsets _padding = EdgeInsets.fromLTRB(16, DesktopAppbar.verticalSpace, 16, 0);
+  static final EdgeInsets _padding = ThemedEdgeInsets.normal(
+    top: DesktopAppbar.verticalEdgeInsets, bottom: 0
+  );
 
   _DesktopList()
     : super(
@@ -123,19 +128,21 @@ class _DesktopList extends Padding {
 
 
 class _ProfileSection extends StatelessWidget {
+  static const EdgeInsets padding = EdgeInsets.all(ThemedEdgeInsets.largeValue / 2);
+
   @override
   Widget build(BuildContext context) {
     return AppContainer(
       color: AppTheme.darkColor.withValues(alpha: 0.48),
       borderRadius: AppTheme.allBorderRadius,
-      margin: const EdgeInsets.all(16),
-      padding: const EdgeInsets.all(12),
+      margin: const ThemedEdgeInsets.normal(),
+      padding: padding,
       child: Stack(
         fit: StackFit.expand,
         clipBehavior: Clip.none,
         children: [
           Padding(
-            padding: const EdgeInsets.all(12),
+            padding: padding,
             child: Center(
               child: ProfilePhoto(false)
             )
@@ -207,8 +214,12 @@ class _AboutSection extends _Section {
 
 
 class _Section extends AppContainer {
-  static const EdgeInsets sectionHeaderPadding = EdgeInsets.fromLTRB(24, 16, 16, 16);
-  static const EdgeInsets sectionContentPadding = EdgeInsets.fromLTRB(24, 8, 24, 24);
+  static const EdgeInsets sectionHeaderPadding = ThemedEdgeInsets.normal(
+    left: ThemedEdgeInsets.largeValue
+  );
+  static const EdgeInsets sectionContentPadding = ThemedEdgeInsets.large(
+    top: ThemedEdgeInsets.smallValue
+  );
 
   _Section(bool startOpen, String title, Widget contentWidget)
     : super(

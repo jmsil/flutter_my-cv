@@ -32,8 +32,8 @@ class AppGallery extends StatelessWidget {
         width: 1600,
         height: 900,
         color: AppTheme.lowDarkColor,
-        margin: const EdgeInsets.all(24),
-        padding: const EdgeInsets.all(36),
+        margin: const ThemedEdgeInsets.large(),
+        padding: const ThemedEdgeInsets.xLarge(),
         borderColor: AppTheme.lightBlue,
         borderRadius: AppTheme.allBorderRadius,
         child: RoundedOverlay(

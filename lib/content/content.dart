@@ -40,14 +40,16 @@ class AppContent extends StatelessWidget {
     ];
 
     final Widget appListView = RoundedOverlay(
-      padding: isMobileScaffold ? AppTheme.scaffoldPaddingValue : 0,
+      padding: isMobileScaffold ? ThemedEdgeInsets.normalValue : 0,
       radius: AppTheme.radiusValue,
       startSize: isMobileScaffold ? 32 : 0,
       startColor: isMobileScaffold ? AppTheme.highDarkColor : AppTheme.highLightColor,
       startWithBackground: isMobileScaffold,
       endColor: isMobileScaffold ? null : AppTheme.highLightColor,
       child: AppListView(
-        padding: isMobileScaffold ? AppTheme.scaffoldPadding.copyWith(top: 0) : null,
+        padding: isMobileScaffold
+          ? const ThemedEdgeInsets.normal(top: 0)
+          : null,
         children: contentItems
       )
     );

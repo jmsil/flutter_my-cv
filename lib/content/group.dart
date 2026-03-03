@@ -8,6 +8,12 @@ import '../ui/theme.dart';
 class ContentGroup extends StatelessWidget {
   static const double _iconSize = 32;
   static const double _iconContainerSize = _iconSize * 2;
+  static const EdgeInsets _childNoLeftPadding = EdgeInsets.fromLTRB(
+    0, ThemedEdgeInsets.normalValue, 0, ThemedEdgeInsets.xLargeValue
+  );
+  static const EdgeInsets _childWithLeftPadding = ThemedEdgeInsets.normal(
+    right: 0, bottom: ThemedEdgeInsets.xLargeValue
+  );
 
   final IconData icon;
   final String title;
@@ -25,11 +31,6 @@ class ContentGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double horizontalPadding = withPadding ? 16 : 0;
-    final EdgeInsets childPadding = EdgeInsets.fromLTRB(
-      horizontalPadding, 16, 0, 32
-    );
-
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,11 +62,11 @@ class ContentGroup extends StatelessWidget {
         Flexible(
           child: scrollable
             ? AppListView(
-                padding: childPadding,
+                padding: withPadding ? _childWithLeftPadding : _childNoLeftPadding,
                 children: children
               )
             : Padding(
-                padding: childPadding,
+                padding: withPadding ? _childWithLeftPadding : _childNoLeftPadding,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: children

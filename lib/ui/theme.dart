@@ -4,7 +4,6 @@ class AppTheme {
   AppTheme._();
 
   static const double radiusValue = 16;
-  static const double scaffoldPaddingValue = 16;
   static const double _fontSize = 15;
   static const double _largeFontSize = 16;
   static const double _xLargeFontSize = 17;
@@ -57,8 +56,53 @@ class AppTheme {
     fontSize: _xxLargeFontSize, color: lightBlue, fontWeight: FontWeight.bold
   );
 
-  static const EdgeInsets scaffoldPadding = EdgeInsets.all(scaffoldPaddingValue);
-
   static const Radius radius = Radius.circular(radiusValue);
   static const BorderRadius allBorderRadius = BorderRadius.all(radius);
+}
+
+class ThemedEdgeInsets extends EdgeInsets {
+  static const double smallValue = 8;
+  static const double normalValue = 16;
+  static const double largeValue = 24;
+  static const double xLargeValue = 32;
+
+  const ThemedEdgeInsets.small({
+    double? left, double? top, double? right, double? bottom
+  })
+    : super.fromLTRB(
+        left ?? smallValue,
+        top ?? smallValue,
+        right ?? smallValue,
+        bottom ?? smallValue
+      );
+
+  const ThemedEdgeInsets.normal({
+    double? left, double? top, double? right, double? bottom
+  })
+    : super.fromLTRB(
+        left ?? normalValue,
+        top ?? normalValue,
+        right ?? normalValue,
+        bottom ?? normalValue
+      );
+
+  const ThemedEdgeInsets.large({
+    double? left, double? top, double? right, double? bottom
+  })
+    : super.fromLTRB(
+        left ?? largeValue,
+        top ?? largeValue,
+        right ?? largeValue,
+        bottom ?? largeValue
+      );
+
+  const ThemedEdgeInsets.xLarge({
+    double? left, double? top, double? right, double? bottom
+  })
+    : super.fromLTRB(
+        left ?? xLargeValue,
+        top ?? xLargeValue,
+        right ?? xLargeValue,
+        bottom ?? xLargeValue
+      );
 }

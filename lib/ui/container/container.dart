@@ -37,7 +37,7 @@ class AppContainer extends StatelessWidget {
     if (padding != null || hasBorder) {
       rWidget = Padding(
         padding:
-          (padding == null ? EdgeInsets.zero : padding!) +
+          (padding ?? EdgeInsets.zero) +
           (hasBorder ? EdgeInsets.all(borderSize) : EdgeInsets.zero),
         child: rWidget
       );
