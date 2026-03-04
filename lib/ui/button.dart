@@ -8,7 +8,7 @@ import 'theme.dart';
 
 class AppButton extends StatelessWidget {
   static const double _containerSize = 36;
-  static Color _effectsColor = AppTheme.lowLightColor.withValues(alpha: 0.32);
+  static final Color effectsColor = AppTheme.lowLightColor.withValues(alpha: 0.32);
 
   final bool isSelected;
   final Widget child;
@@ -28,9 +28,9 @@ class AppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       iconSize: _containerSize,
-      splashColor: _effectsColor,
-      hoverColor: _effectsColor,
-      highlightColor: _effectsColor,
+      splashColor: effectsColor,
+      hoverColor: effectsColor,
+      highlightColor: effectsColor,
       icon: AppContainer(
         width: _containerSize,
         height: _containerSize,
@@ -81,19 +81,11 @@ class _AppImageGalleryButtonState extends State<AppImageGalleryButton> {
       borderColor: AppTheme.lightBlue,
       borderRadius: AppTheme.allBorderRadius,
       isClipped: true,
-      child: InkResponse(
-        focusColor: Colors.transparent,
-        hoverColor: AppButton._effectsColor,
-        splashColor: AppButton._effectsColor,
-        highlightColor: AppButton._effectsColor,
-        highlightShape: BoxShape.rectangle,
-        splashFactory: InkRipple.splashFactory,
-        mouseCursor: SystemMouseCursors.basic,
-        onTap: onPressed,
-        child: Padding(
-          padding: const EdgeInsets.all(padding),
-          child: child
-        )
+      child: AppInkResponse(
+        padding: const EdgeInsets.all(padding),
+        effectsColor: AppButton.effectsColor,
+        onPressed: onPressed,
+        child: child
       )
     );
   }
@@ -112,5 +104,48 @@ class _AppImageGalleryButtonState extends State<AppImageGalleryButton> {
     finally {
       setState(() => isProcessing = false);
     }
+  }
+}
+
+class AppInkResponse extends StatelessWidget {
+  final EdgeInsets? padding;
+  final Color effectsColor;
+  final MouseCursor cursor;
+  final void Function() onPressed;
+  final void Function(bool)? onHover;
+  final Widget? child;
+
+  AppInkResponse({
+    this.padding,
+    required this.effectsColor,
+    this.cursor = SystemMouseCursors.basic,
+    required this.onPressed,
+    this.onHover,
+    this.child
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    Widget? newChild = child;
+
+    if (padding != null) {
+      newChild = Padding(
+        padding: padding!,
+        child: newChild
+      );
+    }
+
+    return InkResponse(
+      focusColor: Colors.transparent,
+      hoverColor: effectsColor,
+      splashColor: effectsColor,
+      highlightColor: effectsColor,
+      highlightShape: BoxShape.rectangle,
+      splashFactory: InkRipple.splashFactory,
+      mouseCursor: cursor,
+      onTap: onPressed,
+      onHover: onHover,
+      child: newChild
+    );
   }
 }

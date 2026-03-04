@@ -144,7 +144,7 @@ class _ProfileSection extends StatelessWidget {
           Padding(
             padding: padding,
             child: Center(
-              child: ProfilePhoto(false)
+              child: ProfilePhoto(withMargin: false)
             )
           ),
           Align(
@@ -206,7 +206,7 @@ class _SkillsSection extends _Section {
 class _AboutSection extends _Section {
   _AboutSection()
     : super(
-        false,
+        true,
         AppStrings.aboutAndExpectationsTitle,
         Text(AppStrings.aboutAndExpectationsText, style: AppTheme.highLightBlueStyle)
       );

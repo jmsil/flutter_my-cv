@@ -8,6 +8,10 @@ import '../ui/strings.dart';
 import '../ui/theme.dart';
 
 class MobileAppbar extends StatelessWidget {
+  final void Function() onPressed;
+
+  MobileAppbar(this.onPressed);
+
   @override
   Widget build(BuildContext context) {
     return AppContainer(
@@ -21,7 +25,10 @@ class MobileAppbar extends StatelessWidget {
             children: [
               SizedBox(
                 height: 110,
-                child: ProfilePhoto(false)
+                child: ProfilePhoto(
+                  withMargin: false,
+                  onPressed: onPressed
+                )
               ),
               _ProfileDetails(true)
             ]
@@ -56,7 +63,7 @@ class DesktopAppbar extends StatelessWidget {
         _Divider(4),
         Expanded(
           child: Align(
-            alignment: Alignment.bottomRight,
+            alignment: Alignment.bottomLeft,
             child: Text(AppStrings.professionalSummaryText, style: AppTheme.xLargeLightBlueStyle)
           )
         )
@@ -83,7 +90,7 @@ class DesktopAppbar extends StatelessWidget {
           ),
           Row(
             children: [
-              ProfilePhoto(true),
+              ProfilePhoto(withMargin: true),
 
               Expanded(
                 child: Padding(

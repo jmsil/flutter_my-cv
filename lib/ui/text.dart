@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart' as urll;
 
+import 'button.dart';
 import 'theme.dart';
 
 class AppIconText extends StatelessWidget {
@@ -39,29 +40,31 @@ class AppLink extends StatefulWidget {
 }
 
 class _AppLinkState extends State<AppLink> {
-  bool _hovered = false;
+  bool hovered = false;
 
   @override
   Widget build(BuildContext context) {
-    return InkResponse(
-      focusColor: Colors.transparent,
-      highlightColor: Colors.transparent,
-      hoverColor: Colors.transparent,
-      splashColor: Colors.transparent,
-      onTap: _launch,
-      onHover: (value) => setState(() => _hovered = value),
+    return AppInkResponse(
+      effectsColor: Colors.transparent,
+      cursor: SystemMouseCursors.click,
+      onPressed: launch,
+      onHover: onHover,
       child: Text(
         widget.text,
         style: widget.isSidebar
-          ? _hovered ? AppTheme.lightBlueStyle : AppTheme.highLightBlueStyle
-          : _hovered ? AppTheme.darkBlueStyle : AppTheme.darkStyle
+          ? hovered ? AppTheme.lightBlueStyle : AppTheme.highLightBlueStyle
+          : hovered ? AppTheme.darkBlueStyle : AppTheme.darkStyle
       )
     );
   }
 
-  void _launch() async {
+  void launch() async {
     Uri uri = Uri.parse(widget.text);
     if (await urll.canLaunchUrl(uri))
       urll.launchUrl(uri);
+  }
+
+  void onHover(bool value) {
+    setState(() => hovered = value);
   }
 }

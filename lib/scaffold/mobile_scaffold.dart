@@ -31,7 +31,7 @@ class _State extends State<MobileScaffold> {
       children: [
         Column(
           children: [
-            MobileAppbar(),
+            MobileAppbar(openDrawer),
             Expanded(
               child: AppContent(true, false)
             )

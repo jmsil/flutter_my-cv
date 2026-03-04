@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../button.dart';
 import '../const.dart';
-import '../theme.dart';
 import 'container.dart';
 import 'expandable.dart';
 
@@ -38,7 +38,6 @@ class _State extends State<AppHeaderExpandable> {
   @override
   Widget build(BuildContext context) {
     Widget? fixedContent = widget.fixedContent;
-    final effectsColor = AppTheme.lowLightColor.withValues(alpha: 0.32);
 
     if (fixedContent != null && widget.fixedContentPadding != null) {
       fixedContent = Padding(
@@ -51,29 +50,21 @@ class _State extends State<AppHeaderExpandable> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AppContainer(
-          child: InkResponse(
-            focusColor: Colors.transparent,
-            hoverColor: effectsColor,
-            splashColor: effectsColor,
-            highlightColor: effectsColor,
-            highlightShape: BoxShape.rectangle,
-            splashFactory: InkRipple.splashFactory,
-            mouseCursor: SystemMouseCursors.basic,
-            onTap: () => setState(() => expandableKey.switchExpandedState()),
-            child: Padding(
-              padding: widget.headerContentPadding,
-              child: Row(
-                spacing: 16,
-                children: [
-                  Expanded(
-                    child: widget.headerContent
-                  ),
-                  Icon(
-                    expandableKey.isExpanded ? AppIcons.arrow_up : AppIcons.arrow_down,
-                    color: widget.arrowColor
-                  )
-                ]
-              )
+          child: AppInkResponse(
+            padding: widget.headerContentPadding,
+            effectsColor: AppButton.effectsColor,
+            onPressed: onPressed,
+            child: Row(
+              spacing: 16,
+              children: [
+                Expanded(
+                  child: widget.headerContent
+                ),
+                Icon(
+                  expandableKey.isExpanded ? AppIcons.arrow_up : AppIcons.arrow_down,
+                  color: widget.arrowColor
+                )
+              ]
             )
           )
         ),
@@ -84,5 +75,9 @@ class _State extends State<AppHeaderExpandable> {
         AppExpandable(expandableKey, widget.expandableContentPadding, widget.expandableContent)
       ]
     );
+  }
+
+  void onPressed() {
+    setState(() => expandableKey.switchExpandedState());
   }
 }
