@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../content/appbar.dart';
 import '../content/content.dart';
-import '../content/sidebar.dart';
 import '../ui/theme.dart';
+import 'appbar/animated_padding.dart';
+import 'appbar/desktop.dart';
+import 'appbar/state_provider.dart';
+import 'sidebar.dart';
 
 class DesktopScaffold extends StatelessWidget {
   final bool isDoublePanel;
@@ -16,23 +18,25 @@ class DesktopScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const ThemedEdgeInsets.normal(),
-      child: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          Row(
-            spacing: AppTheme.normalSpacingValue,
-            children: [
-              AppSidebar(false, onPressedPt, onPressedEn),
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsets.only(top: DesktopAppbar.verticalEdgeInsets),
-                  child: AppContent(false, isDoublePanel),
+      child: AppbarStateProvider(
+        child: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Row(
+              spacing: AppTheme.normalSpacingValue,
+              children: [
+                AppSidebar(false, onPressedPt, onPressedEn),
+                Expanded(
+                  child: AppbarAnimatedPadding(
+                    padding: EdgeInsets.zero,
+                    child: AppContent(false, isDoublePanel)
+                  )
                 )
-              )
-            ]
-          ),
-          DesktopAppbar()
-        ]
+              ]
+            ),
+            DesktopAppbar()
+          ]
+        )
       )
     );
   }

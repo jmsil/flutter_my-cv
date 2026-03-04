@@ -8,10 +8,12 @@ import '../ui/theme.dart';
 
 class ProfilePhoto extends StatelessWidget {
   final bool withMargin;
+  final BorderRadius? borderRadius;
   final void Function()? onPressed;
 
   ProfilePhoto({
     required this.withMargin,
+    this.borderRadius,
     this.onPressed
   });
 
@@ -20,18 +22,10 @@ class ProfilePhoto extends StatelessWidget {
     Widget child = Image.asset(AppAssets.profile_photo, fit: BoxFit.cover);
 
     if (onPressed != null) {
-      child = Stack(
-        clipBehavior: Clip.none,
-        children: [
-          child,
-          Material(
-            type: MaterialType.transparency,
-            child: AppInkResponse(
-              effectsColor: AppButton.effectsColor,
-              onPressed: onPressed!,
-            )
-          )
-        ]
+      child = AppInkResponse(
+        effectsColor: Colors.transparent,
+        onPressed: onPressed!,
+        child: child
       );
     }
 
@@ -41,7 +35,7 @@ class ProfilePhoto extends StatelessWidget {
         margin: withMargin ? const ThemedEdgeInsets.normal() : null,
         borderSize: 2,
         borderColor: AppTheme.lightBlue,
-        borderRadius: AppUiConst.circleBorderRadius,
+        borderRadius: borderRadius ?? AppUiConst.circleBorderRadius,
         isClipped: true,
         child: child
       )

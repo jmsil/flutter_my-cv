@@ -67,6 +67,9 @@ class AppTheme {
 
   static const Radius radius = Radius.circular(radiusValue);
   static const BorderRadius allBorderRadius = BorderRadius.all(radius);
+
+  static const Curve animationCurve = Curves.decelerate;
+  static const Duration animationDuration = Duration(milliseconds: 380);
 }
 
 class ThemedEdgeInsets extends EdgeInsets {

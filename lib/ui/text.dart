@@ -46,7 +46,6 @@ class _AppLinkState extends State<AppLink> {
   Widget build(BuildContext context) {
     return AppInkResponse(
       effectsColor: Colors.transparent,
-      cursor: SystemMouseCursors.click,
       onPressed: launch,
       onHover: onHover,
       child: Text(

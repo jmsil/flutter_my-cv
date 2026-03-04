@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../content/appbar.dart';
 import '../content/content.dart';
-import '../content/sidebar.dart';
 import '../ui/theme.dart';
+import 'appbar/mobile.dart';
+import 'sidebar.dart';
 
 class MobileScaffold extends StatefulWidget {
   final Function() onPressedPt;

@@ -10,10 +10,10 @@ import '../ui/scroller.dart';
 import '../ui/strings.dart';
 import '../ui/text.dart';
 import '../ui/theme.dart';
-import 'appbar.dart';
+import 'appbar/animated_padding.dart';
 
 class AppSidebar extends StatelessWidget {
-  static const double _containerWidth = 480;
+  static const double containerWidth = 480;
 
   final bool isMobileScaffold;
   final Function() onPressedPt;
@@ -43,7 +43,7 @@ class AppSidebar extends StatelessWidget {
     );
 
     return AppContainer(
-      width: _containerWidth,
+      width: containerWidth,
       color: AppTheme.lowDarkColor,
       margin: isMobileScaffold ? const ThemedEdgeInsets.normal() : null,
       borderRadius: AppTheme.allBorderRadius,
@@ -77,7 +77,7 @@ class _MobileList extends StatelessWidget {
     return AppSliverScroller(
       [
         SliverAppBar(
-          expandedHeight: AppSidebar._containerWidth,
+          expandedHeight: AppSidebar.containerWidth,
           collapsedHeight: 108,
           stretch: true,
           elevation: 0,
@@ -106,14 +106,10 @@ class _MobileList extends StatelessWidget {
 }
 
 
-class _DesktopList extends Padding {
-  static final EdgeInsets _padding = ThemedEdgeInsets.normal(
-    top: DesktopAppbar.verticalEdgeInsets, bottom: 0
-  );
-
+class _DesktopList extends AppbarAnimatedPadding {
   _DesktopList()
     : super(
-        padding: _padding,
+        padding: const ThemedEdgeInsets.normal(bottom: 0),
         child: AppListView(
           children: [
             _DetailsSection(),

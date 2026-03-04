@@ -41,7 +41,7 @@ class AppButton extends StatelessWidget {
           child: child
         )
       ),
-      mouseCursor: SystemMouseCursors.basic,
+      mouseCursor: SystemMouseCursors.click,
       onPressed: onPressed
     );
   }
@@ -110,18 +110,16 @@ class _AppImageGalleryButtonState extends State<AppImageGalleryButton> {
 class AppInkResponse extends StatelessWidget {
   final EdgeInsets? padding;
   final Color effectsColor;
-  final MouseCursor cursor;
   final void Function() onPressed;
   final void Function(bool)? onHover;
-  final Widget? child;
+  final Widget child;
 
   AppInkResponse({
     this.padding,
     required this.effectsColor,
-    this.cursor = SystemMouseCursors.basic,
     required this.onPressed,
     this.onHover,
-    this.child
+    required this.child
   });
 
   @override
@@ -142,7 +140,7 @@ class AppInkResponse extends StatelessWidget {
       highlightColor: effectsColor,
       highlightShape: BoxShape.rectangle,
       splashFactory: InkRipple.splashFactory,
-      mouseCursor: cursor,
+      mouseCursor: SystemMouseCursors.click,
       onTap: onPressed,
       onHover: onHover,
       child: newChild
