@@ -11,6 +11,7 @@ import '../ui/strings.dart';
 import '../ui/text.dart';
 import '../ui/theme.dart';
 import 'appbar/animated_padding.dart';
+import 'appbar/state_provider.dart';
 
 class AppSidebar extends StatelessWidget {
   static const double containerWidth = 480;
@@ -109,7 +110,10 @@ class _MobileList extends StatelessWidget {
 class _DesktopList extends AppbarAnimatedPadding {
   _DesktopList()
     : super(
-        padding: const ThemedEdgeInsets.normal(bottom: 0),
+        padding: ThemedEdgeInsets.normal(
+          top: AppbarStateProvider.totalCollapsedHeight,
+          bottom: 0
+        ),
         child: AppListView(
           children: [
             _DetailsSection(),

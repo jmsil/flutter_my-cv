@@ -7,6 +7,7 @@ import '../../ui/divider.dart';
 import '../../ui/strings.dart';
 import '../../ui/theme.dart';
 import 'animated_container.dart';
+import 'animated_padding.dart';
 import 'profile_details.dart';
 import 'state_provider.dart';
 
@@ -34,7 +35,7 @@ class DesktopAppbar extends StatelessWidget {
       borderRadius: const BorderRadius.all(
         Radius.circular(circleRadiusSize - ThemedEdgeInsets.normalValue)
       ),
-      onPressed: () => _onProfilePhotoPressed(context)
+      onPressed: () => AppbarStateProvider.switchStateOf(context)
     );
 
     final Widget professionalSummary = Column(
@@ -70,8 +71,10 @@ class DesktopAppbar extends StatelessWidget {
               children: [
                 profilePhoto,
                 Expanded(
-                  child: Padding(
+                  child: AppbarAnimatedPadding(
                     padding: _profileAndSummaryPadding,
+                    topFactor: 0.25,
+                    bottomFactor: 0.5,
                     child: Row(
                       children: [
                         Expanded(flex: 1, child: const SizedBox()),
@@ -91,9 +94,5 @@ class DesktopAppbar extends StatelessWidget {
         )
       )
     );
-  }
-
-  void _onProfilePhotoPressed(BuildContext context) {
-    context.getInheritedWidgetOfExactType<AppbarStateProvider>()!.switchState();
   }
 }

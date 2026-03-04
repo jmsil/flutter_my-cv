@@ -13,8 +13,7 @@ class AppbarAnimatedContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double height =
-      context.dependOnInheritedWidgetOfExactType<AppbarStateProvider>()!.currentHeight;
+    final double height = AppbarStateProvider.currentHeightOf(context);
 
     return AnimatedContainer(
       height: height,

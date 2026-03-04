@@ -28,7 +28,7 @@ class DesktopScaffold extends StatelessWidget {
                 AppSidebar(false, onPressedPt, onPressedEn),
                 Expanded(
                   child: AppbarAnimatedPadding(
-                    padding: EdgeInsets.zero,
+                    padding: EdgeInsets.only(top: AppbarStateProvider.totalCollapsedHeight),
                     child: AppContent(false, isDoublePanel)
                   )
                 )
