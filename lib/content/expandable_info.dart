@@ -31,8 +31,7 @@ class ExpandableInfo extends AppHeaderExpandable {
               color: AppTheme.highDarkColor.withValues(alpha: 0.32),
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(8), bottomLeft: Radius.circular(8)
-              ),
-              child: SizedBox()
+              )
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,

@@ -13,7 +13,7 @@ class AppContainer extends StatelessWidget {
   final BorderRadius borderRadius;
   final bool hasShadow;
   final bool isClipped;
-  final Widget child;
+  final Widget? child;
 
   AppContainer({
     this.width,
@@ -26,12 +26,12 @@ class AppContainer extends StatelessWidget {
     this.borderRadius = BorderRadius.zero,
     this.hasShadow = false,
     this.isClipped = false,
-    required this.child
+    this.child
   });
 
   @override
   Widget build(BuildContext context) {
-    Widget rWidget = child;
+    Widget? rWidget = child;
     final bool hasBorder = borderColor != null && borderSize > 0;
 
     if (padding != null || hasBorder) {

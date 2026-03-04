@@ -78,7 +78,9 @@ class DesktopAppbar extends StatelessWidget {
                     child: Row(
                       children: [
                         Expanded(flex: 1, child: const SizedBox()),
-                        ProfileDetails(false),
+                        IntrinsicWidth(
+                          child: ProfileDetails(false)
+                        ),
                         Expanded(flex: 2, child: const SizedBox()),
                         Expanded(
                           flex: 16,

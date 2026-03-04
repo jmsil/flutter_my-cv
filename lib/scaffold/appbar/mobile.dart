@@ -30,7 +30,9 @@ class MobileAppbar extends StatelessWidget {
                   onPressed: onPressed
                 )
               ),
-              ProfileDetails(true)
+              IntrinsicWidth(
+                child: ProfileDetails(true)
+              )
             ]
           ),
           AppDivider(2),

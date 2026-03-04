@@ -24,10 +24,7 @@ class ProfileDetails extends StatelessWidget {
           ? AppTheme.largeLightBlueBoldStyle
           : AppTheme.xxLargeLightBlueBoldStyle
       ),
-      SizedBox(
-        width: isMobileScaffold ? 140 : 180,
-        child: AppDivider(4),
-      )
+      AppDivider(4)
     ];
 
     if (isMobileScaffold) {
