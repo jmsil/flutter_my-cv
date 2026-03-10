@@ -39,8 +39,10 @@ class AppStrings {
   static String get personalLocal => _select(_personalLocalPt, _personalLocalEn);
 
   static const String personalPhone = '+55 62 99497-1154';
+  static const String personalPhoneLink = 'https://api.whatsapp.com/send?phone=5562994971154';
   static const String personalEmail = 'jmsilva.inbox@gmail.com';
-  static const String personalGitHub = 'https://github.com/Jmsil';
+  static const String personalEmailLink = 'mailto:${personalEmail}';
+  static const String personalGitHub = 'https://github.com/jmsil';
 
 
   static const String _progSkillsTitlePt = 'Habilidades Em Programação';
@@ -113,8 +115,8 @@ class AppStrings {
   static const String _fortlevXpDetailEn = 'BCI/Fortlev ▪ June/2021 - July/2023';
   static String get fortlevExperienceDetail => _select(_fortlevXpDetailPt, _fortlevXpDetailEn);
 
-  static const String bciSite = 'https://www.bci-consulting.com';
-  static const String fortlevSite = 'https://www.fortlev.com.br';
+  static const String bciLink = 'https://www.bci-consulting.com';
+  static const String fortlevLink = 'https://www.fortlev.com.br';
 
   static const String _fortlevXpInfoPt =
     'Atuei no desenvolvimento do aplicativo "Mão Dupla" para gestão de Ordens de Frete para a '
@@ -158,7 +160,7 @@ class AppStrings {
   static String get smartNewExperienceTitle => _select(_smartNewXpTitlePt, _smartNewXpTitleEn);
 
   static const String smartNewExperienceDetail = 'SmartNew System ▪ 2021';
-  static const String smartNewSite = 'https://telemetria.smartnewsystem.com';
+  static const String smartNewLink = 'https://telemetria.smartnewsystem.com';
 
   static const String _smartNewXpInfoPt =
     'Nos primeiros meses do ano, prestei consultoria para o desenvolvimento de um protótipo de '
@@ -210,7 +212,7 @@ class AppStrings {
   static const String _santriXpDetailEn = 'Santri Systems ▪ October/2007 - April/2012';
   static String get santriExperienceDetail => _select(_santriXpDetailPt, _santriXpDetailEn);
 
-  static const String santriSite = 'https://www.santri.com.br';
+  static const String santriLink = 'https://www.santri.com.br';
 
   static const String _santriXpInfoPt =
     'Na Santri Sistemas, contribuí para o desenvolvimento da aplicação cliente/servidor ADM '
@@ -269,7 +271,7 @@ class AppStrings {
   static const String _eduUniDetailEn = 'Estácio de Sá University ▪ 2006 - 2008';
   static String get educationUniversityDetail => _select(_eduUniDetailPt, _eduUniDetailEn);
 
-  static const String educationUniversitySite = 'https://estacio.br';
+  static const String educationUniversityLink = 'https://estacio.br';
 
   static const String _eduUniInfoPt =
     'O curso abordou todos os fundamentos teóricos e práticos envolvidos em arquitetura de redes '
@@ -343,7 +345,7 @@ class AppStrings {
   static const String courseSapAdvancedEventMeshTitle = 'SAP Advanced Event Mesh';
 
   static const String coursesSapDetail = 'Moovi Education ▪ 2025';
-  static const String mooviEducationSite = 'https://moovi.education';
+  static const String mooviEducationLink = 'https://moovi.education';
 
 
   static const String _languagesTitlePt = 'Idiomas';

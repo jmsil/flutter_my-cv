@@ -173,15 +173,17 @@ class _DetailsSection extends _Section {
               text: AppStrings.personalLocal,
               textStyle: AppTheme.highLightBlueStyle
             ),
-            AppIconText(
+            AppLink(
               icon: AppIcons.phone,
               text: AppStrings.personalPhone,
-              textStyle: AppTheme.highLightBlueStyle
+              link: AppStrings.personalPhoneLink,
+              isDarkStyle: false
             ),
-            AppIconText(
+            AppLink(
               icon: AppIcons.mail,
               text: AppStrings.personalEmail,
-              textStyle: AppTheme.highLightBlueStyle
+              link: AppStrings.personalEmailLink,
+              isDarkStyle: false
             ),
             AppLink(
               icon: AppIcons.code,

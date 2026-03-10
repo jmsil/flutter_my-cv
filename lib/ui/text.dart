@@ -37,11 +37,13 @@ class AppIconText extends StatelessWidget {
 class AppLink extends StatefulWidget {
   final IconData icon;
   final String text;
+  final String? link;
   final bool isDarkStyle;
 
   AppLink({
     this.icon = AppIcons.link,
     required this.text,
+    this.link,
     required this.isDarkStyle
   });
 
@@ -83,7 +85,7 @@ class _AppLinkState extends State<AppLink> {
   }
 
   void launch() async {
-    Uri uri = Uri.parse(widget.text);
+    Uri uri = Uri.parse(widget.link ?? widget.text);
     if (await urll.canLaunchUrl(uri))
       urll.launchUrl(uri);
   }

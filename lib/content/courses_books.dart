@@ -38,7 +38,7 @@ class CoursesAndBooksGroup extends StatelessWidget {
         _Expandable(
           AppIcons.course,
           AppStrings.coursesTitle,
-          AppLink(text: AppStrings.mooviEducationSite, isDarkStyle: true),
+          AppLink(text: AppStrings.mooviEducationLink, isDarkStyle: true),
           coursesChildren
         ),
         AppTheme.smallVerticalSpacing,

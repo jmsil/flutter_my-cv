@@ -15,7 +15,7 @@ class EducationGroup extends ContentGroup {
           ExpandableInfo(
             title: AppStrings.educationUniversityTitle,
             subtitle: AppStrings.educationUniversityDetail,
-            fixedContent: AppLink(text: AppStrings.educationUniversitySite, isDarkStyle: true),
+            fixedContent: AppLink(text: AppStrings.educationUniversityLink, isDarkStyle: true),
             info: AppStrings.educationUniversityInfo
           )
         ]
