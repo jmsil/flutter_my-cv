@@ -36,7 +36,7 @@ class MobileAppbar extends StatelessWidget {
             ]
           ),
           AppDivider(2),
-          Text(AppStrings.professionalSummaryText, style: AppTheme.largeLightBlueStyle)
+          Text(AppStrings.professionalSummaryInfo, style: AppTheme.largeLightBlueStyle)
         ]
       )
     );

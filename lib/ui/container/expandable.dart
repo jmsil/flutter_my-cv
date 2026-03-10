@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 
 class AppExpandable extends StatefulWidget {
   final EdgeInsets padding;
+  final bool isClipped;
   final Widget child;
 
-  AppExpandable(AppExpandableKey key, this.padding, this.child)
+  AppExpandable({
+    required AppExpandableKey key,
+    required this.padding,
+    this.isClipped = false,
+    required this.child
+  })
     : super(key: key);
 
   @override
@@ -49,6 +55,14 @@ class _State extends State<AppExpandable> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    Widget newChild = Padding(
+      padding: widget.padding,
+      child: widget.child
+    );
+
+    if (widget.isClipped)
+      newChild = ClipRect(child: newChild);
+
     return Offstage(
       offstage: isOffstage,
       child: AnimatedBuilder(
@@ -64,10 +78,7 @@ class _State extends State<AppExpandable> with SingleTickerProviderStateMixin {
             child: child
           );
         },
-        child: Padding(
-          padding: widget.padding,
-          child: widget.child
-        )
+        child: newChild
       )
     );
   }

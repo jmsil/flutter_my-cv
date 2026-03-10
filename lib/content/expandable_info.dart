@@ -33,12 +33,18 @@ class ExpandableInfo extends AppHeaderExpandable {
                 topLeft: Radius.circular(8), bottomLeft: Radius.circular(8)
               )
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(title, style: AppTheme.darkBoldStyle),
-                Text(subtitle, style: AppTheme.darkItalicStyle)
-              ]
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title, style: AppTheme.darkBoldStyle,
+                    softWrap: false,
+                    overflow: TextOverflow.ellipsis
+                  ),
+                  Text(subtitle, style: AppTheme.darkItalicStyle)
+                ]
+              )
             )
           ]
         ),

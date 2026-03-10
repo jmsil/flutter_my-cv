@@ -24,6 +24,20 @@ class AppSidebar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Widget> children = [
+      _DetailsSection(),
+      AppTheme.normalVerticalSpacing,
+      _SkillsSection(
+        AppStrings.programmingSkillsTitle, AppStrings.programmingSkillsInfo
+      ),
+      AppTheme.normalVerticalSpacing,
+      _SkillsSection(
+        AppStrings.integrationSkillsTitle, AppStrings.integrationSkillsInfo
+      ),
+      AppTheme.normalVerticalSpacing,
+      _AboutSection()
+    ];
+
     final Widget footerWidget = AppContainer(
       color: AppTheme.highDarkColor,
       padding: const EdgeInsets.symmetric(
@@ -59,8 +73,8 @@ class AppSidebar extends StatelessWidget {
             children: [
               Expanded(
                 child: isMobileScaffold
-                  ? _MobileList()
-                  : _DesktopList()
+                  ? _MobileList(children)
+                  : _DesktopList(children)
               ),
               footerWidget
             ]
@@ -72,56 +86,40 @@ class AppSidebar extends StatelessWidget {
 }
 
 
-class _MobileList extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return AppSliverScroller(
-      [
-        SliverAppBar(
-          expandedHeight: AppSidebar.containerWidth,
-          collapsedHeight: 108,
-          stretch: true,
-          elevation: 0,
-          automaticallyImplyLeading: false,
-          backgroundColor: Colors.transparent,
-          flexibleSpace: _ProfileSection()
-        ),
+class _MobileList extends AppSliverScroller {
+  _MobileList(List<Widget> children)
+    : super(
+        [
+          SliverAppBar(
+            expandedHeight: AppSidebar.containerWidth,
+            collapsedHeight: 108,
+            stretch: true,
+            elevation: 0,
+            automaticallyImplyLeading: false,
+            backgroundColor: Colors.transparent,
+            flexibleSpace: _ProfileSection()
+          ),
 
-        SliverPadding(
-          padding: const EdgeInsets.symmetric(horizontal: ThemedEdgeInsets.normalValue),
-          sliver: SliverList(
-            delegate: SliverChildListDelegate(
-              [
-                _DetailsSection(),
-                AppTheme.normalVerticalSpacing,
-                _SkillsSection(),
-                AppTheme.normalVerticalSpacing,
-                _AboutSection()
-              ]
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: ThemedEdgeInsets.normalValue),
+            sliver: SliverList(
+              delegate: SliverChildListDelegate(children)
             )
           )
-        )
-      ]
-    );
-  }
+        ]
+      );
 }
 
 
 class _DesktopList extends AppbarAnimatedPadding {
-  _DesktopList()
+  _DesktopList(List<Widget> children)
     : super(
         padding: ThemedEdgeInsets.normal(
           top: AppbarStateProvider.totalCollapsedHeight,
           bottom: 0
         ),
         child: AppListView(
-          children: [
-            _DetailsSection(),
-            AppTheme.normalVerticalSpacing,
-            _SkillsSection(),
-            AppTheme.normalVerticalSpacing,
-            _AboutSection()
-          ]
+          children: children
         )
       );
 }
@@ -165,41 +163,47 @@ class _DetailsSection extends _Section {
   _DetailsSection()
     : super(
         true,
-        AppStrings.details,
+        AppStrings.detailsTitle,
         Column(
           spacing: AppTheme.normalSpacingValue,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            AppIconText(AppIcons.local, AppStrings.brazil, true),
-            AppIconText(AppIcons.phone, '+55 62 99497-1154', true),
-            AppIconText(AppIcons.mail, 'jmsilva.inbox@gmail.com', true),
-            AppIconText(AppIcons.code, 'https://github.com/Jmsil', true, true)
+            AppIconText(AppIcons.local, AppStrings.personalLocal, true),
+            AppIconText(AppIcons.phone, AppStrings.personalPhone, true),
+            AppIconText(AppIcons.mail, AppStrings.personalEmail, true),
+            AppIconText(AppIcons.code, AppStrings.personalGitHub, true, true)
           ]
         )
       );
 }
 
 
-class _SkillsSection extends _Section {
-  _SkillsSection()
-    : super(
-        true,
-        AppStrings.skills,
-        Column(
-          spacing: AppTheme.smallSpacingValue,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            AppIconText(AppIcons.arrow_right, 'Dart/Flutter', true),
-            AppIconText(AppIcons.arrow_right, 'Android SDK', true),
-            AppIconText(AppIcons.arrow_right, 'Java', true),
-            AppIconText(AppIcons.arrow_right, 'C/C++', true),
-            AppIconText(AppIcons.arrow_right, 'Oracle Database', true),
-            AppIconText(AppIcons.arrow_right, 'MySQL Database', true),
-            AppIconText(AppIcons.arrow_right, 'SQL/PL SQL', true),
-            AppIconText(AppIcons.arrow_right, 'Git', true)
-          ]
-        )
-      );
+class _SkillsSection extends StatelessWidget {
+  final String title;
+  final String info;
+
+  _SkillsSection(this.title, this.info);
+
+  @override
+  Widget build(BuildContext context) {
+    final List<Widget> children = [];
+    final List<String> items = info.split(' - ');
+
+    for (String listItem in items) {
+      Widget item = AppIconText(AppIcons.arrowRight, listItem, true);
+      children.add(item);
+    }
+
+    return _Section(
+      false,
+      title,
+      Column(
+        spacing: AppTheme.smallSpacingValue,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: children
+      )
+    );
+  }
 }
 
 
@@ -208,7 +212,7 @@ class _AboutSection extends _Section {
     : super(
         true,
         AppStrings.aboutAndExpectationsTitle,
-        Text(AppStrings.aboutAndExpectationsText, style: AppTheme.highLightBlueStyle)
+        Text(AppStrings.aboutAndExpectationsInfo, style: AppTheme.highLightBlueStyle)
       );
 }
 

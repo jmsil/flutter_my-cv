@@ -14,8 +14,6 @@ class ProfileDetails extends StatelessWidget {
     final TextStyle textStyle = isMobileScaffold
       ? AppTheme.lightBlueStyle
       : AppTheme.xLargeLightBlueStyle;
-    final Widget flutterRole  = Text(AppStrings.flutterRole, style: textStyle);
-    final Widget integrationRole = Text(AppStrings.integrationRole, style: textStyle);
 
     final List<Widget> children = [
       Text(
@@ -26,6 +24,9 @@ class ProfileDetails extends StatelessWidget {
       ),
       AppDivider(4)
     ];
+
+    final Widget flutterRole  = Text(AppStrings.flutterRole, style: textStyle);
+    final Widget integrationRole = Text(AppStrings.integrationRole, style: textStyle);
 
     if (isMobileScaffold) {
       children.add(flutterRole);

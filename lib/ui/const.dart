@@ -8,9 +8,9 @@ class AppUiConst {
 class AppIcons {
   AppIcons._();
 
-  static const IconData arrow_down = Icons.keyboard_arrow_down;
-  static const IconData arrow_right = Icons.arrow_right;
-  static const IconData arrow_up = Icons.keyboard_arrow_up;
+  static const IconData arrowDown = Icons.keyboard_arrow_down;
+  static const IconData arrowRight = Icons.arrow_right;
+  static const IconData arrowUp = Icons.keyboard_arrow_up;
   static const IconData availability = Icons.how_to_reg_outlined;
   static const IconData back = Icons.arrow_back;
   static const IconData book = Icons.auto_stories_outlined;

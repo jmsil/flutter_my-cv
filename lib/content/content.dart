@@ -8,7 +8,7 @@ import '../ui/theme.dart';
 import 'courses_books.dart';
 import 'education.dart';
 import 'items.dart';
-import 'professional_experience.dart';
+import 'experience.dart';
 
 class AppContent extends StatelessWidget {
   final bool isMobileScaffold;
@@ -21,21 +21,22 @@ class AppContent extends StatelessWidget {
     final List<Widget> contentItems = [
 
       if (!isDoublePanel)
-        ProfessionalExperienceGroup(false),
+        ExperienceGroup(false),
 
       EducationGroup(),
+
       CoursesAndBooksGroup(),
+
       ItemsGroup(
-        AppIcons.language,
-        AppStrings.languagesTitle,
-        AppStrings.languagePtText,
-        AppStrings.languageEnText
+        icon: AppIcons.language,
+        title: AppStrings.languagesTitle,
+        info: AppStrings.languagesInfo
       ),
+
       ItemsGroup(
-        AppIcons.availability,
-        AppStrings.availabilityTitle,
-        AppStrings.availabilityContractText,
-        AppStrings.availabilityFreelanceText
+        icon: AppIcons.availability,
+        title: AppStrings.availabilityTitle,
+        info: AppStrings.availabilityInfo
       )
     ];
 
@@ -60,7 +61,7 @@ class AppContent extends StatelessWidget {
           children: [
             Expanded(
               flex: 3,
-              child: ProfessionalExperienceGroup(true)
+              child: ExperienceGroup(true)
             ),
             Expanded(
               flex: 2,

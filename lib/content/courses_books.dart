@@ -1,65 +1,113 @@
 import 'package:flutter/material.dart';
 
 import '../ui/const.dart';
+import '../ui/container/header_expandable.dart';
 import '../ui/strings.dart';
+import '../ui/text.dart';
 import '../ui/theme.dart';
 import 'group.dart';
 
 class CoursesAndBooksGroup extends StatelessWidget {
-  final List<Widget> _children = [];
-
   @override
   Widget build(BuildContext context) {
-    _addChild(
-      "Clean Architecture - A Craftsman's Guide to Software structure and Design",
-      'Robert C. Martin',
-      false
-    );
+    final List<Widget> coursesChildren = [
+      _Item(AppStrings.courseSapAdvancedEventMeshTitle, AppStrings.coursesSapDetail),
+      _Item(AppStrings.courseSapApiManagementTitle, AppStrings.coursesSapDetail),
+      _Item(AppStrings.courseSapCloudIntegration20Title, AppStrings.coursesSapDetail),
+      _Item(AppStrings.courseSapCloudIntegrationImmersionTitle, AppStrings.coursesSapDetail),
+      _Item(AppStrings.courseOracleTitle, AppStrings.courseOracleDetail)
+    ];
 
-    _addChild(
-      'Clean Code - A Handbook of Agile Sortware Craftsmanship',
-      'Robert C. Martin',
-      false
-    );
-
-    _addChild(AppStrings.courseOracleOcaOcpTitle, '2010', true);
-
-    _children.removeLast();
+    final List<Widget> booksChildren = [
+      _Item(
+        AppStrings.bookEnterpriseIntegrationPatternsTitle,
+        AppStrings.bookEnterpriseIntegrationPatternsDetail
+      ),
+      _Item(AppStrings.bookCleanArchitectureTitle, AppStrings.booksCleanCodeArchDetail),
+      _Item(AppStrings.bookCleanCodeTitle, AppStrings.booksCleanCodeArchDetail),
+      _Item(AppStrings.bookGoogleAndroidTitle, AppStrings.bookGoogleAndroidDetail),
+      _Item(AppStrings.bookDelphiBibleTitle, AppStrings.bookDelphiBibleDetail)
+    ];
 
     return ContentGroup(
       icon: AppIcons.studying,
       title: AppStrings.coursesAndBooksTitle,
-      withPadding: true,
+      withPadding: false,
       scrollable: false,
-      children: _children
-    );
-  }
-
-  _addChild(String title, String detail, bool isCourse) {
-    final Widget child = Row(
-      spacing: AppTheme.smallSpacingValue,
       children: [
-        Icon(
-          isCourse ? AppIcons.course : AppIcons.book,
-          size: 32,
-          color: AppTheme.darkColor
+        _Expandable(
+          AppIcons.course,
+          AppStrings.coursesTitle,
+          AppIconText(
+            AppIcons.link, AppStrings.mooviEducationSite, false, true
+          ),
+          coursesChildren
         ),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title, style: AppTheme.darkBoldStyle,
-                softWrap: false,
-                overflow: TextOverflow.fade,
-              ),
-              Text(detail, style: AppTheme.darkItalicStyle)
-            ]
-          )
+        AppTheme.smallVerticalSpacing,
+        _Expandable(
+          AppIcons.book, AppStrings.booksTitle, null, booksChildren
         )
       ]
     );
-    _children.add(child);
-    _children.add(AppTheme.normalVerticalSpacing);
   }
+}
+
+class _Item extends Row {
+  _Item(String title, String detail)
+    : super(
+        spacing: AppTheme.smallSpacingValue,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Icon(
+            AppIcons.arrowRight,
+            color: AppTheme.darkColor
+          ),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title, style: AppTheme.darkBoldStyle,
+                  softWrap: false,
+                  overflow: TextOverflow.ellipsis
+                ),
+                Text(detail, style: AppTheme.darkItalicStyle)
+              ]
+            )
+          )
+        ]
+      );
+}
+
+class _Expandable extends AppHeaderExpandable {
+  static const EdgeInsets _padding = EdgeInsets.symmetric(
+    horizontal: ThemedEdgeInsets.normalValue, vertical: ThemedEdgeInsets.smallValue
+  );
+
+  _Expandable(IconData icon, String title, Widget? fixedContent, List<Widget> children)
+    : super(
+        arrowColor: AppTheme.darkBlue,
+        isClipped: true,
+        headerContentPadding: _padding,
+        fixedContentPadding: _padding,
+        expandableContentPadding: _padding,
+        headerContent: Row(
+          spacing: AppTheme.smallSpacingValue,
+          children: [
+            Icon(
+              icon,
+              size: 32,
+              color: AppTheme.darkColor
+            ),
+            Expanded(
+              child: Text(title, style: AppTheme.largeDarkBoldStyle)
+            )
+          ]
+        ),
+        fixedContent: fixedContent,
+        expandableContent: Column(
+          spacing: AppTheme.normalSpacingValue,
+          children: children
+        )
+      );
 }

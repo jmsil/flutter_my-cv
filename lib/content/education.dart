@@ -1,5 +1,6 @@
 import '../ui/const.dart';
 import '../ui/strings.dart';
+import '../ui/text.dart';
 import 'expandable_info.dart';
 import 'group.dart';
 
@@ -13,8 +14,11 @@ class EducationGroup extends ContentGroup {
         children: [
           ExpandableInfo(
             title: AppStrings.educationUniversityTitle,
-            subtitle: '2006 - 2008',
-            info: AppStrings.educationUniversityText
+            subtitle: AppStrings.educationUniversityDetail,
+            fixedContent: AppIconText(
+              AppIcons.link, AppStrings.educationUniversitySite, false, true
+            ),
+            info: AppStrings.educationUniversityInfo
           )
         ]
       );

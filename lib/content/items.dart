@@ -5,17 +5,36 @@ import '../ui/text.dart';
 import '../ui/theme.dart';
 import 'group.dart';
 
-class ItemsGroup extends ContentGroup {
-  ItemsGroup(IconData icon, String title, String item1, String item2)
-    : super(
-        icon: icon,
-        title: title,
-        withPadding: true,
-        scrollable: false,
-        children: [
-          AppIconText(AppIcons.arrow_right, item1, false),
-          AppTheme.smallVerticalSpacing,
-          AppIconText(AppIcons.arrow_right, item2, false)
-        ]
-      );
+class ItemsGroup extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final String info;
+
+  ItemsGroup({
+    required this.icon,
+    required this.title,
+    required this.info
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final List<Widget> children = [];
+    final List<String> items = info.split(' - ');
+
+    for (String listItem in items) {
+      Widget item = AppIconText(AppIcons.arrowRight, listItem, false);
+      children.add(item);
+      children.add(AppTheme.smallVerticalSpacing);
+    }
+
+    children.removeLast();
+
+    return ContentGroup(
+      icon: icon,
+      title: title,
+      withPadding: true,
+      scrollable: false,
+      children: children
+    );
+  }
 }

@@ -47,7 +47,7 @@ class DesktopAppbar extends StatelessWidget {
         Expanded(
           child: Align(
             alignment: Alignment.bottomLeft,
-            child: Text(AppStrings.professionalSummaryText, style: AppTheme.xLargeLightBlueStyle)
+            child: Text(AppStrings.professionalSummaryInfo, style: AppTheme.xLargeLightBlueStyle)
           )
         )
       ]
