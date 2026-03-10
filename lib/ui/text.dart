@@ -2,20 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart' as urll;
 
 import 'button.dart';
+import 'const.dart';
 import 'theme.dart';
 
 class AppIconText extends StatelessWidget {
   final IconData icon;
   final String text;
-  final bool isSidebar;
-  final bool isLink;
+  final TextStyle textStyle;
 
-  AppIconText(this.icon, this.text, this.isSidebar, [this.isLink = false]);
+  AppIconText({
+    required this.icon,
+    required this.text,
+    required this.textStyle
+  });
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle textStyle = isSidebar ? AppTheme.highLightBlueStyle : AppTheme.darkStyle;
-
     return Row(
       spacing: AppTheme.smallSpacingValue,
       mainAxisSize: MainAxisSize.min,
@@ -24,19 +26,24 @@ class AppIconText extends StatelessWidget {
         : CrossAxisAlignment.center,
       children: [
         Icon(icon, color: textStyle.color),
-        isLink
-          ? AppLink(text, isSidebar)
-          : Text(text, style: textStyle)
+        Text(text, style: textStyle)
       ]
     );
   }
 }
 
-class AppLink extends StatefulWidget {
-  final String text;
-  final bool isSidebar;
 
-  AppLink(this.text, this.isSidebar);
+
+class AppLink extends StatefulWidget {
+  final IconData icon;
+  final String text;
+  final bool isDarkStyle;
+
+  AppLink({
+    this.icon = AppIcons.link,
+    required this.text,
+    required this.isDarkStyle
+  });
 
   @override
   _AppLinkState createState() => _AppLinkState();
@@ -47,16 +54,31 @@ class _AppLinkState extends State<AppLink> {
 
   @override
   Widget build(BuildContext context) {
+    final TextStyle textStyle = widget.isDarkStyle
+      ? hovered ? AppTheme.darkBlueStyle : AppTheme.darkStyle
+      : hovered ? AppTheme.lightBlueStyle : AppTheme.highLightBlueStyle;
+
+    Widget child = AppIconText(
+      icon: widget.icon,
+      text: widget.text,
+      textStyle: textStyle
+    );
+
+    if (hovered) {
+      child = Row(
+        spacing: AppTheme.smallSpacingValue,
+        children: [
+          child,
+          Icon(AppIcons.openInNew, size: 18, color: textStyle.color)
+        ]
+      );
+    }
+
     return AppInkResponse(
       effectsColor: Colors.transparent,
       onPressed: launch,
       onHover: onHover,
-      child: Text(
-        widget.text,
-        style: widget.isSidebar
-          ? hovered ? AppTheme.lightBlueStyle : AppTheme.highLightBlueStyle
-          : hovered ? AppTheme.darkBlueStyle : AppTheme.darkStyle
-      )
+      child: child
     );
   }
 

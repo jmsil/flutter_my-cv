@@ -22,7 +22,11 @@ class ItemsGroup extends StatelessWidget {
     final List<String> items = info.split(' - ');
 
     for (String listItem in items) {
-      Widget item = AppIconText(AppIcons.arrowRight, listItem, false);
+      Widget item = AppIconText(
+        icon: AppIcons.arrowRight,
+        text: listItem,
+        textStyle: AppTheme.darkStyle
+      );
       children.add(item);
       children.add(AppTheme.smallVerticalSpacing);
     }

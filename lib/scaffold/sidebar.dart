@@ -168,10 +168,26 @@ class _DetailsSection extends _Section {
           spacing: AppTheme.normalSpacingValue,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            AppIconText(AppIcons.local, AppStrings.personalLocal, true),
-            AppIconText(AppIcons.phone, AppStrings.personalPhone, true),
-            AppIconText(AppIcons.mail, AppStrings.personalEmail, true),
-            AppIconText(AppIcons.code, AppStrings.personalGitHub, true, true)
+            AppIconText(
+              icon: AppIcons.local,
+              text: AppStrings.personalLocal,
+              textStyle: AppTheme.highLightBlueStyle
+            ),
+            AppIconText(
+              icon: AppIcons.phone,
+              text: AppStrings.personalPhone,
+              textStyle: AppTheme.highLightBlueStyle
+            ),
+            AppIconText(
+              icon: AppIcons.mail,
+              text: AppStrings.personalEmail,
+              textStyle: AppTheme.highLightBlueStyle
+            ),
+            AppLink(
+              icon: AppIcons.code,
+              text: AppStrings.personalGitHub,
+              isDarkStyle: false
+            )
           ]
         )
       );
@@ -190,7 +206,11 @@ class _SkillsSection extends StatelessWidget {
     final List<String> items = info.split(' - ');
 
     for (String listItem in items) {
-      Widget item = AppIconText(AppIcons.arrowRight, listItem, true);
+      Widget item = AppIconText(
+        icon: AppIcons.arrowRight,
+        text: listItem,
+        textStyle: AppTheme.highLightBlueStyle
+      );
       children.add(item);
     }
 

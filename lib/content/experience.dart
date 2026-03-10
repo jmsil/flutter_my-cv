@@ -23,9 +23,7 @@ class ExperienceGroup extends StatelessWidget {
       ExpandableInfo(
         title: AppStrings.smartNewExperienceTitle,
         subtitle: AppStrings.smartNewExperienceDetail,
-        fixedContent: AppIconText(
-          AppIcons.link, AppStrings.smartNewSite, false, true
-        ),
+        fixedContent: AppLink(text: AppStrings.smartNewSite, isDarkStyle: true),
         info: AppStrings.smartNewExperienceInfo
       ),
       AppTheme.normalVerticalSpacing,
@@ -40,9 +38,7 @@ class ExperienceGroup extends StatelessWidget {
       ExpandableInfo(
         title: AppStrings.santriExperienceTitle,
         subtitle: AppStrings.santriExperienceDetail,
-        fixedContent: AppIconText(
-          AppIcons.link, AppStrings.santriSite, false, true
-        ),
+        fixedContent: AppLink(text: AppStrings.santriSite, isDarkStyle: true),
         info: AppStrings.santriExperienceInfo
       ),
       AppTheme.normalVerticalSpacing,
@@ -78,8 +74,8 @@ class _BciForlevExperience extends ExpandableInfo {
               spacing: AppTheme.smallSpacingValue,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                AppIconText(AppIcons.link, AppStrings.bciSite, false, true),
-                AppIconText(AppIcons.link, AppStrings.fortlevSite, false, true)
+                AppLink(text: AppStrings.bciSite, isDarkStyle: true),
+                AppLink(text: AppStrings.fortlevSite, isDarkStyle: true)
               ]
             )
           ]
