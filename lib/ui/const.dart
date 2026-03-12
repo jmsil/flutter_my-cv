@@ -9,11 +9,11 @@ class AppIcons {
   AppIcons._();
 
   static const IconData arrowDown = Icons.keyboard_arrow_down;
-  static const IconData arrowRight = Icons.arrow_right;
   static const IconData arrowUp = Icons.keyboard_arrow_up;
   static const IconData availability = Icons.how_to_reg_outlined;
   static const IconData back = Icons.arrow_back;
   static const IconData book = Icons.auto_stories_outlined;
+  static const IconData close = Icons.close;
   static const IconData code = Icons.code;
   static const IconData course = Icons.card_membership_outlined;
   static const IconData education = Icons.school_outlined;
@@ -26,4 +26,5 @@ class AppIcons {
   static const IconData phone = Icons.phone_outlined;
   static const IconData studying = Icons.local_library_outlined;
   static const IconData summary = Icons.summarize_outlined;
+  static const IconData topicMark = Icons.arrow_right;
 }

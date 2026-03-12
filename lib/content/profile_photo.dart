@@ -19,7 +19,7 @@ class ProfilePhoto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget child = Image.asset(AppAssets.profile_photo, fit: BoxFit.cover);
+    Widget child = Image.memory(AppAssets.profilePhoto, fit: BoxFit.cover);
 
     if (onPressed != null) {
       child = AppInkResponse(

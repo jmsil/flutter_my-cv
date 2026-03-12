@@ -57,7 +57,7 @@ class _Item extends Row {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Icon(
-            AppIcons.arrowRight,
+            AppIcons.topicMark,
             color: AppTheme.darkColor
           ),
           Expanded(

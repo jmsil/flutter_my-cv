@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:my_cv/ui/strings.dart';
 
 import 'scaffold/main_scaffold.dart';
+import 'ui/assets.dart';
+import 'ui/strings.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  AppStrings.setLanguage(WidgetsBinding.instance.platformDispatcher.locale.languageCode);
-  SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle(statusBarColor: Colors.transparent)
+  AppStrings.setLanguage(
+    WidgetsBinding.instance.platformDispatcher.locale.languageCode
   );
+  await AppAssets.loadStartupAssets();
+
   runApp(MainScaffold());
 }

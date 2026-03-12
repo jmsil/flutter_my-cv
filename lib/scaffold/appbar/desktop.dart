@@ -27,7 +27,7 @@ class DesktopAppbar extends StatelessWidget {
 
     final Widget backgroundImage = RotatedBox(
       quarterTurns: -1,
-      child: Image.asset(AppAssets.background, fit: BoxFit.cover)
+      child: Image.memory(AppAssets.background, fit: BoxFit.cover)
     );
 
     final Widget profilePhoto = ProfilePhoto(

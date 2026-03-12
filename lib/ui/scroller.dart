@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class AppListView extends ListView {
   AppListView({
+    super.controller,
     super.scrollDirection,
     super.padding,
     super.children

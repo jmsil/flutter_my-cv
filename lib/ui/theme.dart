@@ -22,7 +22,6 @@ class AppTheme {
   static final Color lightBlue = Colors.blue[200]!;
   static final Color darkBlue = Colors.blue[900]!;
   static final Color darkColor = Colors.black;
-  static final Color navigatorBackgroundColor = Colors.black54;
 
   static final TextStyle darkStyle = TextStyle(
     fontSize: _fontSize, color: darkColor
@@ -63,7 +62,6 @@ class AppTheme {
 
   static const SizedBox smallVerticalSpacing = SizedBox(height: smallSpacingValue);
   static const SizedBox normalVerticalSpacing = SizedBox(height: normalSpacingValue);
-  static const SizedBox xLargeHorizontalSpacing = SizedBox(width: xLargeSpacingValue);
 
   static const Radius radius = Radius.circular(radiusValue);
   static const BorderRadius allBorderRadius = BorderRadius.all(radius);

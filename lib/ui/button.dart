@@ -17,12 +17,12 @@ class AppButton extends StatelessWidget {
   AppButton.label(this.isSelected, String label, this.onPressed)
     : child = Text(
         label,
-        style: isSelected ? AppTheme.lightBlueBoldStyle : AppTheme.highLightBlueStyle
+        style: isSelected ? AppTheme.lightBlueBoldStyle : AppTheme.lightBlueStyle
       );
 
   AppButton.icon(IconData icon, this.onPressed)
     : isSelected = false,
-      child = Icon(icon, size: 24, color: AppTheme.highLightBlue);
+      child = Icon(icon, size: 24, color: AppTheme.lightBlue);
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +34,9 @@ class AppButton extends StatelessWidget {
       icon: AppContainer(
         width: _containerSize,
         height: _containerSize,
+        color: isSelected ? AppTheme.lightBlue.withValues(alpha: 0.16) : null,
         borderSize: isSelected ? 3 : 1,
-        borderColor: isSelected ? AppTheme.lightBlue : AppTheme.highLightBlue,
+        borderColor: AppTheme.lightBlue,
         borderRadius: AppUiConst.circleBorderRadius,
         child: Center(
           child: child
@@ -73,7 +74,7 @@ class _AppImageGalleryButtonState extends State<AppImageGalleryButton> {
             backgroundColor: AppTheme.darkBlue.withValues(alpha: 0.26)
           ),
         )
-      : Image.asset(AppAssets.image_slider, fit: BoxFit.fill);
+      : Image.memory(AppAssets.imageSlider, fit: BoxFit.fill);
 
     return AppContainer(
       width: width,
@@ -97,13 +98,14 @@ class _AppImageGalleryButtonState extends State<AppImageGalleryButton> {
     setState(() => isProcessing = true);
 
     try {
-      await widget.assetsFolder.precache(context);
-      await Future.delayed(Duration(milliseconds: 450));
-      AppGallery.show(context, widget.assetsFolder);
+      await widget.assetsFolder.load();
     }
     finally {
       setState(() => isProcessing = false);
     }
+
+    await AppGallery.show(context, widget.assetsFolder);
+    widget.assetsFolder.unload();
   }
 }
 

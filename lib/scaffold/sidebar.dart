@@ -67,7 +67,7 @@ class AppSidebar extends StatelessWidget {
         fit: StackFit.expand,
         clipBehavior: Clip.none,
         children: [
-          Image.asset(AppAssets.background, fit: BoxFit.cover, alignment: Alignment.topCenter),
+          Image.memory(AppAssets.background, fit: BoxFit.cover, alignment: Alignment.topCenter),
           Column(
             spacing: AppTheme.normalSpacingValue,
             children: [
@@ -209,7 +209,7 @@ class _SkillsSection extends StatelessWidget {
 
     for (String listItem in items) {
       Widget item = AppIconText(
-        icon: AppIcons.arrowRight,
+        icon: AppIcons.topicMark,
         text: listItem,
         textStyle: AppTheme.highLightBlueStyle
       );

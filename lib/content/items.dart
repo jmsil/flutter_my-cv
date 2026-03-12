@@ -23,7 +23,7 @@ class ItemsGroup extends StatelessWidget {
 
     for (String listItem in items) {
       Widget item = AppIconText(
-        icon: AppIcons.arrowRight,
+        icon: AppIcons.topicMark,
         text: listItem,
         textStyle: AppTheme.darkStyle
       );

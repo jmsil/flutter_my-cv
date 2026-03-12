@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../content/content.dart';
-import '../ui/theme.dart';
 import 'appbar/mobile.dart';
 import 'sidebar.dart';
 
@@ -40,7 +39,6 @@ class _State extends State<MobileScaffold> {
         DrawerController(
           key: drawerKey,
           alignment: DrawerAlignment.start,
-          scrimColor: AppTheme.navigatorBackgroundColor,
           child: AppSidebar(true, widget.onPressedPt, widget.onPressedEn)
         )
       ]
