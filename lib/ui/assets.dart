@@ -20,7 +20,7 @@ class AppAssets {
     String path = 'assets/images/startup/';
     background = await _load('${path}background.png');
     imageSlider = await _load('${path}image_slider.png');
-    profilePhoto = await _load('${path}profile_photo.heic');
+    profilePhoto = await _load('${path}profile_photo.jpeg');
   }
 
   static Future<Uint8List> _load(String path) async {
@@ -48,7 +48,7 @@ class AssetsFolder {
 
   Future<void> load() async {
     for (int i = 1; i <= fileCount; i++) {
-      Uint8List image = await AppAssets._load('${_path}${i}.heic');
+      Uint8List image = await AppAssets._load('${_path}${i}.jpeg');
       Codec thumbnailCodec = await instantiateImageCodec(
         image,
         targetWidth: thumbnailWidth,
