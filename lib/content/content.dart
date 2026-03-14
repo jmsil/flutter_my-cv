@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../scaffold/main_scaffold.dart';
 import '../ui/const.dart';
 import '../ui/container/rounded_overlay.dart';
 import '../ui/scroller.dart';
@@ -7,17 +8,15 @@ import '../ui/strings.dart';
 import '../ui/theme.dart';
 import 'courses_books.dart';
 import 'education.dart';
-import 'items.dart';
 import 'experience.dart';
+import 'items.dart';
 
 class AppContent extends StatelessWidget {
-  final bool isMobileScaffold;
-  final bool isDoublePanel;
-
-  AppContent(this.isMobileScaffold, this.isDoublePanel);
-
   @override
   Widget build(BuildContext context) {
+    final bool isDesktopScreen = context.isDesktopScreen;
+    final bool isDoublePanel = context.isLargeDesktopScreen;
+
     final List<Widget> contentItems = [
 
       if (!isDoublePanel)
@@ -40,35 +39,45 @@ class AppContent extends StatelessWidget {
       )
     ];
 
-    final Widget appListView = RoundedOverlay(
-      padding: isMobileScaffold ? ThemedEdgeInsets.normalValue : 0,
+    Widget appListView = isDesktopScreen
+      ? AppListView(
+          children: contentItems
+        )
+      : Column(
+          children: contentItems
+        );
+
+    appListView = RoundedOverlay(
+      padding: isDesktopScreen ? 0 : ThemedEdgeInsets.normalValue,
       radius: AppTheme.radiusValue,
-      startSize: isMobileScaffold ? 32 : 0,
-      startColor: isMobileScaffold ? AppTheme.highDarkColor : AppTheme.highLightColor,
-      startWithBackground: isMobileScaffold,
-      endColor: isMobileScaffold ? null : AppTheme.highLightColor,
-      child: AppListView(
-        padding: isMobileScaffold
-          ? const ThemedEdgeInsets.normal(top: 0)
-          : null,
-        children: contentItems
-      )
+      startSize: isDesktopScreen ? 0 : 32,
+      startColor: isDesktopScreen ? AppTheme.highLightColor : AppTheme.highDarkColor,
+      startHasBackground: !isDesktopScreen,
+      endColor: isDesktopScreen ? AppTheme.highLightColor : null,
+      child: appListView
     );
 
-    return isDoublePanel
-      ? Row(
-          spacing: AppTheme.xLargeSpacingValue,
-          children: [
-            Expanded(
-              flex: 3,
-              child: ExperienceGroup(true)
-            ),
-            Expanded(
-              flex: 2,
-              child: appListView
-            )
-          ]
+    if (!isDesktopScreen) {
+      appListView = SliverList(
+        delegate: SliverChildListDelegate([appListView])
+      );
+    }
+
+    if (!isDoublePanel)
+      return appListView;
+
+    return Row(
+      spacing: AppTheme.xLargeSpacingValue,
+      children: [
+        Expanded(
+          flex: 3,
+          child: ExperienceGroup(true)
+        ),
+        Expanded(
+          flex: 2,
+          child: appListView
         )
-      : appListView;
+      ]
+    );
   }
 }

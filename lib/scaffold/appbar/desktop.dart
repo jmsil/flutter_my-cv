@@ -12,8 +12,6 @@ import 'profile_details.dart';
 import 'state_provider.dart';
 
 class DesktopAppbar extends StatelessWidget {
-  static const EdgeInsets margin = ThemedEdgeInsets.normal(right: 0);
-
   static const double _neededSummaryHeight = 154;
   static const double _profileAndSummaryPaddingValue =
     (AppbarStateProvider.collapsedHeight - _neededSummaryHeight) / 2;
@@ -31,7 +29,7 @@ class DesktopAppbar extends StatelessWidget {
     );
 
     final Widget profilePhoto = ProfilePhoto(
-      withMargin: true,
+      margin: ThemedEdgeInsets.normalValue,
       borderRadius: const BorderRadius.all(
         Radius.circular(circleRadiusSize - ThemedEdgeInsets.normalValue)
       ),
@@ -79,7 +77,7 @@ class DesktopAppbar extends StatelessWidget {
                       children: [
                         Expanded(flex: 1, child: const SizedBox()),
                         IntrinsicWidth(
-                          child: ProfileDetails(false)
+                          child: ProfileDetails()
                         ),
                         Expanded(flex: 2, child: const SizedBox()),
                         Expanded(

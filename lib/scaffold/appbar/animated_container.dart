@@ -1,7 +1,6 @@
 import 'package:flutter/widgets.dart';
 
 import '../../ui/theme.dart';
-import 'desktop.dart';
 import 'state_provider.dart';
 
 class AppbarAnimatedContainer extends StatelessWidget {
@@ -17,7 +16,7 @@ class AppbarAnimatedContainer extends StatelessWidget {
 
     return AnimatedContainer(
       height: height,
-      margin: DesktopAppbar.margin,
+      margin: AppbarStateProvider.margin,
       duration: AppTheme.animationDuration,
       curve: AppTheme.animationCurve,
       child: child

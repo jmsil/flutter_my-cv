@@ -38,7 +38,11 @@ class CoursesAndBooksGroup extends StatelessWidget {
         _Expandable(
           AppIcons.course,
           AppStrings.coursesTitle,
-          AppLink(text: AppStrings.mooviEducationLink, isDarkStyle: true),
+          AppLink(
+            text: AppStrings.mooviEducationShortLink,
+            link: AppStrings.mooviEducationLink,
+            isDarkStyle: true
+          ),
           coursesChildren
         ),
         AppTheme.smallVerticalSpacing,
@@ -64,11 +68,7 @@ class _Item extends Row {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  title, style: AppTheme.darkBoldStyle,
-                  softWrap: false,
-                  overflow: TextOverflow.ellipsis
-                ),
+                Text(title, style: AppTheme.darkBoldStyle),
                 Text(detail, style: AppTheme.darkItalicStyle)
               ]
             )

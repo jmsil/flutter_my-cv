@@ -2,11 +2,11 @@ import 'package:flutter/widgets.dart';
 
 import '../../ui/theme.dart';
 import '../sidebar.dart';
-import 'desktop.dart';
 
 class AppbarStateProvider extends StatefulWidget {
+  static const EdgeInsets margin = ThemedEdgeInsets.normal(right: 0);
   static const double collapsedHeight = 226;
-  static final double totalCollapsedHeight = collapsedHeight + DesktopAppbar.margin.vertical;
+  static final double totalCollapsedHeight = collapsedHeight + margin.vertical;
   static const double expandedHeight =
     AppSidebar.containerWidth - ThemedEdgeInsets.normalValue * 2;
 
@@ -73,6 +73,6 @@ class _Notifier extends InheritedNotifier<ValueNotifier<bool>> {
   }
 
   double get currentTotalHeight {
-    return currentHeight + DesktopAppbar.margin.vertical;
+    return currentHeight + AppbarStateProvider.margin.vertical;
   }
 }

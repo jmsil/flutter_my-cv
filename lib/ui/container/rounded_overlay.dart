@@ -8,10 +8,10 @@ class RoundedOverlay extends StatelessWidget {
   final double radius;
   final double startSize;
   final Color? startColor;
-  final bool startWithBackground;
+  final bool startHasBackground;
   final double endSize;
   final Color? endColor;
-  final bool endWithBackground;
+  final bool endHasBackground;
   final Widget child;
 
   RoundedOverlay({
@@ -20,10 +20,10 @@ class RoundedOverlay extends StatelessWidget {
     required this.radius,
     double startSize = 0,
     this.startColor,
-    this.startWithBackground = false,
+    this.startHasBackground = false,
     double endSize = 0,
     this.endColor,
-    this.endWithBackground = false,
+    this.endHasBackground = false,
     required this.child
   })
     : this.startSize = Math.max(radius, startSize),
@@ -38,12 +38,12 @@ class RoundedOverlay extends StatelessWidget {
     final Alignment startAlignment = isVertical ? Alignment.topCenter : Alignment.centerLeft;
     final Alignment endAlignment = isVertical ? Alignment.bottomCenter : Alignment.centerRight;
 
-    if (hasStart && startWithBackground) {
+    if (hasStart && startHasBackground) {
       Widget box = _BackgroundBox(startAlignment, isVertical, startSize, startColor!);
       children.add(box);
     }
 
-    if (hasEnd && endWithBackground) {
+    if (hasEnd && endHasBackground) {
       Widget box = _BackgroundBox(endAlignment, isVertical, endSize, endColor!);
       children.add(box);
     }

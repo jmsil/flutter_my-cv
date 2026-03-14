@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../content/content.dart';
+import '../ui/scroller.dart';
 import 'appbar/mobile.dart';
 import 'sidebar.dart';
 
@@ -28,18 +29,16 @@ class _State extends State<MobileScaffold> {
     return Stack(
       clipBehavior: Clip.none,
       children: [
-        Column(
-          children: [
+        AppSliverScroller(
+          [
             MobileAppbar(openDrawer),
-            Expanded(
-              child: AppContent(true, false)
-            )
+            AppContent()
           ]
         ),
         DrawerController(
           key: drawerKey,
           alignment: DrawerAlignment.start,
-          child: AppSidebar(true, widget.onPressedPt, widget.onPressedEn)
+          child: AppSidebar(widget.onPressedPt, widget.onPressedEn)
         )
       ]
     );

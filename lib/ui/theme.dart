@@ -12,6 +12,7 @@ class AppTheme {
 
   static const double smallSpacingValue = 8;
   static const double normalSpacingValue = 16;
+  static const double largeSpacingValue = 24;
   static const double xLargeSpacingValue = 32;
 
   static final Color highLightColor = Colors.blueGrey[50]!;

@@ -18,26 +18,16 @@ class _State extends State {
       title: AppStrings.appName,
       scrollBehavior: AppScrollBehavior(),
       home: Builder(builder: buildScaffold),
-      builder: builder,
       debugShowCheckedModeBanner: false
     );
   }
 
   Widget buildScaffold(BuildContext context) {
-    final double screenWidth = MediaQuery.of(context).size.width;
     return Material(
       color: AppTheme.highLightColor,
-      child: screenWidth >= 1280
-        ? DesktopScaffold(screenWidth >= 1760, onPressedPt, onPressedEn)
+      child: context.isDesktopScreen
+        ? DesktopScaffold(onPressedPt, onPressedEn)
         : MobileScaffold(onPressedPt, onPressedEn)
-    );
-  }
-
-  Widget builder(BuildContext context, Widget? homeChild) {
-    final MediaQueryData data = MediaQuery.of(context);
-    return MediaQuery(
-      data: data.copyWith(textScaler: TextScaler.linear(1)),
-      child: homeChild!
     );
   }
 
@@ -49,5 +39,23 @@ class _State extends State {
   void onPressedEn() {
     if (AppStrings.setLanguage('en'))
       setState(() {});
+  }
+}
+
+extension MainScaffoldScreenExtension on BuildContext {
+  double get screenWidth {
+    return MediaQuery.of(this).size.width;
+  }
+
+  bool get isSmallMobileScreen {
+    return MediaQuery.of(this).size.width < 430;
+  }
+
+  bool get isDesktopScreen {
+    return MediaQuery.of(this).size.width >= 1260;
+  }
+
+  bool get isLargeDesktopScreen {
+    return MediaQuery.of(this).size.width >= 1640;
   }
 }

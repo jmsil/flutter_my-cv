@@ -3,36 +3,36 @@ import 'package:flutter/widgets.dart';
 import '../../ui/divider.dart';
 import '../../ui/strings.dart';
 import '../../ui/theme.dart';
+import '../main_scaffold.dart';
 
 class ProfileDetails extends StatelessWidget {
-  final bool isMobileScaffold;
-
-  ProfileDetails(this.isMobileScaffold);
-
   @override
   Widget build(BuildContext context) {
-    final TextStyle textStyle = isMobileScaffold
-      ? AppTheme.lightBlueStyle
-      : AppTheme.xLargeLightBlueStyle;
+    final bool isDesktopScreen = context.isDesktopScreen;
+    final bool isSmallMobileScreen = context.isSmallMobileScreen;
+
+    final TextStyle textStyle = isDesktopScreen
+      ? AppTheme.xLargeLightBlueStyle
+      : AppTheme.lightBlueStyle;
 
     final List<Widget> children = [
       Text(
         AppStrings.personalName,
-        style: isMobileScaffold
-          ? AppTheme.largeLightBlueBoldStyle
-          : AppTheme.xxLargeLightBlueBoldStyle
+        style: isDesktopScreen
+          ? AppTheme.xxLargeLightBlueBoldStyle
+          : AppTheme.largeLightBlueBoldStyle
       ),
       AppDivider(4)
     ];
 
-    final Widget flutterRole  = Text(AppStrings.flutterRole, style: textStyle);
-    final Widget integrationRole = Text(AppStrings.integrationRole, style: textStyle);
+    final Widget flutterRole = Text(
+      AppStrings.flutterRole(isSmallMobileScreen), style: textStyle
+    );
+    final Widget integrationRole = Text(
+      AppStrings.integrationRole(isSmallMobileScreen), style: textStyle
+    );
 
-    if (isMobileScaffold) {
-      children.add(flutterRole);
-      children.add(integrationRole);
-    }
-    else {
+    if (isDesktopScreen) {
       Widget roles = Expanded(
         child: Column(
           spacing: AppTheme.smallSpacingValue,
@@ -46,9 +46,13 @@ class ProfileDetails extends StatelessWidget {
       );
       children.add(roles);
     }
+    else {
+      children.add(flutterRole);
+      children.add(integrationRole);
+    }
 
     return Column(
-      spacing: AppTheme.smallSpacingValue / (isMobileScaffold ? 2 : 1),
+      spacing: AppTheme.smallSpacingValue / (isDesktopScreen ? 1 : 2),
       crossAxisAlignment: CrossAxisAlignment.start,
       children: children
     );

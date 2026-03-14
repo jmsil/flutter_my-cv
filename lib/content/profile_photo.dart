@@ -7,12 +7,12 @@ import '../ui/container/container.dart';
 import '../ui/theme.dart';
 
 class ProfilePhoto extends StatelessWidget {
-  final bool withMargin;
+  final double? margin;
   final BorderRadius? borderRadius;
   final void Function()? onPressed;
 
   ProfilePhoto({
-    required this.withMargin,
+    this.margin,
     this.borderRadius,
     this.onPressed
   });
@@ -32,7 +32,7 @@ class ProfilePhoto extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 1,
       child: AppContainer(
-        margin: withMargin ? const ThemedEdgeInsets.normal() : null,
+      margin: margin == null ? null : EdgeInsets.all(margin!),
         borderSize: 2,
         borderColor: AppTheme.lightBlue,
         borderRadius: borderRadius ?? AppUiConst.circleBorderRadius,

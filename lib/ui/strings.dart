@@ -5,13 +5,23 @@ class AppStrings {
 
   static const String personalName = 'João Marques da Silva';
 
+  static const String _flutterShortRole = 'Flutter';
   static const String _flutterRolePt = 'Desenvolvedor Flutter';
   static const String _flutterRoleEn = 'Flutter Developer';
-  static String get flutterRole => _select(_flutterRolePt, _flutterRoleEn);
+  static String flutterRole(bool isShort) {
+    return isShort
+      ? _flutterShortRole
+      : _select(_flutterRolePt, _flutterRoleEn);
+  }
 
+  static const String _integrationShortRole = 'SAP Integration Suite';
   static const String _integrationRolePt = 'Desenvolvedor SAP Integration Suite';
   static const String _integrationRoleEn = 'SAP Integration Suite Developer';
-  static String get integrationRole => _select(_integrationRolePt, _integrationRoleEn);
+  static String integrationRole(bool isShort) {
+    return isShort
+      ? _integrationShortRole
+      : _select(_integrationRolePt, _integrationRoleEn);
+  }
 
 
   static const String _profSummaryTitlePt = 'Resumo Profissional';
@@ -42,7 +52,7 @@ class AppStrings {
   static const String personalPhoneLink = 'https://api.whatsapp.com/send?phone=5562994971154';
   static const String personalEmail = 'jmsilva.inbox@gmail.com';
   static const String personalEmailLink = 'mailto:${personalEmail}';
-  static const String personalGitHub = 'https://github.com/jmsil';
+  static const String personalGitHubLink = 'https://github.com/jmsil';
 
 
   static const String _progSkillsTitlePt = 'Habilidades Em Programação';
@@ -115,7 +125,9 @@ class AppStrings {
   static const String _fortlevXpDetailEn = 'BCI/Fortlev ▪ June/2021 - July/2023';
   static String get fortlevExperienceDetail => _select(_fortlevXpDetailPt, _fortlevXpDetailEn);
 
+  static const String bciShortLink = 'BCI Consulting.com';
   static const String bciLink = 'https://www.bci-consulting.com';
+  static const String fortlevShortLink = 'Fortlev.com';
   static const String fortlevLink = 'https://www.fortlev.com.br';
 
   static const String _fortlevXpInfoPt =
@@ -160,6 +172,7 @@ class AppStrings {
   static String get smartNewExperienceTitle => _select(_smartNewXpTitlePt, _smartNewXpTitleEn);
 
   static const String smartNewExperienceDetail = 'SmartNew System ▪ 2021';
+  static const String smartNewShortLink = 'SmartNew System.com';
   static const String smartNewLink = 'https://telemetria.smartnewsystem.com';
 
   static const String _smartNewXpInfoPt =
@@ -212,6 +225,7 @@ class AppStrings {
   static const String _santriXpDetailEn = 'Santri Systems ▪ October/2007 - April/2012';
   static String get santriExperienceDetail => _select(_santriXpDetailPt, _santriXpDetailEn);
 
+  static const String santriShortLink = 'Santri.com';
   static const String santriLink = 'https://www.santri.com.br';
 
   static const String _santriXpInfoPt =
@@ -271,6 +285,7 @@ class AppStrings {
   static const String _eduUniDetailEn = 'Estácio de Sá University ▪ 2006 - 2008';
   static String get educationUniversityDetail => _select(_eduUniDetailPt, _eduUniDetailEn);
 
+  static const String educationUniversityShortLink = 'Estacio.com';
   static const String educationUniversityLink = 'https://estacio.br';
 
   static const String _eduUniInfoPt =
@@ -345,6 +360,7 @@ class AppStrings {
   static const String courseSapAdvancedEventMeshTitle = 'SAP Advanced Event Mesh';
 
   static const String coursesSapDetail = 'Moovi Education ▪ 2025';
+  static const String mooviEducationShortLink = 'Moovi Education.com';
   static const String mooviEducationLink = 'https://moovi.education';
 
 
@@ -372,11 +388,17 @@ class AppStrings {
   static String get availabilityTitle => _select(_availabilityTitlePt, _availabilityTitleEn);
 
   static const String _availabilityInfoPt =
-    'Contrato Pessoa Jurídica (PREFERÍVEL) ▪ fixo/hora - Contrato Pessoa Física - '
-    'Somente remoto - Freelance';
+    'Contrato Pessoa Jurídica (PREFERÍVEL)\n'
+    '▪ Fixo/hora - '
+    'Contrato Pessoa Física - '
+    'Somente remoto - '
+    'Freelance';
   static const String _availabilityInfoEn =
-    'Independent contract (PREFERABLE) ▪ fixed/hour - Employee contract - '
-    'Remote only - Freelance';
+    'Independent contract (PREFERABLE)\n'
+    '▪ Fixed/hour - '
+    'Employee contract - '
+    'Remote only - '
+    'Freelance';
   static String get availabilityInfo => _select(_availabilityInfoPt, _availabilityInfoEn);
 
 

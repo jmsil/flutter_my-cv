@@ -9,6 +9,7 @@ class AppHeaderExpandable extends StatefulWidget {
   final bool startOpen;
   final Color arrowColor;
   final bool isClipped;
+  final bool headerHasIntrinsic;
   final EdgeInsets headerContentPadding;
   final EdgeInsets? fixedContentPadding;
   final EdgeInsets expandableContentPadding;
@@ -20,6 +21,7 @@ class AppHeaderExpandable extends StatefulWidget {
     this.startOpen = false,
     required this.arrowColor,
     this.isClipped = false,
+    this.headerHasIntrinsic = false,
     required this.headerContentPadding,
     this.fixedContentPadding,
     required this.expandableContentPadding,
@@ -39,6 +41,32 @@ class _State extends State<AppHeaderExpandable> {
 
   @override
   Widget build(BuildContext context) {
+    Widget headerWidget = AppContainer(
+      child: AppInkResponse(
+        padding: widget.headerContentPadding,
+        effectsColor: AppButton.effectsColor,
+        onPressed: onPressed,
+        child: Row(
+          spacing: 16,
+          children: [
+            Expanded(
+              child: widget.headerContent
+            ),
+            Icon(
+              expandableKey.isExpanded ? AppIcons.arrowUp : AppIcons.arrowDown,
+              color: widget.arrowColor
+            )
+          ]
+        )
+      )
+    );
+
+    if (widget.headerHasIntrinsic) {
+      headerWidget = IntrinsicHeight(
+        child: headerWidget
+      );
+    }
+
     Widget? fixedContent = widget.fixedContent;
 
     if (fixedContent != null && widget.fixedContentPadding != null) {
@@ -51,25 +79,7 @@ class _State extends State<AppHeaderExpandable> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AppContainer(
-          child: AppInkResponse(
-            padding: widget.headerContentPadding,
-            effectsColor: AppButton.effectsColor,
-            onPressed: onPressed,
-            child: Row(
-              spacing: 16,
-              children: [
-                Expanded(
-                  child: widget.headerContent
-                ),
-                Icon(
-                  expandableKey.isExpanded ? AppIcons.arrowUp : AppIcons.arrowDown,
-                  color: widget.arrowColor
-                )
-              ]
-            )
-          )
-        ),
+        headerWidget,
 
         if (fixedContent != null)
           fixedContent,
