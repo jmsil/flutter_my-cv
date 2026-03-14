@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../scaffold/main_scaffold.dart';
 import '../ui/const.dart';
-import '../ui/container/rounded_overlay.dart';
+import '../ui/container/overlay_bar.dart';
 import '../ui/scroller.dart';
 import '../ui/strings.dart';
 import '../ui/theme.dart';
@@ -39,7 +39,7 @@ class AppContent extends StatelessWidget {
       )
     ];
 
-    Widget appListView = isDesktopScreen
+    Widget appListWidget = isDesktopScreen
       ? AppListView(
           children: contentItems
         )
@@ -47,24 +47,23 @@ class AppContent extends StatelessWidget {
           children: contentItems
         );
 
-    appListView = RoundedOverlay(
-      padding: isDesktopScreen ? 0 : ThemedEdgeInsets.normalValue,
+    appListWidget = OverlayBar(
       radius: AppTheme.radiusValue,
       startSize: isDesktopScreen ? 0 : 32,
-      startColor: isDesktopScreen ? AppTheme.highLightColor : AppTheme.highDarkColor,
-      startHasBackground: !isDesktopScreen,
-      endColor: isDesktopScreen ? AppTheme.highLightColor : null,
-      child: appListView
+      startBackgroundColor: isDesktopScreen ? null : AppTheme.highDarkColor,
+      startForegroundColor: isDesktopScreen ? AppTheme.highLightColor : null,
+      endForegroundColor: isDesktopScreen ? AppTheme.highLightColor : null,
+      child: appListWidget
     );
 
     if (!isDesktopScreen) {
-      appListView = SliverList(
-        delegate: SliverChildListDelegate([appListView])
+      appListWidget = SliverList(
+        delegate: SliverChildListDelegate([appListWidget])
       );
     }
 
     if (!isDoublePanel)
-      return appListView;
+      return appListWidget;
 
     return Row(
       spacing: AppTheme.xLargeSpacingValue,
@@ -75,7 +74,7 @@ class AppContent extends StatelessWidget {
         ),
         Expanded(
           flex: 2,
-          child: appListView
+          child: appListWidget
         )
       ]
     );

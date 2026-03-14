@@ -2,28 +2,28 @@ import 'dart:math' as Math;
 
 import 'package:flutter/material.dart';
 
-class RoundedOverlay extends StatelessWidget {
+class OverlayBar extends StatelessWidget {
   final Axis direction;
   final double padding;
   final double radius;
   final double startSize;
-  final Color? startColor;
-  final bool startHasBackground;
+  final Color? startBackgroundColor;
+  final Color? startForegroundColor;
   final double endSize;
-  final Color? endColor;
-  final bool endHasBackground;
+  final Color? endBackgroundColor;
+  final Color? endForegroundColor;
   final Widget child;
 
-  RoundedOverlay({
+  OverlayBar({
     this.direction = Axis.vertical,
     this.padding = 0,
-    required this.radius,
+    this.radius = 0,
     double startSize = 0,
-    this.startColor,
-    this.startHasBackground = false,
+    this.startBackgroundColor,
+    this.startForegroundColor,
     double endSize = 0,
-    this.endColor,
-    this.endHasBackground = false,
+    this.endBackgroundColor,
+    this.endForegroundColor,
     required this.child
   })
     : this.startSize = Math.max(radius, startSize),
@@ -33,41 +33,55 @@ class RoundedOverlay extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Widget> children = [];
     final bool isVertical = direction == Axis.vertical;
-    final bool hasStart = startColor != null && startColor != Colors.transparent;
-    final bool hasEnd = endColor != null && endColor != Colors.transparent;
     final Alignment startAlignment = isVertical ? Alignment.topCenter : Alignment.centerLeft;
     final Alignment endAlignment = isVertical ? Alignment.bottomCenter : Alignment.centerRight;
+    final bool hasStartBackgroundBox = _hasBackgroundBox(startSize, startBackgroundColor);
+    final bool hasStartForegroundBox = _hasForegroundBox(startSize, startForegroundColor);
+    final bool hasEndBackgroundBox = _hasBackgroundBox(endSize, endBackgroundColor);
+    final bool hasEndForegroundBox = _hasForegroundBox(endSize, endForegroundColor);
 
-    if (hasStart && startHasBackground) {
-      Widget box = _BackgroundBox(startAlignment, isVertical, startSize, startColor!);
+    if (hasStartBackgroundBox) {
+      Widget box = _BackgroundBox(startAlignment, isVertical, startSize, startBackgroundColor!);
       children.add(box);
     }
 
-    if (hasEnd && endHasBackground) {
-      Widget box = _BackgroundBox(endAlignment, isVertical, endSize, endColor!);
+    if (hasEndBackgroundBox) {
+      Widget box = _BackgroundBox(endAlignment, isVertical, endSize, endBackgroundColor!);
       children.add(box);
     }
 
     children.add(child);
 
-    if (hasStart) {
-      Widget clip = _ForegroundBox(
-        startAlignment, isVertical ? 0 : -1, padding, radius, startSize, startColor!
+    if (hasStartForegroundBox) {
+      Widget box = _ForegroundBox(
+        startAlignment, isVertical ? 0 : -1, padding, radius, startSize, startForegroundColor!
       );
-      children.add(clip);
+      children.add(box);
     }
 
-    if (hasEnd) {
-      Widget clip = _ForegroundBox(
-        endAlignment, isVertical ? 2 : 1, padding, radius, endSize, endColor!
+    if (hasEndForegroundBox) {
+      Widget box = _ForegroundBox(
+        endAlignment, isVertical ? 2 : 1, padding, radius, endSize, endForegroundColor!
       );
-      children.add(clip);
+      children.add(box);
     }
 
     return Stack(
       clipBehavior: Clip.none,
       children: children
     );
+  }
+
+  bool _hasBackgroundBox(double size, Color? color) {
+    return size > 0 && _hasColor(color);
+  }
+
+  bool _hasForegroundBox(double size, Color? color) {
+    return size > 0 && _hasColor(color) && (padding > 0 || radius > 0);
+  }
+
+  bool _hasColor(Color? color) {
+    return color != null && color != Colors.transparent;
   }
 }
 

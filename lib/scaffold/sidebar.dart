@@ -6,7 +6,7 @@ import '../ui/button.dart';
 import '../ui/const.dart';
 import '../ui/container/container.dart';
 import '../ui/container/header_expandable.dart';
-import '../ui/container/rounded_overlay.dart';
+import '../ui/container/overlay_bar.dart';
 import '../ui/scroller.dart';
 import '../ui/strings.dart';
 import '../ui/text.dart';
@@ -97,9 +97,9 @@ class _MobileList extends Padding {
   _MobileList(List<Widget> children)
     : super(
         padding: const ThemedEdgeInsets.normal(),
-        child: RoundedOverlay(
+        child: OverlayBar(
           radius: AppTheme.radiusValue,
-          startColor: AppTheme.lowDarkColor,
+          startForegroundColor: AppTheme.lowDarkColor,
           child: LayoutBuilder(
             builder: (BuildContext builderContext, BoxConstraints builderConstraints) {
               return AppSliverScroller(
@@ -133,9 +133,9 @@ class _DesktopList extends AppbarAnimatedPadding {
   _DesktopList(List<Widget> children)
     : super(
         padding: ThemedEdgeInsets.normal(top: AppbarStateProvider.totalCollapsedHeight),
-        child: RoundedOverlay(
+        child: OverlayBar(
           radius: AppTheme.radiusValue,
-          startColor: AppTheme.lowDarkColor,
+          startForegroundColor: AppTheme.lowDarkColor,
           child: AppListView(
             children: children
           )
