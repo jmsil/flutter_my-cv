@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../content/content.dart';
+import '../content/courses_books.dart';
+import '../content/education.dart';
+import '../content/experience.dart';
+import '../content/items.dart';
 import '../ui/scroller.dart';
+import '../ui/theme.dart';
 import 'appbar/mobile_appbar.dart';
 import 'sidebar.dart';
 
@@ -32,11 +36,11 @@ class _State extends State<MobileScaffold> {
         AppSliverScroller(
           [
             MobileAppbar(openDrawer),
-            SliverList(
-              delegate: SliverChildListDelegate([
-                AppContent()
-              ])
-            )
+            ExperienceGroup.sliver(backgroundColor: AppTheme.highDarkColor),
+            EducationGroup(),
+            CoursesAndBooksGroup(),
+            ItemsGroup.languages(),
+            ItemsGroup.availability()
           ]
         ),
         DrawerController(

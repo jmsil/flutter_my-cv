@@ -4,13 +4,12 @@ import '../ui/text.dart';
 import 'expandable_info.dart';
 import 'group.dart';
 
-class EducationGroup extends ContentGroup {
+class EducationGroup extends SliverContentGroup {
   EducationGroup()
     : super(
         icon: AppIcons.education,
         title: AppStrings.educationTitle,
-        withPadding: false,
-        scrollable: false,
+        hasHorizontalPadding: false,
         children: [
           ExpandableInfo(
             title: AppStrings.educationUniversityTitle,

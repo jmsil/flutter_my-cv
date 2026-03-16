@@ -8,9 +8,7 @@ import '../main_scaffold.dart';
 import 'profile_details.dart';
 
 class MobileAppbar extends StatelessWidget {
-  static const EdgeInsets _padding = ThemedEdgeInsets.normal(
-    bottom: ThemedEdgeInsets.largeValue
-  );
+  static const EdgeInsets _padding = ThemedEdgeInsets.normal();
   static const double _photoSize = 110;
   static const double _dividerSize = 2;
   static final double _collapsedHeight =
@@ -57,7 +55,6 @@ class MobileAppbar extends StatelessWidget {
       expandedHeight: _collapsedHeight + summaryBoxHeight,
       backgroundColor: Colors.transparent,
       surfaceTintColor: Colors.transparent,
-      shadowColor: AppTheme.highDarkColor,
       automaticallyImplyLeading: false,
       flexibleSpace: ColoredBox(
         color: AppTheme.highDarkColor,

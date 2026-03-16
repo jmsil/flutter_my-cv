@@ -41,14 +41,14 @@ class OverlayBar extends StatelessWidget {
     final bool hasEndForegroundBox = _hasForegroundBox(endSize, endForegroundColor);
 
     if (hasStartBackgroundBox) {
-      Widget box = _BackgroundBox(
+      Widget box = OverlayBarBackgroundBox(
         startAlignment, isVertical, startSize, startBackgroundColor!
       );
       children.add(box);
     }
 
     if (hasEndBackgroundBox) {
-      Widget box = _BackgroundBox(
+      Widget box = OverlayBarBackgroundBox(
         endAlignment, isVertical, endSize, endBackgroundColor!
       );
       children.add(box);
@@ -57,14 +57,14 @@ class OverlayBar extends StatelessWidget {
     children.add(child);
 
     if (hasStartForegroundBox) {
-      Widget box = _ForegroundBox(
+      Widget box = OverlayBarForegroundBox(
         startAlignment, isVertical ? 0 : -1, padding, radius, startSize, startForegroundColor!
       );
       children.add(box);
     }
 
     if (hasEndForegroundBox) {
-      Widget box = _ForegroundBox(
+      Widget box = OverlayBarForegroundBox(
         endAlignment, isVertical ? 2 : 1, padding, radius, endSize, endForegroundColor!
       );
       children.add(box);
@@ -89,8 +89,8 @@ class OverlayBar extends StatelessWidget {
   }
 }
 
-class _Box extends ColoredBox {
-  _Box(bool isVertical, double size, Color color)
+class OverlayBarBox extends ColoredBox {
+  OverlayBarBox(bool isVertical, double size, Color color)
     : super(
         color: color,
         isAntiAlias: false,
@@ -101,16 +101,16 @@ class _Box extends ColoredBox {
       );
 }
 
-class _BackgroundBox extends Align {
-  _BackgroundBox(Alignment alignment, bool isVertical, double size, Color color)
+class OverlayBarBackgroundBox extends Align {
+  OverlayBarBackgroundBox(Alignment alignment, bool isVertical, double size, Color color)
     : super(
         alignment: alignment,
-        child: _Box(isVertical, size, color)
+        child: OverlayBarBox(isVertical, size, color)
       );
 }
 
-class _ForegroundBox extends Align {
-  _ForegroundBox(
+class OverlayBarForegroundBox extends Align {
+  OverlayBarForegroundBox(
     Alignment alignment, int rotation, double padding, double radius, double size, Color color
   )
     : super (
@@ -120,7 +120,7 @@ class _ForegroundBox extends Align {
           child: ClipPath(
             clipBehavior: Clip.hardEdge,
             clipper: _CustomPath(padding, radius),
-            child: _Box(true, size, color)
+            child: OverlayBarBox(true, size, color)
           )
         )
       );

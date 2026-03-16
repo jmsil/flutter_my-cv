@@ -10,9 +10,17 @@ import 'expandable_info.dart';
 import 'group.dart';
 
 class ExperienceGroup extends StatelessWidget {
-  final bool scrollable;
+  final bool _isSliver;
+  final Color backgroundColor;
 
-  ExperienceGroup(this.scrollable);
+  ExperienceGroup()
+    : this._isSliver = false,
+      this.backgroundColor = AppTheme.highLightColor;
+
+  ExperienceGroup.sliver({
+    required this.backgroundColor
+  })
+    : this._isSliver = true;
 
   @override
   Widget build(BuildContext context) {
@@ -58,13 +66,19 @@ class ExperienceGroup extends StatelessWidget {
       )
     ];
 
-    return ContentGroup(
-      icon: AppIcons.experience,
-      title: AppStrings.experienceTitle,
-      withPadding: false,
-      scrollable: scrollable,
-      children: children
-    );
+    return _isSliver
+      ? SliverContentGroup(
+          icon: AppIcons.experience,
+          title: AppStrings.experienceTitle,
+          backgroundColor: backgroundColor,
+          hasHorizontalPadding: false,
+          children: children
+        )
+      : ContentGroup(
+          icon: AppIcons.experience,
+          title: AppStrings.experienceTitle,
+          children: children
+        );
   }
 }
 

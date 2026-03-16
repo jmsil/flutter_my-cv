@@ -29,11 +29,10 @@ class CoursesAndBooksGroup extends StatelessWidget {
       _Item(AppStrings.bookDelphiBibleTitle, AppStrings.bookDelphiBibleDetail)
     ];
 
-    return ContentGroup(
+    return SliverContentGroup(
       icon: AppIcons.studying,
       title: AppStrings.coursesAndBooksTitle,
-      withPadding: false,
-      scrollable: false,
+      hasHorizontalPadding: false,
       children: [
         _Expandable(
           AppIcons.course,

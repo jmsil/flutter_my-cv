@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../ui/const.dart';
+import '../ui/strings.dart';
 import '../ui/text.dart';
 import '../ui/theme.dart';
 import 'group.dart';
@@ -10,11 +11,15 @@ class ItemsGroup extends StatelessWidget {
   final String title;
   final String info;
 
-  ItemsGroup({
-    required this.icon,
-    required this.title,
-    required this.info
-  });
+  ItemsGroup.languages()
+    : this.icon = AppIcons.language,
+      this.title = AppStrings.languagesTitle,
+      this.info = AppStrings.languagesInfo;
+
+  ItemsGroup.availability()
+    : this.icon = AppIcons.availability,
+      this.title = AppStrings.availabilityTitle,
+      this.info = AppStrings.availabilityInfo;
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +38,10 @@ class ItemsGroup extends StatelessWidget {
 
     children.removeLast();
 
-    return ContentGroup(
+    return SliverContentGroup(
       icon: icon,
       title: title,
-      withPadding: true,
-      scrollable: false,
+      hasHorizontalPadding: true,
       children: children
     );
   }
