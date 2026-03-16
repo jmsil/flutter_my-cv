@@ -9,7 +9,7 @@ import 'profile_details.dart';
 
 class MobileAppbar extends StatelessWidget {
   static const EdgeInsets _padding = ThemedEdgeInsets.normal(
-    bottom: ThemedEdgeInsets.xLargeValue
+    bottom: ThemedEdgeInsets.largeValue
   );
   static const double _photoSize = 110;
   static const double _dividerSize = 2;
@@ -55,21 +55,27 @@ class MobileAppbar extends StatelessWidget {
       stretch: true,
       collapsedHeight: _collapsedHeight,
       expandedHeight: _collapsedHeight + summaryBoxHeight,
-      backgroundColor: AppTheme.highDarkColor,
+      backgroundColor: Colors.transparent,
       surfaceTintColor: Colors.transparent,
       shadowColor: AppTheme.highDarkColor,
       automaticallyImplyLeading: false,
-      flexibleSpace: Padding(
-        padding: _padding,
-        child: Column(
-          spacing: AppTheme.normalSpacingValue,
-          children: [
-            profileWidget,
-            AppDivider(_dividerSize),
-            Flexible(
-              child: summaryTextWidget
-            )
-          ]
+      flexibleSpace: ColoredBox(
+        color: AppTheme.highDarkColor,
+        isAntiAlias: false,
+        child: Padding(
+          padding: _padding,
+          child: Column(
+            spacing: AppTheme.normalSpacingValue,
+            children: [
+              profileWidget,
+              AppDivider(_dividerSize),
+              Flexible(
+                child: FlexibleSpaceBar(
+                  background: summaryTextWidget
+                )
+              )
+            ]
+          )
         )
       )
     );
