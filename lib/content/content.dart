@@ -18,7 +18,6 @@ class AppContent extends StatelessWidget {
     final bool isDoublePanel = context.isLargeDesktopScreen;
 
     final List<Widget> contentItems = [
-
       if (!isDoublePanel)
         ExperienceGroup(false),
 
@@ -39,44 +38,33 @@ class AppContent extends StatelessWidget {
       )
     ];
 
-    Widget appListWidget = isDesktopScreen
-      ? AppListView(
-          children: contentItems
-        )
-      : Column(
-          children: contentItems
-        );
-
-    appListWidget = OverlayBar(
+    Widget returnWidget = OverlayBar(
       radius: AppTheme.radiusValue,
       startSize: isDesktopScreen ? 0 : 32,
       startBackgroundColor: isDesktopScreen ? null : AppTheme.highDarkColor,
       startForegroundColor: isDesktopScreen ? AppTheme.highLightColor : null,
       endForegroundColor: isDesktopScreen ? AppTheme.highLightColor : null,
-      child: appListWidget
+      child: isDesktopScreen
+        ? AppListView(children: contentItems)
+        : Column(children: contentItems)
     );
 
-    if (!isDesktopScreen) {
-      appListWidget = SliverList(
-        delegate: SliverChildListDelegate([appListWidget])
+    if (isDoublePanel) {
+      returnWidget = Row(
+        spacing: AppTheme.xLargeSpacingValue,
+        children: [
+          Expanded(
+            flex: 3,
+            child: ExperienceGroup(true)
+          ),
+          Expanded(
+            flex: 2,
+            child: returnWidget
+          )
+        ]
       );
     }
 
-    if (!isDoublePanel)
-      return appListWidget;
-
-    return Row(
-      spacing: AppTheme.xLargeSpacingValue,
-      children: [
-        Expanded(
-          flex: 3,
-          child: ExperienceGroup(true)
-        ),
-        Expanded(
-          flex: 2,
-          child: appListWidget
-        )
-      ]
-    );
+    return returnWidget;
   }
 }

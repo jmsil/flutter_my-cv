@@ -41,12 +41,16 @@ class OverlayBar extends StatelessWidget {
     final bool hasEndForegroundBox = _hasForegroundBox(endSize, endForegroundColor);
 
     if (hasStartBackgroundBox) {
-      Widget box = _BackgroundBox(startAlignment, isVertical, startSize, startBackgroundColor!);
+      Widget box = _BackgroundBox(
+        startAlignment, isVertical, startSize, startBackgroundColor!
+      );
       children.add(box);
     }
 
     if (hasEndBackgroundBox) {
-      Widget box = _BackgroundBox(endAlignment, isVertical, endSize, endBackgroundColor!);
+      Widget box = _BackgroundBox(
+        endAlignment, isVertical, endSize, endBackgroundColor!
+      );
       children.add(box);
     }
 

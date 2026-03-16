@@ -32,7 +32,11 @@ class _State extends State<MobileScaffold> {
         AppSliverScroller(
           [
             MobileAppbar(openDrawer),
-            AppContent()
+            SliverList(
+              delegate: SliverChildListDelegate([
+                AppContent()
+              ])
+            )
           ]
         ),
         DrawerController(
