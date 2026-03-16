@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../content/content.dart';
 import '../ui/scroller.dart';
-import 'appbar/mobile.dart';
+import 'appbar/mobile_appbar.dart';
 import 'sidebar.dart';
 
 class MobileScaffold extends StatefulWidget {

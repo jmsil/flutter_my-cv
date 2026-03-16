@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../content/content.dart';
 import '../ui/theme.dart';
 import 'appbar/animated_padding.dart';
-import 'appbar/desktop.dart';
+import 'appbar/desktop_appbar.dart';
 import 'appbar/state_provider.dart';
 import 'sidebar.dart';
 
