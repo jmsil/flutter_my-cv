@@ -84,43 +84,44 @@ class _Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double topPadding = isDesktopScreen ? 0 : ThemedEdgeInsets.normalValue;
-    final double bottomPadding = isDesktopScreen ? ThemedEdgeInsets.normalValue : 0;
-    final double horizontalPadding = isDesktopScreen ? 0 : ThemedEdgeInsets.normalValue;
+    final EdgeInsets margin = EdgeInsets.only(
+      left: isDesktopScreen ? 0 : ThemedEdgeInsets.normalValue,
+      top: isDesktopScreen ? 0 : ThemedEdgeInsets.normalValue,
+      right: isDesktopScreen ? 0 : ThemedEdgeInsets.normalValue,
+      bottom: isDesktopScreen ? ThemedEdgeInsets.normalValue : 0
+    );
 
-    return Stack(
-      clipBehavior: Clip.none,
-      children: [
-        if (backgroundColor != Colors.transparent)
-          OverlayBarBox(true, iconContainerSize / 2 + topPadding, backgroundColor),
-
-        AppContainer(
-          height: titleContainerSize,
-          color: AppTheme.lowLightColor,
-          margin: EdgeInsets.only(
-            left: iconContainerSize / 2 + horizontalPadding,
-            top: (iconContainerSize - titleContainerSize) / 2 + topPadding,
-            right: horizontalPadding
-          ),
-          borderColor: AppTheme.lowDarkColor.withValues(alpha: 0.5),
-          borderRadius: AppUiConst.circleBorderRadius,
-          child: Center(
-            child: Text(title, style: AppTheme.largeDarkBoldStyle)
-          )
-        ),
-        AppContainer(
-          width: iconContainerSize,
-          height: iconContainerSize,
-          margin: EdgeInsets.only(
-            left: horizontalPadding,
-            top: topPadding,
-            bottom: bottomPadding
-          ),
-          color: AppTheme.lowDarkColor,
-          borderRadius: AppUiConst.circleBorderRadius,
-          child: Icon(icon, size: iconSize, color: AppTheme.highLightColor)
+    return OverlayBar(
+      startSize: iconContainerSize / 2 + margin.top,
+      startBackgroundColor: backgroundColor,
+      endSize: iconContainerSize / 2 + margin.bottom,
+      endBackgroundColor: AppTheme.highLightColor,
+      child: Padding(
+        padding: margin,
+        child: Stack(
+          clipBehavior: Clip.none,
+          alignment: Alignment.centerLeft,
+          children: [
+            AppContainer(
+              height: titleContainerSize,
+              color: AppTheme.lowLightColor,
+              margin: const EdgeInsets.only(left: iconContainerSize / 2),
+              borderColor: AppTheme.lowDarkColor.withValues(alpha: 0.5),
+              borderRadius: AppUiConst.circleBorderRadius,
+              child: Center(
+                child: Text(title, style: AppTheme.largeDarkBoldStyle)
+              )
+            ),
+            AppContainer(
+              width: iconContainerSize,
+              height: iconContainerSize,
+              color: AppTheme.lowDarkColor,
+              borderRadius: AppUiConst.circleBorderRadius,
+              child: Icon(icon, size: iconSize, color: AppTheme.highLightColor)
+            )
+          ]
         )
-      ]
+      )
     );
   }
 }
