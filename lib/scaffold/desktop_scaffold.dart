@@ -25,7 +25,7 @@ class DesktopScaffold extends StatelessWidget {
 
     final List<Widget> contentChildren = [
       if (!isDoublePanel)
-        ExperienceGroup.sliver(backgroundColor: AppTheme.highLightColor),
+        ExperienceGroup.sliver(AppTheme.mainScaffoldBackgroundColor),
 
       EducationGroup(),
       CoursesAndBooksGroup(),
@@ -35,8 +35,8 @@ class DesktopScaffold extends StatelessWidget {
 
     Widget contentWidget = OverlayBar(
       radius: AppTheme.radiusValue,
-      startForegroundColor: AppTheme.highLightColor,
-      endForegroundColor: AppTheme.highLightColor,
+      startForegroundColor: AppTheme.mainScaffoldBackgroundColor,
+      endForegroundColor: AppTheme.mainScaffoldBackgroundColor,
       child: AppSliverScroller(contentChildren)
     );
 

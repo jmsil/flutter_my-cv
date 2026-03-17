@@ -36,7 +36,7 @@ class _State extends State<MobileScaffold> {
         AppSliverScroller(
           [
             MobileAppbar(openDrawer),
-            ExperienceGroup.sliver(backgroundColor: AppTheme.highDarkColor),
+            ExperienceGroup.sliver(AppTheme.highDarkColor),
             EducationGroup(),
             CoursesAndBooksGroup(),
             ItemsGroup.languages(),

@@ -15,11 +15,9 @@ class ExperienceGroup extends StatelessWidget {
 
   ExperienceGroup()
     : this._isSliver = false,
-      this.backgroundColor = AppTheme.highLightColor;
+      this.backgroundColor = Colors.transparent;
 
-  ExperienceGroup.sliver({
-    required this.backgroundColor
-  })
+  ExperienceGroup.sliver(this.backgroundColor)
     : this._isSliver = true;
 
   @override
@@ -77,6 +75,7 @@ class ExperienceGroup extends StatelessWidget {
       : ContentGroup(
           icon: AppIcons.experience,
           title: AppStrings.experienceTitle,
+          backgroundColor: backgroundColor,
           children: children
         );
   }

@@ -24,7 +24,7 @@ class _State extends State {
 
   Widget buildScaffold(BuildContext context) {
     return Material(
-      color: AppTheme.highLightColor,
+      color: AppTheme.mainScaffoldBackgroundColor,
       child: context.isDesktopScreen
         ? DesktopScaffold(onPressedPt, onPressedEn)
         : MobileScaffold(onPressedPt, onPressedEn)

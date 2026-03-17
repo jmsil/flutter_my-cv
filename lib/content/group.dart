@@ -11,12 +11,13 @@ class ContentGroup extends Column {
   ContentGroup({
     required IconData icon,
     required String title,
+    required Color backgroundColor,
     required List<Widget> children
   })
     : super(
         mainAxisSize: MainAxisSize.min,
         children: [
-          _Header(icon, title, Colors.transparent, true),
+          _Header(icon, title, backgroundColor, true),
           Expanded(
             child: AppListView(
               children: children
@@ -54,7 +55,9 @@ class SliverContentGroup extends StatelessWidget {
     return SliverMainAxisGroup(
       slivers: [
         PinnedHeaderSliver(
-          child: _Header(icon, title, backgroundColor ?? AppTheme.highLightColor, isDesktopScreen)
+          child: _Header(
+            icon, title, backgroundColor ?? AppTheme.mainScaffoldBackgroundColor, isDesktopScreen
+          )
         ),
         SliverToBoxAdapter(
           child: Padding(
@@ -95,7 +98,7 @@ class _Header extends StatelessWidget {
       startSize: iconContainerSize / 2 + margin.top,
       startBackgroundColor: backgroundColor,
       endSize: iconContainerSize / 2 + margin.bottom,
-      endBackgroundColor: AppTheme.highLightColor,
+      endBackgroundColor: AppTheme.mainScaffoldBackgroundColor,
       child: Padding(
         padding: margin,
         child: Stack(

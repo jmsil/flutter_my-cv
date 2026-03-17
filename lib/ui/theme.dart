@@ -23,6 +23,7 @@ class AppTheme {
   static final Color lightBlue = Colors.blue[200]!;
   static final Color darkBlue = Colors.blue[900]!;
   static final Color darkColor = Colors.black;
+  static final Color mainScaffoldBackgroundColor = highLightColor;
 
   static final TextStyle darkStyle = TextStyle(
     fontSize: _fontSize, color: darkColor
