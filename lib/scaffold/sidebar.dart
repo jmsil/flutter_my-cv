@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_cv/content/profile_photo.dart';
 
+import '../content/profile_photo.dart';
 import '../ui/assets.dart';
 import '../ui/button.dart';
 import '../ui/const.dart';
