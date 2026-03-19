@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -5,6 +7,7 @@ import 'assets.dart';
 import 'button.dart';
 import 'const.dart';
 import 'container/container.dart';
+import 'container/overlay_bar.dart';
 import 'scroller.dart';
 import 'theme.dart';
 
@@ -38,25 +41,33 @@ class AppGallery extends StatefulWidget {
 }
 
 class _State extends State<AppGallery> {
+  static const double selectedThumbnailBorderSize = 3;
+  static const double unselectedThumbnailBorderSize = 1;
+  static const EdgeInsets thumbnailsContainerPadding = ThemedEdgeInsets.xLarge();
   static const EdgeInsets selectedThumbnailMargin = EdgeInsets.symmetric(vertical: 12);
   static const EdgeInsets unselectedThumbnailMargin = EdgeInsets.symmetric(
     horizontal: 12, vertical: 6
   );
+  static final Color bodyBackgroundColor = AppTheme.lowDarkColor;
 
   int index = 0;
-  final ScrollController scrollController = ScrollController();
   late final int fileCount;
   late final double thumbnailWidth;
-  late final double thumbnailHeight;
   late final bool isPortrait;
+
+  final List<GlobalKey> thumbnailKeys = [];
+  final ScrollController scrollController = ScrollController();
 
   @override
   void initState() {
     super.initState();
+
     fileCount = widget.assetsFolder.fileCount;
     thumbnailWidth = widget.assetsFolder.thumbnailWidth.toDouble();
-    thumbnailHeight = widget.assetsFolder.thumbnailHeight.toDouble();
-    isPortrait = thumbnailWidth < thumbnailHeight;
+    isPortrait = thumbnailWidth < widget.assetsFolder.thumbnailHeight;
+
+    for (int i = 0; i < fileCount; i++)
+      thumbnailKeys.add(GlobalKey());
   }
 
   @override
@@ -66,13 +77,16 @@ class _State extends State<AppGallery> {
     for (int i = 0; i < fileCount; i++) {
       bool isSelected = i == index;
       Widget thumbnail = AnimatedPadding(
+        key: thumbnailKeys[i],
         padding: isSelected ? selectedThumbnailMargin : unselectedThumbnailMargin,
         duration: const Duration(milliseconds: 240),
         curve: AppTheme.animationCurve,
         child: AppContainer(
-          borderSize: 3,
-          borderColor: isSelected ? AppTheme.lightBlue : null,
-          borderRadius: BorderRadius.circular(8),
+          borderSize: isSelected ? selectedThumbnailBorderSize : unselectedThumbnailBorderSize,
+          borderColor: AppTheme.lightBlue,
+          borderRadius: isSelected
+            ? const BorderRadius.all(Radius.circular(12))
+            : const BorderRadius.all(Radius.circular(8)),
           isClipped: true,
           child: AppInkResponse(
             effectsColor: Colors.transparent,
@@ -84,18 +98,28 @@ class _State extends State<AppGallery> {
       thumbnails.add(thumbnail);
     }
 
-    final Widget thumbnailsWidget = SizedBox(
-      width: thumbnailWidth + unselectedThumbnailMargin.horizontal,
-      child: AppListView(
-        controller: scrollController,
-        children: thumbnails
-      ),
+    final Widget thumbnailsWidget = BackdropFilter(
+      filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+      child: AppContainer(
+        width: thumbnailWidth +
+          unselectedThumbnailBorderSize * 2 +
+          unselectedThumbnailMargin.horizontal +
+          thumbnailsContainerPadding.horizontal,
+        padding: thumbnailsContainerPadding,
+        color: AppTheme.highDarkColor.withValues(alpha: 0.6),
+        child: AppListView(
+          controller: scrollController,
+          children: thumbnails
+        )
+      )
     );
 
     final Widget imageWidget = Expanded(
       child: Center(
-        child: ClipRRect(
-          borderRadius: AppTheme.allBorderRadius,
+        child: OverlayBar(
+          radius: AppTheme.radiusValue,
+          startForegroundColor: bodyBackgroundColor,
+          endForegroundColor: bodyBackgroundColor,
           child: Image.memory(
             widget.assetsFolder.getImage(index),
             gaplessPlayback: true
@@ -134,6 +158,31 @@ class _State extends State<AppGallery> {
       style: AppTheme.lightBlueStyle
     );
 
+    final Widget controlsWidget = Column(
+      spacing: AppTheme.xLargeSpacingValue,
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        closeButton,
+        previousButton,
+        nextButton,
+        label
+      ]
+    );
+
+    final Widget bodyWidget = Expanded(
+      child: AppContainer(
+        color: bodyBackgroundColor,
+        padding: const ThemedEdgeInsets.xLarge(),
+        child: Row(
+          spacing: ThemedEdgeInsets.xLargeValue,
+          children: [
+            imageWidget,
+            controlsWidget
+          ]
+        )
+      )
+    );
+
     return Focus(
       autofocus: true,
       onKeyEvent: onKeyEvent,
@@ -141,26 +190,14 @@ class _State extends State<AppGallery> {
         child: AppContainer(
           width: isPortrait ? 1400 : 1800,
           height: 960,
-          color: AppTheme.lowDarkColor,
           margin: const ThemedEdgeInsets.normal(),
-          padding: const ThemedEdgeInsets.xLarge(),
           borderColor: AppTheme.lightBlue,
           borderRadius: AppTheme.allBorderRadius,
+          isClipped: true,
           child: Row(
-            spacing: AppTheme.xLargeSpacingValue,
             children: [
               thumbnailsWidget,
-              imageWidget,
-              Column(
-                spacing: AppTheme.xLargeSpacingValue,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  closeButton,
-                  previousButton,
-                  nextButton,
-                  label
-                ]
-              )
+              bodyWidget
             ]
           )
         )
@@ -200,11 +237,12 @@ class _State extends State<AppGallery> {
       return;
 
     setState(() {
+      double selectedHeight = thumbnailKeys[index].currentContext!.size!.height;
+      double unselectedHeight = thumbnailKeys[newIndex].currentContext!.size!.height;
       index = newIndex;
-      double selectedThumbnailScale = unselectedThumbnailMargin.horizontal / thumbnailWidth;
       double offset =
-        (thumbnailHeight + unselectedThumbnailMargin.vertical) * index +
-        (thumbnailHeight * (1 + selectedThumbnailScale) + selectedThumbnailMargin.vertical) / 2 -
+        unselectedHeight * index +
+        selectedHeight / 2 -
         scrollController.position.viewportDimension / 2;
       scrollController.animateTo(
         offset.clamp(0, scrollController.position.maxScrollExtent),
