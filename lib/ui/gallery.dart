@@ -16,8 +16,8 @@ class AppGallery extends StatefulWidget {
   @override
   _State createState() => _State();
 
-  static Future<void> show(BuildContext context, AssetsFolder assetsFolder) async {
-    return showGeneralDialog<void>(
+  static void show(BuildContext context, AssetsFolder assetsFolder) {
+    showGeneralDialog<void>(
       context: context,
       barrierLabel: '',
       barrierDismissible: true,

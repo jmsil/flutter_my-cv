@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:archive/archive.dart';
 import 'package:flutter/services.dart';
 
 class AppAssets {
@@ -10,10 +11,7 @@ class AppAssets {
   static late final Uint8List profilePhoto;
 
   static AssetsFolder bciFortlevDriverAppAssetsFolder = AssetsFolder._(
-    path: 'assets/images/BciFortlevDriverApp/',
-    fileCount: 24,
-    thumbnailWidth: 64,
-    thumbnailHeight: 142
+    'assets/images/BciFortlevDriverApp/archive.zip'
   );
 
   static Future<void> loadStartupAssets() async {
@@ -30,44 +28,45 @@ class AppAssets {
 }
 
 class AssetsFolder {
-  final int fileCount;
-  final int thumbnailWidth;
-  final int thumbnailHeight;
-
-  final String _path;
+  final String _assetName;
   final List<Uint8List> _images = [];
   final List<Uint8List> _thumbnails = [];
 
-  AssetsFolder._({
-    required String path,
-    required this.fileCount,
-    required this.thumbnailWidth,
-    required this.thumbnailHeight
-  })
-    : this._path = path;
+  int _fileCount = 0;
+  int get fileCount => _fileCount;
+
+  int _thumbnailWidth = 0;
+  int get thumbnailWidth => _thumbnailWidth;
+
+  int _thumbnailHeight = 0;
+  int get thumbnailHeight => _thumbnailHeight;
+
+  AssetsFolder._(String assetName)
+    : this._assetName = assetName;
 
   Future<void> load() async {
-    for (int i = 1; i <= fileCount; i++) {
-      Uint8List image = await AppAssets._load('${_path}${i}.jpeg');
-      Codec thumbnailCodec = await instantiateImageCodec(
-        image,
-        targetWidth: thumbnailWidth,
-        targetHeight: thumbnailHeight
-      );
-      FrameInfo thumbnailFrame = await thumbnailCodec.getNextFrame();
-      ByteData? thumbnailData = await thumbnailFrame.image.toByteData(
-        format: ImageByteFormat.png
-      );
-      Uint8List thumbnail = thumbnailData!.buffer.asUint8List();
+    if (_fileCount > 0)
+      return;
 
-      _images.add(image);
-      _thumbnails.add(thumbnail);
+    Uint8List asset = await AppAssets._load(_assetName);
+    Archive archive = ZipDecoder().decodeBytes(asset);
+    _fileCount = archive.length ~/ 2;
+
+    for (int i = 1; i <= _fileCount; i++) {
+      _images.add(
+        archive.find('images/${i}.jpeg')!.content
+      );
+      _thumbnails.add(
+        archive.find('thumbnails/${i}.jpeg')!.content
+      );
+
+      if (i == 1) {
+        Codec thumbnailCodec = await instantiateImageCodec(_thumbnails[0]);
+        FrameInfo thumbnailFrame = await thumbnailCodec.getNextFrame();
+        _thumbnailWidth = thumbnailFrame.image.width;
+        _thumbnailHeight = thumbnailFrame.image.height;
+      }
     }
-  }
-
-  void unload() {
-    _images.clear();
-    _thumbnails.clear();
   }
 
   Uint8List getImage(int index) => _images[index];

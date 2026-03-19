@@ -104,8 +104,7 @@ class _AppImageGalleryButtonState extends State<AppImageGalleryButton> {
       setState(() => isProcessing = false);
     }
 
-    await AppGallery.show(context, widget.assetsFolder);
-    widget.assetsFolder.unload();
+    AppGallery.show(context, widget.assetsFolder);
   }
 }
 
