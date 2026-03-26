@@ -18,11 +18,6 @@ import 'main_scaffold.dart';
 class AppSidebar extends StatelessWidget {
   static const double containerWidth = 480;
 
-  final Function() onPressedPt;
-  final Function() onPressedEn;
-
-  AppSidebar(this.onPressedPt, this.onPressedEn);
-
   @override
   Widget build(BuildContext context) {
     final bool isDesktopScreen = context.isDesktopScreen;
@@ -58,8 +53,14 @@ class AppSidebar extends StatelessWidget {
           Expanded(
             child: Text(AppStrings.powredByFlutter, style: AppTheme.lightBlueStyle)
           ),
-          AppButton.label(AppStrings.langCode == 'pt', 'Pt', onPressedPt),
-          AppButton.label(AppStrings.langCode != 'pt', 'En', onPressedEn)
+          AppButton.label(
+            AppStrings.langCode == 'pt', 'Pt',
+            () => AppStrings.instance.setLanguage('pt')
+          ),
+          AppButton.label(
+            AppStrings.langCode != 'pt', 'En',
+            () => AppStrings.instance.setLanguage('en')
+          )
         ]
       )
     );

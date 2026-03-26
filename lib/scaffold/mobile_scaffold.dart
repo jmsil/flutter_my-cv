@@ -10,11 +10,6 @@ import 'appbar/mobile_appbar.dart';
 import 'sidebar.dart';
 
 class MobileScaffold extends StatefulWidget {
-  final Function() onPressedPt;
-  final Function() onPressedEn;
-
-  MobileScaffold(this.onPressedPt, this.onPressedEn);
-
   @override
   _State createState() => _State();
 }
@@ -46,7 +41,7 @@ class _State extends State<MobileScaffold> {
         DrawerController(
           key: drawerKey,
           alignment: DrawerAlignment.start,
-          child: AppSidebar(widget.onPressedPt, widget.onPressedEn)
+          child: AppSidebar()
         )
       ]
     );

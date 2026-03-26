@@ -76,7 +76,7 @@ class SliverContentGroup extends StatelessWidget {
 class _Header extends StatelessWidget {
   static const double iconSize = 32;
   static const double iconContainerSize = iconSize * 2;
-  static const double titleContainerSize = 40;
+  static const double titleContainerSize = 42;
 
   final IconData icon;
   final String title;

@@ -1,4 +1,10 @@
-class AppStrings {
+import 'package:flutter/foundation.dart';
+
+class AppStrings extends ChangeNotifier {
+  static final AppStrings instance = AppStrings._();
+
+  AppStrings._();
+
   static const String _appNamePt = 'Bem-vindo(a) ao Meu Currículo Online';
   static const String _appNameEn = 'Welcome to My Online Curriculum';
   static String get appName => _select(_appNamePt, _appNameEn);
@@ -389,13 +395,13 @@ class AppStrings {
 
   static const String _availabilityInfoPt =
     'Contrato Pessoa Jurídica (PREFERÍVEL)\n'
-    '▪ Fixo/hora - '
+    '▪ Fixo ▪ Hora - '
     'Contrato Pessoa Física - '
     'Somente remoto - '
     'Freelance';
   static const String _availabilityInfoEn =
     'Independent contract (PREFERABLE)\n'
-    '▪ Fixed/hour - '
+    '▪ Fixed ▪ Hour - '
     'Employee contract - '
     'Remote only - '
     'Freelance';
@@ -406,10 +412,11 @@ class AppStrings {
   static String _langCode = '';
   static String get langCode => _langCode;
 
-  static bool setLanguage(String languageCode) {
-    bool changed = languageCode != _langCode;
-    _langCode = languageCode;
-    return changed;
+  void setLanguage(String languageCode) {
+    if (languageCode != _langCode) {
+      _langCode = languageCode;
+      notifyListeners();
+    }
   }
 
   static String _select(String pt, String en) {

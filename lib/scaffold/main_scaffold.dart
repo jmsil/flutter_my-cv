@@ -1,44 +1,18 @@
 import 'package:flutter/material.dart';
 
-import '../ui/scroller.dart';
-import '../ui/strings.dart';
 import '../ui/theme.dart';
 import 'desktop_scaffold.dart';
 import 'mobile_scaffold.dart';
 
-class MainScaffold extends StatefulWidget {
-  @override
-  _State createState() => _State();
-}
-
-class _State extends State {
+class MainScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: AppStrings.appName,
-      scrollBehavior: AppScrollBehavior(),
-      home: Builder(builder: buildScaffold),
-      debugShowCheckedModeBanner: false
-    );
-  }
-
-  Widget buildScaffold(BuildContext context) {
     return Material(
       color: AppTheme.mainScaffoldBackgroundColor,
       child: context.isDesktopScreen
-        ? DesktopScaffold(onPressedPt, onPressedEn)
-        : MobileScaffold(onPressedPt, onPressedEn)
+        ? DesktopScaffold()
+        : MobileScaffold()
     );
-  }
-
-  void onPressedPt() {
-    if (AppStrings.setLanguage('pt'))
-      setState(() {});
-  }
-
-  void onPressedEn() {
-    if (AppStrings.setLanguage('en'))
-      setState(() {});
   }
 }
 

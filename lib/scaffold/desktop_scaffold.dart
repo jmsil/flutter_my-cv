@@ -14,11 +14,6 @@ import 'main_scaffold.dart';
 import 'sidebar.dart';
 
 class DesktopScaffold extends StatelessWidget {
-  final Function() onPressedPt;
-  final Function() onPressedEn;
-
-  DesktopScaffold(this.onPressedPt, this.onPressedEn);
-
   @override
   Widget build(BuildContext context) {
     final bool isDoublePanel = context.isLargeDesktopScreen;
@@ -65,7 +60,7 @@ class DesktopScaffold extends StatelessWidget {
             Row(
               spacing: AppTheme.normalSpacingValue,
               children: [
-                AppSidebar(onPressedPt, onPressedEn),
+                AppSidebar(),
                 Expanded(
                   child: AppbarAnimatedPadding(
                     padding: EdgeInsets.only(top: AppbarStateProvider.totalCollapsedHeight),
