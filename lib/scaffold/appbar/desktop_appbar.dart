@@ -4,7 +4,7 @@ import '../../content/profile_photo.dart';
 import '../../ui/assets.dart';
 import '../../ui/container/container.dart';
 import '../../ui/divider.dart';
-import '../../ui/strings.dart';
+import '../../ui/strings/strings_provider.dart';
 import '../../ui/theme.dart';
 import 'animated_container.dart';
 import 'animated_padding.dart';
@@ -40,12 +40,18 @@ class DesktopAppbar extends StatelessWidget {
       spacing: AppTheme.smallSpacingValue,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(AppStrings.professionalSummaryTitle, style: AppTheme.xxLargeLightBlueBoldStyle),
+        Text(
+          StringsProvider.strings.professionalSummaryTitle,
+          style: AppTheme.xxLargeLightBlueBoldStyle
+        ),
         AppDivider(4),
         Expanded(
           child: Align(
             alignment: Alignment.bottomLeft,
-            child: Text(AppStrings.professionalSummaryInfo, style: AppTheme.xLargeLightBlueStyle)
+            child: Text(
+              StringsProvider.strings.professionalSummaryInfo,
+              style: AppTheme.xLargeLightBlueStyle
+            )
           )
         )
       ]

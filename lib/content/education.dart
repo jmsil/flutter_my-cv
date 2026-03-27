@@ -1,5 +1,6 @@
 import '../ui/const.dart';
-import '../ui/strings.dart';
+import '../ui/strings/strings.dart';
+import '../ui/strings/strings_provider.dart';
 import '../ui/text.dart';
 import 'expandable_info.dart';
 import 'group.dart';
@@ -8,18 +9,18 @@ class EducationGroup extends SliverContentGroup {
   EducationGroup()
     : super(
         icon: AppIcons.education,
-        title: AppStrings.educationTitle,
+        title: StringsProvider.strings.educationTitle,
         hasHorizontalPadding: false,
         children: [
           ExpandableInfo(
-            title: AppStrings.educationUniversityTitle,
-            subtitle: AppStrings.educationUniversityDetail,
+            title: StringsProvider.strings.educationUniversityTitle,
+            subtitle: StringsProvider.strings.educationUniversityDetail,
             fixedContent: AppLink(
-              text: AppStrings.educationUniversityShortLink,
-              link: AppStrings.educationUniversityLink,
+              text: Strings.educationUniversityShortLink,
+              link: Strings.educationUniversityLink,
               isDarkStyle: true
             ),
-            info: AppStrings.educationUniversityInfo
+            info: StringsProvider.strings.educationUniversityInfo
           )
         ]
       );

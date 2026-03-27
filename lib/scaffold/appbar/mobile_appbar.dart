@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../content/profile_photo.dart';
 import '../../ui/divider.dart';
-import '../../ui/strings.dart';
+import '../../ui/strings/strings_provider.dart';
 import '../../ui/theme.dart';
 import '../main_scaffold.dart';
 import 'profile_details.dart';
@@ -26,7 +26,7 @@ class MobileAppbar extends StatelessWidget {
     final double screenWidth = context.screenWidth;
 
     final Text summaryTextWidget = Text(
-      AppStrings.professionalSummaryInfo,
+      StringsProvider.strings.professionalSummaryInfo,
       style: DefaultTextStyle.of(context).style.merge(AppTheme.largeLightBlueStyle)
     );
 

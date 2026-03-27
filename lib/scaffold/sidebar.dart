@@ -8,7 +8,8 @@ import '../ui/container/container.dart';
 import '../ui/container/header_expandable.dart';
 import '../ui/container/overlay_bar.dart';
 import '../ui/scroller.dart';
-import '../ui/strings.dart';
+import '../ui/strings/strings.dart';
+import '../ui/strings/strings_provider.dart';
 import '../ui/text.dart';
 import '../ui/theme.dart';
 import 'appbar/animated_padding.dart';
@@ -30,11 +31,13 @@ class AppSidebar extends StatelessWidget {
       _DetailsSection(),
       AppTheme.normalVerticalSpacing,
       _SkillsSection(
-        AppStrings.programmingSkillsTitle, AppStrings.programmingSkillsInfo
+        StringsProvider.strings.programmingSkillsTitle,
+        Strings.programmingSkillsInfo
       ),
       AppTheme.normalVerticalSpacing,
       _SkillsSection(
-        AppStrings.integrationSkillsTitle, AppStrings.integrationSkillsInfo
+        StringsProvider.strings.integrationSkillsTitle,
+        Strings.integrationSkillsInfo
       ),
       AppTheme.normalVerticalSpacing,
       _AboutSection()
@@ -51,15 +54,15 @@ class AppSidebar extends StatelessWidget {
         children: [
           FlutterLogo(size: 32),
           Expanded(
-            child: Text(AppStrings.powredByFlutter, style: AppTheme.lightBlueStyle)
+            child: Text(StringsProvider.strings.madeWithFlutter, style: AppTheme.lightBlueStyle)
           ),
           AppButton.label(
-            AppStrings.langCode == 'pt', 'Pt',
-            () => AppStrings.instance.setLanguage('pt')
+            StringsProvider.languageCode == 'pt', 'Pt',
+            () => StringsProvider.instance.setLanguage('pt')
           ),
           AppButton.label(
-            AppStrings.langCode != 'pt', 'En',
-            () => AppStrings.instance.setLanguage('en')
+            StringsProvider.languageCode != 'pt', 'En',
+            () => StringsProvider.instance.setLanguage('en')
           )
         ]
       )
@@ -175,31 +178,31 @@ class _DetailsSection extends _Section {
   _DetailsSection()
     : super(
         true,
-        AppStrings.detailsTitle,
+        StringsProvider.strings.detailsTitle,
         Column(
           spacing: AppTheme.normalSpacingValue,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AppIconText(
               icon: AppIcons.local,
-              text: AppStrings.personalLocal,
+              text: StringsProvider.strings.personalLocation,
               textStyle: AppTheme.highLightBlueStyle
             ),
             AppLink(
               icon: AppIcons.phone,
-              text: AppStrings.personalPhone,
-              link: AppStrings.personalPhoneLink,
+              text: Strings.personalPhone,
+              link: Strings.personalPhoneLink,
               isDarkStyle: false
             ),
             AppLink(
               icon: AppIcons.mail,
-              text: AppStrings.personalEmail,
-              link: AppStrings.personalEmailLink,
+              text: Strings.personalEmail,
+              link: Strings.personalEmailLink,
               isDarkStyle: false
             ),
             AppLink(
               icon: AppIcons.code,
-              text: AppStrings.personalGitHubLink,
+              text: Strings.personalGitHubLink,
               isDarkStyle: false
             )
           ]
@@ -245,8 +248,8 @@ class _AboutSection extends _Section {
   _AboutSection()
     : super(
         true,
-        AppStrings.aboutAndExpectationsTitle,
-        Text(AppStrings.aboutAndExpectationsInfo, style: AppTheme.highLightBlueStyle)
+        StringsProvider.strings.aboutAndExpectationsTitle,
+        Text(StringsProvider.strings.aboutAndExpectationsInfo, style: AppTheme.highLightBlueStyle)
       );
 }
 

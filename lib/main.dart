@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'scaffold/main_scaffold.dart';
 import 'ui/assets.dart';
 import 'ui/scroller.dart';
-import 'ui/strings.dart';
+import 'ui/strings/strings_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  AppStrings.instance.setLanguage(
+  StringsProvider.instance.setLanguage(
     WidgetsBinding.instance.platformDispatcher.locale.languageCode
   );
   await AppAssets.loadStartupAssets();
@@ -15,19 +15,17 @@ void main() async {
   runApp(_MyApp());
 }
 
-class _MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ListenableBuilder(
-      listenable: AppStrings.instance,
-      builder: (builderContext, builderChild) {
-        return MaterialApp(
-          title: AppStrings.appName,
-          scrollBehavior: AppScrollBehavior(),
-          home: MainScaffold(),
-          debugShowCheckedModeBanner: false
-        );
-      }
-    );
-  }
+class _MyApp extends ListenableBuilder {
+  _MyApp()
+    : super(
+        listenable: StringsProvider.instance,
+        builder: (builderContext, builderChild) {
+          return MaterialApp(
+            title: StringsProvider.strings.appName,
+            scrollBehavior: AppScrollBehavior(),
+            home: MainScaffold(),
+            debugShowCheckedModeBanner: false
+          );
+        }
+      );
 }

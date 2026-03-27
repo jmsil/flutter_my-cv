@@ -1,0 +1,135 @@
+import 'strings.dart';
+
+class StringsEn extends Strings {
+  String get appName => 'Welcome to My Online Curriculum';
+  String get flutterLongRole => 'Flutter Developer';
+  String get integrationLongRole => 'SAP Integration Suite Developer';
+  String get professionalSummaryTitle => 'Professional Summary';
+
+  String get professionalSummaryInfo =>
+    'Professional developer with over 15 years of experience working on client/server commercial '
+    'applications (ERP), mobile applications for the Android platform, design/development of '
+    'casual games, and cross-platform applications using the Flutter framework.';
+
+  String get detailsTitle => 'Details';
+  String get personalLocation => 'Brazil, GO';
+  String get programmingSkillsTitle => 'Programming Skills';
+  String get integrationSkillsTitle => 'Integration Skills';
+  String get aboutAndExpectationsTitle => 'About Me and Expectations';
+
+  String get aboutAndExpectationsInfo =>
+    'A lover of digital illustration for games and passionate about the art of music.\n\n'
+
+    'Always interested in learning more about any subject. When it comes to development, I '
+    'prioritize sources such as books, official documentation, and articles.\n\n'
+
+    'I always strive to do my best in everything I do, maintaining a high level of commitment '
+    'to the quality of the final product. I value readability and performance, and that\'s why I '
+    'chose Flutter as my cross-platform development framework.\n\n'
+
+    'I hope to have the opportunity to participate in application development and/or system '
+    'integration projects based on my demonstrated technical skills. While contributing my '
+    'knowledge, I also hope to improve personally and technically alongside my teammates.';
+
+  String get madeWithFlutter => 'Made with Flutter  🩵';
+  String get experienceTitle => 'Experience';
+  String get fortlevExperienceTitle => 'Flutter Mobile Application Development';
+  String get fortlevExperienceDetail => 'BCI/Fortlev ▪ June/2021 - July/2023';
+
+  String get fortlevExperienceInfo =>
+    'I worked on the development of the "Mão Dupla" application for Freight Order management '
+    'for the Fortlev company.\n'
+    'The application aims to automate operations between the Freight and Transportation sector '
+    'managers and Carrier and driver partners.\n\n'
+
+    'As a Developer Analyst, I also contributed to functional and technical requirements '
+    'gathering in collaboration with managers and users.\n\n'
+
+    'The application has the main features:\n'
+    '▪ User authentication;\n'
+    '▪ Freight Orders and Invoices management;\n'
+    '▪ Incident reporting during the journey;\n'
+    '▪ Push Notifications for relevant events;\n'
+    '▪ Offline First for no connection operations;\n'
+    '▪ Help/support features such as Contacts, Tips, and FAQ.';
+
+  String get smartNewExperienceTitle => 'Flutter Mobile/Web Application Development';
+
+  String get smartNewExperienceInfo =>
+    'In the first months of the year, I provided consulting services for the development of a '
+    'mobile/web application prototype for SmartNew, which operates by developing fleet monitoring '
+    'and management systems. The goal was to migrate the existing low-code stack.';
+
+  String get mobileGameExperienceTitle => 'Design/Development of Casual Games';
+
+  String get mobileGameExperienceInfo =>
+    'I worked on a personal project of a 2D casual game for mobile devices.\n\n'
+
+    'I developed small prototypes during the conception phase of the final project using Android '
+    'SDK/Java with native views.\n\n'
+
+    'The first version of the engine was developed using Java/OpenGL ES 1.0. A second version '
+    'was developed using OpenGL ES 2.0.\n\n'
+
+    'To turn the game multiplatform, I converted the code to C++. I also made some experiments '
+    'with Unity/C#.';
+
+  String get santriExperienceTitle => 'ERP Application Development';
+  String get santriExperienceDetail => 'Santri Systems ▪ October/2007 - April/2012';
+
+  String get santriExperienceInfo =>
+    'At Santri Systems, I contributed to the development of the client/server application ADM '
+    'using RAD Studio (Delphi) and the Oracle database with SQL/PL SQL.\n\n'
+
+    'My role consisted of analyzing, specifying, and implementing the customer\’s requirements '
+    'under the supervision of the Senior Systems Analyst.\n\n'
+
+    'As the most experienced developer on the team, my responsibilities included introducing and '
+    'assisting new members with the adopted development standards. I also led a small team for a '
+    'short period before leaving the company.';
+
+  String get smallErpExperienceTitle => 'ERP Application Development';
+
+  String get smallErpExperienceInfo =>
+    'I developed a small client/server application using RAD Studio (Delphi) and the MySQL '
+    'database for a little building materials store in my city.\n\n'
+
+    'In this project, I was able to apply the knowledge I was acquiring in my graduation and '
+    'through individual studies of the book Mastering Delphi ▪ The Bible.';
+
+  String get educationTitle => 'Education';
+  String get educationUniversityTitle => 'Computer Networks';
+  String get educationUniversityDetail => 'Estácio de Sá University ▪ 2006 - 2008';
+
+  String get educationUniversityInfo =>
+    'The course covered all the theoretical and practical fundamentals involved in computer '
+    'network architecture.\n\n'
+
+    'It also included: Digital Systems, Operating Systems, Data Structure & Algorithms, and an '
+    'introduction to programming languages such as C and Java.';
+
+  String get coursesAndBooksTitle => 'Relevant Courses and Books';
+  String get coursesTitle => 'Courses';
+  String get booksTitle => 'Books';
+  String get bookDelphiBibleTitle => 'Mastering Delphi ▪ The Bible';
+  String get bookGoogleAndroidTitle => 'Google Android ▪ Mobile Applications with the Android SDK';
+  String get courseOracleTitle => 'Oracle OCA/OCP Certification Exams Guide';
+  String get courseSapCloudIntegrationImmersionTitle => 'SAP Cloud Integration Immersion';
+  String get languagesTitle => 'Languages';
+
+  String get languagesInfo =>
+    'Portuguese ▪ Native - '
+    'English\n'
+    '▪ Advanced reading\n'
+    '▪ Intermediate writing\n'
+    '▪ Intermediate technical conversation';
+
+  String get availabilityTitle => 'Availability';
+
+  String get availabilityInfo =>
+    'Independent contract (PREFERABLE)\n'
+    '▪ Fixed ▪ Hour - '
+    'Employee contract - '
+    'Remote only - '
+    'Freelance';
+}

@@ -1,7 +1,8 @@
 import 'package:flutter/widgets.dart';
 
 import '../../ui/divider.dart';
-import '../../ui/strings.dart';
+import '../../ui/strings/strings.dart';
+import '../../ui/strings/strings_provider.dart';
 import '../../ui/theme.dart';
 import '../main_scaffold.dart';
 
@@ -17,7 +18,7 @@ class ProfileDetails extends StatelessWidget {
 
     final List<Widget> children = [
       Text(
-        AppStrings.personalName,
+        Strings.personalName,
         style: isDesktopScreen
           ? AppTheme.xxLargeLightBlueBoldStyle
           : AppTheme.largeLightBlueBoldStyle
@@ -26,10 +27,16 @@ class ProfileDetails extends StatelessWidget {
     ];
 
     final Widget flutterRole = Text(
-      AppStrings.flutterRole(isSmallMobileScreen), style: textStyle
+      isSmallMobileScreen
+        ? Strings.flutterShortRole
+        : StringsProvider.strings.flutterLongRole,
+      style: textStyle
     );
     final Widget integrationRole = Text(
-      AppStrings.integrationRole(isSmallMobileScreen), style: textStyle
+      isSmallMobileScreen
+        ? Strings.integrationShortRole
+        : StringsProvider.strings.integrationLongRole,
+      style: textStyle
     );
 
     if (isDesktopScreen) {

@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../ui/assets.dart';
 import '../ui/button.dart';
 import '../ui/const.dart';
-import '../ui/strings.dart';
+import '../ui/strings/strings.dart';
+import '../ui/strings/strings_provider.dart';
 import '../ui/text.dart';
 import '../ui/theme.dart';
 import 'expandable_info.dart';
@@ -27,54 +28,54 @@ class ExperienceGroup extends StatelessWidget {
       AppTheme.normalVerticalSpacing,
 
       ExpandableInfo(
-        title: AppStrings.smartNewExperienceTitle,
-        subtitle: AppStrings.smartNewExperienceDetail,
+        title: StringsProvider.strings.smartNewExperienceTitle,
+        subtitle: Strings.smartNewExperienceDetail,
         fixedContent: AppLink(
-          text: AppStrings.smartNewShortLink,
-          link: AppStrings.smartNewLink,
+          text: Strings.smartNewShortLink,
+          link: Strings.smartNewLink,
           isDarkStyle: true
         ),
-        info: AppStrings.smartNewExperienceInfo
+        info: StringsProvider.strings.smartNewExperienceInfo
       ),
       AppTheme.normalVerticalSpacing,
 
       ExpandableInfo(
-        title: AppStrings.mobileGameExperienceTitle,
-        subtitle: AppStrings.mobileGameExperienceDetail,
-        info: AppStrings.mobileGameExperienceInfo
+        title: StringsProvider.strings.mobileGameExperienceTitle,
+        subtitle: Strings.mobileGameExperienceDetail,
+        info: StringsProvider.strings.mobileGameExperienceInfo
       ),
       AppTheme.normalVerticalSpacing,
 
       ExpandableInfo(
-        title: AppStrings.santriExperienceTitle,
-        subtitle: AppStrings.santriExperienceDetail,
+        title: StringsProvider.strings.santriExperienceTitle,
+        subtitle: StringsProvider.strings.santriExperienceDetail,
         fixedContent: AppLink(
-          text: AppStrings.santriShortLink,
-          link: AppStrings.santriLink,
+          text: Strings.santriShortLink,
+          link: Strings.santriLink,
           isDarkStyle: true
         ),
-        info: AppStrings.santriExperienceInfo
+        info: StringsProvider.strings.santriExperienceInfo
       ),
       AppTheme.normalVerticalSpacing,
 
       ExpandableInfo(
-        title: AppStrings.smallErpExperienceTitle,
-        subtitle: AppStrings.smallErpExperienceDetail,
-        info: AppStrings.smallErpExperienceInfo
+        title: StringsProvider.strings.smallErpExperienceTitle,
+        subtitle: Strings.smallErpExperienceDetail,
+        info: StringsProvider.strings.smallErpExperienceInfo
       )
     ];
 
     return _isSliver
       ? SliverContentGroup(
           icon: AppIcons.experience,
-          title: AppStrings.experienceTitle,
+          title: StringsProvider.strings.experienceTitle,
           backgroundColor: backgroundColor,
           hasHorizontalPadding: false,
           children: children
         )
       : ContentGroup(
           icon: AppIcons.experience,
-          title: AppStrings.experienceTitle,
+          title: StringsProvider.strings.experienceTitle,
           backgroundColor: backgroundColor,
           children: children
         );
@@ -84,8 +85,8 @@ class ExperienceGroup extends StatelessWidget {
 class _BciForlevExperience extends ExpandableInfo {
   _BciForlevExperience()
     : super(
-        title: AppStrings.fortlevExperienceTitle,
-        subtitle: AppStrings.fortlevExperienceDetail,
+        title: StringsProvider.strings.fortlevExperienceTitle,
+        subtitle: StringsProvider.strings.fortlevExperienceDetail,
         fixedContent: Row(
           spacing: AppTheme.xLargeSpacingValue,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -96,20 +97,20 @@ class _BciForlevExperience extends ExpandableInfo {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 AppLink(
-                  text: AppStrings.bciShortLink,
-                  link: AppStrings.bciLink,
+                  text: Strings.bciShortLink,
+                  link: Strings.bciLink,
                   isDarkStyle: true
                 ),
                 AppLink(
-                  text: AppStrings.fortlevShortLink,
-                  link: AppStrings.fortlevLink,
+                  text: Strings.fortlevShortLink,
+                  link: Strings.fortlevLink,
                   isDarkStyle: true
                 )
               ]
             )
           ]
         ),
-        info: AppStrings.fortlevExperienceInfo,
+        info: StringsProvider.strings.fortlevExperienceInfo,
         startOpen: true
       );
 }

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../ui/const.dart';
 import '../ui/container/header_expandable.dart';
-import '../ui/strings.dart';
+import '../ui/strings/strings.dart';
+import '../ui/strings/strings_provider.dart';
 import '../ui/text.dart';
 import '../ui/theme.dart';
 import 'group.dart';
@@ -11,42 +12,45 @@ class CoursesAndBooksGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<Widget> coursesChildren = [
-      _Item(AppStrings.courseSapAdvancedEventMeshTitle, AppStrings.coursesSapDetail),
-      _Item(AppStrings.courseSapApiManagementTitle, AppStrings.coursesSapDetail),
-      _Item(AppStrings.courseSapCloudIntegration20Title, AppStrings.coursesSapDetail),
-      _Item(AppStrings.courseSapCloudIntegrationImmersionTitle, AppStrings.coursesSapDetail),
-      _Item(AppStrings.courseOracleTitle, AppStrings.courseOracleDetail)
+      _Item(Strings.courseSapAdvancedEventMeshTitle, Strings.coursesSapDetail),
+      _Item(Strings.courseSapApiManagementTitle, Strings.coursesSapDetail),
+      _Item(Strings.courseSapCloudIntegration20Title, Strings.coursesSapDetail),
+      _Item(
+        StringsProvider.strings.courseSapCloudIntegrationImmersionTitle,
+        Strings.coursesSapDetail
+      ),
+      _Item(StringsProvider.strings.courseOracleTitle, Strings.courseOracleDetail)
     ];
 
     final List<Widget> booksChildren = [
       _Item(
-        AppStrings.bookEnterpriseIntegrationPatternsTitle,
-        AppStrings.bookEnterpriseIntegrationPatternsDetail
+        Strings.bookEnterpriseIntegrationPatternsTitle,
+        Strings.bookEnterpriseIntegrationPatternsDetail
       ),
-      _Item(AppStrings.bookCleanArchitectureTitle, AppStrings.booksCleanCodeArchDetail),
-      _Item(AppStrings.bookCleanCodeTitle, AppStrings.booksCleanCodeArchDetail),
-      _Item(AppStrings.bookGoogleAndroidTitle, AppStrings.bookGoogleAndroidDetail),
-      _Item(AppStrings.bookDelphiBibleTitle, AppStrings.bookDelphiBibleDetail)
+      _Item(Strings.bookCleanArchitectureTitle, Strings.booksCleanCodeArchDetail),
+      _Item(Strings.bookCleanCodeTitle, Strings.booksCleanCodeArchDetail),
+      _Item(StringsProvider.strings.bookGoogleAndroidTitle, Strings.bookGoogleAndroidDetail),
+      _Item(StringsProvider.strings.bookDelphiBibleTitle, Strings.bookDelphiBibleDetail)
     ];
 
     return SliverContentGroup(
       icon: AppIcons.studying,
-      title: AppStrings.coursesAndBooksTitle,
+      title: StringsProvider.strings.coursesAndBooksTitle,
       hasHorizontalPadding: false,
       children: [
         _Expandable(
           AppIcons.course,
-          AppStrings.coursesTitle,
+          StringsProvider.strings.coursesTitle,
           AppLink(
-            text: AppStrings.mooviEducationShortLink,
-            link: AppStrings.mooviEducationLink,
+            text: Strings.mooviEducationShortLink,
+            link: Strings.mooviEducationLink,
             isDarkStyle: true
           ),
           coursesChildren
         ),
         AppTheme.smallVerticalSpacing,
         _Expandable(
-          AppIcons.book, AppStrings.booksTitle, null, booksChildren
+          AppIcons.book, StringsProvider.strings.booksTitle, null, booksChildren
         )
       ]
     );
