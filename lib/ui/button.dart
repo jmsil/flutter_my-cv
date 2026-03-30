@@ -58,32 +58,44 @@ class AppImageGalleryButton extends StatefulWidget {
 }
 
 class _AppImageGalleryButtonState extends State<AppImageGalleryButton> {
-  static const double padding = 12;
-  static const double width = 120;
-  static const double height = (width - padding * 2) / 3 * 2 + padding * 2;
-
   bool isProcessing = false;
 
   @override
   Widget build(BuildContext context) {
-    final child = isProcessing
-      ? Center(
-          child: CircularProgressIndicator(
-            color: AppTheme.darkBlue,
-            strokeWidth: 4,
-            backgroundColor: AppTheme.darkBlue.withValues(alpha: 0.26)
-          ),
-        )
-      : Image.memory(AppAssets.imageSlider, fit: BoxFit.fill);
+    final child = SizedBox(
+      width: 84,
+      height: 56,
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          Image.memory(AppAssets.imageSlider, fit: BoxFit.fill),
+
+          if (isProcessing)
+            Center(
+              child: AspectRatio(
+                aspectRatio: 1,
+                child: AppContainer(
+                  color: AppTheme.lightBlue,
+                  margin: const EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
+                  child: CircularProgressIndicator(
+                    color: AppTheme.darkBlue,
+                    strokeWidth: 3,
+                    backgroundColor: AppTheme.darkBlue.withValues(alpha: 0.26)
+                  )
+                )
+              )
+            )
+        ]
+      )
+    );
 
     return AppContainer(
-      width: width,
-      height: height,
       borderColor: AppTheme.lightBlue,
       borderRadius: AppTheme.allBorderRadius,
       isClipped: true,
       child: AppInkResponse(
-        padding: const EdgeInsets.all(padding),
+        padding: const EdgeInsets.all(12),
         effectsColor: AppButton.effectsColor,
         onPressed: onPressed,
         child: child
