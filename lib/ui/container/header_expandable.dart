@@ -19,9 +19,9 @@ class AppHeaderExpandable extends StatefulWidget {
 
   AppHeaderExpandable({
     this.startOpen = false,
-    required this.arrowColor,
     this.isClipped = false,
     this.headerHasIntrinsic = false,
+    required this.arrowColor,
     required this.headerContentPadding,
     this.fixedContentPadding,
     required this.expandableContentPadding,

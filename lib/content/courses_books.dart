@@ -87,8 +87,8 @@ class _Expandable extends AppHeaderExpandable {
 
   _Expandable(IconData icon, String title, Widget? fixedContent, List<Widget> children)
     : super(
-        arrowColor: AppTheme.darkBlue,
         isClipped: true,
+        arrowColor: AppTheme.darkBlue,
         headerContentPadding: _padding,
         fixedContentPadding: _padding,
         expandableContentPadding: _padding,

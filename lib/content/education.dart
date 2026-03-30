@@ -13,14 +13,14 @@ class EducationGroup extends SliverContentGroup {
         hasHorizontalPadding: false,
         children: [
           ExpandableInfo(
-            title: StringsProvider.strings.educationUniversityTitle,
-            subtitle: StringsProvider.strings.educationUniversityDetail,
-            fixedContent: AppLink(
+            headerTitle: StringsProvider.strings.educationUniversityTitle,
+            headerDetail: StringsProvider.strings.educationUniversityDetail,
+            infoWidget: AppLink(
               text: Strings.educationUniversityShortLink,
               link: Strings.educationUniversityLink,
               isDarkStyle: true
             ),
-            info: StringsProvider.strings.educationUniversityInfo
+            infoText: StringsProvider.strings.educationUniversityInfo
           )
         ]
       );

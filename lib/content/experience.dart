@@ -28,40 +28,40 @@ class ExperienceGroup extends StatelessWidget {
       AppTheme.normalVerticalSpacing,
 
       ExpandableInfo(
-        title: StringsProvider.strings.smartNewExperienceTitle,
-        subtitle: Strings.smartNewExperienceDetail,
-        fixedContent: AppLink(
+        headerTitle: StringsProvider.strings.smartNewExperienceTitle,
+        headerDetail: Strings.smartNewExperienceDetail,
+        infoWidget: AppLink(
           text: Strings.smartNewShortLink,
           link: Strings.smartNewLink,
           isDarkStyle: true
         ),
-        info: StringsProvider.strings.smartNewExperienceInfo
+        infoText: StringsProvider.strings.smartNewExperienceInfo
       ),
       AppTheme.normalVerticalSpacing,
 
       ExpandableInfo(
-        title: StringsProvider.strings.mobileGameExperienceTitle,
-        subtitle: Strings.mobileGameExperienceDetail,
-        info: StringsProvider.strings.mobileGameExperienceInfo
+        headerTitle: StringsProvider.strings.mobileGameExperienceTitle,
+        headerDetail: Strings.mobileGameExperienceDetail,
+        infoText: StringsProvider.strings.mobileGameExperienceInfo
       ),
       AppTheme.normalVerticalSpacing,
 
       ExpandableInfo(
-        title: StringsProvider.strings.santriExperienceTitle,
-        subtitle: StringsProvider.strings.santriExperienceDetail,
-        fixedContent: AppLink(
+        headerTitle: StringsProvider.strings.santriExperienceTitle,
+        headerDetail: StringsProvider.strings.santriExperienceDetail,
+        infoWidget: AppLink(
           text: Strings.santriShortLink,
           link: Strings.santriLink,
           isDarkStyle: true
         ),
-        info: StringsProvider.strings.santriExperienceInfo
+        infoText: StringsProvider.strings.santriExperienceInfo
       ),
       AppTheme.normalVerticalSpacing,
 
       ExpandableInfo(
-        title: StringsProvider.strings.smallErpExperienceTitle,
-        subtitle: Strings.smallErpExperienceDetail,
-        info: StringsProvider.strings.smallErpExperienceInfo
+        headerTitle: StringsProvider.strings.smallErpExperienceTitle,
+        headerDetail: Strings.smallErpExperienceDetail,
+        infoText: StringsProvider.strings.smallErpExperienceInfo
       )
     ];
 
@@ -85,9 +85,9 @@ class ExperienceGroup extends StatelessWidget {
 class _BciForlevExperience extends ExpandableInfo {
   _BciForlevExperience()
     : super(
-        title: StringsProvider.strings.fortlevExperienceTitle,
-        subtitle: StringsProvider.strings.fortlevExperienceDetail,
-        fixedContent: Row(
+        headerTitle: StringsProvider.strings.fortlevExperienceTitle,
+        headerDetail: StringsProvider.strings.fortlevExperienceDetail,
+        infoWidget: Row(
           spacing: AppTheme.xLargeSpacingValue,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -110,7 +110,7 @@ class _BciForlevExperience extends ExpandableInfo {
             )
           ]
         ),
-        info: StringsProvider.strings.fortlevExperienceInfo,
+        infoText: StringsProvider.strings.fortlevExperienceInfo,
         startOpen: true
       );
 }
