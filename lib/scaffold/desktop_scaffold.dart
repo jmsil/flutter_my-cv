@@ -4,7 +4,7 @@ import '../content/courses_books.dart';
 import '../content/education.dart';
 import '../content/experience.dart';
 import '../content/items.dart';
-import '../ui/container/overlay_bar.dart';
+import '../ui/overlay_bar.dart';
 import '../ui/scroller.dart';
 import '../ui/theme.dart';
 import 'appbar/animated_padding.dart';

@@ -6,7 +6,7 @@ import '../ui/button.dart';
 import '../ui/const.dart';
 import '../ui/container/container.dart';
 import '../ui/container/header_expandable.dart';
-import '../ui/container/overlay_bar.dart';
+import '../ui/overlay_bar.dart';
 import '../ui/scroller.dart';
 import '../ui/strings/strings.dart';
 import '../ui/strings/strings_provider.dart';

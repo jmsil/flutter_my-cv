@@ -7,7 +7,7 @@ import 'assets.dart';
 import 'button.dart';
 import 'const.dart';
 import 'container/container.dart';
-import 'container/overlay_bar.dart';
+import 'overlay_bar.dart';
 import 'scroller.dart';
 import 'theme.dart';
 

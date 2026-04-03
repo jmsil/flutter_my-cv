@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../scaffold/main_scaffold.dart';
 import '../ui/const.dart';
 import '../ui/container/container.dart';
-import '../ui/container/overlay_bar.dart';
+import '../ui/overlay_bar.dart';
 import '../ui/scroller.dart';
 import '../ui/theme.dart';
 
