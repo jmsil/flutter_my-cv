@@ -163,8 +163,8 @@ class _ProfileSection extends StatelessWidget {
           Align(
             alignment: Alignment.topLeft,
             child: AppButton.icon(
-              AppIcons.back,
-              () => Navigator.pop(context)
+              icon: AppIcons.back,
+              onPressed: () => Navigator.pop(context)
             )
           )
         ]

@@ -1,24 +1,24 @@
 import 'strings.dart';
 
 class StringsPt extends Strings {
-  String get appName => 'Bem-vindo(a) ao Meu Currículo Online';
-  String get flutterLongRole => 'Desenvolvedor Flutter';
-  String get integrationLongRole => 'Desenvolvedor SAP Integration Suite';
-  String get professionalSummaryTitle => 'Resumo Profissional';
+  @override String get appName => 'Bem-vindo(a) ao Meu Currículo Online';
+  @override String get flutterLongRole => 'Desenvolvedor Flutter';
+  @override String get integrationLongRole => 'Desenvolvedor SAP Integration Suite';
+  @override String get professionalSummaryTitle => 'Resumo Profissional';
 
-  String get professionalSummaryInfo =>
+  @override String get professionalSummaryInfo =>
     'Desenvolvedor profissional com mais de 15 anos de experiência atuando em aplicações '
     'comerciais cliente/servidor (ERP), aplicativos móveis para a plataforma Android, '
     'design/desenvolvimento de jogos casuais, e aplicações multiplataforma com o framework '
     'Flutter.';
 
-  String get detailsTitle => 'Detalhes';
-  String get personalLocation => 'Brasil, GO';
-  String get programmingSkillsTitle => 'Habilidades Em Programação';
-  String get integrationSkillsTitle => 'Habilidades Em Integração';
-  String get aboutAndExpectationsTitle => 'Sobre Mim e Expectativas';
+  @override String get detailsTitle => 'Detalhes';
+  @override String get personalLocation => 'Brasil, GO';
+  @override String get programmingSkillsTitle => 'Habilidades Em Programação';
+  @override String get integrationSkillsTitle => 'Habilidades Em Integração';
+  @override String get aboutAndExpectationsTitle => 'Sobre Mim e Expectativas';
 
-  String get aboutAndExpectationsInfo =>
+  @override String get aboutAndExpectationsInfo =>
     'Apreciador de ilustração digital para jogos e apaixonado pela arte da música.\n\n'
 
     'Sempre interessado em aprender mais sobre qualquer assunto. Sobre desenvolvimento, priorizo '
@@ -33,12 +33,28 @@ class StringsPt extends Strings {
     'contribuo com meus conhecimentos, também espero aprimorar-me pessoal e tecnicamente com '
     'meus colegas de equipe.';
 
-  String get madeWithFlutter => 'Feito com Flutter  🩵';
-  String get experienceTitle => 'Experiência';
-  String get fortlevExperienceTitle => 'Desenvolvimento de Aplicativo Flutter Mobile';
-  String get fortlevExperienceDetail => 'BCI/Fortlev ▪ Junho/2021 - Julho/2023';
+  @override String get madeWithFlutter => 'Feito com Flutter  🩵';
+  @override String get experienceTitle => 'Experiência';
 
-  String get fortlevExperienceInfo =>
+  @override String get sapIntegrationSuiteLearningJourneyTitle =>
+    'Jornada de Estudos SAP Integration Suite';
+
+  @override String get sapIntegrationSuiteLearningJourneyDetail => 'Desde 2023';
+  @override String get integrationProjectConversionsAndFtpTitle => 'Conversões e FTP';
+
+  @override String get integrationProjectConversionsAndFtpDescription =>
+    'Converte o payload de/para diferentes formatos baseado no cabeçalho Content-Type e salva o '
+    'resultado em um servidor FTP.';
+
+  @override String get integrationProjectCalculatorTitle => 'Calculadora';
+
+  @override String get integrationProjectCalculatorDescription =>
+    'Consome o web service público Calculator (http://www.dneonline.com/calculator.asmx).';
+
+  @override String get fortlevExperienceTitle => 'Desenvolvimento de Aplicativo Flutter Mobile';
+  @override String get fortlevExperienceDetail => 'BCI/Fortlev ▪ Junho/2021 - Julho/2023';
+
+  @override String get fortlevExperienceInfo =>
     'Atuei no desenvolvimento do aplicativo "Mão Dupla" para gestão de Ordens de Frete para a '
     'companhia Fortlev.\n'
     'O aplicativo tem como objetivo automatizar as operações entre os gestores do setor de Carga '
@@ -55,16 +71,17 @@ class StringsPt extends Strings {
     '▪ Offline First para permitir operações sem conexão;\n'
     '▪ Recursos de ajuda/suporte como Contatos, Dicas e FAQ.';
 
-  String get smartNewExperienceTitle => 'Desenvolvimento de Aplicação Flutter Mobile/Web';
+  @override String get smartNewExperienceTitle =>
+     'Desenvolvimento de Aplicação Flutter Mobile/Web';
 
-  String get smartNewExperienceInfo =>
+  @override String get smartNewExperienceInfo =>
     'Nos primeiros meses do ano, prestei consultoria para o desenvolvimento de um protótipo de '
     'uma aplicação mobile/web para a SmartNew, atuante no desenvolvimento de sistemas de '
     'monitoramento e gerenciamento de frotas. O objetivo era migrar a stack low-code em uso.';
 
-  String get mobileGameExperienceTitle => 'Design/Desenvolvimento de Jogos Casuais';
+  @override String get mobileGameExperienceTitle => 'Design/Desenvolvimento de Jogos Casuais';
 
-  String get mobileGameExperienceInfo =>
+  @override String get mobileGameExperienceInfo =>
     'Trabalhei em um projeto pessoal de um jogo casual 2D para dispositivos móveis.\n\n'
 
     'Desenvolvi pequenos protótipos durante a fase de concepção do projeto final utilizando '
@@ -76,10 +93,10 @@ class StringsPt extends Strings {
     'Para tornar o jogo multiplataforma, portei o código para C++ e fiz alguns experimentos '
     'com Unity/C#.';
 
-  String get santriExperienceTitle => 'Desenvolvimento de Aplicação ERP';
-  String get santriExperienceDetail => 'Santri Sistemas ▪ Outubro/2007 - Abril/2012';
+  @override String get santriExperienceTitle => 'Desenvolvimento de Aplicação ERP';
+  @override String get santriExperienceDetail => 'Santri Sistemas ▪ Outubro/2007 - Abril/2012';
 
-  String get santriExperienceInfo =>
+  @override String get santriExperienceInfo =>
     'Na Santri Sistemas, contribuí para o desenvolvimento da aplicação cliente/servidor ADM '
     'utilizando RAD Studio (Delphi) e banco de dados Oracle com SQL/PL SQL.\n\n'
 
@@ -90,45 +107,48 @@ class StringsPt extends Strings {
     'auxiliar os novos membros com os padrões de desenvolvimento adotados. Também liderei uma '
     'pequena equipe por um curto período antes de deixar a empresa.';
 
-  String get smallErpExperienceTitle => 'Desenvolvimento de Aplicação ERP';
+  @override String get smallErpExperienceTitle => 'Desenvolvimento de Aplicação ERP';
 
-  String get smallErpExperienceInfo =>
+  @override String get smallErpExperienceInfo =>
     'Desenvolvi uma pequena aplicação cliente/servidor utilizando RAD Studio (Delphi) e banco de '
     'dados MySQL para uma pequena loja de materiais para construção em minha cidade.\n\n'
 
     'Nesse projeto, pude aplicar os conhecimentos que adquiria na faculdade e estudos individuais '
     'do livro Dominando o Delphi ▪ A Bíblia.';
 
-  String get educationTitle => 'Formação';
-  String get educationUniversityTitle => 'Redes de Computadores';
-  String get educationUniversityDetail => 'Faculdade Estácio de Sá ▪ 2006 - 2008';
+  @override String get educationTitle => 'Formação';
+  @override String get educationUniversityTitle => 'Redes de Computadores';
+  @override String get educationUniversityDetail => 'Faculdade Estácio de Sá ▪ 2006 - 2008';
 
-  String get educationUniversityInfo =>
+  @override String get educationUniversityInfo =>
     'O curso abordou todos os fundamentos teóricos e práticos envolvidos em arquitetura de redes '
     'de computadores.\n\n'
 
     'Também incluiu: Sistemas Digitais, Sistemas Operacionais, Estrutura de Dados e Algoritimos, '
     'e uma introdução a linguagens de programação como C e Java.';
 
-  String get coursesAndBooksTitle => 'Cursos e Livros Relevantes';
-  String get coursesTitle => 'Cursos';
-  String get booksTitle => 'Livros';
-  String get bookDelphiBibleTitle => 'Dominando o Delphi ▪ A Bíblia';
-  String get bookGoogleAndroidTitle => 'Google Android ▪ Aplicações Móveis com o Android SDK';
-  String get courseOracleTitle => 'Guia Para os Exames de Certificação OCA/OCP Oracle';
-  String get courseSapCloudIntegrationImmersionTitle => 'Imersão SAP Cloud Integration';
-  String get languagesTitle => 'Idiomas';
+  @override String get coursesAndBooksTitle => 'Cursos e Livros Relevantes';
+  @override String get coursesTitle => 'Cursos';
+  @override String get booksTitle => 'Livros';
+  @override String get bookDelphiBibleTitle => 'Dominando o Delphi ▪ A Bíblia';
 
-  String get languagesInfo =>
+  @override String get bookGoogleAndroidTitle =>
+     'Google Android ▪ Aplicações Móveis com o Android SDK';
+
+  @override String get courseOracleTitle => 'Guia Para os Exames de Certificação OCA/OCP Oracle';
+  @override String get courseSapCloudIntegrationImmersionTitle => 'Imersão SAP Cloud Integration';
+  @override String get languagesTitle => 'Idiomas';
+
+  @override String get languagesInfo =>
     'Português ▪ Nativo - '
     'Inglês\n'
     '▪ Leitura avançada\n'
     '▪ Escrita intermediária\n'
     '▪ Conversação técnica intermediária';
 
-  String get availabilityTitle => 'Disponibilidade';
+  @override String get availabilityTitle => 'Disponibilidade';
 
-  String get availabilityInfo =>
+  @override String get availabilityInfo =>
     'Contrato Pessoa Jurídica (PREFERÍVEL)\n'
     '▪ Fixo ▪ Hora - '
     'Contrato Pessoa Física - '

@@ -9,6 +9,7 @@ import '../ui/text.dart';
 import '../ui/theme.dart';
 import 'expandable_info.dart';
 import 'group.dart';
+import 'integration_learning_xp.dart';
 
 class ExperienceGroup extends StatelessWidget {
   final bool _isSliver;
@@ -24,6 +25,9 @@ class ExperienceGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> children = [
+      IntegrationLearningExperience(),
+      AppTheme.normalVerticalSpacing,
+
       _BciForlevExperience(),
       AppTheme.normalVerticalSpacing,
 
@@ -111,6 +115,6 @@ class _BciForlevExperience extends ExpandableInfo {
           ]
         ),
         infoText: StringsProvider.strings.fortlevExperienceInfo,
-        startOpen: true
+        startOpen: false
       );
 }

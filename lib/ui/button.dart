@@ -11,18 +11,29 @@ class AppButton extends StatelessWidget {
   static final Color effectsColor = AppTheme.lowLightColor.withValues(alpha: 0.32);
 
   final bool isSelected;
+  final Color color;
   final Widget child;
   final Function() onPressed;
 
   AppButton.label(this.isSelected, String label, this.onPressed)
-    : child = Text(
+    : color = AppTheme.lightBlue,
+      child = Text(
         label,
         style: isSelected ? AppTheme.lightBlueBoldStyle : AppTheme.lightBlueStyle
       );
 
-  AppButton.icon(IconData icon, this.onPressed)
+  AppButton.icon({
+    required IconData icon,
+    Color? color,
+    required this.onPressed
+  })
     : isSelected = false,
-      child = Icon(icon, size: 24, color: AppTheme.lightBlue);
+      this.color = color ?? AppTheme.lightBlue,
+      child = Icon(
+        icon,
+        size: 24,
+        color: color ?? AppTheme.lightBlue
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +45,9 @@ class AppButton extends StatelessWidget {
       icon: AppContainer(
         width: _containerSize,
         height: _containerSize,
-        color: isSelected ? AppTheme.lightBlue.withValues(alpha: 0.16) : null,
+        color: isSelected ? color.withValues(alpha: 0.16) : null,
         borderSize: isSelected ? 3 : 1,
-        borderColor: AppTheme.lightBlue,
+        borderColor: color,
         borderRadius: AppUiConst.circleBorderRadius,
         child: Center(
           child: child

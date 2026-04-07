@@ -24,6 +24,7 @@ class AppIcons {
   static const IconData mail = Icons.mail_outlined;
   static const IconData openInNew = Icons.open_in_new_outlined;
   static const IconData phone = Icons.phone_outlined;
+  static const IconData plus = Icons.add;
   static const IconData studying = Icons.local_library_outlined;
   static const IconData summary = Icons.summarize_outlined;
   static const IconData topicMark = Icons.arrow_right;

@@ -55,6 +55,12 @@ abstract class Strings {
   String get aboutAndExpectationsInfo;
   String get madeWithFlutter;
   String get experienceTitle;
+  String get sapIntegrationSuiteLearningJourneyTitle;
+  String get sapIntegrationSuiteLearningJourneyDetail;
+  String get integrationProjectConversionsAndFtpTitle;
+  String get integrationProjectConversionsAndFtpDescription;
+  String get integrationProjectCalculatorTitle;
+  String get integrationProjectCalculatorDescription;
   String get fortlevExperienceTitle;
   String get fortlevExperienceDetail;
   String get fortlevExperienceInfo;

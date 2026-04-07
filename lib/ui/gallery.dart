@@ -129,16 +129,16 @@ class _State extends State<AppGallery> {
     );
 
     final Widget closeButton = AppButton.icon(
-      AppIcons.close,
-      () => Navigator.pop(context)
+      icon: AppIcons.close,
+      onPressed: () => Navigator.pop(context)
     );
 
     final previousButton = Expanded(
       child: Align(
         alignment: Alignment.bottomRight,
         child: AppButton.icon(
-          AppIcons.arrowUp,
-          onPrevious
+          icon: AppIcons.arrowUp,
+          onPressed: onPrevious
         )
       )
     );
@@ -147,8 +147,8 @@ class _State extends State<AppGallery> {
       child: Align(
         alignment: Alignment.topRight,
         child: AppButton.icon(
-          AppIcons.arrowDown,
-          onNext
+          icon: AppIcons.arrowDown,
+          onPressed: onNext
         )
       )
     );

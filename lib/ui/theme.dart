@@ -10,6 +10,7 @@ class AppTheme {
   static const double _xLargeFontSize = 17;
   static const double _xxLargeFontSize = 18;
 
+  static const double shortSpacingValue = 2;
   static const double smallSpacingValue = 8;
   static const double normalSpacingValue = 16;
   static const double largeSpacingValue = 24;
