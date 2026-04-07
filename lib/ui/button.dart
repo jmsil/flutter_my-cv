@@ -59,16 +59,16 @@ class AppButton extends StatelessWidget {
   }
 }
 
-class AppImageGalleryButton extends StatefulWidget {
-  final AssetsFolder assetsFolder;
+class AppGalleryButton extends StatefulWidget {
+  final GalleryAssets assets;
 
-  AppImageGalleryButton(this.assetsFolder);
+  AppGalleryButton(this.assets);
 
   @override
-  _AppImageGalleryButtonState createState() => _AppImageGalleryButtonState();
+  _AppGalleryButtonState createState() => _AppGalleryButtonState();
 }
 
-class _AppImageGalleryButtonState extends State<AppImageGalleryButton> {
+class _AppGalleryButtonState extends State<AppGalleryButton> {
   bool isProcessing = false;
 
   @override
@@ -121,13 +121,13 @@ class _AppImageGalleryButtonState extends State<AppImageGalleryButton> {
     setState(() => isProcessing = true);
 
     try {
-      await widget.assetsFolder.load();
+      await widget.assets.load();
     }
     finally {
       setState(() => isProcessing = false);
     }
 
-    AppGallery.show(context, widget.assetsFolder);
+    AppGallery.show(context, widget.assets);
   }
 }
 

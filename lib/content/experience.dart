@@ -95,7 +95,7 @@ class _BciForlevExperience extends ExpandableInfo {
           spacing: AppTheme.xLargeSpacingValue,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            AppImageGalleryButton(AppAssets.bciFortlevDriverAppAssetsFolder),
+            AppGalleryButton(AppAssets.bciFortlevDriverAppAssets),
             Column(
               spacing: AppTheme.smallSpacingValue,
               crossAxisAlignment: CrossAxisAlignment.start,

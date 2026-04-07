@@ -12,14 +12,14 @@ import 'scroller.dart';
 import 'theme.dart';
 
 class AppGallery extends StatefulWidget {
-  final AssetsFolder assetsFolder;
+  final GalleryAssets assets;
 
-  AppGallery._(this.assetsFolder);
+  AppGallery._(this.assets);
 
   @override
   _State createState() => _State();
 
-  static void show(BuildContext context, AssetsFolder assetsFolder) {
+  static void show(BuildContext context, GalleryAssets assets) {
     showGeneralDialog<void>(
       context: context,
       barrierLabel: '',
@@ -34,7 +34,7 @@ class AppGallery extends StatefulWidget {
       },
 
       pageBuilder: (pageCtx, pageAnim, pageSecAnim) {
-        return AppGallery._(assetsFolder);
+        return AppGallery._(assets);
       }
     );
   }
@@ -62,9 +62,9 @@ class _State extends State<AppGallery> {
   void initState() {
     super.initState();
 
-    fileCount = widget.assetsFolder.fileCount;
-    thumbnailWidth = widget.assetsFolder.thumbnailWidth.toDouble();
-    isPortrait = thumbnailWidth < widget.assetsFolder.thumbnailHeight;
+    fileCount = widget.assets.count;
+    thumbnailWidth = widget.assets.thumbnailWidth.toDouble();
+    isPortrait = thumbnailWidth < widget.assets.thumbnailHeight;
 
     for (int i = 0; i < fileCount; i++)
       thumbnailKeys.add(GlobalKey());
@@ -91,7 +91,7 @@ class _State extends State<AppGallery> {
           child: AppInkResponse(
             effectsColor: Colors.transparent,
             onPressed: () => setIndex(i),
-            child: Image.memory(widget.assetsFolder.getThumbnail(i), fit: BoxFit.fill)
+            child: Image.memory(widget.assets.getThumbnail(i), fit: BoxFit.fill)
           )
         )
       );
@@ -121,7 +121,7 @@ class _State extends State<AppGallery> {
           startForegroundColor: bodyBackgroundColor,
           endForegroundColor: bodyBackgroundColor,
           child: Image.memory(
-            widget.assetsFolder.getImage(index),
+            widget.assets.getImage(index),
             gaplessPlayback: true
           )
         )
