@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../content/project.dart';
 import '../assets.dart';
 import '../const.dart';
 import '../container/container.dart';
@@ -7,8 +8,11 @@ import '../gallery.dart';
 import '../theme.dart';
 import 'button.dart';
 
-class AppLoadingIconButton extends _LoadingButton {
-  AppLoadingIconButton(super.assets);
+class AppProjectButton extends _LoadingButton {
+  final Project project;
+
+  AppProjectButton(this.project)
+    : super(project.assets);
 
   @override
   Widget build(bool isLoading, Function() onPressed) {
@@ -21,7 +25,7 @@ class AppLoadingIconButton extends _LoadingButton {
   }
 
   @override
-  void showWindow(BuildContext context, ImageAssetsArchive assets) {
+  void showViewer(BuildContext context) {
     // TODO: implement showWindow
   }
 }
@@ -75,7 +79,7 @@ class AppGalleryButton extends _LoadingButton {
   }
 
   @override
-  void showWindow(BuildContext context, ImageAssetsArchive assets) {
+  void showViewer(BuildContext context) {
     AppGallery.show(context, assets as GalleryAssets);
   }
 }
@@ -88,7 +92,7 @@ abstract class _LoadingButton extends StatefulWidget {
   _LoadingButton(this.assets);
 
   Widget build(bool isLoading, Function() onPressed);
-  void showWindow(BuildContext context, ImageAssetsArchive assets);
+  void showViewer(BuildContext context);
 
   @override
   _State createState() => _State();
@@ -118,6 +122,6 @@ class _State extends State<_LoadingButton> {
       }
     }
 
-    widget.showWindow(context, widget.assets);
+    widget.showViewer(context);
   }
 }

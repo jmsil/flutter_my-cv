@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../ui/assets.dart';
-import '../ui/button/loading_button.dart';
-import '../ui/const.dart';
 import '../ui/strings/strings_provider.dart';
 import '../ui/theme.dart';
 import 'expandable_info.dart';
+import 'project.dart';
 
 class IntegrationLearningExperience extends ExpandableInfo {
   IntegrationLearningExperience()
@@ -15,16 +14,8 @@ class IntegrationLearningExperience extends ExpandableInfo {
         infoWidget: Column(
           spacing: AppTheme.normalSpacingValue,
           children: [
-            _Project(
-              StringsProvider.strings.integrationProjectConversionsAndFtpTitle,
-              StringsProvider.strings.integrationProjectConversionsAndFtpDescription,
-              AppAssets.conversionsAndFtpAssets
-            ),
-            _Project(
-              StringsProvider.strings.integrationProjectCalculatorTitle,
-              StringsProvider.strings.integrationProjectCalculatorDescription,
-              AppAssets.calculatorAssets
-            )
+            ProjectWidget(_ConversionsAndFtp()),
+            ProjectWidget(_Calculator())
           ]
         ),
         startOpen: true
@@ -32,27 +23,31 @@ class IntegrationLearningExperience extends ExpandableInfo {
 }
 
 
-class _Project extends Row {
-  _Project(String title, String description, ImageAssetsArchive assets)
+class _Calculator extends Project {
+  _Calculator()
     : super(
-        spacing: AppTheme.smallSpacingValue,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Icon(
-            AppIcons.topicMark,
-            color: AppTheme.darkColor
-          ),
-          Expanded(
-            child: Column(
-              spacing: AppTheme.shortSpacingValue,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(title, style: AppTheme.darkBoldStyle),
-                Text(description, style: AppTheme.darkStyle)
-              ]
-            )
-          ),
-          AppLoadingIconButton(assets)
-        ]
+        StringsProvider.strings.integrationProjectCalculatorTitle,
+        StringsProvider.strings.integrationProjectCalculatorDescription,
+        AppAssets.calculatorAssets
       );
+
+  @override
+  List<Widget> buildViewer() {
+    return [];
+  }
+}
+
+
+class _ConversionsAndFtp extends Project {
+  _ConversionsAndFtp()
+    : super(
+        StringsProvider.strings.integrationProjectConversionsAndFtpTitle,
+        StringsProvider.strings.integrationProjectConversionsAndFtpDescription,
+        AppAssets.conversionsAndFtpAssets
+      );
+
+  @override
+  List<Widget> buildViewer() {
+    return [];
+  }
 }
