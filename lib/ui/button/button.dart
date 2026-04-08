@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'assets.dart';
-import 'const.dart';
-import 'container/container.dart';
-import 'gallery.dart';
-import 'theme.dart';
+import '../const.dart';
+import '../container/container.dart';
+import '../theme.dart';
 
 class AppButton extends StatelessWidget {
   static const double _containerSize = 36;
+  static const double _iconSize = 24;
   static final Color effectsColor = AppTheme.lowLightColor.withValues(alpha: 0.32);
 
   final bool isSelected;
@@ -25,15 +24,26 @@ class AppButton extends StatelessWidget {
   AppButton.icon({
     required IconData icon,
     Color? color,
+    bool isLoading = false,
     required this.onPressed
   })
     : isSelected = false,
       this.color = color ?? AppTheme.lightBlue,
-      child = Icon(
-        icon,
-        size: 24,
-        color: color ?? AppTheme.lightBlue
-      );
+      child = isLoading
+        ? SizedBox(
+            width: _iconSize,
+            height: _iconSize,
+            child: CircularProgressIndicator(
+              color: color,
+              strokeWidth: 3,
+              backgroundColor: (color ?? AppTheme.lightBlue).withValues(alpha: 0.26)
+            )
+          )
+        : Icon(
+            icon,
+            size: _iconSize,
+            color: color ?? AppTheme.lightBlue
+          );
 
   @override
   Widget build(BuildContext context) {
@@ -59,77 +69,6 @@ class AppButton extends StatelessWidget {
   }
 }
 
-class AppGalleryButton extends StatefulWidget {
-  final GalleryAssets assets;
-
-  AppGalleryButton(this.assets);
-
-  @override
-  _AppGalleryButtonState createState() => _AppGalleryButtonState();
-}
-
-class _AppGalleryButtonState extends State<AppGalleryButton> {
-  bool isProcessing = false;
-
-  @override
-  Widget build(BuildContext context) {
-    final child = SizedBox(
-      width: 84,
-      height: 56,
-      child: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          Image.memory(AppAssets.imageSlider, fit: BoxFit.fill),
-
-          if (isProcessing)
-            Center(
-              child: AspectRatio(
-                aspectRatio: 1,
-                child: AppContainer(
-                  color: AppTheme.lightBlue,
-                  margin: const EdgeInsets.all(8),
-                  padding: const EdgeInsets.all(8),
-                  child: CircularProgressIndicator(
-                    color: AppTheme.darkBlue,
-                    strokeWidth: 3,
-                    backgroundColor: AppTheme.darkBlue.withValues(alpha: 0.26)
-                  )
-                )
-              )
-            )
-        ]
-      )
-    );
-
-    return AppContainer(
-      borderColor: AppTheme.lightBlue,
-      borderRadius: AppTheme.allBorderRadius,
-      isClipped: true,
-      child: AppInkResponse(
-        padding: const EdgeInsets.all(12),
-        effectsColor: AppButton.effectsColor,
-        onPressed: onPressed,
-        child: child
-      )
-    );
-  }
-
-  void onPressed() async {
-    if (isProcessing)
-      return;
-
-    setState(() => isProcessing = true);
-
-    try {
-      await widget.assets.load();
-    }
-    finally {
-      setState(() => isProcessing = false);
-    }
-
-    AppGallery.show(context, widget.assets);
-  }
-}
 
 class AppInkResponse extends StatelessWidget {
   final EdgeInsets? padding;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../button.dart';
+import '../button/button.dart';
 import '../const.dart';
 import 'container.dart';
 import 'expandable.dart';

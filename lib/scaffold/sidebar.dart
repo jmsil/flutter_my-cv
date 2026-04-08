@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../content/profile_photo.dart';
 import '../ui/assets.dart';
-import '../ui/button.dart';
+import '../ui/button/button.dart';
 import '../ui/const.dart';
 import '../ui/container/container.dart';
 import '../ui/container/header_expandable.dart';

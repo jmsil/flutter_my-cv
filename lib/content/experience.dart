@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../ui/assets.dart';
-import '../ui/button.dart';
+import '../ui/button/loading_button.dart';
 import '../ui/const.dart';
 import '../ui/strings/strings.dart';
 import '../ui/strings/strings_provider.dart';

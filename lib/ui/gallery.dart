@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'assets.dart';
-import 'button.dart';
+import 'button/button.dart';
 import 'const.dart';
 import 'container/container.dart';
 import 'overlay_bar.dart';
@@ -51,7 +51,7 @@ class _State extends State<AppGallery> {
   static final Color bodyBackgroundColor = AppTheme.lowDarkColor;
 
   int index = 0;
-  late final int fileCount;
+  late final int count;
   late final double thumbnailWidth;
   late final bool isPortrait;
 
@@ -62,11 +62,11 @@ class _State extends State<AppGallery> {
   void initState() {
     super.initState();
 
-    fileCount = widget.assets.count;
+    count = widget.assets.count;
     thumbnailWidth = widget.assets.thumbnailWidth.toDouble();
     isPortrait = thumbnailWidth < widget.assets.thumbnailHeight;
 
-    for (int i = 0; i < fileCount; i++)
+    for (int i = 0; i < count; i++)
       thumbnailKeys.add(GlobalKey());
   }
 
@@ -74,7 +74,7 @@ class _State extends State<AppGallery> {
   Widget build(BuildContext context) {
     final List<Widget> thumbnails = [];
 
-    for (int i = 0; i < fileCount; i++) {
+    for (int i = 0; i < count; i++) {
       bool isSelected = i == index;
       Widget thumbnail = AnimatedPadding(
         key: thumbnailKeys[i],
@@ -91,7 +91,7 @@ class _State extends State<AppGallery> {
           child: AppInkResponse(
             effectsColor: Colors.transparent,
             onPressed: () => setIndex(i),
-            child: Image.memory(widget.assets.getThumbnail(i), fit: BoxFit.fill)
+            child: Image.memory(widget.assets.getThumbnail(i + 1), fit: BoxFit.fill)
           )
         )
       );
@@ -121,7 +121,7 @@ class _State extends State<AppGallery> {
           startForegroundColor: bodyBackgroundColor,
           endForegroundColor: bodyBackgroundColor,
           child: Image.memory(
-            widget.assets.getImage(index),
+            widget.assets.getImage(index + 1),
             gaplessPlayback: true
           )
         )
@@ -154,7 +154,7 @@ class _State extends State<AppGallery> {
     );
 
     final Widget label = Text(
-      '${index + 1}/${fileCount}',
+      '${index + 1}/${count}',
       style: AppTheme.lightBlueStyle
     );
 
@@ -211,7 +211,7 @@ class _State extends State<AppGallery> {
   }
 
   void onNext() {
-    if (index < fileCount - 1)
+    if (index < count - 1)
       setIndex(index + 1);
   }
 

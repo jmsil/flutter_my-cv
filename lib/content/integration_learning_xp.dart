@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../ui/button.dart';
+import '../ui/assets.dart';
+import '../ui/button/loading_button.dart';
 import '../ui/const.dart';
 import '../ui/strings/strings_provider.dart';
 import '../ui/theme.dart';
@@ -16,11 +17,13 @@ class IntegrationLearningExperience extends ExpandableInfo {
           children: [
             _Project(
               StringsProvider.strings.integrationProjectConversionsAndFtpTitle,
-              StringsProvider.strings.integrationProjectConversionsAndFtpDescription
+              StringsProvider.strings.integrationProjectConversionsAndFtpDescription,
+              AppAssets.conversionsAndFtpAssets
             ),
             _Project(
               StringsProvider.strings.integrationProjectCalculatorTitle,
-              StringsProvider.strings.integrationProjectCalculatorDescription
+              StringsProvider.strings.integrationProjectCalculatorDescription,
+              AppAssets.calculatorAssets
             )
           ]
         ),
@@ -30,7 +33,7 @@ class IntegrationLearningExperience extends ExpandableInfo {
 
 
 class _Project extends Row {
-  _Project(String title, String description)
+  _Project(String title, String description, ImageAssetsArchive assets)
     : super(
         spacing: AppTheme.smallSpacingValue,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,11 +52,7 @@ class _Project extends Row {
               ]
             )
           ),
-          AppButton.icon(
-            icon: AppIcons.plus,
-            color: AppTheme.darkColor,
-            onPressed: () {}
-          )
+          AppLoadingIconButton(assets)
         ]
       );
 }
