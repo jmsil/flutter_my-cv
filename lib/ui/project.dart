@@ -35,8 +35,12 @@ class ProjectWidget extends Row {
 
 
 class ProjectImageWidget extends AppContainer {
-  ProjectImageWidget(Uint8List imageData)
+  ProjectImageWidget(Uint8List imageData, {required hasTopMargin})
     : super(
+        margin: EdgeInsets.only(
+          top: hasTopMargin ? AppTheme.xLargeSpacingValue : 0,
+          bottom: AppTheme.xLargeSpacingValue
+        ),
         borderColor: AppTheme.lightBlue.withValues(alpha: 0.32),
         borderRadius: AppTheme.allBorderRadius,
         isClipped: true,

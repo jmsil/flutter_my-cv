@@ -57,10 +57,11 @@ abstract class Strings {
   String get experienceTitle;
   String get sapIntegrationSuiteLearningJourneyTitle;
   String get sapIntegrationSuiteLearningJourneyDetail;
-  String get integrationProjectConversionsAndFtpTitle;
-  String get integrationProjectConversionsAndFtpDescription;
   String get integrationProjectCalculatorTitle;
   String get integrationProjectCalculatorDescription;
+  String get integrationProjectCalculatorInfo;
+  String get integrationProjectConversionsAndFtpTitle;
+  String get integrationProjectConversionsAndFtpDescription;
   String get fortlevExperienceTitle;
   String get fortlevExperienceDetail;
   String get fortlevExperienceInfo;

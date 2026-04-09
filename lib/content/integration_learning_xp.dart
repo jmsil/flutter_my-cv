@@ -14,8 +14,8 @@ class IntegrationLearningExperience extends ExpandableInfo {
         infoWidget: Column(
           spacing: AppTheme.normalSpacingValue,
           children: [
-            ProjectWidget(_ConversionsAndFtp()),
-            ProjectWidget(_Calculator())
+            ProjectWidget(_Calculator()),
+            ProjectWidget(_ConversionsAndFtp())
           ]
         ),
         startOpen: true
@@ -33,7 +33,11 @@ class _Calculator extends Project {
 
   @override
   List<Widget> buildViewer() {
-    return [];
+    return [
+      ProjectImageWidget(assets.getImage(1), hasTopMargin: false),
+      Text(StringsProvider.strings.integrationProjectCalculatorInfo, style: AppTheme.darkStyle),
+      ProjectImageWidget(assets.getImage(2), hasTopMargin: true)
+    ];
   }
 }
 
