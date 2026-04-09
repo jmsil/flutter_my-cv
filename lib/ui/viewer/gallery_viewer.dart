@@ -3,41 +3,20 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'assets.dart';
-import 'button/button.dart';
-import 'const.dart';
-import 'container/container.dart';
-import 'overlay_bar.dart';
-import 'scroller.dart';
-import 'theme.dart';
+import '../assets.dart';
+import '../button/button.dart';
+import '../const.dart';
+import '../container/container.dart';
+import '../scroller.dart';
+import '../theme.dart';
 
 class AppGallery extends StatefulWidget {
   final GalleryAssets assets;
 
-  AppGallery._(this.assets);
+  AppGallery(this.assets);
 
   @override
   _State createState() => _State();
-
-  static void show(BuildContext context, GalleryAssets assets) {
-    showGeneralDialog<void>(
-      context: context,
-      barrierLabel: '',
-      barrierDismissible: true,
-      barrierColor: Colors.black.withValues(alpha: 0.7),
-      transitionDuration: const Duration(milliseconds: 380),
-
-      transitionBuilder: (transCtx, transAnim, transSecAnim, transChild) {
-        return FadeUpwardsPageTransitionsBuilder().buildTransitions(
-          null, transCtx, transAnim, transSecAnim, transChild
-        );
-      },
-
-      pageBuilder: (pageCtx, pageAnim, pageSecAnim) {
-        return AppGallery._(assets);
-      }
-    );
-  }
 }
 
 class _State extends State<AppGallery> {
@@ -48,7 +27,6 @@ class _State extends State<AppGallery> {
   static const EdgeInsets unselectedThumbnailMargin = EdgeInsets.symmetric(
     horizontal: 12, vertical: 6
   );
-  static final Color bodyBackgroundColor = AppTheme.lowDarkColor;
 
   int index = 0;
   late final int count;
@@ -98,28 +76,26 @@ class _State extends State<AppGallery> {
       thumbnails.add(thumbnail);
     }
 
-    final Widget thumbnailsWidget = BackdropFilter(
-      filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
-      child: AppContainer(
-        width: thumbnailWidth +
-          unselectedThumbnailBorderSize * 2 +
-          unselectedThumbnailMargin.horizontal +
-          thumbnailsContainerPadding.horizontal,
-        padding: thumbnailsContainerPadding,
-        color: AppTheme.highDarkColor.withValues(alpha: 0.6),
-        child: AppListView(
-          controller: scrollController,
-          children: thumbnails
-        )
+    final Widget thumbnailsWidget = AppContainer(
+      width: thumbnailWidth +
+        unselectedThumbnailBorderSize * 2 +
+        unselectedThumbnailMargin.horizontal +
+        thumbnailsContainerPadding.horizontal,
+      padding: thumbnailsContainerPadding,
+      color: AppTheme.highDarkColor.withValues(alpha: 0.6),
+      child: AppListView(
+        controller: scrollController,
+        children: thumbnails
       )
     );
 
     final Widget imageWidget = Expanded(
       child: Center(
-        child: OverlayBar(
-          radius: AppTheme.radiusValue,
-          startForegroundColor: bodyBackgroundColor,
-          endForegroundColor: bodyBackgroundColor,
+        child: AppContainer(
+          margin: const ThemedEdgeInsets.xLarge(),
+          borderSize: 12,
+          borderColor: AppTheme.darkColor,
+          borderRadius: const BorderRadius.all(Radius.circular(32)),
           child: Image.memory(
             widget.assets.getImage(index + 1),
             gaplessPlayback: true
@@ -130,6 +106,7 @@ class _State extends State<AppGallery> {
 
     final Widget closeButton = AppButton.icon(
       icon: AppIcons.close,
+      color: AppTheme.darkColor,
       onPressed: () => Navigator.pop(context)
     );
 
@@ -138,6 +115,7 @@ class _State extends State<AppGallery> {
         alignment: Alignment.bottomRight,
         child: AppButton.icon(
           icon: AppIcons.arrowUp,
+          color: AppTheme.darkColor,
           onPressed: onPrevious
         )
       )
@@ -148,6 +126,7 @@ class _State extends State<AppGallery> {
         alignment: Alignment.topRight,
         child: AppButton.icon(
           icon: AppIcons.arrowDown,
+          color: AppTheme.darkColor,
           onPressed: onNext
         )
       )
@@ -155,26 +134,27 @@ class _State extends State<AppGallery> {
 
     final Widget label = Text(
       '${index + 1}/${count}',
-      style: AppTheme.lightBlueStyle
+      style: AppTheme.darkBoldStyle
     );
 
-    final Widget controlsWidget = Column(
-      spacing: AppTheme.xLargeSpacingValue,
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        closeButton,
-        previousButton,
-        nextButton,
-        label
-      ]
+    final Widget controlsWidget = Padding(
+      padding: const ThemedEdgeInsets.large(),
+      child: Column(
+        spacing: AppTheme.xLargeSpacingValue,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          closeButton,
+          previousButton,
+          nextButton,
+          label
+        ]
+      )
     );
 
     final Widget bodyWidget = Expanded(
       child: AppContainer(
-        color: bodyBackgroundColor,
-        padding: const ThemedEdgeInsets.xLarge(),
+        color: AppTheme.highLightColor.withValues(alpha: 0.9),
         child: Row(
-          spacing: ThemedEdgeInsets.xLargeValue,
           children: [
             imageWidget,
             controlsWidget
@@ -189,16 +169,19 @@ class _State extends State<AppGallery> {
       child: Center(
         child: AppContainer(
           width: isPortrait ? 1400 : 1800,
-          height: 960,
+          height: 980,
           margin: const ThemedEdgeInsets.normal(),
           borderColor: AppTheme.lightBlue,
           borderRadius: AppTheme.allBorderRadius,
           isClipped: true,
-          child: Row(
-            children: [
-              thumbnailsWidget,
-              bodyWidget
-            ]
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+            child: Row(
+              children: [
+                thumbnailsWidget,
+                bodyWidget
+              ]
+            )
           )
         )
       )

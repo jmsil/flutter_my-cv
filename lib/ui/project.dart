@@ -1,20 +1,12 @@
+import 'dart:typed_data';
+
 import 'package:flutter/widgets.dart';
 
-import '../ui/assets.dart';
-import '../ui/button/loading_button.dart';
-import '../ui/const.dart';
-import '../ui/theme.dart';
-
-abstract class Project {
-  final String title;
-  final String description;
-  final ImageAssetsArchive assets;
-
-  Project(this.title, this.description, this.assets);
-
-  List<Widget> buildViewer();
-}
-
+import 'assets.dart';
+import 'button/loading_button.dart';
+import 'const.dart';
+import 'container/container.dart';
+import 'theme.dart';
 
 class ProjectWidget extends Row {
   ProjectWidget(Project project)
@@ -39,4 +31,26 @@ class ProjectWidget extends Row {
           AppProjectButton(project)
         ]
       );
+}
+
+
+class ProjectImageWidget extends AppContainer {
+  ProjectImageWidget(Uint8List imageData)
+    : super(
+        borderColor: AppTheme.lightBlue.withValues(alpha: 0.32),
+        borderRadius: AppTheme.allBorderRadius,
+        isClipped: true,
+        child: Image.memory(imageData)
+      );
+}
+
+
+abstract class Project {
+  final String title;
+  final String description;
+  final ImageAssetsArchive assets;
+
+  Project(this.title, this.description, this.assets);
+
+  List<Widget> buildViewer();
 }

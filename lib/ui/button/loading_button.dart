@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../../content/project.dart';
 import '../assets.dart';
 import '../const.dart';
 import '../container/container.dart';
-import '../gallery.dart';
+import '../project.dart';
 import '../theme.dart';
+import '../viewer/gallery_viewer.dart';
+import '../viewer/project_viewer.dart';
+import '../viewer/viewer.dart';
 import 'button.dart';
 
 class AppProjectButton extends _LoadingButton {
@@ -26,7 +28,7 @@ class AppProjectButton extends _LoadingButton {
 
   @override
   void showViewer(BuildContext context) {
-    // TODO: implement showWindow
+    AppViewer.show(context, AppProjectViewer(project));
   }
 }
 
@@ -80,7 +82,7 @@ class AppGalleryButton extends _LoadingButton {
 
   @override
   void showViewer(BuildContext context) {
-    AppGallery.show(context, assets as GalleryAssets);
+    AppViewer.show(context, AppGallery(assets as GalleryAssets));
   }
 }
 

@@ -28,4 +28,5 @@ class AppIcons {
   static const IconData studying = Icons.local_library_outlined;
   static const IconData summary = Icons.summarize_outlined;
   static const IconData topicMark = Icons.arrow_right;
+  static const IconData webhook = Icons.webhook;
 }

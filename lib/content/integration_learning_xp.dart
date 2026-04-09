@@ -4,7 +4,7 @@ import '../ui/assets.dart';
 import '../ui/strings/strings_provider.dart';
 import '../ui/theme.dart';
 import 'expandable_info.dart';
-import 'project.dart';
+import '../ui/project.dart';
 
 class IntegrationLearningExperience extends ExpandableInfo {
   IntegrationLearningExperience()
