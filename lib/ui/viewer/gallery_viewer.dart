@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -9,6 +7,7 @@ import '../const.dart';
 import '../container/container.dart';
 import '../scroller.dart';
 import '../theme.dart';
+import 'viewer.dart';
 
 class AppGallery extends StatefulWidget {
   final GalleryAssets assets;
@@ -18,6 +17,7 @@ class AppGallery extends StatefulWidget {
   @override
   _State createState() => _State();
 }
+
 
 class _State extends State<AppGallery> {
   static const double selectedThumbnailBorderSize = 3;
@@ -76,19 +76,6 @@ class _State extends State<AppGallery> {
       thumbnails.add(thumbnail);
     }
 
-    final Widget thumbnailsWidget = AppContainer(
-      width: thumbnailWidth +
-        unselectedThumbnailBorderSize * 2 +
-        unselectedThumbnailMargin.horizontal +
-        thumbnailsContainerPadding.horizontal,
-      padding: thumbnailsContainerPadding,
-      color: AppTheme.highDarkColor.withValues(alpha: 0.6),
-      child: AppListView(
-        controller: scrollController,
-        children: thumbnails
-      )
-    );
-
     final Widget imageWidget = Expanded(
       child: Center(
         child: AppContainer(
@@ -137,53 +124,43 @@ class _State extends State<AppGallery> {
       style: AppTheme.darkBoldStyle
     );
 
-    final Widget controlsWidget = Padding(
-      padding: const ThemedEdgeInsets.large(),
-      child: Column(
-        spacing: AppTheme.xLargeSpacingValue,
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          closeButton,
-          previousButton,
-          nextButton,
-          label
-        ]
-      )
-    );
-
-    final Widget bodyWidget = Expanded(
-      child: AppContainer(
-        color: AppTheme.highLightColor.withValues(alpha: 0.9),
-        child: Row(
-          children: [
-            imageWidget,
-            controlsWidget
-          ]
+    final Widget bodyWidget = Row(
+      children: [
+        imageWidget,
+        Padding(
+          padding: const ThemedEdgeInsets.large(),
+          child: Column(
+            spacing: AppTheme.xLargeSpacingValue,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              closeButton,
+              previousButton,
+              nextButton,
+              label
+            ]
+          )
         )
-      )
+      ]
     );
 
     return Focus(
       autofocus: true,
       onKeyEvent: onKeyEvent,
-      child: Center(
-        child: AppContainer(
-          width: isPortrait ? 1400 : 1800,
-          height: 980,
-          margin: const ThemedEdgeInsets.normal(),
-          borderColor: AppTheme.lightBlue,
-          borderRadius: AppTheme.allBorderRadius,
-          isClipped: true,
-          child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
-            child: Row(
-              children: [
-                thumbnailsWidget,
-                bodyWidget
-              ]
-            )
-          )
-        )
+      child: AppViewer(
+        direction: Axis.horizontal,
+        windowWidth: isPortrait ? 1400 : 1800,
+        windowHeight: 980,
+        barWidth: thumbnailWidth +
+          unselectedThumbnailBorderSize * 2 +
+          unselectedThumbnailMargin.horizontal +
+          thumbnailsContainerPadding.horizontal,
+        barPadding: thumbnailsContainerPadding,
+        bodyIsTransparent: true,
+        barWidget: AppListView(
+          controller: scrollController,
+          children: thumbnails
+        ),
+        bodyWidget: bodyWidget
       )
     );
   }
