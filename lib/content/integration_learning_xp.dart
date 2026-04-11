@@ -52,6 +52,20 @@ class _ConversionsAndFtp extends Project {
 
   @override
   List<Widget> buildViewer() {
-    return [];
+    return [
+      ProjectImageWidget(assets.getImage(1), hasTopMargin: false),
+      Text(
+        StringsProvider.strings.integrationProjectConversionsAndFtpInfo1,
+        style: AppTheme.darkStyle
+      ),
+      ProjectImageWidget(assets.getImage(2), hasTopMargin: true),
+      ProjectImageWidget(assets.getImage(3), hasTopMargin: false),
+      Text(
+        StringsProvider.strings.integrationProjectConversionsAndFtpInfo2,
+        style: AppTheme.darkStyle
+      ),
+      ProjectImageWidget(assets.getImage(4), hasTopMargin: true),
+      ProjectImageWidget(assets.getImage(5), hasTopMargin: false)
+    ];
   }
 }

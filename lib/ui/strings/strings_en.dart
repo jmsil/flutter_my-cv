@@ -62,10 +62,10 @@ class StringsEn extends Strings {
 
   @override
   String get integrationProjectCalculatorInfo =>
-    'In this iFlow, I implemented a dynamic endpoint to support the four operations offered by '
-    'the web service.\n\n'
+    'This iFlow implements a dynamic endpoint to support the four operations offered by the web '
+    'service.\n\n'
 
-    'The four endpoints supported by the iFlow are:\n'
+    'The supported endpoints are:\n'
     '▪ https://<service-instance-URL>/http/calculator/add;\n'
     '▪ https://<service-instance-URL>/http/calculator/sub;\n'
     '▪ https://<service-instance-URL>/http/calculator/mult;\n'
@@ -81,9 +81,31 @@ class StringsEn extends Strings {
 
   @override
   String get integrationProjectConversionsAndFtpDescription =>
-    'Convert the payload from/to different formats based on the Content-Type header and save the '
-    'result to an FTP server.';
+    'Convert the payload from/to different formats and save the result to an FTP server.';
 
+  @override
+  String get integrationProjectConversionsAndFtpInfo1 =>
+    'This iFlow implements the most common conversions. The standard Content-Type header defines '
+    'the source format. The customized Content-Type-To header defines the target format.\n\n'
+
+    'The supported conversions are:\n'
+    '▪ From text/csv to application/xml;\n'
+    '▪ From application/json to application/xml;\n'
+    '▪ From application/xml to text/csv;\n'
+    '▪ From application/xml to application/json.\n\n'
+
+    'Unsupported operations return 415 (Unsupported Media Type) in the CamelHttpResponseCode '
+    'header.\n\n'
+
+    'The result is saved to an FTP server configured via externalized parameters.\n\n'
+
+    'For learning purposes, the conversions between the XML and JSON formats implement namespace '
+    'mappings.\n\n'
+
+    'JSON to XML:';
+
+  @override
+  String get integrationProjectConversionsAndFtpInfo2 => 'XML to JSON:';
   @override
   String get fortlevExperienceTitle => 'Flutter Mobile Application Development';
   @override
@@ -212,7 +234,8 @@ class StringsEn extends Strings {
   @override
   String get availabilityInfo =>
     'Independent contract (PREFERABLE)\n'
-    '▪ Fixed ▪ Hour - '
+    '▪ Fixed\n'
+    '▪ Hour - '
     'Employee contract - '
     'Remote only - '
     'Freelance';

@@ -62,6 +62,8 @@ abstract class Strings {
   String get integrationProjectCalculatorInfo;
   String get integrationProjectConversionsAndFtpTitle;
   String get integrationProjectConversionsAndFtpDescription;
+  String get integrationProjectConversionsAndFtpInfo1;
+  String get integrationProjectConversionsAndFtpInfo2;
   String get fortlevExperienceTitle;
   String get fortlevExperienceDetail;
   String get fortlevExperienceInfo;

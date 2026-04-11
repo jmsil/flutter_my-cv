@@ -64,10 +64,10 @@ class StringsPt extends Strings {
 
   @override
   String get integrationProjectCalculatorInfo =>
-    'Neste iFlow, implementei um endpoint dinâmico para atender às quatro operações oferecidas '
-    'pelo web service.\n\n'
+    'Este iFlow implementa um endpoint dinâmico para atender às quatro operações oferecidas pelo '
+    'web service.\n\n'
 
-    'Os endpoints suportados pelo iFlow são:\n'
+    'Os endpoints suportados são:\n'
     '▪ https://<service-instance-URL>/http/calculator/add;\n'
     '▪ https://<service-instance-URL>/http/calculator/sub;\n'
     '▪ https://<service-instance-URL>/http/calculator/mult;\n'
@@ -83,9 +83,32 @@ class StringsPt extends Strings {
 
   @override
   String get integrationProjectConversionsAndFtpDescription =>
-    'Converte o payload de/para diferentes formatos baseado no cabeçalho Content-Type e salva o '
-    'resultado em um servidor FTP.';
+    'Converte o payload de/para diferentes formatos e salva o resultado em um servidor FTP.';
 
+  @override
+  String get integrationProjectConversionsAndFtpInfo1 =>
+    'Este iFlow implementa as conversões mais comuns. O cabeçalho padrão Content-Type define '
+    'o formato de origem. O cabeçalho customizado Content-Type-To define o formato de '
+    'destino.\n\n'
+
+    'As conversões suportadas são:\n'
+    '▪ De text/csv para application/xml;\n'
+    '▪ De application/json para application/xml;\n'
+    '▪ De application/xml para text/csv;\n'
+    '▪ De application/xml para application/json.\n\n'
+
+    'Operações não suportadas retornam 415 (Unsupported Media Type) no cabeçalho '
+    'CamelHttpResponseCode.\n\n'
+
+    'O resultado é salvo em um servidor FTP configurado via parâmetros externalizados.\n\n'
+
+    'Para efeito de aprendizado, as conversões entre os formatos XML e JSON implementam '
+    'mapeamento de namespaces.\n\n'
+
+    'JSON para XML:';
+
+  @override
+  String get integrationProjectConversionsAndFtpInfo2 => 'XML para JSON:';
   @override
   String get fortlevExperienceTitle => 'Desenvolvimento de Aplicativo Flutter Mobile';
   @override
@@ -212,7 +235,8 @@ class StringsPt extends Strings {
   @override
   String get availabilityInfo =>
     'Contrato Pessoa Jurídica (PREFERÍVEL)\n'
-    '▪ Fixo ▪ Hora - '
+    '▪ Fixo\n'
+    '▪ Hora - '
     'Contrato Pessoa Física - '
     'Somente remoto - '
     'Freelance';
