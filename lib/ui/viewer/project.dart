@@ -1,12 +1,9 @@
-import 'dart:typed_data';
-
 import 'package:flutter/widgets.dart';
 
-import 'assets.dart';
-import 'button/loading_button.dart';
-import 'const.dart';
-import 'container/container.dart';
-import 'theme.dart';
+import '../assets.dart';
+import '../button/loading_button.dart';
+import '../const.dart';
+import '../theme.dart';
 
 class ProjectWidget extends Row {
   ProjectWidget(Project project)
@@ -30,21 +27,6 @@ class ProjectWidget extends Row {
           ),
           AppProjectButton(project)
         ]
-      );
-}
-
-
-class ProjectImageWidget extends AppContainer {
-  ProjectImageWidget(Uint8List imageData, {required hasTopMargin})
-    : super(
-        margin: EdgeInsets.only(
-          top: hasTopMargin ? AppTheme.xLargeSpacingValue : 0,
-          bottom: AppTheme.xLargeSpacingValue
-        ),
-        borderColor: AppTheme.lightBlue.withValues(alpha: 0.32),
-        borderRadius: AppTheme.allBorderRadius,
-        isClipped: true,
-        child: Image.memory(imageData)
       );
 }
 

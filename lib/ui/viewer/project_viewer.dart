@@ -3,8 +3,8 @@ import 'package:my_cv/ui/scroller.dart';
 
 import '../button/button.dart';
 import '../const.dart';
-import '../project.dart';
 import '../theme.dart';
+import 'project.dart';
 import 'viewer.dart';
 
 class AppProjectViewer extends StatelessWidget {

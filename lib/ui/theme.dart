@@ -5,10 +5,10 @@ class AppTheme {
 
   static const double radiusValue = 16;
 
-  static const double _fontSize = 15;
-  static const double _largeFontSize = 16;
-  static const double _xLargeFontSize = 17;
-  static const double _xxLargeFontSize = 18;
+  static const double normalFontSize = 15;
+  static const double largeFontSize = 16;
+  static const double xLargeFontSize = 17;
+  static const double xxLargeFontSize = 18;
 
   static const double shortSpacingValue = 2;
   static const double smallSpacingValue = 8;
@@ -27,40 +27,40 @@ class AppTheme {
   static final Color mainScaffoldBackgroundColor = highLightColor;
 
   static final TextStyle darkStyle = TextStyle(
-    fontSize: _fontSize, color: darkColor
+    fontSize: normalFontSize, color: darkColor
   );
   static final TextStyle darkBoldStyle = TextStyle(
-    fontSize: _fontSize, color: darkColor, fontWeight: FontWeight.bold
+    fontSize: normalFontSize, color: darkColor, fontWeight: FontWeight.bold
   );
   static final TextStyle darkItalicStyle = TextStyle(
-    fontSize: _fontSize, color: darkColor, fontStyle: FontStyle.italic
+    fontSize: normalFontSize, color: darkColor, fontStyle: FontStyle.italic
   );
   static final TextStyle largeDarkBoldStyle = TextStyle(
-    fontSize: _largeFontSize, color: darkColor, fontWeight: FontWeight.bold
+    fontSize: largeFontSize, color: darkColor, fontWeight: FontWeight.bold
   );
   static final TextStyle darkBlueStyle = TextStyle(
-    fontSize: _fontSize, color: darkBlue
+    fontSize: normalFontSize, color: darkBlue
   );
   static final TextStyle highLightBlueStyle = TextStyle(
-    fontSize: _fontSize, color: highLightBlue
+    fontSize: normalFontSize, color: highLightBlue
   );
   static final TextStyle lightBlueStyle = TextStyle(
-    fontSize: _fontSize, color: lightBlue
+    fontSize: normalFontSize, color: lightBlue
   );
   static final TextStyle lightBlueBoldStyle = TextStyle(
-    fontSize: _fontSize, color: lightBlue, fontWeight: FontWeight.bold
+    fontSize: normalFontSize, color: lightBlue, fontWeight: FontWeight.bold
   );
   static final TextStyle largeLightBlueStyle = TextStyle(
-    fontSize: _largeFontSize, color: lightBlue
+    fontSize: largeFontSize, color: lightBlue
   );
   static final TextStyle largeLightBlueBoldStyle = TextStyle(
-    fontSize: _largeFontSize, color: lightBlue, fontWeight: FontWeight.bold
+    fontSize: largeFontSize, color: lightBlue, fontWeight: FontWeight.bold
   );
   static final TextStyle xLargeLightBlueStyle = TextStyle(
-    fontSize: _xLargeFontSize, color: lightBlue
+    fontSize: xLargeFontSize, color: lightBlue
   );
   static final TextStyle xxLargeLightBlueBoldStyle = TextStyle(
-    fontSize: _xxLargeFontSize, color: lightBlue, fontWeight: FontWeight.bold
+    fontSize: xxLargeFontSize, color: lightBlue, fontWeight: FontWeight.bold
   );
 
   static const SizedBox smallVerticalSpacing = SizedBox(height: smallSpacingValue);

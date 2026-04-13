@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import '../ui/assets.dart';
 import '../ui/strings/strings_provider.dart';
 import '../ui/theme.dart';
+import '../ui/viewer/project.dart';
+import '../ui/viewer/project_image.dart';
 import 'expandable_info.dart';
-import '../ui/project.dart';
 
 class IntegrationLearningExperience extends ExpandableInfo {
   IntegrationLearningExperience()
