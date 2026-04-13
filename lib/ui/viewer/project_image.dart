@@ -6,16 +6,16 @@ import '../container/container.dart';
 import '../theme.dart';
 
 class ProjectImageWidget extends AppContainer {
-  ProjectImageWidget(Uint8List imageData, {required hasTopMargin})
+  ProjectImageWidget(Uint8List image, bool hasTopMargin, bool hasBottomMargin)
     : super(
         color: Colors.white,
         padding: const ThemedEdgeInsets.normal(),
         margin: EdgeInsets.only(
-          top: hasTopMargin ? AppTheme.xLargeSpacingValue : 0,
-          bottom: AppTheme.xLargeSpacingValue
+          top: hasTopMargin ? AppTheme.normalSpacingValue : 0,
+          bottom: hasBottomMargin ? AppTheme.xLargeSpacingValue : 0
         ),
         borderColor: AppTheme.lightBlue.withValues(alpha: 0.32),
         borderRadius: AppTheme.allBorderRadius,
-        child: Image.memory(imageData)
+        child: Image.memory(image)
       );
 }

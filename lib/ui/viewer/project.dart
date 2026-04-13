@@ -34,7 +34,7 @@ class ProjectWidget extends Row {
 abstract class Project {
   final String title;
   final String description;
-  final ImageAssetsArchive assets;
+  final AssetsArchive assets;
 
   Project(this.title, this.description, this.assets);
 

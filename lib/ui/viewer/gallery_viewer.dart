@@ -84,7 +84,7 @@ class _State extends State<AppGallery> {
           borderColor: AppTheme.darkColor,
           borderRadius: const BorderRadius.all(Radius.circular(32)),
           child: Image.memory(
-            widget.assets.getImage(index + 1),
+            widget.assets.getFile(index + 1),
             gaplessPlayback: true
           )
         )

@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:re_editor/re_editor.dart';
 import 'package:re_highlight/languages/json.dart';
@@ -8,23 +11,22 @@ import '../container/container.dart';
 import '../theme.dart';
 
 class ProjectCodeWidget extends AppContainer {
-  ProjectCodeWidget({
-    required String fromCode,
-    required String toCode,
-    required bool hasTopMargin
-  })
+  ProjectCodeWidget(Uint8List fromCode, Uint8List toCode, bool hasTopMargin, bool hasBottomMargin)
     : super(
-        height: 300,
+        height: 306,
         color: AppTheme.highDarkColor,
-        padding: const EdgeInsets.symmetric(vertical: ThemedEdgeInsets.normalValue),
         margin: EdgeInsets.only(
-          top: hasTopMargin ? AppTheme.xLargeSpacingValue : 0,
-          bottom: AppTheme.xLargeSpacingValue
+          top: hasTopMargin ? AppTheme.normalSpacingValue : 0,
+          bottom: hasBottomMargin ? AppTheme.xLargeSpacingValue : 0
         ),
         borderRadius: AppTheme.allBorderRadius,
         child: Row(
           children: [
             Expanded(child: _Editor(fromCode)),
+            VerticalDivider(
+              thickness: 64, width: 64,
+              color: AppTheme.lowLightColor.withValues(alpha: 0.06)
+            ),
             Expanded(child: _Editor(toCode))
           ]
         )
@@ -33,15 +35,18 @@ class ProjectCodeWidget extends AppContainer {
 
 
 class _Editor extends CodeEditor {
-  _Editor(String code)
+  _Editor(Uint8List code)
     : super(
-        controller: CodeLineEditingController.fromText(code),
         readOnly: true,
+
+        controller: CodeLineEditingController.fromText(
+          utf8.decode(code)
+        ),
 
         style: CodeEditorStyle(
           fontSize: AppTheme.normalFontSize,
           textColor: AppTheme.highLightColor,
-          cursorColor: AppTheme.lowLightColor,
+          cursorColor: AppTheme.highLightColor,
           selectionColor: AppTheme.lowLightColor.withValues(alpha: 0.25),
           codeTheme: CodeHighlightTheme(
             languages: {

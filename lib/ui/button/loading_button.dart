@@ -89,7 +89,7 @@ class AppGalleryButton extends _LoadingButton {
 
 
 abstract class _LoadingButton extends StatefulWidget {
-  final ImageAssetsArchive assets;
+  final AssetsArchive assets;
 
   _LoadingButton(this.assets);
 

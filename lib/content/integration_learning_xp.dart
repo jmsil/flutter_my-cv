@@ -4,6 +4,7 @@ import '../ui/assets.dart';
 import '../ui/strings/strings_provider.dart';
 import '../ui/theme.dart';
 import '../ui/viewer/project.dart';
+import '../ui/viewer/project_code.dart';
 import '../ui/viewer/project_image.dart';
 import 'expandable_info.dart';
 
@@ -35,9 +36,12 @@ class _Calculator extends Project {
   @override
   List<Widget> buildViewer() {
     return [
-      ProjectImageWidget(assets.getImage(1), hasTopMargin: false),
-      Text(StringsProvider.strings.integrationProjectCalculatorInfo, style: AppTheme.darkStyle),
-      ProjectImageWidget(assets.getImage(2), hasTopMargin: true)
+      ProjectImageWidget(assets.getFile(1), false, true),
+      Text(
+        StringsProvider.strings.integrationProjectCalculatorInfo,
+        style: AppTheme.darkStyle
+      ),
+      ProjectImageWidget(assets.getFile(2), true, true)
     ];
   }
 }
@@ -54,19 +58,19 @@ class _ConversionsAndFtp extends Project {
   @override
   List<Widget> buildViewer() {
     return [
-      ProjectImageWidget(assets.getImage(1), hasTopMargin: false),
+      ProjectImageWidget(assets.getFile(1), false, true),
       Text(
         StringsProvider.strings.integrationProjectConversionsAndFtpInfo1,
         style: AppTheme.darkStyle
       ),
-      ProjectImageWidget(assets.getImage(2), hasTopMargin: true),
-      ProjectImageWidget(assets.getImage(3), hasTopMargin: false),
+      ProjectImageWidget(assets.getFile(2), true, false),
+      ProjectCodeWidget(assets.getFile(3), assets.getFile(4), true, true),
       Text(
         StringsProvider.strings.integrationProjectConversionsAndFtpInfo2,
         style: AppTheme.darkStyle
       ),
-      ProjectImageWidget(assets.getImage(4), hasTopMargin: true),
-      ProjectImageWidget(assets.getImage(5), hasTopMargin: false)
+      ProjectImageWidget(assets.getFile(5), true, false),
+      ProjectCodeWidget(assets.getFile(6), assets.getFile(7), true, true)
     ];
   }
 }

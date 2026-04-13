@@ -12,11 +12,11 @@ class AppAssets {
     'assets/images/BciFortlevDriverApp/archive.zip'
   );
 
-  static final ImageAssetsArchive calculatorAssets = ImageAssetsArchive(
+  static final AssetsArchive calculatorAssets = AssetsArchive(
     'assets/images/SapIntegrationSuiteLearningJourney/Calculator/archive.zip'
   );
 
-  static final ImageAssetsArchive conversionsAndFtpAssets = ImageAssetsArchive(
+  static final AssetsArchive conversionsAndFtpAssets = AssetsArchive(
     'assets/images/SapIntegrationSuiteLearningJourney/ConversionsAndFtp/archive.zip'
   );
 
@@ -34,14 +34,14 @@ class AppAssets {
 }
 
 
-class ImageAssetsArchive {
-  ImageAssetsArchive(String assetName)
+class AssetsArchive {
+  AssetsArchive(String assetName)
     : this._assetName = assetName;
 
   final String _assetName;
-  final List<Uint8List> _images = [];
+  final List<Uint8List> _files = [];
 
-  int get count => _images.length;
+  int get count => _files.length;
 
   Future<void> load() async {
     if (count > 0)
@@ -56,19 +56,21 @@ class ImageAssetsArchive {
   }
 
   bool _added(Archive archive, int id) {
-    ArchiveFile? file = archive.find('images/${id}.jpeg');
+    ArchiveFile? file =
+      archive.find('files/${id}.jpeg') ??
+      archive.find('files/${id}.txt');
 
     if (file != null)
-      _images.add(file.content);
+      _files.add(file.content);
 
     return file != null;
   }
 
-  Uint8List getImage(int id) => _images[id - 1];
+  Uint8List getFile(int id) => _files[id - 1];
 }
 
 
-class GalleryAssets extends ImageAssetsArchive {
+class GalleryAssets extends AssetsArchive {
   GalleryAssets(super.assetName);
 
   final List<Uint8List> _thumbnails = [];
