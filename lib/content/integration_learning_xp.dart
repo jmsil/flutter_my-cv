@@ -6,6 +6,7 @@ import '../ui/theme.dart';
 import '../ui/viewer/project.dart';
 import '../ui/viewer/project_code.dart';
 import '../ui/viewer/project_image.dart';
+import '../ui/viewer/text.dart';
 import 'expandable_info.dart';
 
 class IntegrationLearningExperience extends ExpandableInfo {
@@ -37,10 +38,7 @@ class _Calculator extends Project {
   List<Widget> buildViewer() {
     return [
       ProjectImageWidget(assets.getFile(1), false, true),
-      Text(
-        StringsProvider.strings.integrationProjectCalculatorInfo,
-        style: AppTheme.darkStyle
-      ),
+      Text(StringsProvider.strings.integrationProjectCalculatorInfo),
       ProjectImageWidget(assets.getFile(2), true, true)
     ];
   }
@@ -59,16 +57,10 @@ class _ConversionsAndFtp extends Project {
   List<Widget> buildViewer() {
     return [
       ProjectImageWidget(assets.getFile(1), false, true),
-      Text(
-        StringsProvider.strings.integrationProjectConversionsAndFtpInfo1,
-        style: AppTheme.darkStyle
-      ),
+      ProjectTextWidget(StringsProvider.strings.integrationProjectConversionsAndFtpInfo1),
       ProjectImageWidget(assets.getFile(2), true, false),
       ProjectCodeWidget(assets.getFile(3), assets.getFile(4), true, true),
-      Text(
-        StringsProvider.strings.integrationProjectConversionsAndFtpInfo2,
-        style: AppTheme.darkStyle
-      ),
+      ProjectTextWidget(StringsProvider.strings.integrationProjectConversionsAndFtpInfo2),
       ProjectImageWidget(assets.getFile(5), true, false),
       ProjectCodeWidget(assets.getFile(6), assets.getFile(7), true, true)
     ];
