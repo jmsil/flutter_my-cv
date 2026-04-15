@@ -6,7 +6,6 @@ import '../ui/theme.dart';
 import '../ui/viewer/project.dart';
 import '../ui/viewer/project_code.dart';
 import '../ui/viewer/project_image.dart';
-import '../ui/viewer/text.dart';
 import 'expandable_info.dart';
 
 class IntegrationLearningExperience extends ExpandableInfo {
@@ -31,15 +30,15 @@ class _Calculator extends Project {
     : super(
         StringsProvider.strings.integrationProjectCalculatorTitle,
         StringsProvider.strings.integrationProjectCalculatorDescription,
+        StringsProvider.strings.integrationProjectCalculatorInfo,
         AppAssets.calculatorAssets
       );
 
   @override
-  List<Widget> buildViewer() {
+  List<Widget> buildWidgets() {
     return [
-      ProjectImageWidget(assets.getFile(1), false, true),
-      Text(StringsProvider.strings.integrationProjectCalculatorInfo),
-      ProjectImageWidget(assets.getFile(2), true, true)
+      ProjectImageWidget(assets.getFile(1)),
+      ProjectImageWidget(assets.getFile(2))
     ];
   }
 }
@@ -50,19 +49,18 @@ class _ConversionsAndFtp extends Project {
     : super(
         StringsProvider.strings.integrationProjectConversionsAndFtpTitle,
         StringsProvider.strings.integrationProjectConversionsAndFtpDescription,
+        StringsProvider.strings.integrationProjectConversionsAndFtpInfo,
         AppAssets.conversionsAndFtpAssets
       );
 
   @override
-  List<Widget> buildViewer() {
+  List<Widget> buildWidgets() {
     return [
-      ProjectImageWidget(assets.getFile(1), false, true),
-      ProjectTextWidget(StringsProvider.strings.integrationProjectConversionsAndFtpInfo1),
-      ProjectImageWidget(assets.getFile(2), true, false),
-      ProjectCodeWidget(assets.getFile(3), assets.getFile(4), true, true),
-      ProjectTextWidget(StringsProvider.strings.integrationProjectConversionsAndFtpInfo2),
-      ProjectImageWidget(assets.getFile(5), true, false),
-      ProjectCodeWidget(assets.getFile(6), assets.getFile(7), true, true)
+      ProjectImageWidget(assets.getFile(1)),
+      ProjectImageWidget(assets.getFile(2)),
+      ProjectCodeWidget(assets.getFile(3), assets.getFile(4)),
+      ProjectImageWidget(assets.getFile(5)),
+      ProjectCodeWidget(assets.getFile(6), assets.getFile(7))
     ];
   }
 }

@@ -64,6 +64,8 @@ class StringsPt extends Strings {
 
   @override
   String get integrationProjectCalculatorInfo =>
+    '${Strings.widgetPlaceholderWithBreak}'
+
     'Este iFlow implementa um endpoint dinâmico para atender às quatro operações oferecidas pelo '
     'web service.\n\n'
 
@@ -76,7 +78,9 @@ class StringsPt extends Strings {
     'Operações não suportadas retornam 404 (Not Found) no cabeçalho CamelHttpResponseCode.\n\n'
 
     'Através do cabeçalho CamelHttpPath é possível identificar a operação e configurar os '
-    'mapeamentos e ação SOAP correspondentes:';
+    'mapeamentos e ação SOAP correspondentes:'
+
+    '${Strings.widgetPlaceholderWithBreak}';
 
   @override
   String get integrationProjectConversionsAndFtpTitle => 'Conversões e FTP';
@@ -86,7 +90,9 @@ class StringsPt extends Strings {
     'Converte o payload de/para diferentes formatos e salva o resultado em um servidor FTP.';
 
   @override
-  String get integrationProjectConversionsAndFtpInfo1 =>
+  String get integrationProjectConversionsAndFtpInfo =>
+    '${Strings.widgetPlaceholderWithBreak}'
+
     'Este iFlow implementa as conversões mais comuns. O cabeçalho padrão Content-Type define '
     'o formato de origem. O cabeçalho customizado Content-Type-To define o formato de '
     'destino.\n\n'
@@ -102,13 +108,19 @@ class StringsPt extends Strings {
 
     'O resultado é salvo em um servidor FTP configurado via parâmetros externalizados.\n\n'
 
-    'Para efeito de aprendizado, as conversões entre os formatos XML e JSON implementam '
+    'Para efeito de demonstração, as conversões entre os formatos XML e JSON incluem '
     'mapeamento de namespaces.\n\n'
 
-    'JSON para XML:';
+    'JSON para XML:'
 
-  @override
-  String get integrationProjectConversionsAndFtpInfo2 => 'XML para JSON:';
+    '${Strings.widgetPlaceholderWithBreak}'
+    '${Strings.widgetPlaceholderWithBreak}\n'
+
+    'XML para JSON:'
+
+    '${Strings.widgetPlaceholderWithBreak}'
+    '${Strings.widgetPlaceholderWithBreak}';
+
   @override
   String get fortlevExperienceTitle => 'Desenvolvimento de Aplicativo Flutter Mobile';
   @override

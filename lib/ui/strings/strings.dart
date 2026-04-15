@@ -1,4 +1,8 @@
 abstract class Strings {
+  static const String stringBreak = '<brk>';
+  static const String widgetPlaceholder = '<wdgt>';
+  static const String widgetPlaceholderWithBreak = '$stringBreak$widgetPlaceholder$stringBreak';
+
   static const String personalName = 'João Marques da Silva';
   static const String flutterShortRole = 'Flutter';
   static const String integrationShortRole = 'SAP Integration Suite';
@@ -62,8 +66,7 @@ abstract class Strings {
   String get integrationProjectCalculatorInfo;
   String get integrationProjectConversionsAndFtpTitle;
   String get integrationProjectConversionsAndFtpDescription;
-  String get integrationProjectConversionsAndFtpInfo1;
-  String get integrationProjectConversionsAndFtpInfo2;
+  String get integrationProjectConversionsAndFtpInfo;
   String get fortlevExperienceTitle;
   String get fortlevExperienceDetail;
   String get fortlevExperienceInfo;

@@ -11,14 +11,10 @@ import '../container/container.dart';
 import '../theme.dart';
 
 class ProjectCodeWidget extends AppContainer {
-  ProjectCodeWidget(Uint8List fromCode, Uint8List toCode, bool hasTopMargin, bool hasBottomMargin)
+  ProjectCodeWidget(Uint8List fromCode, Uint8List toCode)
     : super(
         height: 306,
         color: AppTheme.highDarkColor,
-        margin: EdgeInsets.only(
-          top: hasTopMargin ? AppTheme.normalSpacingValue : 0,
-          bottom: hasBottomMargin ? AppTheme.xLargeSpacingValue : 0
-        ),
         borderRadius: AppTheme.allBorderRadius,
         child: Row(
           children: [

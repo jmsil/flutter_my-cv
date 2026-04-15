@@ -34,9 +34,10 @@ class ProjectWidget extends Row {
 abstract class Project {
   final String title;
   final String description;
+  final String info;
   final AssetsArchive assets;
 
-  Project(this.title, this.description, this.assets);
+  Project(this.title, this.description, this.info, this.assets);
 
-  List<Widget> buildViewer();
+  List<Widget> buildWidgets();
 }

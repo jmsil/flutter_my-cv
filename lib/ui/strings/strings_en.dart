@@ -62,6 +62,8 @@ class StringsEn extends Strings {
 
   @override
   String get integrationProjectCalculatorInfo =>
+    '${Strings.widgetPlaceholderWithBreak}'
+
     'This iFlow implements a dynamic endpoint to support the four operations offered by the web '
     'service.\n\n'
 
@@ -74,7 +76,9 @@ class StringsEn extends Strings {
     'Unsupported operations return 404 (Not Found) in the CamelHttpResponseCode header.\n\n'
 
     'By reading the CamelHttpPath header, it is possible to identify the operation and configure '
-    'the associated mappings and SOAP action:';
+    'the associated mappings and SOAP action:'
+
+    '${Strings.widgetPlaceholderWithBreak}';
 
   @override
   String get integrationProjectConversionsAndFtpTitle => 'Conversions and FTP';
@@ -84,7 +88,9 @@ class StringsEn extends Strings {
     'Convert the payload from/to different formats and save the result to an FTP server.';
 
   @override
-  String get integrationProjectConversionsAndFtpInfo1 =>
+  String get integrationProjectConversionsAndFtpInfo =>
+    '${Strings.widgetPlaceholderWithBreak}'
+
     'This iFlow implements the most common conversions. The standard Content-Type header defines '
     'the source format. The customized Content-Type-To header defines the target format.\n\n'
 
@@ -99,13 +105,19 @@ class StringsEn extends Strings {
 
     'The result is saved to an FTP server configured via externalized parameters.\n\n'
 
-    'For learning purposes, the conversions between the XML and JSON formats implement namespace '
+    'For demonstration purposes, the conversions between XML and JSON formats include namespace '
     'mappings.\n\n'
 
-    'JSON to XML:';
+    'JSON to XML:'
 
-  @override
-  String get integrationProjectConversionsAndFtpInfo2 => 'XML to JSON:';
+    '${Strings.widgetPlaceholderWithBreak}'
+    '${Strings.widgetPlaceholderWithBreak}\n'
+
+    'XML to JSON:'
+
+    '${Strings.widgetPlaceholderWithBreak}'
+    '${Strings.widgetPlaceholderWithBreak}';
+
   @override
   String get fortlevExperienceTitle => 'Flutter Mobile Application Development';
   @override

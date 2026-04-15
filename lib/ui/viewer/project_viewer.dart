@@ -3,6 +3,7 @@ import 'package:my_cv/ui/scroller.dart';
 
 import '../button/button.dart';
 import '../const.dart';
+import '../strings/strings.dart';
 import '../theme.dart';
 import 'project.dart';
 import 'viewer.dart';
@@ -39,6 +40,22 @@ class AppProjectViewer extends StatelessWidget {
       ]
     );
 
+    int widgetIndex = 0;
+    final List<Widget> children = [];
+    final List<Widget> widgets = project.buildWidgets();
+    final List<String> infoLines = project.info.split(Strings.stringBreak);
+
+    for (String infoLine in infoLines) {
+      if (infoLine == Strings.widgetPlaceholder) {
+        children.add(widgets[widgetIndex]);
+        widgetIndex++;
+      }
+      else if (infoLine.isNotEmpty) {
+        Widget textWidget = Text(infoLine, style: AppTheme.darkStyle);
+        children.add(textWidget);
+      }
+    }
+
     return AppViewer(
       direction: Axis.vertical,
       windowWidth: 1680,
@@ -48,9 +65,13 @@ class AppProjectViewer extends StatelessWidget {
       ),
       bodyIsTransparent: false,
       barWidget: headerWidget,
-      bodyWidget: AppListView(
-        padding: const ThemedEdgeInsets.normal(),
-        children: project.buildViewer()
+      bodyWidget: AppScrollView(
+        padding: const ThemedEdgeInsets.normal(bottom: ThemedEdgeInsets.xLargeValue),
+        child: Column(
+          spacing: AppTheme.normalSpacingValue,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: children
+        )
       )
     );
   }
