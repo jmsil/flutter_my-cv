@@ -9,19 +9,19 @@ class AppAssets {
   static late final Uint8List profilePhoto;
 
   static final GalleryAssets bciFortlevDriverAppAssets = GalleryAssets(
-    'assets/images/BciFortlevDriverApp/archive.zip'
+    'assets/assets/BciFortlevDriverApp/archive.zip'
   );
 
   static final AssetsArchive calculatorAssets = AssetsArchive(
-    'assets/images/SapIntegrationSuiteLearningJourney/Calculator/archive.zip'
+    'assets/assets/SapIntegrationSuiteLearningJourney/Calculator/archive.zip'
   );
 
   static final AssetsArchive conversionsAndFtpAssets = AssetsArchive(
-    'assets/images/SapIntegrationSuiteLearningJourney/ConversionsAndFtp/archive.zip'
+    'assets/assets/SapIntegrationSuiteLearningJourney/ConversionsAndFtp/archive.zip'
   );
 
   static Future<void> loadStartupAssets() async {
-    String path = 'assets/images/startup/';
+    String path = 'assets/assets/startup/';
     background = await _load('${path}background.png');
     imageSlider = await _load('${path}image_slider.png');
     profilePhoto = await _load('${path}profile_photo.jpeg');
