@@ -20,6 +20,10 @@ class AppAssets {
     'assets/assets/SapIntegrationSuiteLearningJourney/ConversionsAndFtp/archive.zip'
   );
 
+  static final AssetsArchive sqlServerWithXsltAssets = AssetsArchive(
+    'assets/assets/SapIntegrationSuiteLearningJourney/SqlServerWithXslt/archive.zip'
+  );
+
   static Future<void> loadStartupAssets() async {
     String path = 'assets/assets/startup/';
     background = await _load('${path}background.png');

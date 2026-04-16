@@ -16,6 +16,7 @@ class IntegrationLearningExperience extends ExpandableInfo {
         infoWidget: Column(
           spacing: AppTheme.normalSpacingValue,
           children: [
+            ProjectWidget(_SqlServerWithXslt()),
             ProjectWidget(_Calculator()),
             ProjectWidget(_ConversionsAndFtp())
           ]
@@ -58,9 +59,29 @@ class _ConversionsAndFtp extends Project {
     return [
       ProjectImageWidget(assets.getFile(1)),
       ProjectImageWidget(assets.getFile(2)),
-      ProjectCodeWidget(assets.getFile(3), assets.getFile(4)),
+      ProjectCodeWidget(assets, [3, 4]),
       ProjectImageWidget(assets.getFile(5)),
-      ProjectCodeWidget(assets.getFile(6), assets.getFile(7))
+      ProjectCodeWidget(assets, [6, 7])
+    ];
+  }
+}
+
+
+class _SqlServerWithXslt extends Project {
+  _SqlServerWithXslt()
+    : super(
+        StringsProvider.strings.integrationProjectSqlServerWithXsltTitle,
+        StringsProvider.strings.integrationProjectSqlServerWithXsltDescription,
+        StringsProvider.strings.integrationProjectSqlServerWithXsltInfo,
+        AppAssets.sqlServerWithXsltAssets
+      );
+
+  @override
+  List<Widget> buildWidgets() {
+    return [
+      ProjectImageWidget(assets.getFile(1)),
+      ProjectImageWidget(assets.getFile(2)),
+      ProjectCodeWidget(assets, [3, 4, 5], [2, 4, 3])
     ];
   }
 }

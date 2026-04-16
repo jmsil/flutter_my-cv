@@ -122,6 +122,37 @@ class StringsPt extends Strings {
     '${Strings.widgetPlaceholderWithBreak}';
 
   @override
+  String get integrationProjectSqlServerWithXsltTitle => 'SQL Server com XSLT';
+
+  @override
+  String get integrationProjectSqlServerWithXsltDescription =>
+    'Conecta a um banco de dados SQL Server via JDBC e executa operações básicas.';
+
+  @override
+  String get integrationProjectSqlServerWithXsltInfo =>
+    '${Strings.widgetPlaceholderWithBreak}'
+
+    'Este iFlow utiliza XSLT para transformar uma requisição no formato JSON para o formato XML '
+    'requerido pelo adaptador JDBC.\n\n'
+
+    'As operações suportadas são:\n'
+    '▪ SELECT (GET);\n'
+    '▪ INSERT (POST);\n'
+    '▪ UPDATE (PATCH).\n\n'
+
+    'Métodos não suportados retornam 405 (Method Not Allowed) no cabeçalho '
+    'CamelHttpResponseCode.\n\n'
+
+    'Através do cabeçalho CamelHttpMethod é possível configurar o esquema de validação do payload '
+    'e o mapeamento XSLT correspondentes:'
+
+    '${Strings.widgetPlaceholderWithBreak}\n'
+
+    'O exemplo a seguir demonstra a implementação da operação SELECT (GET):'
+
+    '${Strings.widgetPlaceholderWithBreak}';
+
+  @override
   String get fortlevExperienceTitle => 'Desenvolvimento de Aplicativo Flutter Mobile';
   @override
   String get fortlevExperienceDetail => 'BCI/Fortlev ▪ Junho/2021 - Julho/2023';

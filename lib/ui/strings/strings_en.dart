@@ -119,6 +119,36 @@ class StringsEn extends Strings {
     '${Strings.widgetPlaceholderWithBreak}';
 
   @override
+  String get integrationProjectSqlServerWithXsltTitle => 'SQL Server with XSLT';
+
+  @override
+  String get integrationProjectSqlServerWithXsltDescription =>
+    'Connect to a SQL Server database via JDBC and perform basic operations.';
+
+  @override
+  String get integrationProjectSqlServerWithXsltInfo =>
+    '${Strings.widgetPlaceholderWithBreak}'
+
+    'This iFlow uses XSLT to transform a JSON request into the XML format required by the '
+    'JDBC adapter.\n\n'
+
+    'The supported operations are:\n'
+    '▪ SELECT (GET);\n'
+    '▪ INSERT (POST);\n'
+    '▪ UPDATE (PATCH).\n\n'
+
+    'Unsupported methods return 405 (Method Not Allowed) in the CamelHttpResponseCode header.\n\n'
+
+    'By reading the CamelHttpMethod header, it is possible to configure the associated payload '
+    'validation schema and the XSLT mapping:'
+
+    '${Strings.widgetPlaceholderWithBreak}\n'
+
+    'The following example demonstrates the implementation of the SELECT (GET) operation:'
+
+    '${Strings.widgetPlaceholderWithBreak}';
+
+  @override
   String get fortlevExperienceTitle => 'Flutter Mobile Application Development';
   @override
   String get fortlevExperienceDetail => 'BCI/Fortlev ▪ June/2021 - July/2023';

@@ -7,26 +7,43 @@ import 'package:re_highlight/languages/json.dart';
 import 'package:re_highlight/languages/xml.dart';
 import 'package:re_highlight/styles/vs2015.dart';
 
+import '../assets.dart';
 import '../container/container.dart';
 import '../theme.dart';
 
-class ProjectCodeWidget extends AppContainer {
-  ProjectCodeWidget(Uint8List fromCode, Uint8List toCode)
-    : super(
-        height: 306,
-        color: AppTheme.highDarkColor,
-        borderRadius: AppTheme.allBorderRadius,
-        child: Row(
-          children: [
-            Expanded(child: _Editor(fromCode)),
-            VerticalDivider(
-              thickness: 64, width: 64,
-              color: AppTheme.lowLightColor.withValues(alpha: 0.06)
-            ),
-            Expanded(child: _Editor(toCode))
-          ]
-        )
+class ProjectCodeWidget extends StatelessWidget {
+  final AssetsArchive assets;
+  final List<int> assetsIds;
+  final List<int> flexes;
+
+  ProjectCodeWidget(this.assets, this.assetsIds, [this.flexes = const []]);
+
+  @override
+  Widget build(BuildContext context) {
+    List<Widget> children = [];
+
+    for (int id in assetsIds) {
+      Widget editorWidget = Expanded(
+        flex: flexes.isEmpty ? 1 : flexes[assetsIds.indexOf(id)],
+        child: _Editor(assets.getFile(id))
       );
+      Widget dividerWidget = VerticalDivider(
+        thickness: 48, width: 48,
+        color: AppTheme.lowLightColor.withValues(alpha: 0.06)
+      );
+      children.add(editorWidget);
+      children.add(dividerWidget);
+    }
+
+    children.removeLast();
+
+    return AppContainer(
+      height: 326,
+      color: AppTheme.highDarkColor,
+      borderRadius: AppTheme.allBorderRadius,
+      child: Row(children: children)
+    );
+  }
 }
 
 
