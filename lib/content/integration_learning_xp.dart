@@ -39,7 +39,7 @@ class _Calculator extends Project {
   List<Widget> buildWidgets() {
     return [
       ProjectImageWidget(assets.getFile(1)),
-      ProjectImageWidget(assets.getFile(2))
+      ProjectCodeWidget(assets, [2])
     ];
   }
 }
@@ -81,7 +81,7 @@ class _SqlServerWithXslt extends Project {
     return [
       ProjectImageWidget(assets.getFile(1)),
       ProjectImageWidget(assets.getFile(2)),
-      ProjectCodeWidget(assets, [3, 4, 5], [2, 4, 3])
+      ProjectCodeWidget(assets, [3, 4, 5], [4, 7, 7])
     ];
   }
 }

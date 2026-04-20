@@ -3,6 +3,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:re_editor/re_editor.dart';
+import 'package:re_highlight/languages/groovy.dart';
 import 'package:re_highlight/languages/json.dart';
 import 'package:re_highlight/languages/xml.dart';
 import 'package:re_highlight/styles/vs2015.dart';
@@ -64,7 +65,8 @@ class _Editor extends CodeEditor {
           codeTheme: CodeHighlightTheme(
             languages: {
               'xml': CodeHighlightThemeMode(mode: langXml),
-              'json': CodeHighlightThemeMode(mode: langJson)
+              'json': CodeHighlightThemeMode(mode: langJson),
+              'groovy': CodeHighlightThemeMode(mode: langGroovy)
             },
             theme: vs2015Theme
           )
