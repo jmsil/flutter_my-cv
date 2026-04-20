@@ -67,6 +67,9 @@ abstract class Strings {
   String get integrationProjectConversionsAndFtpTitle;
   String get integrationProjectConversionsAndFtpDescription;
   String get integrationProjectConversionsAndFtpInfo;
+  String get integrationProjectExceptionHandlerTitle;
+  String get integrationProjectExceptionHandlerDescription;
+  String get integrationProjectExceptionHandlerInfo;
   String get integrationProjectSqlServerWithXsltTitle;
   String get integrationProjectSqlServerWithXsltDescription;
   String get integrationProjectSqlServerWithXsltInfo;

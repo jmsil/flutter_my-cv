@@ -20,6 +20,10 @@ class AppAssets {
     'assets/assets/SapIntegrationSuiteLearningJourney/ConversionsAndFtp/archive.zip'
   );
 
+  static final AssetsArchive exceptionHandlerAssets = AssetsArchive(
+    'assets/assets/SapIntegrationSuiteLearningJourney/ExceptionHandler/archive.zip'
+  );
+
   static final AssetsArchive sqlServerWithXsltAssets = AssetsArchive(
     'assets/assets/SapIntegrationSuiteLearningJourney/SqlServerWithXslt/archive.zip'
   );

@@ -119,6 +119,31 @@ class StringsEn extends Strings {
     '${Strings.widgetPlaceholderWithBreak}';
 
   @override
+  String get integrationProjectExceptionHandlerTitle => 'Exception Handler';
+
+  @override
+  String get integrationProjectExceptionHandlerDescription =>
+    'Handle exceptions, log payloads in the Message Processing Log, and send emails.';
+
+  @override
+  String get integrationProjectExceptionHandlerInfo =>
+    '${Strings.widgetPlaceholderWithBreak}'
+
+    'This iFlow is responsible for exception handling of all introduced iFlows. Log creation and '
+    'email sending can be configured (enabled/disabled) via externalized parameters, as well as '
+    'the SMTP settings.\n\n'
+
+    'Only unhandled exceptions trigger log creation and email sending. After processing, each '
+    'iFlow propagates the unhandled exception to the Sender in the Throw Not Handled step.\n\n'
+
+    'For testing purposes, the propagation of handled exceptions can be forced through the '
+    'custom header _force-raise-exception sent by the Sender.\n\n'
+
+    'The following script contains all the needed functions for handling detected exceptions:'
+
+    '${Strings.widgetPlaceholderWithBreak}';
+
+  @override
   String get integrationProjectSqlServerWithXsltTitle => 'SQL Server with XSLT';
 
   @override

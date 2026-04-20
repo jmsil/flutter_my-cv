@@ -18,7 +18,8 @@ class IntegrationLearningExperience extends ExpandableInfo {
           children: [
             ProjectWidget(_SqlServerWithXslt()),
             ProjectWidget(_Calculator()),
-            ProjectWidget(_ConversionsAndFtp())
+            ProjectWidget(_ConversionsAndFtp()),
+            ProjectWidget(_ExceptionHandler())
           ]
         ),
         startOpen: true
@@ -62,6 +63,25 @@ class _ConversionsAndFtp extends Project {
       ProjectCodeWidget(assets, [3, 4]),
       ProjectImageWidget(assets.getFile(5)),
       ProjectCodeWidget(assets, [6, 7])
+    ];
+  }
+}
+
+
+class _ExceptionHandler extends Project {
+  _ExceptionHandler()
+    : super(
+        StringsProvider.strings.integrationProjectExceptionHandlerTitle,
+        StringsProvider.strings.integrationProjectExceptionHandlerDescription,
+        StringsProvider.strings.integrationProjectExceptionHandlerInfo,
+        AppAssets.exceptionHandlerAssets
+      );
+
+  @override
+  List<Widget> buildWidgets() {
+    return [
+      ProjectImageWidget(assets.getFile(1)),
+      ProjectCodeWidget(assets, [2])
     ];
   }
 }

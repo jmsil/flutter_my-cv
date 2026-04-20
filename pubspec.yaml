@@ -19,5 +19,6 @@ flutter:
     - assets/assets/BciFortlevDriverApp/archive.zip
     - assets/assets/SapIntegrationSuiteLearningJourney/Calculator/archive.zip
     - assets/assets/SapIntegrationSuiteLearningJourney/ConversionsAndFtp/archive.zip
+    - assets/assets/SapIntegrationSuiteLearningJourney/ExceptionHandler/archive.zip
     - assets/assets/SapIntegrationSuiteLearningJourney/SqlServerWithXslt/archive.zip
     - assets/assets/startup/

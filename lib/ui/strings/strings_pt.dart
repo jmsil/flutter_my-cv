@@ -122,6 +122,31 @@ class StringsPt extends Strings {
     '${Strings.widgetPlaceholderWithBreak}';
 
   @override
+  String get integrationProjectExceptionHandlerTitle => 'Manipulador de Exceções';
+
+  @override
+  String get integrationProjectExceptionHandlerDescription =>
+    'Manipula exceções, registra payloads no Message Processing Log, e envia emails.';
+
+  @override
+  String get integrationProjectExceptionHandlerInfo =>
+    '${Strings.widgetPlaceholderWithBreak}'
+
+    'Este iFlow é responsável por manipular as exceções de todos os iFlows apresentados. '
+    'A geração do log e o envio de email podem ser configurados (ativados/desativados) via '
+    'parâmetros externalizados, bem como as configurações SMTP.\n\n'
+
+    'Apenas exceções não tratadas geram log e envio de email. Após o processamento, cada iFlow '
+    'propaga a exceção não tratada para o Sender na etapa Throw Not Handled.\n\n'
+
+    'Para fins de testes, a propagação de exceções tratadas pode ser forçada através do '
+    'cabeçalho customizado _force-raise-exception enviado pelo Sender.\n\n'
+
+    'O script abaixo contém todas as funções necessárias para o tratamento de exceções detectadas:'
+
+    '${Strings.widgetPlaceholderWithBreak}';
+
+  @override
   String get integrationProjectSqlServerWithXsltTitle => 'SQL Server com XSLT';
 
   @override
@@ -241,7 +266,7 @@ class StringsPt extends Strings {
     'O curso abordou todos os fundamentos teóricos e práticos envolvidos em arquitetura de redes '
     'de computadores.\n\n'
 
-    'Também incluiu: Sistemas Digitais, Sistemas Operacionais, Estrutura de Dados e Algoritimos, '
+    'Também incluiu: Sistemas Digitais, Sistemas Operacionais, Estrutura de Dados e Algoritmos, '
     'e uma introdução a linguagens de programação como C e Java.';
 
   @override
