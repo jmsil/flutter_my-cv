@@ -247,7 +247,7 @@ class _SkillsSection extends StatelessWidget {
 class _AboutSection extends _Section {
   _AboutSection()
     : super(
-        true,
+        false,
         StringsProvider.strings.aboutAndExpectationsTitle,
         Text(StringsProvider.strings.aboutAndExpectationsInfo, style: AppTheme.highLightBlueStyle)
       );

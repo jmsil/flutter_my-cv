@@ -42,9 +42,6 @@ abstract class Strings {
   static const String courseSapCloudIntegration20Title = 'SAP Cloud Integration 2.0';
   static const String courseSapApiManagementTitle = 'SAP API Management';
   static const String courseSapAdvancedEventMeshTitle = 'SAP Advanced Event Mesh';
-  static const String coursesSapDetail = 'Moovi Education ▪ 2025';
-  static const String mooviEducationShortLink = 'Moovi Education.com';
-  static const String mooviEducationLink = 'https://moovi.education';
 
   String get appName;
   String get flutterLongRole;
@@ -96,6 +93,7 @@ abstract class Strings {
   String get bookGoogleAndroidTitle;
   String get courseOracleTitle;
   String get courseSapCloudIntegrationImmersionTitle;
+  String get courseSapCloudIntegrationImmersionDetail;
   String get languagesTitle;
   String get languagesInfo;
   String get availabilityTitle;

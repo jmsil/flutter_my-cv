@@ -279,11 +279,10 @@ class StringsEn extends Strings {
 
   @override
   String get courseOracleTitle => 'Oracle OCA/OCP Certification Exams Guide';
-
   @override
-  String get courseSapCloudIntegrationImmersionTitle =>
-    'SAP Cloud Integration Immersion';
-
+  String get courseSapCloudIntegrationImmersionTitle => 'SAP Cloud Integration Immersion';
+  @override
+  String get courseSapCloudIntegrationImmersionDetail => 'Moovi Education ▪ 05/2025 ▪ 16 hours';
   @override
   String get languagesTitle => 'Languages';
 

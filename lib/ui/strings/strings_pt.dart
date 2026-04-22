@@ -287,6 +287,8 @@ class StringsPt extends Strings {
   @override
   String get courseSapCloudIntegrationImmersionTitle => 'Imersão SAP Cloud Integration';
   @override
+  String get courseSapCloudIntegrationImmersionDetail => 'Moovi Education ▪ 05/2025 ▪ 16 horas';
+  @override
   String get languagesTitle => 'Idiomas';
 
   @override
