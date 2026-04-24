@@ -1,6 +1,15 @@
 import 'strings.dart';
 
 class StringsEn extends Strings {
+  static const String _unsupportedEndpointsPhrase =
+    'Unsupported endpoints return 404 (Not Found).';
+
+  static const String _unsupportedMethodsPhrase =
+    'Unsupported methods return 405 (Method Not Allowed).';
+
+  static const String _unsupportedMediaTypesPhrase =
+    'Unsupported media types return 415 (Unsupported Media Type).';
+
   @override
   String get appName => 'Welcome to My Online Curriculum';
   @override
@@ -68,12 +77,18 @@ class StringsEn extends Strings {
     'service.\n\n'
 
     'The supported endpoints are:\n'
-    '▪ https://<service-instance-URL>/http/calculator/add;\n'
-    '▪ https://<service-instance-URL>/http/calculator/sub;\n'
-    '▪ https://<service-instance-URL>/http/calculator/mult;\n'
-    '▪ https://<service-instance-URL>/http/calculator/div.\n\n'
+    '▪ GET https://<service-instance-URL>/http/calculator/add;\n'
+    '▪ GET https://<service-instance-URL>/http/calculator/sub;\n'
+    '▪ GET https://<service-instance-URL>/http/calculator/mult;\n'
+    '▪ GET https://<service-instance-URL>/http/calculator/div.\n\n'
 
-    'Unsupported operations return 404 (Not Found) in the CamelHttpResponseCode header.\n\n'
+    '${_unsupportedEndpointsPhrase}\n'
+    '${_unsupportedMethodsPhrase}\n\n'
+
+    'The parameters are sent via URL in the format ?paramA=<value>&paramB=<value> and mapped '
+    'to the SOAP request:'
+
+    '${Strings.widgetPlaceholderWithBreak}\n'
 
     'By reading the CamelHttpPath header, it is possible to identify the operation and configure '
     'the associated mappings and SOAP action:'
@@ -100,8 +115,7 @@ class StringsEn extends Strings {
     '▪ From application/xml to text/csv;\n'
     '▪ From application/xml to application/json.\n\n'
 
-    'Unsupported operations return 415 (Unsupported Media Type) in the CamelHttpResponseCode '
-    'header.\n\n'
+    '${_unsupportedMediaTypesPhrase}\n\n'
 
     'The result is saved to an FTP server configured via externalized parameters.\n\n'
 
@@ -162,7 +176,7 @@ class StringsEn extends Strings {
     '▪ INSERT (POST);\n'
     '▪ UPDATE (PATCH).\n\n'
 
-    'Unsupported methods return 405 (Method Not Allowed) in the CamelHttpResponseCode header.\n\n'
+    '${_unsupportedMethodsPhrase}\n\n'
 
     'By reading the CamelHttpMethod header, it is possible to configure the associated payload '
     'validation schema and the XSLT mapping:'

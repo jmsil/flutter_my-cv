@@ -1,6 +1,15 @@
 import 'strings.dart';
 
 class StringsPt extends Strings {
+  static const String _unsupportedEndpointsPhrase =
+    'Endpoints não suportados retornam 404 (Not Found).';
+
+  static const String _unsupportedMethodsPhrase =
+    'Métodos não suportados retornam 405 (Method Not Allowed).';
+
+  static const String _unsupportedMediaTypesPhrase =
+    'Tipos de mídia não suportados retornam 415 (Unsupported Media Type).';
+
   @override
   String get appName => 'Bem-vindo(a) ao Meu Currículo Online';
   @override
@@ -70,12 +79,18 @@ class StringsPt extends Strings {
     'web service.\n\n'
 
     'Os endpoints suportados são:\n'
-    '▪ https://<service-instance-URL>/http/calculator/add;\n'
-    '▪ https://<service-instance-URL>/http/calculator/sub;\n'
-    '▪ https://<service-instance-URL>/http/calculator/mult;\n'
-    '▪ https://<service-instance-URL>/http/calculator/div.\n\n'
+    '▪ GET https://<service-instance-URL>/http/calculator/add;\n'
+    '▪ GET https://<service-instance-URL>/http/calculator/sub;\n'
+    '▪ GET https://<service-instance-URL>/http/calculator/mult;\n'
+    '▪ GET https://<service-instance-URL>/http/calculator/div.\n\n'
 
-    'Operações não suportadas retornam 404 (Not Found) no cabeçalho CamelHttpResponseCode.\n\n'
+    '${_unsupportedEndpointsPhrase}\n'
+    '${_unsupportedMethodsPhrase}\n\n'
+
+    'Os parâmetros são enviados via URL no formato ?paramA=<value>&paramB=<value> e mapeados '
+    'para a requisição SOAP:'
+
+    '${Strings.widgetPlaceholderWithBreak}\n'
 
     'Através do cabeçalho CamelHttpPath é possível identificar a operação e configurar os '
     'mapeamentos e ação SOAP correspondentes:'
@@ -103,8 +118,7 @@ class StringsPt extends Strings {
     '▪ De application/xml para text/csv;\n'
     '▪ De application/xml para application/json.\n\n'
 
-    'Operações não suportadas retornam 415 (Unsupported Media Type) no cabeçalho '
-    'CamelHttpResponseCode.\n\n'
+    '${_unsupportedMediaTypesPhrase}\n\n'
 
     'O resultado é salvo em um servidor FTP configurado via parâmetros externalizados.\n\n'
 
@@ -165,8 +179,7 @@ class StringsPt extends Strings {
     '▪ INSERT (POST);\n'
     '▪ UPDATE (PATCH).\n\n'
 
-    'Métodos não suportados retornam 405 (Method Not Allowed) no cabeçalho '
-    'CamelHttpResponseCode.\n\n'
+    '${_unsupportedMethodsPhrase}\n\n'
 
     'Através do cabeçalho CamelHttpMethod é possível configurar o esquema de validação do payload '
     'e o mapeamento XSLT correspondentes:'
