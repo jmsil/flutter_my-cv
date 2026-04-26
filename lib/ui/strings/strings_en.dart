@@ -1,6 +1,8 @@
 import 'strings.dart';
 
 class StringsEn extends Strings {
+  static const String _badRequestComplement = 'return 400 (Bad Request)';
+
   static const String _unsupportedEndpointsPhrase =
     'Unsupported endpoints return 404 (Not Found).';
 
@@ -106,16 +108,18 @@ class StringsEn extends Strings {
   String get integrationProjectConversionsAndFtpInfo =>
     '${Strings.widgetPlaceholderWithBreak}'
 
-    'This iFlow implements the most common conversions. The standard Content-Type header defines '
-    'the source format. The customized Content-Type-To header defines the target format.\n\n'
+    'This iFlow implements the most common conversions. The Content-Type header defines the '
+    'source format. The Accept header defines the target format.\n\n'
 
     'The supported conversions are:\n'
-    '▪ From text/csv to application/xml;\n'
-    '▪ From application/json to application/xml;\n'
-    '▪ From application/xml to text/csv;\n'
-    '▪ From application/xml to application/json.\n\n'
+    '▪ POST text/csv to application/xml;\n'
+    '▪ POST application/json to application/xml;\n'
+    '▪ POST application/xml to text/csv;\n'
+    '▪ POST application/xml to application/json.\n\n'
 
-    '${_unsupportedMediaTypesPhrase}\n\n'
+    '${_unsupportedMethodsPhrase}\n'
+    '${_unsupportedMediaTypesPhrase}\n'
+    'Unsupported conversions ${_badRequestComplement}.\n\n'
 
     'The result is saved to an FTP server configured via externalized parameters.\n\n'
 
