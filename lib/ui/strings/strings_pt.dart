@@ -149,7 +149,7 @@ class StringsPt extends Strings {
   String get integrationProjectExceptionHandlerInfo =>
     '${Strings.widgetPlaceholderWithBreak}'
 
-    'Este iFlow é responsável por manipular as exceções de todos os iFlows apresentados. '
+    'Este iFlow é responsável por manipular as exceções de todos os iFlows apresentados.\n'
     'A geração do log e o envio de email podem ser configurados (ativados/desativados) via '
     'parâmetros externalizados, bem como as configurações SMTP.\n\n'
 
@@ -159,7 +159,8 @@ class StringsPt extends Strings {
     'Para fins de testes, a propagação de exceções tratadas pode ser forçada através do '
     'cabeçalho customizado _force-raise-exception enviado pelo Sender.\n\n'
 
-    'O script abaixo contém todas as funções necessárias para o tratamento de exceções detectadas:'
+    'Os scripts abaixo contém todas as funções necessárias para o tratamento de exceções '
+    'mapeadas:'
 
     '${Strings.widgetPlaceholderWithBreak}';
 

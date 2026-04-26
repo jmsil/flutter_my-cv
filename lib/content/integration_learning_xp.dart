@@ -82,7 +82,7 @@ class _ExceptionHandler extends Project {
   List<Widget> buildWidgets() {
     return [
       ProjectImageWidget(assets.getFile(1)),
-      ProjectCodeWidget(assets, [2])
+      ProjectCodeWidget(assets, [2, 3])
     ];
   }
 }
