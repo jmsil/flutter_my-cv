@@ -1,15 +1,15 @@
 import 'strings.dart';
 
 class StringsEn extends Strings {
-  static const String _badRequestComplement = 'return 400 (Bad Request)';
+  final String _badRequestComplement = 'return 400 (Bad Request)';
 
-  static const String _unsupportedEndpointsPhrase =
+  final String _unsupportedEndpointsPhrase =
     'Unsupported endpoints return 404 (Not Found).';
 
-  static const String _unsupportedMethodsPhrase =
+  final String _unsupportedMethodsPhrase =
     'Unsupported methods return 405 (Method Not Allowed).';
 
-  static const String _unsupportedMediaTypesPhrase =
+  final String _unsupportedMediaTypesPhrase =
     'Unsupported media types return 415 (Unsupported Media Type).';
 
   @override
@@ -158,6 +158,12 @@ class StringsEn extends Strings {
     'custom header _force-raise-exception sent by the Sender.\n\n'
 
     'The following scripts contain all the needed functions for handling mapped exceptions:'
+
+    '${Strings.widgetPlaceholderWithBreak}\n'
+
+    'The second script is responsible for handling common request settings. Each iFlow defines '
+    'its settings.\n'
+    'The following example demonstrates the supported settings:'
 
     '${Strings.widgetPlaceholderWithBreak}';
 

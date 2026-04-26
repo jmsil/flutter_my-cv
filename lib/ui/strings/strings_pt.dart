@@ -1,15 +1,15 @@
 import 'strings.dart';
 
 class StringsPt extends Strings {
-  static const String _badRequestComplement = 'retornam 400 (Bad Request)';
+  final String _badRequestComplement = 'retornam 400 (Bad Request)';
 
-  static const String _unsupportedEndpointsPhrase =
+  final String _unsupportedEndpointsPhrase =
     'Endpoints não suportados retornam 404 (Not Found).';
 
-  static const String _unsupportedMethodsPhrase =
+  final String _unsupportedMethodsPhrase =
     'Métodos não suportados retornam 405 (Method Not Allowed).';
 
-  static const String _unsupportedMediaTypesPhrase =
+  final String _unsupportedMediaTypesPhrase =
     'Tipos de mídia não suportados retornam 415 (Unsupported Media Type).';
 
   @override
@@ -143,13 +143,13 @@ class StringsPt extends Strings {
 
   @override
   String get integrationProjectExceptionHandlerDescription =>
-    'Manipula exceções, registra payloads no Message Processing Log, e envia emails.';
+    'Trata exceções, registra payloads no Message Processing Log, e envia emails.';
 
   @override
   String get integrationProjectExceptionHandlerInfo =>
     '${Strings.widgetPlaceholderWithBreak}'
 
-    'Este iFlow é responsável por manipular as exceções de todos os iFlows apresentados.\n'
+    'Este iFlow é responsável por tratar as exceções de todos os iFlows apresentados.\n'
     'A geração do log e o envio de email podem ser configurados (ativados/desativados) via '
     'parâmetros externalizados, bem como as configurações SMTP.\n\n'
 
@@ -161,6 +161,12 @@ class StringsPt extends Strings {
 
     'Os scripts abaixo contém todas as funções necessárias para o tratamento de exceções '
     'mapeadas:'
+
+    '${Strings.widgetPlaceholderWithBreak}\n'
+
+    'O segundo script é responsável por tratar configurações comuns de requisições. Cada iFlow '
+    'define suas configurações.\n'
+    'O exemplo abaixo demonstra as configurações suportadas:'
 
     '${Strings.widgetPlaceholderWithBreak}';
 
