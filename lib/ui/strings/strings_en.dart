@@ -79,10 +79,10 @@ class StringsEn extends Strings {
     'service.\n\n'
 
     'The supported endpoints are:\n'
-    '▪ GET https://<service-instance-URL>/http/calculator/add;\n'
-    '▪ GET https://<service-instance-URL>/http/calculator/sub;\n'
-    '▪ GET https://<service-instance-URL>/http/calculator/mult;\n'
-    '▪ GET https://<service-instance-URL>/http/calculator/div.\n\n'
+    '▪ GET - https://<service-instance-URL>/http/calculator/add;\n'
+    '▪ GET - https://<service-instance-URL>/http/calculator/sub;\n'
+    '▪ GET - https://<service-instance-URL>/http/calculator/mult;\n'
+    '▪ GET - https://<service-instance-URL>/http/calculator/div.\n\n'
 
     '${_unsupportedEndpointsPhrase}\n'
     '${_unsupportedMethodsPhrase}\n\n'
@@ -112,10 +112,10 @@ class StringsEn extends Strings {
     'source format. The Accept header defines the target format.\n\n'
 
     'The supported conversions are:\n'
-    '▪ POST text/csv to application/xml;\n'
-    '▪ POST application/json to application/xml;\n'
-    '▪ POST application/xml to text/csv;\n'
-    '▪ POST application/xml to application/json.\n\n'
+    '▪ POST - text/csv to application/xml;\n'
+    '▪ POST - application/json to application/xml;\n'
+    '▪ POST - application/xml to text/csv;\n'
+    '▪ POST - application/xml to application/json.\n\n'
 
     '${_unsupportedMethodsPhrase}\n'
     '${_unsupportedMediaTypesPhrase}\n'
@@ -176,9 +176,9 @@ class StringsEn extends Strings {
     'JDBC adapter.\n\n'
 
     'The supported operations are:\n'
-    '▪ SELECT (GET);\n'
-    '▪ INSERT (POST);\n'
-    '▪ UPDATE (PATCH).\n\n'
+    '▪ GET - SELECT;\n'
+    '▪ POST - INSERT;\n'
+    '▪ PATCH - UPDATE.\n\n'
 
     '${_unsupportedMethodsPhrase}\n\n'
 
@@ -187,7 +187,7 @@ class StringsEn extends Strings {
 
     '${Strings.widgetPlaceholderWithBreak}\n'
 
-    'The following example demonstrates the implementation of the SELECT (GET) operation:'
+    'The following example demonstrates the implementation of the SELECT operation:'
 
     '${Strings.widgetPlaceholderWithBreak}';
 

@@ -81,10 +81,10 @@ class StringsPt extends Strings {
     'web service.\n\n'
 
     'Os endpoints suportados são:\n'
-    '▪ GET https://<service-instance-URL>/http/calculator/add;\n'
-    '▪ GET https://<service-instance-URL>/http/calculator/sub;\n'
-    '▪ GET https://<service-instance-URL>/http/calculator/mult;\n'
-    '▪ GET https://<service-instance-URL>/http/calculator/div.\n\n'
+    '▪ GET - https://<service-instance-URL>/http/calculator/add;\n'
+    '▪ GET - https://<service-instance-URL>/http/calculator/sub;\n'
+    '▪ GET - https://<service-instance-URL>/http/calculator/mult;\n'
+    '▪ GET - https://<service-instance-URL>/http/calculator/div.\n\n'
 
     '${_unsupportedEndpointsPhrase}\n'
     '${_unsupportedMethodsPhrase}\n\n'
@@ -114,10 +114,10 @@ class StringsPt extends Strings {
     'de origem. O cabeçalho Accept define o formato de destino.\n\n'
 
     'As conversões suportadas são:\n'
-    '▪ POST text/csv para application/xml;\n'
-    '▪ POST application/json para application/xml;\n'
-    '▪ POST application/xml para text/csv;\n'
-    '▪ POST application/xml para application/json.\n\n'
+    '▪ POST - text/csv para application/xml;\n'
+    '▪ POST - application/json para application/xml;\n'
+    '▪ POST - application/xml para text/csv;\n'
+    '▪ POST - application/xml para application/json.\n\n'
 
     '${_unsupportedMethodsPhrase}\n'
     '${_unsupportedMediaTypesPhrase}\n'
@@ -178,9 +178,9 @@ class StringsPt extends Strings {
     'requerido pelo adaptador JDBC.\n\n'
 
     'As operações suportadas são:\n'
-    '▪ SELECT (GET);\n'
-    '▪ INSERT (POST);\n'
-    '▪ UPDATE (PATCH).\n\n'
+    '▪ GET - SELECT;\n'
+    '▪ POST - INSERT;\n'
+    '▪ PATCH - UPDATE.\n\n'
 
     '${_unsupportedMethodsPhrase}\n\n'
 
@@ -189,7 +189,7 @@ class StringsPt extends Strings {
 
     '${Strings.widgetPlaceholderWithBreak}\n'
 
-    'O exemplo a seguir demonstra a implementação da operação SELECT (GET):'
+    'O exemplo a seguir demonstra a implementação da operação SELECT:'
 
     '${Strings.widgetPlaceholderWithBreak}';
 
