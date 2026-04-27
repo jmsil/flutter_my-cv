@@ -9,11 +9,13 @@ class AppIconText extends StatelessWidget {
   final IconData icon;
   final String text;
   final TextStyle textStyle;
+  final Widget? trailingWidget;
 
   AppIconText({
     required this.icon,
     required this.text,
-    required this.textStyle
+    required this.textStyle,
+    this.trailingWidget
   });
 
   @override
@@ -26,7 +28,10 @@ class AppIconText extends StatelessWidget {
         : CrossAxisAlignment.center,
       children: [
         Icon(icon, color: textStyle.color),
-        Text(text, style: textStyle)
+        Text(text, style: textStyle),
+
+        if (trailingWidget != null)
+          trailingWidget!
       ]
     );
   }
@@ -50,6 +55,7 @@ class AppLink extends StatefulWidget {
   _AppLinkState createState() => _AppLinkState();
 }
 
+
 class _AppLinkState extends State<AppLink> {
   bool hovered = false;
 
@@ -59,21 +65,14 @@ class _AppLinkState extends State<AppLink> {
       ? hovered ? AppTheme.darkBlueStyle : AppTheme.darkStyle
       : hovered ? AppTheme.lightBlueStyle : AppTheme.highLightBlueStyle;
 
-    Widget child = AppIconText(
+    final Widget child = AppIconText(
       icon: widget.icon,
       text: widget.text,
-      textStyle: textStyle
+      textStyle: textStyle,
+      trailingWidget: hovered
+        ? Icon(AppIcons.openInNew, size: 18, color: textStyle.color)
+        : null
     );
-
-    if (hovered) {
-      child = Row(
-        spacing: AppTheme.smallSpacingValue,
-        children: [
-          child,
-          Icon(AppIcons.openInNew, size: 18, color: textStyle.color)
-        ]
-      );
-    }
 
     return AppInkResponse(
       effectsColor: Colors.transparent,

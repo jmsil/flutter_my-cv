@@ -25,10 +25,10 @@ class AppButton extends StatelessWidget {
     required IconData icon,
     Color? color,
     bool isLoading = false,
+    this.isSelected = false,
     required this.onPressed
   })
-    : isSelected = false,
-      this.color = color ?? AppTheme.lightBlue,
+    : this.color = color ?? AppTheme.lightBlue,
       child = isLoading
         ? SizedBox(
             width: _iconSize,
@@ -56,8 +56,6 @@ class AppButton extends StatelessWidget {
         width: _containerSize,
         height: _containerSize,
         color: isSelected ? color.withValues(alpha: 0.16) : null,
-        borderSize: isSelected ? 3 : 1,
-        borderColor: color,
         borderRadius: AppUiConst.circleBorderRadius,
         child: Center(
           child: child

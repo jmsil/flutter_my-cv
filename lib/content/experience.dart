@@ -95,23 +95,25 @@ class _BciForlevExperience extends ExpandableInfo {
           spacing: AppTheme.xLargeSpacingValue,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            AppGalleryButton(AppAssets.bciFortlevDriverAppAssets),
-            Column(
-              spacing: AppTheme.smallSpacingValue,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                AppLink(
-                  text: Strings.bciShortLink,
-                  link: Strings.bciLink,
-                  isDarkStyle: true
-                ),
-                AppLink(
-                  text: Strings.fortlevShortLink,
-                  link: Strings.fortlevLink,
-                  isDarkStyle: true
-                )
-              ]
-            )
+            Expanded(
+              child: Wrap(
+                spacing: AppTheme.xLargeSpacingValue,
+                runSpacing: AppTheme.smallSpacingValue,
+                children: [
+                  AppLink(
+                    text: Strings.bciShortLink,
+                    link: Strings.bciLink,
+                    isDarkStyle: true
+                  ),
+                  AppLink(
+                    text: Strings.fortlevShortLink,
+                    link: Strings.fortlevLink,
+                    isDarkStyle: true
+                  )
+                ]
+              )
+            ),
+            AppGalleryButton(AppAssets.bciFortlevDriverAppAssets)
           ]
         ),
         infoText: StringsProvider.strings.fortlevExperienceInfo,

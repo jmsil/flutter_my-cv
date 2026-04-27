@@ -16,9 +16,9 @@ dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/assets/BciFortlevDriverApp/archive.zip
-    - assets/assets/SapIntegrationSuiteLearningJourney/Calculator/archive.zip
-    - assets/assets/SapIntegrationSuiteLearningJourney/ConversionsAndFtp/archive.zip
-    - assets/assets/SapIntegrationSuiteLearningJourney/ExceptionHandler/archive.zip
-    - assets/assets/SapIntegrationSuiteLearningJourney/SqlServerWithXslt/archive.zip
-    - assets/assets/startup/
+    - assets/BciFortlevDriverApp/archive.zip
+    - assets/SapIntegrationSuiteLearningJourney/Calculator/archive.zip
+    - assets/SapIntegrationSuiteLearningJourney/ConversionsAndFtp/archive.zip
+    - assets/SapIntegrationSuiteLearningJourney/ExceptionHandler/archive.zip
+    - assets/SapIntegrationSuiteLearningJourney/SqlServerWithXslt/archive.zip
+    - assets/startup/

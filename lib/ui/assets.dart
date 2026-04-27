@@ -5,33 +5,31 @@ import 'package:flutter/services.dart';
 
 class AppAssets {
   static late final Uint8List background;
-  static late final Uint8List imageSlider;
   static late final Uint8List profilePhoto;
 
   static final GalleryAssets bciFortlevDriverAppAssets = GalleryAssets(
-    'assets/assets/BciFortlevDriverApp/archive.zip'
+    'assets/BciFortlevDriverApp/archive.zip'
   );
 
   static final AssetsArchive calculatorAssets = AssetsArchive(
-    'assets/assets/SapIntegrationSuiteLearningJourney/Calculator/archive.zip'
+    'assets/SapIntegrationSuiteLearningJourney/Calculator/archive.zip'
   );
 
   static final AssetsArchive conversionsAndFtpAssets = AssetsArchive(
-    'assets/assets/SapIntegrationSuiteLearningJourney/ConversionsAndFtp/archive.zip'
+    'assets/SapIntegrationSuiteLearningJourney/ConversionsAndFtp/archive.zip'
   );
 
   static final AssetsArchive exceptionHandlerAssets = AssetsArchive(
-    'assets/assets/SapIntegrationSuiteLearningJourney/ExceptionHandler/archive.zip'
+    'assets/SapIntegrationSuiteLearningJourney/ExceptionHandler/archive.zip'
   );
 
   static final AssetsArchive sqlServerWithXsltAssets = AssetsArchive(
-    'assets/assets/SapIntegrationSuiteLearningJourney/SqlServerWithXslt/archive.zip'
+    'assets/SapIntegrationSuiteLearningJourney/SqlServerWithXslt/archive.zip'
   );
 
   static Future<void> loadStartupAssets() async {
-    String path = 'assets/assets/startup/';
+    String path = 'assets/startup/';
     background = await _load('${path}background.png');
-    imageSlider = await _load('${path}image_slider.png');
     profilePhoto = await _load('${path}profile_photo.jpeg');
   }
 

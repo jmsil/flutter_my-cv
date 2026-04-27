@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../assets.dart';
 import '../const.dart';
-import '../container/container.dart';
 import '../theme.dart';
 import '../viewer/gallery_viewer.dart';
 import '../viewer/project.dart';
@@ -17,16 +16,6 @@ class AppProjectButton extends _LoadingButton {
     : super(project.assets);
 
   @override
-  Widget build(bool isLoading, Function() onPressed) {
-    return AppButton.icon(
-      icon: AppIcons.plus,
-      color: AppTheme.darkColor,
-      isLoading: isLoading,
-      onPressed: onPressed
-    );
-  }
-
-  @override
   void showViewer(BuildContext context) {
     AppViewer.show(context, AppProjectViewer(project));
   }
@@ -38,54 +27,10 @@ class AppGalleryButton extends _LoadingButton {
     : super(assets);
 
   @override
-  Widget build(bool isLoading, Function() onPressed) {
-    final child = SizedBox(
-      width: 84,
-      height: 56,
-      child: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          Image.memory(AppAssets.imageSlider, fit: BoxFit.fill),
-
-          if (isLoading)
-            Center(
-              child: AspectRatio(
-                aspectRatio: 1,
-                child: AppContainer(
-                  color: AppTheme.lightBlue,
-                  margin: const EdgeInsets.all(8),
-                  padding: const EdgeInsets.all(8),
-                  child: CircularProgressIndicator(
-                    color: AppTheme.darkBlue,
-                    strokeWidth: 3,
-                    backgroundColor: AppTheme.darkBlue.withValues(alpha: 0.26)
-                  )
-                )
-              )
-            )
-        ]
-      )
-    );
-
-    return AppContainer(
-      borderColor: AppTheme.lightBlue,
-      borderRadius: AppTheme.allBorderRadius,
-      isClipped: true,
-      child: AppInkResponse(
-        padding: const EdgeInsets.all(12),
-        effectsColor: AppButton.effectsColor,
-        onPressed: onPressed,
-        child: child
-      )
-    );
-  }
-
-  @override
   void showViewer(BuildContext context) {
     AppViewer.show(context, AppGallery(assets as GalleryAssets));
   }
 }
-
 
 
 abstract class _LoadingButton extends StatefulWidget {
@@ -93,7 +38,6 @@ abstract class _LoadingButton extends StatefulWidget {
 
   _LoadingButton(this.assets);
 
-  Widget build(bool isLoading, Function() onPressed);
   void showViewer(BuildContext context);
 
   @override
@@ -106,7 +50,13 @@ class _State extends State<_LoadingButton> {
 
   @override
   Widget build(BuildContext context) {
-    return widget.build(isLoading, onPressed);
+    return AppButton.icon(
+      icon: AppIcons.plus,
+      color: AppTheme.darkBlue,
+      isLoading: isLoading,
+      isSelected: true,
+      onPressed: onPressed
+    );
   }
 
   void onPressed() async {
