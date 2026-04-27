@@ -10,14 +10,14 @@ class ExpandableInfo extends StatelessWidget {
   );
 
   final String headerTitle;
-  final String headerDetail;
+  final String? headerDetail;
   final Widget? infoWidget;
   final String? infoText;
   final bool startOpen;
 
   ExpandableInfo({
     required this.headerTitle,
-    required this.headerDetail,
+    this.headerDetail,
     this.infoWidget,
     this.infoText,
     this.startOpen = false
@@ -25,6 +25,18 @@ class ExpandableInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Widget headerInfoWidget = Text(headerTitle, style: AppTheme.largeDarkBoldStyle);
+
+    if (headerDetail != null) {
+      headerInfoWidget = Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          headerInfoWidget,
+          Text(headerDetail!, style: AppTheme.darkItalicStyle)
+        ]
+      );
+    }
+
     final headerContentWidget = Row(
       spacing: AppTheme.smallSpacingValue,
       children: [
@@ -34,13 +46,7 @@ class ExpandableInfo extends StatelessWidget {
           radius: AppUiConst.circleBorderRadius
         ),
         Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(headerTitle, style: AppTheme.darkBoldStyle),
-              Text(headerDetail, style: AppTheme.darkItalicStyle)
-            ]
-          )
+          child: headerInfoWidget
         )
       ]
     );

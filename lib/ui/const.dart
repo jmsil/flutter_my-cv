@@ -12,10 +12,8 @@ class AppIcons {
   static const IconData arrowUp = Icons.keyboard_arrow_up;
   static const IconData availability = Icons.how_to_reg_outlined;
   static const IconData back = Icons.arrow_back;
-  static const IconData book = Icons.auto_stories_outlined;
   static const IconData close = Icons.close;
   static const IconData code = Icons.code;
-  static const IconData course = Icons.card_membership_outlined;
   static const IconData education = Icons.school_outlined;
   static const IconData experience = Icons.business_center_outlined;
   static const IconData language = Icons.language_outlined;
