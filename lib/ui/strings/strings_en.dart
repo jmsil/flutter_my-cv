@@ -79,10 +79,10 @@ class StringsEn extends Strings {
     'service.\n\n'
 
     'The supported endpoints are:\n'
-    '▪ GET - https://<service-instance-URL>/http/calculator/add;\n'
-    '▪ GET - https://<service-instance-URL>/http/calculator/sub;\n'
-    '▪ GET - https://<service-instance-URL>/http/calculator/mult;\n'
-    '▪ GET - https://<service-instance-URL>/http/calculator/div.\n\n'
+    '▪ GET - https://<service-instance-URL>/http/<iflow-endpoint>/add;\n'
+    '▪ GET - https://<service-instance-URL>/http/<iflow-endpoint>/sub;\n'
+    '▪ GET - https://<service-instance-URL>/http/<iflow-endpoint>/mult;\n'
+    '▪ GET - https://<service-instance-URL>/http/<iflow-endpoint>/div.\n\n'
 
     '${_unsupportedEndpointsPhrase}\n'
     '${_unsupportedMethodsPhrase}\n\n'
@@ -152,7 +152,7 @@ class StringsEn extends Strings {
     'parameters, as well as the SMTP settings.\n\n'
 
     'Only unhandled exceptions trigger log creation and email sending. After processing, each '
-    'iFlow propagates the unhandled exception to the Sender in the Throw Not Handled step.\n\n'
+    'iFlow propagates the unhandled exception to the Sender in the Throw Unhandled step.\n\n'
 
     'For testing purposes, the propagation of handled exceptions can be forced through the '
     'custom header _force-raise-exception sent by the Sender.\n\n'
@@ -307,6 +307,8 @@ class StringsEn extends Strings {
   String get courseSapCloudIntegrationImmersionTitle => 'SAP Cloud Integration Immersion';
   @override
   String get courseSapCloudIntegrationImmersionDetail => 'Moovi Education ▪ 05/2025 ▪ 16 hours';
+  @override
+  String get verifyCertificate => 'Verify certificate';
   @override
   String get languagesTitle => 'Languages';
 

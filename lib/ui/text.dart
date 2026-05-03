@@ -57,6 +57,8 @@ class AppLink extends StatefulWidget {
 
 
 class _AppLinkState extends State<AppLink> {
+  static const double trailingIconSize = 18;
+
   bool hovered = false;
 
   @override
@@ -70,8 +72,8 @@ class _AppLinkState extends State<AppLink> {
       text: widget.text,
       textStyle: textStyle,
       trailingWidget: hovered
-        ? Icon(AppIcons.openInNew, size: 18, color: textStyle.color)
-        : null
+        ? Icon(AppIcons.openInNew, size: trailingIconSize, color: textStyle.color)
+        : SizedBox(width: trailingIconSize)
     );
 
     return AppInkResponse(

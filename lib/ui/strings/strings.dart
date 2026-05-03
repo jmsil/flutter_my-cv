@@ -38,8 +38,12 @@ abstract class Strings {
   static const String booksCleanCodeArchDetail = 'Robert C. Martin';
   static const String bookEnterpriseIntegrationPatternsTitle = 'Enterprise Integration Patterns';
   static const String bookEnterpriseIntegrationPatternsDetail = 'Gregor Hohpe & Bobby Woolf';
+  static const String mooviEducation = 'Moovi Education';
+  static const String _mooviEducationCertificateHost = 'https://moovi.curseduca.pro/verify/';
   static const String courseOracleDetail = '2010';
   static const String courseSapCloudIntegration20Title = 'SAP Cloud Integration 2.0';
+  static const String courseSapCloudIntegration20CertificateLink =
+    '${_mooviEducationCertificateHost}d39e6da5e22b2a29ae86168057db8b2c67be7ac8';
   static const String courseSapApiManagementTitle = 'SAP API Management';
   static const String courseSapAdvancedEventMeshTitle = 'SAP Advanced Event Mesh';
 
@@ -94,6 +98,7 @@ abstract class Strings {
   String get courseOracleTitle;
   String get courseSapCloudIntegrationImmersionTitle;
   String get courseSapCloudIntegrationImmersionDetail;
+  String get verifyCertificate;
   String get languagesTitle;
   String get languagesInfo;
   String get availabilityTitle;

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../ui/const.dart';
 import '../ui/strings/strings.dart';
 import '../ui/strings/strings_provider.dart';
+import '../ui/text.dart';
 import '../ui/theme.dart';
 import 'expandable_info.dart';
 import 'group.dart';
@@ -17,7 +18,11 @@ class CoursesAndBooksGroup extends StatelessWidget {
         children: [
           _Item(Strings.courseSapAdvancedEventMeshTitle, 'Moovi Education ▪ 2025'),
           _Item(Strings.courseSapApiManagementTitle, 'Moovi Education ▪ 2025'),
-          _Item(Strings.courseSapCloudIntegration20Title, 'Moovi Education ▪ 2025'),
+          _Item(
+            Strings.courseSapCloudIntegration20Title,
+            Strings.mooviEducation,
+            Strings.courseSapCloudIntegration20CertificateLink
+          ),
           _Item(
             StringsProvider.strings.courseSapCloudIntegrationImmersionTitle,
             StringsProvider.strings.courseSapCloudIntegrationImmersionDetail
@@ -57,25 +62,51 @@ class CoursesAndBooksGroup extends StatelessWidget {
   }
 }
 
-class _Item extends Row {
-  _Item(String title, String detail)
-    : super(
-        spacing: AppTheme.smallSpacingValue,
-        crossAxisAlignment: CrossAxisAlignment.start,
+
+class _Item extends StatelessWidget {
+  final String title;
+  final String detail;
+  final String? certificateLink;
+
+  _Item(this.title, String detail, [this.certificateLink])
+    : this.detail = detail + (certificateLink != null ? ' ▪ ' : '');
+
+  @override
+  Widget build(BuildContext context) {
+    Widget composedDetailWidget = Text(detail, style: AppTheme.darkItalicStyle);
+
+    if (certificateLink != null) {
+      composedDetailWidget = Wrap(
+        crossAxisAlignment: WrapCrossAlignment.center,
         children: [
-          Icon(
-            AppIcons.topicMark,
-            color: AppTheme.darkColor
-          ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(title, style: AppTheme.darkBoldStyle),
-                Text(detail, style: AppTheme.darkItalicStyle)
-              ]
-            )
+          composedDetailWidget,
+          AppLink(
+            text: StringsProvider.strings.verifyCertificate,
+            link: certificateLink,
+            isDarkStyle: true
           )
         ]
       );
+    }
+
+    return Row(
+      spacing: AppTheme.smallSpacingValue,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Icon(
+          AppIcons.topicMark,
+          color: AppTheme.darkColor
+        ),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(title, style: AppTheme.darkBoldStyle),
+              composedDetailWidget
+            ]
+          )
+        )
+      ]
+    );
+  }
 }
