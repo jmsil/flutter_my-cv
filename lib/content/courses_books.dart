@@ -16,8 +16,16 @@ class CoursesAndBooksGroup extends StatelessWidget {
       infoWidget: Column(
         spacing: AppTheme.normalSpacingValue,
         children: [
-          _Item(Strings.courseSapAdvancedEventMeshTitle, 'Moovi Education ▪ 2025'),
-          _Item(Strings.courseSapApiManagementTitle, 'Moovi Education ▪ 2025'),
+          _Item(
+            Strings.courseSapAdvancedEventMeshTitle,
+            Strings.mooviEducation,
+            Strings.courseSapAdvancedEventMeshCertificateLink
+          ),
+          _Item(
+            Strings.courseSapApiManagementTitle,
+            Strings.mooviEducation,
+            Strings.courseSapApiManagementCertificateLink
+          ),
           _Item(
             Strings.courseSapCloudIntegration20Title,
             Strings.mooviEducation,

@@ -45,7 +45,11 @@ abstract class Strings {
   static const String courseSapCloudIntegration20CertificateLink =
     '${_mooviEducationCertificateHost}d39e6da5e22b2a29ae86168057db8b2c67be7ac8';
   static const String courseSapApiManagementTitle = 'SAP API Management';
+  static const String courseSapApiManagementCertificateLink =
+    '${_mooviEducationCertificateHost}54f002745e63e1413e492e1a0d0414df4358c946';
   static const String courseSapAdvancedEventMeshTitle = 'SAP Advanced Event Mesh';
+  static const String courseSapAdvancedEventMeshCertificateLink =
+    '${_mooviEducationCertificateHost}dd05be54712a1ed6487e3a00511c26c7505cc76c';
 
   String get appName;
   String get flutterLongRole;
