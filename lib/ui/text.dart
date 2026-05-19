@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart' as urll;
 
-import 'button/button.dart';
 import 'const.dart';
+import 'hover.dart';
 import 'theme.dart';
 
 class AppIconText extends StatelessWidget {
@@ -38,7 +38,9 @@ class AppIconText extends StatelessWidget {
 }
 
 
-class AppLink extends StatefulWidget {
+class AppLink extends StatelessWidget {
+  static const double _trailingIconSize = 18;
+
   final IconData icon;
   final String text;
   final String? link;
@@ -52,45 +54,31 @@ class AppLink extends StatefulWidget {
   });
 
   @override
-  _AppLinkState createState() => _AppLinkState();
-}
-
-
-class _AppLinkState extends State<AppLink> {
-  static const double trailingIconSize = 18;
-
-  bool hovered = false;
-
-  @override
   Widget build(BuildContext context) {
-    final TextStyle textStyle = widget.isDarkStyle
+    return AppHoverWidget(
+      builder: _hoverBuilder,
+      onPressed: _launch
+    );
+  }
+
+  Widget _hoverBuilder(bool hovered, Widget? child) {
+    final TextStyle textStyle = isDarkStyle
       ? hovered ? AppTheme.darkBlueStyle : AppTheme.darkStyle
       : hovered ? AppTheme.lightBlueStyle : AppTheme.highLightBlueStyle;
 
-    final Widget child = AppIconText(
-      icon: widget.icon,
-      text: widget.text,
+    return AppIconText(
+      icon: icon,
+      text: text,
       textStyle: textStyle,
       trailingWidget: hovered
-        ? Icon(AppIcons.openInNew, size: trailingIconSize, color: textStyle.color)
-        : SizedBox(width: trailingIconSize)
-    );
-
-    return AppInkResponse(
-      effectsColor: Colors.transparent,
-      onPressed: launch,
-      onHover: onHover,
-      child: child
+        ? Icon(AppIcons.openInNew, size: _trailingIconSize, color: textStyle.color)
+        : SizedBox(width: _trailingIconSize)
     );
   }
 
-  void launch() async {
-    Uri uri = Uri.parse(widget.link ?? widget.text);
+  void _launch() async {
+    Uri uri = Uri.parse(link ?? text);
     if (await urll.canLaunchUrl(uri))
       urll.launchUrl(uri);
-  }
-
-  void onHover(bool value) {
-    setState(() => hovered = value);
   }
 }
