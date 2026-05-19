@@ -9,19 +9,24 @@ import 'package:re_highlight/languages/xml.dart';
 import 'package:re_highlight/styles/vs2015.dart';
 
 import '../assets.dart';
+import '../button/button.dart';
+import '../const.dart';
 import '../container/container.dart';
+import '../hover.dart';
 import '../theme.dart';
+import 'viewer.dart';
 
 class ProjectCodeWidget extends StatelessWidget {
+  final AppViewerKey viewerKey;
   final AssetsArchive assets;
   final List<int> assetsIds;
   final List<int> flexes;
 
-  ProjectCodeWidget(this.assets, this.assetsIds, [this.flexes = const []]);
+  ProjectCodeWidget(this.viewerKey, this.assets, this.assetsIds, [this.flexes = const []]);
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> children = [];
+    final List<Widget> children = [];
 
     for (int id in assetsIds) {
       Widget editorWidget = Expanded(
@@ -38,12 +43,50 @@ class ProjectCodeWidget extends StatelessWidget {
 
     children.removeLast();
 
-    return AppContainer(
-      height: 326,
+    final Widget child = AppContainer(
       color: AppTheme.highDarkColor,
       borderRadius: AppTheme.allBorderRadius,
       child: Row(children: children)
     );
+
+    return SizedBox(
+      height: 326,
+      child: AppHoverWidget(
+        child: child,
+        builder: _hoverBuilder
+      )
+    );
+  }
+
+  Widget _hoverBuilder(bool hovered, Widget? child) {
+    final List<Widget> children = [child!];
+
+    if (hovered) {
+      Widget fullscreenButton = Padding(
+        padding: const ThemedEdgeInsets.normal(),
+        child: AppButton.icon(
+          icon: viewerKey.isInFullscreen ? AppIcons.fullScreenExit : AppIcons.fullscreen,
+          onPressed: () => _fullscreenPressed(child)
+        )
+      );
+      children.add(fullscreenButton);
+    }
+
+    return Stack(
+      clipBehavior: Clip.none,
+      alignment: Alignment.topRight,
+      children: children
+    );
+  }
+
+  void _fullscreenPressed(Widget hoverChild) {
+    Widget? fullscreenWidget = viewerKey.isInFullscreen
+      ? null
+      : AppHoverWidget(
+          child: hoverChild,
+          builder: _hoverBuilder
+        );
+    viewerKey.setFullscreenWidget(fullscreenWidget);
   }
 }
 

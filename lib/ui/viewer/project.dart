@@ -4,6 +4,7 @@ import '../assets.dart';
 import '../button/loading_button.dart';
 import '../const.dart';
 import '../theme.dart';
+import 'viewer.dart';
 
 class ProjectWidget extends Row {
   ProjectWidget(Project project)
@@ -36,6 +37,7 @@ abstract class Project {
   final String description;
   final String info;
   final AssetsArchive assets;
+  final AppViewerKey viewerKey = AppViewerKey();
 
   Project(this.title, this.description, this.info, this.assets);
 

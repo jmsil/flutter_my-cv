@@ -57,6 +57,7 @@ class AppProjectViewer extends StatelessWidget {
     }
 
     return AppViewer(
+      key: project.viewerKey,
       direction: Axis.vertical,
       windowWidth: 1680,
       barPadding: const EdgeInsets.symmetric(

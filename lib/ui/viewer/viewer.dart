@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../container/container.dart';
 import '../theme.dart';
 
-class AppViewer extends StatelessWidget {
+class AppViewer extends StatefulWidget {
   final Axis direction;
   final double? windowWidth;
   final double? windowHeight;
@@ -17,6 +17,7 @@ class AppViewer extends StatelessWidget {
   final Widget bodyWidget;
 
   AppViewer({
+    AppViewerKey? key,
     required this.direction,
     this.windowWidth,
     this.windowHeight,
@@ -26,48 +27,11 @@ class AppViewer extends StatelessWidget {
     required this.bodyIsTransparent,
     required this.barWidget,
     required this.bodyWidget
-  });
+  })
+    : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final Widget composedBarWidget = AppContainer(
-      width: barWidth,
-      height: barHeight,
-      padding: barPadding,
-      color: AppTheme.highDarkColor.withValues(alpha: 0.6),
-      child: barWidget
-    );
-
-    final Widget composedBodyWidget = Expanded(
-      child: AppContainer(
-        color: bodyIsTransparent
-          ? AppTheme.highLightColor.withValues(alpha: 0.88)
-          : AppTheme.highLightColor,
-        child: bodyWidget
-      )
-    );
-
-    return Center(
-      child: AppContainer(
-        width: windowWidth,
-        height: windowHeight,
-        margin: const ThemedEdgeInsets.normal(),
-        borderColor: AppTheme.lightBlue,
-        borderRadius: AppTheme.allBorderRadius,
-        isClipped: true,
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
-          child: Flex(
-            direction: direction,
-            children: [
-              composedBarWidget,
-              composedBodyWidget
-            ]
-          )
-        )
-      )
-    );
-  }
+  _State createState() => _State();
 
   static void show(BuildContext context, Widget viewer) {
     showGeneralDialog<void>(
@@ -88,4 +52,77 @@ class AppViewer extends StatelessWidget {
       }
     );
   }
+}
+
+
+class _State extends State<AppViewer> {
+  Widget? fullscreenWidget;
+
+  @override
+  Widget build(BuildContext context) {
+    final Widget composedBarWidget = AppContainer(
+      width: widget.barWidth,
+      height: widget.barHeight,
+      padding: widget.barPadding,
+      color: AppTheme.highDarkColor.withValues(alpha: 0.6),
+      child: widget.barWidget
+    );
+
+    final Widget composedBodyWidget = Expanded(
+      child: AppContainer(
+        color: widget.bodyIsTransparent
+          ? AppTheme.highLightColor.withValues(alpha: 0.88)
+          : AppTheme.highLightColor,
+        child: IndexedStack(
+          clipBehavior: Clip.none,
+          index: fullscreenWidget == null ? 0 : 1,
+          children: [
+            widget.bodyWidget,
+
+            if (fullscreenWidget != null)
+              Padding(
+                padding: const ThemedEdgeInsets.normal(),
+                child: fullscreenWidget
+              )
+          ]
+        )
+      )
+    );
+
+    return Center(
+      child: AppContainer(
+        width: widget.windowWidth,
+        height: widget.windowHeight,
+        margin: const ThemedEdgeInsets.normal(),
+        borderColor: AppTheme.lightBlue,
+        borderRadius: AppTheme.allBorderRadius,
+        isClipped: true,
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+          child: Flex(
+            direction: widget.direction,
+            children: [
+              composedBarWidget,
+              composedBodyWidget
+            ]
+          )
+        )
+      )
+    );
+  }
+
+  void setFullscreenWidget(Widget? widget) {
+    setState(() => fullscreenWidget = widget);
+  }
+}
+
+
+class AppViewerKey extends GlobalKey {
+  AppViewerKey() : super.constructor();
+
+  _State? get _state => currentState as _State?;
+
+  bool get isInFullscreen => _state?.fullscreenWidget != null;
+
+  void setFullscreenWidget(Widget? widget) => _state?.setFullscreenWidget(widget);
 }

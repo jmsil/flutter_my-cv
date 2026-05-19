@@ -12,7 +12,7 @@ class AppButton extends StatelessWidget {
   final bool isSelected;
   final Color color;
   final Widget child;
-  final Function() onPressed;
+  final void Function() onPressed;
 
   AppButton.label(this.isSelected, String label, this.onPressed)
     : color = AppTheme.lightBlue,
@@ -71,14 +71,14 @@ class AppButton extends StatelessWidget {
 class AppInkResponse extends StatelessWidget {
   final EdgeInsets? padding;
   final Color effectsColor;
-  final void Function() onPressed;
+  final void Function()? onPressed;
   final void Function(bool)? onHover;
   final Widget child;
 
   AppInkResponse({
     this.padding,
     required this.effectsColor,
-    required this.onPressed,
+    this.onPressed,
     this.onHover,
     required this.child
   });
@@ -101,8 +101,8 @@ class AppInkResponse extends StatelessWidget {
       highlightColor: effectsColor,
       highlightShape: BoxShape.rectangle,
       splashFactory: InkRipple.splashFactory,
-      mouseCursor: SystemMouseCursors.click,
-      onTap: onPressed,
+      mouseCursor: onPressed == null ? SystemMouseCursors.basic : SystemMouseCursors.click,
+      onTap: onPressed ?? () {},
       onHover: onHover,
       child: newChild
     );
