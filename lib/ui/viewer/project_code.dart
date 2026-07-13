@@ -125,9 +125,9 @@ class _Editor extends CodeEditor {
           );
         },
 
-        sperator: VerticalDivider(
+        leadingDivider: VerticalDivider(
           width: 1,
-          color: AppTheme.lowLightColor.withValues(alpha: 0.5)
+          color: AppTheme.lowLightColor.withValues(alpha: 0.32)
         )
       );
 }
