@@ -1,7 +1,6 @@
 .dart_tool/
 .firebase/
 .idea/
-android/
 assets/
 build/
 web/
