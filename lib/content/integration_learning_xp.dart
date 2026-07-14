@@ -16,6 +16,7 @@ class IntegrationLearningExperience extends ExpandableInfo {
         infoWidget: Column(
           spacing: AppTheme.normalSpacingValue,
           children: [
+            ProjectWidget(_ApimProxy()),
             ProjectWidget(_SqlServerWithXslt()),
             ProjectWidget(_Calculator()),
             ProjectWidget(_ConversionsAndFtp()),
@@ -26,6 +27,22 @@ class IntegrationLearningExperience extends ExpandableInfo {
       );
 }
 
+class _ApimProxy extends Project {
+  _ApimProxy()
+    : super(
+        StringsProvider.strings.integrationProjectApimProxyTitle,
+        StringsProvider.strings.integrationProjectApimProxyDescription,
+        StringsProvider.strings.integrationProjectApimProxyInfo,
+        AppAssets.apimProxyAssets
+      );
+
+  @override
+  List<Widget> buildWidgets() {
+    return [
+      ProjectImageWidget(assets.getFile(1))
+    ];
+  }
+}
 
 class _Calculator extends Project {
   _Calculator()
@@ -45,7 +62,6 @@ class _Calculator extends Project {
     ];
   }
 }
-
 
 class _ConversionsAndFtp extends Project {
   _ConversionsAndFtp()
@@ -68,7 +84,6 @@ class _ConversionsAndFtp extends Project {
   }
 }
 
-
 class _ExceptionHandler extends Project {
   _ExceptionHandler()
     : super(
@@ -87,7 +102,6 @@ class _ExceptionHandler extends Project {
     ];
   }
 }
-
 
 class _SqlServerWithXslt extends Project {
   _SqlServerWithXslt()

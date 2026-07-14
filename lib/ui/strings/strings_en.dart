@@ -2,16 +2,12 @@ import 'strings.dart';
 
 class StringsEn extends Strings {
   final String _badRequestComplement = 'return 400 (Bad Request)';
-
   final String _unsupportedEndpointsPhrase =
     'Unsupported endpoints return 404 (Not Found).';
-
   final String _unsupportedMethodsPhrase =
     'Unsupported methods return 405 (Method Not Allowed).';
-
   final String _unsupportedMediaTypesPhrase =
     'Unsupported media types return 415 (Unsupported Media Type).';
-
   @override
   String get appName => 'Welcome to My Online Curriculum';
   @override
@@ -20,13 +16,11 @@ class StringsEn extends Strings {
   String get integrationLongRole => 'SAP Integration Suite Developer';
   @override
   String get professionalSummaryTitle => 'Professional Summary';
-
   @override
   String get professionalSummaryInfo =>
     'Professional developer with over 15 years of experience working on client/server commercial '
     'applications (ERP), mobile applications for the Android platform, design/development of '
     'casual games, and cross-platform applications using the Flutter framework.';
-
   @override
   String get detailsTitle => 'Details';
   @override
@@ -37,7 +31,6 @@ class StringsEn extends Strings {
   String get integrationSkillsTitle => 'Integration Skills';
   @override
   String get aboutAndExpectationsTitle => 'About Me and Expectations';
-
   @override
   String get aboutAndExpectationsInfo =>
     'A lover of digital illustration for games and passionate about the art of music.\n\n'
@@ -52,25 +45,28 @@ class StringsEn extends Strings {
     'I hope to have the opportunity to participate in application development and/or system '
     'integration projects based on my demonstrated technical skills. While contributing my '
     'knowledge, I also hope to improve personally and technically alongside my teammates.';
-
   @override
   String get madeWithFlutter => 'Made with Flutter  🩵';
   @override
   String get experienceTitle => 'Experience';
-
   @override
   String get sapIntegrationSuiteLearningJourneyTitle =>
     'SAP Integration Suite Learning Journey';
-
   @override
   String get sapIntegrationSuiteLearningJourneyDetail => 'Since 2023';
   @override
+  String get integrationProjectApimProxyTitle => 'API Management Proxy';
+  @override
+  String get integrationProjectApimProxyDescription =>
+    'Allow user applications to connect to Cloud Integration using a Firebase JWT token.';
+  @override
+  String get integrationProjectApimProxyInfo =>
+    '${Strings.widgetPlaceholderWithBreak}';
+  @override
   String get integrationProjectCalculatorTitle => 'Calculator';
-
   @override
   String get integrationProjectCalculatorDescription =>
     'Consume the public web service Calculator (http://www.dneonline.com/calculator.asmx).';
-
   @override
   String get integrationProjectCalculatorInfo =>
     '${Strings.widgetPlaceholderWithBreak}'
@@ -96,14 +92,11 @@ class StringsEn extends Strings {
     'the associated mappings and SOAP action:'
 
     '${Strings.widgetPlaceholderWithBreak}';
-
   @override
   String get integrationProjectConversionsAndFtpTitle => 'Conversions and FTP';
-
   @override
   String get integrationProjectConversionsAndFtpDescription =>
     'Convert the payload from/to different formats and save the result to an FTP server.';
-
   @override
   String get integrationProjectConversionsAndFtpInfo =>
     '${Strings.widgetPlaceholderWithBreak}'
@@ -135,14 +128,11 @@ class StringsEn extends Strings {
 
     '${Strings.widgetPlaceholderWithBreak}'
     '${Strings.widgetPlaceholderWithBreak}';
-
   @override
   String get integrationProjectExceptionHandlerTitle => 'Exception Handler';
-
   @override
   String get integrationProjectExceptionHandlerDescription =>
     'Handle exceptions, log payloads in the Message Processing Log, and send emails.';
-
   @override
   String get integrationProjectExceptionHandlerInfo =>
     '${Strings.widgetPlaceholderWithBreak}'
@@ -166,14 +156,11 @@ class StringsEn extends Strings {
     'The following example demonstrates the supported settings:'
 
     '${Strings.widgetPlaceholderWithBreak}';
-
   @override
   String get integrationProjectSqlServerWithXsltTitle => 'SQL Server with XSLT';
-
   @override
   String get integrationProjectSqlServerWithXsltDescription =>
     'Connect to a SQL Server database via JDBC and perform basic operations.';
-
   @override
   String get integrationProjectSqlServerWithXsltInfo =>
     '${Strings.widgetPlaceholderWithBreak}'
@@ -196,12 +183,10 @@ class StringsEn extends Strings {
     'The following example demonstrates the implementation of the SELECT operation:'
 
     '${Strings.widgetPlaceholderWithBreak}';
-
   @override
   String get fortlevExperienceTitle => 'Flutter Mobile Application Development';
   @override
   String get fortlevExperienceDetail => 'BCI/Fortlev ▪ June/2021 - July/2023';
-
   @override
   String get fortlevExperienceInfo =>
     'I worked on the development of the "Mão Dupla" application for Freight Order management '
@@ -219,19 +204,15 @@ class StringsEn extends Strings {
     '▪ Push Notifications for relevant events;\n'
     '▪ Offline First for no connection operations;\n'
     '▪ Help/support features such as Contacts, Tips, and FAQ.';
-
   @override
   String get smartNewExperienceTitle => 'Flutter Mobile/Web Application Development';
-
   @override
   String get smartNewExperienceInfo =>
     'In the first months of the year, I provided consulting services for the development of a '
     'mobile/web application prototype for SmartNew, which operates by developing fleet monitoring '
     'and management systems. The goal was to migrate the existing low-code stack.';
-
   @override
   String get mobileGameExperienceTitle => 'Design/Development of Casual Games';
-
   @override
   String get mobileGameExperienceInfo =>
     'I worked on a personal project of a 2D casual game for mobile devices.\n\n'
@@ -244,12 +225,10 @@ class StringsEn extends Strings {
 
     'To turn the game multiplatform, I converted the code to C++. I also made some experiments '
     'with Unity/C#.';
-
   @override
   String get santriExperienceTitle => 'ERP Application Development';
   @override
   String get santriExperienceDetail => 'Santri Systems ▪ October/2007 - April/2012';
-
   @override
   String get santriExperienceInfo =>
     'At Santri Systems, I contributed to the development of the client/server application ADM '
@@ -261,10 +240,8 @@ class StringsEn extends Strings {
     'As the most experienced developer on the team, my responsibilities included introducing and '
     'assisting new members with the adopted development standards. I also led a small team for a '
     'short period before leaving the company.';
-
   @override
   String get smallErpExperienceTitle => 'ERP Application Development';
-
   @override
   String get smallErpExperienceInfo =>
     'I developed a small client/server application using RAD Studio (Delphi) and the MySQL '
@@ -272,14 +249,12 @@ class StringsEn extends Strings {
 
     'In this project, I was able to apply the knowledge I was acquiring in my graduation and '
     'through individual studies of the book Mastering Delphi ▪ The Bible.';
-
   @override
   String get educationTitle => 'Education';
   @override
   String get educationUniversityTitle => 'Computer Networks';
   @override
   String get educationUniversityDetail => 'Estácio de Sá University ▪ 2006 - 2008';
-
   @override
   String get educationUniversityInfo =>
     'The course covered all the theoretical and practical fundamentals involved in computer '
@@ -287,7 +262,6 @@ class StringsEn extends Strings {
 
     'It also included: Digital Systems, Operating Systems, Data Structure & Algorithms, and an '
     'introduction to programming languages such as C and Java.';
-
   @override
   String get coursesAndBooksTitle => 'Relevant Courses and Books';
   @override
@@ -296,11 +270,9 @@ class StringsEn extends Strings {
   String get booksTitle => 'Books';
   @override
   String get bookDelphiBibleTitle => 'Mastering Delphi ▪ The Bible';
-
   @override
   String get bookGoogleAndroidTitle =>
     'Google Android ▪ Mobile Applications with the Android SDK';
-
   @override
   String get courseOracleTitle => 'Oracle OCA/OCP Certification Exams Guide';
   @override
@@ -311,7 +283,6 @@ class StringsEn extends Strings {
   String get verifyCertificate => 'Verify certificate';
   @override
   String get languagesTitle => 'Languages';
-
   @override
   String get languagesInfo =>
     'Portuguese ▪ Native - '
@@ -319,10 +290,8 @@ class StringsEn extends Strings {
     '▪ Advanced reading\n'
     '▪ Intermediate writing\n'
     '▪ Intermediate technical conversation';
-
   @override
   String get availabilityTitle => 'Availability';
-
   @override
   String get availabilityInfo =>
     'Independent contract (PREFERABLE)\n'

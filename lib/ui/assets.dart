@@ -11,6 +11,10 @@ class AppAssets {
     'assets/BciFortlevDriverApp/archive.zip'
   );
 
+  static final AssetsArchive apimProxyAssets = AssetsArchive(
+    'assets/SapIntegrationSuiteLearningJourney/ApimProxy/archive.zip'
+  );
+
   static final AssetsArchive calculatorAssets = AssetsArchive(
     'assets/SapIntegrationSuiteLearningJourney/Calculator/archive.zip'
   );

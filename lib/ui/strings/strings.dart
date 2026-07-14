@@ -66,6 +66,9 @@ abstract class Strings {
   String get experienceTitle;
   String get sapIntegrationSuiteLearningJourneyTitle;
   String get sapIntegrationSuiteLearningJourneyDetail;
+  String get integrationProjectApimProxyTitle;
+  String get integrationProjectApimProxyDescription;
+  String get integrationProjectApimProxyInfo;
   String get integrationProjectCalculatorTitle;
   String get integrationProjectCalculatorDescription;
   String get integrationProjectCalculatorInfo;
