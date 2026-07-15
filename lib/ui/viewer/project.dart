@@ -6,8 +6,8 @@ import '../const.dart';
 import '../theme.dart';
 import 'viewer.dart';
 
-class ProjectWidget extends Row {
-  ProjectWidget(Project project)
+class ProjectTileWidget extends Row {
+  ProjectTileWidget(Project project)
     : super(
         spacing: AppTheme.smallSpacingValue,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,7 +31,6 @@ class ProjectWidget extends Row {
       );
 }
 
-
 abstract class Project {
   final String title;
   final String description;
@@ -41,5 +40,5 @@ abstract class Project {
 
   Project(this.title, this.description, this.info, this.assets);
 
-  List<Widget> buildWidgets();
+  List<Widget> buildPlaceholderWidgets();
 }

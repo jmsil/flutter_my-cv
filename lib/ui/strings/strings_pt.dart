@@ -63,7 +63,7 @@ class StringsPt extends Strings {
     'Permite aplicações do usuário se conectarem ao Cloud Integration com um token JWT Firebase.';
   @override
   String get integrationProjectApimProxyInfo =>
-    '${Strings.widgetPlaceholderWithBreak}';
+    '${Strings.widgetPlaceholder}';
   @override
   String get integrationProjectCalculatorTitle => 'Calculadora';
   @override
@@ -71,7 +71,7 @@ class StringsPt extends Strings {
     'Consome o web service público Calculator (http://www.dneonline.com/calculator.asmx).';
   @override
   String get integrationProjectCalculatorInfo =>
-    '${Strings.widgetPlaceholderWithBreak}'
+    '${Strings.widgetPlaceholder}'
 
     'Este iFlow implementa um endpoint dinâmico para atender às quatro operações oferecidas pelo '
     'web service.\n\n'
@@ -88,12 +88,12 @@ class StringsPt extends Strings {
     'Os parâmetros são enviados via URL no formato ?paramA=<value>&paramB=<value> e mapeados '
     'para a requisição SOAP:'
 
-    '${Strings.widgetPlaceholderWithBreak}\n'
+    '${Strings.widgetPlaceholder}\n'
 
     'Através do cabeçalho CamelHttpPath é possível identificar a operação e configurar os '
     'mapeamentos e ação SOAP correspondentes:'
 
-    '${Strings.widgetPlaceholderWithBreak}';
+    '${Strings.widgetPlaceholder}';
   @override
   String get integrationProjectConversionsAndFtpTitle => 'Conversões e FTP';
   @override
@@ -101,7 +101,7 @@ class StringsPt extends Strings {
     'Converte o payload de/para diferentes formatos e salva o resultado em um servidor FTP.';
   @override
   String get integrationProjectConversionsAndFtpInfo =>
-    '${Strings.widgetPlaceholderWithBreak}'
+    '${Strings.widgetPlaceholder}'
 
     'Este iFlow implementa as conversões mais comuns. O cabeçalho Content-Type define o formato '
     'de origem. O cabeçalho Accept define o formato de destino.\n\n'
@@ -123,13 +123,13 @@ class StringsPt extends Strings {
 
     'JSON para XML:'
 
-    '${Strings.widgetPlaceholderWithBreak}'
-    '${Strings.widgetPlaceholderWithBreak}\n'
+    '${Strings.widgetPlaceholder}'
+    '${Strings.widgetPlaceholder}\n'
 
     'XML para JSON:'
 
-    '${Strings.widgetPlaceholderWithBreak}'
-    '${Strings.widgetPlaceholderWithBreak}';
+    '${Strings.widgetPlaceholder}'
+    '${Strings.widgetPlaceholder}';
   @override
   String get integrationProjectExceptionHandlerTitle => 'Manipulador de Exceções';
   @override
@@ -137,7 +137,7 @@ class StringsPt extends Strings {
     'Trata exceções, registra payloads no Message Processing Log, e envia emails.';
   @override
   String get integrationProjectExceptionHandlerInfo =>
-    '${Strings.widgetPlaceholderWithBreak}'
+    '${Strings.widgetPlaceholder}'
 
     'Este iFlow é responsável por tratar as exceções de todos os iFlows apresentados.\n'
     'A geração do log e o envio de email podem ser configurados (ativados/desativados) via '
@@ -152,13 +152,13 @@ class StringsPt extends Strings {
     'Os scripts abaixo contém todas as funções necessárias para o tratamento de exceções '
     'mapeadas:'
 
-    '${Strings.widgetPlaceholderWithBreak}\n'
+    '${Strings.widgetPlaceholder}\n'
 
     'O segundo script é responsável por tratar configurações comuns de requisições. Cada iFlow '
     'define suas configurações.\n'
     'O exemplo abaixo demonstra as configurações suportadas:'
 
-    '${Strings.widgetPlaceholderWithBreak}';
+    '${Strings.widgetPlaceholder}';
   @override
   String get integrationProjectSqlServerWithXsltTitle => 'SQL Server com XSLT';
   @override
@@ -166,7 +166,7 @@ class StringsPt extends Strings {
     'Conecta a um banco de dados SQL Server via JDBC e executa operações básicas.';
   @override
   String get integrationProjectSqlServerWithXsltInfo =>
-    '${Strings.widgetPlaceholderWithBreak}'
+    '${Strings.widgetPlaceholder}'
 
     'Este iFlow utiliza XSLT para transformar uma requisição no formato JSON para o formato XML '
     'requerido pelo adaptador JDBC.\n\n'
@@ -181,11 +181,11 @@ class StringsPt extends Strings {
     'Através do cabeçalho CamelHttpMethod é possível configurar o esquema de validação do payload '
     'e o mapeamento XSLT correspondentes:'
 
-    '${Strings.widgetPlaceholderWithBreak}\n'
+    '${Strings.widgetPlaceholder}\n'
 
     'O exemplo a seguir demonstra a implementação da operação SELECT:'
 
-    '${Strings.widgetPlaceholderWithBreak}';
+    '${Strings.widgetPlaceholder}';
   @override
   String get fortlevExperienceTitle => 'Desenvolvimento de Aplicativo Flutter Mobile';
   @override

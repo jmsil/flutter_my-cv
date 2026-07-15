@@ -16,11 +16,11 @@ class IntegrationLearningExperience extends ExpandableInfo {
         infoWidget: Column(
           spacing: AppTheme.normalSpacingValue,
           children: [
-            ProjectWidget(_ApimProxy()),
-            ProjectWidget(_SqlServerWithXslt()),
-            ProjectWidget(_Calculator()),
-            ProjectWidget(_ConversionsAndFtp()),
-            ProjectWidget(_ExceptionHandler())
+            ProjectTileWidget(_ApimProxy()),
+            ProjectTileWidget(_SqlServerWithXslt()),
+            ProjectTileWidget(_Calculator()),
+            ProjectTileWidget(_ConversionsAndFtp()),
+            ProjectTileWidget(_ExceptionHandler())
           ]
         ),
         startOpen: true
@@ -37,7 +37,7 @@ class _ApimProxy extends Project {
       );
 
   @override
-  List<Widget> buildWidgets() {
+  List<Widget> buildPlaceholderWidgets() {
     return [
       ProjectImageWidget(assets.getFile(1))
     ];
@@ -54,7 +54,7 @@ class _Calculator extends Project {
       );
 
   @override
-  List<Widget> buildWidgets() {
+  List<Widget> buildPlaceholderWidgets() {
     return [
       ProjectImageWidget(assets.getFile(1)),
       ProjectImageWidget(assets.getFile(2)),
@@ -73,7 +73,7 @@ class _ConversionsAndFtp extends Project {
       );
 
   @override
-  List<Widget> buildWidgets() {
+  List<Widget> buildPlaceholderWidgets() {
     return [
       ProjectImageWidget(assets.getFile(1)),
       ProjectImageWidget(assets.getFile(2)),
@@ -94,7 +94,7 @@ class _ExceptionHandler extends Project {
       );
 
   @override
-  List<Widget> buildWidgets() {
+  List<Widget> buildPlaceholderWidgets() {
     return [
       ProjectImageWidget(assets.getFile(1)),
       ProjectCodeWidget(viewerKey, assets, [2, 3]),
@@ -113,7 +113,7 @@ class _SqlServerWithXslt extends Project {
       );
 
   @override
-  List<Widget> buildWidgets() {
+  List<Widget> buildPlaceholderWidgets() {
     return [
       ProjectImageWidget(assets.getFile(1)),
       ProjectImageWidget(assets.getFile(2)),

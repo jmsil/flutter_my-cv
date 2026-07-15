@@ -61,7 +61,7 @@ class StringsEn extends Strings {
     'Allow user applications to connect to Cloud Integration using a Firebase JWT token.';
   @override
   String get integrationProjectApimProxyInfo =>
-    '${Strings.widgetPlaceholderWithBreak}';
+    '${Strings.widgetPlaceholder}';
   @override
   String get integrationProjectCalculatorTitle => 'Calculator';
   @override
@@ -69,7 +69,7 @@ class StringsEn extends Strings {
     'Consume the public web service Calculator (http://www.dneonline.com/calculator.asmx).';
   @override
   String get integrationProjectCalculatorInfo =>
-    '${Strings.widgetPlaceholderWithBreak}'
+    '${Strings.widgetPlaceholder}'
 
     'This iFlow implements a dynamic endpoint to support the four operations offered by the web '
     'service.\n\n'
@@ -86,12 +86,12 @@ class StringsEn extends Strings {
     'The parameters are sent via URL in the format ?paramA=<value>&paramB=<value> and mapped '
     'to the SOAP request:'
 
-    '${Strings.widgetPlaceholderWithBreak}\n'
+    '${Strings.widgetPlaceholder}\n'
 
     'By reading the CamelHttpPath header, it is possible to identify the operation and configure '
     'the associated mappings and SOAP action:'
 
-    '${Strings.widgetPlaceholderWithBreak}';
+    '${Strings.widgetPlaceholder}';
   @override
   String get integrationProjectConversionsAndFtpTitle => 'Conversions and FTP';
   @override
@@ -99,7 +99,7 @@ class StringsEn extends Strings {
     'Convert the payload from/to different formats and save the result to an FTP server.';
   @override
   String get integrationProjectConversionsAndFtpInfo =>
-    '${Strings.widgetPlaceholderWithBreak}'
+    '${Strings.widgetPlaceholder}'
 
     'This iFlow implements the most common conversions. The Content-Type header defines the '
     'source format. The Accept header defines the target format.\n\n'
@@ -121,13 +121,13 @@ class StringsEn extends Strings {
 
     'JSON to XML:'
 
-    '${Strings.widgetPlaceholderWithBreak}'
-    '${Strings.widgetPlaceholderWithBreak}\n'
+    '${Strings.widgetPlaceholder}'
+    '${Strings.widgetPlaceholder}\n'
 
     'XML to JSON:'
 
-    '${Strings.widgetPlaceholderWithBreak}'
-    '${Strings.widgetPlaceholderWithBreak}';
+    '${Strings.widgetPlaceholder}'
+    '${Strings.widgetPlaceholder}';
   @override
   String get integrationProjectExceptionHandlerTitle => 'Exception Handler';
   @override
@@ -135,7 +135,7 @@ class StringsEn extends Strings {
     'Handle exceptions, log payloads in the Message Processing Log, and send emails.';
   @override
   String get integrationProjectExceptionHandlerInfo =>
-    '${Strings.widgetPlaceholderWithBreak}'
+    '${Strings.widgetPlaceholder}'
 
     'This iFlow is responsible for exception handling of all introduced iFlows.\n'
     'Log creation and email sending can be configured (enabled/disabled) via externalized '
@@ -149,13 +149,13 @@ class StringsEn extends Strings {
 
     'The following scripts contain all the needed functions for handling mapped exceptions:'
 
-    '${Strings.widgetPlaceholderWithBreak}\n'
+    '${Strings.widgetPlaceholder}\n'
 
     'The second script is responsible for handling common request settings. Each iFlow defines '
     'its settings.\n'
     'The following example demonstrates the supported settings:'
 
-    '${Strings.widgetPlaceholderWithBreak}';
+    '${Strings.widgetPlaceholder}';
   @override
   String get integrationProjectSqlServerWithXsltTitle => 'SQL Server with XSLT';
   @override
@@ -163,7 +163,7 @@ class StringsEn extends Strings {
     'Connect to a SQL Server database via JDBC and perform basic operations.';
   @override
   String get integrationProjectSqlServerWithXsltInfo =>
-    '${Strings.widgetPlaceholderWithBreak}'
+    '${Strings.widgetPlaceholder}'
 
     'This iFlow uses XSLT to transform a JSON request into the XML format required by the '
     'JDBC adapter.\n\n'
@@ -178,11 +178,11 @@ class StringsEn extends Strings {
     'By reading the CamelHttpMethod header, it is possible to configure the associated payload '
     'validation schema and the XSLT mapping:'
 
-    '${Strings.widgetPlaceholderWithBreak}\n'
+    '${Strings.widgetPlaceholder}\n'
 
     'The following example demonstrates the implementation of the SELECT operation:'
 
-    '${Strings.widgetPlaceholderWithBreak}';
+    '${Strings.widgetPlaceholder}';
   @override
   String get fortlevExperienceTitle => 'Flutter Mobile Application Development';
   @override

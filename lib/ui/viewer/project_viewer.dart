@@ -40,19 +40,25 @@ class AppProjectViewer extends StatelessWidget {
       ]
     );
 
-    int widgetIndex = 0;
+    int widgetPlaceholderIndex = 0;
     final List<Widget> children = [];
-    final List<Widget> widgets = project.buildWidgets();
-    final List<String> infoLines = project.info.split(Strings.stringBreak);
+    final List<Widget> placeholderWidgets = project.buildPlaceholderWidgets();
+    final List<String> infoLines = project.info.split(Strings.splitTag);
 
     for (String infoLine in infoLines) {
-      if (infoLine == Strings.widgetPlaceholder) {
-        children.add(widgets[widgetIndex]);
-        widgetIndex++;
+      if (infoLine == Strings.widgetTag) {
+        children.add(placeholderWidgets[widgetPlaceholderIndex]);
+        children.add(AppTheme.normalVerticalSpacing);
+        widgetPlaceholderIndex++;
+      }
+      else if (infoLine.startsWith(Strings.titleTag)) {
+        infoLine = infoLine.replaceAll(Strings.titleTag, '');
+        children.add(Text(infoLine, style: AppTheme.largeDarkBoldStyle));
+        children.add(AppTheme.smallVerticalSpacing);
       }
       else if (infoLine.isNotEmpty) {
-        Widget textWidget = Text(infoLine, style: AppTheme.darkStyle);
-        children.add(textWidget);
+        children.add(Text(infoLine, style: AppTheme.darkStyle));
+        children.add(AppTheme.normalVerticalSpacing);
       }
     }
 
@@ -69,7 +75,6 @@ class AppProjectViewer extends StatelessWidget {
       bodyWidget: AppScrollView(
         padding: const ThemedEdgeInsets.normal(bottom: ThemedEdgeInsets.xLargeValue),
         child: Column(
-          spacing: AppTheme.normalSpacingValue,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: children
         )

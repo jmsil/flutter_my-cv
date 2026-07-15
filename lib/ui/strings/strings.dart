@@ -1,7 +1,9 @@
 abstract class Strings {
-  static const String stringBreak = '<brk>';
-  static const String widgetPlaceholder = '<wdgt>';
-  static const String widgetPlaceholderWithBreak = '$stringBreak$widgetPlaceholder$stringBreak';
+  static const String splitTag = '<spt>';
+  static const String titleTag = '<ttl>';
+  static const String widgetTag = '<wdg>';
+  static const String widgetPlaceholder = '$splitTag$widgetTag$splitTag';
+  static String title(String title) => '$splitTag$titleTag$title$splitTag';
 
   static const String personalName = 'João Marques da Silva';
   static const String flutterShortRole = 'Flutter';
