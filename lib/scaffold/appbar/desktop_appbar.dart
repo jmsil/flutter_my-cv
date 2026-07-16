@@ -5,6 +5,7 @@ import '../../ui/assets.dart';
 import '../../ui/container/container.dart';
 import '../../ui/divider.dart';
 import '../../ui/layout/edge_insets.dart';
+import '../../ui/layout/layout.dart';
 import '../../ui/strings/strings_provider.dart';
 import '../../ui/theme.dart';
 import 'animated_container.dart';
@@ -38,7 +39,7 @@ class DesktopAppbar extends StatelessWidget {
     );
 
     final Widget professionalSummary = Column(
-      spacing: AppTheme.smallSpacingValue,
+      spacing: AppLayout.smallSpacing,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(

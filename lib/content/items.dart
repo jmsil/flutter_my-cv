@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../ui/const.dart';
+import '../ui/layout/layout.dart';
 import '../ui/strings/strings_provider.dart';
 import '../ui/text.dart';
 import '../ui/theme.dart';
@@ -33,7 +34,7 @@ class ItemsGroup extends StatelessWidget {
         textStyle: AppTheme.darkStyle
       );
       children.add(item);
-      children.add(AppTheme.smallVerticalSpacing);
+      children.add(AppLayout.smallVerticalSpacer);
     }
 
     children.removeLast();

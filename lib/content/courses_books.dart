@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../ui/const.dart';
+import '../ui/layout/layout.dart';
 import '../ui/strings/strings.dart';
 import '../ui/strings/strings_provider.dart';
 import '../ui/text.dart';
@@ -14,7 +15,7 @@ class CoursesAndBooksGroup extends StatelessWidget {
     final Widget coursesWidget = ExpandableInfo(
       headerTitle: StringsProvider.strings.coursesTitle,
       infoWidget: Column(
-        spacing: AppTheme.normalSpacingValue,
+        spacing: AppLayout.normalSpacing,
         children: [
           _Item(
             Strings.courseSapAdvancedEventMeshTitle,
@@ -43,7 +44,7 @@ class CoursesAndBooksGroup extends StatelessWidget {
     final Widget booksWidget = ExpandableInfo(
       headerTitle: StringsProvider.strings.booksTitle,
       infoWidget: Column(
-        spacing: AppTheme.normalSpacingValue,
+        spacing: AppLayout.normalSpacing,
         children: [
           _Item(
             Strings.bookEnterpriseIntegrationPatternsTitle,
@@ -63,7 +64,7 @@ class CoursesAndBooksGroup extends StatelessWidget {
       hasHorizontalPadding: false,
       children: [
         coursesWidget,
-        AppTheme.smallVerticalSpacing,
+        AppLayout.smallVerticalSpacer,
         booksWidget
       ]
     );
@@ -98,7 +99,7 @@ class _Item extends StatelessWidget {
     }
 
     return Row(
-      spacing: AppTheme.smallSpacingValue,
+      spacing: AppLayout.smallSpacing,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Icon(

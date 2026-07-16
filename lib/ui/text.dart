@@ -3,6 +3,7 @@ import 'package:url_launcher/url_launcher.dart' as urll;
 
 import 'const.dart';
 import 'hover.dart';
+import 'layout/layout.dart';
 import 'theme.dart';
 
 class AppIconText extends StatelessWidget {
@@ -21,7 +22,7 @@ class AppIconText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      spacing: AppTheme.smallSpacingValue,
+      spacing: AppLayout.smallSpacing,
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: text.contains('\n')
         ? CrossAxisAlignment.start

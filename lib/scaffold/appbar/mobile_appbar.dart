@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../content/profile_photo.dart';
 import '../../ui/divider.dart';
 import '../../ui/layout/edge_insets.dart';
+import '../../ui/layout/layout.dart';
 import '../../ui/strings/strings_provider.dart';
 import '../../ui/theme.dart';
 import '../main_scaffold.dart';
@@ -16,7 +17,7 @@ class MobileAppbar extends StatelessWidget {
     _padding.vertical +
     _photoSize +
     _dividerSize * AppDivider.heightFactor +
-    AppTheme.normalSpacingValue * 2;
+    AppLayout.normalSpacing * 2;
 
   final void Function() onPressed;
 
@@ -37,7 +38,7 @@ class MobileAppbar extends StatelessWidget {
     );
 
     final Widget profileWidget = Row(
-      spacing: AppTheme.largeSpacingValue,
+      spacing: AppLayout.largeSpacing,
       children: [
         SizedBox(
           height: _photoSize,
@@ -63,7 +64,7 @@ class MobileAppbar extends StatelessWidget {
         child: Padding(
           padding: _padding,
           child: Column(
-            spacing: AppTheme.normalSpacingValue,
+            spacing: AppLayout.normalSpacing,
             children: [
               profileWidget,
               AppDivider(_dividerSize),

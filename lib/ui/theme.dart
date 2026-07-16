@@ -10,12 +10,6 @@ class AppTheme {
   static const double xLargeFontSize = 17;
   static const double xxLargeFontSize = 18;
 
-  static const double shortSpacingValue = 2;
-  static const double smallSpacingValue = 8;
-  static const double normalSpacingValue = 16;
-  static const double largeSpacingValue = 24;
-  static const double xLargeSpacingValue = 32;
-
   static final Color highLightColor = Colors.blueGrey[50]!;
   static final Color lowLightColor = Colors.blueGrey[300]!;
   static final Color highDarkColor = Color(0xFF242F34);
@@ -62,9 +56,6 @@ class AppTheme {
   static final TextStyle xxLargeLightBlueBoldStyle = TextStyle(
     fontSize: xxLargeFontSize, color: lightBlue, fontWeight: FontWeight.bold
   );
-
-  static const SizedBox smallVerticalSpacing = SizedBox(height: smallSpacingValue);
-  static const SizedBox normalVerticalSpacing = SizedBox(height: normalSpacingValue);
 
   static const Radius radius = Radius.circular(radiusValue);
   static const BorderRadius allBorderRadius = BorderRadius.all(radius);

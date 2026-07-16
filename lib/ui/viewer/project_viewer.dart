@@ -4,6 +4,7 @@ import 'package:my_cv/ui/scroller.dart';
 import '../button/button.dart';
 import '../const.dart';
 import '../layout/edge_insets.dart';
+import '../layout/layout.dart';
 import '../strings/strings.dart';
 import '../theme.dart';
 import 'project.dart';
@@ -17,7 +18,7 @@ class AppProjectViewer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Widget headerWidget = Row(
-      spacing: AppTheme.normalSpacingValue,
+      spacing: AppLayout.normalSpacing,
       children: [
         Icon(
           AppIcons.webhook,
@@ -26,7 +27,7 @@ class AppProjectViewer extends StatelessWidget {
         ),
         Expanded(
           child: Column(
-            spacing: AppTheme.smallSpacingValue,
+            spacing: AppLayout.smallSpacing,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(project.title, style: AppTheme.xxLargeLightBlueBoldStyle),
@@ -49,17 +50,17 @@ class AppProjectViewer extends StatelessWidget {
     for (String infoLine in infoLines) {
       if (infoLine == Strings.widgetTag) {
         children.add(placeholderWidgets[widgetPlaceholderIndex]);
-        children.add(AppTheme.normalVerticalSpacing);
+        children.add(AppLayout.normalVerticalSpacer);
         widgetPlaceholderIndex++;
       }
       else if (infoLine.startsWith(Strings.titleTag)) {
         infoLine = infoLine.replaceAll(Strings.titleTag, '');
         children.add(Text(infoLine, style: AppTheme.largeDarkBoldStyle));
-        children.add(AppTheme.smallVerticalSpacing);
+        children.add(AppLayout.smallVerticalSpacer);
       }
       else if (infoLine.isNotEmpty) {
         children.add(Text(infoLine, style: AppTheme.darkStyle));
-        children.add(AppTheme.normalVerticalSpacing);
+        children.add(AppLayout.normalVerticalSpacer);
       }
     }
 

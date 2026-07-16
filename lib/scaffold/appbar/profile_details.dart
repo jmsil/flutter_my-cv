@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 import '../../ui/divider.dart';
+import '../../ui/layout/layout.dart';
 import '../../ui/strings/strings.dart';
 import '../../ui/strings/strings_provider.dart';
 import '../../ui/theme.dart';
@@ -42,7 +43,7 @@ class ProfileDetails extends StatelessWidget {
     if (isDesktopScreen) {
       Widget roles = Expanded(
         child: Column(
-          spacing: AppTheme.smallSpacingValue,
+          spacing: AppLayout.smallSpacing,
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -59,7 +60,7 @@ class ProfileDetails extends StatelessWidget {
     }
 
     return Column(
-      spacing: AppTheme.smallSpacingValue / (isDesktopScreen ? 1 : 2),
+      spacing: AppLayout.smallSpacing / (isDesktopScreen ? 1 : 2),
       crossAxisAlignment: CrossAxisAlignment.start,
       children: children
     );

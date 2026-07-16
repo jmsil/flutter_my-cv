@@ -5,6 +5,7 @@ import '../content/education.dart';
 import '../content/experience.dart';
 import '../content/items.dart';
 import '../ui/layout/edge_insets.dart';
+import '../ui/layout/layout.dart';
 import '../ui/overlay_bar.dart';
 import '../ui/scroller.dart';
 import '../ui/theme.dart';
@@ -38,7 +39,7 @@ class DesktopScaffold extends StatelessWidget {
 
     if (isDoublePanel) {
       contentWidget = Row(
-        spacing: AppTheme.xLargeSpacingValue,
+        spacing: AppLayout.xLargeSpacing,
         children: [
           Expanded(
             flex: 3,
@@ -59,7 +60,7 @@ class DesktopScaffold extends StatelessWidget {
           clipBehavior: Clip.none,
           children: [
             Row(
-              spacing: AppTheme.normalSpacingValue,
+              spacing: AppLayout.normalSpacing,
               children: [
                 AppSidebar(),
                 Expanded(

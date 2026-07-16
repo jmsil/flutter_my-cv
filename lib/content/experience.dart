@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import '../ui/assets.dart';
 import '../ui/button/loading_button.dart';
 import '../ui/const.dart';
+import '../ui/layout/layout.dart';
 import '../ui/strings/strings.dart';
 import '../ui/strings/strings_provider.dart';
 import '../ui/text.dart';
-import '../ui/theme.dart';
 import 'expandable_info.dart';
 import 'group.dart';
 import 'integration_learning_xp.dart';
@@ -26,10 +26,10 @@ class ExperienceGroup extends StatelessWidget {
   Widget build(BuildContext context) {
     List<Widget> children = [
       IntegrationLearningExperience(),
-      AppTheme.normalVerticalSpacing,
+      AppLayout.normalVerticalSpacer,
 
       _BciForlevExperience(),
-      AppTheme.normalVerticalSpacing,
+      AppLayout.normalVerticalSpacer,
 
       ExpandableInfo(
         headerTitle: StringsProvider.strings.smartNewExperienceTitle,
@@ -41,14 +41,14 @@ class ExperienceGroup extends StatelessWidget {
         ),
         infoText: StringsProvider.strings.smartNewExperienceInfo
       ),
-      AppTheme.normalVerticalSpacing,
+      AppLayout.normalVerticalSpacer,
 
       ExpandableInfo(
         headerTitle: StringsProvider.strings.mobileGameExperienceTitle,
         headerDetail: Strings.mobileGameExperienceDetail,
         infoText: StringsProvider.strings.mobileGameExperienceInfo
       ),
-      AppTheme.normalVerticalSpacing,
+      AppLayout.normalVerticalSpacer,
 
       ExpandableInfo(
         headerTitle: StringsProvider.strings.santriExperienceTitle,
@@ -60,7 +60,7 @@ class ExperienceGroup extends StatelessWidget {
         ),
         infoText: StringsProvider.strings.santriExperienceInfo
       ),
-      AppTheme.normalVerticalSpacing,
+      AppLayout.normalVerticalSpacer,
 
       ExpandableInfo(
         headerTitle: StringsProvider.strings.smallErpExperienceTitle,
@@ -92,13 +92,13 @@ class _BciForlevExperience extends ExpandableInfo {
         headerTitle: StringsProvider.strings.fortlevExperienceTitle,
         headerDetail: StringsProvider.strings.fortlevExperienceDetail,
         infoWidget: Row(
-          spacing: AppTheme.xLargeSpacingValue,
+          spacing: AppLayout.xLargeSpacing,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
               child: Wrap(
-                spacing: AppTheme.xLargeSpacingValue,
-                runSpacing: AppTheme.smallSpacingValue,
+                spacing: AppLayout.xLargeSpacing,
+                runSpacing: AppLayout.smallSpacing,
                 children: [
                   AppLink(
                     text: Strings.bciShortLink,

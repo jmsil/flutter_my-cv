@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../ui/const.dart';
 import '../ui/container/header_expandable.dart';
 import '../ui/layout/edge_insets.dart';
+import '../ui/layout/layout.dart';
 import '../ui/theme.dart';
 
 class ExpandableInfo extends StatelessWidget {
@@ -37,7 +38,7 @@ class ExpandableInfo extends StatelessWidget {
     }
 
     final headerContentWidget = Row(
-      spacing: AppTheme.smallSpacingValue,
+      spacing: AppLayout.smallSpacing,
       children: [
         VerticalDivider(
           thickness: 8, width: 8,
@@ -58,7 +59,7 @@ class ExpandableInfo extends StatelessWidget {
 
     if (infoWidget != null && infoTextWidget != null) {
       expandableContentWidget = Column(
-        spacing: AppTheme.normalSpacingValue,
+        spacing: AppLayout.normalSpacing,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           infoWidget!,

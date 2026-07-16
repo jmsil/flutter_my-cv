@@ -3,13 +3,14 @@ import 'package:flutter/widgets.dart';
 import '../assets.dart';
 import '../button/loading_button.dart';
 import '../const.dart';
+import '../layout/layout.dart';
 import '../theme.dart';
 import 'viewer.dart';
 
 class ProjectTileWidget extends Row {
   ProjectTileWidget(Project project)
     : super(
-        spacing: AppTheme.smallSpacingValue,
+        spacing: AppLayout.smallSpacing,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Icon(
@@ -18,7 +19,7 @@ class ProjectTileWidget extends Row {
           ),
           Expanded(
             child: Column(
-              spacing: AppTheme.shortSpacingValue,
+              spacing: AppLayout.shortSpacing,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(project.title, style: AppTheme.darkBoldStyle),

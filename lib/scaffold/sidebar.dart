@@ -7,6 +7,7 @@ import '../ui/const.dart';
 import '../ui/container/container.dart';
 import '../ui/container/header_expandable.dart';
 import '../ui/layout/edge_insets.dart';
+import '../ui/layout/layout.dart';
 import '../ui/overlay_bar.dart';
 import '../ui/scroller.dart';
 import '../ui/strings/strings.dart';
@@ -27,20 +28,20 @@ class AppSidebar extends StatelessWidget {
     final List<Widget> children = [
 
       if (!isDesktopScreen)
-        AppTheme.normalVerticalSpacing,
+        AppLayout.normalVerticalSpacer,
 
       _DetailsSection(),
-      AppTheme.normalVerticalSpacing,
+      AppLayout.normalVerticalSpacer,
       _SkillsSection(
         StringsProvider.strings.programmingSkillsTitle,
         Strings.programmingSkillsInfo
       ),
-      AppTheme.normalVerticalSpacing,
+      AppLayout.normalVerticalSpacer,
       _SkillsSection(
         StringsProvider.strings.integrationSkillsTitle,
         Strings.integrationSkillsInfo
       ),
-      AppTheme.normalVerticalSpacing,
+      AppLayout.normalVerticalSpacer,
       _AboutSection()
     ];
 
@@ -48,7 +49,7 @@ class AppSidebar extends StatelessWidget {
       color: AppTheme.highDarkColor,
       padding: const AppEdgeInsets.normal(vertical: AppEdgeInsets.smallValue),
       child: Row(
-        spacing: AppTheme.smallSpacingValue,
+        spacing: AppLayout.smallSpacing,
         children: [
           FlutterLogo(size: 32),
           Expanded(
@@ -178,7 +179,7 @@ class _DetailsSection extends _Section {
         true,
         StringsProvider.strings.detailsTitle,
         Column(
-          spacing: AppTheme.normalSpacingValue,
+          spacing: AppLayout.normalSpacing,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AppIconText(
@@ -233,7 +234,7 @@ class _SkillsSection extends StatelessWidget {
       false,
       title,
       Column(
-        spacing: AppTheme.smallSpacingValue,
+        spacing: AppLayout.smallSpacing,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: children
       )

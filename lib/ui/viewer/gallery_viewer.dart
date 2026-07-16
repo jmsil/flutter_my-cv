@@ -6,6 +6,7 @@ import '../button/button.dart';
 import '../const.dart';
 import '../container/container.dart';
 import '../layout/edge_insets.dart';
+import '../layout/layout.dart';
 import '../scroller.dart';
 import '../theme.dart';
 import 'viewer.dart';
@@ -131,7 +132,7 @@ class _State extends State<AppGallery> {
         Padding(
           padding: const AppEdgeInsets.large(),
           child: Column(
-            spacing: AppTheme.xLargeSpacingValue,
+            spacing: AppLayout.xLargeSpacing,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               closeButton,
