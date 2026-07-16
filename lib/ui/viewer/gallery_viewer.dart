@@ -5,6 +5,7 @@ import '../assets.dart';
 import '../button/button.dart';
 import '../const.dart';
 import '../container/container.dart';
+import '../layout/edge_insets.dart';
 import '../scroller.dart';
 import '../theme.dart';
 import 'viewer.dart';
@@ -22,7 +23,7 @@ class AppGallery extends StatefulWidget {
 class _State extends State<AppGallery> {
   static const double selectedThumbnailBorderSize = 3;
   static const double unselectedThumbnailBorderSize = 1;
-  static const EdgeInsets thumbnailsContainerPadding = ThemedEdgeInsets.xLarge();
+  static const EdgeInsets thumbnailsContainerPadding = AppEdgeInsets.xLarge();
   static const EdgeInsets selectedThumbnailMargin = EdgeInsets.symmetric(vertical: 12);
   static const EdgeInsets unselectedThumbnailMargin = EdgeInsets.symmetric(
     horizontal: 12, vertical: 6
@@ -79,7 +80,7 @@ class _State extends State<AppGallery> {
     final Widget imageWidget = Expanded(
       child: Center(
         child: AppContainer(
-          margin: const ThemedEdgeInsets.xLarge(),
+          margin: const AppEdgeInsets.xLarge(),
           borderSize: 12,
           borderColor: AppTheme.darkColor,
           borderRadius: const BorderRadius.all(Radius.circular(32)),
@@ -128,7 +129,7 @@ class _State extends State<AppGallery> {
       children: [
         imageWidget,
         Padding(
-          padding: const ThemedEdgeInsets.large(),
+          padding: const AppEdgeInsets.large(),
           child: Column(
             spacing: AppTheme.xLargeSpacingValue,
             crossAxisAlignment: CrossAxisAlignment.end,

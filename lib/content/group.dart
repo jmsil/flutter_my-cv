@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../scaffold/main_scaffold.dart';
 import '../ui/const.dart';
 import '../ui/container/container.dart';
+import '../ui/layout/edge_insets.dart';
 import '../ui/overlay_bar.dart';
 import '../ui/scroller.dart';
 import '../ui/theme.dart';
@@ -45,11 +46,10 @@ class SliverContentGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool isDesktopScreen = context.isDesktopScreen;
-    final EdgeInsets childrenPadding = EdgeInsets.only(
-      left: hasHorizontalPadding ? ThemedEdgeInsets.normalValue : 0,
-      top: isDesktopScreen ? 0 : ThemedEdgeInsets.normalValue,
-      right:  hasHorizontalPadding ? ThemedEdgeInsets.normalValue : 0,
-      bottom: isDesktopScreen ? ThemedEdgeInsets.xLargeValue : ThemedEdgeInsets.normalValue
+    final EdgeInsets childrenPadding = AppEdgeInsets.normal(
+      top: isDesktopScreen ? 0 : null,
+      bottom: isDesktopScreen ? AppEdgeInsets.xLargeValue : null,
+      horizontal: hasHorizontalPadding ? null : 0
     );
 
     return SliverMainAxisGroup(
@@ -87,11 +87,10 @@ class _Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final EdgeInsets margin = EdgeInsets.only(
-      left: isDesktopScreen ? 0 : ThemedEdgeInsets.normalValue,
-      top: isDesktopScreen ? 0 : ThemedEdgeInsets.normalValue,
-      right: isDesktopScreen ? 0 : ThemedEdgeInsets.normalValue,
-      bottom: isDesktopScreen ? ThemedEdgeInsets.normalValue : 0
+    final EdgeInsets margin = AppEdgeInsets.normal(
+      top: isDesktopScreen ? 0 : null,
+      bottom: isDesktopScreen ? null : 0,
+      horizontal: isDesktopScreen ? 0 : null
     );
 
     return OverlayBar(

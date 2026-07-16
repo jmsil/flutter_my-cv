@@ -4,6 +4,7 @@ import '../../content/profile_photo.dart';
 import '../../ui/assets.dart';
 import '../../ui/container/container.dart';
 import '../../ui/divider.dart';
+import '../../ui/layout/edge_insets.dart';
 import '../../ui/strings/strings_provider.dart';
 import '../../ui/theme.dart';
 import 'animated_container.dart';
@@ -15,8 +16,8 @@ class DesktopAppbar extends StatelessWidget {
   static const double _neededSummaryHeight = 154;
   static const double _profileAndSummaryPaddingValue =
     (AppbarStateProvider.collapsedHeight - _neededSummaryHeight) / 2;
-  static const EdgeInsets _profileAndSummaryPadding = const EdgeInsets.fromLTRB(
-    0, _profileAndSummaryPaddingValue, ThemedEdgeInsets.largeValue, _profileAndSummaryPaddingValue
+  static const EdgeInsets _profileAndSummaryPadding = const AppEdgeInsets.large(
+    left: 0, vertical: _profileAndSummaryPaddingValue
   );
 
   @override
@@ -29,9 +30,9 @@ class DesktopAppbar extends StatelessWidget {
     );
 
     final Widget profilePhoto = ProfilePhoto(
-      margin: ThemedEdgeInsets.normalValue,
+      margin: AppEdgeInsets.normalValue,
       borderRadius: const BorderRadius.all(
-        Radius.circular(circleRadiusSize - ThemedEdgeInsets.normalValue)
+        Radius.circular(circleRadiusSize - AppEdgeInsets.normalValue)
       ),
       onPressed: () => AppbarStateProvider.switchStateOf(context)
     );

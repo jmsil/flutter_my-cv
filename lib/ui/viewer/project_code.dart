@@ -13,6 +13,7 @@ import '../button/button.dart';
 import '../const.dart';
 import '../container/container.dart';
 import '../hover.dart';
+import '../layout/edge_insets.dart';
 import '../theme.dart';
 import 'viewer.dart';
 
@@ -63,7 +64,7 @@ class ProjectCodeWidget extends StatelessWidget {
 
     if (hovered) {
       Widget fullscreenButton = Padding(
-        padding: const ThemedEdgeInsets.normal(),
+        padding: const AppEdgeInsets.normal(),
         child: AppButton.icon(
           icon: viewerKey.isInFullscreen ? AppIcons.fullScreenExit : AppIcons.fullscreen,
           onPressed: () => _fullscreenPressed(child)
@@ -117,7 +118,7 @@ class _Editor extends CodeEditor {
 
         indicatorBuilder: (context, editingController, chunkController, notifier) {
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: ThemedEdgeInsets.normalValue),
+            padding: const AppEdgeInsets.normal(vertical: 0),
             child: DefaultCodeLineNumber(
               controller: editingController,
               notifier: notifier,

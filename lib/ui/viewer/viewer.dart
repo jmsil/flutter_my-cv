@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import '../container/container.dart';
+import '../layout/edge_insets.dart';
 import '../theme.dart';
 
 class AppViewer extends StatefulWidget {
@@ -81,7 +82,7 @@ class _State extends State<AppViewer> {
 
             if (fullscreenWidget != null)
               Padding(
-                padding: const ThemedEdgeInsets.normal(),
+                padding: const AppEdgeInsets.normal(),
                 child: fullscreenWidget
               )
           ]
@@ -93,7 +94,7 @@ class _State extends State<AppViewer> {
       child: AppContainer(
         width: widget.windowWidth,
         height: widget.windowHeight,
-        margin: const ThemedEdgeInsets.normal(),
+        margin: const AppEdgeInsets.normal(),
         borderColor: AppTheme.lightBlue,
         borderRadius: AppTheme.allBorderRadius,
         isClipped: true,

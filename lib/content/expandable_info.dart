@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../ui/const.dart';
 import '../ui/container/header_expandable.dart';
+import '../ui/layout/edge_insets.dart';
 import '../ui/theme.dart';
 
 class ExpandableInfo extends StatelessWidget {
-  static const EdgeInsets _padding = EdgeInsets.symmetric(
-    horizontal: ThemedEdgeInsets.normalValue, vertical: ThemedEdgeInsets.smallValue
-  );
+  static const EdgeInsets _padding = AppEdgeInsets.normal(vertical: AppEdgeInsets.smallValue);
 
   final String headerTitle;
   final String? headerDetail;

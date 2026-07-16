@@ -4,6 +4,7 @@ import '../content/courses_books.dart';
 import '../content/education.dart';
 import '../content/experience.dart';
 import '../content/items.dart';
+import '../ui/layout/edge_insets.dart';
 import '../ui/overlay_bar.dart';
 import '../ui/scroller.dart';
 import '../ui/theme.dart';
@@ -52,7 +53,7 @@ class DesktopScaffold extends StatelessWidget {
     }
 
     return Padding(
-      padding: const ThemedEdgeInsets.normal(),
+      padding: const AppEdgeInsets.normal(),
       child: AppbarStateProvider(
         child: Stack(
           clipBehavior: Clip.none,

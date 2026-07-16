@@ -1,14 +1,13 @@
 import 'package:flutter/widgets.dart';
 
-import '../../ui/theme.dart';
+import '../../ui/layout/edge_insets.dart';
 import '../sidebar.dart';
 
 class AppbarStateProvider extends StatefulWidget {
-  static const EdgeInsets margin = ThemedEdgeInsets.normal(right: 0);
+  static const EdgeInsets margin = AppEdgeInsets.normal(right: 0);
   static const double collapsedHeight = 226;
   static final double totalCollapsedHeight = collapsedHeight + margin.vertical;
-  static const double expandedHeight =
-    AppSidebar.containerWidth - ThemedEdgeInsets.normalValue * 2;
+  static const double expandedHeight = AppSidebar.containerWidth - AppEdgeInsets.normalValue * 2;
 
   final Widget child;
 
@@ -18,8 +17,6 @@ class AppbarStateProvider extends StatefulWidget {
 
   @override
   _State createState() => _State();
-
-
 
   static double currentHeightOf(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<_Notifier>()!.currentHeight;
@@ -33,7 +30,6 @@ class AppbarStateProvider extends StatefulWidget {
     context.getInheritedWidgetOfExactType<_Notifier>()!.switchState();
   }
 }
-
 
 class _State extends State<AppbarStateProvider> {
   final ValueNotifier<bool> valueNotifier = ValueNotifier<bool>(false);
@@ -52,7 +48,6 @@ class _State extends State<AppbarStateProvider> {
     );
   }
 }
-
 
 class _Notifier extends InheritedNotifier<ValueNotifier<bool>> {
   _Notifier({

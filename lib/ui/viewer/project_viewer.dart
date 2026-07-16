@@ -3,6 +3,7 @@ import 'package:my_cv/ui/scroller.dart';
 
 import '../button/button.dart';
 import '../const.dart';
+import '../layout/edge_insets.dart';
 import '../strings/strings.dart';
 import '../theme.dart';
 import 'project.dart';
@@ -66,14 +67,11 @@ class AppProjectViewer extends StatelessWidget {
       key: project.viewerKey,
       direction: Axis.vertical,
       windowWidth: 1680,
-      barPadding: const EdgeInsets.symmetric(
-        vertical: ThemedEdgeInsets.xLargeValue,
-        horizontal: ThemedEdgeInsets.largeValue
-      ),
+      barPadding: const AppEdgeInsets.large(vertical: AppEdgeInsets.xLargeValue),
       bodyIsTransparent: false,
       barWidget: headerWidget,
       bodyWidget: AppScrollView(
-        padding: const ThemedEdgeInsets.normal(bottom: ThemedEdgeInsets.xLargeValue),
+        padding: const AppEdgeInsets.normal(bottom: AppEdgeInsets.xLargeValue),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: children

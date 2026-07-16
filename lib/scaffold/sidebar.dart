@@ -6,6 +6,7 @@ import '../ui/button/button.dart';
 import '../ui/const.dart';
 import '../ui/container/container.dart';
 import '../ui/container/header_expandable.dart';
+import '../ui/layout/edge_insets.dart';
 import '../ui/overlay_bar.dart';
 import '../ui/scroller.dart';
 import '../ui/strings/strings.dart';
@@ -45,10 +46,7 @@ class AppSidebar extends StatelessWidget {
 
     final Widget footerWidget = AppContainer(
       color: AppTheme.highDarkColor,
-      padding: const EdgeInsets.symmetric(
-        horizontal: ThemedEdgeInsets.normalValue,
-        vertical: ThemedEdgeInsets.smallValue
-      ),
+      padding: const AppEdgeInsets.normal(vertical: AppEdgeInsets.smallValue),
       child: Row(
         spacing: AppTheme.smallSpacingValue,
         children: [
@@ -100,7 +98,7 @@ class AppSidebar extends StatelessWidget {
 class _MobileList extends Padding {
   _MobileList(List<Widget> children)
     : super(
-        padding: const ThemedEdgeInsets.normal(),
+        padding: const AppEdgeInsets.normal(),
         child: OverlayBar(
           radius: AppTheme.radiusValue,
           startForegroundColor: AppTheme.lowDarkColor,
@@ -136,7 +134,7 @@ class _MobileList extends Padding {
 class _DesktopList extends AppbarAnimatedPadding {
   _DesktopList(List<Widget> children)
     : super(
-        padding: ThemedEdgeInsets.normal(top: AppbarStateProvider.totalCollapsedHeight),
+        padding: AppEdgeInsets.normal(top: AppbarStateProvider.totalCollapsedHeight),
         child: OverlayBar(
           radius: AppTheme.radiusValue,
           startForegroundColor: AppTheme.lowDarkColor,
@@ -152,13 +150,13 @@ class _ProfileSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(ThemedEdgeInsets.largeValue / 2),
+      padding: const EdgeInsets.all(AppEdgeInsets.largeValue / 2),
       child: Stack(
         fit: StackFit.expand,
         clipBehavior: Clip.none,
         children: [
           Center(
-            child: ProfilePhoto(margin: ThemedEdgeInsets.smallValue)
+            child: ProfilePhoto(margin: AppEdgeInsets.smallValue)
           ),
           Align(
             alignment: Alignment.topLeft,
@@ -263,8 +261,8 @@ class _Section extends AppContainer {
         child: AppHeaderExpandable(
           startOpen: startOpen,
           arrowColor: AppTheme.lightBlue,
-          headerContentPadding: const ThemedEdgeInsets.normal(left: ThemedEdgeInsets.largeValue),
-          expandableContentPadding: const ThemedEdgeInsets.large(top: ThemedEdgeInsets.smallValue),
+          headerContentPadding: const AppEdgeInsets.normal(left: AppEdgeInsets.largeValue),
+          expandableContentPadding: const AppEdgeInsets.large(top: AppEdgeInsets.smallValue),
           headerContent: Text(title, style: AppTheme.largeLightBlueBoldStyle),
           expandableContent: contentWidget
         )

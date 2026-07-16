@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../../content/profile_photo.dart';
 import '../../ui/divider.dart';
+import '../../ui/layout/edge_insets.dart';
 import '../../ui/strings/strings_provider.dart';
 import '../../ui/theme.dart';
 import '../main_scaffold.dart';
 import 'profile_details.dart';
 
 class MobileAppbar extends StatelessWidget {
-  static const EdgeInsets _padding = ThemedEdgeInsets.normal();
+  static const EdgeInsets _padding = AppEdgeInsets.normal();
   static const double _photoSize = 110;
   static const double _dividerSize = 2;
   static final double _collapsedHeight =
