@@ -12,20 +12,17 @@ void main() async {
   );
   await AppAssets.loadStartupAssets();
 
-  runApp(_MyApp());
-}
-
-class _MyApp extends ListenableBuilder {
-  _MyApp()
-    : super(
-        listenable: StringsProvider.instance,
-        builder: (builderContext, builderChild) {
-          return MaterialApp(
-            title: StringsProvider.strings.appName,
-            scrollBehavior: AppScrollBehavior(),
-            home: MainScaffold(),
-            debugShowCheckedModeBanner: false
-          );
-        }
-      );
+  runApp(
+    ListenableBuilder(
+      listenable: StringsProvider.instance,
+      builder: (builderContext, builderChild) {
+        return MaterialApp(
+          title: StringsProvider.strings.appName,
+          scrollBehavior: AppScrollBehavior(),
+          home: MainScaffold(),
+          debugShowCheckedModeBanner: false
+        );
+      }
+    )
+  );
 }

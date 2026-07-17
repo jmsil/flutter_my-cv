@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 
-import '../ui/theme.dart';
+import '../ui/layout/layout_provider.dart';
 import 'desktop_scaffold.dart';
 import 'mobile_scaffold.dart';
 
-class MainScaffold extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: AppTheme.mainScaffoldBackgroundColor,
-      child: context.isDesktopScreen
-        ? DesktopScaffold()
-        : MobileScaffold()
-    );
-  }
+class MainScaffold extends ListenableBuilder {
+  MainScaffold()
+    : super(
+        listenable: LayoutProvider.instance,
+        builder: (builderContext, builderChild) {
+          return Material(
+            color: LayoutProvider.theme.backgroundColor,
+            child: builderContext.isDesktopScreen
+              ? DesktopScaffold()
+              : MobileScaffold()
+          );
+        }
+      );
 }
 
 extension MainScaffoldScreenExtension on BuildContext {

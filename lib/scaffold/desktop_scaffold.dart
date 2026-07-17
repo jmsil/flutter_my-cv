@@ -18,10 +18,10 @@ import 'sidebar.dart';
 class DesktopScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final bool isDoublePanel = context.isLargeDesktopScreen;
+    final bool isDoublePane = context.isLargeDesktopScreen;
 
     final List<Widget> contentChildren = [
-      if (!isDoublePanel)
+      if (!isDoublePane)
         ExperienceGroup.sliver(AppTheme.mainScaffoldBackgroundColor),
 
       EducationGroup(),
@@ -37,7 +37,7 @@ class DesktopScaffold extends StatelessWidget {
       child: AppSliverScroller(contentChildren)
     );
 
-    if (isDoublePanel) {
+    if (isDoublePane) {
       contentWidget = Row(
         spacing: AppLayout.xLargeSpacing,
         children: [
