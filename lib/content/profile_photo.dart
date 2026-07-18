@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../ui/assets.dart';
-import '../ui/button/button.dart';
+import '../ui/button/ink_response.dart';
 import '../ui/const.dart';
 import '../ui/container/container.dart';
 import '../ui/theme.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'button/button.dart';
+import 'button/ink_response.dart';
 
 class AppHoverWidget extends StatefulWidget {
   final Widget? child;

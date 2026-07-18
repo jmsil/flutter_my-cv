@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../const.dart';
 import '../container/container.dart';
-import '../layout/edge_insets.dart';
-import '../layout/layout.dart';
-import '../layout/layout_provider.dart';
 import '../theme.dart';
-import '../theme/icons.dart';
 
 class AppButton extends StatelessWidget {
   static const double _containerSize = 36;
@@ -70,95 +66,6 @@ class AppButton extends StatelessWidget {
       ),
       mouseCursor: SystemMouseCursors.click,
       onPressed: onPressed
-    );
-  }
-}
-
-class AppInkResponse extends StatelessWidget {
-  final EdgeInsets? padding;
-  final Color effectsColor;
-  final void Function()? onPressed;
-  final void Function(bool)? onHover;
-  final Widget child;
-
-  AppInkResponse({
-    this.padding,
-    required this.effectsColor,
-    this.onPressed,
-    this.onHover,
-    required this.child
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    Widget? newChild = child;
-
-    if (padding != null) {
-      newChild = Padding(
-        padding: padding!,
-        child: newChild
-      );
-    }
-
-    return InkResponse(
-      focusColor: Colors.transparent,
-      hoverColor: effectsColor,
-      splashColor: effectsColor,
-      highlightColor: effectsColor,
-      highlightShape: BoxShape.rectangle,
-      splashFactory: InkRipple.splashFactory,
-      mouseCursor: onPressed == null ? SystemMouseCursors.basic : SystemMouseCursors.click,
-      onTap: onPressed ?? () {},
-      onHover: onHover,
-      child: newChild
-    );
-  }
-}
-
-class AppPopupMenuButton extends PopupMenuButton {
-  AppPopupMenuButton(List<Widget> children)
-    : super(
-        offset: const Offset(76, -166),
-        color: LayoutProvider.theme.backgroundColor,
-        menuPadding: const AppEdgeInsets.small(
-          top: AppEdgeInsets.largeValue,
-          bottom: AppEdgeInsets.normalValue
-        ),
-        elevation: 8,
-        shadowColor: LayoutProvider.theme.elementColor1,
-        shape: RoundedRectangleBorder(
-          borderRadius: LayoutProvider.theme.allBorderRadius,
-          side: BorderSide(
-            width: 1,
-            color: LayoutProvider.theme.overBackgroundColor2.withValues(alpha: 0.36)
-          )
-        ),
-        itemBuilder: (builderContext) {
-          return [
-            PopupMenuItem(
-              enabled: false,
-              child: IconTheme.merge(
-                data: IconThemeData(opacity: 1.0),
-                child: Column(
-                  spacing: AppLayout.smallSpacing,
-                  children: children
-                )
-              )
-            )
-          ];
-        }
-      );
-
-  @override
-  _AppPopupMenuButtonState createState() => _AppPopupMenuButtonState();
-}
-
-class _AppPopupMenuButtonState extends PopupMenuButtonState {
-  @override
-  Widget build(BuildContext context) {
-    return AppButton.icon(
-      icon: AppIcons.settings,
-      onPressed: showButtonMenu
     );
   }
 }
