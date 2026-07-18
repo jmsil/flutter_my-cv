@@ -6,6 +6,7 @@ import '../layout/edge_insets.dart';
 import '../layout/layout.dart';
 import '../layout/layout_provider.dart';
 import '../theme.dart';
+import '../theme/icons.dart';
 
 class AppButton extends StatelessWidget {
   static const double _containerSize = 36;

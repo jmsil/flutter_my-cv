@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../assets.dart';
-import '../const.dart';
 import '../theme.dart';
+import '../theme/icons.dart';
 import '../viewer/gallery_viewer.dart';
 import '../viewer/project.dart';
 import '../viewer/project_viewer.dart';

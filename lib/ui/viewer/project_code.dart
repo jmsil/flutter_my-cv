@@ -10,11 +10,11 @@ import 'package:re_highlight/styles/vs2015.dart';
 
 import '../assets.dart';
 import '../button/button.dart';
-import '../const.dart';
 import '../container/container.dart';
 import '../hover.dart';
 import '../layout/edge_insets.dart';
 import '../theme.dart';
+import '../theme/icons.dart';
 import 'viewer.dart';
 
 class ProjectCodeWidget extends StatelessWidget {

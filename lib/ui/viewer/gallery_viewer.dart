@@ -3,12 +3,12 @@ import 'package:flutter/services.dart';
 
 import '../assets.dart';
 import '../button/button.dart';
-import '../const.dart';
 import '../container/container.dart';
 import '../layout/edge_insets.dart';
 import '../layout/layout.dart';
 import '../scroller.dart';
 import '../theme.dart';
+import '../theme/icons.dart';
 import 'viewer.dart';
 
 class AppGallery extends StatefulWidget {
