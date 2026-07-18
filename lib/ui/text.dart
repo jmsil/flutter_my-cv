@@ -64,11 +64,11 @@ class AppLink extends StatelessWidget {
   Widget _hoverBuilder(bool hovered, Widget? child) {
     final TextStyle textStyle = isOverBackground
       ? hovered
-        ? LayoutProvider.theme.normalOverBackgroundColor2Style
-        : LayoutProvider.theme.normalOverBackgroundColor1Style
+        ? LayoutProvider.theme.text1OverBackgroundColor2Style
+        : LayoutProvider.theme.text1OverBackgroundColor1Style
       : hovered
-        ? LayoutProvider.theme.normalOverSectionColor3Style
-        : LayoutProvider.theme.normalOverSectionColor1Style;
+        ? LayoutProvider.theme.text1OverSectionColor3Style
+        : LayoutProvider.theme.text1OverSectionColor1Style;
 
     return AppIconText(
       icon: icon,

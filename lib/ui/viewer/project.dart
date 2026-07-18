@@ -24,11 +24,11 @@ class ProjectTileWidget extends Row {
               children: [
                 Text(
                   project.title,
-                  style: LayoutProvider.theme.normalOverBackgroundColor1BoldStyle
+                  style: LayoutProvider.theme.text1OverBackgroundColor1BoldStyle
                 ),
                 Text(
                   project.description,
-                  style: LayoutProvider.theme.normalOverBackgroundColor1Style
+                  style: LayoutProvider.theme.text1OverBackgroundColor1Style
                 )
               ]
             )

@@ -26,14 +26,14 @@ class ExpandableContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget headerInfoWidget = Text(
-      headerTitle, style: LayoutProvider.theme.largeOverBackgroundColor1BoldStyle);
+      headerTitle, style: LayoutProvider.theme.header1OverBackgroundColor1BoldStyle);
 
     if (headerDetail != null) {
       headerInfoWidget = Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           headerInfoWidget,
-          Text(headerDetail!, style: LayoutProvider.theme.normalOverBackgroundColor1ItalicStyle)
+          Text(headerDetail!, style: LayoutProvider.theme.text1OverBackgroundColor1ItalicStyle)
         ]
       );
     }
@@ -55,7 +55,7 @@ class ExpandableContent extends StatelessWidget {
     Widget expandableContentWidget;
 
     final Widget? infoTextWidget = infoText != null
-      ? Text(infoText!, style: LayoutProvider.theme.normalOverBackgroundColor1Style)
+      ? Text(infoText!, style: LayoutProvider.theme.text1OverBackgroundColor1Style)
       : null;
 
     if (infoWidget != null && infoTextWidget != null) {
@@ -74,7 +74,7 @@ class ExpandableContent extends StatelessWidget {
       expandableContentWidget = infoTextWidget;
     else {
       expandableContentWidget = Text(
-        '- - -', style: LayoutProvider.theme.normalOverBackgroundColor1BoldStyle);
+        '- - -', style: LayoutProvider.theme.text1OverBackgroundColor1BoldStyle);
     }
 
     return AppHeaderExpandable(

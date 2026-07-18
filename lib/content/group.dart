@@ -60,7 +60,7 @@ class ContentGroup extends StatelessWidget {
               borderColor: LayoutProvider.theme.elementColor2.withValues(alpha: 0.5),
               borderRadius: AppUiConst.circleBorderRadius,
               child: Center(
-                child: Text(title, style: LayoutProvider.theme.largeOverElement3Color1BoldStyle)
+                child: Text(title, style: LayoutProvider.theme.header1OverElement3Color1BoldStyle)
               )
             ),
             AppContainer(

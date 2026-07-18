@@ -14,11 +14,11 @@ class Settings extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool isDesktopScreen = context.isDesktopScreen;
     final TextStyle selectedStyle = isDesktopScreen
-      ? LayoutProvider.theme.normalOverBackgroundColor2BoldStyle
-      : LayoutProvider.theme.normalOverElement1Color1BoldStyle;
+      ? LayoutProvider.theme.text1OverBackgroundColor2BoldStyle
+      : LayoutProvider.theme.text1OverElement1Color1BoldStyle;
     final TextStyle unselectedStyle = isDesktopScreen
-      ? LayoutProvider.theme.normalOverBackgroundColor2Style
-      : LayoutProvider.theme.normalOverElement1Color1Style;
+      ? LayoutProvider.theme.text1OverBackgroundColor2Style
+      : LayoutProvider.theme.text1OverElement1Color1Style;
 
     final Widget languagesWidget = Row(
       spacing: AppLayout.smallSpacing,
@@ -97,7 +97,7 @@ class _IconTitle extends Row {
         spacing: AppLayout.smallSpacing,
         children: [
           Icon(icon, color: LayoutProvider.theme.overBackgroundColor1),
-          Text(label, style: LayoutProvider.theme.normalOverBackgroundColor1BoldStyle)
+          Text(label, style: LayoutProvider.theme.text1OverBackgroundColor1BoldStyle)
         ]
       );
 }

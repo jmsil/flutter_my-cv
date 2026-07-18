@@ -82,7 +82,7 @@ class _Item extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget composedDetailWidget = Text(
-      detail, style: LayoutProvider.theme.normalOverBackgroundColor1ItalicStyle);
+      detail, style: LayoutProvider.theme.text1OverBackgroundColor1ItalicStyle);
 
     if (certificateLink != null) {
       composedDetailWidget = Wrap(
@@ -106,7 +106,7 @@ class _Item extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title, style: LayoutProvider.theme.normalOverBackgroundColor1BoldStyle),
+              Text(title, style: LayoutProvider.theme.text1OverBackgroundColor1BoldStyle),
               composedDetailWidget
             ]
           )
