@@ -7,6 +7,7 @@ import '../button/ink_response.dart';
 import '../container/container.dart';
 import '../layout/edge_insets.dart';
 import '../layout/layout.dart';
+import '../layout/layout_provider.dart';
 import '../scroller.dart';
 import '../theme.dart';
 import '../theme/icons.dart';
@@ -20,7 +21,6 @@ class AppGallery extends StatefulWidget {
   @override
   _State createState() => _State();
 }
-
 
 class _State extends State<AppGallery> {
   static const double selectedThumbnailBorderSize = 3;
@@ -61,7 +61,7 @@ class _State extends State<AppGallery> {
         key: thumbnailKeys[i],
         padding: isSelected ? selectedThumbnailMargin : unselectedThumbnailMargin,
         duration: const Duration(milliseconds: 240),
-        curve: AppTheme.animationCurve,
+        curve: LayoutProvider.theme.animationCurve,
         child: AppContainer(
           borderSize: isSelected ? selectedThumbnailBorderSize : unselectedThumbnailBorderSize,
           borderColor: AppTheme.lightBlue,
@@ -209,8 +209,8 @@ class _State extends State<AppGallery> {
         scrollController.position.viewportDimension / 2;
       scrollController.animateTo(
         offset.clamp(0, scrollController.position.maxScrollExtent),
-        duration: AppTheme.animationDuration,
-        curve: AppTheme.animationCurve
+        duration: LayoutProvider.theme.animationDuration,
+        curve: LayoutProvider.theme.animationCurve
       );
     });
   }

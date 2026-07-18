@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import '../../ui/theme.dart';
+import '../../ui/layout/layout_provider.dart';
 import 'state_provider.dart';
 
 class AppbarAnimatedContainer extends StatelessWidget {
@@ -17,8 +17,8 @@ class AppbarAnimatedContainer extends StatelessWidget {
     return AnimatedContainer(
       height: height,
       margin: AppbarStateProvider.margin,
-      duration: AppTheme.animationDuration,
-      curve: AppTheme.animationCurve,
+      duration: LayoutProvider.theme.animationDuration,
+      curve: LayoutProvider.theme.animationCurve,
       child: child
     );
   }

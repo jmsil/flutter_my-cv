@@ -52,7 +52,4 @@ class AppTheme {
   static final TextStyle xxLargeLightBlueBoldStyle = TextStyle(
     fontSize: xxLargeFontSize, color: lightBlue, fontWeight: FontWeight.bold
   );
-
-  static const Curve animationCurve = Curves.decelerate;
-  static const Duration animationDuration = Duration(milliseconds: 380);
 }
