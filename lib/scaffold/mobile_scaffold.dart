@@ -7,7 +7,7 @@ import '../content/items.dart';
 import '../ui/scroller.dart';
 import '../ui/theme.dart';
 import 'appbar/mobile_appbar.dart';
-import 'sidebar.dart';
+import 'sidebar/sidebar.dart';
 
 class MobileScaffold extends StatefulWidget {
   @override

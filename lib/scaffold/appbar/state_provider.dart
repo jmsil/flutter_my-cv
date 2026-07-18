@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 import '../../ui/layout/edge_insets.dart';
-import '../sidebar.dart';
+import '../sidebar/sidebar.dart';
 
 class AppbarStateProvider extends StatefulWidget {
   static const EdgeInsets margin = AppEdgeInsets.normal(right: 0);

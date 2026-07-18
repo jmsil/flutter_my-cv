@@ -13,7 +13,7 @@ import 'appbar/animated_padding.dart';
 import 'appbar/desktop_appbar.dart';
 import 'appbar/state_provider.dart';
 import 'main_scaffold.dart';
-import 'sidebar.dart';
+import 'sidebar/sidebar.dart';
 
 class DesktopScaffold extends StatelessWidget {
   @override
