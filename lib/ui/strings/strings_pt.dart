@@ -11,9 +11,9 @@ class StringsPt extends Strings {
   @override
   String get appName => 'Bem-vindo(a) ao Meu Currículo Online';
   @override
-  String get flutterLongRole => 'Desenvolvedor Flutter';
-  @override
-  String get integrationLongRole => 'Desenvolvedor SAP Integration Suite';
+  String get longRoles =>
+    'Desenvolvedor Flutter\n'
+    'Desenvolvedor SAP Integration Suite';
   @override
   String get professionalSummaryTitle => 'Resumo Profissional';
   @override

@@ -11,9 +11,9 @@ class StringsEn extends Strings {
   @override
   String get appName => 'Welcome to My Online Curriculum';
   @override
-  String get flutterLongRole => 'Flutter Developer';
-  @override
-  String get integrationLongRole => 'SAP Integration Suite Developer';
+  String get longRoles =>
+    'Flutter Developer\n'
+    'SAP Integration Suite Developer';
   @override
   String get professionalSummaryTitle => 'Professional Summary';
   @override

@@ -6,8 +6,9 @@ abstract class Strings {
   static String title(String title) => '$splitTag$titleTag$title$splitTag';
 
   static const String personalName = 'João Marques da Silva';
-  static const String flutterShortRole = 'Flutter';
-  static const String integrationShortRole = 'SAP Integration Suite';
+  static const String shortRoles =
+    'Flutter\n'
+    'SAP Integration Suite';
   static const String personalPhone = '+55 62 99497-1154';
   static const String personalPhoneLink = 'https://api.whatsapp.com/send?phone=5562994971154';
   static const String personalEmail = 'jmsilva.inbox@gmail.com';
@@ -57,8 +58,7 @@ abstract class Strings {
     '${_mooviEducationCertificateHost}dd05be54712a1ed6487e3a00511c26c7505cc76c';
 
   String get appName;
-  String get flutterLongRole;
-  String get integrationLongRole;
+  String get longRoles;
   String get professionalSummaryTitle;
   String get professionalSummaryInfo;
   String get detailsTitle;

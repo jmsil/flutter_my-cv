@@ -4,10 +4,11 @@ import '../../content/profile_photo.dart';
 import '../../ui/divider.dart';
 import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/layout.dart';
+import '../../ui/strings/strings.dart';
 import '../../ui/strings/strings_provider.dart';
 import '../../ui/theme.dart';
+import '../main_profile_info.dart';
 import '../main_scaffold.dart';
-import 'profile_details.dart';
 
 class MobileAppbar extends StatelessWidget {
   static const EdgeInsets _padding = AppEdgeInsets.normal();
@@ -45,7 +46,14 @@ class MobileAppbar extends StatelessWidget {
           child: ProfilePhoto(onPressed: onPressed)
         ),
         IntrinsicWidth(
-          child: ProfileDetails()
+          child: MainProfileInfo(
+            title: Strings.personalName,
+            info: context.isSmallMobileScreen
+              ? Strings.shortRoles
+              : StringsProvider.strings.longRoles,
+            isOverBackground: false,
+            isCompactMode: true
+          )
         )
       ]
     );

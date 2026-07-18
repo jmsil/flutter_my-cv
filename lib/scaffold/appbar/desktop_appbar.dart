@@ -3,15 +3,14 @@ import 'package:flutter/widgets.dart';
 import '../../content/profile_photo.dart';
 import '../../ui/assets.dart';
 import '../../ui/container/container.dart';
-import '../../ui/divider.dart';
 import '../../ui/layout/edge_insets.dart';
-import '../../ui/layout/layout.dart';
 import '../../ui/layout/layout_provider.dart';
+import '../../ui/strings/strings.dart';
 import '../../ui/strings/strings_provider.dart';
 import '../../ui/theme.dart';
+import '../main_profile_info.dart';
 import 'animated_container.dart';
 import 'animated_padding.dart';
-import 'profile_details.dart';
 import 'state_provider.dart';
 
 class DesktopAppbar extends StatelessWidget {
@@ -39,25 +38,18 @@ class DesktopAppbar extends StatelessWidget {
       onPressed: () => AppbarStateProvider.switchStateOf(context)
     );
 
-    final Widget professionalSummary = Column(
-      spacing: AppLayout.smallSpacing,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          StringsProvider.strings.professionalSummaryTitle,
-          style: AppTheme.xxLargeLightBlueBoldStyle
-        ),
-        AppDivider(4),
-        Expanded(
-          child: Align(
-            alignment: Alignment.bottomLeft,
-            child: Text(
-              StringsProvider.strings.professionalSummaryInfo,
-              style: AppTheme.xLargeLightBlueStyle
-            )
-          )
-        )
-      ]
+    final Widget nameAndRolesWidget = MainProfileInfo(
+      title: Strings.personalName,
+      info: StringsProvider.strings.longRoles,
+      isOverBackground: false,
+      isCompactMode: false
+    );
+
+    final Widget professionalSummaryWidget = MainProfileInfo(
+      title: StringsProvider.strings.professionalSummaryTitle,
+      info: StringsProvider.strings.professionalSummaryInfo,
+      isOverBackground: false,
+      isCompactMode: false,
     );
 
     return AppbarAnimatedContainer(
@@ -86,12 +78,12 @@ class DesktopAppbar extends StatelessWidget {
                       children: [
                         Expanded(flex: 1, child: const SizedBox()),
                         IntrinsicWidth(
-                          child: ProfileDetails()
+                          child: nameAndRolesWidget
                         ),
                         Expanded(flex: 2, child: const SizedBox()),
                         Expanded(
                           flex: 16,
-                          child: professionalSummary
+                          child: professionalSummaryWidget
                         )
                       ]
                     )
