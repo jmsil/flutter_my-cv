@@ -17,8 +17,7 @@ class EducationGroup extends ContentGroup {
             headerDetail: StringsProvider.strings.educationUniversityDetail,
             infoWidget: AppLink(
               text: Strings.educationUniversityShortLink,
-              link: Strings.educationUniversityLink,
-              isDarkStyle: true
+              link: Strings.educationUniversityLink
             ),
             infoText: StringsProvider.strings.educationUniversityInfo
           )

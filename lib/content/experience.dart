@@ -25,11 +25,7 @@ class ExperienceGroup extends StatelessWidget {
       ExpandableContent(
         headerTitle: StringsProvider.strings.smartNewExperienceTitle,
         headerDetail: Strings.smartNewExperienceDetail,
-        infoWidget: AppLink(
-          text: Strings.smartNewShortLink,
-          link: Strings.smartNewLink,
-          isDarkStyle: true
-        ),
+        infoWidget: AppLink(text: Strings.smartNewShortLink, link: Strings.smartNewLink),
         infoText: StringsProvider.strings.smartNewExperienceInfo
       ),
       AppLayout.normalVerticalSpacer,
@@ -44,11 +40,7 @@ class ExperienceGroup extends StatelessWidget {
       ExpandableContent(
         headerTitle: StringsProvider.strings.santriExperienceTitle,
         headerDetail: StringsProvider.strings.santriExperienceDetail,
-        infoWidget: AppLink(
-          text: Strings.santriShortLink,
-          link: Strings.santriLink,
-          isDarkStyle: true
-        ),
+        infoWidget: AppLink(text: Strings.santriShortLink, link: Strings.santriLink),
         infoText: StringsProvider.strings.santriExperienceInfo
       ),
       AppLayout.normalVerticalSpacer,

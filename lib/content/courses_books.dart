@@ -89,11 +89,7 @@ class _Item extends StatelessWidget {
         crossAxisAlignment: WrapCrossAlignment.center,
         children: [
           composedDetailWidget,
-          AppLink(
-            text: StringsProvider.strings.verifyCertificate,
-            link: certificateLink,
-            isDarkStyle: true
-          )
+          AppLink(text: StringsProvider.strings.verifyCertificate, link: certificateLink)
         ]
       );
     }

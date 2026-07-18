@@ -26,18 +26,18 @@ class DetailsSection extends Section {
               icon: AppIcons.phone,
               text: Strings.personalPhone,
               link: Strings.personalPhoneLink,
-              isDarkStyle: false
+              isOverBackground: false
             ),
             AppLink(
               icon: AppIcons.mail,
               text: Strings.personalEmail,
               link: Strings.personalEmailLink,
-              isDarkStyle: false
+              isOverBackground: false
             ),
             AppLink(
               icon: AppIcons.code,
               text: Strings.personalGitHubLink,
-              isDarkStyle: false
+              isOverBackground: false
             )
           ]
         )

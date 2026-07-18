@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart' as urll;
+import 'package:url_launcher/url_launcher.dart';
 
 import 'hover.dart';
 import 'layout/layout.dart';
-import 'theme.dart';
+import 'layout/layout_provider.dart';
 import 'theme/icons.dart';
 
 class AppIconText extends StatelessWidget {
@@ -38,20 +38,19 @@ class AppIconText extends StatelessWidget {
   }
 }
 
-
 class AppLink extends StatelessWidget {
   static const double _trailingIconSize = 18;
 
   final IconData icon;
   final String text;
   final String? link;
-  final bool isDarkStyle;
+  final bool isOverBackground;
 
   AppLink({
     this.icon = AppIcons.link,
     required this.text,
     this.link,
-    required this.isDarkStyle
+    this.isOverBackground = true
   });
 
   @override
@@ -63,9 +62,13 @@ class AppLink extends StatelessWidget {
   }
 
   Widget _hoverBuilder(bool hovered, Widget? child) {
-    final TextStyle textStyle = isDarkStyle
-      ? hovered ? AppTheme.darkBlueStyle : AppTheme.darkStyle
-      : hovered ? AppTheme.lightBlueStyle : AppTheme.highLightBlueStyle;
+    final TextStyle textStyle = isOverBackground
+      ? hovered
+        ? LayoutProvider.theme.normalOverBackgroundColor2Style
+        : LayoutProvider.theme.normalOverBackgroundColor1Style
+      : hovered
+        ? LayoutProvider.theme.normalOverSectionColor3Style
+        : LayoutProvider.theme.normalOverSectionColor1Style;
 
     return AppIconText(
       icon: icon,
@@ -79,7 +82,7 @@ class AppLink extends StatelessWidget {
 
   void _launch() async {
     Uri uri = Uri.parse(link ?? text);
-    if (await urll.canLaunchUrl(uri))
-      urll.launchUrl(uri);
+    if (await canLaunchUrl(uri))
+      launchUrl(uri);
   }
 }
