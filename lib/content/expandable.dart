@@ -4,9 +4,9 @@ import '../ui/const.dart';
 import '../ui/container/header_expandable.dart';
 import '../ui/layout/edge_insets.dart';
 import '../ui/layout/layout.dart';
-import '../ui/theme.dart';
+import '../ui/layout/layout_provider.dart';
 
-class ExpandableInfo extends StatelessWidget {
+class ExpandableContent extends StatelessWidget {
   static const EdgeInsets _padding = AppEdgeInsets.normal(vertical: AppEdgeInsets.smallValue);
 
   final String headerTitle;
@@ -15,7 +15,7 @@ class ExpandableInfo extends StatelessWidget {
   final String? infoText;
   final bool startOpen;
 
-  ExpandableInfo({
+  ExpandableContent({
     required this.headerTitle,
     this.headerDetail,
     this.infoWidget,
@@ -25,14 +25,15 @@ class ExpandableInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget headerInfoWidget = Text(headerTitle, style: AppTheme.largeDarkBoldStyle);
+    Widget headerInfoWidget = Text(
+      headerTitle, style: LayoutProvider.theme.largeOverBackgroundColor1BoldStyle);
 
     if (headerDetail != null) {
       headerInfoWidget = Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           headerInfoWidget,
-          Text(headerDetail!, style: AppTheme.darkItalicStyle)
+          Text(headerDetail!, style: LayoutProvider.theme.normalOverBackgroundColor1ItalicStyle)
         ]
       );
     }
@@ -42,7 +43,7 @@ class ExpandableInfo extends StatelessWidget {
       children: [
         VerticalDivider(
           thickness: 8, width: 8,
-          color: AppTheme.highDarkColor.withValues(alpha: 0.32),
+          color: LayoutProvider.theme.overBackgroundColor1.withValues(alpha: 0.16),
           radius: AppUiConst.circleBorderRadius
         ),
         Expanded(
@@ -54,7 +55,7 @@ class ExpandableInfo extends StatelessWidget {
     Widget expandableContentWidget;
 
     final Widget? infoTextWidget = infoText != null
-      ? Text(infoText!, style: AppTheme.darkStyle)
+      ? Text(infoText!, style: LayoutProvider.theme.normalOverBackgroundColor1Style)
       : null;
 
     if (infoWidget != null && infoTextWidget != null) {
@@ -71,14 +72,16 @@ class ExpandableInfo extends StatelessWidget {
       expandableContentWidget = infoWidget!;
     else if (infoTextWidget != null)
       expandableContentWidget = infoTextWidget;
-    else
-      expandableContentWidget = Text('- - -', style: AppTheme.darkBoldStyle);
+    else {
+      expandableContentWidget = Text(
+        '- - -', style: LayoutProvider.theme.normalOverBackgroundColor1BoldStyle);
+    }
 
     return AppHeaderExpandable(
       startOpen: startOpen,
       isClipped: true,
       headerHasIntrinsic: true,
-      arrowColor: AppTheme.darkBlue,
+      arrowColor: LayoutProvider.theme.overBackgroundColor2,
       headerContentPadding: _padding,
       expandableContentPadding: _padding,
       headerContent: headerContentWidget,

@@ -9,7 +9,6 @@ import '../ui/layout/layout.dart';
 import '../ui/layout/layout_provider.dart';
 import '../ui/overlay_bar.dart';
 import '../ui/scroller.dart';
-import '../ui/theme.dart';
 import 'appbar/animated_padding.dart';
 import 'appbar/desktop_appbar.dart';
 import 'appbar/state_provider.dart';
@@ -22,8 +21,8 @@ class DesktopScaffold extends StatelessWidget {
     final bool isDoublePane = context.isLargeDesktopScreen;
 
     final List<Widget> contentChildren = [
-      if (!isDoublePane)
-        ExperienceGroup.sliver(AppTheme.mainScaffoldBackgroundColor),
+      if ( ! isDoublePane)
+        ExperienceGroup(),
 
       EducationGroup(),
       CoursesAndBooksGroup(),
@@ -33,8 +32,8 @@ class DesktopScaffold extends StatelessWidget {
 
     Widget contentWidget = OverlayBar(
       radius: LayoutProvider.theme.radiusValue,
-      startForegroundColor: AppTheme.mainScaffoldBackgroundColor,
-      endForegroundColor: AppTheme.mainScaffoldBackgroundColor,
+      startForegroundColor: LayoutProvider.theme.backgroundColor,
+      endForegroundColor: LayoutProvider.theme.backgroundColor,
       child: AppSliverScroller(contentChildren)
     );
 
@@ -44,7 +43,9 @@ class DesktopScaffold extends StatelessWidget {
         children: [
           Expanded(
             flex: 3,
-            child: ExperienceGroup()
+            child: AppSliverScroller([
+              ExperienceGroup()
+            ])
           ),
           Expanded(
             flex: 2,

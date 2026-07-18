@@ -5,7 +5,6 @@ import '../content/education.dart';
 import '../content/experience.dart';
 import '../content/items.dart';
 import '../ui/scroller.dart';
-import '../ui/theme.dart';
 import 'appbar/mobile_appbar.dart';
 import 'sidebar/sidebar.dart';
 
@@ -31,7 +30,7 @@ class _State extends State<MobileScaffold> {
         AppSliverScroller(
           [
             MobileAppbar(openDrawer),
-            ExperienceGroup.sliver(AppTheme.highDarkColor),
+            ExperienceGroup(),
             EducationGroup(),
             CoursesAndBooksGroup(),
             ItemsGroup.languages(),

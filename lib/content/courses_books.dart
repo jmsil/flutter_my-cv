@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
 import '../ui/layout/layout.dart';
+import '../ui/layout/layout_provider.dart';
 import '../ui/strings/strings.dart';
 import '../ui/strings/strings_provider.dart';
 import '../ui/text.dart';
-import '../ui/theme.dart';
 import '../ui/theme/icons.dart';
-import 'expandable_info.dart';
+import 'expandable.dart';
 import 'group.dart';
 
 class CoursesAndBooksGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Widget coursesWidget = ExpandableInfo(
+    final Widget coursesWidget = ExpandableContent(
       headerTitle: StringsProvider.strings.coursesTitle,
       infoWidget: Column(
         spacing: AppLayout.normalSpacing,
@@ -41,7 +41,7 @@ class CoursesAndBooksGroup extends StatelessWidget {
       )
     );
 
-    final Widget booksWidget = ExpandableInfo(
+    final Widget booksWidget = ExpandableContent(
       headerTitle: StringsProvider.strings.booksTitle,
       infoWidget: Column(
         spacing: AppLayout.normalSpacing,
@@ -58,7 +58,7 @@ class CoursesAndBooksGroup extends StatelessWidget {
       )
     );
 
-    return SliverContentGroup(
+    return ContentGroup(
       icon: AppIcons.studying,
       title: StringsProvider.strings.coursesAndBooksTitle,
       hasHorizontalPadding: false,
@@ -71,7 +71,6 @@ class CoursesAndBooksGroup extends StatelessWidget {
   }
 }
 
-
 class _Item extends StatelessWidget {
   final String title;
   final String detail;
@@ -82,7 +81,8 @@ class _Item extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget composedDetailWidget = Text(detail, style: AppTheme.darkItalicStyle);
+    Widget composedDetailWidget = Text(
+      detail, style: LayoutProvider.theme.normalOverBackgroundColor1ItalicStyle);
 
     if (certificateLink != null) {
       composedDetailWidget = Wrap(
@@ -104,13 +104,13 @@ class _Item extends StatelessWidget {
       children: [
         Icon(
           AppIcons.topicMark,
-          color: AppTheme.darkColor
+          color: LayoutProvider.theme.overBackgroundColor1
         ),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title, style: AppTheme.darkBoldStyle),
+              Text(title, style: LayoutProvider.theme.normalOverBackgroundColor1BoldStyle),
               composedDetailWidget
             ]
           )

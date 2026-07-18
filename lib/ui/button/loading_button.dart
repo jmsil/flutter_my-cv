@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../assets.dart';
-import '../theme.dart';
+import '../layout/layout_provider.dart';
 import '../theme/icons.dart';
 import '../viewer/gallery_viewer.dart';
 import '../viewer/project.dart';
@@ -21,7 +21,6 @@ class AppProjectButton extends _LoadingButton {
   }
 }
 
-
 class AppGalleryButton extends _LoadingButton {
   AppGalleryButton(GalleryAssets assets)
     : super(assets);
@@ -31,7 +30,6 @@ class AppGalleryButton extends _LoadingButton {
     AppViewer.show(context, AppGallery(assets as GalleryAssets));
   }
 }
-
 
 abstract class _LoadingButton extends StatefulWidget {
   final AssetsArchive assets;
@@ -44,7 +42,6 @@ abstract class _LoadingButton extends StatefulWidget {
   _State createState() => _State();
 }
 
-
 class _State extends State<_LoadingButton> {
   bool isLoading = false;
 
@@ -52,7 +49,7 @@ class _State extends State<_LoadingButton> {
   Widget build(BuildContext context) {
     return AppButton.icon(
       icon: AppIcons.plus,
-      color: AppTheme.darkBlue,
+      color: LayoutProvider.theme.overBackgroundColor2,
       isLoading: isLoading,
       isSelected: true,
       onPressed: onPressed

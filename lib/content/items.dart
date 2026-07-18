@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../ui/layout/layout.dart';
+import '../ui/layout/layout_provider.dart';
 import '../ui/strings/strings_provider.dart';
 import '../ui/text.dart';
-import '../ui/theme.dart';
 import '../ui/theme/icons.dart';
 import 'group.dart';
 
@@ -31,7 +31,7 @@ class ItemsGroup extends StatelessWidget {
       Widget item = AppIconText(
         icon: AppIcons.topicMark,
         text: listItem,
-        textStyle: AppTheme.darkStyle
+        textStyle: LayoutProvider.theme.normalOverBackgroundColor1Style
       );
       children.add(item);
       children.add(AppLayout.smallVerticalSpacer);
@@ -39,7 +39,7 @@ class ItemsGroup extends StatelessWidget {
 
     children.removeLast();
 
-    return SliverContentGroup(
+    return ContentGroup(
       icon: icon,
       title: title,
       hasHorizontalPadding: true,

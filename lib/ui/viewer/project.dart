@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import '../assets.dart';
 import '../button/loading_button.dart';
 import '../layout/layout.dart';
-import '../theme.dart';
+import '../layout/layout_provider.dart';
 import '../theme/icons.dart';
 import 'viewer.dart';
 
@@ -15,15 +15,21 @@ class ProjectTileWidget extends Row {
         children: [
           Icon(
             AppIcons.topicMark,
-            color: AppTheme.darkColor
+            color: LayoutProvider.theme.overBackgroundColor1
           ),
           Expanded(
             child: Column(
               spacing: AppLayout.shortSpacing,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(project.title, style: AppTheme.darkBoldStyle),
-                Text(project.description, style: AppTheme.darkStyle)
+                Text(
+                  project.title,
+                  style: LayoutProvider.theme.normalOverBackgroundColor1BoldStyle
+                ),
+                Text(
+                  project.description,
+                  style: LayoutProvider.theme.normalOverBackgroundColor1Style
+                )
               ]
             )
           ),

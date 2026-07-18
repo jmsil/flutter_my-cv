@@ -6,9 +6,9 @@ import '../ui/strings/strings_provider.dart';
 import '../ui/viewer/project.dart';
 import '../ui/viewer/project_code.dart';
 import '../ui/viewer/project_image.dart';
-import 'expandable_info.dart';
+import 'expandable.dart';
 
-class IntegrationLearningExperience extends ExpandableInfo {
+class IntegrationLearningExperience extends ExpandableContent {
   IntegrationLearningExperience()
     : super(
         headerTitle: StringsProvider.strings.sapIntegrationSuiteLearningJourneyTitle,
