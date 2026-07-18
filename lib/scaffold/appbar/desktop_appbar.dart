@@ -6,6 +6,7 @@ import '../../ui/container/container.dart';
 import '../../ui/divider.dart';
 import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/layout.dart';
+import '../../ui/layout/layout_provider.dart';
 import '../../ui/strings/strings_provider.dart';
 import '../../ui/theme.dart';
 import 'animated_container.dart';
@@ -62,9 +63,9 @@ class DesktopAppbar extends StatelessWidget {
     return AppbarAnimatedContainer(
       child: AppContainer(
         color: AppTheme.highDarkColor,
-        borderRadius: const BorderRadius.horizontal(
+        borderRadius: BorderRadius.horizontal(
           left: const Radius.circular(circleRadiusSize),
-          right: const Radius.circular(AppTheme.radiusValue)
+          right: LayoutProvider.theme.radius
         ),
         hasShadow: true,
         isClipped: true,

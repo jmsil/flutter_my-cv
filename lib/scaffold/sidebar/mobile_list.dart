@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../content/profile_photo.dart';
 import '../../ui/button/button.dart';
 import '../../ui/layout/edge_insets.dart';
+import '../../ui/layout/layout_provider.dart';
 import '../../ui/overlay_bar.dart';
 import '../../ui/scroller.dart';
 import '../../ui/theme.dart';
@@ -13,7 +14,7 @@ class MobileList extends Padding {
     : super(
         padding: const AppEdgeInsets.normal(),
         child: OverlayBar(
-          radius: AppTheme.radiusValue,
+          radius: LayoutProvider.theme.radiusValue,
           startForegroundColor: AppTheme.lowDarkColor,
           child: LayoutBuilder(
             builder: (BuildContext builderContext, BoxConstraints builderConstraints) {
@@ -27,7 +28,9 @@ class MobileList extends Padding {
                     backgroundColor: AppTheme.highDarkColor,
                     surfaceTintColor: Colors.transparent,
                     shadowColor: AppTheme.highDarkColor,
-                    shape: const RoundedRectangleBorder(borderRadius: AppTheme.allBorderRadius),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: LayoutProvider.theme.allBorderRadius
+                    ),
                     automaticallyImplyLeading: false,
                     flexibleSpace: _Profile()
                   ),

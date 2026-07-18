@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 import '../../ui/container/container.dart';
 import '../../ui/container/header_expandable.dart';
 import '../../ui/layout/edge_insets.dart';
+import '../../ui/layout/layout_provider.dart';
 import '../../ui/theme.dart';
 
 class Section extends AppContainer {
   Section(bool startOpen, String title, Widget contentWidget)
     : super(
         color: Colors.black26,
-        borderRadius: AppTheme.allBorderRadius,
+        borderRadius: LayoutProvider.theme.allBorderRadius,
         isClipped: true,
         child: AppHeaderExpandable(
           startOpen: startOpen,

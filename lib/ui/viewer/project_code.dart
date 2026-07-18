@@ -13,6 +13,7 @@ import '../button/button.dart';
 import '../container/container.dart';
 import '../hover.dart';
 import '../layout/edge_insets.dart';
+import '../layout/layout_provider.dart';
 import '../theme.dart';
 import '../theme/icons.dart';
 import 'viewer.dart';
@@ -46,7 +47,7 @@ class ProjectCodeWidget extends StatelessWidget {
 
     final Widget child = AppContainer(
       color: AppTheme.highDarkColor,
-      borderRadius: AppTheme.allBorderRadius,
+      borderRadius: LayoutProvider.theme.allBorderRadius,
       child: Row(children: children)
     );
 

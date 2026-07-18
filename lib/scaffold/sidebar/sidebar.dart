@@ -4,6 +4,7 @@ import '../../ui/assets.dart';
 import '../../ui/container/container.dart';
 import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/layout.dart';
+import '../../ui/layout/layout_provider.dart';
 import '../../ui/strings/strings.dart';
 import '../../ui/strings/strings_provider.dart';
 import '../../ui/theme.dart';
@@ -61,7 +62,7 @@ class AppSidebar extends StatelessWidget {
       width: containerWidth,
       color: AppTheme.lowDarkColor,
       borderRadius: isDesktopScreen
-        ? AppTheme.allBorderRadius
+        ? LayoutProvider.theme.allBorderRadius
         : BorderRadius.zero,
       isClipped: isDesktopScreen,
       child: Stack(

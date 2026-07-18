@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 import '../../ui/layout/edge_insets.dart';
+import '../../ui/layout/layout_provider.dart';
 import '../../ui/overlay_bar.dart';
 import '../../ui/scroller.dart';
 import '../../ui/theme.dart';
@@ -12,7 +13,7 @@ class DesktopList extends AppbarAnimatedPadding {
     : super(
         padding: AppEdgeInsets.normal(top: AppbarStateProvider.totalCollapsedHeight),
         child: OverlayBar(
-          radius: AppTheme.radiusValue,
+          radius: LayoutProvider.theme.radiusValue,
           startForegroundColor: AppTheme.lowDarkColor,
           child: AppListView(
             children: children

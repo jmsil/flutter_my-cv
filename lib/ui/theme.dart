@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  AppTheme._();
-
-  static const double radiusValue = 16;
-
   static const double normalFontSize = 15;
   static const double largeFontSize = 16;
   static const double xLargeFontSize = 17;
@@ -56,9 +52,6 @@ class AppTheme {
   static final TextStyle xxLargeLightBlueBoldStyle = TextStyle(
     fontSize: xxLargeFontSize, color: lightBlue, fontWeight: FontWeight.bold
   );
-
-  static const Radius radius = Radius.circular(radiusValue);
-  static const BorderRadius allBorderRadius = BorderRadius.all(radius);
 
   static const Curve animationCurve = Curves.decelerate;
   static const Duration animationDuration = Duration(milliseconds: 380);

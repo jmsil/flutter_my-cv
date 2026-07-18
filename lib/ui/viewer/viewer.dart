@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../container/container.dart';
 import '../layout/edge_insets.dart';
+import '../layout/layout_provider.dart';
 import '../theme.dart';
 
 class AppViewer extends StatefulWidget {
@@ -96,7 +97,7 @@ class _State extends State<AppViewer> {
         height: widget.windowHeight,
         margin: const AppEdgeInsets.normal(),
         borderColor: AppTheme.lightBlue,
-        borderRadius: AppTheme.allBorderRadius,
+        borderRadius: LayoutProvider.theme.allBorderRadius,
         isClipped: true,
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),

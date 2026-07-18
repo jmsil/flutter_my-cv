@@ -6,6 +6,7 @@ import '../content/experience.dart';
 import '../content/items.dart';
 import '../ui/layout/edge_insets.dart';
 import '../ui/layout/layout.dart';
+import '../ui/layout/layout_provider.dart';
 import '../ui/overlay_bar.dart';
 import '../ui/scroller.dart';
 import '../ui/theme.dart';
@@ -31,7 +32,7 @@ class DesktopScaffold extends StatelessWidget {
     ];
 
     Widget contentWidget = OverlayBar(
-      radius: AppTheme.radiusValue,
+      radius: LayoutProvider.theme.radiusValue,
       startForegroundColor: AppTheme.mainScaffoldBackgroundColor,
       endForegroundColor: AppTheme.mainScaffoldBackgroundColor,
       child: AppSliverScroller(contentChildren)
