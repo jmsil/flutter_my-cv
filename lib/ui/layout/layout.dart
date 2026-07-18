@@ -7,6 +7,7 @@ class AppLayout {
   static const double largeSpacing = 24;
   static const double xLargeSpacing = 32;
 
+  static const SizedBox shortVerticalSpacer = SizedBox(height: shortSpacing);
   static const SizedBox smallVerticalSpacer = SizedBox(height: smallSpacing);
   static const SizedBox normalVerticalSpacer = SizedBox(height: normalSpacing);
 }

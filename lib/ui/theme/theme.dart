@@ -34,6 +34,8 @@ abstract class AppTheme {
     fontSize: normalFontSize, color: overBackgroundColor1, fontStyle: FontStyle.italic);
   late final TextStyle normalOverBackgroundColor2Style = TextStyle(
     fontSize: normalFontSize, color: overBackgroundColor2);
+  late final TextStyle normalOverBackgroundColor2BoldStyle = TextStyle(
+    fontSize: normalFontSize, color: overBackgroundColor2, fontWeight: FontWeight.bold);
   late final TextStyle largeOverBackgroundColor1BoldStyle = TextStyle(
     fontSize: largeFontSize, color: overBackgroundColor1, fontWeight: FontWeight.bold);
 

@@ -48,6 +48,8 @@ class StringsEn extends Strings {
   @override
   String get madeWithFlutter => 'Made with Flutter  🩵';
   @override
+  String get language => 'Language';
+  @override
   String get experienceTitle => 'Experience';
   @override
   String get sapIntegrationSuiteLearningJourneyTitle =>

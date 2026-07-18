@@ -50,6 +50,8 @@ class StringsPt extends Strings {
   @override
   String get madeWithFlutter => 'Feito com Flutter  🩵';
   @override
+  String get language => 'Idioma';
+  @override
   String get experienceTitle => 'Experiência';
   @override
   String get sapIntegrationSuiteLearningJourneyTitle =>

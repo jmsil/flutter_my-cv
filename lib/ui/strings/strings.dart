@@ -18,6 +18,9 @@ abstract class Strings {
     'SQL/PL SQL - Git';
   static const String integrationSkillsInfo =
     'Cloud Integration - API Management - Advanced Event Mesh/Event Mesh - Open Connectors';
+  static const String languagePt = 'Pt';
+  static const String languageEn = 'En';
+  static const String layout = 'Layout';
   static const String bciShortLink = 'BCI Consulting.com';
   static const String bciLink = 'https://www.bci-consulting.com';
   static const String fortlevShortLink = 'Fortlev.com';
@@ -65,6 +68,7 @@ abstract class Strings {
   String get aboutAndExpectationsTitle;
   String get aboutAndExpectationsInfo;
   String get madeWithFlutter;
+  String get language;
   String get experienceTitle;
   String get sapIntegrationSuiteLearningJourneyTitle;
   String get sapIntegrationSuiteLearningJourneyDetail;

@@ -1,17 +1,17 @@
 import 'package:flutter/foundation.dart';
 
-import '../theme/flat_light_theme.dart';
-import '../theme/left_pane_theme.dart';
+import '../theme/flat_theme.dart';
+import '../theme/full_theme.dart';
+import '../theme/left_theme.dart';
 import '../theme/theme.dart';
-import '../theme/top_left_panes_theme.dart';
 
-enum Layout { flatLight, leftPane, topLeftPanes }
+enum Layout { flat, left, full }
 
 class LayoutProvider extends ChangeNotifier {
   static final LayoutProvider instance = LayoutProvider._();
 
-  Layout _layout = Layout.topLeftPanes;
-  AppTheme _theme = TopLeftPanesTheme();
+  Layout _layout = Layout.full;
+  AppTheme _theme = FullTheme();
 
   LayoutProvider._();
 
@@ -22,14 +22,14 @@ class LayoutProvider extends ChangeNotifier {
     _layout = layout;
 
     switch (layout) {
-      case Layout.flatLight:
-        _theme = FlatLightTheme();
+      case Layout.flat:
+        _theme = FlatTheme();
         break;
-      case Layout.leftPane:
-        _theme = LeftPaneTheme();
+      case Layout.left:
+        _theme = LeftTheme();
         break;
-      case Layout.topLeftPanes:
-        _theme = TopLeftPanesTheme();
+      case Layout.full:
+        _theme = FullTheme();
         break;
     }
 

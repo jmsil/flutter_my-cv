@@ -8,6 +8,7 @@ import '../ui/container/container.dart';
 import '../ui/container/header_expandable.dart';
 import '../ui/layout/edge_insets.dart';
 import '../ui/layout/layout.dart';
+import '../ui/layout/layout_provider.dart';
 import '../ui/overlay_bar.dart';
 import '../ui/scroller.dart';
 import '../ui/strings/strings.dart';
@@ -27,7 +28,7 @@ class AppSidebar extends StatelessWidget {
 
     final List<Widget> children = [
 
-      if (!isDesktopScreen)
+      if ( ! isDesktopScreen)
         AppLayout.normalVerticalSpacer,
 
       _DetailsSection(),
@@ -55,14 +56,7 @@ class AppSidebar extends StatelessWidget {
           Expanded(
             child: Text(StringsProvider.strings.madeWithFlutter, style: AppTheme.lightBlueStyle)
           ),
-          AppButton.label(
-            StringsProvider.languageCode == 'pt', 'Pt',
-            () => StringsProvider.instance.setLanguage('pt')
-          ),
-          AppButton.label(
-            StringsProvider.languageCode != 'pt', 'En',
-            () => StringsProvider.instance.setLanguage('en')
-          )
+          _Settings()
         ]
       )
     );
@@ -94,7 +88,6 @@ class AppSidebar extends StatelessWidget {
     );
   }
 }
-
 
 class _MobileList extends Padding {
   _MobileList(List<Widget> children)
@@ -131,7 +124,6 @@ class _MobileList extends Padding {
       );
 }
 
-
 class _DesktopList extends AppbarAnimatedPadding {
   _DesktopList(List<Widget> children)
     : super(
@@ -145,7 +137,6 @@ class _DesktopList extends AppbarAnimatedPadding {
         )
       );
 }
-
 
 class _ProfileSection extends StatelessWidget {
   @override
@@ -171,7 +162,6 @@ class _ProfileSection extends StatelessWidget {
     );
   }
 }
-
 
 class _DetailsSection extends _Section {
   _DetailsSection()
@@ -209,7 +199,6 @@ class _DetailsSection extends _Section {
       );
 }
 
-
 class _SkillsSection extends StatelessWidget {
   final String title;
   final String info;
@@ -242,7 +231,6 @@ class _SkillsSection extends StatelessWidget {
   }
 }
 
-
 class _AboutSection extends _Section {
   _AboutSection()
     : super(
@@ -251,7 +239,6 @@ class _AboutSection extends _Section {
         Text(StringsProvider.strings.aboutAndExpectationsInfo, style: AppTheme.highLightBlueStyle)
       );
 }
-
 
 class _Section extends AppContainer {
   _Section(bool startOpen, String title, Widget contentWidget)
@@ -267,5 +254,98 @@ class _Section extends AppContainer {
           headerContent: Text(title, style: AppTheme.largeLightBlueBoldStyle),
           expandableContent: contentWidget
         )
+      );
+}
+
+class _Settings extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final bool isDesktopScreen = context.isDesktopScreen;
+    final TextStyle selectedStyle = isDesktopScreen
+      ? LayoutProvider.theme.normalOverBackgroundColor2BoldStyle
+      : LayoutProvider.theme.normalOverElement1Color1BoldStyle;
+    final TextStyle unselectedStyle = isDesktopScreen
+      ? LayoutProvider.theme.normalOverBackgroundColor2Style
+      : LayoutProvider.theme.normalOverElement1Color1Style;
+
+    final Widget languagesWidget = Row(
+      spacing: AppLayout.smallSpacing,
+      children: [
+        AppButton.label(
+          label: Strings.languagePt,
+          selectedStyle: selectedStyle,
+          unselectedStyle: unselectedStyle,
+          isSelected: StringsProvider.languageCode == 'pt',
+          onPressed: () => setLanguage('pt', context)
+        ),
+        AppButton.label(
+          label: Strings.languageEn,
+          selectedStyle: selectedStyle,
+          unselectedStyle: unselectedStyle,
+          isSelected: StringsProvider.languageCode != 'pt',
+          onPressed: () => setLanguage('en', context)
+        )
+      ]
+    );
+
+    if ( ! isDesktopScreen)
+      return languagesWidget;
+
+    Widget layoutsWidget = Row(
+      spacing: AppLayout.smallSpacing,
+      children: [
+        AppButton.icon(
+          icon: AppIcons.flatLayout,
+          color: LayoutProvider.theme.overBackgroundColor2,
+          isSelected: LayoutProvider.layout == Layout.flat,
+          onPressed: () => setLayout(Layout.flat, context)
+        ),
+        AppButton.icon(
+          icon: AppIcons.leftLayout,
+          color: LayoutProvider.theme.overBackgroundColor2,
+          isSelected: LayoutProvider.layout == Layout.left,
+          onPressed: () => setLayout(Layout.left, context)
+        ),
+        AppButton.icon(
+          icon: AppIcons.fullLayout,
+          color: LayoutProvider.theme.overBackgroundColor2,
+          isSelected: LayoutProvider.layout == Layout.full,
+          onPressed: () => setLayout(Layout.full, context)
+        )
+      ]
+    );
+
+    return AppPopupMenuButton(
+      [
+        _SettingsLabel(AppIcons.language, StringsProvider.strings.language),
+        languagesWidget,
+        AppLayout.shortVerticalSpacer,
+        _SettingsLabel(AppIcons.layout, Strings.layout),
+        layoutsWidget
+      ]
+    );
+  }
+
+  void setLanguage(String language, BuildContext context) {
+    if (context.isDesktopScreen)
+      Navigator.of(context).pop();
+    StringsProvider.instance.setLanguage(language);
+  }
+
+  void setLayout(Layout layout, BuildContext context) {
+    if (context.isDesktopScreen)
+      Navigator.of(context).pop();
+    LayoutProvider.instance.setLayout(layout);
+  }
+}
+
+class _SettingsLabel extends Row {
+  _SettingsLabel(IconData icon, String label)
+    : super(
+        spacing: AppLayout.smallSpacing,
+        children: [
+          Icon(icon, color: LayoutProvider.theme.overBackgroundColor1),
+          Text(label, style: LayoutProvider.theme.normalOverBackgroundColor1BoldStyle)
+        ]
       );
 }
