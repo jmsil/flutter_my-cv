@@ -7,10 +7,10 @@ import '../button/ink_response.dart';
 import '../container/container.dart';
 import '../layout/edge_insets.dart';
 import '../layout/layout.dart';
-import '../layout/layout_provider.dart';
 import '../scroller.dart';
-import '../theme.dart';
+import '../theme.dart' as OldTheme;
 import '../theme/icons.dart';
+import '../theme/theme.dart';
 import 'viewer.dart';
 
 class AppGallery extends StatefulWidget {
@@ -61,10 +61,10 @@ class _State extends State<AppGallery> {
         key: thumbnailKeys[i],
         padding: isSelected ? selectedThumbnailMargin : unselectedThumbnailMargin,
         duration: const Duration(milliseconds: 240),
-        curve: LayoutProvider.theme.animationCurve,
+        curve: AppTheme.animationCurve,
         child: AppContainer(
           borderSize: isSelected ? selectedThumbnailBorderSize : unselectedThumbnailBorderSize,
-          borderColor: AppTheme.lightBlue,
+          borderColor: OldTheme.AppTheme.lightBlue,
           borderRadius: isSelected
             ? const BorderRadius.all(Radius.circular(12))
             : const BorderRadius.all(Radius.circular(8)),
@@ -84,7 +84,7 @@ class _State extends State<AppGallery> {
         child: AppContainer(
           margin: const AppEdgeInsets.xLarge(),
           borderSize: 12,
-          borderColor: AppTheme.darkColor,
+          borderColor: OldTheme.AppTheme.darkColor,
           borderRadius: const BorderRadius.all(Radius.circular(32)),
           child: Image.memory(
             widget.assets.getFile(index + 1),
@@ -96,7 +96,7 @@ class _State extends State<AppGallery> {
 
     final Widget closeButton = AppButton.icon(
       icon: AppIcons.close,
-      color: AppTheme.darkColor,
+      color: OldTheme.AppTheme.darkColor,
       onPressed: () => Navigator.pop(context)
     );
 
@@ -105,7 +105,7 @@ class _State extends State<AppGallery> {
         alignment: Alignment.bottomRight,
         child: AppButton.icon(
           icon: AppIcons.arrowUp,
-          color: AppTheme.darkColor,
+          color: OldTheme.AppTheme.darkColor,
           onPressed: onPrevious
         )
       )
@@ -116,7 +116,7 @@ class _State extends State<AppGallery> {
         alignment: Alignment.topRight,
         child: AppButton.icon(
           icon: AppIcons.arrowDown,
-          color: AppTheme.darkColor,
+          color: OldTheme.AppTheme.darkColor,
           onPressed: onNext
         )
       )
@@ -124,7 +124,7 @@ class _State extends State<AppGallery> {
 
     final Widget label = Text(
       '${index + 1}/${count}',
-      style: AppTheme.darkBoldStyle
+      style: OldTheme.AppTheme.darkBoldStyle
     );
 
     final Widget bodyWidget = Row(
@@ -209,8 +209,8 @@ class _State extends State<AppGallery> {
         scrollController.position.viewportDimension / 2;
       scrollController.animateTo(
         offset.clamp(0, scrollController.position.maxScrollExtent),
-        duration: LayoutProvider.theme.animationDuration,
-        curve: LayoutProvider.theme.animationCurve
+        duration: AppTheme.animationDuration,
+        curve: AppTheme.animationCurve
       );
     });
   }

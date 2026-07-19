@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_cv/ui/theme/theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'hover.dart';
@@ -56,29 +57,29 @@ class AppLink extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppHoverWidget(
-      builder: _hoverBuilder,
+      builder: (bool hovered, Widget? child) {
+        final AppTheme theme = context.providerTheme;
+        final TextStyle textStyle = isOverBackground
+          ? hovered
+            ? theme.text1OverBackgroundColor2Style
+            : theme.text1OverBackgroundColor1Style
+          : hovered
+            ? theme.text1OverSectionColor3Style
+            : theme.text1OverSectionColor1Style;
+
+        return AppIconText(
+          icon: icon,
+          text: text,
+          textStyle: textStyle,
+          trailingWidget: hovered
+            ? Icon(AppIcons.openInNew, size: _trailingIconSize, color: textStyle.color)
+            : SizedBox(width: _trailingIconSize)
+        );
+      },
       onPressed: _launch
     );
   }
 
-  Widget _hoverBuilder(bool hovered, Widget? child) {
-    final TextStyle textStyle = isOverBackground
-      ? hovered
-        ? LayoutProvider.theme.text1OverBackgroundColor2Style
-        : LayoutProvider.theme.text1OverBackgroundColor1Style
-      : hovered
-        ? LayoutProvider.theme.text1OverSectionColor3Style
-        : LayoutProvider.theme.text1OverSectionColor1Style;
-
-    return AppIconText(
-      icon: icon,
-      text: text,
-      textStyle: textStyle,
-      trailingWidget: hovered
-        ? Icon(AppIcons.openInNew, size: _trailingIconSize, color: textStyle.color)
-        : SizedBox(width: _trailingIconSize)
-    );
-  }
 
   void _launch() async {
     Uri uri = Uri.parse(link ?? text);

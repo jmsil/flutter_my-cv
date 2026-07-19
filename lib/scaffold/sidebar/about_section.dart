@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 
-import '../../ui/layout/layout_provider.dart';
 import '../../ui/strings/strings_provider.dart';
+import '../../ui/theme/theme.dart';
 import 'section.dart';
 
 class AboutSection extends Section {
-  AboutSection()
+  AboutSection(AppTheme theme)
     : super(
-        false,
-        StringsProvider.strings.aboutAndExpectationsTitle,
-        Text(
+        theme: theme,
+        startOpen: false,
+        title: StringsProvider.strings.aboutAndExpectationsTitle,
+        contentWidget: Text(
           StringsProvider.strings.aboutAndExpectationsInfo,
-          style: LayoutProvider.theme.text1OverSectionColor1Style
+          style: theme.text1OverSectionColor1Style
         )
       );
 }

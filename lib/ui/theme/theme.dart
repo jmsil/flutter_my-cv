@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
-abstract class AppTheme {
-  static const BorderRadius circleBorderRadius = BorderRadius.all(Radius.circular(999999));
+class AppTheme {
+  static const double radiusValue = 16;
+  static const Radius radius = Radius.circular(radiusValue);
+  static const BorderRadius allBorderRadius = BorderRadius.all(radius);
 
-  double get radiusValue => 16;
+  static const Curve animationCurve = Curves.decelerate;
+  static const Duration animationDuration = Duration(milliseconds: 380);
+
+  static const BorderRadius circleBorderRadius = BorderRadius.all(Radius.circular(999999));
 
   double get text1FontSize => 15;
   double get header1FontSize => 16;
@@ -27,6 +32,8 @@ abstract class AppTheme {
   Color get overSectionColor1 => Colors.blue[100]!;
   Color get overSectionColor2 => Colors.blue[200]!;
   Color get overSectionColor3 => Colors.blue[200]!;
+
+  Color get inkEffectsColor => elementColor3.withValues(alpha: 0.32);
 
   late final TextStyle text1OverBackgroundColor1Style = TextStyle(
     fontSize: text1FontSize, color: overBackgroundColor1);
@@ -65,10 +72,4 @@ abstract class AppTheme {
     fontSize: text1FontSize, color: overSectionColor3);
   late final TextStyle header1OverSectionColor2BoldStyle = TextStyle(
     fontSize: header1FontSize, color: overSectionColor2, fontWeight: FontWeight.bold);
-
-  late final Radius radius = Radius.circular(radiusValue);
-  late final BorderRadius allBorderRadius = BorderRadius.all(radius);
-
-  final Curve animationCurve = Curves.decelerate;
-  final Duration animationDuration = Duration(milliseconds: 380);
 }

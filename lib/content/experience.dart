@@ -7,6 +7,7 @@ import '../ui/strings/strings.dart';
 import '../ui/strings/strings_provider.dart';
 import '../ui/text.dart';
 import '../ui/theme/icons.dart';
+import '../ui/theme/theme.dart';
 import 'bci_fortlev_xp.dart';
 import 'expandable.dart';
 import 'group.dart';
@@ -15,8 +16,11 @@ import 'integration_learning_xp.dart';
 class ExperienceGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final AppTheme theme = context.providerTheme;
+    final bool isDesktopScreen = context.isDesktopScreen;
+
     List<Widget> children = [
-      IntegrationLearningExperience(),
+      IntegrationLearningExperience(theme),
       AppLayout.normalVerticalSpacer,
 
       BciFortlevExperience(),
@@ -55,9 +59,9 @@ class ExperienceGroup extends StatelessWidget {
     return ContentGroup(
       icon: AppIcons.experience,
       title: StringsProvider.strings.experienceTitle,
-      headerBackgroundColor: context.isDesktopScreen
+      headerBackgroundColor: isDesktopScreen
         ? null
-        : LayoutProvider.theme.elementColor1,
+        : theme.elementColor1,
       hasHorizontalPadding: false,
       children: children
     );

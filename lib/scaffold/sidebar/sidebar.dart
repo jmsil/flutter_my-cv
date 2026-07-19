@@ -7,6 +7,7 @@ import '../../ui/layout/layout.dart';
 import '../../ui/layout/layout_provider.dart';
 import '../../ui/strings/strings.dart';
 import '../../ui/strings/strings_provider.dart';
+import '../../ui/theme/theme.dart';
 import '../main_scaffold.dart';
 import 'about_section.dart';
 import 'desktop_list.dart';
@@ -20,13 +21,14 @@ class AppSidebar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppTheme theme = context.providerTheme;
     final bool isDesktopScreen = context.isDesktopScreen;
 
     final List<Widget> children = [
       if ( ! isDesktopScreen)
         AppLayout.normalVerticalSpacer,
 
-      DetailsSection(),
+      DetailsSection(theme),
       AppLayout.normalVerticalSpacer,
       SkillsSection(
         StringsProvider.strings.programmingSkillsTitle,
@@ -38,11 +40,11 @@ class AppSidebar extends StatelessWidget {
         Strings.integrationSkillsInfo
       ),
       AppLayout.normalVerticalSpacer,
-      AboutSection()
+      AboutSection(theme)
     ];
 
     final Widget footerWidget = AppContainer(
-      color: LayoutProvider.theme.elementColor1,
+      color: theme.elementColor1,
       padding: const AppEdgeInsets.normal(vertical: AppEdgeInsets.smallValue),
       child: Row(
         spacing: AppLayout.smallSpacing,
@@ -51,7 +53,7 @@ class AppSidebar extends StatelessWidget {
           Expanded(
             child: Text(
               StringsProvider.strings.madeWithFlutter,
-              style: LayoutProvider.theme.text1OverElement1Color1Style
+              style: theme.text1OverElement1Color1Style
             )
           ),
           Settings()
@@ -61,9 +63,9 @@ class AppSidebar extends StatelessWidget {
 
     return AppContainer(
       width: containerWidth,
-      color: LayoutProvider.theme.elementColor2,
+      color: theme.elementColor2,
       borderRadius: isDesktopScreen
-        ? LayoutProvider.theme.allBorderRadius
+        ? AppTheme.allBorderRadius
         : BorderRadius.zero,
       isClipped: isDesktopScreen,
       child: Stack(
@@ -75,8 +77,8 @@ class AppSidebar extends StatelessWidget {
             children: [
               Expanded(
                 child: isDesktopScreen
-                  ? DesktopList(children)
-                  : MobileList(children)
+                  ? DesktopList(theme, children)
+                  : MobileList(theme, children)
               ),
               footerWidget
             ]

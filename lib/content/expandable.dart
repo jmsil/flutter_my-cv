@@ -25,15 +25,15 @@ class ExpandableContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget headerInfoWidget = Text(
-      headerTitle, style: LayoutProvider.theme.header1OverBackgroundColor1BoldStyle);
+    final AppTheme theme = context.providerTheme;
+    Widget headerInfoWidget = Text(headerTitle, style: theme.header1OverBackgroundColor1BoldStyle);
 
     if (headerDetail != null) {
       headerInfoWidget = Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           headerInfoWidget,
-          Text(headerDetail!, style: LayoutProvider.theme.text1OverBackgroundColor1ItalicStyle)
+          Text(headerDetail!, style: theme.text1OverBackgroundColor1ItalicStyle)
         ]
       );
     }
@@ -43,7 +43,7 @@ class ExpandableContent extends StatelessWidget {
       children: [
         VerticalDivider(
           thickness: 8, width: 8,
-          color: LayoutProvider.theme.overBackgroundColor1.withValues(alpha: 0.16),
+          color: theme.overBackgroundColor1.withValues(alpha: 0.16),
           radius: AppTheme.circleBorderRadius
         ),
         Expanded(
@@ -55,7 +55,7 @@ class ExpandableContent extends StatelessWidget {
     Widget expandableContentWidget;
 
     final Widget? infoTextWidget = infoText != null
-      ? Text(infoText!, style: LayoutProvider.theme.text1OverBackgroundColor1Style)
+      ? Text(infoText!, style: theme.text1OverBackgroundColor1Style)
       : null;
 
     if (infoWidget != null && infoTextWidget != null) {
@@ -72,16 +72,14 @@ class ExpandableContent extends StatelessWidget {
       expandableContentWidget = infoWidget!;
     else if (infoTextWidget != null)
       expandableContentWidget = infoTextWidget;
-    else {
-      expandableContentWidget = Text(
-        '- - -', style: LayoutProvider.theme.text1OverBackgroundColor1BoldStyle);
-    }
+    else
+      expandableContentWidget = Text('- - -', style: theme.text1OverBackgroundColor1BoldStyle);
 
     return AppHeaderExpandable(
       startOpen: startOpen,
       isClipped: true,
       headerHasIntrinsic: true,
-      arrowColor: LayoutProvider.theme.overBackgroundColor2,
+      arrowColor: theme.overBackgroundColor2,
       headerContentPadding: _padding,
       expandableContentPadding: _padding,
       headerContent: headerContentWidget,

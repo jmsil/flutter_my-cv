@@ -7,18 +7,23 @@ import '../../ui/layout/layout_provider.dart';
 import '../../ui/strings/strings.dart';
 import '../../ui/strings/strings_provider.dart';
 import '../../ui/theme/icons.dart';
+import '../../ui/theme/theme.dart';
 import '../main_scaffold.dart';
 
 class Settings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final AppTheme theme = context.providerTheme;
+    final Layout layout = context.providerLayout;
     final bool isDesktopScreen = context.isDesktopScreen;
+
     final TextStyle selectedStyle = isDesktopScreen
-      ? LayoutProvider.theme.text1OverBackgroundColor2BoldStyle
-      : LayoutProvider.theme.text1OverElement1Color1BoldStyle;
+      ? theme.text1OverBackgroundColor2BoldStyle
+      : theme.text1OverElement1Color1BoldStyle;
+
     final TextStyle unselectedStyle = isDesktopScreen
-      ? LayoutProvider.theme.text1OverBackgroundColor2Style
-      : LayoutProvider.theme.text1OverElement1Color1Style;
+      ? theme.text1OverBackgroundColor2Style
+      : theme.text1OverElement1Color1Style;
 
     final Widget languagesWidget = Row(
       spacing: AppLayout.smallSpacing,
@@ -28,14 +33,14 @@ class Settings extends StatelessWidget {
           selectedStyle: selectedStyle,
           unselectedStyle: unselectedStyle,
           isSelected: StringsProvider.languageCode == 'pt',
-          onPressed: () => setLanguage('pt', context)
+          onPressed: () => setLanguage(context, 'pt', isDesktopScreen)
         ),
         AppButton.label(
           label: Strings.languageEn,
           selectedStyle: selectedStyle,
           unselectedStyle: unselectedStyle,
           isSelected: StringsProvider.languageCode != 'pt',
-          onPressed: () => setLanguage('en', context)
+          onPressed: () => setLanguage(context, 'en', isDesktopScreen)
         )
       ]
     );
@@ -48,56 +53,57 @@ class Settings extends StatelessWidget {
       children: [
         AppButton.icon(
           icon: AppIcons.flatLayout,
-          color: LayoutProvider.theme.overBackgroundColor2,
-          isSelected: LayoutProvider.layout == Layout.flat,
-          onPressed: () => setLayout(Layout.flat, context)
+          color: theme.overBackgroundColor2,
+          isSelected: layout == Layout.flat,
+          onPressed: () => setLayout(context, Layout.flat, isDesktopScreen)
         ),
         AppButton.icon(
           icon: AppIcons.leftLayout,
-          color: LayoutProvider.theme.overBackgroundColor2,
-          isSelected: LayoutProvider.layout == Layout.left,
-          onPressed: () => setLayout(Layout.left, context)
+          color: theme.overBackgroundColor2,
+          isSelected: layout == Layout.left,
+          onPressed: () => setLayout(context, Layout.left, isDesktopScreen)
         ),
         AppButton.icon(
           icon: AppIcons.fullLayout,
-          color: LayoutProvider.theme.overBackgroundColor2,
-          isSelected: LayoutProvider.layout == Layout.full,
-          onPressed: () => setLayout(Layout.full, context)
+          color: theme.overBackgroundColor2,
+          isSelected: layout == Layout.full,
+          onPressed: () => setLayout(context, Layout.full, isDesktopScreen)
         )
       ]
     );
 
     return AppPopupMenuButton(
-      [
-        _IconTitle(AppIcons.language, StringsProvider.strings.language),
+      theme: theme,
+      children: [
+        _IconTitle(AppIcons.language, StringsProvider.strings.language, theme),
         languagesWidget,
         AppLayout.shortVerticalSpacer,
-        _IconTitle(AppIcons.layout, Strings.layout),
+        _IconTitle(AppIcons.layout, Strings.layout, theme),
         layoutsWidget
       ]
     );
   }
 
-  void setLanguage(String language, BuildContext context) {
-    if (context.isDesktopScreen)
+  void setLanguage(BuildContext context, String language, bool isDesktopScreen) {
+    if (isDesktopScreen)
       Navigator.of(context).pop();
     StringsProvider.instance.setLanguage(language);
   }
 
-  void setLayout(Layout layout, BuildContext context) {
-    if (context.isDesktopScreen)
+  void setLayout(BuildContext context, Layout layout, bool isDesktopScreen) {
+    if (isDesktopScreen)
       Navigator.of(context).pop();
     LayoutProvider.instance.setLayout(layout);
   }
 }
 
 class _IconTitle extends Row {
-  _IconTitle(IconData icon, String label)
+  _IconTitle(IconData icon, String label, AppTheme theme)
     : super(
         spacing: AppLayout.smallSpacing,
         children: [
-          Icon(icon, color: LayoutProvider.theme.overBackgroundColor1),
-          Text(label, style: LayoutProvider.theme.text1OverBackgroundColor1BoldStyle)
+          Icon(icon, color: theme.overBackgroundColor1),
+          Text(label, style: theme.text1OverBackgroundColor1BoldStyle)
         ]
       );
 }

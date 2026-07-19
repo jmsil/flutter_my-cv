@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../ui/layout/layout_provider.dart';
+import '../ui/theme/theme.dart';
 import 'desktop_scaffold.dart';
 import 'mobile_scaffold.dart';
 
@@ -9,9 +10,11 @@ class MainScaffold extends ListenableBuilder {
     : super(
         listenable: LayoutProvider.instance,
         builder: (builderContext, builderChild) {
+          final AppTheme theme = builderContext.providerTheme;
+          final bool isDesktopScreen = builderContext.isDesktopScreen;
           return Material(
-            color: LayoutProvider.theme.backgroundColor,
-            child: builderContext.isDesktopScreen
+            color: theme.backgroundColor,
+            child: isDesktopScreen
               ? DesktopScaffold()
               : MobileScaffold()
           );
@@ -19,7 +22,7 @@ class MainScaffold extends ListenableBuilder {
       );
 }
 
-extension MainScaffoldScreenExtension on BuildContext {
+extension BuildContextExtension on BuildContext {
   double get screenWidth {
     return MediaQuery.of(this).size.width;
   }

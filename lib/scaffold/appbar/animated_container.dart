@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import '../../ui/layout/layout_provider.dart';
+import '../../ui/theme/theme.dart';
 import 'state_provider.dart';
 
 class AppbarAnimatedContainer extends StatelessWidget {
@@ -13,12 +13,11 @@ class AppbarAnimatedContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double height = AppbarStateProvider.currentHeightOf(context);
-
     return AnimatedContainer(
       height: height,
       margin: AppbarStateProvider.margin,
-      duration: LayoutProvider.theme.animationDuration,
-      curve: LayoutProvider.theme.animationCurve,
+      duration: AppTheme.animationDuration,
+      curve: AppTheme.animationCurve,
       child: child
     );
   }

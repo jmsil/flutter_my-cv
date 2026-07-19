@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:my_cv/ui/theme/theme.dart';
 
-import 'layout/layout_provider.dart';
-
 class AppDivider extends Divider {
   static const double heightFactor = 4;
 
-  AppDivider(double thickness)
+  AppDivider(AppTheme theme, double thickness)
     : super(
         thickness: thickness,
         height: thickness * heightFactor,
-        color: LayoutProvider.theme.overElement1Color1.withValues(alpha: 0.24),
+        color: theme.overElement1Color1.withValues(alpha: 0.24),
         radius: AppTheme.circleBorderRadius
       );
 }

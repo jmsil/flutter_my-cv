@@ -6,6 +6,7 @@ import '../ui/strings/strings.dart';
 import '../ui/strings/strings_provider.dart';
 import '../ui/text.dart';
 import '../ui/theme/icons.dart';
+import '../ui/theme/theme.dart';
 import 'expandable.dart';
 import 'group.dart';
 
@@ -81,8 +82,8 @@ class _Item extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget composedDetailWidget = Text(
-      detail, style: LayoutProvider.theme.text1OverBackgroundColor1ItalicStyle);
+    final AppTheme theme = context.providerTheme;
+    Widget composedDetailWidget = Text(detail, style: theme.text1OverBackgroundColor1ItalicStyle);
 
     if (certificateLink != null) {
       composedDetailWidget = Wrap(
@@ -98,15 +99,12 @@ class _Item extends StatelessWidget {
       spacing: AppLayout.smallSpacing,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Icon(
-          AppIcons.topicMark,
-          color: LayoutProvider.theme.overBackgroundColor1
-        ),
+        Icon(AppIcons.topicMark, color: theme.overBackgroundColor1),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title, style: LayoutProvider.theme.text1OverBackgroundColor1BoldStyle),
+              Text(title, style: theme.text1OverBackgroundColor1BoldStyle),
               composedDetailWidget
             ]
           )

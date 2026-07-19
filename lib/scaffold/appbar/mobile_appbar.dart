@@ -7,6 +7,7 @@ import '../../ui/layout/layout.dart';
 import '../../ui/layout/layout_provider.dart';
 import '../../ui/strings/strings.dart';
 import '../../ui/strings/strings_provider.dart';
+import '../../ui/theme/theme.dart';
 import '../main_profile_info.dart';
 import '../main_scaffold.dart';
 
@@ -26,12 +27,13 @@ class MobileAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppTheme theme = context.providerTheme;
     final double screenWidth = context.screenWidth;
+    final bool isSmallMobileScreen = context.isSmallMobileScreen;
 
     final Text summaryTextWidget = Text(
       StringsProvider.strings.professionalSummaryInfo,
-      style: DefaultTextStyle.of(context).style.merge(
-        LayoutProvider.theme.text2OverElement1Color1Style)
+      style: DefaultTextStyle.of(context).style.merge(theme.text2OverElement1Color1Style)
     );
 
     final double summaryBoxHeight = _getTextBoxHeight(
@@ -49,7 +51,7 @@ class MobileAppbar extends StatelessWidget {
         IntrinsicWidth(
           child: MainProfileInfo(
             title: Strings.personalName,
-            info: context.isSmallMobileScreen
+            info: isSmallMobileScreen
               ? Strings.shortRoles
               : StringsProvider.strings.longRoles,
             isOverBackground: false,
@@ -68,7 +70,7 @@ class MobileAppbar extends StatelessWidget {
       surfaceTintColor: Colors.transparent,
       automaticallyImplyLeading: false,
       flexibleSpace: ColoredBox(
-        color: LayoutProvider.theme.elementColor1,
+        color: theme.elementColor1,
         isAntiAlias: false,
         child: Padding(
           padding: _padding,
@@ -76,7 +78,7 @@ class MobileAppbar extends StatelessWidget {
             spacing: AppLayout.normalSpacing,
             children: [
               profileWidget,
-              AppDivider(_dividerSize),
+              AppDivider(theme, _dividerSize),
               Flexible(
                 child: FlexibleSpaceBar(
                   background: summaryTextWidget

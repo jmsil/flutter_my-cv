@@ -13,9 +13,9 @@ import '../button/button.dart';
 import '../container/container.dart';
 import '../hover.dart';
 import '../layout/edge_insets.dart';
-import '../layout/layout_provider.dart';
-import '../theme.dart';
+import '../theme.dart' as OldTheme;
 import '../theme/icons.dart';
+import '../theme/theme.dart';
 import 'viewer.dart';
 
 class ProjectCodeWidget extends StatelessWidget {
@@ -37,7 +37,7 @@ class ProjectCodeWidget extends StatelessWidget {
       );
       Widget dividerWidget = VerticalDivider(
         thickness: 48, width: 48,
-        color: AppTheme.lowLightColor.withValues(alpha: 0.06)
+        color: OldTheme.AppTheme.lowLightColor.withValues(alpha: 0.06)
       );
       children.add(editorWidget);
       children.add(dividerWidget);
@@ -46,8 +46,8 @@ class ProjectCodeWidget extends StatelessWidget {
     children.removeLast();
 
     final Widget child = AppContainer(
-      color: AppTheme.highDarkColor,
-      borderRadius: LayoutProvider.theme.allBorderRadius,
+      color: OldTheme.AppTheme.highDarkColor,
+      borderRadius: AppTheme.allBorderRadius,
       child: Row(children: children)
     );
 
@@ -68,6 +68,7 @@ class ProjectCodeWidget extends StatelessWidget {
         padding: const AppEdgeInsets.normal(),
         child: AppButton.icon(
           icon: viewerKey.isInFullscreen ? AppIcons.fullScreenExit : AppIcons.fullscreen,
+          color: OldTheme.AppTheme.lightBlue,
           onPressed: () => _fullscreenPressed(child)
         )
       );
@@ -103,10 +104,10 @@ class _Editor extends CodeEditor {
         ),
 
         style: CodeEditorStyle(
-          fontSize: AppTheme.normalFontSize,
-          textColor: AppTheme.highLightColor,
-          cursorColor: AppTheme.highLightColor,
-          selectionColor: AppTheme.lowLightColor.withValues(alpha: 0.25),
+          fontSize: OldTheme.AppTheme.normalFontSize,
+          textColor: OldTheme.AppTheme.highLightColor,
+          cursorColor: OldTheme.AppTheme.highLightColor,
+          selectionColor: OldTheme.AppTheme.lowLightColor.withValues(alpha: 0.25),
           codeTheme: CodeHighlightTheme(
             languages: {
               'xml': CodeHighlightThemeMode(mode: langXml),
@@ -129,7 +130,7 @@ class _Editor extends CodeEditor {
 
         leadingDivider: VerticalDivider(
           width: 1,
-          color: AppTheme.lowLightColor.withValues(alpha: 0.32)
+          color: OldTheme.AppTheme.lowLightColor.withValues(alpha: 0.32)
         )
       );
 }

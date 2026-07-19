@@ -9,6 +9,7 @@ import '../ui/layout/layout.dart';
 import '../ui/layout/layout_provider.dart';
 import '../ui/overlay_bar.dart';
 import '../ui/scroller.dart';
+import '../ui/theme/theme.dart';
 import 'appbar/animated_padding.dart';
 import 'appbar/desktop_appbar.dart';
 import 'appbar/state_provider.dart';
@@ -18,6 +19,7 @@ import 'sidebar/sidebar.dart';
 class DesktopScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final AppTheme theme = context.providerTheme;
     final bool isDoublePane = context.isLargeDesktopScreen;
 
     final List<Widget> contentChildren = [
@@ -31,9 +33,9 @@ class DesktopScaffold extends StatelessWidget {
     ];
 
     Widget contentWidget = OverlayBar(
-      radius: LayoutProvider.theme.radiusValue,
-      startForegroundColor: LayoutProvider.theme.backgroundColor,
-      endForegroundColor: LayoutProvider.theme.backgroundColor,
+      radius: AppTheme.radiusValue,
+      startForegroundColor: theme.backgroundColor,
+      endForegroundColor: theme.backgroundColor,
       child: AppSliverScroller(contentChildren)
     );
 

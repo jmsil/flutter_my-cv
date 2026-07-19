@@ -7,6 +7,7 @@ import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/layout_provider.dart';
 import '../../ui/strings/strings.dart';
 import '../../ui/strings/strings_provider.dart';
+import '../../ui/theme/theme.dart';
 import '../main_profile_info.dart';
 import 'animated_container.dart';
 import 'animated_padding.dart';
@@ -22,6 +23,7 @@ class DesktopAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppTheme theme = context.providerTheme;
     const double circleRadiusSize = AppbarStateProvider.collapsedHeight / 2;
 
     final Widget backgroundImage = RotatedBox(
@@ -53,10 +55,10 @@ class DesktopAppbar extends StatelessWidget {
 
     return AppbarAnimatedContainer(
       child: AppContainer(
-        color: LayoutProvider.theme.elementColor1,
+        color: theme.elementColor1,
         borderRadius: BorderRadius.horizontal(
           left: const Radius.circular(circleRadiusSize),
-          right: LayoutProvider.theme.radius
+          right: AppTheme.radius
         ),
         hasShadow: true,
         isClipped: true,

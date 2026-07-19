@@ -19,6 +19,7 @@ class ProfilePhoto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppTheme theme = context.providerTheme;
     Widget child = Image.memory(AppAssets.profilePhoto, fit: BoxFit.cover);
 
     if (onPressed != null) {
@@ -34,7 +35,7 @@ class ProfilePhoto extends StatelessWidget {
       child: AppContainer(
       margin: margin == null ? null : EdgeInsets.all(margin!),
         borderSize: 2,
-        borderColor: LayoutProvider.theme.overElement1Color1,
+        borderColor: theme.overElement1Color1,
         borderRadius: borderRadius ?? AppTheme.circleBorderRadius,
         isClipped: true,
         child: child

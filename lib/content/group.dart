@@ -28,6 +28,7 @@ class ContentGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppTheme theme = context.providerTheme;
     final bool isDesktopScreen = context.isDesktopScreen;
 
     final EdgeInsets headerMargin = AppEdgeInsets.normal(
@@ -44,9 +45,9 @@ class ContentGroup extends StatelessWidget {
 
     final Widget headerWidget = OverlayBar(
       startSize: iconContainerSize / 2 + headerMargin.top,
-      startBackgroundColor: headerBackgroundColor ?? LayoutProvider.theme.backgroundColor,
+      startBackgroundColor: headerBackgroundColor ?? theme.backgroundColor,
       endSize: iconContainerSize / 2 + headerMargin.bottom,
-      endBackgroundColor: LayoutProvider.theme.backgroundColor,
+      endBackgroundColor: theme.backgroundColor,
       child: Padding(
         padding: headerMargin,
         child: Stack(
@@ -55,20 +56,20 @@ class ContentGroup extends StatelessWidget {
           children: [
             AppContainer(
               height: titleContainerSize,
-              color: LayoutProvider.theme.elementColor3,
+              color: theme.elementColor3,
               margin: const EdgeInsets.only(left: iconContainerSize / 2),
-              borderColor: LayoutProvider.theme.elementColor2.withValues(alpha: 0.5),
+              borderColor: theme.elementColor2.withValues(alpha: 0.5),
               borderRadius: AppTheme.circleBorderRadius,
               child: Center(
-                child: Text(title, style: LayoutProvider.theme.header1OverElement3Color1BoldStyle)
+                child: Text(title, style: theme.header1OverElement3Color1BoldStyle)
               )
             ),
             AppContainer(
               width: iconContainerSize,
               height: iconContainerSize,
-              color: LayoutProvider.theme.elementColor2,
+              color: theme.elementColor2,
               borderRadius: AppTheme.circleBorderRadius,
-              child: Icon(icon, size: iconSize, color: LayoutProvider.theme.overElement2Color1)
+              child: Icon(icon, size: iconSize, color: theme.overElement2Color1)
             )
           ]
         )

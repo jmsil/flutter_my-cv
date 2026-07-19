@@ -7,7 +7,6 @@ import '../theme/theme.dart';
 class AppButton extends StatelessWidget {
   static const double _containerSize = 36;
   static const double _iconSize = 24;
-  static final Color effectsColor = LayoutProvider.theme.elementColor3.withValues(alpha: 0.32);
 
   final Color color;
   final bool isSelected;
@@ -26,35 +25,31 @@ class AppButton extends StatelessWidget {
 
   AppButton.icon({
     required IconData icon,
-    Color? color,
+    required this.color,
     bool isLoading = false,
     this.isSelected = false,
     required this.onPressed
   })
-    : this.color = _getDefaultIconButtonColor(color),
-      child = isLoading
+    : child = isLoading
         ? SizedBox(
             width: _iconSize,
             height: _iconSize,
             child: CircularProgressIndicator(
               color: color,
               strokeWidth: 3,
-              backgroundColor: _getDefaultIconButtonColor(color).withValues(alpha: 0.26)
+              backgroundColor: color.withValues(alpha: 0.26)
             )
           )
-        : Icon(
-            icon,
-            size: _iconSize,
-            color: _getDefaultIconButtonColor(color)
-          );
+        : Icon(icon, size: _iconSize, color: color);
 
   @override
   Widget build(BuildContext context) {
+    final AppTheme theme = context.providerTheme;
     return IconButton(
       iconSize: _containerSize,
-      splashColor: effectsColor,
-      hoverColor: effectsColor,
-      highlightColor: effectsColor,
+      splashColor: theme.inkEffectsColor,
+      hoverColor: theme.inkEffectsColor,
+      highlightColor: theme.inkEffectsColor,
       icon: AppContainer(
         width: _containerSize,
         height: _containerSize,
@@ -67,9 +62,5 @@ class AppButton extends StatelessWidget {
       mouseCursor: SystemMouseCursors.click,
       onPressed: onPressed
     );
-  }
-
-  static Color _getDefaultIconButtonColor(Color? color) {
-    return color ?? LayoutProvider.theme.overElement1Color1;
   }
 }

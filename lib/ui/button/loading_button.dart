@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../assets.dart';
 import '../layout/layout_provider.dart';
 import '../theme/icons.dart';
+import '../theme/theme.dart';
 import '../viewer/gallery_viewer.dart';
 import '../viewer/project.dart';
 import '../viewer/project_viewer.dart';
@@ -47,9 +48,10 @@ class _State extends State<_LoadingButton> {
 
   @override
   Widget build(BuildContext context) {
+    final AppTheme theme = context.providerTheme;
     return AppButton.icon(
       icon: AppIcons.plus,
-      color: LayoutProvider.theme.overBackgroundColor2,
+      color: theme.overBackgroundColor2,
       isLoading: isLoading,
       isSelected: true,
       onPressed: onPressed

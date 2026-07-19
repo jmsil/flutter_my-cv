@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import '../../ui/layout/layout_provider.dart';
+import '../../ui/theme/theme.dart';
 import 'state_provider.dart';
 
 class AppbarAnimatedPadding extends StatelessWidget {
@@ -27,8 +27,8 @@ class AppbarAnimatedPadding extends StatelessWidget {
         top: padding.top + deltaHeight * topFactor,
         bottom: padding.bottom + deltaHeight * bottomFactor
       ),
-      duration: LayoutProvider.theme.animationDuration,
-      curve: LayoutProvider.theme.animationCurve,
+      duration: AppTheme.animationDuration,
+      curve: AppTheme.animationCurve,
       child: child
     );
   }

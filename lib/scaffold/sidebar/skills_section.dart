@@ -4,6 +4,7 @@ import '../../ui/layout/layout.dart';
 import '../../ui/layout/layout_provider.dart';
 import '../../ui/text.dart';
 import '../../ui/theme/icons.dart';
+import '../../ui/theme/theme.dart';
 import 'section.dart';
 
 class SkillsSection extends StatelessWidget {
@@ -14,6 +15,7 @@ class SkillsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppTheme theme = context.providerTheme;
     final List<Widget> children = [];
     final List<String> items = info.split(' - ');
 
@@ -21,15 +23,16 @@ class SkillsSection extends StatelessWidget {
       Widget item = AppIconText(
         icon: AppIcons.topicMark,
         text: listItem,
-        textStyle: LayoutProvider.theme.text1OverSectionColor1Style
+        textStyle: theme.text1OverSectionColor1Style
       );
       children.add(item);
     }
 
     return Section(
-      false,
-      title,
-      Column(
+      theme: theme,
+      startOpen: false,
+      title: title,
+      contentWidget: Column(
         spacing: AppLayout.smallSpacing,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: children

@@ -3,24 +3,25 @@ import 'package:flutter/material.dart';
 import '../ui/assets.dart';
 import '../ui/layout/layout.dart';
 import '../ui/strings/strings_provider.dart';
+import '../ui/theme/theme.dart';
 import '../ui/viewer/project.dart';
 import '../ui/viewer/project_code.dart';
 import '../ui/viewer/project_image.dart';
 import 'expandable.dart';
 
 class IntegrationLearningExperience extends ExpandableContent {
-  IntegrationLearningExperience()
+  IntegrationLearningExperience(AppTheme theme)
     : super(
         headerTitle: StringsProvider.strings.sapIntegrationSuiteLearningJourneyTitle,
         headerDetail: StringsProvider .strings.sapIntegrationSuiteLearningJourneyDetail,
         infoWidget: Column(
           spacing: AppLayout.normalSpacing,
           children: [
-            ProjectTileWidget(_ApimProxy()),
-            ProjectTileWidget(_SqlServerWithXslt()),
-            ProjectTileWidget(_Calculator()),
-            ProjectTileWidget(_ConversionsAndFtp()),
-            ProjectTileWidget(_ExceptionHandler())
+            ProjectTileWidget(theme, _ApimProxy()),
+            ProjectTileWidget(theme, _SqlServerWithXslt()),
+            ProjectTileWidget(theme, _Calculator()),
+            ProjectTileWidget(theme, _ConversionsAndFtp()),
+            ProjectTileWidget(theme, _ExceptionHandler())
           ]
         ),
         startOpen: true

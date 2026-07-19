@@ -5,6 +5,7 @@ import '../ui/layout/layout_provider.dart';
 import '../ui/strings/strings_provider.dart';
 import '../ui/text.dart';
 import '../ui/theme/icons.dart';
+import '../ui/theme/theme.dart';
 import 'group.dart';
 
 class ItemsGroup extends StatelessWidget {
@@ -24,6 +25,7 @@ class ItemsGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppTheme theme = context.providerTheme;
     final List<Widget> children = [];
     final List<String> items = info.split(' - ');
 
@@ -31,7 +33,7 @@ class ItemsGroup extends StatelessWidget {
       Widget item = AppIconText(
         icon: AppIcons.topicMark,
         text: listItem,
-        textStyle: LayoutProvider.theme.text1OverBackgroundColor1Style
+        textStyle: theme.text1OverBackgroundColor1Style
       );
       children.add(item);
       children.add(AppLayout.smallVerticalSpacer);

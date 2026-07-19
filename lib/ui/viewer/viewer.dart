@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 import '../container/container.dart';
 import '../layout/edge_insets.dart';
-import '../layout/layout_provider.dart';
-import '../theme.dart';
+import '../theme.dart' as OldTheme;
+import '../theme/theme.dart';
 
 class AppViewer extends StatefulWidget {
   final Axis direction;
@@ -66,15 +66,15 @@ class _State extends State<AppViewer> {
       width: widget.barWidth,
       height: widget.barHeight,
       padding: widget.barPadding,
-      color: AppTheme.highDarkColor.withValues(alpha: 0.6),
+      color: OldTheme.AppTheme.highDarkColor.withValues(alpha: 0.6),
       child: widget.barWidget
     );
 
     final Widget composedBodyWidget = Expanded(
       child: AppContainer(
         color: widget.bodyIsTransparent
-          ? AppTheme.highLightColor.withValues(alpha: 0.88)
-          : AppTheme.highLightColor,
+          ? OldTheme.AppTheme.highLightColor.withValues(alpha: 0.88)
+          : OldTheme.AppTheme.highLightColor,
         child: IndexedStack(
           clipBehavior: Clip.none,
           index: fullscreenWidget == null ? 0 : 1,
@@ -96,8 +96,8 @@ class _State extends State<AppViewer> {
         width: widget.windowWidth,
         height: widget.windowHeight,
         margin: const AppEdgeInsets.normal(),
-        borderColor: AppTheme.lightBlue,
-        borderRadius: LayoutProvider.theme.allBorderRadius,
+        borderColor: OldTheme.AppTheme.lightBlue,
+        borderRadius: AppTheme.allBorderRadius,
         isClipped: true,
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),

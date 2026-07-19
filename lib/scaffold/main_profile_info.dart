@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../ui/divider.dart';
 import '../ui/layout/layout.dart';
 import '../ui/layout/layout_provider.dart';
+import '../ui/theme/theme.dart';
 
 class MainProfileInfo extends StatelessWidget {
   final String title;
@@ -19,21 +20,22 @@ class MainProfileInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppTheme theme = context.providerTheme;
     final titleStyle = isOverBackground
       ? isCompactMode
-        ? LayoutProvider.theme.header1OverBackgroundColor1BoldStyle
-        : LayoutProvider.theme.header2OverBackgroundColor1BoldStyle
+        ? theme.header1OverBackgroundColor1BoldStyle
+        : theme.header2OverBackgroundColor1BoldStyle
       : isCompactMode
-        ? LayoutProvider.theme.header1OverElement1Color1BoldStyle
-        : LayoutProvider.theme.header2OverElement1Color1BoldStyle;
+        ? theme.header1OverElement1Color1BoldStyle
+        : theme.header2OverElement1Color1BoldStyle;
 
     final infoStyle = isOverBackground
       ? isCompactMode
-        ? LayoutProvider.theme.text1OverBackgroundColor1Style
-        : LayoutProvider.theme.text2OverBackgroundColor1Style
+        ? theme.text1OverBackgroundColor1Style
+        : theme.text2OverBackgroundColor1Style
       : isCompactMode
-        ? LayoutProvider.theme.text1OverElement1Color1Style
-        : LayoutProvider.theme.text2OverElement1Color1Style;
+        ? theme.text1OverElement1Color1Style
+        : theme.text2OverElement1Color1Style;
 
     Widget infoWidget = Text(info, style: infoStyle);
 
@@ -51,7 +53,7 @@ class MainProfileInfo extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(title, style: titleStyle),
-        AppDivider(4),
+        AppDivider(theme, 4),
         infoWidget
       ]
     );

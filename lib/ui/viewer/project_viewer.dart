@@ -37,6 +37,7 @@ class AppProjectViewer extends StatelessWidget {
         ),
         AppButton.icon(
           icon: AppIcons.close,
+          color: AppTheme.lightBlue,
           onPressed: () => Navigator.pop(context)
         )
       ]
