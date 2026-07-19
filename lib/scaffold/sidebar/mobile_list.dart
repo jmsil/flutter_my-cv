@@ -6,7 +6,6 @@ import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/layout_provider.dart';
 import '../../ui/overlay_bar.dart';
 import '../../ui/scroller.dart';
-import '../../ui/theme.dart';
 import '../../ui/theme/icons.dart';
 
 class MobileList extends Padding {
@@ -15,7 +14,8 @@ class MobileList extends Padding {
         padding: const AppEdgeInsets.normal(),
         child: OverlayBar(
           radius: LayoutProvider.theme.radiusValue,
-          startForegroundColor: AppTheme.lowDarkColor,
+          startForegroundColor: LayoutProvider.theme.elementColor2,
+          endForegroundColor: LayoutProvider.theme.elementColor2,
           child: LayoutBuilder(
             builder: (BuildContext builderContext, BoxConstraints builderConstraints) {
               return AppSliverScroller(
@@ -25,12 +25,12 @@ class MobileList extends Padding {
                     stretch: true,
                     collapsedHeight: 76,
                     expandedHeight: builderConstraints.maxWidth,
-                    backgroundColor: AppTheme.highDarkColor,
+                    backgroundColor: LayoutProvider.theme.elementColor1,
                     surfaceTintColor: Colors.transparent,
-                    shadowColor: AppTheme.highDarkColor,
+                    elevation: 12,
+                    shadowColor: Colors.black45,
                     shape: RoundedRectangleBorder(
-                      borderRadius: LayoutProvider.theme.allBorderRadius
-                    ),
+                      borderRadius: LayoutProvider.theme.allBorderRadius),
                     automaticallyImplyLeading: false,
                     flexibleSpace: _Profile()
                   ),

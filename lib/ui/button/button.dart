@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../const.dart';
 import '../container/container.dart';
-import '../theme.dart';
+import '../layout/layout_provider.dart';
 
 class AppButton extends StatelessWidget {
   static const double _containerSize = 36;
   static const double _iconSize = 24;
-  static final Color effectsColor = AppTheme.lowLightColor.withValues(alpha: 0.32);
+  static final Color effectsColor = LayoutProvider.theme.elementColor3.withValues(alpha: 0.32);
 
   final Color color;
   final bool isSelected;
@@ -31,7 +31,7 @@ class AppButton extends StatelessWidget {
     this.isSelected = false,
     required this.onPressed
   })
-    : this.color = color ?? AppTheme.lightBlue,
+    : this.color = _getDefaultIconButtonColor(color),
       child = isLoading
         ? SizedBox(
             width: _iconSize,
@@ -39,13 +39,13 @@ class AppButton extends StatelessWidget {
             child: CircularProgressIndicator(
               color: color,
               strokeWidth: 3,
-              backgroundColor: (color ?? AppTheme.lightBlue).withValues(alpha: 0.26)
+              backgroundColor: _getDefaultIconButtonColor(color).withValues(alpha: 0.26)
             )
           )
         : Icon(
             icon,
             size: _iconSize,
-            color: color ?? AppTheme.lightBlue
+            color: _getDefaultIconButtonColor(color)
           );
 
   @override
@@ -67,5 +67,9 @@ class AppButton extends StatelessWidget {
       mouseCursor: SystemMouseCursors.click,
       onPressed: onPressed
     );
+  }
+
+  static Color _getDefaultIconButtonColor(Color? color) {
+    return color ?? LayoutProvider.theme.overElement1Color1;
   }
 }

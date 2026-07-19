@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../ui/layout/layout.dart';
+import '../../ui/layout/layout_provider.dart';
 import '../../ui/text.dart';
-import '../../ui/theme.dart';
 import '../../ui/theme/icons.dart';
 import 'section.dart';
 
@@ -21,7 +21,7 @@ class SkillsSection extends StatelessWidget {
       Widget item = AppIconText(
         icon: AppIcons.topicMark,
         text: listItem,
-        textStyle: AppTheme.highLightBlueStyle
+        textStyle: LayoutProvider.theme.text1OverSectionColor1Style
       );
       children.add(item);
     }

@@ -4,9 +4,9 @@ import '../../content/profile_photo.dart';
 import '../../ui/divider.dart';
 import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/layout.dart';
+import '../../ui/layout/layout_provider.dart';
 import '../../ui/strings/strings.dart';
 import '../../ui/strings/strings_provider.dart';
-import '../../ui/theme.dart';
 import '../main_profile_info.dart';
 import '../main_scaffold.dart';
 
@@ -30,7 +30,8 @@ class MobileAppbar extends StatelessWidget {
 
     final Text summaryTextWidget = Text(
       StringsProvider.strings.professionalSummaryInfo,
-      style: DefaultTextStyle.of(context).style.merge(AppTheme.largeLightBlueStyle)
+      style: DefaultTextStyle.of(context).style.merge(
+        LayoutProvider.theme.text2OverElement1Color1Style)
     );
 
     final double summaryBoxHeight = _getTextBoxHeight(
@@ -67,7 +68,7 @@ class MobileAppbar extends StatelessWidget {
       surfaceTintColor: Colors.transparent,
       automaticallyImplyLeading: false,
       flexibleSpace: ColoredBox(
-        color: AppTheme.highDarkColor,
+        color: LayoutProvider.theme.elementColor1,
         isAntiAlias: false,
         child: Padding(
           padding: _padding,

@@ -7,7 +7,6 @@ import '../../ui/layout/layout.dart';
 import '../../ui/layout/layout_provider.dart';
 import '../../ui/strings/strings.dart';
 import '../../ui/strings/strings_provider.dart';
-import '../../ui/theme.dart';
 import '../main_scaffold.dart';
 import 'about_section.dart';
 import 'desktop_list.dart';
@@ -24,7 +23,6 @@ class AppSidebar extends StatelessWidget {
     final bool isDesktopScreen = context.isDesktopScreen;
 
     final List<Widget> children = [
-
       if ( ! isDesktopScreen)
         AppLayout.normalVerticalSpacer,
 
@@ -44,14 +42,17 @@ class AppSidebar extends StatelessWidget {
     ];
 
     final Widget footerWidget = AppContainer(
-      color: AppTheme.highDarkColor,
+      color: LayoutProvider.theme.elementColor1,
       padding: const AppEdgeInsets.normal(vertical: AppEdgeInsets.smallValue),
       child: Row(
         spacing: AppLayout.smallSpacing,
         children: [
           FlutterLogo(size: 32),
           Expanded(
-            child: Text(StringsProvider.strings.madeWithFlutter, style: AppTheme.lightBlueStyle)
+            child: Text(
+              StringsProvider.strings.madeWithFlutter,
+              style: LayoutProvider.theme.text1OverElement1Color1Style
+            )
           ),
           Settings()
         ]
@@ -60,7 +61,7 @@ class AppSidebar extends StatelessWidget {
 
     return AppContainer(
       width: containerWidth,
-      color: AppTheme.lowDarkColor,
+      color: LayoutProvider.theme.elementColor2,
       borderRadius: isDesktopScreen
         ? LayoutProvider.theme.allBorderRadius
         : BorderRadius.zero,
