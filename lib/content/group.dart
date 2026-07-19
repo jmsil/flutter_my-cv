@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../scaffold/main_scaffold.dart';
-import '../ui/const.dart';
 import '../ui/container/container.dart';
 import '../ui/layout/edge_insets.dart';
 import '../ui/layout/layout_provider.dart';
 import '../ui/overlay_bar.dart';
+import '../ui/theme/theme.dart';
 
 class ContentGroup extends StatelessWidget {
   static const double iconSize = 32;
@@ -58,7 +58,7 @@ class ContentGroup extends StatelessWidget {
               color: LayoutProvider.theme.elementColor3,
               margin: const EdgeInsets.only(left: iconContainerSize / 2),
               borderColor: LayoutProvider.theme.elementColor2.withValues(alpha: 0.5),
-              borderRadius: AppUiConst.circleBorderRadius,
+              borderRadius: AppTheme.circleBorderRadius,
               child: Center(
                 child: Text(title, style: LayoutProvider.theme.header1OverElement3Color1BoldStyle)
               )
@@ -67,7 +67,7 @@ class ContentGroup extends StatelessWidget {
               width: iconContainerSize,
               height: iconContainerSize,
               color: LayoutProvider.theme.elementColor2,
-              borderRadius: AppUiConst.circleBorderRadius,
+              borderRadius: AppTheme.circleBorderRadius,
               child: Icon(icon, size: iconSize, color: LayoutProvider.theme.overElement2Color1)
             )
           ]

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../ui/const.dart';
 import '../ui/container/header_expandable.dart';
 import '../ui/layout/edge_insets.dart';
 import '../ui/layout/layout.dart';
 import '../ui/layout/layout_provider.dart';
+import '../ui/theme/theme.dart';
 
 class ExpandableContent extends StatelessWidget {
   static const EdgeInsets _padding = AppEdgeInsets.normal(vertical: AppEdgeInsets.smallValue);
@@ -44,7 +44,7 @@ class ExpandableContent extends StatelessWidget {
         VerticalDivider(
           thickness: 8, width: 8,
           color: LayoutProvider.theme.overBackgroundColor1.withValues(alpha: 0.16),
-          radius: AppUiConst.circleBorderRadius
+          radius: AppTheme.circleBorderRadius
         ),
         Expanded(
           child: headerInfoWidget

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 abstract class AppTheme {
+  static const BorderRadius circleBorderRadius = BorderRadius.all(Radius.circular(999999));
+
   double get radiusValue => 16;
 
   double get text1FontSize => 15;

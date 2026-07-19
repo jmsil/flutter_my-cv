@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../const.dart';
 import '../container/container.dart';
 import '../layout/layout_provider.dart';
+import '../theme/theme.dart';
 
 class AppButton extends StatelessWidget {
   static const double _containerSize = 36;
@@ -59,7 +59,7 @@ class AppButton extends StatelessWidget {
         width: _containerSize,
         height: _containerSize,
         color: isSelected ? color.withValues(alpha: 0.16) : null,
-        borderRadius: AppUiConst.circleBorderRadius,
+        borderRadius: AppTheme.circleBorderRadius,
         child: Center(
           child: child
         )
