@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import '../../ui/theme/theme.dart';
+import '../../ui/layout/theme.dart';
 import 'state_provider.dart';
 
 class AppbarAnimatedPadding extends StatelessWidget {

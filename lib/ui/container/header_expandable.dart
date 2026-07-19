@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../button/ink_response.dart';
+import '../layout/icons.dart';
 import '../layout/layout_provider.dart';
-import '../theme/icons.dart';
-import '../theme/theme.dart';
+import '../layout/theme.dart';
 import 'container.dart';
 import 'expandable.dart';
 
@@ -43,7 +43,7 @@ class _State extends State<AppHeaderExpandable> {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.providerTheme;
+    final AppTheme theme = context.appLayout.theme;
     Widget headerWidget = AppContainer(
       child: AppInkResponse(
         padding: widget.headerContentPadding,

@@ -5,9 +5,9 @@ import '../../ui/assets.dart';
 import '../../ui/container/container.dart';
 import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/layout_provider.dart';
+import '../../ui/layout/theme.dart';
 import '../../ui/strings/strings.dart';
 import '../../ui/strings/strings_provider.dart';
-import '../../ui/theme/theme.dart';
 import '../main_profile_info.dart';
 import 'animated_container.dart';
 import 'animated_padding.dart';
@@ -23,7 +23,7 @@ class DesktopAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.providerTheme;
+    final AppTheme theme = context.appLayout.theme;
     const double circleRadiusSize = AppbarStateProvider.collapsedHeight / 2;
 
     final Widget backgroundImage = RotatedBox(

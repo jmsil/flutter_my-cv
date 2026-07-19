@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 
 import '../../ui/button/button.dart';
 import '../../ui/button/popup_menu_button.dart';
+import '../../ui/layout/icons.dart';
 import '../../ui/layout/layout.dart';
 import '../../ui/layout/layout_provider.dart';
+import '../../ui/layout/theme.dart';
 import '../../ui/strings/strings.dart';
 import '../../ui/strings/strings_provider.dart';
-import '../../ui/theme/icons.dart';
-import '../../ui/theme/theme.dart';
 import '../main_scaffold.dart';
 
 class Settings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.providerTheme;
-    final Layout layout = context.providerLayout;
+    final AppLayout layout = context.appLayout;
+    final AppTheme theme = layout.theme;
     final bool isDesktopScreen = context.isDesktopScreen;
 
     final TextStyle selectedStyle = isDesktopScreen
@@ -54,26 +54,26 @@ class Settings extends StatelessWidget {
         AppButton.icon(
           icon: AppIcons.flatLayout,
           color: theme.overBackgroundColor2,
-          isSelected: layout == Layout.flat,
-          onPressed: () => setLayout(context, Layout.flat, isDesktopScreen)
-        ),
-        AppButton.icon(
-          icon: AppIcons.topLayout,
-          color: theme.overBackgroundColor2,
-          isSelected: layout == Layout.top,
-          onPressed: () => setLayout(context, Layout.top, isDesktopScreen)
+          isSelected: layout == AppLayout.flat,
+          onPressed: () => setLayout(context, AppLayout.flat, isDesktopScreen)
         ),
         AppButton.icon(
           icon: AppIcons.leftLayout,
           color: theme.overBackgroundColor2,
-          isSelected: layout == Layout.left,
-          onPressed: () => setLayout(context, Layout.left, isDesktopScreen)
+          isSelected: layout == AppLayout.left,
+          onPressed: () => setLayout(context, AppLayout.left, isDesktopScreen)
+        ),
+        AppButton.icon(
+          icon: AppIcons.topLayout,
+          color: theme.overBackgroundColor2,
+          isSelected: layout == AppLayout.top,
+          onPressed: () => setLayout(context, AppLayout.top, isDesktopScreen)
         ),
         AppButton.icon(
           icon: AppIcons.fullLayout,
           color: theme.overBackgroundColor2,
-          isSelected: layout == Layout.full,
-          onPressed: () => setLayout(context, Layout.full, isDesktopScreen)
+          isSelected: layout == AppLayout.full,
+          onPressed: () => setLayout(context, AppLayout.full, isDesktopScreen)
         )
       ]
     );
@@ -96,7 +96,7 @@ class Settings extends StatelessWidget {
     StringsProvider.instance.setLanguage(language);
   }
 
-  void setLayout(BuildContext context, Layout layout, bool isDesktopScreen) {
+  void setLayout(BuildContext context, AppLayout layout, bool isDesktopScreen) {
     if (isDesktopScreen)
       Navigator.of(context).pop();
     LayoutProvider.instance.setLayout(layout);

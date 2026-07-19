@@ -4,8 +4,8 @@ import '../scaffold/main_scaffold.dart';
 import '../ui/container/container.dart';
 import '../ui/layout/edge_insets.dart';
 import '../ui/layout/layout_provider.dart';
+import '../ui/layout/theme.dart';
 import '../ui/overlay_bar.dart';
-import '../ui/theme/theme.dart';
 
 class ContentGroup extends StatelessWidget {
   static const double iconSize = 32;
@@ -28,7 +28,7 @@ class ContentGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.providerTheme;
+    final AppTheme theme = context.appLayout.theme;
     final bool isDesktopScreen = context.isDesktopScreen;
 
     final EdgeInsets headerMargin = AppEdgeInsets.normal(

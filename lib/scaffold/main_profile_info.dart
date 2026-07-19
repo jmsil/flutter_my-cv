@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../ui/divider.dart';
 import '../ui/layout/layout.dart';
 import '../ui/layout/layout_provider.dart';
-import '../ui/theme/theme.dart';
+import '../ui/layout/theme.dart';
 
 class MainProfileInfo extends StatelessWidget {
   final String title;
@@ -20,7 +20,7 @@ class MainProfileInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.providerTheme;
+    final AppTheme theme = context.appLayout.theme;
     final titleStyle = isOverBackground
       ? isCompactMode
         ? theme.header1OverBackgroundColor1BoldStyle

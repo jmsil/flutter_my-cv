@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:my_cv/ui/theme/theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'hover.dart';
+import 'layout/icons.dart';
 import 'layout/layout.dart';
 import 'layout/layout_provider.dart';
-import 'theme/icons.dart';
+import 'layout/theme.dart';
 
 class AppIconText extends StatelessWidget {
   final IconData icon;
@@ -58,7 +58,7 @@ class AppLink extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppHoverWidget(
       builder: (bool hovered, Widget? child) {
-        final AppTheme theme = context.providerTheme;
+        final AppTheme theme = context.appLayout.theme;
         final TextStyle textStyle = isOverBackground
           ? hovered
             ? theme.text1OverBackgroundColor2Style

@@ -1,9 +1,9 @@
 import 'package:flutter/widgets.dart';
 
 import '../../ui/layout/edge_insets.dart';
+import '../../ui/layout/theme.dart';
 import '../../ui/overlay_bar.dart';
 import '../../ui/scroller.dart';
-import '../../ui/theme/theme.dart';
 import '../appbar/animated_padding.dart';
 import '../appbar/state_provider.dart';
 

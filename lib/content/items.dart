@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../ui/layout/icons.dart';
 import '../ui/layout/layout.dart';
 import '../ui/layout/layout_provider.dart';
+import '../ui/layout/theme.dart';
 import '../ui/strings/strings_provider.dart';
 import '../ui/text.dart';
-import '../ui/theme/icons.dart';
-import '../ui/theme/theme.dart';
 import 'group.dart';
 
 class ItemsGroup extends StatelessWidget {
@@ -25,7 +25,7 @@ class ItemsGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.providerTheme;
+    final AppTheme theme = context.appLayout.theme;
     final List<Widget> children = [];
     final List<String> items = info.split(' - ');
 

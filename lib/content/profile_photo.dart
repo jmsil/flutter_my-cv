@@ -4,7 +4,7 @@ import '../ui/assets.dart';
 import '../ui/button/ink_response.dart';
 import '../ui/container/container.dart';
 import '../ui/layout/layout_provider.dart';
-import '../ui/theme/theme.dart';
+import '../ui/layout/theme.dart';
 
 class ProfilePhoto extends StatelessWidget {
   final double? margin;
@@ -19,7 +19,7 @@ class ProfilePhoto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.providerTheme;
+    final AppTheme theme = context.appLayout.theme;
     Widget child = Image.memory(AppAssets.profilePhoto, fit: BoxFit.cover);
 
     if (onPressed != null) {

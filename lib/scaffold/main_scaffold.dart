@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../ui/layout/layout_provider.dart';
-import '../ui/theme/theme.dart';
+import '../ui/layout/theme.dart';
 import 'desktop_scaffold.dart';
 import 'mobile_scaffold.dart';
 
@@ -10,7 +10,7 @@ class MainScaffold extends ListenableBuilder {
     : super(
         listenable: LayoutProvider.instance,
         builder: (builderContext, builderChild) {
-          final AppTheme theme = builderContext.providerTheme;
+          final AppTheme theme = builderContext.appLayout.theme;
           final bool isDesktopScreen = builderContext.isDesktopScreen;
           return Material(
             color: theme.backgroundColor,

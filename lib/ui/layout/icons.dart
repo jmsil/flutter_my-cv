@@ -25,7 +25,7 @@ class AppIcons {
 
   static const IconData layout = IconData(0xE004, fontFamily: 'Icons');
   static const IconData flatLayout = IconData(0xE001, fontFamily: 'Icons');
-  static const IconData topLayout = IconData(0xE003, fontFamily: 'Icons');
   static const IconData leftLayout = IconData(0xE002, fontFamily: 'Icons');
+  static const IconData topLayout = IconData(0xE003, fontFamily: 'Icons');
   static const IconData fullLayout = IconData(0xE000, fontFamily: 'Icons');
 }

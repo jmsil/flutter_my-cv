@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../ui/container/container.dart';
 import '../../ui/container/header_expandable.dart';
 import '../../ui/layout/edge_insets.dart';
-import '../../ui/theme/theme.dart';
+import '../../ui/layout/theme.dart';
 
 class Section extends AppContainer {
   Section({
@@ -18,7 +18,7 @@ class Section extends AppContainer {
         isClipped: true,
         child: AppHeaderExpandable(
           startOpen: startOpen,
-          arrowColor: theme.overSectionColor2,
+          arrowColor: theme.overSectionColor3,
           headerContentPadding: const AppEdgeInsets.normal(left: AppEdgeInsets.largeValue),
           expandableContentPadding: const AppEdgeInsets.large(top: AppEdgeInsets.smallValue),
           headerContent: Text(title, style: theme.header1OverSectionColor2BoldStyle),

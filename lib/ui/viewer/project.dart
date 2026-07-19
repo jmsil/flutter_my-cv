@@ -2,9 +2,9 @@ import 'package:flutter/widgets.dart';
 
 import '../assets.dart';
 import '../button/loading_button.dart';
+import '../layout/icons.dart';
 import '../layout/layout.dart';
-import '../theme/icons.dart';
-import '../theme/theme.dart';
+import '../layout/theme.dart';
 import 'viewer.dart';
 
 class ProjectTileWidget extends Row {

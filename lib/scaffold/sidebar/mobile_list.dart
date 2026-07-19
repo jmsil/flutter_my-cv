@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import '../../content/profile_photo.dart';
 import '../../ui/button/button.dart';
 import '../../ui/layout/edge_insets.dart';
+import '../../ui/layout/icons.dart';
+import '../../ui/layout/theme.dart';
 import '../../ui/overlay_bar.dart';
 import '../../ui/scroller.dart';
-import '../../ui/theme/icons.dart';
-import '../../ui/theme/theme.dart';
 
 class MobileList extends Padding {
   MobileList(AppTheme theme, List<Widget> children)

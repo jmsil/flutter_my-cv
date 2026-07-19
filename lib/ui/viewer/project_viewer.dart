@@ -3,10 +3,10 @@ import 'package:my_cv/ui/scroller.dart';
 
 import '../button/button.dart';
 import '../layout/edge_insets.dart';
+import '../layout/icons.dart';
 import '../layout/layout.dart';
 import '../strings/strings.dart';
 import '../theme.dart';
-import '../theme/icons.dart';
 import 'project.dart';
 import 'viewer.dart';
 

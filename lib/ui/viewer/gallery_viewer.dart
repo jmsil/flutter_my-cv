@@ -6,11 +6,11 @@ import '../button/button.dart';
 import '../button/ink_response.dart';
 import '../container/container.dart';
 import '../layout/edge_insets.dart';
+import '../layout/icons.dart';
 import '../layout/layout.dart';
+import '../layout/theme.dart';
 import '../scroller.dart';
 import '../theme.dart' as OldTheme;
-import '../theme/icons.dart';
-import '../theme/theme.dart';
 import 'viewer.dart';
 
 class AppGallery extends StatefulWidget {

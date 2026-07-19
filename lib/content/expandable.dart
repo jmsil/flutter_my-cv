@@ -4,7 +4,7 @@ import '../ui/container/header_expandable.dart';
 import '../ui/layout/edge_insets.dart';
 import '../ui/layout/layout.dart';
 import '../ui/layout/layout_provider.dart';
-import '../ui/theme/theme.dart';
+import '../ui/layout/theme.dart';
 
 class ExpandableContent extends StatelessWidget {
   static const EdgeInsets _padding = AppEdgeInsets.normal(vertical: AppEdgeInsets.smallValue);
@@ -25,7 +25,7 @@ class ExpandableContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.providerTheme;
+    final AppTheme theme = context.appLayout.theme;
     Widget headerInfoWidget = Text(headerTitle, style: theme.header1OverBackgroundColor1BoldStyle);
 
     if (headerDetail != null) {

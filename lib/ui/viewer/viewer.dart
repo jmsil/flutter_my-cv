@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 import '../container/container.dart';
 import '../layout/edge_insets.dart';
+import '../layout/theme.dart';
 import '../theme.dart' as OldTheme;
-import '../theme/theme.dart';
 
 class AppViewer extends StatefulWidget {
   final Axis direction;

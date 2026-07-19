@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../layout/edge_insets.dart';
+import '../layout/icons.dart';
 import '../layout/layout.dart';
 import '../layout/layout_provider.dart';
-import '../theme/icons.dart';
-import '../theme/theme.dart';
+import '../layout/theme.dart';
 import 'button.dart';
 
 class AppPopupMenuButton extends PopupMenuButton {
@@ -51,7 +51,7 @@ class AppPopupMenuButton extends PopupMenuButton {
 class _AppPopupMenuButtonState extends PopupMenuButtonState {
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.providerTheme;
+    final AppTheme theme = context.appLayout.theme;
     return AppButton.icon(
       icon: AppIcons.settings,
       color: theme.overElement1Color1,

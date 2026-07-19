@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../../ui/layout/icons.dart';
 import '../../ui/layout/layout.dart';
+import '../../ui/layout/theme.dart';
 import '../../ui/strings/strings.dart';
 import '../../ui/strings/strings_provider.dart';
 import '../../ui/text.dart';
-import '../../ui/theme/icons.dart';
-import '../../ui/theme/theme.dart';
 import 'section.dart';
 
 class DetailsSection extends Section {

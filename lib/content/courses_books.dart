@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
+import '../ui/layout/icons.dart';
 import '../ui/layout/layout.dart';
 import '../ui/layout/layout_provider.dart';
+import '../ui/layout/theme.dart';
 import '../ui/strings/strings.dart';
 import '../ui/strings/strings_provider.dart';
 import '../ui/text.dart';
-import '../ui/theme/icons.dart';
-import '../ui/theme/theme.dart';
 import 'expandable.dart';
 import 'group.dart';
 
@@ -82,7 +82,7 @@ class _Item extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.providerTheme;
+    final AppTheme theme = context.appLayout.theme;
     Widget composedDetailWidget = Text(detail, style: theme.text1OverBackgroundColor1ItalicStyle);
 
     if (certificateLink != null) {

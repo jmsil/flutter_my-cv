@@ -7,9 +7,9 @@ import '../content/items.dart';
 import '../ui/layout/edge_insets.dart';
 import '../ui/layout/layout.dart';
 import '../ui/layout/layout_provider.dart';
+import '../ui/layout/theme.dart';
 import '../ui/overlay_bar.dart';
 import '../ui/scroller.dart';
-import '../ui/theme/theme.dart';
 import 'appbar/animated_padding.dart';
 import 'appbar/desktop_appbar.dart';
 import 'appbar/state_provider.dart';
@@ -19,7 +19,7 @@ import 'sidebar/sidebar.dart';
 class DesktopScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.providerTheme;
+    final AppTheme theme = context.appLayout.theme;
     final bool isDoublePane = context.isLargeDesktopScreen;
 
     final List<Widget> contentChildren = [

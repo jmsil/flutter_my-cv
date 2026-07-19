@@ -5,9 +5,9 @@ import '../../ui/container/container.dart';
 import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/layout.dart';
 import '../../ui/layout/layout_provider.dart';
+import '../../ui/layout/theme.dart';
 import '../../ui/strings/strings.dart';
 import '../../ui/strings/strings_provider.dart';
-import '../../ui/theme/theme.dart';
 import '../main_scaffold.dart';
 import 'about_section.dart';
 import 'desktop_list.dart';
@@ -21,7 +21,7 @@ class AppSidebar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.providerTheme;
+    final AppTheme theme = context.appLayout.theme;
     final bool isDesktopScreen = context.isDesktopScreen;
 
     final List<Widget> children = [

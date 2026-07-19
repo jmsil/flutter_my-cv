@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../assets.dart';
+import '../layout/icons.dart';
 import '../layout/layout_provider.dart';
-import '../theme/icons.dart';
-import '../theme/theme.dart';
+import '../layout/theme.dart';
 import '../viewer/gallery_viewer.dart';
 import '../viewer/project.dart';
 import '../viewer/project_viewer.dart';
@@ -48,7 +48,7 @@ class _State extends State<_LoadingButton> {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.providerTheme;
+    final AppTheme theme = context.appLayout.theme;
     return AppButton.icon(
       icon: AppIcons.plus,
       color: theme.overBackgroundColor2,

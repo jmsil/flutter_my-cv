@@ -13,9 +13,9 @@ import '../button/button.dart';
 import '../container/container.dart';
 import '../hover.dart';
 import '../layout/edge_insets.dart';
+import '../layout/icons.dart';
+import '../layout/theme.dart';
 import '../theme.dart' as OldTheme;
-import '../theme/icons.dart';
-import '../theme/theme.dart';
 import 'viewer.dart';
 
 class ProjectCodeWidget extends StatelessWidget {

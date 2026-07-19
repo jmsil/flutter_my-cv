@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../container/container.dart';
 import '../layout/layout_provider.dart';
-import '../theme/theme.dart';
+import '../layout/theme.dart';
 
 class AppButton extends StatelessWidget {
   static const double _containerSize = 36;
@@ -44,7 +44,7 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.providerTheme;
+    final AppTheme theme = context.appLayout.theme;
     return IconButton(
       iconSize: _containerSize,
       splashColor: theme.inkEffectsColor,

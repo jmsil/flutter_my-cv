@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../scaffold/main_scaffold.dart';
+import '../ui/layout/icons.dart';
 import '../ui/layout/layout.dart';
 import '../ui/layout/layout_provider.dart';
+import '../ui/layout/theme.dart';
 import '../ui/strings/strings.dart';
 import '../ui/strings/strings_provider.dart';
 import '../ui/text.dart';
-import '../ui/theme/icons.dart';
-import '../ui/theme/theme.dart';
 import 'bci_fortlev_xp.dart';
 import 'expandable.dart';
 import 'group.dart';
@@ -16,7 +16,7 @@ import 'integration_learning_xp.dart';
 class ExperienceGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.providerTheme;
+    final AppTheme theme = context.appLayout.theme;
     final bool isDesktopScreen = context.isDesktopScreen;
 
     List<Widget> children = [
