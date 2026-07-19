@@ -58,6 +58,12 @@ class Settings extends StatelessWidget {
           onPressed: () => setLayout(context, Layout.flat, isDesktopScreen)
         ),
         AppButton.icon(
+          icon: AppIcons.topLayout,
+          color: theme.overBackgroundColor2,
+          isSelected: layout == Layout.top,
+          onPressed: () => setLayout(context, Layout.top, isDesktopScreen)
+        ),
+        AppButton.icon(
           icon: AppIcons.leftLayout,
           color: theme.overBackgroundColor2,
           isSelected: layout == Layout.left,

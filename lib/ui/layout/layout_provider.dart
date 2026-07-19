@@ -4,8 +4,9 @@ import '../../scaffold/main_scaffold.dart';
 import '../theme/flat_theme.dart';
 import '../theme/left_theme.dart';
 import '../theme/theme.dart';
+import '../theme/top_theme.dart';
 
-enum Layout { flat, left, full }
+enum Layout { flat, top, left, full }
 
 class LayoutProvider extends ChangeNotifier {
   static final AppTheme _appTheme = AppTheme();
@@ -23,6 +24,9 @@ class LayoutProvider extends ChangeNotifier {
       switch (layout) {
         case Layout.flat:
           _theme = FlatTheme();
+          break;
+        case Layout.top:
+          _theme = TopTheme();
           break;
         case Layout.left:
           _theme = LeftTheme();
