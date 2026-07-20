@@ -20,7 +20,7 @@ class AppPopupMenuButton extends PopupMenuButton {
           bottom: AppEdgeInsets.normalValue
         ),
         elevation: 8,
-        shadowColor: theme.elementColor1,
+        shadowColor: Colors.black54,
         shape: RoundedRectangleBorder(
           borderRadius: AppTheme.allBorderRadius,
           side: BorderSide(
@@ -51,10 +51,12 @@ class AppPopupMenuButton extends PopupMenuButton {
 class _AppPopupMenuButtonState extends PopupMenuButtonState {
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.appLayout.theme;
+    final AppLayout layout = context.appLayout;
     return AppButton.icon(
       icon: AppIcons.settings,
-      color: theme.overElement1Color1,
+      color: layout.hasSidebar
+        ? layout.theme.overElement1Color1
+        : layout.theme.overBackgroundColor1,
       onPressed: showButtonMenu
     );
   }

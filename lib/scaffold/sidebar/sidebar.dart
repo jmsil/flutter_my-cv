@@ -21,7 +21,8 @@ class AppSidebar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.appLayout.theme;
+    final AppLayout layout = context.appLayout;
+    final AppTheme theme = layout.theme;
     final bool isDesktopScreen = context.isDesktopScreen;
 
     final List<Widget> children = [
@@ -30,21 +31,24 @@ class AppSidebar extends StatelessWidget {
 
       DetailsSection(theme),
       AppLayout.normalVerticalSpacer,
+
       SkillsSection(
         StringsProvider.strings.programmingSkillsTitle,
         Strings.programmingSkillsInfo
       ),
       AppLayout.normalVerticalSpacer,
+
       SkillsSection(
         StringsProvider.strings.integrationSkillsTitle,
         Strings.integrationSkillsInfo
       ),
       AppLayout.normalVerticalSpacer,
+
       AboutSection(theme)
     ];
 
     final Widget footerWidget = AppContainer(
-      color: theme.elementColor1,
+      color: layout.hasSidebar ? theme.elementColor1 : null,
       padding: const AppEdgeInsets.normal(vertical: AppEdgeInsets.smallValue),
       child: Row(
         spacing: AppLayout.smallSpacing,
@@ -53,7 +57,9 @@ class AppSidebar extends StatelessWidget {
           Expanded(
             child: Text(
               StringsProvider.strings.madeWithFlutter,
-              style: theme.text1OverElement1Color1Style
+              style: layout.hasSidebar
+                ? theme.text1OverElement1Color1Style
+                : theme.text1OverBackgroundColor1Style
             )
           ),
           Settings()
@@ -61,30 +67,34 @@ class AppSidebar extends StatelessWidget {
       )
     );
 
-    return AppContainer(
-      width: containerWidth,
-      color: theme.elementColor2,
-      borderRadius: isDesktopScreen
-        ? AppTheme.allBorderRadius
-        : BorderRadius.zero,
-      isClipped: isDesktopScreen,
-      child: Stack(
-        fit: StackFit.expand,
-        clipBehavior: Clip.none,
-        children: [
-          Image.memory(AppAssets.background, fit: BoxFit.fill),
-          Column(
+    final Widget child = Column(
+      children: [
+        Expanded(
+          child: isDesktopScreen
+            ? DesktopList(layout, children)
+            : MobileList(theme, children)
+        ),
+        footerWidget
+      ]
+    );
+
+    return layout.hasSidebar
+      ? AppContainer(
+          width: containerWidth,
+          color: theme.elementColor2,
+          borderRadius: isDesktopScreen
+            ? AppTheme.allBorderRadius
+            : BorderRadius.zero,
+          isClipped: isDesktopScreen,
+          child: Stack(
+            fit: StackFit.expand,
+            clipBehavior: Clip.none,
             children: [
-              Expanded(
-                child: isDesktopScreen
-                  ? DesktopList(theme, children)
-                  : MobileList(theme, children)
-              ),
-              footerWidget
+              Image.memory(AppAssets.background, fit: BoxFit.fill),
+              child
             ]
           )
-        ]
-      )
-    );
+        )
+      : SizedBox(width: containerWidth, child: child);
   }
 }

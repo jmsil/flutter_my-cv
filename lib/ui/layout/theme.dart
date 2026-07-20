@@ -2,8 +2,16 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   static final AppTheme flat = AppTheme._();
+
   static final AppTheme left = AppTheme._();
-  static final AppTheme top = AppTheme._();
+
+  static final AppTheme top = AppTheme._(
+    sectionColor: Colors.blueGrey[900]!.withValues(alpha: 0.12),
+    overSectionColor1: Colors.black,
+    overSectionColor2: Colors.black,
+    overSectionColor3: Colors.blue[900]
+  );
+
   static final AppTheme full = AppTheme._();
 
   static const double radiusValue = 16;
@@ -38,7 +46,7 @@ class AppTheme {
       this.overBackgroundColor1 = overBackgroundColor1 ?? Colors.black,
       this.overBackgroundColor2 = overBackgroundColor2 ?? Colors.blue[900]!,
 
-      this.elementColor1 = elementColor1 ?? Color(0xFF242F34),
+      this.elementColor1 = elementColor1 ?? Colors.blueGrey[900]!,
       this.overElement1Color1 = overElement1Color1 ??  Colors.blue[200]!,
 
       this.elementColor2 = elementColor2 ?? Colors.blueGrey[700]!,

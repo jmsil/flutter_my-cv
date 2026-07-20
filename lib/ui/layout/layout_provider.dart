@@ -6,7 +6,7 @@ import 'layout.dart';
 class LayoutProvider extends ChangeNotifier {
   static final LayoutProvider instance = LayoutProvider._();
 
-  AppLayout _layout = AppLayout.flat;
+  AppLayout _layout = AppLayout.top;
 
   LayoutProvider._();
 
