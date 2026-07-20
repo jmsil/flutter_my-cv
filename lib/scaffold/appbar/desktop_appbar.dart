@@ -4,6 +4,7 @@ import '../../content/profile_photo.dart';
 import '../../ui/assets.dart';
 import '../../ui/container/container.dart';
 import '../../ui/layout/edge_insets.dart';
+import '../../ui/layout/layout.dart';
 import '../../ui/layout/layout_provider.dart';
 import '../../ui/layout/theme.dart';
 import '../../ui/strings/strings.dart';
@@ -23,13 +24,9 @@ class DesktopAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.appLayout.theme;
+    final AppLayout layout = context.appLayout;
+    final AppTheme theme = layout.theme;
     const double circleRadiusSize = AppbarStateProvider.collapsedHeight / 2;
-
-    final Widget backgroundImage = RotatedBox(
-      quarterTurns: -1,
-      child: Image.memory(AppAssets.background, fit: BoxFit.cover)
-    );
 
     final Widget profilePhoto = ProfilePhoto(
       margin: AppEdgeInsets.normalValue,
@@ -53,48 +50,55 @@ class DesktopAppbar extends StatelessWidget {
       isCompactMode: false,
     );
 
-    return AppbarAnimatedContainer(
-      child: AppContainer(
-        color: theme.elementColor1,
-        borderRadius: BorderRadius.horizontal(
-          left: const Radius.circular(circleRadiusSize),
-          right: AppTheme.radius
-        ),
-        hasShadow: true,
-        isClipped: true,
-        child: Stack(
-          fit: StackFit.expand,
-          clipBehavior: Clip.none,
-          children: [
-            backgroundImage,
-            Row(
+    final Widget child = Row(
+      children: [
+        profilePhoto,
+        Expanded(
+          child: AppbarAnimatedPadding(
+            padding: _profileAndSummaryPadding,
+            topFactor: 0.25,
+            bottomFactor: 0.5,
+            child: Row(
               children: [
-                profilePhoto,
+                Expanded(flex: 1, child: const SizedBox()),
+                IntrinsicWidth(
+                  child: nameAndRolesWidget
+                ),
+                Expanded(flex: 2, child: const SizedBox()),
                 Expanded(
-                  child: AppbarAnimatedPadding(
-                    padding: _profileAndSummaryPadding,
-                    topFactor: 0.25,
-                    bottomFactor: 0.5,
-                    child: Row(
-                      children: [
-                        Expanded(flex: 1, child: const SizedBox()),
-                        IntrinsicWidth(
-                          child: nameAndRolesWidget
-                        ),
-                        Expanded(flex: 2, child: const SizedBox()),
-                        Expanded(
-                          flex: 16,
-                          child: professionalSummaryWidget
-                        )
-                      ]
-                    )
-                  )
+                  flex: 16,
+                  child: professionalSummaryWidget
                 )
               ]
             )
-          ]
+          )
         )
-      )
+      ]
     );
+
+    return layout.hasTopbar
+      ? AppbarAnimatedContainer(
+          child: AppContainer(
+            color: theme.elementColor1,
+            borderRadius: BorderRadius.horizontal(
+              left: const Radius.circular(circleRadiusSize),
+              right: AppTheme.radius
+            ),
+            hasShadow: true,
+            isClipped: true,
+            child: Stack(
+              fit: StackFit.expand,
+              clipBehavior: Clip.none,
+              children: [
+                RotatedBox(
+                  quarterTurns: -1,
+                  child: Image.memory(AppAssets.background, fit: BoxFit.cover)
+                ),
+                child
+              ]
+            )
+          )
+        )
+      : AppbarAnimatedContainer(child: child);
   }
 }

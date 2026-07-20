@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static final AppTheme flat = AppTheme._();
+  static final AppTheme flat = AppTheme._(
+    overElement1Color1: Colors.black,
+    sectionColor: Colors.blueGrey[900]!.withValues(alpha: 0.12),
+    overSectionColor1: Colors.black,
+    overSectionColor2: Colors.black,
+    overSectionColor3: Colors.blue[900]
+  );
 
   static final AppTheme left = AppTheme._();
 
