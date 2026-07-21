@@ -18,14 +18,15 @@ class ProfilePhoto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.appLayout.theme;
-    Widget child = Image.memory(AppAssets.profilePhoto, fit: BoxFit.cover);
+    final AppLayout layout = context.appLayout;
+    final AppTheme theme = layout.theme;
+    Widget builtWidget = Image.memory(AppAssets.profilePhoto, fit: BoxFit.cover);
 
     if (onPressed != null) {
-      child = AppInkResponse(
+      builtWidget = AppInkResponse(
         effectsColor: Colors.transparent,
         onPressed: onPressed!,
-        child: child
+        child: builtWidget
       );
     }
 
@@ -34,10 +35,12 @@ class ProfilePhoto extends StatelessWidget {
       child: AppContainer(
         margin: margin == null ? null : EdgeInsets.all(margin!),
         borderSize: 2,
-        borderColor: theme.overElement1Color1,
+        borderColor: layout.showTopbarBackground || layout.showSidebarBackground
+          ? theme.overElement1Color1
+          : theme.overBackgroundColor1,
         borderRadius: borderRadius ?? AppTheme.circleBorderRadius,
         isClipped: true,
-        child: child
+        child: builtWidget
       )
     );
   }

@@ -46,7 +46,8 @@ class MobileAppbar extends StatelessWidget {
           child: ProfilePhoto(onPressed: onPressed)
         ),
         MainProfileInfo.nameAndRoles(
-          isCompactMode: true,
+          style: MainProfileInfoStyle.compact,
+          isOverBackground: false,
           isShortRoles: isSmallMobileScreen
         )
       ]

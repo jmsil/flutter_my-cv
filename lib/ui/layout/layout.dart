@@ -4,10 +4,9 @@ import 'theme.dart';
 
 class AppLayout {
   static final AppLayout flat = AppLayout(
-    hasTopbar: false,
-    hasSidebar: false,
+    showTopbarBackground: false,
+    showSidebarBackground: false,
     theme: AppTheme(
-      overElement1Color1: Colors.black,
       sectionColor: Colors.blueGrey[900]!.withValues(alpha: 0.12),
       overSectionColor1: Colors.black,
       overSectionColor2: Colors.black,
@@ -16,8 +15,8 @@ class AppLayout {
   );
 
   static final AppLayout left = AppLayout(
-    hasTopbar: false,
-    hasSidebar: true,
+    showTopbarBackground: false,
+    showSidebarBackground: true,
     theme: AppTheme(
       text2FontSize: 18,
       header2FontSize: 20
@@ -25,8 +24,8 @@ class AppLayout {
   );
 
   static final AppLayout top = AppLayout(
-    hasTopbar: true,
-    hasSidebar: false,
+    showTopbarBackground: true,
+    showSidebarBackground: false,
     theme: AppTheme(
       sectionColor: Colors.blueGrey[900]!.withValues(alpha: 0.12),
       overSectionColor1: Colors.black,
@@ -36,8 +35,8 @@ class AppLayout {
   );
 
   static final AppLayout full = AppLayout(
-    hasTopbar: true,
-    hasSidebar: true,
+    showTopbarBackground: true,
+    showSidebarBackground: true,
     theme: AppTheme()
   );
 
@@ -54,15 +53,15 @@ class AppLayout {
   static const SizedBox smallVerticalSpacer = SizedBox(height: smallSpacing);
   static const SizedBox normalVerticalSpacer = SizedBox(height: normalSpacing);
 
-  final bool hasTopbar;
-  final bool hasSidebar;
+  final bool showTopbarBackground;
+  final bool showSidebarBackground;
   final AppTheme theme;
 
-  bool get isLeftLayout => ! hasTopbar && hasSidebar;
+  bool get isLeftLayout => showSidebarBackground && ! showTopbarBackground;
 
   AppLayout({
-    required this.hasTopbar,
-    required this.hasSidebar,
+    required this.showTopbarBackground,
+    required this.showSidebarBackground,
     required this.theme
   });
 }

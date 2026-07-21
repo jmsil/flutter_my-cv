@@ -52,7 +52,7 @@ class _AppPopupMenuButtonState extends PopupMenuButtonState {
     final AppLayout layout = context.appLayout;
     return AppButton.icon(
       icon: AppIcons.settings,
-      color: layout.hasSidebar
+      color: layout.showSidebarBackground
         ? layout.theme.overElement1Color1
         : layout.theme.overBackgroundColor1,
       onPressed: showButtonMenu

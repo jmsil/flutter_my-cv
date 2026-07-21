@@ -24,7 +24,7 @@ class AppbarProvider extends StatefulWidget {
   }
 
   static EdgeInsets marginOf(BuildContext context) {
-    return context.appLayout.hasSidebar ? _marginSidebar : _marginNoSidebar;
+    return context.appLayout.showSidebarBackground ? _marginSidebar : _marginNoSidebar;
   }
 
   static double totalCollapsedHeightOf(BuildContext context) {

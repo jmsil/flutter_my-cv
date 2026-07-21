@@ -31,13 +31,17 @@ class DesktopAppbar extends StatelessWidget {
               children: [
                 Expanded(flex: 1, child: const SizedBox()),
                 MainProfileInfo.nameAndRoles(
-                  isCompactMode: false,
+                  style: MainProfileInfoStyle.expanded,
+                  isOverBackground: ! layout.showTopbarBackground,
                   isShortRoles: false
                 ),
                 Expanded(flex: 2, child: const SizedBox()),
                 Expanded(
                   flex: 16,
-                  child: MainProfileInfo.professionalSummary(isOverBackground: false)
+                  child: MainProfileInfo.professionalSummary(
+                    style: MainProfileInfoStyle.expanded,
+                    isOverBackground: ! layout.showTopbarBackground
+                  )
                 )
               ]
             )
@@ -46,7 +50,7 @@ class DesktopAppbar extends StatelessWidget {
       ]
     );
 
-    return layout.hasTopbar
+    return layout.showTopbarBackground
       ? AppbarAnimatedContainer(
           AppContainer(
             color: theme.elementColor1,

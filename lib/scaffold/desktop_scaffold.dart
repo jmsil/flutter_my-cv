@@ -63,7 +63,10 @@ class DesktopScaffold extends StatelessWidget {
           children: [
             Padding(
               padding: const AppEdgeInsets.xLarge(top: AppEdgeInsets.normalValue),
-              child: MainProfileInfo.professionalSummary(isOverBackground: true)
+              child: MainProfileInfo.professionalSummary(
+                style: MainProfileInfoStyle.normal,
+                isOverBackground: true
+              )
             ),
             Expanded(child: builtWidget)
           ]

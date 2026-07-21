@@ -19,7 +19,9 @@ class DesktopList extends StatelessWidget {
     final AppLayout layout = context.appLayout;
     final AppTheme theme = layout.theme;
     final double totalCollapsedHeight = AppbarProvider.totalCollapsedHeightOf(context);
-    final Color overlayColor = layout.hasSidebar ? theme.elementColor2 : theme.backgroundColor;
+    final Color overlayColor = layout.showSidebarBackground
+      ? theme.elementColor2
+      : theme.backgroundColor;
 
     Widget builtWidget = OverlayBar(
       radius: AppTheme.radiusValue,
@@ -72,7 +74,8 @@ class _Profile extends AppbarAnimatedContainer {
                     bottomFactor: 1,
                     child: AppbarAnimatedOpacity(
                       MainProfileInfo.nameAndRoles(
-                        isCompactMode: true,
+                        style: MainProfileInfoStyle.compact,
+                        isOverBackground: false,
                         isShortRoles: true,
                         softWrap: false
                       )
