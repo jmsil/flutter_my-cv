@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 import '../../ui/layout/theme.dart';
-import 'state_provider.dart';
+import 'appbar_provider.dart';
 
 class AppbarAnimatedOpacity extends StatelessWidget {
   final Widget child;
@@ -10,7 +10,7 @@ class AppbarAnimatedOpacity extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool isExpanded = AppbarStateProvider.currentIsExpandedOf(context);
+    bool isExpanded = AppbarProvider.currentValueOf(context);
     return AnimatedOpacity(
       opacity: isExpanded ? 0 : 1,
       duration: AppTheme.animationDuration,

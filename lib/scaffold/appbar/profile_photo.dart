@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:my_cv/scaffold/appbar/state_provider.dart';
 
 import '../../content/profile_photo.dart';
 import '../../ui/layout/edge_insets.dart';
+import 'appbar_provider.dart';
 
 class ProfilePhotoAppbarStateSwitcher extends StatelessWidget {
-  static const double circleRadiusSize = AppbarStateProvider.collapsedHeight / 2;
+  static const double circleRadiusSize = AppbarProvider.collapsedHeight / 2;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class ProfilePhotoAppbarStateSwitcher extends StatelessWidget {
       borderRadius: const BorderRadius.all(
         Radius.circular(circleRadiusSize - AppEdgeInsets.normalValue)
       ),
-      onPressed: () => AppbarStateProvider.switchStateOf(context)
+      onPressed: () => AppbarProvider.switchStateOf(context)
     );
   }
 }

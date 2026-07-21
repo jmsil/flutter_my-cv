@@ -13,8 +13,6 @@ import 'settings.dart';
 import 'skills_section.dart';
 
 class AppSidebar extends StatelessWidget {
-  static const double containerWidth = 480;
-
   @override
   Widget build(BuildContext context) {
     final AppLayout layout = context.appLayout;
@@ -76,7 +74,7 @@ class AppSidebar extends StatelessWidget {
 
     return layout.hasSidebar
       ? AppContainer(
-          width: containerWidth,
+          width: AppLayout.sidebarWidth,
           color: theme.elementColor2,
           borderRadius: isDesktopScreen
             ? AppTheme.allBorderRadius
@@ -84,6 +82,6 @@ class AppSidebar extends StatelessWidget {
           isClipped: isDesktopScreen,
           child: builtChild
         )
-      : SizedBox(width: containerWidth, child: builtChild);
+      : AppContainer(width: AppLayout.sidebarWidth, child: builtChild);
   }
 }

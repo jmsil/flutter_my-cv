@@ -41,6 +41,8 @@ class AppLayout {
     theme: AppTheme()
   );
 
+  static const double sidebarWidth = 480;
+
   static const double tinySpacing = 2;
   static const double shortSpacing = 4;
   static const double smallSpacing = 8;

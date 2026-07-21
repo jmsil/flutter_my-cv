@@ -6,10 +6,7 @@ import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/layout_provider.dart';
 import '../../ui/overlay_bar.dart';
 import '../../ui/scroller.dart';
-import '../appbar/animated_container.dart';
-import '../appbar/animated_opacity.dart';
-import '../appbar/animated_padding.dart';
-import '../appbar/state_provider.dart';
+import '../appbar/appbar_provider.dart';
 import '../main_profile_info.dart';
 
 class DesktopList extends StatelessWidget {
@@ -21,6 +18,7 @@ class DesktopList extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLayout layout = context.appLayout;
     final AppTheme theme = layout.theme;
+    final double totalCollapsedHeight = AppbarProvider.totalCollapsedHeightOf(context);
     final Color overlayColor = layout.hasSidebar ? theme.elementColor2 : theme.backgroundColor;
 
     Widget builtWidget = OverlayBar(
@@ -43,7 +41,7 @@ class DesktopList extends StatelessWidget {
           ]
         )
       : AppbarAnimatedPadding(
-          padding: AppEdgeInsets.normal(top: AppbarStateProvider.totalCollapsedHeight),
+          padding: AppEdgeInsets.normal(top: totalCollapsedHeight),
           child: builtWidget
         );
 

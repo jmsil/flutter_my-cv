@@ -4,18 +4,15 @@ import '../../ui/container/container.dart';
 import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/layout_provider.dart';
 import '../main_profile_info.dart';
-import 'animated_container.dart';
-import 'animated_padding.dart';
+import 'appbar_provider.dart';
 import 'profile_photo.dart';
-import 'state_provider.dart';
 
 class DesktopAppbar extends StatelessWidget {
   static const double _neededSummaryHeight = 154;
   static const double _profileAndSummaryPaddingValue =
-    (AppbarStateProvider.collapsedHeight - _neededSummaryHeight) / 2;
+    (AppbarProvider.collapsedHeight - _neededSummaryHeight) / 2;
   static const EdgeInsets _profileAndSummaryPadding = const AppEdgeInsets.large(
-    left: 0, vertical: _profileAndSummaryPaddingValue
-  );
+    left: 0, vertical: _profileAndSummaryPaddingValue);
 
   @override
   Widget build(BuildContext context) {

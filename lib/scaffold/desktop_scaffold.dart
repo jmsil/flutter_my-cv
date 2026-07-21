@@ -8,9 +8,8 @@ import '../ui/layout/edge_insets.dart';
 import '../ui/layout/layout_provider.dart';
 import '../ui/overlay_bar.dart';
 import '../ui/scroller.dart';
-import 'appbar/animated_padding.dart';
+import 'appbar/appbar_provider.dart';
 import 'appbar/desktop_appbar.dart';
-import 'appbar/state_provider.dart';
 import 'main_profile_info.dart';
 import 'main_scaffold.dart';
 import 'sidebar/sidebar.dart';
@@ -21,6 +20,7 @@ class DesktopScaffold extends StatelessWidget {
     final AppLayout layout = context.appLayout;
     final AppTheme theme = layout.theme;
     final bool isDoublePane = context.isLargeDesktopScreen;
+    final double totalCollapsedHeight = AppbarProvider.totalCollapsedHeightOf(context);
 
     Widget builtWidget = OverlayBar(
       radius: AppTheme.radiusValue,
@@ -69,7 +69,7 @@ class DesktopScaffold extends StatelessWidget {
           ]
         )
       : AppbarAnimatedPadding(
-          padding: EdgeInsets.only(top: AppbarStateProvider.totalCollapsedHeight),
+          padding: EdgeInsets.only(top: totalCollapsedHeight),
           child: builtWidget
         );
 
@@ -93,7 +93,7 @@ class DesktopScaffold extends StatelessWidget {
 
     return Padding(
       padding: const AppEdgeInsets.normal(),
-      child: AppbarStateProvider(child: builtWidget)
+      child: AppbarProvider(builtWidget)
     );
   }
 }
