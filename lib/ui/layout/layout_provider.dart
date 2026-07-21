@@ -3,6 +3,9 @@ import 'package:flutter/widgets.dart';
 import '../../scaffold/main_scaffold.dart';
 import 'layout.dart';
 
+export 'layout.dart';
+export 'theme.dart';
+
 class LayoutProvider extends ChangeNotifier {
   static final LayoutProvider instance = LayoutProvider._();
 

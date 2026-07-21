@@ -4,6 +4,8 @@ import 'strings.dart';
 import 'strings_en.dart';
 import 'strings_pt.dart';
 
+export 'strings.dart';
+
 class StringsProvider extends ChangeNotifier {
   static final StringsProvider instance = StringsProvider._();
 

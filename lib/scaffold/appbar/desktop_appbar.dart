@@ -2,9 +2,7 @@ import 'package:flutter/widgets.dart';
 
 import '../../ui/container/container.dart';
 import '../../ui/layout/edge_insets.dart';
-import '../../ui/layout/layout.dart';
 import '../../ui/layout/layout_provider.dart';
-import '../../ui/layout/theme.dart';
 import '../main_profile_info.dart';
 import 'animated_container.dart';
 import 'animated_padding.dart';

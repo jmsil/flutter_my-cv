@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../ui/container/container.dart';
 import '../../ui/layout/edge_insets.dart';
-import '../../ui/layout/layout.dart';
 import '../../ui/layout/layout_provider.dart';
-import '../../ui/layout/theme.dart';
-import '../../ui/strings/strings.dart';
 import '../../ui/strings/strings_provider.dart';
 import '../main_scaffold.dart';
 import 'about_section.dart';

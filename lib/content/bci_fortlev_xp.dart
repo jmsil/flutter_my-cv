@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../ui/assets.dart';
 import '../ui/button/loading_button.dart';
 import '../ui/layout/layout.dart';
-import '../ui/strings/strings.dart';
 import '../ui/strings/strings_provider.dart';
 import '../ui/text.dart';
 import 'expandable.dart';

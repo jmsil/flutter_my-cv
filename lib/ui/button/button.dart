@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../container/container.dart';
 import '../layout/layout_provider.dart';
-import '../layout/theme.dart';
 
 class AppButton extends StatelessWidget {
   static const double _containerSize = 36;

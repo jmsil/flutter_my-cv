@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../ui/divider.dart';
-import '../ui/layout/layout.dart';
 import '../ui/layout/layout_provider.dart';
-import '../ui/layout/theme.dart';
-import '../ui/strings/strings.dart';
 import '../ui/strings/strings_provider.dart';
 
 class MainProfileInfo extends StatelessWidget {

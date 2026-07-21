@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../scaffold/main_scaffold.dart';
 import '../ui/layout/icons.dart';
-import '../ui/layout/layout.dart';
 import '../ui/layout/layout_provider.dart';
-import '../ui/layout/theme.dart';
-import '../ui/strings/strings.dart';
 import '../ui/strings/strings_provider.dart';
 import '../ui/text.dart';
 import 'bci_fortlev_xp.dart';

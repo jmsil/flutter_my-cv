@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../ui/layout/layout_provider.dart';
-import '../ui/layout/theme.dart';
 import 'desktop_scaffold.dart';
 import 'mobile_scaffold.dart';
 

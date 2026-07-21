@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../ui/container/header_expandable.dart';
 import '../ui/layout/edge_insets.dart';
-import '../ui/layout/layout.dart';
 import '../ui/layout/layout_provider.dart';
-import '../ui/layout/theme.dart';
 
 class ExpandableContent extends StatelessWidget {
   static const EdgeInsets _padding = AppEdgeInsets.normal(vertical: AppEdgeInsets.smallValue);

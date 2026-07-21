@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../assets.dart';
 import '../layout/icons.dart';
 import '../layout/layout_provider.dart';
-import '../layout/theme.dart';
 import '../viewer/gallery_viewer.dart';
 import '../viewer/project.dart';
 import '../viewer/project_viewer.dart';

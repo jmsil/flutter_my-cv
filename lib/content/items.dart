@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../ui/layout/icons.dart';
-import '../ui/layout/layout.dart';
 import '../ui/layout/layout_provider.dart';
-import '../ui/layout/theme.dart';
 import '../ui/strings/strings_provider.dart';
 import '../ui/text.dart';
 import 'group.dart';

@@ -3,9 +3,7 @@ import 'package:my_cv/scaffold/appbar/profile_photo.dart';
 
 import '../../ui/container/container.dart';
 import '../../ui/layout/edge_insets.dart';
-import '../../ui/layout/layout.dart';
 import '../../ui/layout/layout_provider.dart';
-import '../../ui/layout/theme.dart';
 import '../../ui/overlay_bar.dart';
 import '../../ui/scroller.dart';
 import '../appbar/animated_container.dart';

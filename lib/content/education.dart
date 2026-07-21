@@ -1,5 +1,4 @@
 import '../ui/layout/icons.dart';
-import '../ui/strings/strings.dart';
 import '../ui/strings/strings_provider.dart';
 import '../ui/text.dart';
 import 'expandable.dart';

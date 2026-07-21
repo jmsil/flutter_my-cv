@@ -4,7 +4,6 @@ import '../ui/assets.dart';
 import '../ui/button/ink_response.dart';
 import '../ui/container/container.dart';
 import '../ui/layout/layout_provider.dart';
-import '../ui/layout/theme.dart';
 
 class ProfilePhoto extends StatelessWidget {
   final double? margin;
