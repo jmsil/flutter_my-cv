@@ -6,7 +6,6 @@ import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/layout.dart';
 import '../../ui/layout/layout_provider.dart';
 import '../../ui/layout/theme.dart';
-import '../../ui/strings/strings.dart';
 import '../../ui/strings/strings_provider.dart';
 import '../main_profile_info.dart';
 import '../main_scaffold.dart';
@@ -48,15 +47,9 @@ class MobileAppbar extends StatelessWidget {
           height: _photoSize,
           child: ProfilePhoto(onPressed: onPressed)
         ),
-        IntrinsicWidth(
-          child: MainProfileInfo(
-            title: Strings.personalName,
-            info: isSmallMobileScreen
-              ? Strings.shortRoles
-              : StringsProvider.strings.longRoles,
-            isOverBackground: false,
-            isCompactMode: true
-          )
+        MainProfileInfo.nameAndRoles(
+          isCompactMode: true,
+          isShortRoles: isSmallMobileScreen
         )
       ]
     );
@@ -78,7 +71,7 @@ class MobileAppbar extends StatelessWidget {
             spacing: AppLayout.normalSpacing,
             children: [
               profileWidget,
-              AppDivider(theme, _dividerSize),
+              AppDivider(_dividerSize, theme.overElement1Color1),
               Flexible(
                 child: FlexibleSpaceBar(
                   background: summaryTextWidget

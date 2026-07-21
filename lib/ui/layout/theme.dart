@@ -1,25 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static final AppTheme flat = AppTheme._(
-    overElement1Color1: Colors.black,
-    sectionColor: Colors.blueGrey[900]!.withValues(alpha: 0.12),
-    overSectionColor1: Colors.black,
-    overSectionColor2: Colors.black,
-    overSectionColor3: Colors.blue[900]
-  );
-
-  static final AppTheme left = AppTheme._();
-
-  static final AppTheme top = AppTheme._(
-    sectionColor: Colors.blueGrey[900]!.withValues(alpha: 0.12),
-    overSectionColor1: Colors.black,
-    overSectionColor2: Colors.black,
-    overSectionColor3: Colors.blue[900]
-  );
-
-  static final AppTheme full = AppTheme._();
-
   static const double radiusValue = 16;
   static const Radius radius = Radius.circular(radiusValue);
   static const BorderRadius allBorderRadius = BorderRadius.all(radius);
@@ -29,7 +10,10 @@ class AppTheme {
 
   static const BorderRadius circleBorderRadius = BorderRadius.all(Radius.circular(999999));
 
-  AppTheme._({
+  AppTheme({
+    this.text2FontSize = 17,
+    this.header2FontSize = 18,
+
     Color? backgroundColor,
     Color? overBackgroundColor1,
     Color? overBackgroundColor2,
@@ -52,7 +36,7 @@ class AppTheme {
       this.overBackgroundColor1 = overBackgroundColor1 ?? Colors.black,
       this.overBackgroundColor2 = overBackgroundColor2 ?? Colors.blue[900]!,
 
-      this.elementColor1 = elementColor1 ?? Colors.blueGrey[900]!,
+      this.elementColor1 = elementColor1 ?? Color(0xFF242F34),
       this.overElement1Color1 = overElement1Color1 ??  Colors.blue[200]!,
 
       this.elementColor2 = elementColor2 ?? Colors.blueGrey[700]!,
@@ -68,8 +52,8 @@ class AppTheme {
 
   final double text1FontSize = 15;
   final double header1FontSize = 16;
-  final double text2FontSize = 17;
-  final double header2FontSize = 18;
+  final double text2FontSize;
+  final double header2FontSize;
 
   final Color backgroundColor;
   final Color overBackgroundColor1;

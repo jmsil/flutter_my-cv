@@ -3,17 +3,16 @@ import 'package:flutter/widgets.dart';
 import '../../ui/layout/theme.dart';
 import 'state_provider.dart';
 
-class AppbarAnimatedContainer extends StatelessWidget {
+class AppbarAnimatedOpacity extends StatelessWidget {
   final Widget child;
 
-  AppbarAnimatedContainer(this.child);
+  AppbarAnimatedOpacity(this.child);
 
   @override
   Widget build(BuildContext context) {
-    final double height = AppbarStateProvider.currentHeightOf(context);
-    return AnimatedContainer(
-      height: height,
-      margin: AppbarStateProvider.margin,
+    final bool isExpanded = AppbarStateProvider.currentIsExpandedOf(context);
+    return AnimatedOpacity(
+      opacity: isExpanded ? 0 : 1,
       duration: AppTheme.animationDuration,
       curve: AppTheme.animationCurve,
       child: child

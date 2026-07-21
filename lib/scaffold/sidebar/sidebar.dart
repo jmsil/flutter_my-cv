@@ -71,7 +71,7 @@ class AppSidebar extends StatelessWidget {
       children: [
         Expanded(
           child: isDesktopScreen
-            ? DesktopList(layout, children)
+            ? DesktopList(children)
             : MobileList(theme, children)
         ),
         footerWidget

@@ -4,23 +4,40 @@ import '../ui/divider.dart';
 import '../ui/layout/layout.dart';
 import '../ui/layout/layout_provider.dart';
 import '../ui/layout/theme.dart';
+import '../ui/strings/strings.dart';
+import '../ui/strings/strings_provider.dart';
 
 class MainProfileInfo extends StatelessWidget {
   final String title;
   final String info;
   final bool isCompactMode;
   final bool isOverBackground;
+  final bool softWrap;
+  final bool hasIntrinsicWidth;
 
-  MainProfileInfo({
-    required this.title,
-    required this.info,
+  MainProfileInfo.nameAndRoles({
     required this.isCompactMode,
-    required this.isOverBackground
-  });
+    required bool isShortRoles,
+    this.softWrap = true
+  })
+    : title = Strings.personalName,
+      info = isShortRoles
+        ? Strings.shortRoles
+        : StringsProvider.strings.longRoles,
+      isOverBackground = false,
+      hasIntrinsicWidth = true;
+
+  MainProfileInfo.professionalSummary({ required this.isOverBackground })
+    : title = StringsProvider.strings.professionalSummaryTitle,
+      info = StringsProvider.strings.professionalSummaryInfo,
+      isCompactMode = false,
+      softWrap = true,
+      hasIntrinsicWidth = false;
 
   @override
   Widget build(BuildContext context) {
     final AppTheme theme = context.appLayout.theme;
+
     final titleStyle = isOverBackground
       ? isCompactMode
         ? theme.header1OverBackgroundColor1BoldStyle
@@ -37,25 +54,34 @@ class MainProfileInfo extends StatelessWidget {
         ? theme.text1OverElement1Color1Style
         : theme.text2OverElement1Color1Style;
 
-    Widget infoWidget = Text(info, style: infoStyle);
+    Widget builtWidget = Text(info, style: infoStyle, softWrap: softWrap);
 
-    if ( ! isCompactMode) {
-      infoWidget = Expanded(
+    if ( ! isCompactMode && ! isOverBackground) {
+      builtWidget = Expanded(
         child: Align(
           alignment: Alignment.bottomLeft,
-          child: infoWidget
+          child: builtWidget
         )
       );
     }
 
-    return Column(
-      spacing: AppLayout.smallSpacing / (isCompactMode ? 2 : 1),
+    builtWidget = Column(
+      spacing: isCompactMode
+        ? AppLayout.shortSpacing
+        : isOverBackground
+            ? AppLayout.normalSpacing
+            : AppLayout.smallSpacing,
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: [
-        Text(title, style: titleStyle),
-        AppDivider(theme, 4),
-        infoWidget
+        Text(title, style: titleStyle, softWrap: softWrap),
+        AppDivider(4, titleStyle.color!),
+        builtWidget
       ]
     );
+
+    return hasIntrinsicWidth
+      ? IntrinsicWidth(child: builtWidget)
+      : builtWidget;
   }
 }

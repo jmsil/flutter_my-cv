@@ -83,7 +83,7 @@ class Settings extends StatelessWidget {
       children: [
         _IconTitle(AppIcons.language, StringsProvider.strings.language, theme),
         languagesWidget,
-        AppLayout.shortVerticalSpacer,
+        AppLayout.tinyVerticalSpacer,
         _IconTitle(AppIcons.layout, Strings.layout, theme),
         layoutsWidget
       ]

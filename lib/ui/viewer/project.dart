@@ -16,7 +16,7 @@ class ProjectTileWidget extends Row {
           Icon(AppIcons.topicMark, color: theme.overBackgroundColor1),
           Expanded(
             child: Column(
-              spacing: AppLayout.shortSpacing,
+              spacing: AppLayout.tinySpacing,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(

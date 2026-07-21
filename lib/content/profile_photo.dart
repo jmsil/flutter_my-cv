@@ -33,7 +33,7 @@ class ProfilePhoto extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 1,
       child: AppContainer(
-      margin: margin == null ? null : EdgeInsets.all(margin!),
+        margin: margin == null ? null : EdgeInsets.all(margin!),
         borderSize: 2,
         borderColor: theme.overElement1Color1,
         borderRadius: borderRadius ?? AppTheme.circleBorderRadius,

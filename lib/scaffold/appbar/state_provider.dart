@@ -18,6 +18,10 @@ class AppbarStateProvider extends StatefulWidget {
   @override
   _State createState() => _State();
 
+  static void switchStateOf(BuildContext context) {
+    context.getInheritedWidgetOfExactType<_Notifier>()!.switchState();
+  }
+
   static double currentHeightOf(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<_Notifier>()!.currentHeight;
   }
@@ -26,8 +30,8 @@ class AppbarStateProvider extends StatefulWidget {
     return context.dependOnInheritedWidgetOfExactType<_Notifier>()!.currentTotalHeight;
   }
 
-  static void switchStateOf(BuildContext context) {
-    context.getInheritedWidgetOfExactType<_Notifier>()!.switchState();
+  static bool currentIsExpandedOf(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<_Notifier>()!.currentValue;
   }
 }
 
@@ -56,18 +60,20 @@ class _Notifier extends InheritedNotifier<ValueNotifier<bool>> {
   });
 
   void switchState() {
-    bool currentState = notifier?.value ?? false;
-    notifier?.value = !currentState;
+    notifier?.value = !currentValue;
   }
 
   double get currentHeight {
-    bool currentState = notifier?.value ?? false;
-    return currentState
+    return currentValue
       ? AppbarStateProvider.expandedHeight
       : AppbarStateProvider.collapsedHeight;
   }
 
   double get currentTotalHeight {
     return currentHeight + AppbarStateProvider.margin.vertical;
+  }
+
+  bool get currentValue {
+    return notifier?.value ?? false;
   }
 }

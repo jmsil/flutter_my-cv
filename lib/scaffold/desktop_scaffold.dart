@@ -13,34 +13,36 @@ import '../ui/scroller.dart';
 import 'appbar/animated_padding.dart';
 import 'appbar/desktop_appbar.dart';
 import 'appbar/state_provider.dart';
+import 'main_profile_info.dart';
 import 'main_scaffold.dart';
 import 'sidebar/sidebar.dart';
 
 class DesktopScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.appLayout.theme;
+    final AppLayout layout = context.appLayout;
+    final AppTheme theme = layout.theme;
     final bool isDoublePane = context.isLargeDesktopScreen;
 
-    final List<Widget> contentChildren = [
-      if ( ! isDoublePane)
-        ExperienceGroup(),
-
-      EducationGroup(),
-      CoursesAndBooksGroup(),
-      ItemsGroup.languages(),
-      ItemsGroup.availability()
-    ];
-
-    Widget contentWidget = OverlayBar(
+    Widget builtWidget = OverlayBar(
       radius: AppTheme.radiusValue,
       startForegroundColor: theme.backgroundColor,
       endForegroundColor: theme.backgroundColor,
-      child: AppSliverScroller(contentChildren)
+      child: AppSliverScroller(
+        [
+          if ( ! isDoublePane)
+            ExperienceGroup(),
+
+          EducationGroup(),
+          CoursesAndBooksGroup(),
+          ItemsGroup.languages(),
+          ItemsGroup.availability()
+        ]
+      )
     );
 
     if (isDoublePane) {
-      contentWidget = Row(
+      builtWidget = Row(
         spacing: AppLayout.xLargeSpacing,
         children: [
           Expanded(
@@ -51,34 +53,49 @@ class DesktopScaffold extends StatelessWidget {
           ),
           Expanded(
             flex: 2,
-            child: contentWidget
+            child: builtWidget
           )
+        ]
+      );
+    }
+
+    builtWidget = layout.isLeftLayout
+      ? Column(
+          spacing: AppLayout.largeSpacing,
+          children: [
+            Padding(
+              padding: const AppEdgeInsets.xLarge(top: AppEdgeInsets.normalValue),
+              child: MainProfileInfo.professionalSummary(isOverBackground: true)
+            ),
+            Expanded(child: builtWidget)
+          ]
+        )
+      : AppbarAnimatedPadding(
+          padding: EdgeInsets.only(top: AppbarStateProvider.totalCollapsedHeight),
+          child: builtWidget
+        );
+
+    builtWidget = Row(
+      spacing: AppLayout.normalSpacing,
+      children: [
+        AppSidebar(),
+        Expanded(child: builtWidget)
+      ]
+    );
+
+    if ( ! layout.isLeftLayout) {
+      builtWidget = Stack(
+        clipBehavior: Clip.none,
+        children: [
+          builtWidget,
+          DesktopAppbar()
         ]
       );
     }
 
     return Padding(
       padding: const AppEdgeInsets.normal(),
-      child: AppbarStateProvider(
-        child: Stack(
-          clipBehavior: Clip.none,
-          children: [
-            Row(
-              spacing: AppLayout.normalSpacing,
-              children: [
-                AppSidebar(),
-                Expanded(
-                  child: AppbarAnimatedPadding(
-                    padding: EdgeInsets.only(top: AppbarStateProvider.totalCollapsedHeight),
-                    child: contentWidget
-                  )
-                )
-              ]
-            ),
-            DesktopAppbar()
-          ]
-        )
-      )
+      child: AppbarStateProvider(child: builtWidget)
     );
   }
 }

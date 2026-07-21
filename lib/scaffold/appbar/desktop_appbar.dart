@@ -1,17 +1,15 @@
 import 'package:flutter/widgets.dart';
 
-import '../../content/profile_photo.dart';
 import '../../ui/assets.dart';
 import '../../ui/container/container.dart';
 import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/layout.dart';
 import '../../ui/layout/layout_provider.dart';
 import '../../ui/layout/theme.dart';
-import '../../ui/strings/strings.dart';
-import '../../ui/strings/strings_provider.dart';
 import '../main_profile_info.dart';
 import 'animated_container.dart';
 import 'animated_padding.dart';
+import 'profile_photo.dart';
 import 'state_provider.dart';
 
 class DesktopAppbar extends StatelessWidget {
@@ -26,33 +24,10 @@ class DesktopAppbar extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLayout layout = context.appLayout;
     final AppTheme theme = layout.theme;
-    const double circleRadiusSize = AppbarStateProvider.collapsedHeight / 2;
-
-    final Widget profilePhoto = ProfilePhoto(
-      margin: AppEdgeInsets.normalValue,
-      borderRadius: const BorderRadius.all(
-        Radius.circular(circleRadiusSize - AppEdgeInsets.normalValue)
-      ),
-      onPressed: () => AppbarStateProvider.switchStateOf(context)
-    );
-
-    final Widget nameAndRolesWidget = MainProfileInfo(
-      title: Strings.personalName,
-      info: StringsProvider.strings.longRoles,
-      isOverBackground: false,
-      isCompactMode: false
-    );
-
-    final Widget professionalSummaryWidget = MainProfileInfo(
-      title: StringsProvider.strings.professionalSummaryTitle,
-      info: StringsProvider.strings.professionalSummaryInfo,
-      isOverBackground: false,
-      isCompactMode: false,
-    );
 
     final Widget child = Row(
       children: [
-        profilePhoto,
+        ProfilePhotoAppbarStateSwitcher(),
         Expanded(
           child: AppbarAnimatedPadding(
             padding: _profileAndSummaryPadding,
@@ -61,13 +36,14 @@ class DesktopAppbar extends StatelessWidget {
             child: Row(
               children: [
                 Expanded(flex: 1, child: const SizedBox()),
-                IntrinsicWidth(
-                  child: nameAndRolesWidget
+                MainProfileInfo.nameAndRoles(
+                  isCompactMode: false,
+                  isShortRoles: false
                 ),
                 Expanded(flex: 2, child: const SizedBox()),
                 Expanded(
                   flex: 16,
-                  child: professionalSummaryWidget
+                  child: MainProfileInfo.professionalSummary(isOverBackground: false)
                 )
               ]
             )
@@ -78,10 +54,10 @@ class DesktopAppbar extends StatelessWidget {
 
     return layout.hasTopbar
       ? AppbarAnimatedContainer(
-          child: AppContainer(
+          AppContainer(
             color: theme.elementColor1,
             borderRadius: BorderRadius.horizontal(
-              left: const Radius.circular(circleRadiusSize),
+              left: const Radius.circular(ProfilePhotoAppbarStateSwitcher.circleRadiusSize),
               right: AppTheme.radius
             ),
             hasShadow: true,
@@ -99,6 +75,6 @@ class DesktopAppbar extends StatelessWidget {
             )
           )
         )
-      : AppbarAnimatedContainer(child: child);
+      : AppbarAnimatedContainer(child);
   }
 }
