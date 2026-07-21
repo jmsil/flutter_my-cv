@@ -4,7 +4,6 @@ import 'package:archive/archive.dart';
 import 'package:flutter/services.dart';
 
 class AppAssets {
-  static late final Uint8List background;
   static late final Uint8List profilePhoto;
 
   static final GalleryAssets bciFortlevDriverAppAssets = GalleryAssets(
@@ -32,8 +31,7 @@ class AppAssets {
   );
 
   static Future<void> loadStartupAssets() async {
-    String path = 'assets/startup/';
-    background = await _load('${path}background.png');
+    String path = 'assets/Startup/';
     profilePhoto = await _load('${path}profile_photo.jpeg');
   }
 

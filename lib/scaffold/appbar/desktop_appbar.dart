@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
 
-import '../../ui/assets.dart';
 import '../../ui/container/container.dart';
 import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/layout.dart';
@@ -25,7 +24,7 @@ class DesktopAppbar extends StatelessWidget {
     final AppLayout layout = context.appLayout;
     final AppTheme theme = layout.theme;
 
-    final Widget child = Row(
+    final Widget builtWidget = Row(
       children: [
         ProfilePhotoAppbarStateSwitcher(),
         Expanded(
@@ -62,19 +61,9 @@ class DesktopAppbar extends StatelessWidget {
             ),
             hasShadow: true,
             isClipped: true,
-            child: Stack(
-              fit: StackFit.expand,
-              clipBehavior: Clip.none,
-              children: [
-                RotatedBox(
-                  quarterTurns: -1,
-                  child: Image.memory(AppAssets.background, fit: BoxFit.cover)
-                ),
-                child
-              ]
-            )
+            child: builtWidget
           )
         )
-      : AppbarAnimatedContainer(child);
+      : AppbarAnimatedContainer(builtWidget);
   }
 }

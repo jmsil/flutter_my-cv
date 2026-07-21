@@ -25,7 +25,7 @@ flutter:
     - assets/SapIntegrationSuiteLearningJourney/ConversionsAndFtp/archive.zip
     - assets/SapIntegrationSuiteLearningJourney/ExceptionHandler/archive.zip
     - assets/SapIntegrationSuiteLearningJourney/SqlServerWithXslt/archive.zip
-    - assets/startup/
+    - assets/Startup/
   fonts:
     - family: Icons
       fonts:

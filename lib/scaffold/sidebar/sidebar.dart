@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../ui/assets.dart';
 import '../../ui/container/container.dart';
 import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/layout.dart';
@@ -67,7 +66,7 @@ class AppSidebar extends StatelessWidget {
       )
     );
 
-    final Widget child = Column(
+    final Widget builtChild = Column(
       children: [
         Expanded(
           child: isDesktopScreen
@@ -86,15 +85,8 @@ class AppSidebar extends StatelessWidget {
             ? AppTheme.allBorderRadius
             : BorderRadius.zero,
           isClipped: isDesktopScreen,
-          child: Stack(
-            fit: StackFit.expand,
-            clipBehavior: Clip.none,
-            children: [
-              Image.memory(AppAssets.background, fit: BoxFit.fill),
-              child
-            ]
-          )
+          child: builtChild
         )
-      : SizedBox(width: containerWidth, child: child);
+      : SizedBox(width: containerWidth, child: builtChild);
   }
 }
