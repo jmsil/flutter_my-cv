@@ -9,7 +9,7 @@ class AppLayout {
     theme: AppTheme(
       sectionColor: Colors.blueGrey[900]!.withValues(alpha: 0.12),
       overSectionColor1: Colors.black,
-      overSectionColor2: Colors.black,
+      overSectionColor2: Colors.blueGrey[900],
       overSectionColor3: Colors.blue[900]
     )
   );
@@ -29,7 +29,7 @@ class AppLayout {
     theme: AppTheme(
       sectionColor: Colors.blueGrey[900]!.withValues(alpha: 0.12),
       overSectionColor1: Colors.black,
-      overSectionColor2: Colors.black,
+      overSectionColor2: Colors.blueGrey[900],
       overSectionColor3: Colors.blue[900]
     )
   );
