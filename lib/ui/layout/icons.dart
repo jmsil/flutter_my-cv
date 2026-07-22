@@ -20,6 +20,7 @@ class AppIcons {
   static const IconData plus = Icons.add;
   static const IconData settings = Icons.settings_outlined;
   static const IconData studying = Icons.local_library_outlined;
+  static const IconData summary = Icons.format_list_bulleted;
   static const IconData topicMark = Icons.arrow_right;
   static const IconData webhook = Icons.webhook;
 

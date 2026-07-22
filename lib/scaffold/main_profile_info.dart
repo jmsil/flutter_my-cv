@@ -13,6 +13,7 @@ enum MainProfileInfoStyle {
 }
 
 class MainProfileInfo extends StatelessWidget {
+  final IconData? icon;
   final String title;
   final String info;
   final MainProfileInfoStyle style;
@@ -26,13 +27,15 @@ class MainProfileInfo extends StatelessWidget {
     required this.isOverBackground,
     this.softWrap = true
   })
-    : title = Strings.personalName,
+    : icon = null,
+      title = Strings.personalName,
       info = isShortRoles
         ? Strings.shortRoles
         : StringsProvider.strings.longRoles,
       hasIntrinsicWidth = true;
 
   MainProfileInfo.professionalSummary({
+    this.icon,
     required this.style,
     required this.isOverBackground
   })
@@ -61,18 +64,30 @@ class MainProfileInfo extends StatelessWidget {
         ? theme.text1OverElement1Color1Style
         : theme.text2OverElement1Color1Style;
 
-    Widget builtWidget = Text(info, style: infoStyle, softWrap: softWrap);
+    Widget builtTitleWidget = Text(title, style: titleStyle, softWrap: softWrap);
+
+    if ( ! style.isCompact && icon != null) {
+      builtTitleWidget = Row(
+        spacing: titleStyle.fontSize!,
+        children: [
+          Icon(icon, size: titleStyle.fontSize! * 2, color: titleStyle.color),
+          builtTitleWidget
+        ]
+      );
+    }
+
+    Widget builtInfoWidget = Text(info, style: infoStyle, softWrap: softWrap);
 
     if (style.isExpanded) {
-      builtWidget = Expanded(
+      builtInfoWidget = Expanded(
         child: Align(
           alignment: Alignment.bottomLeft,
-          child: builtWidget
+          child: builtInfoWidget
         )
       );
     }
 
-    builtWidget = Column(
+    final Widget builtWidget = Column(
       spacing: style.isCompact
         ? AppLayout.shortSpacing
         : style.isNormal
@@ -81,9 +96,9 @@ class MainProfileInfo extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(title, style: titleStyle, softWrap: softWrap),
+        builtTitleWidget,
         AppDivider(4, titleStyle.color!),
-        builtWidget
+        builtInfoWidget
       ]
     );
 

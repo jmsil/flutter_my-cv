@@ -5,6 +5,7 @@ import '../content/education.dart';
 import '../content/experience.dart';
 import '../content/items.dart';
 import '../ui/layout/edge_insets.dart';
+import '../ui/layout/icons.dart';
 import '../ui/layout/layout_provider.dart';
 import '../ui/overlay_bar.dart';
 import '../ui/scroller.dart';
@@ -64,6 +65,7 @@ class DesktopScaffold extends StatelessWidget {
             Padding(
               padding: const AppEdgeInsets.xLarge(top: AppEdgeInsets.normalValue),
               child: MainProfileInfo.professionalSummary(
+                icon: AppIcons.summary,
                 style: MainProfileInfoStyle.normal,
                 isOverBackground: true
               )
