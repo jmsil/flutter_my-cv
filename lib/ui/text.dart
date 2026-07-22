@@ -55,7 +55,7 @@ class AppLink extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppHoverWidget(
-      builder: (bool hovered, Widget? child) {
+      builder: (BuildContext context, bool hovered, Widget? child) {
         final AppTheme theme = context.appLayout.theme;
         final TextStyle textStyle = isOverBackground
           ? hovered
@@ -77,7 +77,6 @@ class AppLink extends StatelessWidget {
       onPressed: _launch
     );
   }
-
 
   void _launch() async {
     Uri uri = Uri.parse(link ?? text);

@@ -4,44 +4,35 @@ import 'package:flutter/material.dart';
 
 import '../container/container.dart';
 import '../layout/edge_insets.dart';
-import '../layout/theme.dart';
-import '../theme.dart' as OldTheme;
+import '../layout/layout_provider.dart';
 
-class AppViewer extends StatefulWidget {
+abstract class AppViewer extends StatefulWidget {
   final Axis direction;
   final double? windowWidth;
   final double? windowHeight;
-  final double? barWidth;
-  final double? barHeight;
+  final double? barSize;
   final EdgeInsets barPadding;
-  final bool bodyIsTransparent;
-  final Widget barWidget;
-  final Widget bodyWidget;
+  final bool isTransparentBody;
 
   AppViewer({
-    AppViewerKey? key,
     required this.direction,
     this.windowWidth,
     this.windowHeight,
-    this.barWidth,
-    this.barHeight,
+    this.barSize,
     required this.barPadding,
-    required this.bodyIsTransparent,
-    required this.barWidget,
-    required this.bodyWidget
-  })
-    : super(key: key);
+    required this.isTransparentBody
+  });
 
   @override
-  _State createState() => _State();
+  AppViewerState createState();
 
-  static void show(BuildContext context, Widget viewer) {
+  static void show(BuildContext context, AppViewer viewer) {
     showGeneralDialog<void>(
       context: context,
       barrierLabel: '',
       barrierDismissible: true,
       barrierColor: Colors.black.withValues(alpha: 0.7),
-      transitionDuration: const Duration(milliseconds: 380),
+      transitionDuration: AppTheme.animationDuration,
 
       transitionBuilder: (transCtx, transAnim, transSecAnim, transChild) {
         return FadeUpwardsPageTransitionsBuilder().buildTransitions(
@@ -49,44 +40,59 @@ class AppViewer extends StatefulWidget {
         );
       },
 
-      pageBuilder: (pageCtx, pageAnim, pageSecAnim) {
-        return viewer;
-      }
+      pageBuilder: (pageCtx, pageAnim, pageSecAnim) => viewer
     );
+  }
+
+  static bool isInFullScreenOf(BuildContext context) {
+    return context.getInheritedWidgetOfExactType<_Notifier>()?.notifier?.value != null;
+  }
+
+  static void setFullScreenOf(BuildContext context, Widget? widget) {
+    context.getInheritedWidgetOfExactType<_Notifier>()?.notifier?.value = widget;
   }
 }
 
+abstract class AppViewerState<T extends AppViewer> extends State<T> {
+  final ValueNotifier<Widget?> _valueNotifier = ValueNotifier(null);
 
-class _State extends State<AppViewer> {
-  Widget? fullscreenWidget;
+  @override
+  void dispose() {
+    _valueNotifier.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final Widget composedBarWidget = AppContainer(
-      width: widget.barWidth,
-      height: widget.barHeight,
+    final AppLayout layout = context.appLayout;
+    final AppTheme theme = layout.theme;
+    final bool isVerticalDirection = widget.direction == Axis.vertical;
+    final bool isHorizontalDirection = widget.direction == Axis.horizontal;
+
+    final bool showBarBackground =
+      isVerticalDirection && layout.showTopbarBackground ||
+      isHorizontalDirection && layout.showSidebarBackground;
+
+    final Color barColor = showBarBackground
+      ? theme.elementColor1
+      : theme.backgroundColor;
+
+    final Widget builtBarWidget = AppContainer(
+      width: isHorizontalDirection ? widget.barSize : null,
+      height: isVerticalDirection ? widget.barSize : null,
       padding: widget.barPadding,
-      color: OldTheme.AppTheme.highDarkColor.withValues(alpha: 0.6),
-      child: widget.barWidget
+      color: barColor.withValues(alpha: 0.6),
+      child: buildBarWidget(context, showBarBackground)
     );
 
-    final Widget composedBodyWidget = Expanded(
-      child: AppContainer(
-        color: widget.bodyIsTransparent
-          ? OldTheme.AppTheme.highLightColor.withValues(alpha: 0.88)
-          : OldTheme.AppTheme.highLightColor,
-        child: IndexedStack(
-          clipBehavior: Clip.none,
-          index: fullscreenWidget == null ? 0 : 1,
-          children: [
-            widget.bodyWidget,
-
-            if (fullscreenWidget != null)
-              Padding(
-                padding: const AppEdgeInsets.normal(),
-                child: fullscreenWidget
-              )
-          ]
+    final Widget builtBodyWidget = AppContainer(
+      color: widget.isTransparentBody
+        ? theme.backgroundColor.withValues(alpha: 0.9)
+        : theme.backgroundColor,
+      child: _Notifier(
+        notifier: _valueNotifier,
+        child: _IndexedStack(
+          child: buildBodyWidget(context)
         )
       )
     );
@@ -96,7 +102,10 @@ class _State extends State<AppViewer> {
         width: widget.windowWidth,
         height: widget.windowHeight,
         margin: const AppEdgeInsets.normal(),
-        borderColor: OldTheme.AppTheme.lightBlue,
+        borderSize: 2,
+        borderColor: showBarBackground
+          ? theme.overElement1Color1.withValues(alpha: 0.48)
+          : null,
         borderRadius: AppTheme.allBorderRadius,
         isClipped: true,
         child: BackdropFilter(
@@ -104,8 +113,10 @@ class _State extends State<AppViewer> {
           child: Flex(
             direction: widget.direction,
             children: [
-              composedBarWidget,
-              composedBodyWidget
+              builtBarWidget,
+              Expanded(
+                child: builtBodyWidget
+              )
             ]
           )
         )
@@ -113,18 +124,42 @@ class _State extends State<AppViewer> {
     );
   }
 
-  void setFullscreenWidget(Widget? widget) {
-    setState(() => fullscreenWidget = widget);
+  Widget buildBarWidget(BuildContext context, bool showBarBackground);
+  Widget buildBodyWidget(BuildContext context);
+}
+
+class _IndexedStack extends StatelessWidget {
+  final child;
+
+  _IndexedStack({
+    required this.child
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    Widget? fullScreenWidget =
+      context.dependOnInheritedWidgetOfExactType<_Notifier>()?.notifier?.value;
+
+    return IndexedStack(
+      clipBehavior: Clip.none,
+      sizing: StackFit.expand,
+      index: fullScreenWidget == null ? 0 : 1,
+      children: [
+        child,
+
+        if (fullScreenWidget != null)
+          Padding(
+            padding: const AppEdgeInsets.normal(),
+            child: fullScreenWidget
+          )
+      ]
+    );
   }
 }
 
-
-class AppViewerKey extends GlobalKey {
-  AppViewerKey() : super.constructor();
-
-  _State? get _state => currentState as _State?;
-
-  bool get isInFullscreen => _state?.fullscreenWidget != null;
-
-  void setFullscreenWidget(Widget? widget) => _state?.setFullscreenWidget(widget);
+class _Notifier extends InheritedNotifier<ValueNotifier<Widget?>> {
+  _Notifier({
+    required super.notifier,
+    required super.child
+  });
 }

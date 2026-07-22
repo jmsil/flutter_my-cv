@@ -89,6 +89,8 @@ class GalleryAssets extends AssetsArchive {
   int _thumbnailHeight = 0;
   int get thumbnailHeight => _thumbnailHeight;
 
+  bool get isPortraitThumbnail => _thumbnailWidth < _thumbnailHeight;
+
   @override
   Future<void> load() async {
     await super.load();

@@ -5,14 +5,13 @@ import 'package:flutter/material.dart';
 import '../container/container.dart';
 import '../layout/edge_insets.dart';
 import '../layout/theme.dart';
-import '../theme.dart' as OldTheme;
 
 class ProjectImageWidget extends AppContainer {
-  ProjectImageWidget(Uint8List image)
+  ProjectImageWidget(AppTheme theme, Uint8List image)
     : super(
-        color: Colors.white,
+        color: theme.overBackgroundColor3,
         padding: const AppEdgeInsets.normal(),
-        borderColor: OldTheme.AppTheme.lightBlue.withValues(alpha: 0.32),
+        borderColor: theme.overBackgroundColor2.withValues(alpha: 0.12),
         borderRadius: AppTheme.allBorderRadius,
         child: Image.memory(image)
       );

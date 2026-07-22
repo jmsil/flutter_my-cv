@@ -7,22 +7,32 @@ import '../button/ink_response.dart';
 import '../container/container.dart';
 import '../layout/edge_insets.dart';
 import '../layout/icons.dart';
-import '../layout/layout.dart';
-import '../layout/theme.dart';
+import '../layout/layout_provider.dart';
 import '../scroller.dart';
-import '../theme.dart' as OldTheme;
 import 'viewer.dart';
 
-class AppGallery extends StatefulWidget {
+class AppGallery extends AppViewer {
   final GalleryAssets assets;
 
-  AppGallery(this.assets);
+  AppGallery(this.assets)
+    : super(
+        direction: Axis.horizontal,
+        windowWidth: assets.isPortraitThumbnail ? 1400 : 1800,
+        windowHeight: 980,
+        barSize:
+          assets.thumbnailWidth +
+          _State.unselectedThumbnailBorderSize * 2 +
+          _State.unselectedThumbnailMargin.horizontal +
+          _State.thumbnailsContainerPadding.horizontal,
+        barPadding: _State.thumbnailsContainerPadding,
+        isTransparentBody: true
+      );
 
   @override
   _State createState() => _State();
 }
 
-class _State extends State<AppGallery> {
+class _State extends AppViewerState<AppGallery> {
   static const double selectedThumbnailBorderSize = 3;
   static const double unselectedThumbnailBorderSize = 1;
   static const EdgeInsets thumbnailsContainerPadding = AppEdgeInsets.xLarge();
@@ -31,31 +41,33 @@ class _State extends State<AppGallery> {
     horizontal: 12, vertical: 6
   );
 
-  int index = 0;
-  late final int count;
-  late final double thumbnailWidth;
-  late final bool isPortrait;
-
   final List<GlobalKey> thumbnailKeys = [];
   final ScrollController scrollController = ScrollController();
+
+  int index = 0;
 
   @override
   void initState() {
     super.initState();
-
-    count = widget.assets.count;
-    thumbnailWidth = widget.assets.thumbnailWidth.toDouble();
-    isPortrait = thumbnailWidth < widget.assets.thumbnailHeight;
-
-    for (int i = 0; i < count; i++)
+    for (int i = 0; i < widget.assets.count; i++)
       thumbnailKeys.add(GlobalKey());
   }
 
   @override
   Widget build(BuildContext context) {
+    return Focus(
+      autofocus: true,
+      onKeyEvent: onKeyEvent,
+      child: super.build(context)
+    );
+  }
+
+  @override
+  Widget buildBarWidget(BuildContext context, bool showBarBackground) {
+    final AppTheme theme = context.appLayout.theme;
     final List<Widget> thumbnails = [];
 
-    for (int i = 0; i < count; i++) {
+    for (int i = 0; i < widget.assets.count; i++) {
       bool isSelected = i == index;
       Widget thumbnail = AnimatedPadding(
         key: thumbnailKeys[i],
@@ -64,7 +76,7 @@ class _State extends State<AppGallery> {
         curve: AppTheme.animationCurve,
         child: AppContainer(
           borderSize: isSelected ? selectedThumbnailBorderSize : unselectedThumbnailBorderSize,
-          borderColor: OldTheme.AppTheme.lightBlue,
+          borderColor: showBarBackground ? theme.overElement1Color1 : theme.overBackgroundColor1,
           borderRadius: isSelected
             ? const BorderRadius.all(Radius.circular(12))
             : const BorderRadius.all(Radius.circular(8)),
@@ -79,24 +91,31 @@ class _State extends State<AppGallery> {
       thumbnails.add(thumbnail);
     }
 
+    return AppListView(
+      controller: scrollController,
+      children: thumbnails
+    );
+  }
+
+  @override
+  Widget buildBodyWidget(BuildContext context) {
+    final AppTheme theme = context.appLayout.theme;
+
     final Widget imageWidget = Expanded(
       child: Center(
         child: AppContainer(
           margin: const AppEdgeInsets.xLarge(),
           borderSize: 12,
-          borderColor: OldTheme.AppTheme.darkColor,
+          borderColor: theme.overBackgroundColor1,
           borderRadius: const BorderRadius.all(Radius.circular(32)),
-          child: Image.memory(
-            widget.assets.getFile(index + 1),
-            gaplessPlayback: true
-          )
+          child: Image.memory(widget.assets.getFile(index + 1), gaplessPlayback: true)
         )
       )
     );
 
     final Widget closeButton = AppButton.icon(
       icon: AppIcons.close,
-      color: OldTheme.AppTheme.darkColor,
+      color: theme.overBackgroundColor1,
       onPressed: () => Navigator.pop(context)
     );
 
@@ -105,7 +124,7 @@ class _State extends State<AppGallery> {
         alignment: Alignment.bottomRight,
         child: AppButton.icon(
           icon: AppIcons.arrowUp,
-          color: OldTheme.AppTheme.darkColor,
+          color: theme.overBackgroundColor1,
           onPressed: onPrevious
         )
       )
@@ -116,18 +135,18 @@ class _State extends State<AppGallery> {
         alignment: Alignment.topRight,
         child: AppButton.icon(
           icon: AppIcons.arrowDown,
-          color: OldTheme.AppTheme.darkColor,
+          color: theme.overBackgroundColor1,
           onPressed: onNext
         )
       )
     );
 
     final Widget label = Text(
-      '${index + 1}/${count}',
-      style: OldTheme.AppTheme.darkBoldStyle
+      '${index + 1}/${ widget.assets.count }',
+      style: theme.text1OverBackgroundColor1BoldStyle
     );
 
-    final Widget bodyWidget = Row(
+    return Row(
       children: [
         imageWidget,
         Padding(
@@ -145,27 +164,6 @@ class _State extends State<AppGallery> {
         )
       ]
     );
-
-    return Focus(
-      autofocus: true,
-      onKeyEvent: onKeyEvent,
-      child: AppViewer(
-        direction: Axis.horizontal,
-        windowWidth: isPortrait ? 1400 : 1800,
-        windowHeight: 980,
-        barWidth: thumbnailWidth +
-          unselectedThumbnailBorderSize * 2 +
-          unselectedThumbnailMargin.horizontal +
-          thumbnailsContainerPadding.horizontal,
-        barPadding: thumbnailsContainerPadding,
-        bodyIsTransparent: true,
-        barWidget: AppListView(
-          controller: scrollController,
-          children: thumbnails
-        ),
-        bodyWidget: bodyWidget
-      )
-    );
   }
 
   void onPrevious() {
@@ -174,7 +172,7 @@ class _State extends State<AppGallery> {
   }
 
   void onNext() {
-    if (index < count - 1)
+    if (index < widget.assets.count - 1)
       setIndex(index + 1);
   }
 

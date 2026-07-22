@@ -4,7 +4,7 @@ import 'button/ink_response.dart';
 
 class AppHoverWidget extends StatefulWidget {
   final Widget? child;
-  final Widget Function(bool hovered, Widget? child) builder;
+  final Widget Function(BuildContext context, bool hovered, Widget? child) builder;
   final void Function()? onPressed;
 
   AppHoverWidget({
@@ -17,7 +17,6 @@ class AppHoverWidget extends StatefulWidget {
   _State createState() => _State();
 }
 
-
 class _State extends State<AppHoverWidget> {
   bool hovered = false;
 
@@ -27,7 +26,7 @@ class _State extends State<AppHoverWidget> {
       effectsColor: Colors.transparent,
       onPressed: widget.onPressed,
       onHover: onHover,
-      child: widget.builder(hovered, widget.child)
+      child: widget.builder(context, hovered, widget.child)
     );
   }
 

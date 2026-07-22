@@ -14,30 +14,29 @@ import '../container/container.dart';
 import '../hover.dart';
 import '../layout/edge_insets.dart';
 import '../layout/icons.dart';
-import '../layout/theme.dart';
-import '../theme.dart' as OldTheme;
+import '../layout/layout_provider.dart';
 import 'viewer.dart';
 
 class ProjectCodeWidget extends StatelessWidget {
-  final AppViewerKey viewerKey;
   final AssetsArchive assets;
   final List<int> assetsIds;
   final List<int> flexes;
 
-  ProjectCodeWidget(this.viewerKey, this.assets, this.assetsIds, [this.flexes = const []]);
+  ProjectCodeWidget(this.assets, this.assetsIds, [this.flexes = const []]);
 
   @override
   Widget build(BuildContext context) {
+    AppTheme theme = context.appLayout.theme;
     final List<Widget> children = [];
 
     for (int id in assetsIds) {
       Widget editorWidget = Expanded(
         flex: flexes.isEmpty ? 1 : flexes[assetsIds.indexOf(id)],
-        child: _Editor(assets.getFile(id))
+        child: _Editor(theme, assets.getFile(id))
       );
       Widget dividerWidget = VerticalDivider(
         thickness: 48, width: 48,
-        color: OldTheme.AppTheme.lowLightColor.withValues(alpha: 0.06)
+        color: theme.elementColor3.withValues(alpha: 0.06)
       );
       children.add(editorWidget);
       children.add(dividerWidget);
@@ -46,7 +45,7 @@ class ProjectCodeWidget extends StatelessWidget {
     children.removeLast();
 
     final Widget child = AppContainer(
-      color: OldTheme.AppTheme.highDarkColor,
+      color: theme.elementColor1,
       borderRadius: AppTheme.allBorderRadius,
       child: Row(children: children)
     );
@@ -60,16 +59,18 @@ class ProjectCodeWidget extends StatelessWidget {
     );
   }
 
-  Widget _hoverBuilder(bool hovered, Widget? child) {
-    final List<Widget> children = [child!];
+  Widget _hoverBuilder(BuildContext context, bool hovered, Widget? child) {
+    final AppTheme theme = context.appLayout.theme;
+    final isInFullScreenMode = AppViewer.isInFullScreenOf(context);
+    final List<Widget> children = [ child! ];
 
     if (hovered) {
       Widget fullscreenButton = Padding(
         padding: const AppEdgeInsets.normal(),
         child: AppButton.icon(
-          icon: viewerKey.isInFullscreen ? AppIcons.fullScreenExit : AppIcons.fullscreen,
-          color: OldTheme.AppTheme.lightBlue,
-          onPressed: () => _fullscreenPressed(child)
+          icon: isInFullScreenMode ? AppIcons.fullScreenExit : AppIcons.fullscreen,
+          color: theme.overElement1Color1,
+          onPressed: () => _fullScreenPressed(context, isInFullScreenMode, child)
         )
       );
       children.add(fullscreenButton);
@@ -82,20 +83,19 @@ class ProjectCodeWidget extends StatelessWidget {
     );
   }
 
-  void _fullscreenPressed(Widget hoverChild) {
-    Widget? fullscreenWidget = viewerKey.isInFullscreen
+  void _fullScreenPressed(BuildContext context, bool isInFullScreenMode, Widget child) {
+    Widget? widget = isInFullScreenMode
       ? null
       : AppHoverWidget(
-          child: hoverChild,
+          child: child,
           builder: _hoverBuilder
         );
-    viewerKey.setFullscreenWidget(fullscreenWidget);
+    AppViewer.setFullScreenOf(context, widget);
   }
 }
 
-
 class _Editor extends CodeEditor {
-  _Editor(Uint8List code)
+  _Editor(AppTheme theme, Uint8List code)
     : super(
         readOnly: true,
 
@@ -104,10 +104,10 @@ class _Editor extends CodeEditor {
         ),
 
         style: CodeEditorStyle(
-          fontSize: OldTheme.AppTheme.normalFontSize,
-          textColor: OldTheme.AppTheme.highLightColor,
-          cursorColor: OldTheme.AppTheme.highLightColor,
-          selectionColor: OldTheme.AppTheme.lowLightColor.withValues(alpha: 0.25),
+          fontSize: theme.text1FontSize,
+          textColor: theme.backgroundColor,
+          cursorColor: theme.backgroundColor,
+          selectionColor: theme.elementColor3.withValues(alpha: 0.25),
           codeTheme: CodeHighlightTheme(
             languages: {
               'xml': CodeHighlightThemeMode(mode: langXml),
@@ -130,7 +130,7 @@ class _Editor extends CodeEditor {
 
         leadingDivider: VerticalDivider(
           width: 1,
-          color: OldTheme.AppTheme.lowLightColor.withValues(alpha: 0.32)
+          color: theme.elementColor3.withValues(alpha: 0.32)
         )
       );
 }

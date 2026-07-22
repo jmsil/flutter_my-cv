@@ -5,7 +5,6 @@ import '../button/loading_button.dart';
 import '../layout/icons.dart';
 import '../layout/layout.dart';
 import '../layout/theme.dart';
-import 'viewer.dart';
 
 class ProjectTileWidget extends Row {
   ProjectTileWidget(AppTheme theme, Project project)
@@ -40,9 +39,8 @@ abstract class Project {
   final String description;
   final String info;
   final AssetsArchive assets;
-  final AppViewerKey viewerKey = AppViewerKey();
 
   Project(this.title, this.description, this.info, this.assets);
 
-  List<Widget> buildPlaceholderWidgets();
+  List<Widget> buildPlaceholderWidgets(AppTheme theme);
 }
