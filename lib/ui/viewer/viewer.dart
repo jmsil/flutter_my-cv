@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+import '../../scaffold/main_scaffold.dart';
 import '../container/container.dart';
 import '../layout/edge_insets.dart';
 import '../layout/layout_provider.dart';
@@ -66,6 +67,7 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
   Widget build(BuildContext context) {
     final AppLayout layout = context.appLayout;
     final AppTheme theme = layout.theme;
+    final bool isMediumMobileScreen = context.isMediumMobileScreen;
     final bool isVerticalDirection = widget.direction == Axis.vertical;
     final bool isHorizontalDirection = widget.direction == Axis.horizontal;
 
@@ -87,7 +89,7 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
 
     final Widget builtBodyWidget = AppContainer(
       color: widget.isTransparentBody
-        ? theme.backgroundColor.withValues(alpha: 0.9)
+        ? theme.backgroundColor.withValues(alpha: 0.88)
         : theme.backgroundColor,
       child: _Notifier(
         notifier: _valueNotifier,
@@ -97,31 +99,35 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
       )
     );
 
-    return Center(
-      child: AppContainer(
-        width: widget.windowWidth,
-        height: widget.windowHeight,
-        margin: const AppEdgeInsets.normal(),
-        borderSize: 2,
-        borderColor: showBarBackground
-          ? theme.overElement1Color1.withValues(alpha: 0.48)
-          : null,
-        borderRadius: AppTheme.allBorderRadius,
-        isClipped: true,
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
-          child: Flex(
-            direction: widget.direction,
-            children: [
-              builtBarWidget,
-              Expanded(
-                child: builtBodyWidget
-              )
-            ]
+    final Widget builtWidget = BackdropFilter(
+      filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+      child: Flex(
+        direction: widget.direction,
+        children: [
+          builtBarWidget,
+          Expanded(
+            child: builtBodyWidget
           )
-        )
+        ]
       )
     );
+
+    return isMediumMobileScreen
+      ? Center(
+          child: AppContainer(
+            width: widget.windowWidth,
+            height: widget.windowHeight,
+            margin: const AppEdgeInsets.normal(),
+            borderSize: 2,
+            borderColor: showBarBackground
+              ? theme.overElement1Color1.withValues(alpha: 0.48)
+              : null,
+            borderRadius: AppTheme.allBorderRadius,
+            isClipped: true,
+            child: builtWidget
+          )
+        )
+      : AppContainer(child: builtWidget);
   }
 
   Widget buildBarWidget(BuildContext context, bool showBarBackground);

@@ -22,19 +22,9 @@ class MainScaffold extends ListenableBuilder {
 }
 
 extension BuildContextExtension on BuildContext {
-  double get screenWidth {
-    return MediaQuery.of(this).size.width;
-  }
-
-  bool get isSmallMobileScreen {
-    return MediaQuery.of(this).size.width < 430;
-  }
-
-  bool get isDesktopScreen {
-    return MediaQuery.of(this).size.width >= 1260;
-  }
-
-  bool get isLargeDesktopScreen {
-    return MediaQuery.of(this).size.width >= 1640;
-  }
+  double get screenWidth => MediaQuery.of(this).size.width;
+  bool get isSmallMobileScreen => screenWidth < 430;
+  bool get isMediumMobileScreen => screenWidth >= 720;
+  bool get isDesktopScreen => screenWidth >= 1260;
+  bool get isLargeDesktopScreen => screenWidth >= 1640;
 }
