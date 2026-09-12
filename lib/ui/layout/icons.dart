@@ -13,13 +13,13 @@ class AppIcons {
   static const IconData experience = Icons.business_center_outlined;
   static const IconData fullWindow = Icons.open_in_full;
   static const IconData fullWindowExit = Icons.close_fullscreen;
+  static const IconData info = Icons.info_outline;
   static const IconData language = Icons.language_outlined;
   static const IconData link = Icons.link;
   static const IconData local = Icons.room_outlined;
   static const IconData mail = Icons.mail_outlined;
   static const IconData openInNew = Icons.open_in_new_outlined;
   static const IconData phone = Icons.phone_outlined;
-  static const IconData plus = Icons.add;
   static const IconData settings = Icons.settings_outlined;
   static const IconData studying = Icons.local_library_outlined;
   static const IconData summary = Icons.format_list_bulleted;
