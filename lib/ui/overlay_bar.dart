@@ -1,4 +1,4 @@
-import 'dart:math' as Math;
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 
@@ -25,23 +25,23 @@ class OverlayBar extends CustomPaint {
     this.endForegroundColor,
     required super.child
   })
-    : this.startSize = Math.max(radius, startSize),
-      this.endSize = Math.max(radius, endSize),
+    : this.startSize = max(radius, startSize),
+      this.endSize = max(radius, endSize),
       super(
         painter: _Painter(
           direction,
-          Math.max(radius, startSize),
+          max(radius, startSize),
           startBackgroundColor,
-          Math.max(radius, endSize),
+          max(radius, endSize),
           endBackgroundColor
         ),
         foregroundPainter: _ForegroundPainter(
           direction,
           padding,
           radius,
-          Math.max(radius, startSize),
+          max(radius, startSize),
           startForegroundColor,
-          Math.max(radius, endSize),
+          max(radius, endSize),
           endForegroundColor
         )
       );
@@ -71,8 +71,8 @@ class _Painter extends CustomPainter {
       final double startSizeFactor = hasEndBox ? startSize / (startSize + endSize) : 1;
       final double endSizeFactor = hasStartBox ? endSize / (startSize + endSize) : 1;
       final double axisSize = direction == Axis.vertical ? size.height : size.width;
-      final double normalizedStartSize = Math.min(startSize, startSizeFactor * axisSize);
-      final double normalizedEndSize = Math.min(endSize, endSizeFactor * axisSize);
+      final double normalizedStartSize = min(startSize, startSizeFactor * axisSize);
+      final double normalizedEndSize = min(endSize, endSizeFactor * axisSize);
 
       if (hasStartBox) {
         _paint.color = startColor!;
@@ -149,7 +149,7 @@ class _ForegroundPainter extends _Painter {
       if (isHorizontal) {
         Matrix4 matrix = Matrix4.identity();
         matrix.translateByDouble(0, size.height, 0, 0);
-        matrix.rotateZ(-90 * (Math.pi / 180));
+        matrix.rotateZ(-90 * (pi / 180));
         path = path.transform(matrix.storage);
       }
 
@@ -169,9 +169,9 @@ class _ForegroundPainter extends _Painter {
 
 Path _getClipPath(double padding, double startRadius, double endRadius, Size canvasSize) {
   final double availableRadiusSize =
-    Math.min(canvasSize.width - padding * 2, canvasSize.height) / 2;
-  startRadius = Math.min(startRadius, availableRadiusSize);
-  endRadius = Math.min(endRadius, availableRadiusSize);
+    min(canvasSize.width - padding * 2, canvasSize.height) / 2;
+  startRadius = min(startRadius, availableRadiusSize);
+  endRadius = min(endRadius, availableRadiusSize);
   final Radius startRadiusR = Radius.circular(startRadius);
   final Radius endRadiusR = Radius.circular(endRadius);
   final Path path = Path();

@@ -1,4 +1,4 @@
-import 'dart:math' as Math;
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -105,7 +105,7 @@ class _State extends AppViewerState<AppGallery> {
   @override
   Widget buildBody(double width, double height) {
     final AppTheme theme = context.appLayout.theme;
-    final double borderSize = Math.min(Math.min(width, height) * 0.025, 12);
+    final double borderSize = min(min(width, height) * 0.025, 12);
 
     return GestureDetector(
       onHorizontalDragEnd: _onDrag,

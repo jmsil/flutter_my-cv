@@ -1,8 +1,8 @@
 import 'dart:js_interop';
-import 'dart:ui_web' as UiWeb;
+import 'dart:ui_web';
 
 import 'package:flutter/material.dart';
-import 'package:web/web.dart' as Web;
+import 'package:web/web.dart' as web;
 
 import '../../scaffold/device.dart';
 import '../container/container.dart';
@@ -21,18 +21,18 @@ class _State extends State<ProjectSwaggerWidget> {
   void initState() {
     super.initState();
 
-    UiWeb.platformViewRegistry.registerViewFactory(
+    platformViewRegistry.registerViewFactory(
       _viewType,
       (int viewId) {
-        Web.HTMLIFrameElement iFrame = Web.HTMLIFrameElement();
+        web.HTMLIFrameElement iFrame = web.HTMLIFrameElement();
         iFrame.src = 'swagger/dist/index.html';
         iFrame.style.border = 'none';
         iFrame.style.width = '100%';
         iFrame.style.height = '100%';
 
         iFrame.onLoad.listen((_) {
-          Web.Document document = iFrame.contentWindow!.document;
-          Web.Element element = document.createElement('style');
+          web.Document document = iFrame.contentWindow!.document;
+          web.Element element = document.createElement('style');
           element.textContent =
             'html, body, .swagger-ui {'
             '  background: transparent;'
@@ -62,10 +62,10 @@ class _State extends State<ProjectSwaggerWidget> {
 
         iFrame.addEventListener(
           'wheel',
-          ((Web.Event event) {
+          ((web.Event event) {
             event.stopPropagation();
           }).toJS,
-          Web.EventListenerOptions(capture: true)
+          web.EventListenerOptions(capture: true)
         );
 
         return iFrame;

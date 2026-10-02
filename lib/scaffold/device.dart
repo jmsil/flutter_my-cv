@@ -1,9 +1,9 @@
 import 'package:flutter/widgets.dart';
-import 'package:web/web.dart' as Web;
+import 'package:web/web.dart';
 
 class AppDevice {
   static bool isMobileDevice() {
-    String userAgent = Web.window.navigator.userAgent.toLowerCase();
+    String userAgent = window.navigator.userAgent.toLowerCase();
     return
       userAgent.contains('iphone') ||
       userAgent.contains('ipad') ||

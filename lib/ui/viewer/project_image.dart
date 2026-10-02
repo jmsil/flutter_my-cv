@@ -1,4 +1,4 @@
-import 'dart:math' as Math;
+import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
@@ -28,7 +28,7 @@ class ProjectImageWidget extends StatelessWidget {
             constrained: false,
             child: ConstrainedBox(
               constraints: BoxConstraints(
-                maxWidth: Math.max(builderConstraints.maxWidth, 1920),
+                maxWidth: max(builderConstraints.maxWidth, 1920),
                 minHeight: builderConstraints.maxHeight
               ),
               child: builtImageWidget
