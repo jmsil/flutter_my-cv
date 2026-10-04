@@ -51,9 +51,9 @@ abstract class Strings {
   static const String bookDelphiBibleDetail = 'Marco Cantù';
   static const String bookGoogleAndroidDetail = 'Ricardo R. Lecheta';
   static const String bookCleanCodeTitle =
-    'Clean Code ▪ A Handbook of Agile Software Craftsmanship';
+    'Clean Code - A Handbook of Agile Software Craftsmanship';
   static const String bookCleanArchitectureTitle =
-    'Clean Architecture ▪ A Craftsman\'s Guide to Software Structure and Design';
+    'Clean Architecture - A Craftsman\'s Guide to Software Structure and Design';
   static const String booksCleanCodeArchDetail = 'Robert C. Martin';
   static const String bookEnterpriseIntegrationPatternsTitle = 'Enterprise Integration Patterns';
   static const String bookEnterpriseIntegrationPatternsDetail = 'Gregor Hohpe & Bobby Woolf';

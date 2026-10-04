@@ -395,7 +395,7 @@ class StringsEn extends Strings {
     'database for a little building materials store in my city.\n\n'
 
     'In this project, I was able to apply the knowledge I was acquiring in my graduation and '
-    'through individual studies of the book Mastering Delphi ▪ The Bible.';
+    'through individual studies of the book Mastering Delphi - The Bible.';
   @override
   String get educationTitle => 'Education';
   @override
@@ -418,10 +418,10 @@ class StringsEn extends Strings {
   @override
   String get booksTitle => 'Books';
   @override
-  String get bookDelphiBibleTitle => 'Mastering Delphi ▪ The Bible';
+  String get bookDelphiBibleTitle => 'Mastering Delphi - The Bible';
   @override
   String get bookGoogleAndroidTitle =>
-    'Google Android ▪ Mobile Applications with the Android SDK';
+    'Google Android - Mobile Applications with the Android SDK';
   @override
   String get courseOracleTitle => 'Oracle OCA/OCP Certification Exams Guide';
   @override

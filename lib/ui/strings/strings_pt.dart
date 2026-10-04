@@ -407,7 +407,7 @@ class StringsPt extends Strings {
     'dados MySQL para uma pequena loja de materiais para construção em minha cidade.\n\n'
 
     'Nesse projeto, pude aplicar os conhecimentos que adquiria na faculdade e estudos individuais '
-    'do livro Dominando o Delphi ▪ A Bíblia.';
+    'do livro Dominando o Delphi - A Bíblia.';
   @override
   String get educationTitle => 'Formação';
   @override
@@ -430,10 +430,10 @@ class StringsPt extends Strings {
   @override
   String get booksTitle => 'Livros';
   @override
-  String get bookDelphiBibleTitle => 'Dominando o Delphi ▪ A Bíblia';
+  String get bookDelphiBibleTitle => 'Dominando o Delphi - A Bíblia';
   @override
   String get bookGoogleAndroidTitle =>
-     'Google Android ▪ Aplicações Móveis com o Android SDK';
+     'Google Android - Aplicações Móveis com o Android SDK';
   @override
   String get courseOracleTitle => 'Guia Para os Exames de Certificação OCA/OCP Oracle';
   @override
