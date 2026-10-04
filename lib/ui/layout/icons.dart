@@ -9,6 +9,7 @@ class AppIcons {
   static const IconData back = Icons.arrow_back;
   static const IconData close = Icons.close;
   static const IconData code = Icons.code;
+  static const IconData download = Icons.file_download_outlined;
   static const IconData education = Icons.school_outlined;
   static const IconData experience = Icons.business_center_outlined;
   static const IconData fullWindow = Icons.open_in_full;

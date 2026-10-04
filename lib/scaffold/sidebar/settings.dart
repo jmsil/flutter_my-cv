@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../content/pdf/generator.dart';
 import '../../ui/button/button.dart';
 import '../../ui/button/popup_menu_button.dart';
 import '../../ui/layout/icons.dart';
@@ -45,34 +46,41 @@ class Settings extends StatelessWidget {
     if ( ! isExtendedScreen)
       return languagesWidget;
 
-    Widget layoutsWidget = Row(
+    final Widget layoutsWidget = Row(
       spacing: AppLayout.smallSpacing,
       children: [
         AppButton.icon(
           icon: AppIcons.flatLayout,
           color: theme.overBackgroundColor2,
           isSelected: layout == AppLayout.flat,
-          onPressed: () => setLayout(context, AppLayout.flat, isExtendedScreen)
+          onPressed: () => setLayout(context, AppLayout.flat)
         ),
         AppButton.icon(
           icon: AppIcons.leftLayout,
           color: theme.overBackgroundColor2,
           isSelected: layout == AppLayout.left,
-          onPressed: () => setLayout(context, AppLayout.left, isExtendedScreen)
+          onPressed: () => setLayout(context, AppLayout.left)
         ),
         AppButton.icon(
           icon: AppIcons.topLayout,
           color: theme.overBackgroundColor2,
           isSelected: layout == AppLayout.top,
-          onPressed: () => setLayout(context, AppLayout.top, isExtendedScreen)
+          onPressed: () => setLayout(context, AppLayout.top)
         ),
         AppButton.icon(
           icon: AppIcons.fullLayout,
           color: theme.overBackgroundColor2,
           isSelected: layout == AppLayout.full,
-          onPressed: () => setLayout(context, AppLayout.full, isExtendedScreen)
+          onPressed: () => setLayout(context, AppLayout.full)
         )
       ]
+    );
+
+    final Widget downloadPdfButton = AppMaterialButton(
+      theme,
+      AppIcons.download,
+      Strings.downloadPdf,
+      onPressed: () => downloadPdf(context, StringsProvider.languageCode)
     );
 
     return AppPopupMenuButton(
@@ -82,7 +90,9 @@ class Settings extends StatelessWidget {
         languagesWidget,
         AppLayout.tinyVerticalSpacer,
         _IconTitle(AppIcons.layout, Strings.layout, theme),
-        layoutsWidget
+        layoutsWidget,
+        AppLayout.normalVerticalSpacer,
+        downloadPdfButton
       ]
     );
   }
@@ -93,10 +103,14 @@ class Settings extends StatelessWidget {
     StringsProvider.instance.setLanguage(language);
   }
 
-  void setLayout(BuildContext context, AppLayout layout, bool isExtendedScreen) {
-    if (isExtendedScreen)
-      Navigator.of(context).pop();
+  void setLayout(BuildContext context, AppLayout layout) {
+    Navigator.of(context).pop();
     LayoutProvider.instance.setLayout(layout);
+  }
+
+  void downloadPdf(BuildContext context, String language) {
+    Navigator.of(context).pop();
+    PdfGenerator.generateAndDownload(language);
   }
 }
 

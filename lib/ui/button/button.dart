@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../container/container.dart';
+import '../layout/edge_insets.dart';
 import '../layout/layout_provider.dart';
 
 class AppButton extends StatelessWidget {
@@ -62,4 +63,35 @@ class AppButton extends StatelessWidget {
       onPressed: onPressed
     );
   }
+}
+
+class AppMaterialButton extends MaterialButton {
+  AppMaterialButton(
+    AppTheme theme, IconData icon, String text,
+    {
+      super.onPressed
+    }
+  ) : super(
+    color: theme.overBackgroundColor2.withValues(alpha: 0.16),
+    elevation: 0,
+    hoverElevation: 0,
+    focusElevation: 0,
+    disabledElevation: 0,
+    highlightElevation: 0,
+    hoverColor: theme.inkEffectsColor,
+    splashColor: theme.inkEffectsColor,
+    highlightColor: theme.inkEffectsColor,
+    shape: RoundedRectangleBorder(borderRadius: AppTheme.allBorderRadius),
+    child: Padding(
+      padding: const AppEdgeInsets.small(),
+      child: Row(
+        spacing: AppLayout.smallSpacing,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(icon, color: theme.overBackgroundColor2),
+          Text(text, style: theme.text1OverBackgroundColor2BoldStyle)
+        ]
+      ),
+    )
+  );
 }

@@ -23,6 +23,7 @@ abstract class Strings {
   static const String languagePt = 'Pt';
   static const String languageEn = 'En';
   static const String layout = 'Layout';
+  static const String downloadPdf = 'Download PDF';
   static const String integrationProjectApimProxyTitle = 'API Management Proxy';
   static const String integrationProjectIFlowProxyTitle = 'Integration Flow Proxy';
   static const String integrationProjectExceptionHandlerTitle = 'Exception Handler';
