@@ -9,34 +9,37 @@ class ExpandableContent extends StatelessWidget {
 
   final String headerTitle;
   final String? headerDetail;
-  final Widget? infoWidget;
-  final String? infoText;
+  final Widget? widgetBeforeInfo;
+  final String? info;
+  final Widget? widgetAfterInfo;
   final bool startOpen;
 
   ExpandableContent({
     required this.headerTitle,
     this.headerDetail,
-    this.infoWidget,
-    this.infoText,
+    this.widgetBeforeInfo,
+    this.info,
+    this.widgetAfterInfo,
     this.startOpen = false
   });
 
   @override
   Widget build(BuildContext context) {
     final AppTheme theme = context.appLayout.theme;
-    Widget headerInfoWidget = Text(headerTitle, style: theme.header1OverBackgroundColor1BoldStyle);
+    Widget builtHeaderWidget = Text(
+      headerTitle, style: theme.header1OverBackgroundColor1BoldStyle);
 
     if (headerDetail != null) {
-      headerInfoWidget = Column(
+      builtHeaderWidget = Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          headerInfoWidget,
+          builtHeaderWidget,
           Text(headerDetail!, style: theme.text1OverBackgroundColor1ItalicStyle)
         ]
       );
     }
 
-    final headerContentWidget = Row(
+    builtHeaderWidget = Row(
       spacing: AppLayout.smallSpacing,
       children: [
         VerticalDivider(
@@ -45,33 +48,36 @@ class ExpandableContent extends StatelessWidget {
           radius: AppTheme.circleBorderRadius
         ),
         Expanded(
-          child: headerInfoWidget
+          child: builtHeaderWidget
         )
       ]
     );
 
-    Widget expandableContentWidget;
+    final List<Widget> expandableChildren = [];
 
-    final Widget? infoTextWidget = infoText != null
-      ? Text(infoText!, style: theme.text1OverBackgroundColor1Style)
-      : null;
+    if (widgetBeforeInfo != null)
+      expandableChildren.add(widgetBeforeInfo!);
 
-    if (infoWidget != null && infoTextWidget != null) {
-      expandableContentWidget = Column(
-        spacing: AppLayout.normalSpacing,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          infoWidget!,
-          infoTextWidget
-        ]
-      );
+    if (info != null) {
+      Widget widget = Text(info!, style: theme.text1OverBackgroundColor1Style);
+      expandableChildren.add(widget);
     }
-    else if (infoWidget != null)
-      expandableContentWidget = infoWidget!;
-    else if (infoTextWidget != null)
-      expandableContentWidget = infoTextWidget;
-    else
-      expandableContentWidget = Text('- - -', style: theme.text1OverBackgroundColor1BoldStyle);
+
+    if (widgetAfterInfo != null)
+      expandableChildren.add(widgetAfterInfo!);
+
+    if (expandableChildren.isEmpty) {
+      Widget widget = Text('- - -', style: theme.text1OverBackgroundColor1BoldStyle);
+      expandableChildren.add(widget);
+    }
+
+    final builtExpandableWidget = expandableChildren.length == 1
+      ? expandableChildren[0]
+      : Column(
+          spacing: AppLayout.normalSpacing,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: expandableChildren
+        );
 
     return AppHeaderExpandable(
       startOpen: startOpen,
@@ -80,8 +86,8 @@ class ExpandableContent extends StatelessWidget {
       arrowColor: theme.overBackgroundColor2,
       headerContentPadding: _padding,
       expandableContentPadding: _padding,
-      headerContent: headerContentWidget,
-      expandableContent: expandableContentWidget
+      headerContent: builtHeaderWidget,
+      expandableContent: builtExpandableWidget
     );
   }
 }

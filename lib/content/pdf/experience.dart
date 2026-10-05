@@ -8,7 +8,7 @@ class PdfExperience extends PdfMainGroup {
       PdfSubGroup.info(
         title: StringsProvider.strings.sapIntegrationSuiteLearningJourneyTitle,
         detail: StringsProvider.strings.sapIntegrationSuiteLearningJourneyDetail,
-        info: '',
+        info: StringsProvider.strings.sapIntegrationSuiteLearningJourneyInfo,
         addDivider: false
       ),
       PdfSubGroup.info(

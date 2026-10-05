@@ -17,26 +17,31 @@ import 'oauth2_tokens_handler.dart';
 import 'sql_server_xslt.dart';
 
 class IntegrationLearningExperience extends ExpandableContent {
-  IntegrationLearningExperience(AppTheme theme)
-    : super(
-        headerTitle: StringsProvider.strings.sapIntegrationSuiteLearningJourneyTitle,
-        headerDetail: StringsProvider .strings.sapIntegrationSuiteLearningJourneyDetail,
-        infoWidget: Column(
-          spacing: AppLayout.normalSpacing,
-          children: [
-            ProjectTileWidget(theme, ApimProxyProject()),
-            ProjectTileWidget(theme, IFlowProxyProject()),
-            ProjectTileWidget(theme, ExceptionHandlerProject()),
-            ProjectTileWidget(theme, OAuth2TokensHandlerProject()),
-            ProjectTileWidget(theme, GoogleFirebaseAuthUsersProject()),
-            ProjectTileWidget(theme, InterStatementOauth2MtlsProject()),
-            ProjectTileWidget(theme, SqlServerXsltProject()),
-            ProjectTileWidget(theme, ConversionsFtpProject()),
-            ProjectTileWidget(theme, MappingsProject()),
-            ProjectTileWidget(theme, CalculatorProject())
-          ]
-        ),
-        infoText: StringsProvider.strings.integrationProjectsScriptCollectionInfo,
-        startOpen: true
-      );
+  IntegrationLearningExperience(
+    AppTheme theme
+  ) : super(
+    headerTitle: StringsProvider.strings.sapIntegrationSuiteLearningJourneyTitle,
+    headerDetail: StringsProvider .strings.sapIntegrationSuiteLearningJourneyDetail,
+    info: StringsProvider.strings.sapIntegrationSuiteLearningJourneyInfo,
+    widgetAfterInfo: ExpandableContent(
+      headerTitle: StringsProvider.strings.sapIntegrationSuiteLearningJourneyPortfolioTitle,
+      widgetBeforeInfo: Column(
+        spacing: AppLayout.normalSpacing,
+        children: [
+          ProjectTileWidget(theme, ApimProxyProject()),
+          ProjectTileWidget(theme, IFlowProxyProject()),
+          ProjectTileWidget(theme, ExceptionHandlerProject()),
+          ProjectTileWidget(theme, OAuth2TokensHandlerProject()),
+          ProjectTileWidget(theme, GoogleFirebaseAuthUsersProject()),
+          ProjectTileWidget(theme, InterStatementOauth2MtlsProject()),
+          ProjectTileWidget(theme, SqlServerXsltProject()),
+          ProjectTileWidget(theme, ConversionsFtpProject()),
+          ProjectTileWidget(theme, MappingsProject()),
+          ProjectTileWidget(theme, CalculatorProject())
+        ]
+      ),
+      info: StringsProvider.strings.integrationProjectsScriptCollectionInfo,
+    ),
+    startOpen: true
+  );
 }

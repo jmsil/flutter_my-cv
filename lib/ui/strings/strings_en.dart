@@ -49,7 +49,27 @@ class StringsEn extends Strings {
   String get sapIntegrationSuiteLearningJourneyTitle =>
     'SAP Integration Suite Learning Journey';
   @override
-  String get sapIntegrationSuiteLearningJourneyDetail => 'Since 2023';
+  String get sapIntegrationSuiteLearningJourneyDetail => '2023 ▪ March/2025 - July/2026';
+  @override
+  String get sapIntegrationSuiteLearningJourneyInfo =>
+    'Following the Developing with SAP Integration Suite Learning Journey, I focused on the core '
+    'fundamentals of Enterprise Integration and hands-on practice for the SAP Integration Suite '
+    'certification.\n\n'
+
+    'The resulting portfolio implements the following core techniques:\n'
+    '▪ Advanced API Management security orchestration with Google Firebase JWT verification;\n'
+    '▪ Advanced security orchestration with OAuth2, signed JWT and mTLS authentication;\n'
+    '▪ Advanced scripting for iFlows routing, exception handling, and security artifacts '
+    'handling;\n'
+    '▪ Advanced data mapping with context, queues, and node functions handling;\n'
+    '▪ Integration with the Google Firebase Authentication service for end-user management;\n'
+    '▪ Asynchronous communication via JMS Queues;\n'
+    '▪ XSLT, XML, and JSON conversions and namespace mapping;\n'
+    '▪ Dynamic SOAP consumption via request settings and mappings;\n'
+    '▪ SQL Server database connection.';
+  @override
+  String get sapIntegrationSuiteLearningJourneyPortfolioTitle =>
+    'SAP Integration Suite Portfolio';
   @override
   String get integrationProjectApimProxyDescription =>
     'Allow end-user applications to connect to Cloud Integration using a Firebase JWT token.';

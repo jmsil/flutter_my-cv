@@ -26,30 +26,30 @@ class ExperienceGroup extends StatelessWidget {
       ExpandableContent(
         headerTitle: StringsProvider.strings.smartNewExperienceTitle,
         headerDetail: Strings.smartNewExperienceDetail,
-        infoWidget: AppLink(text: Strings.smartNewShortLink, link: Strings.smartNewLink),
-        infoText: StringsProvider.strings.smartNewExperienceInfo
+        widgetBeforeInfo: AppLink(text: Strings.smartNewShortLink, link: Strings.smartNewLink),
+        info: StringsProvider.strings.smartNewExperienceInfo
       ),
       AppLayout.normalVerticalSpacer,
 
       ExpandableContent(
         headerTitle: StringsProvider.strings.mobileGameExperienceTitle,
         headerDetail: Strings.mobileGameExperienceDetail,
-        infoText: StringsProvider.strings.mobileGameExperienceInfo
+        info: StringsProvider.strings.mobileGameExperienceInfo
       ),
       AppLayout.normalVerticalSpacer,
 
       ExpandableContent(
         headerTitle: StringsProvider.strings.santriExperienceTitle,
         headerDetail: StringsProvider.strings.santriExperienceDetail,
-        infoWidget: AppLink(text: Strings.santriShortLink, link: Strings.santriLink),
-        infoText: StringsProvider.strings.santriExperienceInfo
+        widgetBeforeInfo: AppLink(text: Strings.santriShortLink, link: Strings.santriLink),
+        info: StringsProvider.strings.santriExperienceInfo
       ),
       AppLayout.normalVerticalSpacer,
 
       ExpandableContent(
         headerTitle: StringsProvider.strings.smallErpExperienceTitle,
         headerDetail: Strings.smallErpExperienceDetail,
-        infoText: StringsProvider.strings.smallErpExperienceInfo
+        info: StringsProvider.strings.smallErpExperienceInfo
       )
     ];
 

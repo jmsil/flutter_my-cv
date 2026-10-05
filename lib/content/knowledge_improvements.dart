@@ -12,7 +12,7 @@ class KnowledgeImprovementsGroup extends StatelessWidget {
   Widget build(BuildContext context) {
     final Widget builtCertificationsWidget = ExpandableContent(
       headerTitle: StringsProvider.strings.certificationsTitle,
-      infoWidget: Column(
+      widgetBeforeInfo: Column(
         spacing: AppLayout.normalSpacing,
         children: [
           _Item(
@@ -41,7 +41,7 @@ class KnowledgeImprovementsGroup extends StatelessWidget {
 
     final Widget builtCoursesWidget = ExpandableContent(
       headerTitle: StringsProvider.strings.coursesTitle,
-      infoWidget: Column(
+      widgetBeforeInfo: Column(
         spacing: AppLayout.normalSpacing,
         children: [
           _Item(
@@ -70,7 +70,7 @@ class KnowledgeImprovementsGroup extends StatelessWidget {
 
     final Widget builtBooksWidget = ExpandableContent(
       headerTitle: StringsProvider.strings.booksTitle,
-      infoWidget: Column(
+      widgetBeforeInfo: Column(
         spacing: AppLayout.normalSpacing,
         children: [
           _Item(
