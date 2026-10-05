@@ -15,11 +15,8 @@ abstract class Strings {
   static const String personalEmail = 'jmsilva.inbox@gmail.com';
   static const String personalEmailLink = 'mailto:$personalEmail';
   static const String personalGitHubLink = 'https://github.com/jmsil';
-  static const String programmingSkillsInfo =
-    'Dart/Flutter - Android SDK - Java - C/C++ - Oracle Database - MySQL Database - '
-    'SQL/PL SQL - Git';
-  static const String integrationSkillsInfo =
-    'Cloud Integration - API Management - Advanced Event Mesh/Event Mesh';
+  static const String programmingSkillsInfo = 'Dart/Flutter - Android SDK - Java - C/C++ - Oracle Database - MySQL Database - SQL/PL SQL - Git';
+  static const String integrationSkillsInfo = 'Cloud Integration - API Management - Advanced Event Mesh/Event Mesh';
   static const String languagePt = 'Pt';
   static const String languageEn = 'En';
   static const String layout = 'Layout';
@@ -28,10 +25,8 @@ abstract class Strings {
   static const String integrationProjectIFlowProxyTitle = 'Integration Flow Proxy';
   static const String integrationProjectExceptionHandlerTitle = 'Exception Handler';
   static const String integrationProjectOAuth2TokensHandlerTitle = 'OAuth2 Tokens Handler';
-  static const String integrationProjectGoogleFirebaseAuthUsersTitle =
-    'Google Firebase Auth Users';
-  static const String integrationProjectInterStatementOauth2MtlsTitle =
-    'Inter Statement with OAuth2 and mTLS';
+  static const String integrationProjectGoogleFirebaseAuthUsersTitle = 'Google Firebase Auth Users';
+  static const String integrationProjectInterStatementOauth2MtlsTitle = 'Inter Statement with OAuth2 and mTLS';
   static const String integrationProjectSqlServerWithXsltTitle = 'SQL Server with XSLT';
   static const String integrationProjectConversionsAndFtpTitle = 'Conversions and FTP';
   static const String integrationProjectMappingsTitle = 'Mappings';
@@ -51,31 +46,25 @@ abstract class Strings {
   static const String educationUniversityLink = 'https://estacio.br';
   static const String bookDelphiBibleDetail = 'Marco Cantù';
   static const String bookGoogleAndroidDetail = 'Ricardo R. Lecheta';
-  static const String bookCleanCodeTitle =
-    'Clean Code - A Handbook of Agile Software Craftsmanship';
-  static const String bookCleanArchitectureTitle =
-    'Clean Architecture - A Craftsman\'s Guide to Software Structure and Design';
+  static const String bookCleanCodeTitle = 'Clean Code - A Handbook of Agile Software Craftsmanship';
+  static const String bookCleanArchitectureTitle = 'Clean Architecture - A Craftsman\'s Guide to Software Structure and Design';
   static const String booksCleanCodeArchDetail = 'Robert C. Martin';
   static const String bookEnterpriseIntegrationPatternsTitle = 'Enterprise Integration Patterns';
   static const String bookEnterpriseIntegrationPatternsDetail = 'Gregor Hohpe & Bobby Woolf';
   static const String courseOracleDetail = '2010';
   static const String certificationCcpiTitle = 'SAP Integration Developer C_CPI';
   static const String certificationCcpiDetail = 'SAP';
-  static const String certificationCcpiLink =
-    'https://www.credly.com/badges/76ba4a5b-f8c8-430d-a088-a887e6b90d04/public_url';
+  static const String certificationCcpiLink = 'https://www.credly.com/badges/76ba4a5b-f8c8-430d-a088-a887e6b90d04/public_url';
   static const String courseSapCloudIntegrationImmersionDetail = 'Moovi Education ▪ 05/2025';
   static const String courseSapCloudIntegration20Title = 'SAP Cloud Integration 2.0';
   static const String courseSapCloudIntegration20Detail = 'Moovi Education ▪ 06/2025';
-  static const String courseSapCloudIntegration20CertificateLink =
-    '${_mooviEducationCertificateHost}d39e6da5e22b2a29ae86168057db8b2c67be7ac8';
+  static const String courseSapCloudIntegration20CertificateLink = '${_mooviEducationCertificateHost}d39e6da5e22b2a29ae86168057db8b2c67be7ac8';
   static const String courseSapApiManagementTitle = 'SAP API Management';
   static const String courseSapApiManagementDetail = 'Moovi Education ▪ 06/2025';
-  static const String courseSapApiManagementCertificateLink =
-    '${_mooviEducationCertificateHost}54f002745e63e1413e492e1a0d0414df4358c946';
+  static const String courseSapApiManagementCertificateLink = '${_mooviEducationCertificateHost}54f002745e63e1413e492e1a0d0414df4358c946';
   static const String courseSapAdvancedEventMeshTitle = 'SAP Advanced Event Mesh';
   static const String courseSapAdvancedEventMeshDetail = 'Moovi Education ▪ 12/2025';
-  static const String courseSapAdvancedEventMeshCertificateLink =
-    '${_mooviEducationCertificateHost}dd05be54712a1ed6487e3a00511c26c7505cc76c';
+  static const String courseSapAdvancedEventMeshCertificateLink = '${_mooviEducationCertificateHost}dd05be54712a1ed6487e3a00511c26c7505cc76c';
   static const String mooviEducationCoursesDetail = 'Moovi Education';
   static const String _mooviEducationCertificateHost = 'https://moovi.curseduca.pro/verify/';
 
