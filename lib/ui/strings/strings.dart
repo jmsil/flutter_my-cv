@@ -15,8 +15,9 @@ abstract class Strings {
   static const String personalEmail = 'jmsilva.inbox@gmail.com';
   static const String personalEmailLink = 'mailto:$personalEmail';
   static const String personalGitHubLink = 'https://github.com/jmsil';
+  static const String personalOnlineResumeLink = 'https://flutter-my-cv.firebaseapp.com';
   static const String programmingSkillsInfo = 'Dart/Flutter - Android SDK - Java - C/C++ - Oracle Database - MySQL Database - PL/SQL - Git';
-  static const String integrationSkillsInfo = 'Cloud Integration - API Management - Advanced Event Mesh/Event Mesh';
+  static const String integrationSkillsInfo = 'SAP Cloud Integration - SAP API Management - SAP Advanced Event Mesh/Event Mesh';
   static const String languagePt = 'Pt';
   static const String languageEn = 'En';
   static const String layout = 'Layout';
@@ -135,4 +136,5 @@ abstract class Strings {
   String get languagesInfo;
   String get availabilityTitle;
   String get availabilityInfo;
+  String get visitOnlineResume;
 }

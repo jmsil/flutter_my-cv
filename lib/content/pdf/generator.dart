@@ -9,6 +9,7 @@ import 'package:web/web.dart' as web;
 import 'education.dart';
 import 'experience.dart';
 import 'languages.dart';
+import 'online_resume.dart';
 import 'professional_development.dart';
 import 'professional_summary.dart';
 import 'profile.dart';
@@ -38,7 +39,8 @@ class PdfGenerator {
           PdfExperience(),
           PdfEducation(),
           PdfProfessionalDevelopment(),
-          PdfLanguages()
+          PdfLanguages(),
+          PdfOnlineResume()
         ]
       )
     );

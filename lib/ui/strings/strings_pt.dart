@@ -388,4 +388,6 @@ class StringsPt extends Strings {
     'Contrato CLT - '
     'Somente remoto - '
     'Freelance';
+  @override
+  String get visitOnlineResume => '*Visite meu currículo online para conferir meus projetos práticos relevantes:';
 }

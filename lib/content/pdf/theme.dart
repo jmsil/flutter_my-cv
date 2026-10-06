@@ -9,6 +9,7 @@ class PdfTheme {
   static const double normalSpacing = 12;
   static const double largeSpacing = 32;
   static const double xLargeSpacing = 40;
+  static const double xxLargeSpacing = 64;
 
   static PdfColor backgroundColor = PdfColors.blueGrey50;
   static PdfColor decorationColor = PdfColors.blueGrey100;
@@ -18,11 +19,15 @@ class PdfTheme {
     fontSize: _normalFontSize, fontWeight: FontWeight.bold);
   static final TextStyle normalTextItalicStyle = TextStyle(
     fontSize: _normalFontSize, fontStyle: FontStyle.italic);
+  static final TextStyle normalTextLinkStyle = TextStyle(
+    fontSize: _normalFontSize, color: PdfColors.blue900, decoration: TextDecoration.underline);
   static final TextStyle largeTextStyle = TextStyle(fontSize: _largeFontSize);
   static final TextStyle largeTextBoldStyle = TextStyle(
     fontSize: _largeFontSize, fontWeight: FontWeight.bold);
 
+  static final SizedBox smallVerticalSpace = SizedBox(height: smallSpacing);
   static final SizedBox normalHorizontalSpace = SizedBox(width: normalSpacing);
   static final SizedBox normalVerticalSpace = SizedBox(height: normalSpacing);
   static final SizedBox xLargeVerticalSpace = SizedBox(height: xLargeSpacing);
+  static final SizedBox xxLargeVerticalSpace = SizedBox(height: xxLargeSpacing);
 }

@@ -1,5 +1,7 @@
 import 'package:pdf/widgets.dart';
 
+import 'theme.dart';
+
 class PdfText extends Text {
   static const String bulletReplacer = '–';
 
@@ -21,5 +23,12 @@ class PdfBulletText extends PdfText {
     }
   ) : super(
     '▪ ' + text
+  );
+}
+
+class PdfLink extends UrlLink {
+  PdfLink(String text, String url) : super(
+    destination: url,
+    child: PdfText(text, style: PdfTheme.normalTextLinkStyle)
   );
 }

@@ -388,4 +388,6 @@ class StringsEn extends Strings {
     'Employee contract - '
     'Remote only - '
     'Freelance';
+  @override
+  String get visitOnlineResume => '*Visit my online resume to check out my relevant practical projects:';
 }
