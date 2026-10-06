@@ -15,7 +15,7 @@ abstract class Strings {
   static const String personalEmail = 'jmsilva.inbox@gmail.com';
   static const String personalEmailLink = 'mailto:$personalEmail';
   static const String personalGitHubLink = 'https://github.com/jmsil';
-  static const String programmingSkillsInfo = 'Dart/Flutter - Android SDK - Java - C/C++ - Oracle Database - MySQL Database - SQL/PL SQL - Git';
+  static const String programmingSkillsInfo = 'Dart/Flutter - Android SDK - Java - C/C++ - Oracle Database - MySQL Database - PL/SQL - Git';
   static const String integrationSkillsInfo = 'Cloud Integration - API Management - Advanced Event Mesh/Event Mesh';
   static const String languagePt = 'Pt';
   static const String languageEn = 'En';
@@ -41,7 +41,7 @@ abstract class Strings {
   static const String mobileGameExperienceDetail = '2013 - 2020';
   static const String santriShortLink = 'Santri.com';
   static const String santriLink = 'https://www.santri.com.br';
-  static const String smallErpExperienceDetail = '2006/2007';
+  static const String smallErpExperienceDetail = '2006 - 2007';
   static const String educationUniversityShortLink = 'Estacio.com';
   static const String educationUniversityLink = 'https://estacio.br';
   static const String bookDelphiBibleDetail = 'Marco Cantù';
