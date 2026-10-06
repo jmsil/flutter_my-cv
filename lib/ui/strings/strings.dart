@@ -122,7 +122,7 @@ abstract class Strings {
   String get educationUniversityTitle;
   String get educationUniversityDetail;
   String get educationUniversityInfo;
-  String get knowledgeImprovementsTitle;
+  String get professionalDevelopmentTitle;
   String get certificationsTitle;
   String get coursesTitle;
   String get booksTitle;

@@ -8,8 +8,8 @@ import 'package:web/web.dart' as web;
 
 import 'education.dart';
 import 'experience.dart';
-import 'knowledge.dart';
 import 'languages.dart';
+import 'professional_development.dart';
 import 'professional_summary.dart';
 import 'profile.dart';
 import 'theme.dart';
@@ -37,7 +37,7 @@ class PdfGenerator {
           PdfProfessionalSummary(),
           PdfExperience(),
           PdfEducation(),
-          PdfKnowledgeImprovements(),
+          PdfProfessionalDevelopment(),
           PdfLanguages()
         ]
       )

@@ -7,7 +7,7 @@ import '../ui/text.dart';
 import 'expandable.dart';
 import 'group.dart';
 
-class KnowledgeImprovementsGroup extends StatelessWidget {
+class ProfessionalDevelopmentGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Widget builtCertificationsWidget = ExpandableContent(
@@ -87,7 +87,7 @@ class KnowledgeImprovementsGroup extends StatelessWidget {
 
     return ContentGroup(
       icon: AppIcons.studying,
-      title: StringsProvider.strings.knowledgeImprovementsTitle,
+      title: StringsProvider.strings.professionalDevelopmentTitle,
       hasHorizontalPadding: false,
       children: [
         builtCertificationsWidget,

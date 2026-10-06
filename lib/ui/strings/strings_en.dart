@@ -351,7 +351,7 @@ class StringsEn extends Strings {
 
     'It also included: Digital Systems, Operating Systems, Data Structure & Algorithms, and an introduction to programming languages such as C and Java.';
   @override
-  String get knowledgeImprovementsTitle => 'Professional Development';
+  String get professionalDevelopmentTitle => 'Professional Development';
   @override
   String get certificationsTitle => 'Certifications';
   @override

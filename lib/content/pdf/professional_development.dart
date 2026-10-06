@@ -2,9 +2,9 @@ import '../../ui/strings/strings_provider.dart';
 import 'group.dart';
 import 'title_detail_row.dart';
 
-class PdfKnowledgeImprovements extends PdfMainGroup {
-  PdfKnowledgeImprovements() : super.children(
-    title: StringsProvider.strings.knowledgeImprovementsTitle,
+class PdfProfessionalDevelopment extends PdfMainGroup {
+  PdfProfessionalDevelopment() : super.children(
+    title: StringsProvider.strings.professionalDevelopmentTitle,
     children: [
       PdfSubGroup.children(
         title: StringsProvider.strings.certificationsTitle,

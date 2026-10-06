@@ -351,7 +351,7 @@ class StringsPt extends Strings {
 
     'Também incluiu: Sistemas Digitais, Sistemas Operacionais, Estrutura de Dados e Algoritmos, e uma introdução a linguagens de programação como C e Java.';
   @override
-  String get knowledgeImprovementsTitle => 'Desenvolvimento Profissional';
+  String get professionalDevelopmentTitle => 'Desenvolvimento Profissional';
   @override
   String get certificationsTitle => 'Certificações';
   @override

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../content/education.dart';
 import '../content/experience.dart';
 import '../content/items.dart';
-import '../content/knowledge_improvements.dart';
+import '../content/professional_development.dart';
 import '../ui/layout/edge_insets.dart';
 import '../ui/layout/icons.dart';
 import '../ui/layout/layout_provider.dart';
@@ -33,7 +33,7 @@ class ExtendedScaffold extends StatelessWidget {
             ExperienceGroup(),
 
           EducationGroup(),
-          KnowledgeImprovementsGroup(),
+          ProfessionalDevelopmentGroup(),
           ItemsGroup.languages(),
           ItemsGroup.availability()
         ]
