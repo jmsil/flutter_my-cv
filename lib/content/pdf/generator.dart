@@ -61,7 +61,7 @@ class PdfGenerator {
 
     web.HTMLAnchorElement anchor = web.document.createElement('a') as web.HTMLAnchorElement;
     anchor.href = url;
-    anchor.download = 'my-cv_${language}.pdf';
+    anchor.download = 'Joao-Marques-Silva_CV_${language}.pdf';
     anchor.style.display = 'none';
     web.document.body?.appendChild(anchor);
     anchor.click();
