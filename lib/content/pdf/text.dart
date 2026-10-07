@@ -15,17 +15,6 @@ class PdfText extends Text {
   );
 }
 
-class PdfBulletText extends PdfText {
-  PdfBulletText(
-    String text,
-    {
-      super.style
-    }
-  ) : super(
-    '▪ ' + text
-  );
-}
-
 class PdfLink extends UrlLink {
   PdfLink(String text, String url) : super(
     destination: url,

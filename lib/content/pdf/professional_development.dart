@@ -1,58 +1,73 @@
 import '../../ui/strings/strings_provider.dart';
 import 'group.dart';
-import 'title_detail_row.dart';
+import 'title_detail_link.dart';
 
 class PdfProfessionalDevelopment extends PdfMainGroup {
   PdfProfessionalDevelopment() : super.children(
     title: StringsProvider.strings.professionalDevelopmentTitle,
     children: [
-      PdfSubGroup.children(
+      PdfSubGroup.child(
         title: StringsProvider.strings.certificationsTitle,
-        children: [
-          PdfTitleDetailRow(
-            Strings.certificationCcpiTitle, Strings.certificationCcpiDetail),
-          PdfTitleDetailRow(
-            Strings.courseSapAdvancedEventMeshTitle, Strings.mooviEducationCoursesDetail),
-          PdfTitleDetailRow(
-            Strings.courseSapApiManagementTitle, Strings.mooviEducationCoursesDetail),
-          PdfTitleDetailRow(
-            Strings.courseSapCloudIntegration20Title, Strings.mooviEducationCoursesDetail)
-        ],
+        child: PdfTitleDetailLinkTable(
+          children: [
+            PdfTitleDetailLinkRow(
+              Strings.certificationCcpiTitle, Strings.certificationCcpiDetail,
+              certificationLink: Strings.certificationCcpiLink),
+            PdfTitleDetailLinkRow(
+              Strings.courseSapAdvancedEventMeshTitle, Strings.mooviEducationCoursesDetail,
+              certificationLink: Strings.courseSapAdvancedEventMeshCertificateLink
+            ),
+            PdfTitleDetailLinkRow(
+              Strings.courseSapApiManagementTitle, Strings.mooviEducationCoursesDetail,
+              certificationLink: Strings.courseSapApiManagementCertificateLink
+            ),
+            PdfTitleDetailLinkRow(
+              Strings.courseSapCloudIntegration20Title, Strings.mooviEducationCoursesDetail,
+              certificationLink: Strings.courseSapCloudIntegration20CertificateLink
+            )
+          ]
+        ),
         addDivider: false
       ),
-      PdfSubGroup.children(
+      PdfSubGroup.child(
         title: StringsProvider.strings.coursesTitle,
-        children: [
-          PdfTitleDetailRow(
-            Strings.courseSapAdvancedEventMeshTitle, Strings.courseSapAdvancedEventMeshDetail),
-          PdfTitleDetailRow(
-            Strings.courseSapApiManagementTitle, Strings.courseSapApiManagementDetail),
-          PdfTitleDetailRow(
-            Strings.courseSapCloudIntegration20Title, Strings.courseSapCloudIntegration20Detail),
-          PdfTitleDetailRow(
-            StringsProvider.strings.courseSapCloudIntegrationImmersionTitle,
-            Strings.courseSapCloudIntegrationImmersionDetail
-          ),
-          PdfTitleDetailRow(
-            StringsProvider.strings.courseOracleTitle, Strings.courseOracleDetail)
-        ]
+        child: PdfTitleDetailLinkTable(
+          children: [
+            PdfTitleDetailLinkRow(
+              Strings.courseSapAdvancedEventMeshTitle, Strings.courseSapAdvancedEventMeshDetail),
+            PdfTitleDetailLinkRow(
+              Strings.courseSapApiManagementTitle, Strings.courseSapApiManagementDetail),
+            PdfTitleDetailLinkRow(
+              Strings.courseSapCloudIntegration20Title, Strings.courseSapCloudIntegration20Detail),
+            PdfTitleDetailLinkRow(
+              StringsProvider.strings.courseSapCloudIntegrationImmersionTitle,
+              Strings.courseSapCloudIntegrationImmersionDetail
+            ),
+            PdfTitleDetailLinkRow(
+              StringsProvider.strings.courseOracleTitle, Strings.courseOracleDetail)
+          ]
+        )
       ),
-      PdfSubGroup.children(
+      PdfSubGroup.child(
         title: StringsProvider.strings.booksTitle,
-        children: [
-          PdfTitleDetailRow(
-            Strings.bookEnterpriseIntegrationPatternsTitle,
-            Strings.bookEnterpriseIntegrationPatternsDetail
-          ),
-          PdfTitleDetailRow(
-            Strings.bookCleanArchitectureTitle, Strings.booksCleanCodeArchDetail),
-          PdfTitleDetailRow(
-            Strings.bookCleanCodeTitle, Strings.booksCleanCodeArchDetail),
-          PdfTitleDetailRow(
-            StringsProvider.strings.bookGoogleAndroidTitle, Strings.bookGoogleAndroidDetail),
-          PdfTitleDetailRow(
-            StringsProvider.strings.bookDelphiBibleTitle, Strings.bookDelphiBibleDetail)
-        ]
+        child: PdfTitleDetailLinkTable(
+          isColumn0Flex: true,
+          isSpacingFlex: false,
+          children: [
+            PdfTitleDetailLinkRow(
+              Strings.bookEnterpriseIntegrationPatternsTitle,
+              Strings.bookEnterpriseIntegrationPatternsDetail
+            ),
+            PdfTitleDetailLinkRow(
+              Strings.bookCleanArchitectureTitle, Strings.booksCleanCodeArchDetail),
+            PdfTitleDetailLinkRow(
+              Strings.bookCleanCodeTitle, Strings.booksCleanCodeArchDetail),
+            PdfTitleDetailLinkRow(
+              StringsProvider.strings.bookGoogleAndroidTitle, Strings.bookGoogleAndroidDetail),
+            PdfTitleDetailLinkRow(
+              StringsProvider.strings.bookDelphiBibleTitle, Strings.bookDelphiBibleDetail)
+          ]
+        )
       )
     ]
   );

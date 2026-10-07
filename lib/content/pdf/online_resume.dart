@@ -12,7 +12,7 @@ class PdfOnlineResume extends StatelessWidget {
       children: [
         PdfTheme.xxLargeVerticalSpace,
         Text(StringsProvider.strings.visitOnlineResume, style: PdfTheme.largeTextStyle),
-        PdfTheme.smallVerticalSpace,
+        PdfTheme.tinyVerticalSpace,
         PdfLink(Strings.personalOnlineResumeLink + '.', Strings.personalOnlineResumeLink)
       ]
     );

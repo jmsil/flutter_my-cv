@@ -33,11 +33,10 @@ class PdfProfile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                PdfBulletText(
-                  StringsProvider.strings.personalLocation, style: PdfTheme.normalTextStyle),
-                PdfBulletText(Strings.personalPhone, style: PdfTheme.normalTextStyle),
-                PdfBulletText(Strings.personalEmail, style: PdfTheme.normalTextStyle),
-                PdfBulletText(Strings.personalGitHubLink, style: PdfTheme.normalTextStyle)
+                PdfText(StringsProvider.strings.personalLocation, style: PdfTheme.normalTextStyle),
+                PdfText(Strings.personalPhone, style: PdfTheme.normalTextStyle),
+                PdfText(Strings.personalEmail, style: PdfTheme.normalTextStyle),
+                PdfText(Strings.personalGitHubLink, style: PdfTheme.normalTextStyle)
               ]
             )
           )

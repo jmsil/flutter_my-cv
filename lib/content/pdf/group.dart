@@ -8,14 +8,12 @@ class PdfMainGroup extends _Group {
     required super.title,
     required Widget child
   }) : super(
-    childrenSpacing: PdfTheme.largeSpacing,
     addStartSpacing: true,
     children: [child]
   );
 
   PdfMainGroup.children({
     required super.title,
-    super.childrenSpacing = PdfTheme.largeSpacing,
     required super.children
   }) : super(addStartSpacing: true);
 
@@ -45,19 +43,18 @@ class PdfSubGroup extends _Group {
     this.addDivider = true,
     required String info
   }) : super(
-    childrenSpacing: PdfTheme.smallSpacing,
     addStartSpacing: false,
     children: [PdfText(info, style: PdfTheme.normalTextStyle)]
   );
 
-  PdfSubGroup.children({
+  PdfSubGroup.child({
     required super.title,
     this.detail,
     this.addDivider = true,
-    required super.children
+    required Widget child
   }) : super(
-    childrenSpacing: PdfTheme.smallSpacing,
-    addStartSpacing: false
+    addStartSpacing: false,
+    children: [child]
   );
 
   @override
@@ -96,24 +93,21 @@ class PdfSubGroup extends _Group {
 abstract class _Group extends StatelessWidget {
   final String title;
   final bool addStartSpacing;
-  final double childrenSpacing;
   final List<Widget> children;
 
   _Group({
     required this.title,
     required this.addStartSpacing,
-    required this.childrenSpacing,
     required this.children
   });
 
   @override
   Widget build(Context context) {
     final List<Widget> builtChildren = [];
-    final SizedBox builtSpacing = SizedBox(height: childrenSpacing);
 
     for (Widget child in children) {
       builtChildren.add(child);
-      builtChildren.add(builtSpacing);
+      builtChildren.add(PdfTheme.largeVerticalSpace);
     }
 
     builtChildren.removeLast();
