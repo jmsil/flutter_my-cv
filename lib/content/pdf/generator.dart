@@ -39,12 +39,12 @@ class PdfGenerator {
         ),
         build: (Context context) => [
           PdfProfile(),
+          PdfOnlineResume(),
           PdfProfessionalSummary(),
           PdfExperience(),
           PdfEducation(),
           PdfProfessionalDevelopment(),
-          PdfLanguages(),
-          PdfOnlineResume()
+          PdfLanguages()
         ]
       )
     );

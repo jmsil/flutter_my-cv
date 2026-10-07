@@ -22,7 +22,7 @@ class PdfProfile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                PdfText(Strings.personalName, style: PdfTheme.largeTextBoldStyle),
+                PdfText(Strings.personalName, style: PdfTheme.xLargeTextBoldStyle),
                 PdfText(StringsProvider.strings.longRoles, style: PdfTheme.normalTextStyle)
               ]
             )

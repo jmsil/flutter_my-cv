@@ -48,11 +48,11 @@ class PdfTitleDetailLinkRow extends TableRow {
     children: [
       PdfText(PdfText.bulletReplacer + ' ', style: PdfTheme.normalTextBoldStyle),
       PdfText(title, style: PdfTheme.normalTextBoldStyle),
-      PdfTheme.largeHorizontalSpace,
+      PdfTheme.xLargeHorizontalSpace,
       PdfText(detail, style: PdfTheme.normalTextItalicStyle),
 
       if (certificationLink != null)
-        PdfTheme.largeHorizontalSpace,
+        PdfTheme.xLargeHorizontalSpace,
 
       if (certificationLink != null)
         PdfLink(StringsProvider.strings.verifyCertification, certificationLink)
