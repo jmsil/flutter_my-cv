@@ -295,7 +295,7 @@ class StringsPt extends Strings {
   String get fortlevExperienceDetail => 'BCI/Fortlev ▪ Junho/2021 - Julho/2023';
   @override
   String get fortlevExperienceInfo =>
-    'Atuei no desenvolvimento do aplicativo "Mão Dupla" para gerenciamento de ordens de frete para a Fortlev.\n'
+    'Desenvolvi o "Mão Dupla", um app de gerenciamento de ordens de frete para a Fortlev.\n'
     'Colaborei com gerentes e usuários como Analista Desenvolvedor para coletar e definir requisitos funcionais e técnicos.\n\n'
 
     'O aplicativo se integra ao módulo SAP TM (Transport Management) para automatizar as operações entre os gestores do setor de carga e transporte, transportadoras, e motoristas parceiros. Suas principais funcionalidades são:\n'
