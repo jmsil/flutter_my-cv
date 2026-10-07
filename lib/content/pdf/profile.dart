@@ -34,9 +34,9 @@ class PdfProfile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 PdfText(StringsProvider.strings.personalLocation, style: PdfTheme.normalTextStyle),
-                PdfText(Strings.personalPhone, style: PdfTheme.normalTextStyle),
-                PdfText(Strings.personalEmail, style: PdfTheme.normalTextStyle),
-                PdfText(Strings.personalGitHubLink, style: PdfTheme.normalTextStyle)
+                PdfLink(Strings.personalPhone, Strings.personalPhoneLink),
+                PdfLink(Strings.personalEmail, Strings.personalEmailLink),
+                PdfLink(Strings.personalGitHubLink, Strings.personalGitHubLink)
               ]
             )
           )
