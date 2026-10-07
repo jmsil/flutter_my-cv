@@ -29,13 +29,22 @@ class AppAssets {
   static final AssetsArchive calculatorAssets = AssetsArchive(
     'assets/SapIntegrationSuiteLearningJourney/Calculator/archive.zip');
 
+  static const String _fontsPath = 'assets/fonts/';
+  static const String robotoFont = '${_fontsPath}roboto.ttf';
+  static const String robotoBoldFont = '${_fontsPath}roboto-bold.ttf';
+  static const String robotoItalicFont = '${_fontsPath}roboto-italic.ttf';
+
   static Future<void> loadStartupAssets() async {
     String path = 'assets/Startup/';
-    profilePhoto = await _load('${path}profile_photo.jpeg');
+    profilePhoto = await loadAsUint8List('${path}profile_photo.jpeg');
   }
 
-  static Future<Uint8List> _load(String assetName) async {
-    ByteData data = await rootBundle.load(assetName);
+  static Future<ByteData> loadAsByteData(String assetName) {
+    return rootBundle.load(assetName);
+  }
+
+  static Future<Uint8List> loadAsUint8List(String assetName) async {
+    ByteData data = await loadAsByteData(assetName);
     return data.buffer.asUint8List();
   }
 }
@@ -54,7 +63,7 @@ class AssetsArchive {
       return;
 
     int id = 1;
-    Uint8List asset = await AppAssets._load(_assetName);
+    Uint8List asset = await AppAssets.loadAsUint8List(_assetName);
     Archive archive = ZipDecoder().decodeBytes(asset);
 
     while(_added(archive, id))

@@ -3,9 +3,9 @@ import 'dart:typed_data';
 
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
-import 'package:printing/printing.dart';
 import 'package:web/web.dart' as web;
 
+import '../../ui/assets.dart';
 import 'education.dart';
 import 'experience.dart';
 import 'languages.dart';
@@ -18,9 +18,9 @@ import 'theme.dart';
 class PdfGenerator {
   static void generateAndDownload(String language) async {
     final Document doc = Document();
-    final font = await PdfGoogleFonts.robotoRegular();
-    final fontBold = await PdfGoogleFonts.robotoBold();
-    final fontItalic = await PdfGoogleFonts.robotoItalic();
+    final ByteData font = await AppAssets.loadAsByteData(AppAssets.robotoFont);
+    final ByteData fontBold = await AppAssets.loadAsByteData(AppAssets.robotoBoldFont);
+    final ByteData fontItalic = await AppAssets.loadAsByteData(AppAssets.robotoItalicFont);
 
     doc.addPage(
       MultiPage(
@@ -31,7 +31,11 @@ class PdfGenerator {
             ignoreMargins: true,
             child: Container(color: PdfTheme.backgroundColor)
           ),
-          theme: ThemeData.withFont(base: font, bold: fontBold, italic: fontItalic)
+          theme: ThemeData.withFont(
+            base: Font.ttf(font),
+            bold: Font.ttf(fontBold),
+            italic: Font.ttf(fontItalic)
+          )
         ),
         build: (Context context) => [
           PdfProfile(),
