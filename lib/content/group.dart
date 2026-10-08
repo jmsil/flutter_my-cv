@@ -57,7 +57,7 @@ class ContentGroup extends StatelessWidget {
               height: titleContainerSize,
               color: theme.elementColor3,
               margin: const EdgeInsets.only(left: iconContainerSize / 2),
-              borderColor: theme.elementColor2.withValues(alpha: 0.5),
+              borderColor: theme.elementColor2.withValues(alpha: 0.24),
               borderRadius: AppTheme.circleBorderRadius,
               child: Center(
                 child: Text(title, style: theme.header1OverElement3Color1BoldStyle)

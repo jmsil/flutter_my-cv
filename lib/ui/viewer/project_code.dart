@@ -74,7 +74,7 @@ class _CodeEditor extends CodeEditor {
           textColor: theme.backgroundColor,
           cursorColor: theme.backgroundColor,
           backgroundColor: theme.elementColor1,
-          selectionColor: theme.elementColor3.withValues(alpha: 0.25),
+          selectionColor: theme.elementColor3.withValues(alpha: 0.32),
           codeTheme: CodeHighlightTheme(
             languages: {
               'xml': CodeHighlightThemeMode(mode: langXml),
@@ -104,13 +104,14 @@ class _CodeEditor extends CodeEditor {
 }
 
 class _FullWindowHandler extends SizedBox {
-  _FullWindowHandler(AppTheme theme, Widget child, Widget? fullWindowChild)
-    : super(
-        height: 326,
-        child: AppViewerFullWindowHandler(
-          iconColor: theme.overElement1Color1,
-          child: child,
-          fullWindowChild: fullWindowChild
-        )
-      );
+  _FullWindowHandler(
+    AppTheme theme, Widget child, Widget? fullWindowChild
+  ) : super(
+    height: 326,
+    child: AppViewerFullWindowHandler(
+      iconColor: theme.overElement1Color1,
+      child: child,
+      fullWindowChild: fullWindowChild
+    )
+  );
 }

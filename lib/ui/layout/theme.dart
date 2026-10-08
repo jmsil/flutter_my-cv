@@ -29,25 +29,25 @@ class AppTheme {
     Color? overSectionColor1,
     Color? overSectionColor2,
     Color? overSectionColor3
-  })
-    : this.backgroundColor = backgroundColor ?? Colors.blueGrey[50]!,
-      this.overBackgroundColor1 = overBackgroundColor1 ?? Colors.black,
-      this.overBackgroundColor2 = overBackgroundColor2 ?? Colors.blue[900]!,
-      this.overBackgroundColor3 = overBackgroundColor3 ?? Colors.white,
+  }) :
+    this.backgroundColor = backgroundColor ?? Colors.blueGrey[50]!,
+    this.overBackgroundColor1 = overBackgroundColor1 ?? Colors.black,
+    this.overBackgroundColor2 = overBackgroundColor2 ?? Colors.blue[900]!,
+    this.overBackgroundColor3 = overBackgroundColor3 ?? Colors.white,
 
-      this.elementColor1 = elementColor1 ?? Color(0xFF242F34),
-      this.overElement1Color1 = overElement1Color1 ??  Colors.blue[200]!,
+    this.elementColor1 = elementColor1 ?? Color(0xFF242F34),
+    this.overElement1Color1 = overElement1Color1 ??  Colors.blue[200]!,
 
-      this.elementColor2 = elementColor2 ?? Colors.blueGrey[700]!,
-      this.overElement2Color1 = overElement2Color1 ?? Colors.blueGrey[50]!,
+    this.elementColor2 = elementColor2 ?? Colors.blueGrey[700]!,
+    this.overElement2Color1 = overElement2Color1 ?? Colors.blueGrey[50]!,
 
-      this.elementColor3 = elementColor3 ?? Colors.blueGrey[300]!,
-      this.overElement3Color1 = overElement3Color1 ?? Colors.black,
+    this.elementColor3 = elementColor3 ?? Colors.blueGrey[200]!,
+    this.overElement3Color1 = overElement3Color1 ?? Colors.black,
 
-      this.sectionColor = sectionColor ?? Colors.black26,
-      this.overSectionColor1 = overSectionColor1 ?? Colors.blue[100]!,
-      this.overSectionColor2 = overSectionColor2 ?? Colors.blue[200]!,
-      this.overSectionColor3 = overSectionColor3 ?? Colors.blue[200]!;
+    this.sectionColor = sectionColor ?? Colors.black26,
+    this.overSectionColor1 = overSectionColor1 ?? Colors.blue[100]!,
+    this.overSectionColor2 = overSectionColor2 ?? Colors.blue[200]!,
+    this.overSectionColor3 = overSectionColor3 ?? Colors.blue[200]!;
 
   final double text1FontSize = 15;
   final double header1FontSize = 16;
@@ -75,7 +75,7 @@ class AppTheme {
   final Color overSectionColor2;
   final Color overSectionColor3;
 
-  late final Color inkEffectsColor = elementColor3.withValues(alpha: 0.32);
+  late final Color inkEffectsColor = elementColor3.withValues(alpha: 0.48);
 
   late final TextStyle text1OverBackgroundColor1Style = TextStyle(
     fontSize: text1FontSize, color: overBackgroundColor1);
