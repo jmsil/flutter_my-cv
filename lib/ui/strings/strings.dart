@@ -53,7 +53,7 @@ abstract class Strings {
   static const String bookEnterpriseIntegrationPatternsTitle = 'Enterprise Integration Patterns';
   static const String bookEnterpriseIntegrationPatternsDetail = 'Gregor Hohpe & Bobby Woolf';
   static const String courseOracleDetail = '2010';
-  static const String certificationCcpiTitle = 'SAP Integration Developer C_CPI';
+  static const String certificationCcpiTitle = 'SAP Certified - Integration Developer (C_CPI)';
   static const String certificationCcpiDetail = 'SAP';
   static const String certificationCcpiLink = 'https://www.credly.com/badges/76ba4a5b-f8c8-430d-a088-a887e6b90d04/public_url';
   static const String courseSapCloudIntegrationImmersionDetail = 'Moovi Education ▪ 05/2025';

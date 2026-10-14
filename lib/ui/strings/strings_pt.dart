@@ -37,12 +37,12 @@ class StringsPt extends Strings {
   @override
   String get experienceTitle => 'Experiência';
   @override
-  String get sapIntegrationSuiteLearningJourneyTitle => 'Jornada de Estudos SAP Integration Suite';
+  String get sapIntegrationSuiteLearningJourneyTitle => 'Desenvolvimento/Certificação SAP Integration Suite';
   @override
   String get sapIntegrationSuiteLearningJourneyDetail => '2023 - Março/2025 - Julho/2026';
   @override
   String get sapIntegrationSuiteLearningJourneyInfo =>
-    'Completei a jornada de aprendizado Developing with SAP Integration Suite, focando nos fundamentos de integrações empresariais e exercícios práticos para a certificação SAP Integration Suite.\n\n'
+    'Completei a Developing with SAP Integration Suite Learning Journey e cursos, focando nos fundamentos de integração empresarial e exercícios práticos para a certificação SAP Certified - Integration Developer.\n\n'
 
     'O portfólio resultante implementa as principais técnicas de integração abaixo:\n'
     '▪ Orquestração avançada de segurança validando JWT Google Firebase via API Management.\n'
@@ -310,7 +310,7 @@ class StringsPt extends Strings {
   @override
   String get smartNewExperienceInfo => 'Prestei consultoria para o desenvolvimento do protótipo de uma aplicação mobile/web para a SmartNew, atuante no desenvolvimento de sistemas de monitoramento e gerenciamento de frotas. O objetivo era migrar a stack low-code.';
   @override
-  String get mobileGameExperienceTitle => 'Design/Desenvolvimento de Jogos Casuais';
+  String get mobileGameExperienceTitle => 'Design e Desenvolvimento de Jogos Casuais';
   @override
   String get mobileGameExperienceInfo =>
     'Desenvolvi um projeto pessoal de um jogo casual 2D para dispositivos móveis.\n\n'
