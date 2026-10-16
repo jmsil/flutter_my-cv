@@ -35,7 +35,7 @@ class AppTheme {
     this.overBackgroundColor2 = overBackgroundColor2 ?? Colors.blue[900]!,
     this.overBackgroundColor3 = overBackgroundColor3 ?? Colors.white,
 
-    this.elementColor1 = elementColor1 ?? Color(0xFF242F34),
+    this.elementColor1 = elementColor1 ?? Colors.blueGrey[900]!,
     this.overElement1Color1 = overElement1Color1 ??  Colors.blue[200]!,
 
     this.elementColor2 = elementColor2 ?? Colors.blueGrey[700]!,
