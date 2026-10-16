@@ -7,9 +7,9 @@ import '../ui/layout/layout_provider.dart';
 import '../ui/overlay_bar.dart';
 
 class ContentGroup extends StatelessWidget {
-  static const double iconSize = 32;
-  static const double iconContainerSize = iconSize * 2;
-  static const double titleContainerSize = 42;
+  static const double _iconSize = 32;
+  static const double _iconContainerSize = _iconSize * 2;
+  static const double _titleContainerSize = 42;
 
   final IconData icon;
   final String title;
@@ -43,9 +43,9 @@ class ContentGroup extends StatelessWidget {
     );
 
     final Widget headerWidget = OverlayBar(
-      startSize: iconContainerSize / 2 + headerMargin.top,
+      startSize: _iconContainerSize / 2 + headerMargin.top,
       startBackgroundColor: headerBackgroundColor ?? theme.backgroundColor,
-      endSize: iconContainerSize / 2 + headerMargin.bottom,
+      endSize: _iconContainerSize / 2 + headerMargin.bottom,
       endBackgroundColor: theme.backgroundColor,
       child: Padding(
         padding: headerMargin,
@@ -54,21 +54,25 @@ class ContentGroup extends StatelessWidget {
           alignment: Alignment.centerLeft,
           children: [
             AppContainer(
-              height: titleContainerSize,
+              height: _titleContainerSize,
               color: theme.elementColor3,
-              margin: const EdgeInsets.only(left: iconContainerSize / 2),
-              borderColor: theme.elementColor2.withValues(alpha: 0.24),
+              margin: const EdgeInsets.only(left: _iconContainerSize / 2),
               borderRadius: AppTheme.circleBorderRadius,
               child: Center(
                 child: Text(title, style: theme.header1OverElement3Color1BoldStyle)
               )
             ),
             AppContainer(
-              width: iconContainerSize,
-              height: iconContainerSize,
-              color: theme.elementColor2,
+              width: _iconContainerSize,
+              height: _iconContainerSize,
+              color: theme.elementColor3,
+              padding: const EdgeInsets.all(4),
               borderRadius: AppTheme.circleBorderRadius,
-              child: Icon(icon, size: iconSize, color: theme.overElement2Color1)
+              child: AppContainer(
+                color: theme.elementColor2,
+                borderRadius: AppTheme.circleBorderRadius,
+                child: Icon(icon, size: _iconSize, color: theme.overElement2Color1)
+              )
             )
           ]
         )
