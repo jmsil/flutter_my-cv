@@ -22,7 +22,7 @@ class ExtendedAppbar extends StatelessWidget {
       ? MainProfileInfoStyle.extendedAppbarElement
       : MainProfileInfoStyle.extendedAppbarBackground;
 
-    final Widget builtWidget = Row(
+    Widget builtWidget = Row(
       children: [
         ProfilePhotoAppbarStateSwitcher(),
         Expanded(
@@ -49,19 +49,17 @@ class ExtendedAppbar extends StatelessWidget {
       ]
     );
 
-    return layout.showTopbarBackground
-      ? AppbarAnimatedContainer(
-          AppContainer(
-            color: theme.elementColor1,
-            borderRadius: BorderRadius.horizontal(
-              left: const Radius.circular(ProfilePhotoAppbarStateSwitcher.circleRadiusSize),
-              right: AppTheme.radius
-            ),
-            hasShadow: true,
-            isClipped: true,
-            child: builtWidget
-          )
-        )
-      : AppbarAnimatedContainer(builtWidget);
+    if (layout.showTopbarBackground) {
+      builtWidget = AppContainer(
+        color: theme.elementColor1,
+        borderRadius: BorderRadius.horizontal(
+          left: const Radius.circular(ProfilePhotoAppbarStateSwitcher.circleRadiusSize),
+          right: AppTheme.radius
+        ),
+        child: builtWidget
+      );
+    }
+
+    return AppbarAnimatedContainer(builtWidget);
   }
 }

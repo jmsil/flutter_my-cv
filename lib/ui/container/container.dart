@@ -9,7 +9,6 @@ class AppContainer extends StatelessWidget {
   final double borderSize;
   final Color? borderColor;
   final BorderRadius borderRadius;
-  final bool hasShadow;
   final bool isClipped;
   final Widget? child;
 
@@ -23,26 +22,25 @@ class AppContainer extends StatelessWidget {
     this.borderSize = 1,
     this.borderColor,
     this.borderRadius = BorderRadius.zero,
-    this.hasShadow = false,
     this.isClipped = false,
     this.child
   });
 
   @override
   Widget build(BuildContext context) {
-    Widget? rWidget = child;
+    Widget? builtWidget = child;
     final bool hasBorder = borderColor != null && borderSize > 0;
 
     if (padding != null || hasBorder) {
-      rWidget = Padding(
+      builtWidget = Padding(
         padding:
           (padding ?? EdgeInsets.zero) +
           (hasBorder ? EdgeInsets.all(borderSize) : EdgeInsets.zero),
-        child: rWidget
+        child: builtWidget
       );
     }
 
-    rWidget = Material(
+    builtWidget = Material(
       color: color,
       type: color == null ? MaterialType.transparency : MaterialType.canvas,
       shape: RoundedRectangleBorder(
@@ -54,26 +52,24 @@ class AppContainer extends StatelessWidget {
             )
           : BorderSide.none
       ),
-      shadowColor: Colors.black,
-      elevation: hasShadow ? 6 : 0,
       clipBehavior: isClipped ? Clip.hardEdge : Clip.none,
-      child: rWidget
+      child: builtWidget
     );
 
     if (width != null || height != null) {
-      rWidget = ConstrainedBox(
+      builtWidget = ConstrainedBox(
         constraints: BoxConstraints.expand(width: width, height: height),
-        child: rWidget
+        child: builtWidget
       );
     }
 
     if (margin != null) {
-      rWidget = Padding(
+      builtWidget = Padding(
         padding: margin!,
-        child: rWidget
+        child: builtWidget
       );
     }
 
-    return rWidget;
+    return builtWidget;
   }
 }
