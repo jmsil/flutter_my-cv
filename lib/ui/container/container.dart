@@ -46,10 +46,7 @@ class AppContainer extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: borderRadius,
         side: hasBorder
-          ? BorderSide(
-              width: borderSize,
-              color: borderColor!
-            )
+          ? BorderSide(width: borderSize, color: borderColor!)
           : BorderSide.none
       ),
       clipBehavior: isClipped ? Clip.hardEdge : Clip.none,
