@@ -1,19 +1,18 @@
 import 'package:flutter/widgets.dart';
 
 import '../../ui/assets.dart';
-import '../../ui/strings/strings_provider.dart';
+import '../../ui/strings/strings_model.dart';
 import '../../ui/viewer/project.dart';
 import '../../ui/viewer/project_code.dart';
 import '../../ui/viewer/project_image.dart';
 
 class MappingsProject extends Project {
-  MappingsProject()
-    : super(
-        Strings.integrationProjectMappingsTitle,
-        StringsProvider.strings.integrationProjectMappingsDescription,
-        StringsProvider.strings.integrationProjectMappingsInfo,
-        AppAssets.mappingsAssets
-      );
+  MappingsProject() : super(
+    Strings.integrationProjectMappingsTitle,
+    StringsModel.strings.integrationProjectMappingsDescription,
+    StringsModel.strings.integrationProjectMappingsInfo,
+    AppAssets.mappingsAssets
+  );
 
   @override
   List<Widget> buildPlaceholderWidgets() {

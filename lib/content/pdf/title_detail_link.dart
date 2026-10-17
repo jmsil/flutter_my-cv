@@ -1,6 +1,6 @@
 import 'package:pdf/widgets.dart';
 
-import '../../ui/strings/strings_provider.dart';
+import '../../ui/strings/strings_model.dart';
 import 'text.dart';
 import 'theme.dart';
 
@@ -55,7 +55,7 @@ class PdfTitleDetailLinkRow extends TableRow {
         PdfTheme.xLargeHorizontalSpace,
 
       if (certificationLink != null)
-        PdfLink(StringsProvider.strings.verifyCertification, certificationLink)
+        PdfLink(StringsModel.strings.verifyCertification, certificationLink)
     ]
   );
 }

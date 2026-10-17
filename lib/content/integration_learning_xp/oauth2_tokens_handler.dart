@@ -1,19 +1,18 @@
 import 'package:flutter/widgets.dart';
 
 import '../../ui/assets.dart';
-import '../../ui/strings/strings_provider.dart';
+import '../../ui/strings/strings_model.dart';
 import '../../ui/viewer/project.dart';
 import '../../ui/viewer/project_code.dart';
 import '../../ui/viewer/project_image.dart';
 
 class OAuth2TokensHandlerProject extends Project {
-  OAuth2TokensHandlerProject()
-    : super(
-        Strings.integrationProjectOAuth2TokensHandlerTitle,
-        StringsProvider.strings.integrationProjectOAuth2TokensHandlerDescription,
-        StringsProvider.strings.integrationProjectOAuth2TokensHandlerInfo,
-        AppAssets.oAuth2TokensHandlerAssets
-      );
+  OAuth2TokensHandlerProject() : super(
+    Strings.integrationProjectOAuth2TokensHandlerTitle,
+    StringsModel.strings.integrationProjectOAuth2TokensHandlerDescription,
+    StringsModel.strings.integrationProjectOAuth2TokensHandlerInfo,
+    AppAssets.oAuth2TokensHandlerAssets
+  );
 
   @override
   List<Widget> buildPlaceholderWidgets() {

@@ -1,13 +1,13 @@
-import '../../ui/strings/strings_provider.dart';
+import '../../ui/strings/strings_model.dart';
 import 'group.dart';
 import 'title_detail_link.dart';
 
 class PdfProfessionalDevelopment extends PdfMainGroup {
   PdfProfessionalDevelopment() : super.children(
-    title: StringsProvider.strings.professionalDevelopmentTitle,
+    title: StringsModel.strings.professionalDevelopmentTitle,
     children: [
       PdfSubGroup.child(
-        title: StringsProvider.strings.certificationsTitle,
+        title: StringsModel.strings.certificationsTitle,
         child: PdfTitleDetailLinkTable(
           children: [
             PdfTitleDetailLinkRow(
@@ -30,7 +30,7 @@ class PdfProfessionalDevelopment extends PdfMainGroup {
         addDivider: false
       ),
       PdfSubGroup.child(
-        title: StringsProvider.strings.coursesTitle,
+        title: StringsModel.strings.coursesTitle,
         child: PdfTitleDetailLinkTable(
           children: [
             PdfTitleDetailLinkRow(
@@ -40,16 +40,16 @@ class PdfProfessionalDevelopment extends PdfMainGroup {
             PdfTitleDetailLinkRow(
               Strings.courseSapCloudIntegration20Title, Strings.courseSapCloudIntegration20Detail),
             PdfTitleDetailLinkRow(
-              StringsProvider.strings.courseSapCloudIntegrationImmersionTitle,
+              StringsModel.strings.courseSapCloudIntegrationImmersionTitle,
               Strings.courseSapCloudIntegrationImmersionDetail
             ),
             PdfTitleDetailLinkRow(
-              StringsProvider.strings.courseOracleTitle, Strings.courseOracleDetail)
+              StringsModel.strings.courseOracleTitle, Strings.courseOracleDetail)
           ]
         )
       ),
       PdfSubGroup.child(
-        title: StringsProvider.strings.booksTitle,
+        title: StringsModel.strings.booksTitle,
         child: PdfTitleDetailLinkTable(
           isColumn0Flex: true,
           isSpacingFlex: false,
@@ -63,9 +63,9 @@ class PdfProfessionalDevelopment extends PdfMainGroup {
             PdfTitleDetailLinkRow(
               Strings.bookCleanCodeTitle, Strings.booksCleanCodeArchDetail),
             PdfTitleDetailLinkRow(
-              StringsProvider.strings.bookGoogleAndroidTitle, Strings.bookGoogleAndroidDetail),
+              StringsModel.strings.bookGoogleAndroidTitle, Strings.bookGoogleAndroidDetail),
             PdfTitleDetailLinkRow(
-              StringsProvider.strings.bookDelphiBibleTitle, Strings.bookDelphiBibleDetail)
+              StringsModel.strings.bookDelphiBibleTitle, Strings.bookDelphiBibleDetail)
           ]
         )
       )

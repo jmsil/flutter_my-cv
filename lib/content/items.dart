@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../ui/layout/icons.dart';
 import '../ui/layout/layout_provider.dart';
-import '../ui/strings/strings_provider.dart';
+import '../ui/strings/strings_model.dart';
 import '../ui/text.dart';
 import 'group.dart';
 
@@ -11,15 +11,15 @@ class ItemsGroup extends StatelessWidget {
   final String title;
   final String info;
 
-  ItemsGroup.languages()
-    : this.icon = AppIcons.language,
-      this.title = StringsProvider.strings.languagesTitle,
-      this.info = StringsProvider.strings.languagesInfo;
+  ItemsGroup.languages() :
+    this.icon = AppIcons.language,
+    this.title = StringsModel.strings.languagesTitle,
+    this.info = StringsModel.strings.languagesInfo;
 
-  ItemsGroup.availability()
-    : this.icon = AppIcons.availability,
-      this.title = StringsProvider.strings.availabilityTitle,
-      this.info = StringsProvider.strings.availabilityInfo;
+  ItemsGroup.availability() :
+    this.icon = AppIcons.availability,
+    this.title = StringsModel.strings.availabilityTitle,
+    this.info = StringsModel.strings.availabilityInfo;
 
   @override
   Widget build(BuildContext context) {

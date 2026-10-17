@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../ui/layout/icons.dart';
 import '../ui/layout/layout_provider.dart';
-import '../ui/strings/strings_provider.dart';
+import '../ui/strings/strings_model.dart';
 import '../ui/text.dart';
 import 'expandable.dart';
 import 'group.dart';
@@ -11,7 +11,7 @@ class ProfessionalDevelopmentGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Widget builtCertificationsWidget = ExpandableContent(
-      headerTitle: StringsProvider.strings.certificationsTitle,
+      headerTitle: StringsModel.strings.certificationsTitle,
       widgetBeforeInfo: Column(
         spacing: AppLayout.normalSpacing,
         children: [
@@ -40,7 +40,7 @@ class ProfessionalDevelopmentGroup extends StatelessWidget {
     );
 
     final Widget builtCoursesWidget = ExpandableContent(
-      headerTitle: StringsProvider.strings.coursesTitle,
+      headerTitle: StringsModel.strings.coursesTitle,
       widgetBeforeInfo: Column(
         spacing: AppLayout.normalSpacing,
         children: [
@@ -57,11 +57,11 @@ class ProfessionalDevelopmentGroup extends StatelessWidget {
             Strings.courseSapCloudIntegration20Detail
           ),
           _Item(
-            StringsProvider.strings.courseSapCloudIntegrationImmersionTitle,
+            StringsModel.strings.courseSapCloudIntegrationImmersionTitle,
             Strings.courseSapCloudIntegrationImmersionDetail
           ),
           _Item(
-            StringsProvider.strings.courseOracleTitle,
+            StringsModel.strings.courseOracleTitle,
             Strings.courseOracleDetail
           )
         ]
@@ -69,7 +69,7 @@ class ProfessionalDevelopmentGroup extends StatelessWidget {
     );
 
     final Widget builtBooksWidget = ExpandableContent(
-      headerTitle: StringsProvider.strings.booksTitle,
+      headerTitle: StringsModel.strings.booksTitle,
       widgetBeforeInfo: Column(
         spacing: AppLayout.normalSpacing,
         children: [
@@ -79,15 +79,15 @@ class ProfessionalDevelopmentGroup extends StatelessWidget {
           ),
           _Item(Strings.bookCleanArchitectureTitle, Strings.booksCleanCodeArchDetail),
           _Item(Strings.bookCleanCodeTitle, Strings.booksCleanCodeArchDetail),
-          _Item(StringsProvider.strings.bookGoogleAndroidTitle, Strings.bookGoogleAndroidDetail),
-          _Item(StringsProvider.strings.bookDelphiBibleTitle, Strings.bookDelphiBibleDetail)
+          _Item(StringsModel.strings.bookGoogleAndroidTitle, Strings.bookGoogleAndroidDetail),
+          _Item(StringsModel.strings.bookDelphiBibleTitle, Strings.bookDelphiBibleDetail)
         ]
       )
     );
 
     return ContentGroup(
       icon: AppIcons.studying,
-      title: StringsProvider.strings.professionalDevelopmentTitle,
+      title: StringsModel.strings.professionalDevelopmentTitle,
       hasHorizontalPadding: false,
       children: [
         builtCertificationsWidget,
@@ -118,7 +118,7 @@ class _Item extends StatelessWidget {
         crossAxisAlignment: WrapCrossAlignment.center,
         children: [
           builtDetailWidget,
-          AppLink(text: StringsProvider.strings.verifyCertification, link: certificateLink)
+          AppLink(text: StringsModel.strings.verifyCertification, link: certificateLink)
         ]
       );
     }

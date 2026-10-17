@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../ui/container/container.dart';
 import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/layout_provider.dart';
-import '../../ui/strings/strings_provider.dart';
+import '../../ui/strings/strings_model.dart';
 import '../device.dart';
 import 'about_section.dart';
 import 'compact_list.dart';
@@ -27,13 +27,13 @@ class AppSidebar extends StatelessWidget {
       AppLayout.normalVerticalSpacer,
 
       SkillsSection(
-        StringsProvider.strings.programmingSkillsTitle,
+        StringsModel.strings.programmingSkillsTitle,
         Strings.programmingSkillsInfo
       ),
       AppLayout.normalVerticalSpacer,
 
       SkillsSection(
-        StringsProvider.strings.integrationSkillsTitle,
+        StringsModel.strings.integrationSkillsTitle,
         Strings.integrationSkillsInfo
       ),
       AppLayout.normalVerticalSpacer,
@@ -50,7 +50,7 @@ class AppSidebar extends StatelessWidget {
           FlutterLogo(size: 32),
           Expanded(
             child: Text(
-              StringsProvider.strings.madeWithFlutter,
+              StringsModel.strings.madeWithFlutter,
               style: layout.showSidebarBackground
                 ? theme.text1OverElement1Color1Style
                 : theme.text1OverBackgroundColor1Style

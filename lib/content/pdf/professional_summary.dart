@@ -1,19 +1,19 @@
-import '../../ui/strings/strings_provider.dart';
+import '../../ui/strings/strings_model.dart';
 import 'group.dart';
 import 'text.dart';
 import 'theme.dart';
 
 class PdfProfessionalSummary extends PdfMainGroup {
   PdfProfessionalSummary() : super.children(
-    title: StringsProvider.strings.professionalSummaryTitle,
+    title: StringsModel.strings.professionalSummaryTitle,
     children: [
-      PdfText(StringsProvider.strings.professionalSummaryInfo, style: PdfTheme.largeTextStyle),
+      PdfText(StringsModel.strings.professionalSummaryInfo, style: PdfTheme.largeTextStyle),
       PdfSubGroup.info(
-        title: StringsProvider.strings.programmingSkillsTitle,
+        title: StringsModel.strings.programmingSkillsTitle,
         info: Strings.programmingSkillsInfo.replaceAll('-', PdfText.bulletReplacer)
       ),
       PdfSubGroup.info(
-        title: StringsProvider.strings.integrationSkillsTitle,
+        title: StringsModel.strings.integrationSkillsTitle,
         info: Strings.integrationSkillsInfo.replaceAll('-', PdfText.bulletReplacer)
       )
     ]

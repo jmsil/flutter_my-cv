@@ -1,19 +1,18 @@
 import 'package:flutter/widgets.dart';
 
 import '../../ui/assets.dart';
-import '../../ui/strings/strings_provider.dart';
+import '../../ui/strings/strings_model.dart';
 import '../../ui/viewer/project.dart';
 import '../../ui/viewer/project_code.dart';
 import '../../ui/viewer/project_image.dart';
 
 class ConversionsFtpProject extends Project {
-  ConversionsFtpProject()
-    : super(
-        Strings.integrationProjectConversionsAndFtpTitle,
-        StringsProvider.strings.integrationProjectConversionsAndFtpDescription,
-        StringsProvider.strings.integrationProjectConversionsAndFtpInfo,
-        AppAssets.conversionsAndFtpAssets
-      );
+  ConversionsFtpProject() : super(
+    Strings.integrationProjectConversionsAndFtpTitle,
+    StringsModel.strings.integrationProjectConversionsAndFtpDescription,
+    StringsModel.strings.integrationProjectConversionsAndFtpInfo,
+    AppAssets.conversionsAndFtpAssets
+  );
 
   @override
   List<Widget> buildPlaceholderWidgets() {

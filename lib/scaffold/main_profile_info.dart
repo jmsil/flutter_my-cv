@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../ui/divider.dart';
 import '../ui/layout/layout_provider.dart';
-import '../ui/strings/strings_provider.dart';
+import '../ui/strings/strings_model.dart';
 
 enum MainProfileInfoStyle { compactAppbar, extendedAppbarBackground, extendedAppbarElement, body }
 
@@ -18,22 +18,22 @@ class MainProfileInfo extends StatelessWidget {
     required this.style,
     required bool isShortRoles,
     this.softWrap = true
-  })
-    : icon = null,
-      title = Strings.personalName,
-      info = isShortRoles
-        ? Strings.shortRoles
-        : StringsProvider.strings.longRoles,
-      hasIntrinsicWidth = true;
+  }) :
+    icon = null,
+    title = Strings.personalName,
+    info = isShortRoles
+      ? Strings.shortRoles
+      : StringsModel.strings.longRoles,
+    hasIntrinsicWidth = true;
 
   MainProfileInfo.professionalSummary({
     this.icon,
     required this.style
-  })
-    : title = StringsProvider.strings.professionalSummaryTitle,
-      info = StringsProvider.strings.professionalSummaryInfo,
-      softWrap = true,
-      hasIntrinsicWidth = false;
+  }) :
+    title = StringsModel.strings.professionalSummaryTitle,
+    info = StringsModel.strings.professionalSummaryInfo,
+    softWrap = true,
+    hasIntrinsicWidth = false;
 
   @override
   Widget build(BuildContext context) {

@@ -5,7 +5,7 @@ import '../../ui/button/button.dart';
 import '../../ui/button/popup_menu_button.dart';
 import '../../ui/layout/icons.dart';
 import '../../ui/layout/layout_provider.dart';
-import '../../ui/strings/strings_provider.dart';
+import '../../ui/strings/strings_model.dart';
 import '../device.dart';
 
 class Settings extends StatelessWidget {
@@ -30,14 +30,14 @@ class Settings extends StatelessWidget {
           label: Strings.languagePt,
           selectedStyle: selectedStyle,
           unselectedStyle: unselectedStyle,
-          isSelected: StringsProvider.languageCode == 'pt',
+          isSelected: StringsModel.languageCode == 'pt',
           onPressed: () => setLanguage(context, 'pt', isExtendedScreen)
         ),
         AppButton.label(
           label: Strings.languageEn,
           selectedStyle: selectedStyle,
           unselectedStyle: unselectedStyle,
-          isSelected: StringsProvider.languageCode != 'pt',
+          isSelected: StringsModel.languageCode != 'pt',
           onPressed: () => setLanguage(context, 'en', isExtendedScreen)
         )
       ]
@@ -80,13 +80,13 @@ class Settings extends StatelessWidget {
       theme,
       AppIcons.download,
       Strings.downloadPdf,
-      onPressed: () => downloadPdf(context, StringsProvider.languageCode)
+      onPressed: () => downloadPdf(context, StringsModel.languageCode)
     );
 
     return AppPopupMenuButton(
       theme: theme,
       children: [
-        _IconTitle(AppIcons.language, StringsProvider.strings.language, theme),
+        _IconTitle(AppIcons.language, StringsModel.strings.language, theme),
         languagesWidget,
         AppLayout.tinyVerticalSpacer,
         _IconTitle(AppIcons.layout, Strings.layout, theme),
@@ -100,7 +100,7 @@ class Settings extends StatelessWidget {
   void setLanguage(BuildContext context, String language, bool isExtendedScreen) {
     if (isExtendedScreen)
       Navigator.of(context).pop();
-    StringsProvider.instance.setLanguage(language);
+    StringsModel.instance.setLanguage(language);
   }
 
   void setLayout(BuildContext context, AppLayout layout) {
@@ -115,12 +115,13 @@ class Settings extends StatelessWidget {
 }
 
 class _IconTitle extends Row {
-  _IconTitle(IconData icon, String label, AppTheme theme)
-    : super(
-        spacing: AppLayout.smallSpacing,
-        children: [
-          Icon(icon, color: theme.overBackgroundColor1),
-          Text(label, style: theme.text1OverBackgroundColor1BoldStyle)
-        ]
-      );
+  _IconTitle(
+    IconData icon, String label, AppTheme theme
+  ) : super(
+    spacing: AppLayout.smallSpacing,
+    children: [
+      Icon(icon, color: theme.overBackgroundColor1),
+      Text(label, style: theme.text1OverBackgroundColor1BoldStyle)
+    ]
+  );
 }

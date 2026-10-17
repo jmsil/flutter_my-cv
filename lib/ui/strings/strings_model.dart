@@ -6,13 +6,13 @@ import 'strings_pt.dart';
 
 export 'strings.dart';
 
-class StringsProvider extends ChangeNotifier {
-  static final StringsProvider instance = StringsProvider._();
+class StringsModel extends ChangeNotifier {
+  static final StringsModel instance = StringsModel._();
 
-  String _languageCode = 'en';
-  Strings _strings = StringsEn();
+  String _languageCode = '';
+  late Strings _strings;
 
-  StringsProvider._();
+  StringsModel._();
 
   void setLanguage(String languageCode) {
     if (languageCode != _languageCode) {

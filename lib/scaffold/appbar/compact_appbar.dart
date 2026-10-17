@@ -4,7 +4,7 @@ import '../../content/profile_photo.dart';
 import '../../ui/divider.dart';
 import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/layout_provider.dart';
-import '../../ui/strings/strings_provider.dart';
+import '../../ui/strings/strings_model.dart';
 import '../device.dart';
 import '../main_profile_info.dart';
 
@@ -28,7 +28,7 @@ class CompactAppbar extends StatelessWidget {
     final double screenWidth = context.screenSize.width;
 
     final Text summaryTextWidget = Text(
-      StringsProvider.strings.professionalSummaryInfo,
+      StringsModel.strings.professionalSummaryInfo,
       style: DefaultTextStyle.of(context).style.merge(theme.text2OverElement1Color1Style)
     );
 

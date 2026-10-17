@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../ui/layout/theme.dart';
-import '../../ui/strings/strings_provider.dart';
+import '../../ui/strings/strings_model.dart';
 import 'section.dart';
 
 class AboutSection extends Section {
@@ -9,9 +9,9 @@ class AboutSection extends Section {
     : super(
         theme: theme,
         startOpen: false,
-        title: StringsProvider.strings.aboutAndExpectationsTitle,
+        title: StringsModel.strings.aboutAndExpectationsTitle,
         contentWidget: Text(
-          StringsProvider.strings.aboutAndExpectationsInfo,
+          StringsModel.strings.aboutAndExpectationsInfo,
           style: theme.text1OverSectionColor1Style
         )
       );

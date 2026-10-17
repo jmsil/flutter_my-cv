@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import '../ui/assets.dart';
 import '../ui/button/loading_button.dart';
 import '../ui/layout/layout.dart';
-import '../ui/strings/strings_provider.dart';
+import '../ui/strings/strings_model.dart';
 import '../ui/text.dart';
 import 'expandable.dart';
 
 class BciFortlevExperience extends ExpandableContent {
   BciFortlevExperience() : super(
-    headerTitle: StringsProvider.strings.fortlevExperienceTitle,
-    headerDetail: StringsProvider.strings.fortlevExperienceDetail,
+    headerTitle: StringsModel.strings.fortlevExperienceTitle,
+    headerDetail: StringsModel.strings.fortlevExperienceDetail,
     widgetBeforeInfo: Row(
       spacing: AppLayout.xLargeSpacing,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -28,7 +28,7 @@ class BciFortlevExperience extends ExpandableContent {
         AppGalleryButton(AppAssets.bciFortlevDriverAppAssets)
       ]
     ),
-    info: StringsProvider.strings.fortlevExperienceInfo,
+    info: StringsModel.strings.fortlevExperienceInfo,
     startOpen: false
   );
 }

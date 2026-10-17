@@ -1,40 +1,40 @@
-import '../../ui/strings/strings_provider.dart';
+import '../../ui/strings/strings_model.dart';
 import 'group.dart';
 
 class PdfExperience extends PdfMainGroup {
   PdfExperience() : super.children(
-    title: StringsProvider.strings.experienceTitle,
+    title: StringsModel.strings.experienceTitle,
     children: [
       PdfSubGroup.info(
-        title: StringsProvider.strings.sapIntegrationSuiteLearningJourneyTitle,
-        detail: StringsProvider.strings.sapIntegrationSuiteLearningJourneyDetail,
-        info: StringsProvider.strings.sapIntegrationSuiteLearningJourneyInfo,
+        title: StringsModel.strings.sapIntegrationSuiteLearningJourneyTitle,
+        detail: StringsModel.strings.sapIntegrationSuiteLearningJourneyDetail,
+        info: StringsModel.strings.sapIntegrationSuiteLearningJourneyInfo,
         addDivider: false
       ),
       PdfSubGroup.info(
-        title: StringsProvider.strings.fortlevExperienceTitle,
-        detail: StringsProvider.strings.fortlevExperienceDetail,
-        info: StringsProvider.strings.fortlevExperienceInfo
+        title: StringsModel.strings.fortlevExperienceTitle,
+        detail: StringsModel.strings.fortlevExperienceDetail,
+        info: StringsModel.strings.fortlevExperienceInfo
       ),
       PdfSubGroup.info(
-        title: StringsProvider.strings.smartNewExperienceTitle,
+        title: StringsModel.strings.smartNewExperienceTitle,
         detail: Strings.smartNewExperienceDetail,
-        info: StringsProvider.strings.smartNewExperienceInfo
+        info: StringsModel.strings.smartNewExperienceInfo
       ),
       PdfSubGroup.info(
-        title: StringsProvider.strings.mobileGameExperienceTitle,
+        title: StringsModel.strings.mobileGameExperienceTitle,
         detail: Strings.mobileGameExperienceDetail,
-        info: StringsProvider.strings.mobileGameExperienceInfo
+        info: StringsModel.strings.mobileGameExperienceInfo
       ),
       PdfSubGroup.info(
-        title:StringsProvider.strings.santriExperienceTitle,
-        detail: StringsProvider.strings.santriExperienceDetail,
-        info: StringsProvider.strings.santriExperienceInfo
+        title:StringsModel.strings.santriExperienceTitle,
+        detail: StringsModel.strings.santriExperienceDetail,
+        info: StringsModel.strings.santriExperienceInfo
       ),
       PdfSubGroup.info(
-        title: StringsProvider.strings.smallErpExperienceTitle,
+        title: StringsModel.strings.smallErpExperienceTitle,
         detail: Strings.smallErpExperienceDetail,
-        info: StringsProvider.strings.smallErpExperienceInfo
+        info: StringsModel.strings.smallErpExperienceInfo
       )
     ]
   );

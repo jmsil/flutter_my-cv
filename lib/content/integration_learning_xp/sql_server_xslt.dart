@@ -1,19 +1,18 @@
 import 'package:flutter/widgets.dart';
 
 import '../../ui/assets.dart';
-import '../../ui/strings/strings_provider.dart';
+import '../../ui/strings/strings_model.dart';
 import '../../ui/viewer/project.dart';
 import '../../ui/viewer/project_code.dart';
 import '../../ui/viewer/project_image.dart';
 
 class SqlServerXsltProject extends Project {
-  SqlServerXsltProject()
-    : super(
-        Strings.integrationProjectSqlServerWithXsltTitle,
-        StringsProvider.strings.integrationProjectSqlServerWithXsltDescription,
-        StringsProvider.strings.integrationProjectSqlServerWithXsltInfo,
-        AppAssets.sqlServerWithXsltAssets
-      );
+  SqlServerXsltProject() : super(
+    Strings.integrationProjectSqlServerWithXsltTitle,
+    StringsModel.strings.integrationProjectSqlServerWithXsltDescription,
+    StringsModel.strings.integrationProjectSqlServerWithXsltInfo,
+    AppAssets.sqlServerWithXsltAssets
+  );
 
   @override
   List<Widget> buildPlaceholderWidgets() {

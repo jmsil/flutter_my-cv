@@ -1,7 +1,7 @@
 import 'package:pdf/widgets.dart';
 
 import '../../ui/assets.dart';
-import '../../ui/strings/strings_provider.dart';
+import '../../ui/strings/strings_model.dart';
 import 'text.dart';
 import 'theme.dart';
 
@@ -23,7 +23,7 @@ class PdfProfile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 PdfText(Strings.personalName, style: PdfTheme.xLargeTextBoldStyle),
-                PdfText(StringsProvider.strings.longRoles, style: PdfTheme.normalTextStyle)
+                PdfText(StringsModel.strings.longRoles, style: PdfTheme.normalTextStyle)
               ]
             )
           ),
@@ -33,7 +33,7 @@ class PdfProfile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                PdfText(StringsProvider.strings.personalLocation, style: PdfTheme.normalTextStyle),
+                PdfText(StringsModel.strings.personalLocation, style: PdfTheme.normalTextStyle),
                 PdfLink(Strings.personalPhone, Strings.personalPhoneLink),
                 PdfLink(Strings.personalEmail, Strings.personalEmailLink),
                 PdfLink(Strings.personalGitHubLink, Strings.personalGitHubLink)

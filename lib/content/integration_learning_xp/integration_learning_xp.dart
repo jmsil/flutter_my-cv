@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../ui/layout/layout.dart';
 import '../../ui/layout/theme.dart';
-import '../../ui/strings/strings_provider.dart';
+import '../../ui/strings/strings_model.dart';
 import '../../ui/viewer/project.dart';
 import '../expandable.dart';
 import 'apim_proxy.dart';
@@ -20,11 +20,11 @@ class IntegrationLearningExperience extends ExpandableContent {
   IntegrationLearningExperience(
     AppTheme theme
   ) : super(
-    headerTitle: StringsProvider.strings.sapIntegrationSuiteLearningJourneyTitle,
-    headerDetail: StringsProvider .strings.sapIntegrationSuiteLearningJourneyDetail,
-    info: StringsProvider.strings.sapIntegrationSuiteLearningJourneyInfo,
+    headerTitle: StringsModel.strings.sapIntegrationSuiteLearningJourneyTitle,
+    headerDetail: StringsModel .strings.sapIntegrationSuiteLearningJourneyDetail,
+    info: StringsModel.strings.sapIntegrationSuiteLearningJourneyInfo,
     widgetAfterInfo: ExpandableContent(
-      headerTitle: StringsProvider.strings.sapIntegrationSuiteLearningJourneyPortfolioTitle,
+      headerTitle: StringsModel.strings.sapIntegrationSuiteLearningJourneyPortfolioTitle,
       widgetBeforeInfo: Column(
         spacing: AppLayout.normalSpacing,
         children: [
@@ -40,7 +40,7 @@ class IntegrationLearningExperience extends ExpandableContent {
           ProjectTileWidget(theme, CalculatorProject())
         ]
       ),
-      info: StringsProvider.strings.integrationProjectsScriptCollectionInfo,
+      info: StringsModel.strings.integrationProjectsScriptCollectionInfo,
     ),
     startOpen: true
   );

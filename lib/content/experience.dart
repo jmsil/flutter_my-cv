@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../scaffold/device.dart';
 import '../ui/layout/icons.dart';
 import '../ui/layout/layout_provider.dart';
-import '../ui/strings/strings_provider.dart';
+import '../ui/strings/strings_model.dart';
 import '../ui/text.dart';
 import 'bci_fortlev_xp.dart';
 import 'expandable.dart';
@@ -24,38 +24,38 @@ class ExperienceGroup extends StatelessWidget {
       AppLayout.normalVerticalSpacer,
 
       ExpandableContent(
-        headerTitle: StringsProvider.strings.smartNewExperienceTitle,
+        headerTitle: StringsModel.strings.smartNewExperienceTitle,
         headerDetail: Strings.smartNewExperienceDetail,
         widgetBeforeInfo: AppLink(text: Strings.smartNewShortLink, link: Strings.smartNewLink),
-        info: StringsProvider.strings.smartNewExperienceInfo
+        info: StringsModel.strings.smartNewExperienceInfo
       ),
       AppLayout.normalVerticalSpacer,
 
       ExpandableContent(
-        headerTitle: StringsProvider.strings.mobileGameExperienceTitle,
+        headerTitle: StringsModel.strings.mobileGameExperienceTitle,
         headerDetail: Strings.mobileGameExperienceDetail,
-        info: StringsProvider.strings.mobileGameExperienceInfo
+        info: StringsModel.strings.mobileGameExperienceInfo
       ),
       AppLayout.normalVerticalSpacer,
 
       ExpandableContent(
-        headerTitle: StringsProvider.strings.santriExperienceTitle,
-        headerDetail: StringsProvider.strings.santriExperienceDetail,
+        headerTitle: StringsModel.strings.santriExperienceTitle,
+        headerDetail: StringsModel.strings.santriExperienceDetail,
         widgetBeforeInfo: AppLink(text: Strings.santriShortLink, link: Strings.santriLink),
-        info: StringsProvider.strings.santriExperienceInfo
+        info: StringsModel.strings.santriExperienceInfo
       ),
       AppLayout.normalVerticalSpacer,
 
       ExpandableContent(
-        headerTitle: StringsProvider.strings.smallErpExperienceTitle,
+        headerTitle: StringsModel.strings.smallErpExperienceTitle,
         headerDetail: Strings.smallErpExperienceDetail,
-        info: StringsProvider.strings.smallErpExperienceInfo
+        info: StringsModel.strings.smallErpExperienceInfo
       )
     ];
 
     return ContentGroup(
       icon: AppIcons.experience,
-      title: StringsProvider.strings.experienceTitle,
+      title: StringsModel.strings.experienceTitle,
       headerBackgroundColor: isExtendedScreen
         ? null
         : theme.elementColor1,
