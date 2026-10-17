@@ -3,7 +3,7 @@ import 'package:my_cv/scaffold/appbar/profile_photo.dart';
 
 import '../../ui/container/container.dart';
 import '../../ui/layout/edge_insets.dart';
-import '../../ui/layout/layout_provider.dart';
+import '../../ui/layout/layout_model.dart';
 import '../../ui/overlay_bar.dart';
 import '../../ui/scroller.dart';
 import '../appbar/appbar_provider.dart';
@@ -52,38 +52,39 @@ class ExtendedList extends StatelessWidget {
 }
 
 class _Profile extends AppbarAnimatedContainer {
-  _Profile(AppTheme theme)
-    : super(
-        AppContainer(
-          width: double.infinity,
-          color: theme.elementColor1,
-          margin: const EdgeInsets.only(right: AppEdgeInsets.normalValue),
-          borderRadius: BorderRadius.horizontal(
-            left: const Radius.circular(ProfilePhotoAppbarStateSwitcher.circleRadiusSize),
-            right: AppTheme.radius
-          ),
-          child: Row(
-            children: [
-              ProfilePhotoAppbarStateSwitcher(),
-              Expanded(
-                child: Align(
-                  alignment: Alignment.centerRight,
-                  child: AppbarAnimatedPadding(
-                    padding: const EdgeInsets.only(right: AppEdgeInsets.xLargeValue),
-                    topFactor: 0,
-                    bottomFactor: 1,
-                    child: AppbarAnimatedOpacity(
-                      MainProfileInfo.nameAndRoles(
-                        style: MainProfileInfoStyle.compactAppbar,
-                        isShortRoles: true,
-                        softWrap: false
-                      )
-                    )
+  _Profile(
+    AppTheme theme
+  ) : super(
+    AppContainer(
+      width: double.infinity,
+      color: theme.elementColor1,
+      margin: const EdgeInsets.only(right: AppEdgeInsets.normalValue),
+      borderRadius: BorderRadius.horizontal(
+        left: const Radius.circular(ProfilePhotoAppbarStateSwitcher.circleRadiusSize),
+        right: AppTheme.radius
+      ),
+      child: Row(
+        children: [
+          ProfilePhotoAppbarStateSwitcher(),
+          Expanded(
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: AppbarAnimatedPadding(
+                padding: const EdgeInsets.only(right: AppEdgeInsets.xLargeValue),
+                topFactor: 0,
+                bottomFactor: 1,
+                child: AppbarAnimatedOpacity(
+                  MainProfileInfo.nameAndRoles(
+                    style: MainProfileInfoStyle.compactAppbar,
+                    isShortRoles: true,
+                    softWrap: false
                   )
                 )
               )
-            ]
+            )
           )
-        )
-      );
+        ]
+      )
+    )
+  );
 }

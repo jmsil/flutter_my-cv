@@ -4,7 +4,7 @@ import 'package:my_cv/ui/scroller.dart';
 import '../button/button.dart';
 import '../layout/edge_insets.dart';
 import '../layout/icons.dart';
-import '../layout/layout_provider.dart';
+import '../layout/layout_model.dart';
 import '../strings/strings.dart';
 import 'project.dart';
 import 'viewer.dart';
@@ -12,13 +12,14 @@ import 'viewer.dart';
 class AppProjectViewer extends AppViewer {
   final Project project;
 
-  AppProjectViewer(this.project)
-    : super(
-        windowDirection: Axis.vertical,
-        windowWidth: 1560,
-        barPadding: const AppEdgeInsets.large(vertical: AppEdgeInsets.xLargeValue),
-        isTransparentBody: false
-      );
+  AppProjectViewer(
+    this.project
+  ) : super(
+    windowDirection: Axis.vertical,
+    windowWidth: 1560,
+    barPadding: const AppEdgeInsets.large(vertical: AppEdgeInsets.xLargeValue),
+    isTransparentBody: false
+  );
 
   @override
   _State createState() => _State();

@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 
-import '../ui/layout/layout_provider.dart';
+import '../ui/layout/layout_model.dart';
 import 'compact_scaffold.dart';
 import 'device.dart';
 import 'extended_scaffold.dart';
 
 class MainScaffold extends ListenableBuilder {
-  MainScaffold()
-    : super(
-        listenable: LayoutProvider.instance,
-        builder: (BuildContext context, Widget? child) {
-          return Material(
-            color: context.appLayout.theme.backgroundColor,
-            child: context.isExtendedScreen
-              ? ExtendedScaffold()
-              : CompactScaffold()
-          );
-        }
+  MainScaffold() : super(
+    listenable: LayoutModel.instance,
+    builder: (BuildContext context, Widget? child) {
+      return Material(
+        color: context.appLayout.theme.backgroundColor,
+        child: context.isExtendedScreen
+          ? ExtendedScaffold()
+          : CompactScaffold()
       );
+    }
+  );
 }

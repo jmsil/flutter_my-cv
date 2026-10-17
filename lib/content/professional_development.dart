@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../ui/layout/icons.dart';
-import '../ui/layout/layout_provider.dart';
+import '../ui/layout/layout_model.dart';
 import '../ui/strings/strings_model.dart';
 import '../ui/text.dart';
 import 'expandable.dart';
@@ -105,8 +105,10 @@ class _Item extends StatelessWidget {
   final String detail;
   final String? certificateLink;
 
-  _Item(this.title, String detail, [this.certificateLink])
-    : this.detail = detail + (certificateLink != null ? ' ▪ ' : '');
+  _Item(
+    this.title, String detail, [this.certificateLink]
+  ) :
+    this.detail = detail + (certificateLink != null ? ' ▪ ' : '');
 
   @override
   Widget build(BuildContext context) {

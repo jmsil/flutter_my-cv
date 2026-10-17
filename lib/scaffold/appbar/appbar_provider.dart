@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 import '../../ui/layout/edge_insets.dart';
-import '../../ui/layout/layout_provider.dart';
+import '../../ui/layout/layout_model.dart';
 
 export 'animated_container.dart';
 export 'animated_opacity.dart';

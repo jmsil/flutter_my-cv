@@ -6,7 +6,7 @@ import 'package:web/web.dart' as web;
 
 import '../../scaffold/device.dart';
 import '../container/container.dart';
-import '../layout/layout_provider.dart';
+import '../layout/layout_model.dart';
 import 'full_window_handler.dart';
 
 class ProjectSwaggerWidget extends StatefulWidget {
@@ -87,20 +87,21 @@ class _State extends State<ProjectSwaggerWidget> {
 }
 
 class _FullWindowHandler extends AppViewerFullWindowHandler {
-  _FullWindowHandler(AppTheme theme, Widget child, Widget? fullWindowChild)
-    : super(
-        iconColor: theme.overBackgroundColor2,
-        child: AppContainer(
-          height: fullWindowChild == null ? null : 600,
-          padding: AppDevice.isMobileDevice()
-            ? const EdgeInsets.only(top: 48, bottom: 16)
-            : const EdgeInsets.all(64),
-          color: theme.overBackgroundColor3,
-          borderColor: theme.overBackgroundColor2.withValues(alpha: 0.16),
-          borderRadius: AppTheme.allBorderRadius,
-          isClipped: true,
-          child: child
-        ),
-        fullWindowChild: fullWindowChild
-      );
+  _FullWindowHandler(
+    AppTheme theme, Widget child, Widget? fullWindowChild
+  ) : super(
+    iconColor: theme.overBackgroundColor2,
+    child: AppContainer(
+      height: fullWindowChild == null ? null : 600,
+      padding: AppDevice.isMobileDevice()
+        ? const EdgeInsets.only(top: 48, bottom: 16)
+        : const EdgeInsets.all(64),
+      color: theme.overBackgroundColor3,
+      borderColor: theme.overBackgroundColor2.withValues(alpha: 0.16),
+      borderRadius: AppTheme.allBorderRadius,
+      isClipped: true,
+      child: child
+    ),
+    fullWindowChild: fullWindowChild
+  );
 }

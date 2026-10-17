@@ -9,27 +9,26 @@ import '../button/ink_response.dart';
 import '../container/container.dart';
 import '../layout/edge_insets.dart';
 import '../layout/icons.dart';
-import '../layout/layout_provider.dart';
+import '../layout/layout_model.dart';
 import '../scroller.dart';
 import 'viewer.dart';
 
 class AppGallery extends AppViewer {
   final GalleryAssets assets;
 
-  AppGallery(this.assets)
-    : super(
-        windowDirection: Axis.horizontal,
-        windowWidth: assets.aspectRatio < 1 ? 1400 : 1800,
-        windowHeight: 980,
-        barSize:
-          assets.thumbnailWidth +
-          _State.unselectedThumbnailBorderSize * 2 +
-          _State.unselectedThumbnailMargin.horizontal +
-          _State.thumbnailsContainerPadding.horizontal,
-        barPadding: _State.thumbnailsContainerPadding,
-        bodyAspectRatio: assets.aspectRatio,
-        isTransparentBody: true
-      );
+  AppGallery(this.assets) : super(
+    windowDirection: Axis.horizontal,
+    windowWidth: assets.aspectRatio < 1 ? 1400 : 1800,
+    windowHeight: 980,
+    barSize:
+      assets.thumbnailWidth +
+      _State.unselectedThumbnailBorderSize * 2 +
+      _State.unselectedThumbnailMargin.horizontal +
+      _State.thumbnailsContainerPadding.horizontal,
+    barPadding: _State.thumbnailsContainerPadding,
+    bodyAspectRatio: assets.aspectRatio,
+    isTransparentBody: true
+  );
 
   @override
   _State createState() => _State();

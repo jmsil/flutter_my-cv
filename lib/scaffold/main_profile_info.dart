@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../ui/divider.dart';
-import '../ui/layout/layout_provider.dart';
+import '../ui/layout/layout_model.dart';
 import '../ui/strings/strings_model.dart';
 
 enum MainProfileInfoStyle { compactAppbar, extendedAppbarBackground, extendedAppbarElement, body }

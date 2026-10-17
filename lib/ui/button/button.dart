@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../container/container.dart';
 import '../layout/edge_insets.dart';
-import '../layout/layout_provider.dart';
+import '../layout/layout_model.dart';
 
 class AppButton extends StatelessWidget {
   static const double _containerSize = 36;
@@ -19,9 +19,9 @@ class AppButton extends StatelessWidget {
     required TextStyle unselectedStyle,
     required this.isSelected,
     required this.onPressed
-  })
-    : color = isSelected ? selectedStyle.color! : unselectedStyle.color!,
-      child = Text(label, style: isSelected ? selectedStyle : unselectedStyle);
+  }) :
+    color = isSelected ? selectedStyle.color! : unselectedStyle.color!,
+    child = Text(label, style: isSelected ? selectedStyle : unselectedStyle);
 
   AppButton.icon({
     required IconData icon,
@@ -29,18 +29,18 @@ class AppButton extends StatelessWidget {
     bool isLoading = false,
     this.isSelected = false,
     required this.onPressed
-  })
-    : child = isLoading
-        ? SizedBox(
-            width: _iconSize,
-            height: _iconSize,
-            child: CircularProgressIndicator(
-              color: color,
-              strokeWidth: 3,
-              backgroundColor: color.withValues(alpha: 0.26)
-            )
+  }) :
+    child = isLoading
+      ? SizedBox(
+          width: _iconSize,
+          height: _iconSize,
+          child: CircularProgressIndicator(
+            color: color,
+            strokeWidth: 3,
+            backgroundColor: color.withValues(alpha: 0.26)
           )
-        : Icon(icon, size: _iconSize, color: color);
+        )
+      : Icon(icon, size: _iconSize, color: color);
 
   @override
   Widget build(BuildContext context) {

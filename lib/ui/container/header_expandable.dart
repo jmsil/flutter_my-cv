@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../button/ink_response.dart';
 import '../layout/icons.dart';
-import '../layout/layout_provider.dart';
+import '../layout/layout_model.dart';
 import 'container.dart';
 import 'expandable.dart';
 

@@ -4,7 +4,7 @@ import '../../content/pdf/generator.dart';
 import '../../ui/button/button.dart';
 import '../../ui/button/popup_menu_button.dart';
 import '../../ui/layout/icons.dart';
-import '../../ui/layout/layout_provider.dart';
+import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../device.dart';
 
@@ -105,7 +105,7 @@ class Settings extends StatelessWidget {
 
   void setLayout(BuildContext context, AppLayout layout) {
     Navigator.of(context).pop();
-    LayoutProvider.instance.setLayout(layout);
+    LayoutModel.instance.setLayout(layout);
   }
 
   void downloadPdf(BuildContext context, String language) {

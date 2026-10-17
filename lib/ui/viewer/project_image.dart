@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../container/container.dart';
 import '../layout/edge_insets.dart';
-import '../layout/layout_provider.dart';
+import '../layout/layout_model.dart';
 import 'full_window_handler.dart';
 
 class ProjectImageWidget extends StatelessWidget {
@@ -48,16 +48,17 @@ class ProjectImageWidget extends StatelessWidget {
 }
 
 class _FullWindowHandler extends AppViewerFullWindowHandler {
-  _FullWindowHandler(AppTheme theme, Widget child, Widget? fullWindowChild)
-    : super(
-        iconColor: theme.overBackgroundColor2,
-        child: AppContainer(
-          color: theme.overBackgroundColor3,
-          padding: const AppEdgeInsets.normal(),
-          borderColor: theme.overBackgroundColor2.withValues(alpha: 0.16),
-          borderRadius: AppTheme.allBorderRadius,
-          child: child
-        ),
-        fullWindowChild: fullWindowChild
-      );
+  _FullWindowHandler(
+    AppTheme theme, Widget child, Widget? fullWindowChild
+  ) : super(
+    iconColor: theme.overBackgroundColor2,
+    child: AppContainer(
+      color: theme.overBackgroundColor3,
+      padding: const AppEdgeInsets.normal(),
+      borderColor: theme.overBackgroundColor2.withValues(alpha: 0.16),
+      borderRadius: AppTheme.allBorderRadius,
+      child: child
+    ),
+    fullWindowChild: fullWindowChild
+  );
 }

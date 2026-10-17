@@ -6,7 +6,7 @@ import '../content/items.dart';
 import '../content/professional_development.dart';
 import '../ui/layout/edge_insets.dart';
 import '../ui/layout/icons.dart';
-import '../ui/layout/layout_provider.dart';
+import '../ui/layout/layout_model.dart';
 import '../ui/overlay_bar.dart';
 import '../ui/scroller.dart';
 import 'appbar/appbar_provider.dart';

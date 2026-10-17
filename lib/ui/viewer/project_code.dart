@@ -11,7 +11,7 @@ import 'package:re_highlight/styles/vs2015.dart';
 import '../../scaffold/device.dart';
 import '../assets.dart';
 import '../layout/edge_insets.dart';
-import '../layout/layout_provider.dart';
+import '../layout/layout_model.dart';
 import 'full_window_handler.dart';
 
 class ProjectCodeWidget extends StatelessWidget {
@@ -63,44 +63,45 @@ class ProjectCodeWidget extends StatelessWidget {
 }
 
 class _CodeEditor extends CodeEditor {
-  _CodeEditor(AppTheme theme, Uint8List code)
-    : super(
-        readOnly: true,
-        wordWrap: false,
-        borderRadius: AppTheme.allBorderRadius,
-        controller: CodeLineEditingController.fromText(utf8.decode(code)),
-        style: CodeEditorStyle(
-          fontSize: theme.text1FontSize,
-          textColor: theme.backgroundColor,
-          cursorColor: theme.backgroundColor,
-          backgroundColor: theme.elementColor1,
-          selectionColor: theme.elementColor3.withValues(alpha: 0.32),
-          codeTheme: CodeHighlightTheme(
-            languages: {
-              'xml': CodeHighlightThemeMode(mode: langXml),
-              'json': CodeHighlightThemeMode(mode: langJson),
-              'groovy': CodeHighlightThemeMode(mode: langGroovy)
-            },
-            theme: vs2015Theme
-          )
-        ),
-        indicatorBuilder: (context, editingController, chunkController, notifier) {
-          return Padding(
-            padding: const EdgeInsets.only(
-              left: AppEdgeInsets.smallValue,
-              right: AppEdgeInsets.normalValue
-            ),
-            child: DefaultCodeLineNumber(
-              controller: editingController,
-              notifier: notifier
-            )
-          );
+  _CodeEditor(
+    AppTheme theme, Uint8List code
+  ) : super(
+    readOnly: true,
+    wordWrap: false,
+    borderRadius: AppTheme.allBorderRadius,
+    controller: CodeLineEditingController.fromText(utf8.decode(code)),
+    style: CodeEditorStyle(
+      fontSize: theme.text1FontSize,
+      textColor: theme.backgroundColor,
+      cursorColor: theme.backgroundColor,
+      backgroundColor: theme.elementColor1,
+      selectionColor: theme.elementColor3.withValues(alpha: 0.32),
+      codeTheme: CodeHighlightTheme(
+        languages: {
+          'xml': CodeHighlightThemeMode(mode: langXml),
+          'json': CodeHighlightThemeMode(mode: langJson),
+          'groovy': CodeHighlightThemeMode(mode: langGroovy)
         },
-        leadingDivider: VerticalDivider(
-          width: 1,
-          color: theme.elementColor3.withValues(alpha: 0.32)
+        theme: vs2015Theme
+      )
+    ),
+    indicatorBuilder: (context, editingController, chunkController, notifier) {
+      return Padding(
+        padding: const EdgeInsets.only(
+          left: AppEdgeInsets.smallValue,
+          right: AppEdgeInsets.normalValue
+        ),
+        child: DefaultCodeLineNumber(
+          controller: editingController,
+          notifier: notifier
         )
       );
+    },
+    leadingDivider: VerticalDivider(
+      width: 1,
+      color: theme.elementColor3.withValues(alpha: 0.32)
+    )
+  );
 }
 
 class _FullWindowHandler extends SizedBox {

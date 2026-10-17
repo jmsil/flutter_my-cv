@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../content/profile_photo.dart';
 import '../../ui/divider.dart';
 import '../../ui/layout/edge_insets.dart';
-import '../../ui/layout/layout_provider.dart';
+import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../device.dart';
 import '../main_profile_info.dart';

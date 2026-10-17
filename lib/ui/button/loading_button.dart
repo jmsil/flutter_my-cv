@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../assets.dart';
 import '../layout/icons.dart';
-import '../layout/layout_provider.dart';
+import '../layout/layout_model.dart';
 import '../viewer/gallery_viewer.dart';
 import '../viewer/project.dart';
 import '../viewer/project_viewer.dart';
@@ -12,8 +12,11 @@ import 'button.dart';
 class AppProjectButton extends _LoadingButton {
   final Project project;
 
-  AppProjectButton(this.project)
-    : super(project.assets);
+  AppProjectButton(
+    this.project
+  ) : super(
+    project.assets
+  );
 
   @override
   void showViewer(BuildContext context) {
@@ -22,8 +25,11 @@ class AppProjectButton extends _LoadingButton {
 }
 
 class AppGalleryButton extends _LoadingButton {
-  AppGalleryButton(GalleryAssets assets)
-    : super(assets);
+  AppGalleryButton(
+    GalleryAssets assets
+  ) : super(
+    assets
+  );
 
   @override
   void showViewer(BuildContext context) {

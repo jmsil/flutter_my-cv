@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../scaffold/device.dart';
 import '../container/container.dart';
 import '../layout/edge_insets.dart';
-import '../layout/layout_provider.dart';
+import '../layout/layout_model.dart';
 
 abstract class AppViewer extends StatefulWidget {
   final Axis windowDirection;

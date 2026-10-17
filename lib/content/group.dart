@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../scaffold/device.dart';
 import '../ui/container/container.dart';
 import '../ui/layout/edge_insets.dart';
-import '../ui/layout/layout_provider.dart';
+import '../ui/layout/layout_model.dart';
 import '../ui/overlay_bar.dart';
 
 class ContentGroup extends StatelessWidget {

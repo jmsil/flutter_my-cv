@@ -3,7 +3,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import 'hover.dart';
 import 'layout/icons.dart';
-import 'layout/layout_provider.dart';
+import 'layout/layout_model.dart';
 
 class AppIconText extends StatelessWidget {
   final IconData icon;
