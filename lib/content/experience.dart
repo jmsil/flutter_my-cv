@@ -20,7 +20,7 @@ class ExperienceGroup extends StatelessWidget {
       IntegrationLearningExperience(theme),
       AppLayout.normalVerticalSpacer,
 
-      BciFortlevExperience(),
+      BciFortlevExperience(theme),
       AppLayout.normalVerticalSpacer,
 
       ExpandableContent(

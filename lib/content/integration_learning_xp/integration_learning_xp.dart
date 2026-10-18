@@ -25,32 +25,30 @@ class IntegrationLearningExperience extends ExpandableContent {
     headerDetail: StringsModel .strings.sapIntegrationSuiteLearningJourneyDetail,
     widgetBeforeInfo: AppTabBar.summaryPortfolio(
       theme: theme,
-      pages: [
-        Text(
-          StringsModel.strings.sapIntegrationSuiteLearningJourneyInfo,
-          style: theme.text1OverBackgroundColor1Style
-        ),
-        Column(
-          spacing: AppLayout.normalSpacing,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ProjectTileWidget(theme, ApimProxyProject()),
-            ProjectTileWidget(theme, IFlowProxyProject()),
-            ProjectTileWidget(theme, ExceptionHandlerProject()),
-            ProjectTileWidget(theme, OAuth2TokensHandlerProject()),
-            ProjectTileWidget(theme, GoogleFirebaseAuthUsersProject()),
-            ProjectTileWidget(theme, InterStatementOauth2MtlsProject()),
-            ProjectTileWidget(theme, SqlServerXsltProject()),
-            ProjectTileWidget(theme, ConversionsFtpProject()),
-            ProjectTileWidget(theme, MappingsProject()),
-            ProjectTileWidget(theme, CalculatorProject()),
-            Text(
-              StringsModel.strings.integrationProjectsScriptCollectionInfo,
-              style: theme.text1OverBackgroundColor1ItalicStyle
-            )
-          ]
-        )
-      ]
+      summaryPage: Text(
+        StringsModel.strings.sapIntegrationSuiteLearningJourneyInfo,
+        style: theme.text1OverBackgroundColor1Style
+      ),
+      portfolioPage: Column(
+        spacing: AppLayout.normalSpacing,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ProjectTileWidget(theme, ApimProxyProject()),
+          ProjectTileWidget(theme, IFlowProxyProject()),
+          ProjectTileWidget(theme, ExceptionHandlerProject()),
+          ProjectTileWidget(theme, OAuth2TokensHandlerProject()),
+          ProjectTileWidget(theme, GoogleFirebaseAuthUsersProject()),
+          ProjectTileWidget(theme, InterStatementOauth2MtlsProject()),
+          ProjectTileWidget(theme, SqlServerXsltProject()),
+          ProjectTileWidget(theme, ConversionsFtpProject()),
+          ProjectTileWidget(theme, MappingsProject()),
+          ProjectTileWidget(theme, CalculatorProject()),
+          Text(
+            StringsModel.strings.integrationProjectsScriptCollectionInfo,
+            style: theme.text1OverBackgroundColor1ItalicStyle
+          )
+        ]
+      )
     ),
     startOpen: true
   );

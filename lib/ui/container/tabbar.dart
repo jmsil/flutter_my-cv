@@ -17,7 +17,8 @@ class AppTabBar extends StatelessWidget {
 
   AppTabBar.summaryPortfolio({
     required AppTheme theme,
-    required this.pages
+    required Widget summaryPage,
+    required Widget portfolioPage
   }) :
     tabs = [
       AppIconText(
@@ -30,6 +31,10 @@ class AppTabBar extends StatelessWidget {
         text: StringsModel.strings.portfolio,
         textStyle: theme.header1OverBackgroundColor1BoldStyle
       )
+    ],
+    pages = [
+      summaryPage,
+      portfolioPage
     ];
 
   @override

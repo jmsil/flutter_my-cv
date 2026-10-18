@@ -300,13 +300,17 @@ class StringsPt extends Strings {
     'Desenvolvi o "Mão Dupla", um app de gerenciamento de ordens de frete para a Fortlev.\n'
     'Colaborei com gerentes e usuários como Analista Desenvolvedor para coletar e definir requisitos funcionais e técnicos.\n\n'
 
-    'O aplicativo se integra ao módulo SAP TM (Transport Management) para automatizar as operações entre os gestores do setor de carga e transporte, transportadoras, e motoristas parceiros. Suas principais funcionalidades são:\n'
+    'O aplicativo se integra ao módulo SAP TM (Transport Management) para automatizar as operações entre os gestores de carga e transporte, transportadoras, e motoristas parceiros. Suas principais funcionalidades são:\n'
     '▪ Autenticação de usuários.\n'
     '▪ Gestão de Ordens de Frete e Notas Fiscais.\n'
     '▪ Reporte de incidentes durante o trajeto.\n'
     '▪ Push Notifications para eventos relevantes.\n'
     '▪ Offline-first para operações sem conexão.\n'
     '▪ Recursos de ajuda/suporte como Contatos, Dicas e FAQ.';
+  @override
+  String get fortlevProjectMaoDuplaTitle => 'Aplicativo móvel Mão Dupla';
+  @override
+  String get fortlevProjectMaoDuplaDescription => 'Automatiza as operações entre os gestores de carga e transporte, transportadoras, e motoristas parceiros.';
   @override
   String get smartNewExperienceTitle => 'Desenvolvimento de Aplicação Flutter Mobile/Web';
   @override

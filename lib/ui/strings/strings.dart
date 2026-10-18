@@ -111,6 +111,8 @@ abstract class Strings {
   String get fortlevExperienceTitle;
   String get fortlevExperienceDetail;
   String get fortlevExperienceInfo;
+  String get fortlevProjectMaoDuplaTitle;
+  String get fortlevProjectMaoDuplaDescription;
   String get smartNewExperienceTitle;
   String get smartNewExperienceInfo;
   String get mobileGameExperienceTitle;

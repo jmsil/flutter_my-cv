@@ -308,6 +308,10 @@ class StringsEn extends Strings {
     '▪ Offline-first support for disconnected operations.\n'
     '▪ Help/support features such as Contacts, Tips, and FAQ.';
   @override
+  String get fortlevProjectMaoDuplaTitle => 'Mão Dupla mobile application';
+  @override
+  String get fortlevProjectMaoDuplaDescription => 'Streamline operations between freight managers, carriers, and driver partners.';
+  @override
   String get smartNewExperienceTitle => 'Flutter Mobile/Web Application Development';
   @override
   String get smartNewExperienceInfo => 'Provided consulting services for developing a mobile/web app prototype for SmartNew, a company specializing in fleet monitoring and management systems. The goal was to migrate away from their existing low-code stack.';
