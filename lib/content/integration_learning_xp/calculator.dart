@@ -5,7 +5,7 @@ import '../../ui/strings/strings_model.dart';
 import '../../ui/viewer/project.dart';
 import '../../ui/viewer/project_image.dart';
 
-class CalculatorProject extends Project {
+class CalculatorProject extends InfoProject {
   CalculatorProject() : super(
     Strings.integrationProjectCalculatorTitle,
     StringsModel.strings.integrationProjectCalculatorDescription,

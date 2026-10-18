@@ -10,7 +10,7 @@ import 'project.dart';
 import 'viewer.dart';
 
 class AppProjectViewer extends AppViewer {
-  final Project project;
+  final InfoProject project;
 
   AppProjectViewer(
     this.project

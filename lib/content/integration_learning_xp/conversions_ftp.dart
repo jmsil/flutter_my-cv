@@ -6,7 +6,7 @@ import '../../ui/viewer/project.dart';
 import '../../ui/viewer/project_code.dart';
 import '../../ui/viewer/project_image.dart';
 
-class ConversionsFtpProject extends Project {
+class ConversionsFtpProject extends InfoProject {
   ConversionsFtpProject() : super(
     Strings.integrationProjectConversionsAndFtpTitle,
     StringsModel.strings.integrationProjectConversionsAndFtpDescription,

@@ -28,21 +28,19 @@ icon_font:
 flutter:
   uses-material-design: true
   assets:
+    - assets/fonts/
+    - assets/startup/
     - assets/BciFortlevDriverApp/archive.zip
     - assets/SapIntegrationSuiteLearningJourney/ApimProxy/archive.zip
-    - assets/SapIntegrationSuiteLearningJourney/IFlowProxy/archive.zip
-    - assets/SapIntegrationSuiteLearningJourney/ExceptionHandler/archive.zip
-    - assets/SapIntegrationSuiteLearningJourney/OAuth2TokensHandler/archive.zip
-    - assets/SapIntegrationSuiteLearningJourney/GoogleFirebaseAuthUsers/archive.zip
-    - assets/SapIntegrationSuiteLearningJourney/InterStatementOAuth2Mtls/archive.zip
-    - assets/SapIntegrationSuiteLearningJourney/SqlServerWithXslt/archive.zip
-    - assets/SapIntegrationSuiteLearningJourney/ConversionsAndFtp/archive.zip
-    - assets/SapIntegrationSuiteLearningJourney/Mappings/archive.zip
     - assets/SapIntegrationSuiteLearningJourney/Calculator/archive.zip
-    - assets/Startup/
-    - assets/fonts/roboto.ttf
-    - assets/fonts/roboto-bold.ttf
-    - assets/fonts/roboto-italic.ttf
+    - assets/SapIntegrationSuiteLearningJourney/ConversionsAndFtp/archive.zip
+    - assets/SapIntegrationSuiteLearningJourney/ExceptionHandler/archive.zip
+    - assets/SapIntegrationSuiteLearningJourney/GoogleFirebaseAuthUsers/archive.zip
+    - assets/SapIntegrationSuiteLearningJourney/IFlowProxy/archive.zip
+    - assets/SapIntegrationSuiteLearningJourney/InterStatementOAuth2Mtls/archive.zip
+    - assets/SapIntegrationSuiteLearningJourney/Mappings/archive.zip
+    - assets/SapIntegrationSuiteLearningJourney/OAuth2TokensHandler/archive.zip
+    - assets/SapIntegrationSuiteLearningJourney/SqlServerWithXslt/archive.zip
   fonts:
     - family: Icons
       fonts:

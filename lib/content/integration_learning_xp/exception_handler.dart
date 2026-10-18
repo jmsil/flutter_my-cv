@@ -6,7 +6,7 @@ import '../../ui/viewer/project.dart';
 import '../../ui/viewer/project_code.dart';
 import '../../ui/viewer/project_image.dart';
 
-class ExceptionHandlerProject extends Project {
+class ExceptionHandlerProject extends InfoProject {
   ExceptionHandlerProject() : super(
     Strings.integrationProjectExceptionHandlerTitle,
     StringsModel.strings.integrationProjectExceptionHandlerDescription,

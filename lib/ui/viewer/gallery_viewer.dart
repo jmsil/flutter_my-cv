@@ -14,7 +14,7 @@ import '../scroller.dart';
 import 'viewer.dart';
 
 class AppGallery extends AppViewer {
-  final GalleryAssets assets;
+  final GalleryAssetsArchive assets;
 
   AppGallery(this.assets) : super(
     windowDirection: Axis.horizontal,

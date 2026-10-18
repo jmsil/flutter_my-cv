@@ -6,7 +6,7 @@ import '../../ui/viewer/project.dart';
 import '../../ui/viewer/project_code.dart';
 import '../../ui/viewer/project_image.dart';
 
-class OAuth2TokensHandlerProject extends Project {
+class OAuth2TokensHandlerProject extends InfoProject {
   OAuth2TokensHandlerProject() : super(
     Strings.integrationProjectOAuth2TokensHandlerTitle,
     StringsModel.strings.integrationProjectOAuth2TokensHandlerDescription,

@@ -7,40 +7,63 @@ import '../layout/layout.dart';
 import '../layout/theme.dart';
 
 class ProjectTileWidget extends Row {
-  ProjectTileWidget(AppTheme theme, Project project)
-    : super(
-        spacing: AppLayout.smallSpacing,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Icon(AppIcons.topicMark, color: theme.overBackgroundColor1),
-          Expanded(
-            child: Column(
-              spacing: AppLayout.tinySpacing,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  project.title,
-                  style: theme.text1OverBackgroundColor1BoldStyle
-                ),
-                Text(
-                  project.description,
-                  style: theme.text1OverBackgroundColor1Style
-                )
-              ]
+  ProjectTileWidget(
+    AppTheme theme, _Project project
+  ) : super(
+    spacing: AppLayout.smallSpacing,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Icon(AppIcons.topicMark, color: theme.overBackgroundColor1),
+      Expanded(
+        child: Column(
+          spacing: AppLayout.tinySpacing,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              project.title,
+              style: theme.text1OverBackgroundColor1BoldStyle
+            ),
+            Text(
+              project.description,
+              style: theme.text1OverBackgroundColor1Style
             )
-          ),
-          AppProjectButton(project)
-        ]
-      );
+          ]
+        )
+      ),
+
+      if (project is InfoProject)
+        AppProjectButton(project),
+
+      if (project is GalleryProject)
+        AppGalleryButton(project.assets as GalleryAssetsArchive)
+    ]
+  );
 }
 
-abstract class Project {
+class _Project {
   final String title;
   final String description;
-  final String info;
   final AssetsArchive assets;
 
-  Project(this.title, this.description, this.info, this.assets);
+  _Project(this.title, this.description, this.assets);
+}
+
+class GalleryProject extends _Project {
+  GalleryProject(
+    String title, String description, GalleryAssetsArchive assets
+  ) : super(
+    title, description, assets
+  );
+}
+
+abstract class InfoProject extends _Project {
+  final String info;
+
+  InfoProject(
+    String title, String description, this.info, AssetsArchive assets
+  ) : super(
+    title, description, assets
+  );
 
   List<Widget> buildPlaceholderWidgets();
 }

@@ -6,7 +6,7 @@ import '../../ui/viewer/project.dart';
 import '../../ui/viewer/project_code.dart';
 import '../../ui/viewer/project_image.dart';
 
-class IFlowProxyProject extends Project {
+class IFlowProxyProject extends InfoProject {
   IFlowProxyProject() : super(
     Strings.integrationProjectIFlowProxyTitle,
     StringsModel.strings.integrationProjectIFlowProxyDescription,

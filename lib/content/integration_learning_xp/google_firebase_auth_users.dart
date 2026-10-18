@@ -5,7 +5,7 @@ import '../../ui/strings/strings_model.dart';
 import '../../ui/viewer/project.dart';
 import '../../ui/viewer/project_image.dart';
 
-class GoogleFirebaseAuthUsersProject extends Project {
+class GoogleFirebaseAuthUsersProject extends InfoProject {
   GoogleFirebaseAuthUsersProject() : super(
     Strings.integrationProjectGoogleFirebaseAuthUsersTitle,
     StringsModel.strings.integrationProjectGoogleFirebaseAuthUsersDescription,

@@ -6,7 +6,7 @@ import '../../ui/viewer/project.dart';
 import '../../ui/viewer/project_code.dart';
 import '../../ui/viewer/project_image.dart';
 
-class SqlServerXsltProject extends Project {
+class SqlServerXsltProject extends InfoProject {
   SqlServerXsltProject() : super(
     Strings.integrationProjectSqlServerWithXsltTitle,
     StringsModel.strings.integrationProjectSqlServerWithXsltDescription,

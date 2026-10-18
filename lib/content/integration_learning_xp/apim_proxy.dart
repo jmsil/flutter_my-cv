@@ -6,7 +6,7 @@ import '../../ui/viewer/project.dart';
 import '../../ui/viewer/project_image.dart';
 import '../../ui/viewer/project_swagger.dart';
 
-class ApimProxyProject extends Project {
+class ApimProxyProject extends InfoProject {
   ApimProxyProject() : super(
     Strings.integrationProjectApimProxyTitle,
     StringsModel.strings.integrationProjectApimProxyDescription,

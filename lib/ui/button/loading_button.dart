@@ -10,7 +10,7 @@ import '../viewer/viewer.dart';
 import 'button.dart';
 
 class AppProjectButton extends _LoadingButton {
-  final Project project;
+  final InfoProject project;
 
   AppProjectButton(
     this.project
@@ -26,14 +26,14 @@ class AppProjectButton extends _LoadingButton {
 
 class AppGalleryButton extends _LoadingButton {
   AppGalleryButton(
-    GalleryAssets assets
+    GalleryAssetsArchive assets
   ) : super(
     assets
   );
 
   @override
   void showViewer(BuildContext context) {
-    AppViewer.show(context, AppGallery(assets as GalleryAssets));
+    AppViewer.show(context, AppGallery(assets as GalleryAssetsArchive));
   }
 }
 

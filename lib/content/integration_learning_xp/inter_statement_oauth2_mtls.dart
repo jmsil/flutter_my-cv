@@ -5,7 +5,7 @@ import '../../ui/strings/strings_model.dart';
 import '../../ui/viewer/project.dart';
 import '../../ui/viewer/project_image.dart';
 
-class InterStatementOauth2MtlsProject extends Project {
+class InterStatementOauth2MtlsProject extends InfoProject {
   InterStatementOauth2MtlsProject() : super(
     Strings.integrationProjectInterStatementOauth2MtlsTitle,
     StringsModel.strings.integrationProjectInterStatementOauth2MtlsDescription,

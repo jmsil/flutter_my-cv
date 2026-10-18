@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 class AppAssets {
   static late final Uint8List profilePhoto;
 
-  static final GalleryAssets bciFortlevDriverAppAssets = GalleryAssets(
+  static final GalleryAssetsArchive bciFortlevDriverAppAssets = GalleryAssetsArchive(
     'assets/BciFortlevDriverApp/archive.zip');
   static final AssetsArchive apimProxyAssets = AssetsArchive(
     'assets/SapIntegrationSuiteLearningJourney/ApimProxy/archive.zip');
@@ -35,8 +35,7 @@ class AppAssets {
   static const String robotoItalicFont = '${_fontsPath}roboto-italic.ttf';
 
   static Future<void> loadStartupAssets() async {
-    String path = 'assets/Startup/';
-    profilePhoto = await loadAsUint8List('${path}profile_photo.jpeg');
+    profilePhoto = await loadAsUint8List('assets/startup/profile_photo.jpeg');
   }
 
   static Future<ByteData> loadAsByteData(String assetName) {
@@ -50,8 +49,10 @@ class AppAssets {
 }
 
 class AssetsArchive {
-  AssetsArchive(String assetName)
-    : this._assetName = assetName;
+  AssetsArchive(
+    String assetName
+  ) :
+    this._assetName = assetName;
 
   final String _assetName;
   final List<Uint8List> _files = [];
@@ -66,11 +67,11 @@ class AssetsArchive {
     Uint8List asset = await AppAssets.loadAsUint8List(_assetName);
     Archive archive = ZipDecoder().decodeBytes(asset);
 
-    while(_added(archive, id))
+    while(_didAddFile(archive, id))
       id++;
   }
 
-  bool _added(Archive archive, int id) {
+  bool _didAddFile(Archive archive, int id) {
     ArchiveFile? file =
       archive.find('files/${id}.jpeg') ??
       archive.find('files/${id}.txt');
@@ -84,8 +85,8 @@ class AssetsArchive {
   Uint8List getFile(int id) => _files[id - 1];
 }
 
-class GalleryAssets extends AssetsArchive {
-  GalleryAssets(super.assetName);
+class GalleryAssetsArchive extends AssetsArchive {
+  GalleryAssetsArchive(super.assetName);
 
   final List<Uint8List> _thumbnails = [];
 
@@ -100,6 +101,7 @@ class GalleryAssets extends AssetsArchive {
   @override
   Future<void> load() async {
     await super.load();
+
     Codec thumbnailCodec = await instantiateImageCodec(_thumbnails[0]);
     FrameInfo thumbnailFrame = await thumbnailCodec.getNextFrame();
     _thumbnailWidth = thumbnailFrame.image.width;
@@ -107,16 +109,15 @@ class GalleryAssets extends AssetsArchive {
   }
 
   @override
-  bool _added(Archive archive, int id) {
-    bool added = super._added(archive, id);
+  bool _didAddFile(Archive archive, int id) {
+    bool didAddFile = super._didAddFile(archive, id);
 
-    if (added) {
-      _thumbnails.add(
-        archive.find('thumbnails/${id}.jpeg')!.content
-      );
+    if (didAddFile) {
+      ArchiveFile? file = archive.find('thumbnails/${id}.jpeg');
+      _thumbnails.add(file!.content);
     }
 
-    return added;
+    return didAddFile;
   }
 
   Uint8List getThumbnail(int id) => _thumbnails[id - 1];

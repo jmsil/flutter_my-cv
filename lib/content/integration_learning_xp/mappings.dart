@@ -6,7 +6,7 @@ import '../../ui/viewer/project.dart';
 import '../../ui/viewer/project_code.dart';
 import '../../ui/viewer/project_image.dart';
 
-class MappingsProject extends Project {
+class MappingsProject extends InfoProject {
   MappingsProject() : super(
     Strings.integrationProjectMappingsTitle,
     StringsModel.strings.integrationProjectMappingsDescription,
