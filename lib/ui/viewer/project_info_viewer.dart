@@ -9,10 +9,10 @@ import '../strings/strings.dart';
 import 'project.dart';
 import 'viewer.dart';
 
-class AppProjectViewer extends AppViewer {
+class ProjectInfoViewer extends AppViewer {
   final InfoProject project;
 
-  AppProjectViewer(
+  ProjectInfoViewer(
     this.project
   ) : super(
     windowDirection: Axis.vertical,
@@ -25,7 +25,7 @@ class AppProjectViewer extends AppViewer {
   _State createState() => _State();
 }
 
-class _State extends AppViewerState<AppProjectViewer> {
+class _State extends AppViewerState<ProjectInfoViewer> {
   @override
   Widget buildBar(bool showBackground) {
     final AppTheme theme = context.appLayout.theme;

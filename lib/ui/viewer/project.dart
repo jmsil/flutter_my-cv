@@ -1,14 +1,14 @@
 import 'package:flutter/widgets.dart';
 
 import '../assets.dart';
-import '../button/loading_button.dart';
+import '../button/project_button.dart';
 import '../layout/icons.dart';
 import '../layout/layout.dart';
 import '../layout/theme.dart';
 
 class ProjectTileWidget extends Row {
   ProjectTileWidget(
-    AppTheme theme, _Project project
+    AppTheme theme, Project project
   ) : super(
     spacing: AppLayout.smallSpacing,
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,38 +30,33 @@ class ProjectTileWidget extends Row {
           ]
         )
       ),
-
-      if (project is InfoProject)
-        AppProjectButton(project),
-
-      if (project is GalleryProject)
-        AppGalleryButton(project.assets as GalleryAssetsArchive)
+      AppProjectButton(project)
     ]
   );
 }
 
-class _Project {
+class Project {
   final String title;
   final String description;
   final AssetsArchive assets;
 
-  _Project(this.title, this.description, this.assets);
+  Project._(this.title, this.description, this.assets);
 }
 
-class GalleryProject extends _Project {
+class GalleryProject extends Project {
   GalleryProject(
     String title, String description, GalleryAssetsArchive assets
-  ) : super(
+  ) : super._(
     title, description, assets
   );
 }
 
-abstract class InfoProject extends _Project {
+abstract class InfoProject extends Project {
   final String info;
 
   InfoProject(
     String title, String description, this.info, AssetsArchive assets
-  ) : super(
+  ) : super._(
     title, description, assets
   );
 
