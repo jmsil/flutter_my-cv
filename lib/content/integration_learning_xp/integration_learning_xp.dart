@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../ui/container/tabbar.dart';
 import '../../ui/layout/layout.dart';
 import '../../ui/layout/theme.dart';
 import '../../ui/strings/strings_model.dart';
@@ -22,25 +23,34 @@ class IntegrationLearningExperience extends ExpandableContent {
   ) : super(
     headerTitle: StringsModel.strings.sapIntegrationSuiteLearningJourneyTitle,
     headerDetail: StringsModel .strings.sapIntegrationSuiteLearningJourneyDetail,
-    info: StringsModel.strings.sapIntegrationSuiteLearningJourneyInfo,
-    widgetAfterInfo: ExpandableContent(
-      headerTitle: StringsModel.strings.sapIntegrationSuiteLearningJourneyPortfolioTitle,
-      widgetBeforeInfo: Column(
-        spacing: AppLayout.normalSpacing,
-        children: [
-          ProjectTileWidget(theme, ApimProxyProject()),
-          ProjectTileWidget(theme, IFlowProxyProject()),
-          ProjectTileWidget(theme, ExceptionHandlerProject()),
-          ProjectTileWidget(theme, OAuth2TokensHandlerProject()),
-          ProjectTileWidget(theme, GoogleFirebaseAuthUsersProject()),
-          ProjectTileWidget(theme, InterStatementOauth2MtlsProject()),
-          ProjectTileWidget(theme, SqlServerXsltProject()),
-          ProjectTileWidget(theme, ConversionsFtpProject()),
-          ProjectTileWidget(theme, MappingsProject()),
-          ProjectTileWidget(theme, CalculatorProject())
-        ]
-      ),
-      info: StringsModel.strings.integrationProjectsScriptCollectionInfo,
+    widgetBeforeInfo: AppTabBar.summaryPortfolio(
+      theme: theme,
+      pages: [
+        Text(
+          StringsModel.strings.sapIntegrationSuiteLearningJourneyInfo,
+          style: theme.text1OverBackgroundColor1Style
+        ),
+        Column(
+          spacing: AppLayout.normalSpacing,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ProjectTileWidget(theme, ApimProxyProject()),
+            ProjectTileWidget(theme, IFlowProxyProject()),
+            ProjectTileWidget(theme, ExceptionHandlerProject()),
+            ProjectTileWidget(theme, OAuth2TokensHandlerProject()),
+            ProjectTileWidget(theme, GoogleFirebaseAuthUsersProject()),
+            ProjectTileWidget(theme, InterStatementOauth2MtlsProject()),
+            ProjectTileWidget(theme, SqlServerXsltProject()),
+            ProjectTileWidget(theme, ConversionsFtpProject()),
+            ProjectTileWidget(theme, MappingsProject()),
+            ProjectTileWidget(theme, CalculatorProject()),
+            Text(
+              StringsModel.strings.integrationProjectsScriptCollectionInfo,
+              style: theme.text1OverBackgroundColor1ItalicStyle
+            )
+          ]
+        )
+      ]
     ),
     startOpen: true
   );

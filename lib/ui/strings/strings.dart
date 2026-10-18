@@ -81,11 +81,12 @@ abstract class Strings {
   String get aboutAndExpectationsInfo;
   String get madeWithFlutter;
   String get language;
+  String get summary;
+  String get portfolio;
   String get experienceTitle;
   String get sapIntegrationSuiteLearningJourneyTitle;
   String get sapIntegrationSuiteLearningJourneyDetail;
   String get sapIntegrationSuiteLearningJourneyInfo;
-  String get sapIntegrationSuiteLearningJourneyPortfolioTitle;
   String get integrationProjectApimProxyDescription;
   String get integrationProjectApimProxyInfo;
   String get integrationProjectIFlowProxyDescription;

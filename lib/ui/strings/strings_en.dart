@@ -35,6 +35,10 @@ class StringsEn extends Strings {
   @override
   String get language => 'Language';
   @override
+  String get summary => 'Summary';
+  @override
+  String get portfolio => 'Portfolio';
+  @override
   String get experienceTitle => 'Experience';
   @override
   String get sapIntegrationSuiteLearningJourneyTitle => 'SAP Integration Suite Development and Certification';
@@ -54,8 +58,6 @@ class StringsEn extends Strings {
     '▪ XSLT, XML, and JSON conversions and namespace mapping.\n'
     '▪ Dynamic consumption of SOAP services via request parameters and mappings.\n'
     '▪ SQL Server database connection.';
-  @override
-  String get sapIntegrationSuiteLearningJourneyPortfolioTitle => 'SAP Integration Suite Portfolio';
   @override
   String get integrationProjectApimProxyDescription => 'Allow end-user applications to connect to Cloud Integration using a Firebase JWT token.';
   @override
@@ -288,7 +290,7 @@ class StringsEn extends Strings {
     'The paramA and paramB parameters are mapped to the SOAP request parameters:'
     '${Strings.widgetPlaceholder}';
   @override
-  String get integrationProjectsScriptCollectionInfo => '*You can find the script collection of this project on my GitHub.';
+  String get integrationProjectsScriptCollectionInfo => '*The project\'s script collection is on my GitHub.';
   @override
   String get fortlevExperienceTitle => 'Flutter Mobile Application Development';
   @override

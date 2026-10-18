@@ -9,11 +9,11 @@ class AppIcons {
   static const IconData arrowUp = Icons.keyboard_arrow_up;
   static const IconData availability = Icons.how_to_reg_outlined;
   static const IconData back = Icons.arrow_back;
+  static const IconData briefcase = Icons.business_center_outlined;
   static const IconData close = Icons.close;
   static const IconData code = Icons.code;
   static const IconData download = Icons.file_download_outlined;
   static const IconData education = Icons.school_outlined;
-  static const IconData experience = Icons.business_center_outlined;
   static const IconData fullWindow = Icons.open_in_full;
   static const IconData fullWindowExit = Icons.close_fullscreen;
   static const IconData info = Icons.info_outline;

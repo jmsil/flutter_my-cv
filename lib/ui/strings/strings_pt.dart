@@ -35,6 +35,10 @@ class StringsPt extends Strings {
   @override
   String get language => 'Idioma';
   @override
+  String get summary => 'Resumo';
+  @override
+  String get portfolio => 'Portfólio';
+  @override
   String get experienceTitle => 'Experiência';
   @override
   String get sapIntegrationSuiteLearningJourneyTitle => 'Desenvolvimento/Certificação SAP Integration Suite';
@@ -54,8 +58,6 @@ class StringsPt extends Strings {
     '▪ Conversões XSLT, XML e JSON e mapeamento de namespaces.\n'
     '▪ Consumo dinâmico de serviço SOAP via parâmetros de requisição e mapeamentos.\n'
     '▪ Conexão com banco de dados SQL Server.';
-  @override
-  String get sapIntegrationSuiteLearningJourneyPortfolioTitle => 'Portfólio SAP Integration Suite';
   @override
   String get integrationProjectApimProxyDescription => 'Permite que aplicações do usuário final se conectem ao Cloud Integration com um token JWT do Firebase.';
   @override
@@ -288,7 +290,7 @@ class StringsPt extends Strings {
     'Os parâmetros paramA e paramB são mapeados para os parâmetros da requisição SOAP:'
     '${Strings.widgetPlaceholder}';
   @override
-  String get integrationProjectsScriptCollectionInfo => '*Você pode encontrar a coleção de scripts deste projeto no meu GitHub.';
+  String get integrationProjectsScriptCollectionInfo => '*A coleção de scripts do projeto está no meu GitHub.';
   @override
   String get fortlevExperienceTitle => 'Desenvolvimento de Aplicativo Flutter Mobile';
   @override
