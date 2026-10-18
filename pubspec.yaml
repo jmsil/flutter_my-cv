@@ -1,7 +1,7 @@
 name: my_cv
 version: 1.0.0+1
 publish_to: 'none'
-description: A little project for my personal CV.
+description: A Flutter project for my personal online CV.
 
 environment:
   sdk: ^2.17.0
@@ -16,6 +16,14 @@ dependencies:
 
 dev_dependencies:
   icon_font_generator: ^4.1.0
+
+icon_font:
+  # dart run icon_font_generator:generator
+  input_svg_dir: 'assets/icons'
+  output_font_file: 'assets/icons/icons.otf'
+  output_class_file: 'lib/ui/layout/icons_generator.dart'
+  class_name: 'AppIconsGenerator'
+  font_name: 'Icons'
 
 flutter:
   uses-material-design: true

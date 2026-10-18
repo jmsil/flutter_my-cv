@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'icons_generator.dart';
+
 class AppIcons {
   static const IconData arrowDown = Icons.keyboard_arrow_down;
   static const IconData arrowLeft = Icons.keyboard_arrow_left;
@@ -27,9 +29,9 @@ class AppIcons {
   static const IconData topicMark = Icons.arrow_right;
   static const IconData webhook = Icons.webhook;
 
-  static const IconData layout = IconData(0xE004, fontFamily: 'Icons');
-  static const IconData flatLayout = IconData(0xE001, fontFamily: 'Icons');
-  static const IconData leftLayout = IconData(0xE002, fontFamily: 'Icons');
-  static const IconData topLayout = IconData(0xE003, fontFamily: 'Icons');
-  static const IconData fullLayout = IconData(0xE000, fontFamily: 'Icons');
+  static const IconData layout = AppIconsGenerator.layout;
+  static const IconData flatLayout = AppIconsGenerator.flatLayout;
+  static const IconData leftLayout = AppIconsGenerator.leftLayout;
+  static const IconData topLayout = AppIconsGenerator.topLayout;
+  static const IconData fullLayout = AppIconsGenerator.fullLayout;
 }
