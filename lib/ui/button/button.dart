@@ -10,6 +10,7 @@ class AppButton extends StatelessWidget {
 
   final Color color;
   final bool isSelected;
+  final bool _isProcessing;
   final Widget child;
   final void Function() onPressed;
 
@@ -20,17 +21,25 @@ class AppButton extends StatelessWidget {
     required this.isSelected,
     required this.onPressed
   }) :
+    _isProcessing = false,
     color = isSelected ? selectedStyle.color! : unselectedStyle.color!,
     child = Text(label, style: isSelected ? selectedStyle : unselectedStyle);
 
   AppButton.icon({
     required IconData icon,
     required this.color,
-    bool isLoading = false,
+    bool isProcessing = false,
     this.isSelected = false,
     required this.onPressed
   }) :
-    child = isLoading
+    _isProcessing = isProcessing,
+    child = Icon(icon, size: _iconSize, color: color);
+
+  @override
+  Widget build(BuildContext context) {
+    final AppTheme theme = context.appLayout.theme;
+
+    final builtChild = _isProcessing
       ? SizedBox(
           width: _iconSize,
           height: _iconSize,
@@ -40,11 +49,8 @@ class AppButton extends StatelessWidget {
             backgroundColor: color.withValues(alpha: 0.26)
           )
         )
-      : Icon(icon, size: _iconSize, color: color);
+      : child;
 
-  @override
-  Widget build(BuildContext context) {
-    final AppTheme theme = context.appLayout.theme;
     return IconButton(
       iconSize: _containerSize,
       splashColor: theme.inkEffectsColor,
@@ -55,9 +61,7 @@ class AppButton extends StatelessWidget {
         height: _containerSize,
         color: isSelected ? color.withValues(alpha: 0.16) : null,
         borderRadius: AppTheme.circleBorderRadius,
-        child: Center(
-          child: child
-        )
+        child: Center(child: builtChild)
       ),
       mouseCursor: SystemMouseCursors.click,
       onPressed: onPressed

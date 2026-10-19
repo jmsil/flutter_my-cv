@@ -19,7 +19,7 @@ class AppProjectButton extends StatefulWidget {
 }
 
 class _State extends State<AppProjectButton> {
-  bool isLoading = false;
+  bool isProcessing = false;
 
   @override
   Widget build(BuildContext context) {
@@ -27,13 +27,13 @@ class _State extends State<AppProjectButton> {
     return AppButton.icon(
       icon: AppIcons.info,
       color: theme.overBackgroundColor2,
-      isLoading: isLoading,
+      isProcessing: isProcessing,
       onPressed: onPressed
     );
   }
 
   void onPressed() async {
-    if (isLoading)
+    if (isProcessing)
       return;
 
     if (widget.project.assets.count == 0) {
@@ -54,6 +54,6 @@ class _State extends State<AppProjectButton> {
   }
 
   void setIsLoading(bool value) {
-    setState(() => isLoading = value);
+    setState(() => isProcessing = value);
   }
 }
