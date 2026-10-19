@@ -24,12 +24,12 @@ class AppTabBar extends StatelessWidget {
       AppIconText(
         icon: AppIcons.summary,
         text: StringsModel.strings.summary,
-        textStyle: theme.header1OverBackgroundColor1BoldStyle
+        textStyle: theme.background.normalHeader.over1.bold
       ),
       AppIconText(
         icon: AppIcons.briefcase,
         text: StringsModel.strings.portfolio,
-        textStyle: theme.header1OverBackgroundColor1BoldStyle
+        textStyle: theme.background.normalHeader.over1.bold
       )
     ],
     pages = [
@@ -50,7 +50,7 @@ class AppTabBar extends StatelessWidget {
             dividerHeight: 0,
             indicatorWeight: 4,
             indicatorSize: TabBarIndicatorSize.tab,
-            indicatorColor: theme.overBackgroundColor1.withValues(alpha: 0.24),
+            indicatorColor: theme.background.overColor1.withValues(alpha: 0.24),
             labelPadding: const AppEdgeInsets.small(),
             overlayColor: WidgetStateColor.resolveWith((_) => theme.inkEffectsColor),
             tabs: tabs,

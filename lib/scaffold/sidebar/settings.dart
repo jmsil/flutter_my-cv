@@ -16,12 +16,12 @@ class Settings extends StatelessWidget {
     final bool isExtendedScreen = context.isExtendedScreen;
 
     final TextStyle selectedStyle = isExtendedScreen
-      ? theme.text1OverBackgroundColor2BoldStyle
-      : theme.text1OverElement1Color1BoldStyle;
+      ? theme.background.normalText.decoration.bold
+      : theme.brand1.normalText.over1.bold;
 
     final TextStyle unselectedStyle = isExtendedScreen
-      ? theme.text1OverBackgroundColor2Style
-      : theme.text1OverElement1Color1Style;
+      ? theme.background.normalText.decoration.regular
+      : theme.brand1.normalText.over1.regular;
 
     final Widget languagesWidget = Row(
       spacing: AppLayout.smallSpacing,
@@ -51,25 +51,25 @@ class Settings extends StatelessWidget {
       children: [
         AppButton.icon(
           icon: AppIcons.flatLayout,
-          color: theme.overBackgroundColor2,
+          color: theme.background.decorationColor,
           isSelected: layout == AppLayout.flat,
           onPressed: () => setLayout(context, AppLayout.flat)
         ),
         AppButton.icon(
           icon: AppIcons.leftLayout,
-          color: theme.overBackgroundColor2,
+          color: theme.background.decorationColor,
           isSelected: layout == AppLayout.left,
           onPressed: () => setLayout(context, AppLayout.left)
         ),
         AppButton.icon(
           icon: AppIcons.topLayout,
-          color: theme.overBackgroundColor2,
+          color: theme.background.decorationColor,
           isSelected: layout == AppLayout.top,
           onPressed: () => setLayout(context, AppLayout.top)
         ),
         AppButton.icon(
           icon: AppIcons.fullLayout,
-          color: theme.overBackgroundColor2,
+          color: theme.background.decorationColor,
           isSelected: layout == AppLayout.full,
           onPressed: () => setLayout(context, AppLayout.full)
         )
@@ -120,8 +120,8 @@ class _IconTitle extends Row {
   ) : super(
     spacing: AppLayout.smallSpacing,
     children: [
-      Icon(icon, color: theme.overBackgroundColor1),
-      Text(label, style: theme.text1OverBackgroundColor1BoldStyle)
+      Icon(icon, color: theme.background.overColor1),
+      Text(label, style: theme.background.normalText.over1.bold)
     ]
   );
 }

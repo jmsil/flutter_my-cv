@@ -13,7 +13,7 @@ class ProjectTileWidget extends Row {
     spacing: AppLayout.smallSpacing,
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Icon(AppIcons.topicMark, color: theme.overBackgroundColor1),
+      Icon(AppIcons.topicMark, color: theme.background.overColor1),
       Expanded(
         child: Column(
           spacing: AppLayout.tinySpacing,
@@ -21,11 +21,11 @@ class ProjectTileWidget extends Row {
           children: [
             Text(
               project.title,
-              style: theme.text1OverBackgroundColor1BoldStyle
+              style: theme.background.normalText.over1.bold
             ),
             Text(
               project.description,
-              style: theme.text1OverBackgroundColor1Style
+              style: theme.background.normalText.over1.regular
             )
           ]
         )

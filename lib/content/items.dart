@@ -31,7 +31,7 @@ class ItemsGroup extends StatelessWidget {
       Widget item = AppIconText(
         icon: AppIcons.topicMark,
         text: listItem,
-        textStyle: theme.text1OverBackgroundColor1Style
+        textStyle: theme.background.normalText.over1.regular
       );
       children.add(item);
       children.add(AppLayout.smallVerticalSpacer);

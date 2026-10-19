@@ -26,7 +26,7 @@ class _State extends State<AppProjectButton> {
     final AppTheme theme = context.appLayout.theme;
     return AppButton.icon(
       icon: AppIcons.info,
-      color: theme.overBackgroundColor2,
+      color: theme.background.decorationColor,
       isProcessing: isProcessing,
       onPressed: onPressed
     );

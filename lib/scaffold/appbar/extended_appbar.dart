@@ -51,7 +51,7 @@ class ExtendedAppbar extends StatelessWidget {
 
     if (layout.showTopbarBackground) {
       builtWidget = AppContainer(
-        color: theme.elementColor1,
+        color: theme.brand1.baseColor,
         borderRadius: BorderRadius.horizontal(
           left: const Radius.circular(ProfilePhotoAppbarStateSwitcher.circleRadiusSize),
           right: AppTheme.radius

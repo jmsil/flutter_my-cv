@@ -11,18 +11,17 @@ class Section extends AppContainer {
     required bool startOpen,
     required String title,
     required Widget contentWidget
-  })
-    : super(
-        color: theme.sectionColor,
-        borderRadius: AppTheme.allBorderRadius,
-        isClipped: true,
-        child: AppHeaderExpandable(
-          startOpen: startOpen,
-          arrowColor: theme.overSectionColor3,
-          headerContentPadding: const AppEdgeInsets.normal(left: AppEdgeInsets.largeValue),
-          expandableContentPadding: const AppEdgeInsets.large(top: AppEdgeInsets.smallValue),
-          headerContent: Text(title, style: theme.header1OverSectionColor2BoldStyle),
-          expandableContent: contentWidget
-        )
-      );
+  }) : super(
+    color: theme.sidebarSection.baseColor,
+    borderRadius: AppTheme.allBorderRadius,
+    isClipped: true,
+    child: AppHeaderExpandable(
+      startOpen: startOpen,
+      arrowColor: theme.sidebarSection.decorationColor,
+      headerContentPadding: const AppEdgeInsets.normal(left: AppEdgeInsets.largeValue),
+      expandableContentPadding: const AppEdgeInsets.large(top: AppEdgeInsets.smallValue),
+      headerContent: Text(title, style: theme.sidebarSection.normalHeader.over2.bold),
+      expandableContent: contentWidget
+    )
+  );
 }

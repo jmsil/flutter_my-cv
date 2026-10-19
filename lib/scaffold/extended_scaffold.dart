@@ -25,8 +25,8 @@ class ExtendedScaffold extends StatelessWidget {
 
     Widget builtWidget = OverlayBar(
       radius: AppTheme.radiusValue,
-      startForegroundColor: theme.backgroundColor,
-      endForegroundColor: theme.backgroundColor,
+      startForegroundColor: theme.background.baseColor,
+      endForegroundColor: theme.background.baseColor,
       child: AppSliverScroller(
         [
           if ( ! isDoublePane)

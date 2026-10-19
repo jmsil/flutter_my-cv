@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
+  static const double normalHeaderFontSize = 16;
+  static const double normalTextFontSize = 15;
+  static const double largeHeaderFontSize = 18;
+  static const double largeTextFontSize = 17;
+  static const double xLargeHeaderFontSize = 20;
+  static const double xLargeTextFontSize = 18;
+
   static const double radiusValue = 16;
   static const Radius radius = Radius.circular(radiusValue);
   static const BorderRadius allBorderRadius = BorderRadius.all(radius);
@@ -8,116 +15,91 @@ class AppTheme {
   static const Curve animationCurve = Curves.decelerate;
   static const Duration animationDuration = Duration(milliseconds: 380);
 
-  static const BorderRadius circleBorderRadius = BorderRadius.all(Radius.circular(999999));
+  static const BorderRadius circleBorderRadius = BorderRadius.all(Radius.circular(999));
 
   AppTheme({
-    Color? backgroundColor,
-    Color? overBackgroundColor1,
-    Color? overBackgroundColor2,
-    Color? overBackgroundColor3,
-
-    Color? elementColor1,
-    Color? overElement1Color1,
-
-    Color? elementColor2,
-    Color? overElement2Color1,
-
-    Color? elementColor3,
-    Color? overElement3Color1,
-
-    Color? sectionColor,
-    Color? overSectionColor1,
-    Color? overSectionColor2,
-    Color? overSectionColor3
+    AppThemeData? background,
+    AppThemeData? brand1,
+    AppThemeData? brand2,
+    AppThemeData? brand3,
+    AppThemeData? sidebarSection
   }) :
-    this.backgroundColor = backgroundColor ?? Colors.blueGrey[50]!,
-    this.overBackgroundColor1 = overBackgroundColor1 ?? Colors.black,
-    this.overBackgroundColor2 = overBackgroundColor2 ?? Colors.blue[900]!,
-    this.overBackgroundColor3 = overBackgroundColor3 ?? Colors.white,
+    this.background = background ?? AppThemeData(
+      baseColor: Colors.blueGrey[50]!,
+      overColor1: Colors.black,
+      overColor2: Colors.white,
+      decorationColor: Colors.blue[900]!
+    ),
+    this.brand1 = brand1 ?? AppThemeData(
+      baseColor: Colors.blueGrey[900]!,
+      overColor1: Colors.blue[200]!
+    ),
+    this.brand2 = brand2 ?? AppThemeData(
+      baseColor: Colors.blueGrey[700]!,
+      overColor1: Colors.blueGrey[50]!
+    ),
+    this.brand3 = brand3 ?? AppThemeData(
+      baseColor: Colors.blueGrey[200]!,
+      overColor1: Colors.black
+    ),
+    this.sidebarSection = sidebarSection ?? AppThemeData(
+      baseColor: Colors.black26,
+      overColor1: Colors.blue[100]!,
+      overColor2: Colors.blue[200]!,
+      decorationColor: Colors.blue[200]!
+    );
 
-    this.elementColor1 = elementColor1 ?? Colors.blueGrey[900]!,
-    this.overElement1Color1 = overElement1Color1 ??  Colors.blue[200]!,
+  final AppThemeData background;
+  final AppThemeData brand1;
+  final AppThemeData brand2;
+  final AppThemeData brand3;
+  final AppThemeData sidebarSection;
 
-    this.elementColor2 = elementColor2 ?? Colors.blueGrey[700]!,
-    this.overElement2Color1 = overElement2Color1 ?? Colors.blueGrey[50]!,
+  final Color inkEffectsColor = Colors.blueGrey[200]!.withValues(alpha: 0.48);
+}
 
-    this.elementColor3 = elementColor3 ?? Colors.blueGrey[200]!,
-    this.overElement3Color1 = overElement3Color1 ?? Colors.black,
+class AppThemeTextStyle {
+  final TextStyle regular;
+  final TextStyle bold;
+  final TextStyle italic;
 
-    this.sectionColor = sectionColor ?? Colors.black26,
-    this.overSectionColor1 = overSectionColor1 ?? Colors.blue[100]!,
-    this.overSectionColor2 = overSectionColor2 ?? Colors.blue[200]!,
-    this.overSectionColor3 = overSectionColor3 ?? Colors.blue[200]!;
+  AppThemeTextStyle(
+    double fontSize, Color color
+  ) :
+    this.regular = TextStyle(fontSize: fontSize, color: color),
+    this.bold = TextStyle(fontSize: fontSize, color: color, fontWeight: FontWeight.bold),
+    this.italic = TextStyle(fontSize: fontSize, color: color, fontStyle: FontStyle.italic);
+}
 
-  final double text1FontSize = 15;
-  final double header1FontSize = 16;
-  final double text2FontSize = 17;
-  final double header2FontSize = 18;
-  final double text3FontSize = 18;
-  final double header3FontSize = 20;
+class AppThemeText {
+  final AppThemeTextStyle over1;
+  final AppThemeTextStyle over2;
+  final AppThemeTextStyle decoration;
 
-  final Color backgroundColor;
-  final Color overBackgroundColor1;
-  final Color overBackgroundColor2;
-  final Color overBackgroundColor3;
+  AppThemeText(
+    double fontSize, AppThemeData themeData
+  ) :
+    this.over1 = AppThemeTextStyle(fontSize, themeData.overColor1),
+    this.over2 = AppThemeTextStyle(fontSize, themeData.overColor2),
+    this.decoration = AppThemeTextStyle(fontSize, themeData.decorationColor);
+}
 
-  final Color elementColor1;
-  final Color overElement1Color1;
+class AppThemeData {
+  final Color baseColor;
+  final Color overColor1;
+  final Color overColor2;
+  final Color decorationColor;
+  late final AppThemeText normalHeader = AppThemeText(AppTheme.normalHeaderFontSize, this);
+  late final AppThemeText normalText = AppThemeText(AppTheme.normalTextFontSize, this);
+  late final AppThemeText largeHeader = AppThemeText(AppTheme.largeHeaderFontSize, this);
+  late final AppThemeText largeText = AppThemeText(AppTheme.largeTextFontSize, this);
+  late final AppThemeText xLargeHeader = AppThemeText(AppTheme.xLargeHeaderFontSize, this);
+  late final AppThemeText xLargeText = AppThemeText(AppTheme.xLargeTextFontSize, this);
 
-  final Color elementColor2;
-  final Color overElement2Color1;
-
-  final Color elementColor3;
-  final Color overElement3Color1;
-
-  final Color sectionColor;
-  final Color overSectionColor1;
-  final Color overSectionColor2;
-  final Color overSectionColor3;
-
-  late final Color inkEffectsColor = elementColor3.withValues(alpha: 0.48);
-
-  late final TextStyle text1OverBackgroundColor1Style = TextStyle(
-    fontSize: text1FontSize, color: overBackgroundColor1);
-  late final TextStyle text1OverBackgroundColor1BoldStyle = TextStyle(
-    fontSize: text1FontSize, color: overBackgroundColor1, fontWeight: FontWeight.bold);
-  late final TextStyle text1OverBackgroundColor1ItalicStyle = TextStyle(
-    fontSize: text1FontSize, color: overBackgroundColor1, fontStyle: FontStyle.italic);
-  late final TextStyle text1OverBackgroundColor2Style = TextStyle(
-    fontSize: text1FontSize, color: overBackgroundColor2);
-  late final TextStyle text1OverBackgroundColor2BoldStyle = TextStyle(
-    fontSize: text1FontSize, color: overBackgroundColor2, fontWeight: FontWeight.bold);
-  late final TextStyle text1OverElement1Color1Style = TextStyle(
-    fontSize: text1FontSize, color: overElement1Color1);
-  late final TextStyle text1OverElement1Color1BoldStyle = TextStyle(
-    fontSize: text1FontSize, color: overElement1Color1, fontWeight: FontWeight.bold);
-  late final TextStyle text1OverSectionColor1Style = TextStyle(
-    fontSize: text1FontSize, color: overSectionColor1);
-  late final TextStyle text1OverSectionColor3Style = TextStyle(
-    fontSize: text1FontSize, color: overSectionColor3);
-
-  late final TextStyle header1OverBackgroundColor1BoldStyle = TextStyle(
-    fontSize: header1FontSize, color: overBackgroundColor1, fontWeight: FontWeight.bold);
-  late final TextStyle header1OverElement1Color1BoldStyle = TextStyle(
-    fontSize: header1FontSize, color: overElement1Color1, fontWeight: FontWeight.bold);
-  late final TextStyle header1OverElement3Color1BoldStyle = TextStyle(
-    fontSize: header1FontSize, color: overElement3Color1, fontWeight: FontWeight.bold);
-  late final TextStyle header1OverSectionColor2BoldStyle = TextStyle(
-    fontSize: header1FontSize, color: overSectionColor2, fontWeight: FontWeight.bold);
-
-  late final TextStyle text2OverBackgroundColor1Style = TextStyle(
-    fontSize: text2FontSize, color: overBackgroundColor1);
-  late final TextStyle text2OverElement1Color1Style = TextStyle(
-    fontSize: text2FontSize, color: overElement1Color1);
-
-  late final TextStyle header2OverBackgroundColor1BoldStyle = TextStyle(
-    fontSize: header2FontSize, color: overBackgroundColor1, fontWeight: FontWeight.bold);
-  late final TextStyle header2OverElement1Color1BoldStyle = TextStyle(
-    fontSize: header2FontSize, color: overElement1Color1, fontWeight: FontWeight.bold);
-
-  late final TextStyle text3OverBackgroundColor1Style = TextStyle(
-    fontSize: text3FontSize, color: overBackgroundColor1);
-
-  late final TextStyle header3OverBackgroundColor1BoldStyle = TextStyle(
-    fontSize: header3FontSize, color: overBackgroundColor1, fontWeight: FontWeight.bold);
+  AppThemeData({
+    this.baseColor = Colors.transparent,
+    this.overColor1 = Colors.transparent,
+    this.overColor2 = Colors.transparent,
+    this.decorationColor = Colors.transparent
+  });
 }

@@ -113,7 +113,7 @@ class _Item extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppTheme theme = context.appLayout.theme;
-    Widget builtDetailWidget = Text(detail, style: theme.text1OverBackgroundColor1ItalicStyle);
+    Widget builtDetailWidget = Text(detail, style: theme.background.normalText.over1.italic);
 
     if (certificateLink != null) {
       builtDetailWidget = Wrap(
@@ -129,12 +129,12 @@ class _Item extends StatelessWidget {
       spacing: AppLayout.smallSpacing,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Icon(AppIcons.topicMark, color: theme.overBackgroundColor1),
+        Icon(AppIcons.topicMark, color: theme.background.overColor1),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(title, style: theme.text1OverBackgroundColor1BoldStyle),
+              Text(title, style: theme.background.normalText.over1.bold),
               builtDetailWidget
             ]
           )

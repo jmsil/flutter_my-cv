@@ -14,8 +14,8 @@ class CompactList extends Padding {
         padding: const AppEdgeInsets.normal(),
         child: OverlayBar(
           radius: AppTheme.radiusValue,
-          startForegroundColor: theme.elementColor2,
-          endForegroundColor: theme.elementColor2,
+          startForegroundColor: theme.brand2.baseColor,
+          endForegroundColor: theme.brand2.baseColor,
           child: LayoutBuilder(
             builder: (BuildContext builderContext, BoxConstraints builderConstraints) {
               return AppSliverScroller(
@@ -25,7 +25,7 @@ class CompactList extends Padding {
                     stretch: true,
                     collapsedHeight: 76,
                     expandedHeight: builderConstraints.maxWidth,
-                    backgroundColor: theme.elementColor1,
+                    backgroundColor: theme.brand1.baseColor,
                     surfaceTintColor: Colors.transparent,
                     elevation: 12,
                     shadowColor: Colors.black45,
@@ -60,7 +60,7 @@ class _Profile extends Padding {
               alignment: Alignment.topLeft,
               child: AppButton.icon(
                 icon: AppIcons.back,
-                color: theme.overElement1Color1,
+                color: theme.brand1.overColor1,
                 onPressed: () => Navigator.pop(context)
               )
             )

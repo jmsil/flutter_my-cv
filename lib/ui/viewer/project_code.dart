@@ -71,11 +71,11 @@ class _CodeEditor extends CodeEditor {
     borderRadius: AppTheme.allBorderRadius,
     controller: CodeLineEditingController.fromText(utf8.decode(code)),
     style: CodeEditorStyle(
-      fontSize: theme.text1FontSize,
-      textColor: theme.backgroundColor,
-      cursorColor: theme.backgroundColor,
-      backgroundColor: theme.elementColor1,
-      selectionColor: theme.elementColor3.withValues(alpha: 0.32),
+      fontSize: AppTheme.normalTextFontSize,
+      textColor: theme.background.baseColor,
+      cursorColor: theme.background.baseColor,
+      backgroundColor: theme.brand1.baseColor,
+      selectionColor: theme.brand3.baseColor.withValues(alpha: 0.32),
       codeTheme: CodeHighlightTheme(
         languages: {
           'xml': CodeHighlightThemeMode(mode: langXml),
@@ -99,7 +99,7 @@ class _CodeEditor extends CodeEditor {
     },
     leadingDivider: VerticalDivider(
       width: 1,
-      color: theme.elementColor3.withValues(alpha: 0.32)
+      color: theme.brand3.baseColor.withValues(alpha: 0.32)
     )
   );
 }
@@ -110,7 +110,7 @@ class _FullWindowHandler extends SizedBox {
   ) : super(
     height: 326,
     child: AppViewerFullWindowHandler(
-      iconColor: theme.overElement1Color1,
+      iconColor: theme.brand1.overColor1,
       child: child,
       fullWindowChild: fullWindowChild
     )

@@ -44,9 +44,9 @@ class ContentGroup extends StatelessWidget {
 
     final Widget headerWidget = OverlayBar(
       startSize: _iconContainerSize / 2 + headerMargin.top,
-      startBackgroundColor: headerBackgroundColor ?? theme.backgroundColor,
+      startBackgroundColor: headerBackgroundColor ?? theme.background.baseColor,
       endSize: _iconContainerSize / 2 + headerMargin.bottom,
-      endBackgroundColor: theme.backgroundColor,
+      endBackgroundColor: theme.background.baseColor,
       child: Padding(
         padding: headerMargin,
         child: Stack(
@@ -55,23 +55,23 @@ class ContentGroup extends StatelessWidget {
           children: [
             AppContainer(
               height: _titleContainerSize,
-              color: theme.elementColor3,
+              color: theme.brand3.baseColor,
               margin: const EdgeInsets.only(left: _iconContainerSize / 2),
               borderRadius: AppTheme.circleBorderRadius,
               child: Center(
-                child: Text(title, style: theme.header1OverElement3Color1BoldStyle)
+                child: Text(title, style: theme.brand3.normalHeader.over1.bold)
               )
             ),
             AppContainer(
               width: _iconContainerSize,
               height: _iconContainerSize,
-              color: theme.elementColor3,
+              color: theme.brand3.baseColor,
               padding: const EdgeInsets.all(4),
               borderRadius: AppTheme.circleBorderRadius,
               child: AppContainer(
-                color: theme.elementColor2,
+                color: theme.brand2.baseColor,
                 borderRadius: AppTheme.circleBorderRadius,
-                child: Icon(icon, size: _iconSize, color: theme.overElement2Color1)
+                child: Icon(icon, size: _iconSize, color: theme.brand2.overColor1)
               )
             )
           ]

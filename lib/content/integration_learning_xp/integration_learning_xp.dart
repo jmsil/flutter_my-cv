@@ -27,7 +27,7 @@ class IntegrationLearningExperience extends ExpandableContent {
       theme: theme,
       summaryPage: Text(
         StringsModel.strings.sapIntegrationSuiteLearningJourneyInfo,
-        style: theme.text1OverBackgroundColor1Style
+        style: theme.background.normalText.over1.regular
       ),
       portfolioPage: Column(
         spacing: AppLayout.normalSpacing,
@@ -45,7 +45,7 @@ class IntegrationLearningExperience extends ExpandableContent {
           ProjectTileWidget(theme, CalculatorProject()),
           Text(
             StringsModel.strings.integrationProjectsScriptCollectionInfo,
-            style: theme.text1OverBackgroundColor1ItalicStyle
+            style: theme.background.normalText.over1.italic
           )
         ]
       )

@@ -76,7 +76,7 @@ class AppMaterialButton extends MaterialButton {
       super.onPressed
     }
   ) : super(
-    color: theme.overBackgroundColor2.withValues(alpha: 0.16),
+    color: theme.background.decorationColor.withValues(alpha: 0.16),
     elevation: 0,
     hoverElevation: 0,
     focusElevation: 0,
@@ -92,8 +92,8 @@ class AppMaterialButton extends MaterialButton {
         spacing: AppLayout.smallSpacing,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, color: theme.overBackgroundColor2),
-          Text(text, style: theme.text1OverBackgroundColor2BoldStyle)
+          Icon(icon, color: theme.background.decorationColor),
+          Text(text, style: theme.background.normalText.decoration.bold)
         ]
       ),
     )

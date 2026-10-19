@@ -20,8 +20,8 @@ class ExtendedList extends StatelessWidget {
     final AppTheme theme = layout.theme;
     final double totalCollapsedHeight = AppbarModel.totalCollapsedHeightOf(context);
     final Color overlayColor = layout.showSidebarBackground
-      ? theme.elementColor2
-      : theme.backgroundColor;
+      ? theme.brand2.baseColor
+      : theme.background.baseColor;
 
     Widget builtWidget = OverlayBar(
       radius: AppTheme.radiusValue,
@@ -57,7 +57,7 @@ class _Profile extends AppbarAnimatedContainer {
   ) : super(
     AppContainer(
       width: double.infinity,
-      color: theme.elementColor1,
+      color: theme.brand1.baseColor,
       margin: const EdgeInsets.only(right: AppEdgeInsets.normalValue),
       borderRadius: BorderRadius.horizontal(
         left: const Radius.circular(ProfilePhotoAppbarStateSwitcher.circleRadiusSize),

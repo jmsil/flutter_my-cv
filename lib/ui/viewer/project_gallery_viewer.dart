@@ -80,7 +80,7 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
         curve: AppTheme.animationCurve,
         child: AppContainer(
           borderSize: isSelected ? selectedThumbnailBorderSize : unselectedThumbnailBorderSize,
-          borderColor: showBackground ? theme.overElement1Color1 : theme.overBackgroundColor1,
+          borderColor: showBackground ? theme.brand1.overColor1 : theme.background.overColor1,
           borderRadius: isSelected
             ? const BorderRadius.all(Radius.circular(12))
             : const BorderRadius.all(Radius.circular(8)),
@@ -115,7 +115,7 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
             ? const AppEdgeInsets.normal()
             : const AppEdgeInsets.xLarge(),
           borderSize: borderSize,
-          borderColor: theme.overBackgroundColor1,
+          borderColor: theme.background.overColor1,
           borderRadius: BorderRadius.circular(borderSize * 2.67),
           child: Image.memory(widget.assets.getFile(index + 1), gaplessPlayback: true)
         )
@@ -143,7 +143,7 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
         icon: isHorizontalDirection
           ? AppIcons.back
           : AppIcons.close,
-        color: theme.overBackgroundColor1,
+        color: theme.background.overColor1,
         onPressed: () => Navigator.pop(context)
       )
     );
@@ -160,14 +160,14 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
               icon: isHorizontalDirection
                 ? AppIcons.arrowLeft
                 : AppIcons.arrowUp,
-              color: theme.overBackgroundColor1,
+              color: theme.background.overColor1,
               onPressed: onPrevious
             ),
             AppButton.icon(
               icon: isHorizontalDirection
                 ? AppIcons.arrowRight
                 : AppIcons.arrowDown,
-              color: theme.overBackgroundColor1,
+              color: theme.background.overColor1,
               onPressed: onNext
             )
           ]
@@ -178,7 +178,7 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
     buttons.add(
       Text(
         '${index + 1}/${ widget.assets.count }',
-        style: theme.text1OverBackgroundColor1BoldStyle
+        style: theme.background.normalText.over1.bold
       )
     );
 

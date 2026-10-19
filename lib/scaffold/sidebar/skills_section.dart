@@ -21,7 +21,7 @@ class SkillsSection extends StatelessWidget {
       Widget item = AppIconText(
         icon: AppIcons.topicMark,
         text: listItem,
-        textStyle: theme.text1OverSectionColor1Style
+        textStyle: theme.sidebarSection.normalText.over1.regular
       );
       children.add(item);
     }

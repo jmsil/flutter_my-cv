@@ -42,7 +42,7 @@ class AppSidebar extends StatelessWidget {
     ];
 
     final Widget footerWidget = AppContainer(
-      color: layout.showSidebarBackground ? theme.elementColor1 : null,
+      color: layout.showSidebarBackground ? theme.brand1.baseColor : null,
       padding: const AppEdgeInsets.normal(vertical: AppEdgeInsets.smallValue),
       child: Row(
         spacing: AppLayout.smallSpacing,
@@ -52,8 +52,8 @@ class AppSidebar extends StatelessWidget {
             child: Text(
               StringsModel.strings.madeWithFlutter,
               style: layout.showSidebarBackground
-                ? theme.text1OverElement1Color1Style
-                : theme.text1OverBackgroundColor1Style
+                ? theme.brand1.normalText.over1.regular
+                : theme.background.normalText.over1.regular
             )
           ),
           Settings()
@@ -75,7 +75,7 @@ class AppSidebar extends StatelessWidget {
     return layout.showSidebarBackground
       ? AppContainer(
           width: AppLayout.sidebarWidth,
-          color: theme.elementColor2,
+          color: theme.brand2.baseColor,
           borderRadius: isExtendedScreen
             ? AppTheme.allBorderRadius
             : BorderRadius.zero,

@@ -58,7 +58,7 @@ class ExperienceGroup extends StatelessWidget {
       title: StringsModel.strings.experienceTitle,
       headerBackgroundColor: isExtendedScreen
         ? null
-        : theme.elementColor1,
+        : theme.brand1.baseColor,
       hasHorizontalPadding: false,
       children: children
     );

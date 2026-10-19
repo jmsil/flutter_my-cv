@@ -31,7 +31,7 @@ class BciFortlevExperience extends ExpandableContent {
           ),
           Text(
             StringsModel.strings.fortlevExperienceInfo,
-            style: theme.text1OverBackgroundColor1Style
+            style: theme.background.normalText.over1.regular
           )
         ]
       ),

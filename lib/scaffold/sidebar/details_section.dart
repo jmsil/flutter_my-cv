@@ -19,7 +19,7 @@ class DetailsSection extends Section {
         AppIconText(
           icon: AppIcons.local,
           text: StringsModel.strings.personalLocation,
-          textStyle: theme.text1OverSectionColor1Style
+          textStyle: theme.sidebarSection.normalText.over1.regular
         ),
         AppLink(
           icon: AppIcons.phone,

@@ -93,8 +93,8 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
       isWindowHorizontalDirection && layout.showSidebarBackground;
 
     final Color barBackgroundColor = showBarBackground
-      ? theme.elementColor1
-      : theme.backgroundColor;
+      ? theme.brand1.baseColor
+      : theme.background.baseColor;
 
     final Widget builtBarWidget = Offstage(
       offstage: _isCompactMode,
@@ -169,8 +169,8 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
         Expanded(
           child: AppContainer(
             color: widget.isTransparentBody && ! isMobileDevice
-              ? theme.backgroundColor.withValues(alpha: 0.88)
-              : theme.backgroundColor,
+              ? theme.background.baseColor.withValues(alpha: 0.88)
+              : theme.background.baseColor,
             child: builtFullBodyWidget
           )
         )
@@ -195,7 +195,7 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
             margin: const AppEdgeInsets.normal(),
             borderSize: 2,
             borderColor: showBarBackground
-              ? theme.overElement1Color1.withValues(alpha: 0.48)
+              ? theme.brand1.overColor1.withValues(alpha: 0.48)
               : null,
             borderRadius: AppTheme.allBorderRadius,
             isClipped: true,

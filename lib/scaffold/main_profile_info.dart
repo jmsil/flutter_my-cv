@@ -45,23 +45,23 @@ class MainProfileInfo extends StatelessWidget {
     switch (style) {
       case MainProfileInfoStyle.compactAppbar:
         verticalSpacing = AppLayout.shortSpacing;
-        titleStyle = theme.header1OverElement1Color1BoldStyle;
-        infoStyle = theme.text1OverElement1Color1Style;
+        titleStyle = theme.brand1.normalHeader.over1.bold;
+        infoStyle = theme.brand1.normalText.over1.regular;
         break;
       case MainProfileInfoStyle.extendedAppbarBackground:
         verticalSpacing = AppLayout.smallSpacing;
-        titleStyle = theme.header2OverBackgroundColor1BoldStyle;
-        infoStyle = theme.text2OverBackgroundColor1Style;
+        titleStyle = theme.background.largeHeader.over1.bold;
+        infoStyle = theme.background.largeText.over1.regular;
         break;
       case MainProfileInfoStyle.extendedAppbarElement:
         verticalSpacing = AppLayout.smallSpacing;
-        titleStyle = theme.header2OverElement1Color1BoldStyle;
-        infoStyle = theme.text2OverElement1Color1Style;
+        titleStyle = theme.brand1.largeHeader.over1.bold;
+        infoStyle = theme.brand1.largeText.over1.regular;
         break;
       case MainProfileInfoStyle.body:
         verticalSpacing = AppLayout.normalSpacing;
-        titleStyle = theme.header3OverBackgroundColor1BoldStyle;
-        infoStyle = theme.text3OverBackgroundColor1Style;
+        titleStyle = theme.background.xLargeHeader.over1.bold;
+        infoStyle = theme.background.xLargeText.over1.regular;
     }
 
     Widget builtTitleWidget = Text(title, style: titleStyle, softWrap: softWrap);

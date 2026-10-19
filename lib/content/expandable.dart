@@ -27,14 +27,14 @@ class ExpandableContent extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppTheme theme = context.appLayout.theme;
     Widget builtHeaderWidget = Text(
-      headerTitle, style: theme.header1OverBackgroundColor1BoldStyle);
+      headerTitle, style: theme.background.normalHeader.over1.bold);
 
     if (headerDetail != null) {
       builtHeaderWidget = Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           builtHeaderWidget,
-          Text(headerDetail!, style: theme.text1OverBackgroundColor1ItalicStyle)
+          Text(headerDetail!, style: theme.background.normalText.over1.italic)
         ]
       );
     }
@@ -44,7 +44,7 @@ class ExpandableContent extends StatelessWidget {
       children: [
         VerticalDivider(
           thickness: 8, width: 8,
-          color: theme.overBackgroundColor1.withValues(alpha: 0.16),
+          color: theme.background.overColor1.withValues(alpha: 0.16),
           radius: AppTheme.circleBorderRadius
         ),
         Expanded(
@@ -59,7 +59,7 @@ class ExpandableContent extends StatelessWidget {
       expandableChildren.add(widgetBeforeInfo!);
 
     if (info != null) {
-      Widget widget = Text(info!, style: theme.text1OverBackgroundColor1Style);
+      Widget widget = Text(info!, style: theme.background.normalText.over1.regular);
       expandableChildren.add(widget);
     }
 
@@ -67,7 +67,7 @@ class ExpandableContent extends StatelessWidget {
       expandableChildren.add(widgetAfterInfo!);
 
     if (expandableChildren.isEmpty) {
-      Widget widget = Text('- - -', style: theme.text1OverBackgroundColor1BoldStyle);
+      Widget widget = Text('- - -', style: theme.background.normalText.over1.bold);
       expandableChildren.add(widget);
     }
 
@@ -83,7 +83,7 @@ class ExpandableContent extends StatelessWidget {
       startOpen: startOpen,
       isClipped: true,
       headerHasIntrinsic: true,
-      arrowColor: theme.overBackgroundColor2,
+      arrowColor: theme.background.decorationColor,
       headerContentPadding: _padding,
       expandableContentPadding: _padding,
       headerContent: builtHeaderWidget,

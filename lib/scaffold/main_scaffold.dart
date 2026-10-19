@@ -10,7 +10,7 @@ class MainScaffold extends ListenableBuilder {
     listenable: LayoutModel.instance,
     builder: (BuildContext context, Widget? child) {
       return Material(
-        color: context.appLayout.theme.backgroundColor,
+        color: context.appLayout.theme.background.baseColor,
         child: context.isExtendedScreen
           ? ExtendedScaffold()
           : CompactScaffold()

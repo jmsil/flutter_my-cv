@@ -31,12 +31,12 @@ class _State extends AppViewerState<ProjectInfoViewer> {
     final AppTheme theme = context.appLayout.theme;
 
     final TextStyle titleStyle = showBackground
-      ? theme.header2OverElement1Color1BoldStyle
-      : theme.header2OverBackgroundColor1BoldStyle;
+      ? theme.brand1.largeHeader.over1.bold
+      : theme.background.largeHeader.over1.bold;
 
     final TextStyle descriptionStyle = showBackground
-      ? theme.text1OverElement1Color1Style
-      : theme.text1OverBackgroundColor1Style;
+      ? theme.brand1.normalText.over1.regular
+      : theme.background.normalText.over1.regular;
 
     return Row(
       spacing: AppLayout.normalSpacing,
@@ -77,14 +77,14 @@ class _State extends AppViewerState<ProjectInfoViewer> {
       else if (infoLine.startsWith(Strings.titleTag)) {
         infoLine = infoLine.replaceAll(Strings.titleTag, '');
         children.add(
-          Text(infoLine, style: theme.text1OverBackgroundColor1BoldStyle)
+          Text(infoLine, style: theme.background.normalText.over1.bold)
         );
         children.add(AppLayout.smallVerticalSpacer);
       }
       else if (infoLine.isNotEmpty) {
         infoLine = infoLine.replaceAll('\n▪', '\n    ▪');
         children.add(
-          Text(infoLine, style: theme.text1OverBackgroundColor1Style)
+          Text(infoLine, style: theme.background.normalText.over1.regular)
         );
         children.add(AppLayout.normalVerticalSpacer);
       }

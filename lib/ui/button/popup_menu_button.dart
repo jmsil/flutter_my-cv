@@ -11,7 +11,7 @@ class AppPopupMenuButton extends PopupMenuButton {
     required List<Widget> children
   }) : super(
     offset: const Offset(76, -238),
-    color: theme.backgroundColor,
+    color: theme.background.baseColor,
     menuPadding: const AppEdgeInsets.small(
       top: AppEdgeInsets.largeValue,
       bottom: AppEdgeInsets.normalValue
@@ -22,7 +22,7 @@ class AppPopupMenuButton extends PopupMenuButton {
       borderRadius: AppTheme.allBorderRadius,
       side: BorderSide(
         width: 1,
-        color: theme.overBackgroundColor2.withValues(alpha: 0.36)
+        color: theme.background.decorationColor.withValues(alpha: 0.36)
       )
     ),
     itemBuilder: (builderContext) {
@@ -52,8 +52,8 @@ class _State extends PopupMenuButtonState {
     return AppButton.icon(
       icon: AppIcons.settings,
       color: layout.showSidebarBackground
-        ? layout.theme.overElement1Color1
-        : layout.theme.overBackgroundColor1,
+        ? layout.theme.brand1.overColor1
+        : layout.theme.background.overColor1,
       onPressed: showButtonMenu
     );
   }
