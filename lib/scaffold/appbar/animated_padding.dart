@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 import '../../ui/layout/theme.dart';
-import 'appbar_provider.dart';
+import 'appbar_model.dart';
 
 class AppbarAnimatedPadding extends StatelessWidget {
   final EdgeInsets padding;
@@ -19,8 +19,8 @@ class AppbarAnimatedPadding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double deltaHeight =
-      AppbarProvider.currentTotalHeightOf(context) -
-      AppbarProvider.totalCollapsedHeightOf(context);
+      AppbarModel.currentTotalHeightOf(context) -
+      AppbarModel.totalCollapsedHeightOf(context);
 
     return AnimatedPadding(
       padding: padding.copyWith(

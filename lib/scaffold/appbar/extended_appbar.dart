@@ -4,13 +4,13 @@ import '../../ui/container/container.dart';
 import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/layout_model.dart';
 import '../main_profile_info.dart';
-import 'appbar_provider.dart';
+import 'appbar_model.dart';
 import 'profile_photo.dart';
 
 class ExtendedAppbar extends StatelessWidget {
   static const double _neededSummaryHeight = 154;
   static const double _profileAndSummaryPaddingValue =
-    (AppbarProvider.collapsedHeight - _neededSummaryHeight) / 2;
+    (AppbarModel.collapsedHeight - _neededSummaryHeight) / 2;
   static const EdgeInsets _profileAndSummaryPadding = const AppEdgeInsets.large(
     left: 0, vertical: _profileAndSummaryPaddingValue);
 

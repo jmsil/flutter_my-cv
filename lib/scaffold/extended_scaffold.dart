@@ -9,7 +9,7 @@ import '../ui/layout/icons.dart';
 import '../ui/layout/layout_model.dart';
 import '../ui/overlay_bar.dart';
 import '../ui/scroller.dart';
-import 'appbar/appbar_provider.dart';
+import 'appbar/appbar_model.dart';
 import 'appbar/extended_appbar.dart';
 import 'device.dart';
 import 'main_profile_info.dart';
@@ -21,7 +21,7 @@ class ExtendedScaffold extends StatelessWidget {
     final AppLayout layout = context.appLayout;
     final AppTheme theme = layout.theme;
     final bool isDoublePane = context.screenSize.width >= 1640;
-    final double totalCollapsedHeight = AppbarProvider.totalCollapsedHeightOf(context);
+    final double totalCollapsedHeight = AppbarModel.totalCollapsedHeightOf(context);
 
     Widget builtWidget = OverlayBar(
       radius: AppTheme.radiusValue,
@@ -97,7 +97,7 @@ class ExtendedScaffold extends StatelessWidget {
 
     return Padding(
       padding: const AppEdgeInsets.normal(),
-      child: AppbarProvider(builtWidget)
+      child: AppbarModel(builtWidget)
     );
   }
 }

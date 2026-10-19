@@ -7,14 +7,14 @@ export 'animated_container.dart';
 export 'animated_opacity.dart';
 export 'animated_padding.dart';
 
-class AppbarProvider extends StatefulWidget {
+class AppbarModel extends StatefulWidget {
   static const double collapsedHeight = 226;
   static const EdgeInsets _marginSidebar = AppEdgeInsets.normal(right: 0);
   static const EdgeInsets _marginNoSidebar = EdgeInsets.only(bottom: AppEdgeInsets.normalValue);
 
   final Widget child;
 
-  AppbarProvider(this.child);
+  AppbarModel(this.child);
 
   @override
   _State createState() => _State();
@@ -34,7 +34,7 @@ class AppbarProvider extends StatefulWidget {
   static double currentHeightOf(BuildContext context) {
     return currentValueOf(context)
       ? AppLayout.sidebarWidth - AppEdgeInsets.normalValue * 2
-      : AppbarProvider.collapsedHeight;
+      : AppbarModel.collapsedHeight;
   }
 
   static double currentTotalHeightOf(BuildContext context) {
@@ -46,7 +46,7 @@ class AppbarProvider extends StatefulWidget {
   }
 }
 
-class _State extends State<AppbarProvider> {
+class _State extends State<AppbarModel> {
   final ValueNotifier<bool> valueNotifier = ValueNotifier<bool>(false);
 
   @override

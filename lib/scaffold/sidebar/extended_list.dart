@@ -6,7 +6,7 @@ import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/overlay_bar.dart';
 import '../../ui/scroller.dart';
-import '../appbar/appbar_provider.dart';
+import '../appbar/appbar_model.dart';
 import '../main_profile_info.dart';
 
 class ExtendedList extends StatelessWidget {
@@ -18,7 +18,7 @@ class ExtendedList extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLayout layout = context.appLayout;
     final AppTheme theme = layout.theme;
-    final double totalCollapsedHeight = AppbarProvider.totalCollapsedHeightOf(context);
+    final double totalCollapsedHeight = AppbarModel.totalCollapsedHeightOf(context);
     final Color overlayColor = layout.showSidebarBackground
       ? theme.elementColor2
       : theme.backgroundColor;
