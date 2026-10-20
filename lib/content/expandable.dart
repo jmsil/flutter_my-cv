@@ -44,7 +44,7 @@ class ExpandableContent extends StatelessWidget {
       children: [
         VerticalDivider(
           thickness: 8, width: 8,
-          color: theme.background.overColor1.withValues(alpha: 0.16),
+          color: theme.background.overColor1.withDecorationAlpha,
           radius: AppTheme.circleBorderRadius
         ),
         Expanded(

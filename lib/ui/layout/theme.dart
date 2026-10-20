@@ -103,5 +103,10 @@ class AppThemeData {
 }
 
 extension AppThemeColorExtension on Color {
-  Color get inkEffectAlpha => this.withValues(alpha: 0.12);
+  Color get withInkEffectAlpha => this.withValues(alpha: 0.12);
+  Color get withButtonFrameAlpha => this.withValues(alpha: 0.16);
+  Color get withDividerAlpha => this.withValues(alpha: 0.24);
+  Color get withWindowBorderAlpha => this.withValues(alpha: 0.36);
+  Color get withDecorationAlpha => this.withValues(alpha: 0.16);
+  Color get withTextSelectionAlpha => this.withValues(alpha: 0.32);
 }

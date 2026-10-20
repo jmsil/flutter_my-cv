@@ -19,7 +19,7 @@ class AppInkResponse extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color builtEffectColor = effectColor?.inkEffectAlpha ?? Colors.transparent;
+    final Color builtEffectColor = effectColor?.withInkEffectAlpha ?? Colors.transparent;
     final InteractiveInkFeatureFactory splashFactory = effectColor == null
       ? NoSplash.splashFactory
       : InkRipple.splashFactory;

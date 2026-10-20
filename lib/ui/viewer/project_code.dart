@@ -75,7 +75,7 @@ class _CodeEditor extends CodeEditor {
       textColor: theme.background.baseColor,
       cursorColor: theme.background.baseColor,
       backgroundColor: theme.brand1.baseColor,
-      selectionColor: theme.brand3.baseColor.withValues(alpha: 0.32),
+      selectionColor: theme.brand1.overColor1.withTextSelectionAlpha,
       codeTheme: CodeHighlightTheme(
         languages: {
           'xml': CodeHighlightThemeMode(mode: langXml),
@@ -98,8 +98,8 @@ class _CodeEditor extends CodeEditor {
       );
     },
     leadingDivider: VerticalDivider(
-      width: 1,
-      color: theme.brand3.baseColor.withValues(alpha: 0.32)
+      width: 1.5, thickness: 1.5,
+      color: theme.brand3.baseColor.withDividerAlpha
     )
   );
 }

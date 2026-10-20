@@ -97,7 +97,7 @@ class _FullWindowHandler extends AppViewerFullWindowHandler {
         ? const EdgeInsets.only(top: 48, bottom: 16)
         : const EdgeInsets.all(64),
       color: theme.background.overColor2,
-      borderColor: theme.background.decorationColor.withValues(alpha: 0.16),
+      borderColor: theme.background.decorationColor.withDecorationAlpha,
       borderRadius: AppTheme.allBorderRadius,
       isClipped: true,
       child: child

@@ -22,7 +22,7 @@ class AppPopupMenuButton extends PopupMenuButton {
       borderRadius: AppTheme.allBorderRadius,
       side: BorderSide(
         width: 1,
-        color: theme.background.decorationColor.withValues(alpha: 0.36)
+        color: theme.background.decorationColor.withWindowBorderAlpha
       )
     ),
     itemBuilder: (builderContext) {

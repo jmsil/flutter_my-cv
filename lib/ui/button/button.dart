@@ -38,7 +38,7 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color inkEffectColor = color.inkEffectAlpha;
+    final Color inkEffectColor = color.withInkEffectAlpha;
 
     final builtChild = _isProcessing
       ? SizedBox(
@@ -60,7 +60,7 @@ class AppButton extends StatelessWidget {
       icon: AppContainer(
         width: _containerSize,
         height: _containerSize,
-        color: isSelected ? color.withValues(alpha: 0.16) : null,
+        color: isSelected ? color.withButtonFrameAlpha : null,
         borderRadius: AppTheme.circleBorderRadius,
         child: Center(child: builtChild)
       ),
@@ -77,15 +77,15 @@ class AppMaterialButton extends MaterialButton {
       super.onPressed
     }
   ) : super(
-    color: textStyle.color?.withValues(alpha: 0.16),
+    color: textStyle.color?.withButtonFrameAlpha,
     elevation: 0,
     hoverElevation: 0,
     focusElevation: 0,
     disabledElevation: 0,
     highlightElevation: 0,
-    hoverColor: textStyle.color?.inkEffectAlpha,
-    splashColor: textStyle.color?.inkEffectAlpha,
-    highlightColor: textStyle.color?.inkEffectAlpha,
+    hoverColor: textStyle.color?.withInkEffectAlpha,
+    splashColor: textStyle.color?.withInkEffectAlpha,
+    highlightColor: textStyle.color?.withInkEffectAlpha,
     shape: RoundedRectangleBorder(borderRadius: AppTheme.allBorderRadius),
     child: Padding(
       padding: const AppEdgeInsets.small(),

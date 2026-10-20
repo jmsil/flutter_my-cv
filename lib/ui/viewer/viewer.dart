@@ -195,7 +195,7 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
             margin: const AppEdgeInsets.normal(),
             borderSize: 2,
             borderColor: showBarBackground
-              ? theme.brand1.overColor1.withValues(alpha: 0.48)
+              ? theme.brand1.overColor1.withWindowBorderAlpha
               : null,
             borderRadius: AppTheme.allBorderRadius,
             isClipped: true,
