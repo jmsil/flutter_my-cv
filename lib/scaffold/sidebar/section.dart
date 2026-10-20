@@ -18,6 +18,7 @@ class Section extends AppContainer {
     child: AppHeaderExpandable(
       startOpen: startOpen,
       arrowColor: theme.sidebarSection.decorationColor,
+      effectColor: theme.sidebarSection.baseColor,
       headerContentPadding: const AppEdgeInsets.normal(left: AppEdgeInsets.largeValue),
       expandableContentPadding: const AppEdgeInsets.large(top: AppEdgeInsets.smallValue),
       headerContent: Text(title, style: theme.sidebarSection.normalHeader.over2.bold),

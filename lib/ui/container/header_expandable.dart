@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../button/ink_response.dart';
 import '../layout/icons.dart';
-import '../layout/layout_model.dart';
 import 'container.dart';
 import 'expandable.dart';
 
 class AppHeaderExpandable extends StatefulWidget {
   final bool startOpen;
   final Color arrowColor;
+  final Color effectColor;
   final bool isClipped;
   final bool headerHasIntrinsic;
   final EdgeInsets headerContentPadding;
@@ -20,9 +20,10 @@ class AppHeaderExpandable extends StatefulWidget {
 
   AppHeaderExpandable({
     this.startOpen = false,
+    required this.arrowColor,
+    required this.effectColor,
     this.isClipped = false,
     this.headerHasIntrinsic = false,
-    required this.arrowColor,
     required this.headerContentPadding,
     this.fixedContentPadding,
     required this.expandableContentPadding,
@@ -42,11 +43,10 @@ class _State extends State<AppHeaderExpandable> {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.appLayout.theme;
     Widget headerWidget = AppContainer(
       child: AppInkResponse(
         padding: widget.headerContentPadding,
-        effectColor: theme.brand2.baseColor,
+        effectColor: widget.effectColor,
         onPressed: onPressed,
         child: Row(
           spacing: 16,
