@@ -43,7 +43,7 @@ class _State extends State<AppHeaderExpandable> {
 
   @override
   Widget build(BuildContext context) {
-    Widget headerWidget = AppContainer(
+    Widget builtHeaderWidget = AppContainer(
       child: AppInkResponse(
         padding: widget.headerContentPadding,
         effectColor: widget.effectColor,
@@ -64,15 +64,15 @@ class _State extends State<AppHeaderExpandable> {
     );
 
     if (widget.headerHasIntrinsic) {
-      headerWidget = IntrinsicHeight(
-        child: headerWidget
+      builtHeaderWidget = IntrinsicHeight(
+        child: builtHeaderWidget
       );
     }
 
-    Widget? fixedContent = widget.fixedContent;
+    Widget? builtFixedContent = widget.fixedContent;
 
-    if (fixedContent != null && widget.fixedContentPadding != null) {
-      fixedContent = Padding(
+    if (builtFixedContent != null && widget.fixedContentPadding != null) {
+      builtFixedContent = Padding(
         padding: widget.fixedContentPadding!,
         child: widget.fixedContent
       );
@@ -81,10 +81,10 @@ class _State extends State<AppHeaderExpandable> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        headerWidget,
+        builtHeaderWidget,
 
-        if (fixedContent != null)
-          fixedContent,
+        if (builtFixedContent != null)
+          builtFixedContent,
 
         AppExpandable(
           key: expandableKey,

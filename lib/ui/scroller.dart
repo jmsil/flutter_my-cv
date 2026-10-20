@@ -5,11 +5,10 @@ class AppScrollView extends SingleChildScrollView {
   AppScrollView({
     super.padding,
     super.child
-  })
-    : super(
-        primary: false,
-        physics: AlwaysScrollableScrollPhysics()
-      );
+  }) : super(
+    primary: false,
+    physics: AlwaysScrollableScrollPhysics()
+  );
 }
 
 class AppListView extends ListView {
@@ -18,23 +17,23 @@ class AppListView extends ListView {
     super.scrollDirection,
     super.padding,
     super.children
-  })
-    : super(
-        key: controller != null ? PageStorageKey(controller.debugLabel) : null,
-        primary: false,
-        cacheExtent: double.infinity,
-        physics: AlwaysScrollableScrollPhysics()
-      );
+  }) : super(
+    key: controller != null ? PageStorageKey(controller.debugLabel) : null,
+    primary: false,
+    cacheExtent: double.infinity,
+    physics: AlwaysScrollableScrollPhysics()
+  );
 }
 
 class AppSliverScroller extends CustomScrollView {
-  AppSliverScroller(List<Widget> slivers)
-    : super(
-        primary: false,
-        cacheExtent: double.infinity,
-        physics: AlwaysScrollableScrollPhysics(),
-        slivers: slivers
-      );
+  AppSliverScroller(
+    List<Widget> slivers
+  ) : super(
+    primary: false,
+    cacheExtent: double.infinity,
+    physics: AlwaysScrollableScrollPhysics(),
+    slivers: slivers
+  );
 }
 
 class AppScrollBehavior extends ScrollBehavior {

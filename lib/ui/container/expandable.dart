@@ -10,41 +10,34 @@ class AppExpandable extends StatefulWidget {
     required this.padding,
     this.isClipped = false,
     required this.child
-  })
-    : super(key: key);
+  }) : super(
+    key: key
+  );
 
   @override
   _State createState() => _State();
 }
 
 class _State extends State<AppExpandable> with SingleTickerProviderStateMixin {
-  late bool isOffstage;
-  late bool isExpanded;
-  double contentHeight = 0;
   final GlobalKey contentKey = GlobalKey();
-  late final AnimationController controller;
-  late final CurvedAnimation curvedAnimation;
+  late final AnimationController controller = AnimationController(vsync: this)
+    ..addStatusListener(animationStatusListener);
+  late final CurvedAnimation curvedAnimation = CurvedAnimation(
+    parent: controller, curve: Curves.decelerate, reverseCurve: Curves.decelerate.flipped);
+  bool isOffstage = true;
+  bool isExpanded = false;
+  double contentHeight = 0;
 
   @override
   void initState() {
     super.initState();
 
-    final bool startOpen = (widget.key as AppExpandableKey).startOpen;
-
+    bool startOpen = (widget.key as AppExpandableKey).startOpen;
     isOffstage = !startOpen;
     isExpanded = startOpen;
 
-    controller = AnimationController(vsync: this);
-    controller.addStatusListener(animationStatusListener);
-
     if (startOpen)
       controller.animateTo(1, duration: Duration.zero);
-
-    curvedAnimation = CurvedAnimation(
-      parent: controller,
-      curve: Curves.decelerate,
-      reverseCurve: Curves.decelerate.flipped
-    );
   }
 
   @override
@@ -55,19 +48,19 @@ class _State extends State<AppExpandable> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    Widget newChild = Padding(
+    Widget builtChild = Padding(
       padding: widget.padding,
       child: widget.child
     );
 
     if (widget.isClipped)
-      newChild = ClipRect(child: newChild);
+      builtChild = ClipRect(child: builtChild);
 
     return Offstage(
       offstage: isOffstage,
       child: AnimatedBuilder(
         animation: curvedAnimation,
-        builder: (context, child) {
+        builder: (builderContext, builderChild) {
           return ConstrainedBox(
             key: contentKey,
             constraints: BoxConstraints(
@@ -75,10 +68,10 @@ class _State extends State<AppExpandable> with SingleTickerProviderStateMixin {
                 ? contentHeight * curvedAnimation.value
                 : double.infinity
             ),
-            child: child
+            child: builderChild
           );
         },
-        child: newChild
+        child: builtChild
       )
     );
   }
@@ -87,9 +80,9 @@ class _State extends State<AppExpandable> with SingleTickerProviderStateMixin {
     FocusManager.instance.primaryFocus?.unfocus();
     setState(() {
       isOffstage = false;
-      isExpanded = !isExpanded;
+      isExpanded = ! isExpanded;
 
-      if (!controller.isAnimating) {
+      if (! controller.isAnimating) {
         contentHeight = contentKey.currentContext!.size!.height;
         controller.duration = Duration(milliseconds: 360 + (contentHeight * 0.4).toInt());
       }
