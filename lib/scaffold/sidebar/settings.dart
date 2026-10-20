@@ -6,6 +6,7 @@ import '../../ui/button/popup_menu_button.dart';
 import '../../ui/layout/icons.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
+import '../../ui/text.dart';
 import '../device.dart';
 
 class Settings extends StatelessWidget {
@@ -86,10 +87,18 @@ class Settings extends StatelessWidget {
     return AppPopupMenuButton(
       theme: theme,
       children: [
-        _IconTitle(AppIcons.language, StringsModel.strings.language, theme),
+        AppIconText(
+          icon: AppIcons.language,
+          text: StringsModel.strings.language,
+          textStyle: theme.background.normalText.over1.bold
+        ),
         languagesWidget,
         AppLayout.tinyVerticalSpacer,
-        _IconTitle(AppIcons.layout, Strings.layout, theme),
+        AppIconText(
+          icon: AppIcons.layout,
+          text: Strings.layout,
+          textStyle: theme.background.normalText.over1.bold
+        ),
         layoutsWidget,
         AppLayout.normalVerticalSpacer,
         downloadPdfButton
@@ -112,16 +121,4 @@ class Settings extends StatelessWidget {
     Navigator.of(context).pop();
     PdfGenerator.generateAndDownload(language);
   }
-}
-
-class _IconTitle extends Row {
-  _IconTitle(
-    IconData icon, String label, AppTheme theme
-  ) : super(
-    spacing: AppLayout.smallSpacing,
-    children: [
-      Icon(icon, color: theme.background.overColor1),
-      Text(label, style: theme.background.normalText.over1.bold)
-    ]
-  );
 }

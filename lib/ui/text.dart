@@ -10,25 +10,30 @@ class AppIconText extends StatelessWidget {
   final String text;
   final TextStyle textStyle;
   final Widget? trailingWidget;
+  final bool isCentralized;
 
   AppIconText({
     required this.icon,
     required this.text,
     required this.textStyle,
-    this.trailingWidget
+    this.trailingWidget,
+    this.isCentralized = false
   });
 
   @override
   Widget build(BuildContext context) {
     return Row(
       spacing: AppLayout.smallSpacing,
-      mainAxisSize: MainAxisSize.min,
+      mainAxisSize: isCentralized ? MainAxisSize.max : MainAxisSize.min,
+      mainAxisAlignment: isCentralized ? MainAxisAlignment.center : MainAxisAlignment.start,
       crossAxisAlignment: text.contains('\n')
         ? CrossAxisAlignment.start
         : CrossAxisAlignment.center,
       children: [
         Icon(icon, color: textStyle.color),
-        Text(text, style: textStyle),
+        Flexible(
+          child: Text(text, style: textStyle)
+        ),
 
         if (trailingWidget != null)
           trailingWidget!

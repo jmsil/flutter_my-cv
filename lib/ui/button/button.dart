@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../container/container.dart';
 import '../layout/edge_insets.dart';
 import '../layout/layout_model.dart';
+import '../text.dart';
 
 class AppButton extends StatelessWidget {
   static const double _containerSize = 36;
@@ -88,14 +89,7 @@ class AppMaterialButton extends MaterialButton {
     shape: RoundedRectangleBorder(borderRadius: AppTheme.allBorderRadius),
     child: Padding(
       padding: const AppEdgeInsets.small(),
-      child: Row(
-        spacing: AppLayout.smallSpacing,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(icon, color: textStyle.color),
-          Text(text, style: textStyle)
-        ]
-      )
+      child: AppIconText(icon: icon, text: text, textStyle: textStyle, isCentralized: true)
     )
   );
 }
