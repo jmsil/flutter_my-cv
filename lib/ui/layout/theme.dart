@@ -54,8 +54,6 @@ class AppTheme {
   final AppThemeData brand2;
   final AppThemeData brand3;
   final AppThemeData sidebarSection;
-
-  final Color inkEffectsColor = Colors.blueGrey[200]!.withValues(alpha: 0.48);
 }
 
 class AppThemeTextStyle {
@@ -102,4 +100,8 @@ class AppThemeData {
     this.overColor2 = Colors.transparent,
     this.decorationColor = Colors.transparent
   });
+}
+
+extension AppThemeColorExtension on Color {
+  Color get inkEffectAlpha => this.withValues(alpha: 0.12);
 }

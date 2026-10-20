@@ -46,7 +46,7 @@ class _State extends State<AppHeaderExpandable> {
     Widget headerWidget = AppContainer(
       child: AppInkResponse(
         padding: widget.headerContentPadding,
-        effectsColor: theme.inkEffectsColor,
+        effectColor: theme.brand2.baseColor,
         onPressed: onPressed,
         child: Row(
           spacing: 16,

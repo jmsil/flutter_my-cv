@@ -37,7 +37,7 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.appLayout.theme;
+    final Color inkEffectColor = color.inkEffectAlpha;
 
     final builtChild = _isProcessing
       ? SizedBox(
@@ -53,9 +53,9 @@ class AppButton extends StatelessWidget {
 
     return IconButton(
       iconSize: _containerSize,
-      splashColor: theme.inkEffectsColor,
-      hoverColor: theme.inkEffectsColor,
-      highlightColor: theme.inkEffectsColor,
+      splashColor: inkEffectColor,
+      hoverColor: inkEffectColor,
+      highlightColor: inkEffectColor,
       icon: AppContainer(
         width: _containerSize,
         height: _containerSize,
@@ -71,20 +71,20 @@ class AppButton extends StatelessWidget {
 
 class AppMaterialButton extends MaterialButton {
   AppMaterialButton(
-    AppTheme theme, IconData icon, String text,
+    IconData icon, String text, TextStyle textStyle,
     {
       super.onPressed
     }
   ) : super(
-    color: theme.background.decorationColor.withValues(alpha: 0.16),
+    color: textStyle.color?.withValues(alpha: 0.16),
     elevation: 0,
     hoverElevation: 0,
     focusElevation: 0,
     disabledElevation: 0,
     highlightElevation: 0,
-    hoverColor: theme.inkEffectsColor,
-    splashColor: theme.inkEffectsColor,
-    highlightColor: theme.inkEffectsColor,
+    hoverColor: textStyle.color?.inkEffectAlpha,
+    splashColor: textStyle.color?.inkEffectAlpha,
+    highlightColor: textStyle.color?.inkEffectAlpha,
     shape: RoundedRectangleBorder(borderRadius: AppTheme.allBorderRadius),
     child: Padding(
       padding: const AppEdgeInsets.small(),
@@ -92,10 +92,10 @@ class AppMaterialButton extends MaterialButton {
         spacing: AppLayout.smallSpacing,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, color: theme.background.decorationColor),
-          Text(text, style: theme.background.normalText.decoration.bold)
+          Icon(icon, color: textStyle.color),
+          Text(text, style: textStyle)
         ]
-      ),
+      )
     )
   );
 }

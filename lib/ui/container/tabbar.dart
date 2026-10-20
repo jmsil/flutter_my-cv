@@ -52,7 +52,9 @@ class AppTabBar extends StatelessWidget {
             indicatorSize: TabBarIndicatorSize.tab,
             indicatorColor: theme.background.overColor1.withValues(alpha: 0.24),
             labelPadding: const AppEdgeInsets.small(),
-            overlayColor: WidgetStateColor.resolveWith((_) => theme.inkEffectsColor),
+            overlayColor: WidgetStateColor.resolveWith(
+              (_) => theme.brand2.baseColor.inkEffectAlpha
+            ),
             tabs: tabs,
           ),
           _TabBarView(pages)
@@ -96,6 +98,7 @@ class _TabBarViewState extends State<_TabBarView> {
   @override
   Widget build(BuildContext context) {
     return AnimatedSize(
+      alignment: Alignment.topCenter,
       curve: AppTheme.animationCurve,
       duration: AppTheme.animationDuration,
       child: widget.pages[controller?.index ?? 0]

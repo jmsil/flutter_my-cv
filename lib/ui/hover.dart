@@ -23,7 +23,6 @@ class _State extends State<AppHoverWidget> {
   @override
   Widget build(BuildContext context) {
     return AppInkResponse(
-      effectsColor: Colors.transparent,
       onPressed: widget.onPressed,
       onHover: onHover,
       child: widget.builder(context, hovered, widget.child)

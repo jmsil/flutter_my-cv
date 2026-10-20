@@ -24,7 +24,6 @@ class ProfilePhoto extends StatelessWidget {
 
     if (onPressed != null) {
       builtWidget = AppInkResponse(
-        effectsColor: Colors.transparent,
         onPressed: onPressed!,
         child: builtWidget
       );

@@ -77,9 +77,9 @@ class Settings extends StatelessWidget {
     );
 
     final Widget downloadPdfButton = AppMaterialButton(
-      theme,
       AppIcons.download,
       Strings.downloadPdf,
+      theme.background.normalText.decoration.bold,
       onPressed: () => downloadPdf(context, StringsModel.languageCode)
     );
 

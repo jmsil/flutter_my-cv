@@ -6,7 +6,6 @@ import '../container/container.dart';
 import '../hover.dart';
 import '../layout/edge_insets.dart';
 import '../layout/icons.dart';
-import '../layout/layout_model.dart';
 import 'viewer.dart';
 
 class AppViewerFullWindowHandler extends StatelessWidget {
@@ -31,7 +30,6 @@ class AppViewerFullWindowHandler extends StatelessWidget {
   }
 
   Widget overlayBuilder(BuildContext context, bool hovered, Widget? child) {
-    final AppTheme theme = context.appLayout.theme;
     final List<Widget> children = [ child! ];
 
     if (hovered) {
@@ -43,7 +41,7 @@ class AppViewerFullWindowHandler extends StatelessWidget {
           isClipped: true,
           child: AppInkResponse(
             padding: const AppEdgeInsets.small(),
-            effectsColor: theme.inkEffectsColor,
+            effectColor: iconColor,
             child: Icon(
               fullWindowChild == null ? AppIcons.fullWindowExit : AppIcons.fullWindow,
               color: iconColor

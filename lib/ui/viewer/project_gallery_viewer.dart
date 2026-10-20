@@ -86,7 +86,6 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
             : const BorderRadius.all(Radius.circular(8)),
           isClipped: true,
           child: AppInkResponse(
-            effectsColor: Colors.transparent,
             onPressed: () => setIndex(i),
             child: Image.memory(widget.assets.getThumbnail(i + 1), fit: BoxFit.fill)
           )
