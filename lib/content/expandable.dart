@@ -84,11 +84,11 @@ class ExpandableContent extends StatelessWidget {
       arrowColor: theme.background.decorationColor,
       effectColor: theme.brand2.baseColor,
       isClipped: true,
-      headerHasIntrinsic: true,
-      headerContentPadding: _padding,
-      expandableContentPadding: _padding,
-      headerContent: builtHeaderWidget,
-      expandableContent: builtExpandableWidget
+      isIntrinsicHeader: true,
+      headerPadding: _padding,
+      expandablePadding: _padding,
+      headerChild: builtHeaderWidget,
+      expandableChild: builtExpandableWidget
     );
   }
 }

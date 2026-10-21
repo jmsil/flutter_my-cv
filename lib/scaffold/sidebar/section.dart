@@ -19,10 +19,10 @@ class Section extends AppContainer {
       startOpen: startOpen,
       arrowColor: theme.sidebarSection.decorationColor,
       effectColor: theme.sidebarSection.baseColor,
-      headerContentPadding: const AppEdgeInsets.normal(left: AppEdgeInsets.largeValue),
-      expandableContentPadding: const AppEdgeInsets.large(top: AppEdgeInsets.smallValue),
-      headerContent: Text(title, style: theme.sidebarSection.normalHeader.over2.bold),
-      expandableContent: contentWidget
+      headerPadding: const AppEdgeInsets.normal(left: AppEdgeInsets.largeValue),
+      expandablePadding: const AppEdgeInsets.large(top: AppEdgeInsets.smallValue),
+      headerChild: Text(title, style: theme.sidebarSection.normalHeader.over2.bold),
+      expandableChild: contentWidget
     )
   );
 }

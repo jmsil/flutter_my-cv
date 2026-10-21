@@ -10,26 +10,26 @@ class AppHeaderExpandable extends StatefulWidget {
   final Color arrowColor;
   final Color effectColor;
   final bool isClipped;
-  final bool headerHasIntrinsic;
-  final EdgeInsets headerContentPadding;
-  final EdgeInsets? fixedContentPadding;
-  final EdgeInsets expandableContentPadding;
-  final Widget headerContent;
-  final Widget? fixedContent;
-  final Widget expandableContent;
+  final bool isIntrinsicHeader;
+  final EdgeInsets headerPadding;
+  final EdgeInsets? fixedPadding;
+  final EdgeInsets expandablePadding;
+  final Widget headerChild;
+  final Widget? fixedChild;
+  final Widget expandableChild;
 
   AppHeaderExpandable({
     this.startOpen = false,
     required this.arrowColor,
     required this.effectColor,
     this.isClipped = false,
-    this.headerHasIntrinsic = false,
-    required this.headerContentPadding,
-    this.fixedContentPadding,
-    required this.expandableContentPadding,
-    required this.headerContent,
-    this.fixedContent,
-    required this.expandableContent
+    this.isIntrinsicHeader = false,
+    required this.headerPadding,
+    this.fixedPadding,
+    required this.expandablePadding,
+    required this.headerChild,
+    this.fixedChild,
+    required this.expandableChild
   });
 
   @override
@@ -43,16 +43,16 @@ class _State extends State<AppHeaderExpandable> {
 
   @override
   Widget build(BuildContext context) {
-    Widget builtHeaderWidget = AppContainer(
+    Widget builtHeaderChild = AppContainer(
       child: AppInkResponse(
-        padding: widget.headerContentPadding,
+        padding: widget.headerPadding,
         effectColor: widget.effectColor,
         onPressed: onPressed,
         child: Row(
           spacing: 16,
           children: [
             Expanded(
-              child: widget.headerContent
+              child: widget.headerChild
             ),
             Icon(
               expandableKey.isExpanded ? AppIcons.arrowUp : AppIcons.arrowDown,
@@ -63,34 +63,34 @@ class _State extends State<AppHeaderExpandable> {
       )
     );
 
-    if (widget.headerHasIntrinsic) {
-      builtHeaderWidget = IntrinsicHeight(
-        child: builtHeaderWidget
+    if (widget.isIntrinsicHeader) {
+      builtHeaderChild = IntrinsicHeight(
+        child: builtHeaderChild
       );
     }
 
-    Widget? builtFixedContent = widget.fixedContent;
+    Widget? builtFixedChild = widget.fixedChild;
 
-    if (builtFixedContent != null && widget.fixedContentPadding != null) {
-      builtFixedContent = Padding(
-        padding: widget.fixedContentPadding!,
-        child: widget.fixedContent
+    if (builtFixedChild != null && widget.fixedPadding != null) {
+      builtFixedChild = Padding(
+        padding: widget.fixedPadding!,
+        child: builtFixedChild
       );
     }
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        builtHeaderWidget,
+        builtHeaderChild,
 
-        if (builtFixedContent != null)
-          builtFixedContent,
+        if (builtFixedChild != null)
+          builtFixedChild,
 
         AppExpandable(
           key: expandableKey,
-          padding: widget.expandableContentPadding,
+          padding: widget.expandablePadding,
           isClipped: widget.isClipped,
-          child: widget.expandableContent
+          child: widget.expandableChild
         )
       ]
     );
