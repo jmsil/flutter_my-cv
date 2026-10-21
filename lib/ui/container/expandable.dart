@@ -26,7 +26,7 @@ class _State extends State<AppExpandable> with SingleTickerProviderStateMixin {
     parent: controller, curve: Curves.decelerate, reverseCurve: Curves.decelerate.flipped);
   bool isOffstage = true;
   bool isExpanded = false;
-  double contentHeight = 0;
+  double boxHeight = 0;
 
   @override
   void initState() {
@@ -61,13 +61,11 @@ class _State extends State<AppExpandable> with SingleTickerProviderStateMixin {
       child: AnimatedBuilder(
         animation: curvedAnimation,
         builder: (builderContext, builderChild) {
-          return ConstrainedBox(
+          return SizedBox(
             key: contentKey,
-            constraints: BoxConstraints(
-              maxHeight: controller.isAnimating
-                ? contentHeight * curvedAnimation.value
-                : double.infinity
-            ),
+            height: controller.isAnimating
+              ? boxHeight * curvedAnimation.value
+              : null,
             child: builderChild
           );
         },
@@ -77,14 +75,14 @@ class _State extends State<AppExpandable> with SingleTickerProviderStateMixin {
   }
 
   void switchExpandedState() {
-    FocusManager.instance.primaryFocus?.unfocus();
     setState(() {
+      FocusManager.instance.primaryFocus?.unfocus();
       isOffstage = false;
       isExpanded = ! isExpanded;
 
       if (! controller.isAnimating) {
-        contentHeight = contentKey.currentContext!.size!.height;
-        controller.duration = Duration(milliseconds: 360 + (contentHeight * 0.4).toInt());
+        boxHeight = contentKey.currentContext!.size!.height;
+        controller.duration = Duration(milliseconds: 360 + (boxHeight * 0.4).toInt());
       }
 
       if (isExpanded)
