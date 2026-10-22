@@ -42,7 +42,7 @@ class ContentGroup extends StatelessWidget {
       horizontal: hasHorizontalPadding ? null : 0
     );
 
-    final Widget headerWidget = OverlayBar(
+    final Widget builtHeader = OverlayBar(
       startSize: _iconContainerSize / 2 + headerMargin.top,
       startBackgroundColor: headerBackgroundColor ?? theme.background.baseColor,
       endSize: _iconContainerSize / 2 + headerMargin.bottom,
@@ -81,13 +81,14 @@ class ContentGroup extends StatelessWidget {
 
     return SliverMainAxisGroup(
       slivers: [
-        PinnedHeaderSliver(child: headerWidget),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: childrenPadding,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: children
+        PinnedHeaderSliver(child: builtHeader),
+        SliverPadding(
+          padding: childrenPadding,
+          sliver: SliverList(
+            delegate: SliverChildListDelegate(
+              children,
+              addAutomaticKeepAlives: false,
+              addRepaintBoundaries: false
             )
           )
         )
