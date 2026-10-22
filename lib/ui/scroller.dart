@@ -1,26 +1,17 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class AppScrollView extends SingleChildScrollView {
-  AppScrollView({
-    super.padding,
-    super.child
-  }) : super(
-    primary: false,
-    physics: AlwaysScrollableScrollPhysics()
-  );
-}
-
 class AppListView extends ListView {
   AppListView({
     super.controller,
-    super.scrollDirection,
     super.padding,
     super.children
   }) : super(
     key: controller != null ? PageStorageKey(controller.debugLabel) : null,
     primary: false,
     cacheExtent: double.infinity,
+    addRepaintBoundaries: false,
+    addAutomaticKeepAlives: false,
     physics: AlwaysScrollableScrollPhysics()
   );
 }

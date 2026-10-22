@@ -90,12 +90,9 @@ class _State extends AppViewerState<ProjectInfoViewer> {
       }
     }
 
-    return AppScrollView(
+    return AppListView(
       padding: const AppEdgeInsets.normal(bottom: AppEdgeInsets.xLargeValue),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: children
-      )
+      children: children
     );
   }
 }
