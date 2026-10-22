@@ -42,7 +42,10 @@ class CompactAppbar extends StatelessWidget {
       children: [
         SizedBox(
           height: _photoSize,
-          child: ProfilePhoto(onPressed: onPressed)
+          child: ProfilePhoto(
+            cacheSize: (_photoSize - ProfilePhoto.borderSize * 2).toInt(),
+            onPressed: onPressed,
+          )
         ),
         MainProfileInfo.nameAndRoles(
           style: MainProfileInfoStyle.compactAppbar,

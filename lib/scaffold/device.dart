@@ -12,6 +12,7 @@ class AppDevice {
 }
 
 extension BuildContextExtension on BuildContext {
+  double get devicePixelRatio => MediaQuery.of(this).devicePixelRatio;
   Size get screenSize => MediaQuery.of(this).size;
   bool get isExtendedScreen => screenSize.width >= 1260;
 }
