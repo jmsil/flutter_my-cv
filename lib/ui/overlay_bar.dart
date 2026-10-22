@@ -12,22 +12,20 @@ class OverlayBar extends StatelessWidget {
   final double endSize;
   final Color? endBackgroundColor;
   final Color? endForegroundColor;
-  final Widget child;
+  final Widget? child;
 
   OverlayBar({
     this.direction = Axis.vertical,
     this.padding = 0,
     this.radius = 0,
-    double startSize = 0,
+    this.startSize = 0,
     this.startBackgroundColor,
     this.startForegroundColor,
-    double endSize = 0,
+    this.endSize = 0,
     this.endBackgroundColor,
     this.endForegroundColor,
-    required this.child
-  }) :
-    this.startSize = max(startSize, radius),
-    this.endSize = max(endSize, radius);
+    this.child
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +39,7 @@ class OverlayBar extends StatelessWidget {
     return CustomPaint(
       painter: hasStartBackgroundBox || hasEndBackgroundBox
         ? _Painter(
-            direction,
+            direction == Axis.vertical,
             startSize,
             startBackgroundColor,
             endSize,
@@ -52,7 +50,7 @@ class OverlayBar extends StatelessWidget {
         : null,
       foregroundPainter: hasStartForegroundBox || hasEndForegroundBox
         ? _ForegroundPainter(
-            direction,
+            direction == Axis.vertical,
             padding,
             radius,
             startSize,
@@ -80,42 +78,39 @@ class _Painter extends CustomPainter {
   static final Paint _paint = Paint()
     ..isAntiAlias = false;
 
+  final bool isVertical;
   final double startSize;
   final Color? startColor;
   final double endSize;
   final Color? endColor;
   final bool hasStartBox;
   final bool hasEndBox;
-  late final bool isHorizontal;
-  late final bool isVertical;
 
   _Painter(
-    Axis direction,
+    this.isVertical,
     this.startSize,
     this.startColor,
     this.endSize,
     this.endColor,
     this.hasStartBox,
     this.hasEndBox
-  ) :
-    this.isHorizontal = direction == Axis.horizontal,
-    this.isVertical = direction == Axis.vertical;
+  );
 
   @override
   void paint(Canvas canvas, Size size) {
-    final double axisSize = isVertical ? size.height : size.width;
+    final double canvasAxisSize = isVertical ? size.height : size.width;
 
     if (hasStartBox) {
       _paint.color = startColor!;
       double factor = hasEndBox ? startSize / (startSize + endSize) : 1;
-      double normalizedSize = min(startSize, axisSize * factor);
+      double normalizedSize = min(startSize, canvasAxisSize * factor);
       canvas.drawRect(getStartRect(normalizedSize, size), _paint);
     }
 
     if (hasEndBox) {
       _paint.color = endColor!;
       double factor = hasStartBox ? endSize / (startSize + endSize) : 1;
-      double normalizedSize = min(endSize, axisSize * factor);
+      double normalizedSize = min(endSize, canvasAxisSize * factor);
       canvas.drawRect(getEndRect(normalizedSize, size), _paint);
     }
   }
@@ -144,12 +139,13 @@ class _Painter extends CustomPainter {
 }
 
 class _ForegroundPainter extends _Painter {
-  final double padding;
+  final double horizontalPadding;
+  final double verticalPadding;
   final double radius;
 
   _ForegroundPainter(
-    super.direction,
-    this.padding,
+    super.isVertical,
+    double padding,
     this.radius,
     super.startSize,
     super.startColor,
@@ -157,61 +153,52 @@ class _ForegroundPainter extends _Painter {
     super.endColor,
     super.hasStartBox,
     super.hasEndBox
-  );
+  ) :
+    this.horizontalPadding = isVertical ? padding : 0,
+    this.verticalPadding = isVertical ? 0 : padding;
 
   @override
   void paint(Canvas canvas, Size size) {
-    Path path = getClipPath(isHorizontal ? size.flipped : size);
+    Path? path = getClipPath(size);
 
-    if (isHorizontal) {
-      Matrix4 matrix = Matrix4.identity();
-      matrix.translateByDouble(0, size.height, 0, 0);
-      matrix.rotateZ(-90 * (pi / 180));
-      path = path.transform(matrix.storage);
-    }
-
-    canvas.clipPath(path);
+    if (path != null)
+      canvas.clipPath(path, doAntiAlias: false);
 
     super.paint(canvas, size);
   }
 
-  Path getClipPath(Size canvasSize) {
-    final Path path = Path();
-    final double availableRadiusSize = min(canvasSize.width - padding * 2, canvasSize.height) / 2;
-    final double startRadius = min(hasStartBox ? radius : 0, availableRadiusSize);
-    final double endRadius = min(hasEndBox ? radius : 0, availableRadiusSize);
-    final Radius startRadiusR = Radius.circular(startRadius);
-    final Radius endRadiusR = Radius.circular(endRadius);
+  Path? getClipPath(Size canvasSize) {
+    if (
+      canvasSize.width - horizontalPadding * 2 <= 0 ||
+      canvasSize.height - verticalPadding * 2 <= 0
+    )
+      return null;
 
-    path.lineTo(padding + startRadius, 0);
-    path.arcToPoint(
-      Offset(padding, startRadius),
-      radius: startRadiusR,
-      clockwise: false
-    );
-    path.lineTo(padding, canvasSize.height - endRadius);
-    path.arcToPoint(
-      Offset(padding + endRadius, canvasSize.height),
-      radius: endRadiusR,
-      clockwise: false
-    );
-    path.lineTo(canvasSize.width - padding - endRadius, canvasSize.height);
-    path.arcToPoint(
-      Offset(canvasSize.width - padding, canvasSize.height - endRadius),
-      radius: endRadiusR,
-      clockwise: false
-    );
-    path.lineTo(canvasSize.width - padding, startRadius);
-    path.arcToPoint(
-      Offset(canvasSize.width - padding - startRadius, 0),
-      radius: startRadiusR,
-      clockwise: false
-    );
-    path.lineTo(canvasSize.width, 0);
-    path.lineTo(canvasSize.width, canvasSize.height);
-    path.lineTo(0, canvasSize.height);
-    path.close();
+    final double availableRadiusSize =
+      min(canvasSize.width - horizontalPadding * 2, canvasSize.height - verticalPadding * 2) / 2;
 
-    return path;
+    final Radius normalizedRadius = availableRadiusSize > 0
+      ? Radius.circular(min(radius, availableRadiusSize))
+      : Radius.zero;
+
+    final Radius startRadius = hasStartBox ? normalizedRadius : Radius.zero;
+    final Radius endRadius = hasEndBox ? normalizedRadius : Radius.zero;
+
+    final rect = RRect.fromLTRBAndCorners(
+      horizontalPadding,
+      verticalPadding,
+      canvasSize.width - horizontalPadding,
+      canvasSize.height - verticalPadding,
+      topLeft: startRadius,
+      topRight: isVertical ? startRadius : endRadius,
+      bottomLeft: isVertical ? endRadius : startRadius,
+      bottomRight: endRadius
+    );
+
+    return Path.combine(
+      PathOperation.difference,
+      Path()..addRect(Offset.zero & canvasSize),
+      Path()..addRRect(rect)
+    );
   }
 }

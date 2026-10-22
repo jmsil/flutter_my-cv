@@ -15,7 +15,9 @@ class CompactList extends Padding {
     padding: const AppEdgeInsets.normal(),
     child: OverlayBar(
       radius: AppTheme.radiusValue,
+      startSize: AppTheme.radiusValue,
       startForegroundColor: theme.brand2.baseColor,
+      endSize: AppTheme.radiusValue,
       endForegroundColor: theme.brand2.baseColor,
       child: LayoutBuilder(
         builder: (BuildContext builderContext, BoxConstraints builderConstraints) {

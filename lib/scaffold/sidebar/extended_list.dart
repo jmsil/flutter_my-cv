@@ -25,7 +25,9 @@ class ExtendedList extends StatelessWidget {
 
     Widget builtWidget = OverlayBar(
       radius: AppTheme.radiusValue,
+      startSize: AppTheme.radiusValue,
       startForegroundColor: overlayColor,
+      endSize: AppTheme.radiusValue,
       endForegroundColor: overlayColor,
       child: AppListView(children: children)
     );

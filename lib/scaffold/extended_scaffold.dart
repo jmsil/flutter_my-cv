@@ -7,7 +7,6 @@ import '../content/professional_development.dart';
 import '../ui/layout/edge_insets.dart';
 import '../ui/layout/icons.dart';
 import '../ui/layout/layout_model.dart';
-import '../ui/overlay_bar.dart';
 import '../ui/scroller.dart';
 import 'appbar/appbar_model.dart';
 import 'appbar/extended_appbar.dart';
@@ -19,26 +18,18 @@ class ExtendedScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLayout layout = context.appLayout;
-    final AppTheme theme = layout.theme;
     final bool isDoublePane = context.screenSize.width >= 1640;
     final double totalCollapsedHeight = AppbarModel.totalCollapsedHeightOf(context);
 
-    Widget builtWidget = OverlayBar(
-      radius: AppTheme.radiusValue,
-      startForegroundColor: theme.background.baseColor,
-      endForegroundColor: theme.background.baseColor,
-      child: AppSliverScroller(
-        [
-          if ( ! isDoublePane)
-            ExperienceGroup(),
+    Widget builtWidget = AppSliverScroller([
+      if ( ! isDoublePane)
+        ExperienceGroup(),
 
-          EducationGroup(),
-          ProfessionalDevelopmentGroup(),
-          ItemsGroup.languages(),
-          ItemsGroup.availability()
-        ]
-      )
-    );
+      EducationGroup(),
+      ProfessionalDevelopmentGroup(),
+      ItemsGroup.languages(),
+      ItemsGroup.availability()
+    ]);
 
     if (isDoublePane) {
       builtWidget = Row(
