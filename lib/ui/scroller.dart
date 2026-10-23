@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class AppListView extends ListView {
   AppListView({
@@ -9,7 +10,7 @@ class AppListView extends ListView {
   }) : super(
     key: controller != null ? PageStorageKey(controller.debugLabel) : null,
     primary: false,
-    cacheExtent: double.infinity,
+    scrollCacheExtent: ScrollCacheExtent.pixels(double.infinity),
     addRepaintBoundaries: false,
     addAutomaticKeepAlives: false,
     physics: AlwaysScrollableScrollPhysics()
@@ -21,7 +22,7 @@ class AppCustomScrollView extends CustomScrollView {
     List<Widget> slivers
   ) : super(
     primary: false,
-    cacheExtent: double.infinity,
+    scrollCacheExtent: ScrollCacheExtent.pixels(double.infinity),
     physics: AlwaysScrollableScrollPhysics(),
     slivers: slivers
   );
