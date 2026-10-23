@@ -19,10 +19,10 @@ class AppExpandable extends StatefulWidget {
 }
 
 class _State extends State<AppExpandable> with SingleTickerProviderStateMixin {
-  final GlobalKey contentKey = GlobalKey();
+  final GlobalKey boxKey = GlobalKey();
   late final AnimationController controller = AnimationController(vsync: this)
     ..addStatusListener(animationStatusListener);
-  late final CurvedAnimation curvedAnimation = CurvedAnimation(
+  late final CurvedAnimation animation = CurvedAnimation(
     parent: controller, curve: Curves.decelerate, reverseCurve: Curves.decelerate.flipped);
   bool isOffstage = true;
   bool isExpanded = false;
@@ -48,28 +48,25 @@ class _State extends State<AppExpandable> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    Widget builtChild = Padding(
-      padding: widget.padding,
-      child: widget.child
-    );
-
-    if (widget.isClipped)
-      builtChild = ClipRect(child: builtChild);
-
     return Offstage(
       offstage: isOffstage,
       child: AnimatedBuilder(
-        animation: curvedAnimation,
+        animation: animation,
         builder: (builderContext, builderChild) {
           return SizedBox(
-            key: contentKey,
+            key: boxKey,
             height: controller.isAnimating
-              ? boxHeight * curvedAnimation.value
+              ? boxHeight * animation.value
               : null,
             child: builderChild
           );
         },
-        child: builtChild
+        child: SingleChildScrollView(
+          primary: false,
+          padding: widget.padding,
+          clipBehavior: widget.isClipped ? Clip.hardEdge : Clip.none,
+          child: widget.child
+        )
       )
     );
   }
@@ -81,7 +78,7 @@ class _State extends State<AppExpandable> with SingleTickerProviderStateMixin {
       isExpanded = ! isExpanded;
 
       if (! controller.isAnimating) {
-        boxHeight = contentKey.currentContext!.size!.height;
+        boxHeight = boxKey.currentContext!.size!.height;
         controller.duration = Duration(milliseconds: 360 + (boxHeight * 0.4).toInt());
       }
 
