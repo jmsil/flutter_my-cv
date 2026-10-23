@@ -27,7 +27,7 @@ class _State extends State<CompactScaffold> {
     return Stack(
       clipBehavior: Clip.none,
       children: [
-        AppSliverScroller(
+        AppCustomScrollView(
           [
             CompactAppbar(openDrawer),
             ExperienceGroup(),

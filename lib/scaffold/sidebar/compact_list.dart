@@ -21,7 +21,7 @@ class CompactList extends Padding {
       endForegroundColor: theme.brand2.baseColor,
       child: LayoutBuilder(
         builder: (BuildContext builderContext, BoxConstraints builderConstraints) {
-          return AppSliverScroller(
+          return AppCustomScrollView(
             [
               SliverAppBar(
                 pinned: true,

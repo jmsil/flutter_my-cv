@@ -16,8 +16,8 @@ class AppListView extends ListView {
   );
 }
 
-class AppSliverScroller extends CustomScrollView {
-  AppSliverScroller(
+class AppCustomScrollView extends CustomScrollView {
+  AppCustomScrollView(
     List<Widget> slivers
   ) : super(
     primary: false,

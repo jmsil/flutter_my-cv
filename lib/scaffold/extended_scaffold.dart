@@ -21,7 +21,7 @@ class ExtendedScaffold extends StatelessWidget {
     final bool isDoublePane = context.screenSize.width >= 1640;
     final double totalCollapsedHeight = AppbarModel.totalCollapsedHeightOf(context);
 
-    Widget builtWidget = AppSliverScroller([
+    Widget builtWidget = AppCustomScrollView([
       if ( ! isDoublePane)
         ExperienceGroup(),
 
@@ -37,7 +37,7 @@ class ExtendedScaffold extends StatelessWidget {
         children: [
           Expanded(
             flex: 3,
-            child: AppSliverScroller([
+            child: AppCustomScrollView([
               ExperienceGroup()
             ])
           ),
