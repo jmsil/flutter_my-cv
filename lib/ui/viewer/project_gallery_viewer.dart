@@ -17,7 +17,7 @@ class ProjectGalleryViewer extends AppViewer {
   final GalleryAssetsArchive assets;
 
   ProjectGalleryViewer(this.assets) : super(
-    windowDirection: Axis.horizontal,
+    direction: Axis.horizontal,
     windowWidth: assets.aspectRatio < 1 ? 1400 : 1800,
     windowHeight: 980,
     barSize:
@@ -26,8 +26,7 @@ class ProjectGalleryViewer extends AppViewer {
       _State.unselectedThumbnailMargin.horizontal +
       _State.thumbnailsContainerPadding.horizontal,
     barPadding: _State.thumbnailsContainerPadding,
-    bodyAspectRatio: assets.aspectRatio,
-    isTransparentBody: true
+    bodyAspectRatio: assets.aspectRatio
   );
 
   @override

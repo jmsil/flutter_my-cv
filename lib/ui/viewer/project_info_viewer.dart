@@ -15,10 +15,9 @@ class ProjectInfoViewer extends AppViewer {
   ProjectInfoViewer(
     this.project
   ) : super(
-    windowDirection: Axis.vertical,
+    direction: Axis.vertical,
     windowWidth: 1560,
-    barPadding: const AppEdgeInsets.large(vertical: AppEdgeInsets.xLargeValue),
-    isTransparentBody: false
+    barPadding: const AppEdgeInsets.large(vertical: AppEdgeInsets.xLargeValue)
   );
 
   @override

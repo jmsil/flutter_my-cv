@@ -8,22 +8,20 @@ import '../layout/edge_insets.dart';
 import '../layout/layout_model.dart';
 
 abstract class AppViewer extends StatefulWidget {
-  final Axis windowDirection;
+  final Axis direction;
   final double? windowWidth;
   final double? windowHeight;
   final double? barSize;
   final EdgeInsets barPadding;
   final double? bodyAspectRatio;
-  final bool isTransparentBody;
 
   AppViewer({
-    required this.windowDirection,
+    required this.direction,
     this.windowWidth,
     this.windowHeight,
     this.barSize,
     required this.barPadding,
-    this.bodyAspectRatio,
-    required this.isTransparentBody
+    this.bodyAspectRatio
   });
 
   @override
@@ -65,10 +63,10 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
   bool _isCompactMode = false;
   bool get isCompactMode => _isCompactMode;
 
-  bool get isWindowHorizontalDirection => widget.windowDirection == Axis.horizontal;
-  bool get isWindowVerticalDirection => widget.windowDirection == Axis.vertical;
+  bool get isWindowHorizontalDirection => widget.direction == Axis.horizontal;
+  bool get isWindowVerticalDirection => widget.direction == Axis.vertical;
 
-  late Axis _bodyDirection = widget.windowDirection;
+  late Axis _bodyDirection = widget.direction;
   bool get isBodyHorizontalDirection => _bodyDirection == Axis.horizontal;
   bool get isBodyVerticalDirection => _bodyDirection == Axis.vertical;
 
@@ -96,17 +94,29 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
       ? theme.brand1.baseColor
       : theme.background.baseColor;
 
-    final Widget builtBarWidget = Offstage(
+    Widget builtBarWidget = AppContainer(
+      padding: widget.barPadding,
+      color: isMobileDevice
+        ? barBackgroundColor
+        : barBackgroundColor.withValues(alpha: 0.6),
+      child: buildBar(showBarBackground)
+    );
+
+    if ( ! isMobileDevice) {
+      builtBarWidget = BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+        child: builtBarWidget
+      );
+    }
+
+    builtBarWidget = Offstage(
       offstage: _isCompactMode,
       child: AppContainer(
         key: _builtBarKey,
         width: isWindowHorizontalDirection ? widget.barSize : null,
         height: isWindowVerticalDirection ? widget.barSize : null,
-        padding: widget.barPadding,
-        color: isMobileDevice
-          ? barBackgroundColor
-          : barBackgroundColor.withValues(alpha: 0.6),
-        child: buildBar(showBarBackground)
+        isClipped: ! isMobileDevice,
+        child: builtBarWidget
       )
     );
 
@@ -162,28 +172,19 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
       }
     );
 
-    Widget builtWindowContentWidget = Flex(
-      direction: widget.windowDirection,
+    final Widget builtWindowContentWidget = Flex(
+      key: _builtWindowContentKey,
+      direction: widget.direction,
       children: [
         builtBarWidget,
         Expanded(
           child: AppContainer(
-            color: widget.isTransparentBody && ! isMobileDevice
-              ? theme.background.baseColor.withValues(alpha: 0.88)
-              : theme.background.baseColor,
+            color: theme.background.baseColor,
             child: builtFullBodyWidget
           )
         )
       ]
     );
-
-    if ( ! isMobileDevice) {
-      builtWindowContentWidget = BackdropFilter(
-        key: _builtWindowContentKey,
-        filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
-        child: builtWindowContentWidget
-      );
-    }
 
     WidgetsBinding.instance.addPostFrameCallback(_setCompactModeAndBodyDirection);
 
