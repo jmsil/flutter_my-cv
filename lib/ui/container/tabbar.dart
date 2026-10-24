@@ -7,7 +7,7 @@ import '../strings/strings_model.dart';
 import '../text.dart';
 
 class AppTabBar extends StatelessWidget {
-  final List<AppIconText> tabs;
+  final List<AppTabBarTab> tabs;
   final List<Widget> pages;
 
   AppTabBar({
@@ -16,30 +16,32 @@ class AppTabBar extends StatelessWidget {
   });
 
   AppTabBar.summaryPortfolio({
-    required AppTheme theme,
     required Widget summaryPage,
     required Widget portfolioPage
-  }) :
-    tabs = [
-      AppIconText(
-        icon: AppIcons.summary,
-        text: StringsModel.strings.summary,
-        textStyle: theme.background.normalHeader.over1.bold
-      ),
-      AppIconText(
-        icon: AppIcons.briefcase,
-        text: StringsModel.strings.portfolio,
-        textStyle: theme.background.normalHeader.over1.bold
-      )
+  }) : this(
+    tabs: [
+      AppTabBarTab(AppIcons.summary, StringsModel.strings.summary),
+      AppTabBarTab(AppIcons.briefcase, StringsModel.strings.portfolio)
     ],
-    pages = [
+    pages: [
       summaryPage,
       portfolioPage
-    ];
+    ]
+  );
 
   @override
   Widget build(BuildContext context) {
     final AppTheme theme = context.appLayout.theme;
+    final List<Widget> builtTabs = [];
+
+    for (AppTabBarTab tab in tabs) {
+      Widget widget = AppIconText(
+        icon: tab.icon, text: tab.label,
+        textStyle: theme.background.normalHeader.over1.bold
+      );
+      builtTabs.add(widget);
+    }
+
     return DefaultTabController(
       length: tabs.length,
       animationDuration: AppTheme.animationDuration,
@@ -55,7 +57,7 @@ class AppTabBar extends StatelessWidget {
             overlayColor: WidgetStateColor.resolveWith(
               (_) => theme.brand2.baseColor.withInkEffectAlpha
             ),
-            tabs: tabs,
+            tabs: builtTabs
           ),
           _TabBarView(pages)
         ]
@@ -108,4 +110,11 @@ class _TabBarViewState extends State<_TabBarView> {
   void controllerListener() {
     setState(() {});
   }
+}
+
+class AppTabBarTab {
+  final IconData icon;
+  final String label;
+
+  AppTabBarTab(this.icon, this.label);
 }
