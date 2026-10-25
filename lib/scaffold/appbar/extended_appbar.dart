@@ -8,36 +8,27 @@ import 'appbar_model.dart';
 import 'profile_photo.dart';
 
 class ExtendedAppbar extends StatelessWidget {
-  static const double _neededSummaryHeight = 154;
-  static const double _profileAndSummaryPaddingValue =
-    (AppbarModel.collapsedHeight - _neededSummaryHeight) / 2;
-  static const EdgeInsets _profileAndSummaryPadding = const AppEdgeInsets.large(
-    left: 0, vertical: _profileAndSummaryPaddingValue);
-
   @override
   Widget build(BuildContext context) {
     final AppLayout layout = context.appLayout;
     final AppTheme theme = layout.theme;
     final MainProfileInfoStyle mainProfileInfoStyle = layout.showTopbarBackground
-      ? MainProfileInfoStyle.extendedAppbarElement
-      : MainProfileInfoStyle.extendedAppbarBackground;
+      ? MainProfileInfoStyle.extendedTopAppbar
+      : MainProfileInfoStyle.extendedFlatAppbar;
 
     Widget builtWidget = Row(
       children: [
         ProfilePhotoAppbarStateSwitcher(),
         Expanded(
           child: AppbarAnimatedPadding(
-            padding: _profileAndSummaryPadding,
+            padding: const AppEdgeInsets.large(left: 0, vertical: 36),
             topFactor: 0.25,
             bottomFactor: 0.5,
             child: Row(
               children: [
-                Expanded(flex: 1, child: const SizedBox()),
-                MainProfileInfo.nameAndRoles(
-                  style: mainProfileInfoStyle,
-                  isShortRoles: false
-                ),
-                Expanded(flex: 2, child: const SizedBox()),
+                Spacer(flex: 1),
+                MainProfileInfo.nameAndRoles(style: mainProfileInfoStyle, isShortRoles: false),
+                Spacer(flex: 2),
                 Expanded(
                   flex: 16,
                   child: MainProfileInfo.professionalSummary(style: mainProfileInfoStyle)

@@ -4,7 +4,7 @@ import '../ui/divider.dart';
 import '../ui/layout/layout_model.dart';
 import '../ui/strings/strings_model.dart';
 
-enum MainProfileInfoStyle { compactAppbar, extendedAppbarBackground, extendedAppbarElement, body }
+enum MainProfileInfoStyle { compactAppbar, extendedFlatAppbar, extendedTopAppbar, body }
 
 class MainProfileInfo extends StatelessWidget {
   final IconData? icon;
@@ -38,28 +38,33 @@ class MainProfileInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppTheme theme = context.appLayout.theme;
-    final double verticalSpacing;
+    final double beforeDividerSpacing;
+    final double afterDividerSpacing;
     final TextStyle titleStyle;
     final TextStyle infoStyle;
 
     switch (style) {
       case MainProfileInfoStyle.compactAppbar:
-        verticalSpacing = AppLayout.shortSpacing;
+        beforeDividerSpacing = AppLayout.shortSpacing;
+        afterDividerSpacing = AppLayout.shortSpacing;
         titleStyle = theme.brand1.normalHeader.over1.bold;
         infoStyle = theme.brand1.normalText.over1.regular;
         break;
-      case MainProfileInfoStyle.extendedAppbarBackground:
-        verticalSpacing = AppLayout.smallSpacing;
-        titleStyle = theme.background.largeHeader.over1.bold;
+      case MainProfileInfoStyle.extendedFlatAppbar:
+        beforeDividerSpacing = AppLayout.smallSpacing;
+        afterDividerSpacing = 0;
+        titleStyle = theme.background.xLargeHeader.over1.bold;
         infoStyle = theme.background.largeText.over1.regular;
         break;
-      case MainProfileInfoStyle.extendedAppbarElement:
-        verticalSpacing = AppLayout.smallSpacing;
+      case MainProfileInfoStyle.extendedTopAppbar:
+        beforeDividerSpacing = AppLayout.smallSpacing;
+        afterDividerSpacing = 0;
         titleStyle = theme.brand1.largeHeader.over1.bold;
         infoStyle = theme.brand1.largeText.over1.regular;
         break;
       case MainProfileInfoStyle.body:
-        verticalSpacing = AppLayout.normalSpacing;
+        beforeDividerSpacing = AppLayout.normalSpacing;
+        afterDividerSpacing = AppLayout.normalSpacing;
         titleStyle = theme.background.xLargeHeader.over1.bold;
         infoStyle = theme.background.xLargeText.over1.regular;
     }
@@ -79,8 +84,8 @@ class MainProfileInfo extends StatelessWidget {
     Widget builtInfoWidget = Text(info, style: infoStyle, softWrap: softWrap);
 
     if (
-      style == MainProfileInfoStyle.extendedAppbarBackground ||
-      style == MainProfileInfoStyle.extendedAppbarElement)
+      style == MainProfileInfoStyle.extendedFlatAppbar ||
+      style == MainProfileInfoStyle.extendedTopAppbar)
     {
       builtInfoWidget = Expanded(
         child: Align(
@@ -90,19 +95,24 @@ class MainProfileInfo extends StatelessWidget {
       );
     }
 
-    final Widget builtWidget = Column(
-      spacing: verticalSpacing,
-      crossAxisAlignment: CrossAxisAlignment.start,
+    Widget builtWidget = Column(
       mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         builtTitleWidget,
+        SizedBox(height: beforeDividerSpacing),
         AppDivider(4, titleStyle.color!),
+
+        if (afterDividerSpacing > 0)
+          SizedBox(height: afterDividerSpacing),
+
         builtInfoWidget
       ]
     );
 
-    return hasIntrinsicWidth
-      ? IntrinsicWidth(child: builtWidget)
-      : builtWidget;
+    if (hasIntrinsicWidth)
+      builtWidget = IntrinsicWidth(child: builtWidget);
+
+    return builtWidget;
   }
 }
