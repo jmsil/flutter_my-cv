@@ -55,7 +55,6 @@ class CompactAppbar extends StatelessWidget {
     );
 
     return SliverAppBar(
-      floating: true,
       stretch: true,
       collapsedHeight: _collapsedHeight,
       expandedHeight: _collapsedHeight + summaryBoxHeight,
