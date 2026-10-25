@@ -66,8 +66,7 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
   }
 
   @override
-  Widget buildBar(bool showBackground) {
-    final AppTheme theme = context.appLayout.theme;
+  Widget buildBar(AppThemeData themeData) {
     final List<Widget> thumbnails = [];
 
     for (int i = 0; i < widget.assets.count; i++) {
@@ -79,7 +78,7 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
         curve: AppTheme.animationCurve,
         child: AppContainer(
           borderSize: isSelected ? selectedThumbnailBorderSize : unselectedThumbnailBorderSize,
-          borderColor: showBackground ? theme.brand1.overColor1 : theme.background.overColor1,
+          borderColor: themeData.overColor1,
           borderRadius: isSelected
             ? const BorderRadius.all(Radius.circular(12))
             : const BorderRadius.all(Radius.circular(8)),
@@ -100,8 +99,7 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
   }
 
   @override
-  Widget buildBody(double width, double height) {
-    final AppTheme theme = context.appLayout.theme;
+  Widget buildBody(AppThemeData themeData, double width, double height) {
     final double borderSize = min(min(width, height) * 0.025, 12);
 
     return GestureDetector(
@@ -113,7 +111,7 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
             ? const AppEdgeInsets.normal()
             : const AppEdgeInsets.xLarge(),
           borderSize: borderSize,
-          borderColor: theme.background.overColor1,
+          borderColor: themeData.overColor1,
           borderRadius: BorderRadius.circular(borderSize * 2.67),
           child: Image.memory(widget.assets.getFile(index + 1), gaplessPlayback: true)
         )
@@ -122,17 +120,16 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
   }
 
   @override
-  Widget? buildBodyRightToolbar(double width) {
-    return _buildBodyToolbarWidget(Axis.vertical, width);
+  Widget? buildBodyRightToolbar(AppThemeData themeData, double width) {
+    return _buildBodyToolbarWidget(themeData, Axis.vertical, width);
   }
 
   @override
-  Widget? buildBodyBottomToolbar(double height) {
-    return _buildBodyToolbarWidget(Axis.horizontal, height);
+  Widget? buildBodyBottomToolbar(AppThemeData themeData, double height) {
+    return _buildBodyToolbarWidget(themeData, Axis.horizontal, height);
   }
 
-  Widget _buildBodyToolbarWidget(Axis direction, double size) {
-    final AppTheme theme = context.appLayout.theme;
+  Widget _buildBodyToolbarWidget(AppThemeData themeData, Axis direction, double size) {
     final bool isHorizontalDirection = direction == Axis.horizontal;
     final List<Widget> buttons = [];
 
@@ -141,7 +138,7 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
         icon: isHorizontalDirection
           ? AppIcons.back
           : AppIcons.close,
-        color: theme.background.overColor1,
+        color: themeData.overColor1,
         onPressed: () => Navigator.pop(context)
       )
     );
@@ -158,14 +155,14 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
               icon: isHorizontalDirection
                 ? AppIcons.arrowLeft
                 : AppIcons.arrowUp,
-              color: theme.background.overColor1,
+              color: themeData.overColor1,
               onPressed: onPrevious
             ),
             AppButton.icon(
               icon: isHorizontalDirection
                 ? AppIcons.arrowRight
                 : AppIcons.arrowDown,
-              color: theme.background.overColor1,
+              color: themeData.overColor1,
               onPressed: onNext
             )
           ]
@@ -176,7 +173,7 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
     buttons.add(
       Text(
         '${index + 1}/${ widget.assets.count }',
-        style: theme.background.normalText.over1.bold
+        style: themeData.normalText.over1.bold
       )
     );
 

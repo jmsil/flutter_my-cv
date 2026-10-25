@@ -26,33 +26,23 @@ class ProjectInfoViewer extends AppViewer {
 
 class _State extends AppViewerState<ProjectInfoViewer> {
   @override
-  Widget buildBar(bool showBackground) {
-    final AppTheme theme = context.appLayout.theme;
-
-    final TextStyle titleStyle = showBackground
-      ? theme.brand1.largeHeader.over1.bold
-      : theme.background.largeHeader.over1.bold;
-
-    final TextStyle descriptionStyle = showBackground
-      ? theme.brand1.normalText.over1.regular
-      : theme.background.normalText.over1.regular;
-
+  Widget buildBar(AppThemeData themeData) {
     return Row(
       spacing: AppLayout.normalSpacing,
       children: [
-        Icon(AppIcons.webhook, size: 64, color: titleStyle.color),
+        Icon(AppIcons.webhook, size: 64, color: themeData.overColor1),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(widget.project.title, style: titleStyle),
-              Text(widget.project.description, style: descriptionStyle)
+              Text(widget.project.title, style: themeData.largeHeader.over1.bold),
+              Text(widget.project.description, style: themeData.largeText.over1.regular)
             ]
           )
         ),
         AppButton.icon(
           icon: AppIcons.close,
-          color: titleStyle.color!,
+          color: themeData.overColor1,
           onPressed: () => Navigator.pop(context)
         )
       ]
@@ -60,8 +50,7 @@ class _State extends AppViewerState<ProjectInfoViewer> {
   }
 
   @override
-  Widget buildBody(double width, double height) {
-    final AppTheme theme = context.appLayout.theme;
+  Widget buildBody(AppThemeData themeData, double width, double height) {
     int widgetPlaceholderIndex = 0;
     final List<Widget> children = [];
     final List<Widget> placeholderWidgets = widget.project.buildPlaceholderWidgets();
@@ -76,14 +65,14 @@ class _State extends AppViewerState<ProjectInfoViewer> {
       else if (infoLine.startsWith(Strings.titleTag)) {
         infoLine = infoLine.replaceAll(Strings.titleTag, '');
         children.add(
-          Text(infoLine, style: theme.background.normalText.over1.bold)
+          Text(infoLine, style: themeData.normalHeader.over1.bold)
         );
         children.add(AppLayout.smallVerticalSpacer);
       }
       else if (infoLine.isNotEmpty) {
         infoLine = infoLine.replaceAll('\n▪', '\n    ▪');
         children.add(
-          Text(infoLine, style: theme.background.normalText.over1.regular)
+          Text(infoLine, style: themeData.normalText.over1.regular)
         );
         children.add(AppLayout.normalVerticalSpacer);
       }

@@ -78,28 +78,19 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
 
   @override
   Widget build(BuildContext context) {
-    final AppLayout layout = context.appLayout;
-    final AppTheme theme = layout.theme;
     final Size screenSize = context.screenSize;
     final bool isMobileDevice = AppDevice.isMobileDevice();
+    final AppThemeData themeData = context.appLayout.theme.background;
+
     final bool isFloatingWindow =
       screenSize.width >= 720 && screenSize.height >= 480 && ! isMobileDevice;
-
-    final bool showBarBackground =
-      isWindowVerticalDirection && layout.showTopbarBackground
-      ||
-      isWindowHorizontalDirection && layout.showSidebarBackground;
-
-    final Color barBackgroundColor = showBarBackground
-      ? theme.brand1.baseColor
-      : theme.background.baseColor;
 
     Widget builtBarWidget = AppContainer(
       padding: widget.barPadding,
       color: isMobileDevice
-        ? barBackgroundColor
-        : barBackgroundColor.withValues(alpha: 0.6),
-      child: buildBar(showBarBackground)
+        ? themeData.baseColor
+        : themeData.baseColor.withValues(alpha: 0.6),
+      child: buildBar(themeData)
     );
 
     if ( ! isMobileDevice) {
@@ -127,16 +118,18 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
             return _Notifier(
               notifier: _valueNotifier,
               child: _IndexedStack(
-                child: buildBody(bodyConstraints.maxWidth, bodyConstraints.maxHeight)
+                child: buildBody(
+                  themeData, bodyConstraints.maxWidth, bodyConstraints.maxHeight
+                )
               )
             );
           }
         );
 
         final Widget? builtBodyRightToolbarWidget =
-          buildBodyRightToolbar(fullBodyConstraints.maxHeight);
+          buildBodyRightToolbar(themeData, fullBodyConstraints.maxHeight);
         final Widget? builtBodyBottomToolbarWidget =
-          buildBodyBottomToolbar(fullBodyConstraints.maxWidth);
+          buildBodyBottomToolbar(themeData, fullBodyConstraints.maxWidth);
 
         if (builtBodyRightToolbarWidget != null) {
           builtBodyWidget = Row(
@@ -178,10 +171,7 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
       children: [
         builtBarWidget,
         Expanded(
-          child: AppContainer(
-            color: theme.background.baseColor,
-            child: builtFullBodyWidget
-          )
+          child: AppContainer(color: themeData.baseColor, child: builtFullBodyWidget)
         )
       ]
     );
@@ -194,10 +184,6 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
             width: widget.windowWidth,
             height: widget.windowHeight,
             margin: const AppEdgeInsets.normal(),
-            borderSize: 2,
-            borderColor: showBarBackground
-              ? theme.brand1.overColor1.withWindowBorderAlpha
-              : null,
             borderRadius: AppTheme.allBorderRadius,
             isClipped: true,
             child: builtWindowContentWidget
@@ -259,13 +245,13 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
     }
   }
 
-  Widget buildBar(bool showBackground);
+  Widget buildBar(AppThemeData themeData);
 
-  Widget buildBody(double width, double height);
+  Widget buildBody(AppThemeData themeData, double width, double height);
 
-  Widget? buildBodyRightToolbar(double width) => null;
+  Widget? buildBodyRightToolbar(AppThemeData themeData, double width) => null;
 
-  Widget? buildBodyBottomToolbar(double height) => null;
+  Widget? buildBodyBottomToolbar(AppThemeData themeData, double height) => null;
 }
 
 class _IndexedStack extends StatelessWidget {
