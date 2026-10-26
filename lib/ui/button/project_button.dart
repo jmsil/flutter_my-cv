@@ -25,7 +25,7 @@ class _State extends State<AppProjectButton> {
   Widget build(BuildContext context) {
     final AppTheme theme = context.appLayout.theme;
     return AppButton.icon(
-      icon: AppIcons.info,
+      icon: widget.project is InfoProject ? AppIcons.info : AppIcons.gallery,
       color: theme.background.decorationColor,
       isProcessing: isProcessing,
       onPressed: onPressed

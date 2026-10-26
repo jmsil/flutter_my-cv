@@ -16,6 +16,7 @@ class AppIcons {
   static const IconData education = Icons.school_outlined;
   static const IconData fullWindow = Icons.open_in_full;
   static const IconData fullWindowExit = Icons.close_fullscreen;
+  static const IconData gallery = Icons.collections_outlined;
   static const IconData info = Icons.info_outline;
   static const IconData language = Icons.language_outlined;
   static const IconData link = Icons.link;

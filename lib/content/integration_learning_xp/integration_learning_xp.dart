@@ -30,25 +30,31 @@ class IntegrationLearningExperience extends ExpandableContent {
       ),
       portfolioPage: Column(
         spacing: AppLayout.normalSpacing,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          ProjectTileWidget(theme, ApimProxyProject()),
-          ProjectTileWidget(theme, IFlowProxyProject()),
-          ProjectTileWidget(theme, ExceptionHandlerProject()),
-          ProjectTileWidget(theme, OAuth2TokensHandlerProject()),
-          ProjectTileWidget(theme, GoogleFirebaseAuthUsersProject()),
-          ProjectTileWidget(theme, InterStatementOauth2MtlsProject()),
-          ProjectTileWidget(theme, SqlServerXsltProject()),
-          ProjectTileWidget(theme, ConversionsFtpProject()),
-          ProjectTileWidget(theme, MappingsProject()),
-          ProjectTileWidget(theme, CalculatorProject()),
+          Wrap(
+            spacing: AppLayout.normalSpacing,
+            runSpacing: AppLayout.normalSpacing,
+            alignment: WrapAlignment.center,
+            children: [
+              ProjectCard(theme, ApimProxyProject()),
+              ProjectCard(theme, IFlowProxyProject()),
+              ProjectCard(theme, ExceptionHandlerProject()),
+              ProjectCard(theme, OAuth2TokensHandlerProject()),
+              ProjectCard(theme, GoogleFirebaseAuthUsersProject()),
+              ProjectCard(theme, InterStatementOauth2MtlsProject()),
+              ProjectCard(theme, SqlServerXsltProject()),
+              ProjectCard(theme, ConversionsFtpProject()),
+              ProjectCard(theme, MappingsProject()),
+              ProjectCard(theme, CalculatorProject())
+            ]
+          ),
           Text(
             StringsModel.strings.integrationProjectsScriptCollectionInfo,
-            style: theme.background.normalText.over1.italic
+            style: theme.background.normalText.decoration.italic
           )
         ]
       )
-    ),
-    startOpen: true
+    )
   );
 }

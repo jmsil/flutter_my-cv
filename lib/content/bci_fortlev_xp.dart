@@ -34,7 +34,7 @@ class BciFortlevExperience extends ExpandableContent {
           )
         ]
       ),
-      portfolioPage: ProjectTileWidget(
+      portfolioPage: ProjectCard(
         theme,
         GalleryProject(
           StringsModel.strings.fortlevProjectMaoDuplaTitle,
@@ -42,7 +42,6 @@ class BciFortlevExperience extends ExpandableContent {
           AppAssets.bciFortlevDriverAppAssets
         )
       )
-    ),
-    startOpen: false
+    )
   );
 }

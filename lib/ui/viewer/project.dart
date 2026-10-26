@@ -2,36 +2,50 @@ import 'package:flutter/widgets.dart';
 
 import '../assets.dart';
 import '../button/project_button.dart';
-import '../layout/icons.dart';
+import '../container/container.dart';
+import '../layout/edge_insets.dart';
 import '../layout/layout.dart';
 import '../layout/theme.dart';
 
-class ProjectTileWidget extends Row {
-  ProjectTileWidget(
+class ProjectCard extends AppContainer {
+  ProjectCard(
     AppTheme theme, Project project
   ) : super(
-    spacing: AppLayout.smallSpacing,
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Icon(AppIcons.topicMark, color: theme.background.overColor1),
-      Expanded(
-        child: Column(
-          spacing: AppLayout.tinySpacing,
-          crossAxisAlignment: CrossAxisAlignment.start,
+    width: 420,
+    height: 126,
+    padding: const AppEdgeInsets.small(),
+    borderColor: theme.background.overColor1.withDecorationAlpha,
+    borderRadius: AppTheme.allBorderRadius,
+    child: Column(
+      children: [
+        Row(
+          spacing: AppLayout.largeSpacing,
           children: [
-            Text(
-              project.title,
-              style: theme.background.normalText.over1.bold
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(left: AppEdgeInsets.smallValue),
+                child: Text(project.title, style: theme.background.normalHeader.over1.bold)
+              )
             ),
-            Text(
-              project.description,
-              style: theme.background.normalText.over1.regular
-            )
+            AppProjectButton(project)
           ]
+        ),
+        Expanded(
+          child: Padding(
+            padding: const AppEdgeInsets.small(top: 0),
+            child: Align(
+              alignment: Alignment.bottomLeft,
+              child: Text(
+                project.description,
+                style: theme.background.normalText.over1.regular,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis
+              )
+            )
+          )
         )
-      ),
-      AppProjectButton(project)
-    ]
+      ]
+    )
   );
 }
 
