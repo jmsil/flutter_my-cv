@@ -9,9 +9,12 @@ class AppIcons {
   static const IconData arrowUp = Icons.keyboard_arrow_up;
   static const IconData availability = Icons.how_to_reg_outlined;
   static const IconData back = Icons.arrow_back;
+  static const IconData book = Icons.auto_stories_outlined;
   static const IconData briefcase = Icons.business_center_outlined;
+  static const IconData certificate = Icons.card_membership_outlined;
   static const IconData close = Icons.close;
   static const IconData code = Icons.code;
+  static const IconData course = Icons.play_lesson_outlined;
   static const IconData download = Icons.file_download_outlined;
   static const IconData education = Icons.school_outlined;
   static const IconData fullWindow = Icons.open_in_full;
@@ -25,9 +28,9 @@ class AppIcons {
   static const IconData openInNew = Icons.open_in_new_outlined;
   static const IconData phone = Icons.phone_outlined;
   static const IconData settings = Icons.settings_outlined;
-  static const IconData studying = Icons.local_library_outlined;
   static const IconData summary = Icons.format_list_bulleted;
   static const IconData topicMark = Icons.arrow_right;
+  static const IconData trendUp = Icons.trending_up_outlined;
   static const IconData webhook = Icons.webhook;
 
   static const IconData layout = AppIconsGenerator.layout;

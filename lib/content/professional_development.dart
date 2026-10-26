@@ -1,100 +1,98 @@
 import 'package:flutter/material.dart';
 
+import '../ui/container/tabbar.dart';
 import '../ui/layout/icons.dart';
 import '../ui/layout/layout_model.dart';
 import '../ui/strings/strings_model.dart';
 import '../ui/text.dart';
-import 'expandable.dart';
 import 'group.dart';
 
 class ProfessionalDevelopmentGroup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Widget builtCertificationsWidget = ExpandableContent(
-      headerTitle: StringsModel.strings.certificationsTitle,
-      widgetBeforeInfo: Column(
-        spacing: AppLayout.normalSpacing,
-        children: [
-          _Item(
-            Strings.certificationCcpiTitle,
-            Strings.certificationCcpiDetail,
-            Strings.certificationCcpiLink
-          ),
-          _Item(
-            Strings.courseSapAdvancedEventMeshTitle,
-            Strings.mooviEducationCoursesDetail,
-            Strings.courseSapAdvancedEventMeshCertificateLink
-          ),
-          _Item(
-            Strings.courseSapApiManagementTitle,
-            Strings.mooviEducationCoursesDetail,
-            Strings.courseSapApiManagementCertificateLink
-          ),
-          _Item(
-            Strings.courseSapCloudIntegration20Title,
-            Strings.mooviEducationCoursesDetail,
-            Strings.courseSapCloudIntegration20CertificateLink
-          )
-        ]
-      )
+    final Widget builtCertificationsWidget = Column(
+      spacing: AppLayout.normalSpacing,
+      children: [
+        _Item(
+          Strings.certificationCcpiTitle,
+          Strings.certificationCcpiDetail,
+          Strings.certificationCcpiLink
+        ),
+        _Item(
+          Strings.courseSapAdvancedEventMeshTitle,
+          Strings.mooviEducationCoursesDetail,
+          Strings.courseSapAdvancedEventMeshCertificateLink
+        ),
+        _Item(
+          Strings.courseSapApiManagementTitle,
+          Strings.mooviEducationCoursesDetail,
+          Strings.courseSapApiManagementCertificateLink
+        ),
+        _Item(
+          Strings.courseSapCloudIntegration20Title,
+          Strings.mooviEducationCoursesDetail,
+          Strings.courseSapCloudIntegration20CertificateLink
+        )
+      ]
     );
 
-    final Widget builtCoursesWidget = ExpandableContent(
-      headerTitle: StringsModel.strings.coursesTitle,
-      widgetBeforeInfo: Column(
-        spacing: AppLayout.normalSpacing,
-        children: [
-          _Item(
-            Strings.courseSapAdvancedEventMeshTitle,
-            Strings.courseSapAdvancedEventMeshDetail
-          ),
-          _Item(
-            Strings.courseSapApiManagementTitle,
-            Strings.courseSapApiManagementDetail
-          ),
-          _Item(
-            Strings.courseSapCloudIntegration20Title,
-            Strings.courseSapCloudIntegration20Detail
-          ),
-          _Item(
-            StringsModel.strings.courseSapCloudIntegrationImmersionTitle,
-            Strings.courseSapCloudIntegrationImmersionDetail
-          ),
-          _Item(
-            StringsModel.strings.courseOracleTitle,
-            Strings.courseOracleDetail
-          )
-        ]
-      )
+    final Widget builtCoursesWidget = Column(
+      spacing: AppLayout.normalSpacing,
+      children: [
+        _Item(
+          Strings.courseSapAdvancedEventMeshTitle,
+          Strings.courseSapAdvancedEventMeshDetail
+        ),
+        _Item(
+          Strings.courseSapApiManagementTitle,
+          Strings.courseSapApiManagementDetail
+        ),
+        _Item(
+          Strings.courseSapCloudIntegration20Title,
+          Strings.courseSapCloudIntegration20Detail
+        ),
+        _Item(
+          StringsModel.strings.courseSapCloudIntegrationImmersionTitle,
+          Strings.courseSapCloudIntegrationImmersionDetail
+        ),
+        _Item(
+          StringsModel.strings.courseOracleTitle,
+          Strings.courseOracleDetail
+        )
+      ]
     );
 
-    final Widget builtBooksWidget = ExpandableContent(
-      headerTitle: StringsModel.strings.booksTitle,
-      widgetBeforeInfo: Column(
-        spacing: AppLayout.normalSpacing,
-        children: [
-          _Item(
-            Strings.bookEnterpriseIntegrationPatternsTitle,
-            Strings.bookEnterpriseIntegrationPatternsDetail
-          ),
-          _Item(Strings.bookCleanArchitectureTitle, Strings.booksCleanCodeArchDetail),
-          _Item(Strings.bookCleanCodeTitle, Strings.booksCleanCodeArchDetail),
-          _Item(StringsModel.strings.bookGoogleAndroidTitle, Strings.bookGoogleAndroidDetail),
-          _Item(StringsModel.strings.bookDelphiBibleTitle, Strings.bookDelphiBibleDetail)
-        ]
-      )
+    final Widget builtBooksWidget = Column(
+      spacing: AppLayout.normalSpacing,
+      children: [
+        _Item(
+          Strings.bookEnterpriseIntegrationPatternsTitle,
+          Strings.bookEnterpriseIntegrationPatternsDetail
+        ),
+        _Item(Strings.bookCleanArchitectureTitle, Strings.booksCleanCodeArchDetail),
+        _Item(Strings.bookCleanCodeTitle, Strings.booksCleanCodeArchDetail),
+        _Item(StringsModel.strings.bookGoogleAndroidTitle, Strings.bookGoogleAndroidDetail),
+        _Item(StringsModel.strings.bookDelphiBibleTitle, Strings.bookDelphiBibleDetail)
+      ]
     );
 
     return ContentGroup(
-      icon: AppIcons.studying,
+      icon: AppIcons.trendUp,
       title: StringsModel.strings.professionalDevelopmentTitle,
-      hasHorizontalPadding: false,
+      hasHorizontalPadding: true,
       children: [
-        builtCertificationsWidget,
-        AppLayout.smallVerticalSpacer,
-        builtCoursesWidget,
-        AppLayout.smallVerticalSpacer,
-        builtBooksWidget
+        AppTabBar(
+          tabs: [
+            AppTabBarTab(AppIcons.certificate, StringsModel.strings.certificationsTitle),
+            AppTabBarTab(AppIcons.course, StringsModel.strings.coursesTitle),
+            AppTabBarTab(AppIcons.book, StringsModel.strings.booksTitle)
+          ],
+          pages: [
+            builtCertificationsWidget,
+            builtCoursesWidget,
+            builtBooksWidget
+          ]
+        )
       ]
     );
   }
