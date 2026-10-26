@@ -314,7 +314,10 @@ class StringsPt extends Strings {
   @override
   String get smartNewExperienceTitle => 'Desenvolvimento de Aplicação Flutter Mobile/Web';
   @override
-  String get smartNewExperienceInfo => 'Prestei consultoria para o desenvolvimento do protótipo de uma aplicação mobile/web para a SmartNew, atuante no desenvolvimento de sistemas de monitoramento e gerenciamento de frotas. O objetivo era migrar a stack low-code.';
+  String get smartNewExperienceInfo =>
+    'Prestei consultoria para o desenvolvimento do protótipo de uma aplicação mobile/web para a SmartNew, atuante no desenvolvimento de sistemas de monitoramento e gerenciamento de frotas.\n\n'
+
+    'O objetivo era migrar a stack low-code existente.';
   @override
   String get mobileGameExperienceTitle => 'Design e Desenvolvimento de Jogos Casuais';
   @override

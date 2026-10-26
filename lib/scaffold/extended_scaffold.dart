@@ -10,7 +10,6 @@ import '../ui/layout/layout_model.dart';
 import '../ui/scroller.dart';
 import 'appbar/appbar_model.dart';
 import 'appbar/extended_appbar.dart';
-import 'device.dart';
 import 'main_profile_info.dart';
 import 'sidebar/sidebar.dart';
 
@@ -18,36 +17,20 @@ class ExtendedScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLayout layout = context.appLayout;
-    final bool isDoublePane = context.screenSize.width >= 1640;
     final double totalCollapsedHeight = AppbarModel.totalCollapsedHeightOf(context);
 
-    Widget builtWidget = AppCustomScrollView([
-      if ( ! isDoublePane)
-        ExperienceGroup(),
-
-      EducationGroup(),
-      ProfessionalDevelopmentGroup(),
-      ItemsGroup.languages(),
-      ItemsGroup.availability()
-    ]);
-
-    if (isDoublePane) {
-      builtWidget = Row(
-        spacing: AppLayout.xLargeSpacing,
-        children: [
-          Expanded(
-            flex: 3,
-            child: AppCustomScrollView([
-              ExperienceGroup()
-            ])
-          ),
-          Expanded(
-            flex: 2,
-            child: builtWidget
-          )
-        ]
-      );
-    }
+    Widget builtWidget = Center(
+      child: ConstrainedBox(
+        constraints: BoxConstraints(maxWidth: 1080),
+        child:  AppCustomScrollView([
+          ExperienceGroup(),
+          EducationGroup(),
+          ProfessionalDevelopmentGroup(),
+          ItemsGroup.languages(),
+          ItemsGroup.availability()
+        ])
+      )
+    );
 
     builtWidget = layout.isLeftLayout
       ? Column(

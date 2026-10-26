@@ -314,7 +314,10 @@ class StringsEn extends Strings {
   @override
   String get smartNewExperienceTitle => 'Flutter Mobile/Web Application Development';
   @override
-  String get smartNewExperienceInfo => 'Provided consulting services for developing a mobile/web app prototype for SmartNew, a company specializing in fleet monitoring and management systems. The goal was to migrate away from their existing low-code stack.';
+  String get smartNewExperienceInfo =>
+    'Provided consulting services for developing a mobile/web app prototype for SmartNew, a company specializing in fleet monitoring and management systems.\n\n'
+
+    'The goal was to migrate away from their existing low-code stack.';
   @override
   String get mobileGameExperienceTitle => 'Casual Game Design and Development';
   @override

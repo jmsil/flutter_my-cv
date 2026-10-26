@@ -47,6 +47,7 @@ class AppTabBar extends StatelessWidget {
       animationDuration: AppTheme.animationDuration,
       child: Column(
         spacing: AppLayout.largeSpacing,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           TabBar(
             dividerHeight: 0,
