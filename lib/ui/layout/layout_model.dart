@@ -9,7 +9,7 @@ export 'theme.dart';
 class LayoutModel extends ChangeNotifier {
   static final LayoutModel instance = LayoutModel._();
 
-  AppLayout _layout = AppLayout.flat;
+  AppLayout _layout = AppLayout.top;
 
   LayoutModel._();
 
