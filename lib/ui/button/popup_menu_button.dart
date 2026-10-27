@@ -33,7 +33,7 @@ class AppPopupMenuButton extends PopupMenuButton {
             data: IconThemeData(opacity: 1.0),
             child: Column(
               spacing: AppLayout.smallSpacing,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: children
             )
           )

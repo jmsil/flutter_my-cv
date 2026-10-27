@@ -89,7 +89,7 @@ class AppMaterialButton extends MaterialButton {
     shape: RoundedRectangleBorder(borderRadius: AppTheme.allBorderRadius),
     child: Padding(
       padding: const AppEdgeInsets.small(),
-      child: AppIconText(icon: icon, text: text, textStyle: textStyle, isCentralized: true)
+      child: AppIconText(icon: icon, text: text, textStyle: textStyle)
     )
   );
 }
