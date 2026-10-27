@@ -5,7 +5,6 @@ import '../content/experience.dart';
 import '../content/items.dart';
 import '../content/professional_dev.dart';
 import '../ui/layout/edge_insets.dart';
-import '../ui/layout/icons.dart';
 import '../ui/layout/layout_model.dart';
 import '../ui/scroller.dart';
 import 'appbar/appbar_model.dart';
@@ -21,7 +20,7 @@ class ExtendedScaffold extends StatelessWidget {
 
     Widget builtWidget = Center(
       child: ConstrainedBox(
-        constraints: BoxConstraints(maxWidth: 1080),
+        constraints: BoxConstraints(maxWidth: 1200),
         child:  AppCustomScrollView([
           ExperienceGroup(),
           EducationGroup(),
@@ -39,7 +38,7 @@ class ExtendedScaffold extends StatelessWidget {
             Padding(
               padding: const AppEdgeInsets.xLarge(top: AppEdgeInsets.normalValue),
               child: MainProfileInfo.professionalSummary(
-                icon: AppIcons.summary,
+                hasIcon: true,
                 style: MainProfileInfoStyle.body
               )
             ),

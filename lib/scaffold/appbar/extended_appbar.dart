@@ -31,7 +31,10 @@ class ExtendedAppbar extends StatelessWidget {
                 Spacer(flex: 2),
                 Expanded(
                   flex: 16,
-                  child: MainProfileInfo.professionalSummary(style: mainProfileInfoStyle)
+                  child: MainProfileInfo.professionalSummary(
+                    hasIcon: false,
+                    style: mainProfileInfoStyle
+                  )
                 )
               ]
             )

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../ui/divider.dart';
+import '../ui/layout/icons.dart';
 import '../ui/layout/layout_model.dart';
 import '../ui/strings/strings_model.dart';
 
@@ -19,21 +20,22 @@ class MainProfileInfo extends StatelessWidget {
     required bool isShortRoles,
     this.softWrap = true
   }) :
-    icon = null,
-    title = Strings.personalName,
-    info = isShortRoles
+    this.icon = null,
+    this.title = Strings.personalName,
+    this.info = isShortRoles
       ? Strings.shortRoles
       : StringsModel.strings.longRoles,
-    hasIntrinsicWidth = true;
+    this.hasIntrinsicWidth = true;
 
   MainProfileInfo.professionalSummary({
-    this.icon,
-    required this.style
+    required bool hasIcon,
+    required this.style,
   }) :
-    title = StringsModel.strings.professionalSummaryTitle,
-    info = StringsModel.strings.professionalSummaryInfo,
-    softWrap = true,
-    hasIntrinsicWidth = false;
+    this.icon = hasIcon ? AppIcons.summary : null,
+    this.title = StringsModel.strings.professionalSummaryTitle,
+    this.info = StringsModel.strings.professionalSummaryInfo,
+    this.softWrap = true,
+    this.hasIntrinsicWidth = false;
 
   @override
   Widget build(BuildContext context) {
