@@ -83,6 +83,7 @@ abstract class Strings {
   String get language;
   String get summary;
   String get portfolio;
+  String get verify;
   String get experienceTitle;
   String get sapIntegrationSuiteLearningJourneyTitle;
   String get sapIntegrationSuiteLearningJourneyDetail;
@@ -134,7 +135,6 @@ abstract class Strings {
   String get bookGoogleAndroidTitle;
   String get courseOracleTitle;
   String get courseSapCloudIntegrationImmersionTitle;
-  String get verifyCertification;
   String get languagesTitle;
   String get languagesInfo;
   String get availabilityTitle;

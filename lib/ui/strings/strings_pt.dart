@@ -39,6 +39,8 @@ class StringsPt extends Strings {
   @override
   String get portfolio => 'Portfólio';
   @override
+  String get verify => 'Verificar';
+  @override
   String get experienceTitle => 'Experiência';
   @override
   String get sapIntegrationSuiteLearningJourneyTitle => 'Desenvolvimento/Certificação SAP Integration Suite';
@@ -375,8 +377,6 @@ class StringsPt extends Strings {
   String get courseOracleTitle => 'Guia para os Exames de Certificação OCA/OCP Oracle';
   @override
   String get courseSapCloudIntegrationImmersionTitle => 'Imersão SAP Cloud Integration';
-  @override
-  String get verifyCertification => 'Verificar certificação';
   @override
   String get languagesTitle => 'Idiomas';
   @override

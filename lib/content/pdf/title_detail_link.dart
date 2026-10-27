@@ -55,7 +55,7 @@ class PdfTitleDetailLinkRow extends TableRow {
         PdfTheme.xLargeHorizontalSpace,
 
       if (certificationLink != null)
-        PdfLink(StringsModel.strings.verifyCertification, certificationLink)
+        PdfLink(StringsModel.strings.verify, certificationLink)
     ]
   );
 }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../content/education.dart';
 import '../content/experience.dart';
 import '../content/items.dart';
-import '../content/professional_development.dart';
+import '../content/professional_dev.dart';
 import '../ui/layout/edge_insets.dart';
 import '../ui/layout/icons.dart';
 import '../ui/layout/layout_model.dart';

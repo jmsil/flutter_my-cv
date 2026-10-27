@@ -49,12 +49,14 @@ class AppLink extends StatelessWidget {
   final String text;
   final String? link;
   final bool isOverBackground;
+  final bool alwaysShowTrailingIcon;
 
   AppLink({
     this.icon = AppIcons.link,
     required this.text,
     this.link,
-    this.isOverBackground = true
+    this.isOverBackground = true,
+    this.alwaysShowTrailingIcon = false
   });
 
   @override
@@ -64,19 +66,26 @@ class AppLink extends StatelessWidget {
         final AppTheme theme = context.appLayout.theme;
         final TextStyle textStyle = isOverBackground
           ? hovered
-            ? theme.background.normalText.decoration.regular
+            ? theme.background.normalText.decoration.bold
             : theme.background.normalText.over1.regular
           : hovered
-            ? theme.sidebarSection.normalText.decoration.regular
+            ? theme.sidebarSection.normalText.decoration.bold
             : theme.sidebarSection.normalText.over1.regular;
 
         return AppIconText(
           icon: icon,
           text: text,
           textStyle: textStyle,
-          trailingWidget: hovered
-            ? Icon(AppIcons.openInNew, size: _trailingIconSize, color: textStyle.color)
-            : SizedBox(width: _trailingIconSize)
+          trailingWidget: SizedBox(
+            width: _trailingIconSize, height: 24,
+            child: hovered || alwaysShowTrailingIcon
+              ? Icon(
+                  AppIcons.openInNew,
+                  size: _trailingIconSize,
+                  color: hovered ? textStyle.color : textStyle.color?.withDarkDecorationAlpha
+                )
+              : null
+          )
         );
       },
       onPressed: _launch
