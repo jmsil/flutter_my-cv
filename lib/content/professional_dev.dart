@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../ui/container/card_wrapper.dart';
 import '../ui/container/tabbar.dart';
 import '../ui/layout/icons.dart';
 import '../ui/layout/layout_model.dart';
@@ -8,11 +9,13 @@ import 'group.dart';
 import 'professional_dev_card.dart';
 
 class ProfessionalDevelopmentGroup extends StatelessWidget {
+  static const double _cardWidth = 340;
+
   @override
   Widget build(BuildContext context) {
-    final Widget builtCertificationsWidget = Wrap(
+    final Widget builtCertificationsWidget = CardWrapper(
+      width: _cardWidth,
       spacing: AppLayout.normalSpacing,
-      runSpacing: AppLayout.normalSpacing,
       children: [
         ProfessionalDevelopmentCard(
           Strings.certificationCcpiTitle,
@@ -37,9 +40,9 @@ class ProfessionalDevelopmentGroup extends StatelessWidget {
       ]
     );
 
-    final Widget builtCoursesWidget = Wrap(
+    final Widget builtCoursesWidget = CardWrapper(
+      width: _cardWidth,
       spacing: AppLayout.normalSpacing,
-      runSpacing: AppLayout.normalSpacing,
       children: [
         ProfessionalDevelopmentCard(
           Strings.courseSapAdvancedEventMeshTitle,
@@ -64,9 +67,9 @@ class ProfessionalDevelopmentGroup extends StatelessWidget {
       ]
     );
 
-    final Widget builtBooksWidget = Wrap(
+    final Widget builtBooksWidget = CardWrapper(
+      width: _cardWidth,
       spacing: AppLayout.normalSpacing,
-      runSpacing: AppLayout.normalSpacing,
       children: [
         ProfessionalDevelopmentCard(
           Strings.bookEnterpriseIntegrationPatternsTitle,

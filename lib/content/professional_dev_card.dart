@@ -44,7 +44,6 @@ class ProfessionalDevelopmentCard extends StatelessWidget {
     }
 
     return AppContainer(
-      width: 338,
       height: 104,
       padding: const AppEdgeInsets.normal(),
       borderColor: theme.background.overColor1.withDecorationAlpha,

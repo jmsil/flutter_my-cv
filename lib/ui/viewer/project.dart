@@ -11,7 +11,6 @@ class ProjectCard extends AppContainer {
   ProjectCard(
     AppTheme theme, Project project
   ) : super(
-    width: 420,
     height: 126,
     padding: const AppEdgeInsets.small(),
     borderColor: theme.background.overColor1.withDecorationAlpha,
