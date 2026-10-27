@@ -9,12 +9,14 @@ class AppIconText extends StatelessWidget {
   final IconData icon;
   final String text;
   final TextStyle textStyle;
+  final bool enableOverflow;
   final Widget? trailingWidget;
 
   AppIconText({
     required this.icon,
     required this.text,
     required this.textStyle,
+    this.enableOverflow = false,
     this.trailingWidget
   });
 
@@ -29,7 +31,11 @@ class AppIconText extends StatelessWidget {
       children: [
         Icon(icon, color: textStyle.color),
         Flexible(
-          child: Text(text, style: textStyle)
+          child: Text(
+            text,
+            style: textStyle,
+            overflow: enableOverflow ? TextOverflow.ellipsis : null
+          )
         ),
 
         if (trailingWidget != null)

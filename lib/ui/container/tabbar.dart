@@ -37,7 +37,8 @@ class AppTabBar extends StatelessWidget {
     for (AppTabBarTab tab in tabs) {
       Widget widget = AppIconText(
         icon: tab.icon, text: tab.label,
-        textStyle: theme.background.normalHeader.over1.bold
+        textStyle: theme.background.normalHeader.over1.bold,
+        enableOverflow: true
       );
       builtTabs.add(widget);
     }
