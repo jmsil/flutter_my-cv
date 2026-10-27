@@ -9,7 +9,7 @@ import '../ui/overlay_bar.dart';
 class ContentGroup extends StatelessWidget {
   static const double _iconSize = 32;
   static const double _iconContainerSize = _iconSize * 2;
-  static const double _titleContainerSize = 42;
+  static const double _titleContainerSize = 44;
 
   final IconData icon;
   final String title;
@@ -59,7 +59,7 @@ class ContentGroup extends StatelessWidget {
               margin: const EdgeInsets.only(left: _iconContainerSize / 2),
               borderRadius: AppTheme.circleBorderRadius,
               child: Center(
-                child: Text(title, style: theme.brand3.normalHeader.over1.bold)
+                child: Text(title, style: theme.brand3.largeText.over1.bold)
               )
             ),
             AppContainer(
