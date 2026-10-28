@@ -136,8 +136,8 @@ abstract class Strings {
   String get courseOracleTitle;
   String get courseSapCloudIntegrationImmersionTitle;
   String get languagesTitle;
-  String get languagesInfo;
+  Map<String, List<String>?> get languagesInfo;
   String get availabilityTitle;
-  String get availabilityInfo;
+  Map<String, List<String>?> get availabilityInfo;
   String get visitOnlineResume;
 }

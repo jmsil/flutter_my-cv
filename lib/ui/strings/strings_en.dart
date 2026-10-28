@@ -380,23 +380,19 @@ class StringsEn extends Strings {
   @override
   String get languagesTitle => 'Languages';
   @override
-  String get languagesInfo =>
-    'Portuguese\n'
-    '▪ Native - '
-    'English\n'
-    '▪ Advanced reading\n'
-    '▪ Intermediate writing\n'
-    '▪ Intermediate technical conversation';
+  Map<String, List<String>?> get languagesInfo => {
+    'Portuguese': ['Native'],
+    'English': ['Advanced reading', 'Intermediate writing', 'Intermediate technical conversation']
+  };
   @override
   String get availabilityTitle => 'Availability';
   @override
-  String get availabilityInfo =>
-    'Independent contractor (PREFERRED)\n'
-    '▪ Fixed-term\n'
-    '▪ Hourly rate - '
-    'Employee contract - '
-    'Remote only - '
-    'Freelance';
+  Map<String, List<String>?> get availabilityInfo => {
+    'Independent contractor (PREFERRED)': ['Fixed-term', 'Hourly rate'],
+    'Employee contract': null,
+    'Remote only': null,
+    'Freelance': null
+  };
   @override
   String get visitOnlineResume => '*Visit my online resume to check out my relevant practical projects:';
 }

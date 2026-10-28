@@ -25,9 +25,6 @@ class AppIconText extends StatelessWidget {
     return Row(
       spacing: AppLayout.smallSpacing,
       mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: text.contains('\n')
-        ? CrossAxisAlignment.start
-        : CrossAxisAlignment.center,
       children: [
         Icon(icon, color: textStyle.color),
         Flexible(

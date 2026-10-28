@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../content/education.dart';
 import '../content/experience.dart';
-import '../content/items.dart';
+import '../content/list.dart';
 import '../content/professional_dev.dart';
 import '../ui/scroller.dart';
 import 'appbar/compact_appbar.dart';
@@ -33,8 +33,8 @@ class _State extends State<CompactScaffold> {
             ExperienceGroup(),
             EducationGroup(),
             ProfessionalDevelopmentGroup(),
-            ItemsGroup.languages(),
-            ItemsGroup.availability()
+            ListGroup.languages(),
+            ListGroup.availability()
           ]
         ),
         DrawerController(

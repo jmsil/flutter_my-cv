@@ -380,23 +380,19 @@ class StringsPt extends Strings {
   @override
   String get languagesTitle => 'Idiomas';
   @override
-  String get languagesInfo =>
-    'Português\n'
-    '▪ Nativo - '
-    'Inglês\n'
-    '▪ Leitura avançada\n'
-    '▪ Escrita intermediária\n'
-    '▪ Conversação técnica intermediária';
+  Map<String, List<String>?> get languagesInfo => {
+    'Português': ['Nativo'],
+    'Inglês': ['Leitura avançada', 'Escrita intermediária', 'Conversação técnica intermediária']
+  };
   @override
   String get availabilityTitle => 'Disponibilidade';
   @override
-  String get availabilityInfo =>
-    'Contrato Pessoa Jurídica (PREFERÍVEL)\n'
-    '▪ Fixo\n'
-    '▪ Hora - '
-    'Contrato CLT - '
-    'Somente remoto - '
-    'Freelance';
+  Map<String, List<String>?> get availabilityInfo => {
+    'Contrato Pessoa Jurídica (PREFERÍVEL)': ['Fixo', 'Hora'],
+    'Contrato CLT': null,
+    'Somente remoto': null,
+    'Freelance': null
+  };
   @override
   String get visitOnlineResume => '*Visite meu currículo online para conferir meus projetos práticos relevantes:';
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../content/education.dart';
 import '../content/experience.dart';
-import '../content/items.dart';
+import '../content/list.dart';
 import '../content/professional_dev.dart';
 import '../ui/layout/edge_insets.dart';
 import '../ui/layout/layout_model.dart';
@@ -25,8 +25,8 @@ class ExtendedScaffold extends StatelessWidget {
           ExperienceGroup(),
           EducationGroup(),
           ProfessionalDevelopmentGroup(),
-          ItemsGroup.languages(),
-          ItemsGroup.availability()
+          ListGroup.languages(),
+          ListGroup.availability()
         ])
       )
     );
