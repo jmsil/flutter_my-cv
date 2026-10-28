@@ -34,8 +34,8 @@ class ProjectGalleryViewer extends AppViewer {
 }
 
 class _State extends AppViewerState<ProjectGalleryViewer> {
-  static const double selectedThumbnailBorderSize = 3;
-  static const double unselectedThumbnailBorderSize = 1;
+  static const double selectedThumbnailBorderSize = 4;
+  static const double unselectedThumbnailBorderSize = 2;
   static const EdgeInsets thumbnailsContainerPadding = AppEdgeInsets.xLarge();
   static const EdgeInsets selectedThumbnailMargin = EdgeInsets.symmetric(vertical: 12);
   static const EdgeInsets unselectedThumbnailMargin = EdgeInsets.symmetric(
@@ -100,19 +100,21 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
 
   @override
   Widget buildBody(AppThemeData themeData, double width, double height) {
-    final double borderSize = min(min(width, height) * 0.025, 12);
-
     return GestureDetector(
       onHorizontalDragEnd: _onDrag,
       onVerticalDragEnd: _onDrag,
       child: Center(
-        child: AppContainer(
+        child: Container(
           margin: isCompactMode
             ? const AppEdgeInsets.normal()
             : const AppEdgeInsets.xLarge(),
-          borderSize: borderSize,
-          borderColor: themeData.overColor1,
-          borderRadius: BorderRadius.circular(borderSize * 2.67),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(min(min(width, height) * 0.025, 12) * 2.67),
+            boxShadow: [
+              BoxShadow(color: Colors.black38, blurRadius: 16)
+            ]
+          ),
+          clipBehavior: Clip.hardEdge,
           child: Image.memory(widget.assets.getFile(index + 1), gaplessPlayback: true)
         )
       )
