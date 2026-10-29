@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../ui/container/card_wrapper.dart';
 import '../../ui/container/tabbar.dart';
+import '../../ui/container/wrap.dart';
 import '../../ui/layout/layout.dart';
 import '../../ui/layout/theme.dart';
 import '../../ui/strings/strings_model.dart';
@@ -33,7 +33,7 @@ class IntegrationLearningExperience extends ExpandableContent {
         spacing: AppLayout.normalSpacing,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          CardWrapper(
+          AppWrap(
             width: 420,
             spacing: AppLayout.normalSpacing,
             children: [

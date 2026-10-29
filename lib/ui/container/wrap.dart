@@ -2,11 +2,12 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-class CardWrapper extends LayoutBuilder {
-  CardWrapper({
+class AppWrap extends LayoutBuilder {
+  AppWrap({
     required double width,
     double maxStretchPercent = 0.25,
     required double spacing,
+    double? runSpacing,
     required List<Widget> children
   }) : super(
     builder: (BuildContext context, BoxConstraints constraints) {
@@ -20,7 +21,7 @@ class CardWrapper extends LayoutBuilder {
 
       return Wrap(
         spacing: spacing,
-        runSpacing: spacing,
+        runSpacing: runSpacing ?? spacing,
         children: children.map(
           (child) => SizedBox(width: boxWidth, child: child)
         ).toList()

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../ui/container/card_wrapper.dart';
 import '../ui/container/tabbar.dart';
+import '../ui/container/wrap.dart';
 import '../ui/layout/icons.dart';
 import '../ui/layout/layout_model.dart';
 import '../ui/strings/strings_model.dart';
@@ -13,7 +13,7 @@ class ProfessionalDevelopmentGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Widget builtCertificationsWidget = CardWrapper(
+    final Widget builtCertificationsWidget = AppWrap(
       width: _cardWidth,
       spacing: AppLayout.normalSpacing,
       children: [
@@ -40,7 +40,7 @@ class ProfessionalDevelopmentGroup extends StatelessWidget {
       ]
     );
 
-    final Widget builtCoursesWidget = CardWrapper(
+    final Widget builtCoursesWidget = AppWrap(
       width: _cardWidth,
       spacing: AppLayout.normalSpacing,
       children: [
@@ -67,7 +67,7 @@ class ProfessionalDevelopmentGroup extends StatelessWidget {
       ]
     );
 
-    final Widget builtBooksWidget = CardWrapper(
+    final Widget builtBooksWidget = AppWrap(
       width: _cardWidth,
       spacing: AppLayout.normalSpacing,
       children: [

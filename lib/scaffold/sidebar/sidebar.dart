@@ -26,16 +26,10 @@ class AppSidebar extends StatelessWidget {
       DetailsSection(theme),
       AppLayout.normalVerticalSpacer,
 
-      SkillsSection(
-        StringsModel.strings.programmingSkillsTitle,
-        Strings.programmingSkillsInfo
-      ),
+      SkillsSection.programming(),
       AppLayout.normalVerticalSpacer,
 
-      SkillsSection(
-        StringsModel.strings.integrationSkillsTitle,
-        Strings.integrationSkillsInfo
-      ),
+      SkillsSection.integration(),
       AppLayout.normalVerticalSpacer,
 
       AboutSection(theme)
