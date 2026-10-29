@@ -11,33 +11,31 @@ class ProjectCard extends AppContainer {
   ProjectCard(
     AppTheme theme, Project project
   ) : super(
-    height: 126,
-    padding: const AppEdgeInsets.small(),
     borderColor: theme.background.overColor1.withDecorationAlpha,
     borderRadius: AppTheme.allBorderRadius,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          spacing: AppLayout.largeSpacing,
-          children: [
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(left: AppEdgeInsets.smallValue),
+        Padding(
+          padding: const AppEdgeInsets.small(left: AppEdgeInsets.normalValue),
+          child: Row(
+            spacing: AppLayout.largeSpacing,
+            children: [
+              Expanded(
                 child: Text(
                   project.title,
                   style: theme.background.normalHeader.over1.bold,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis
                 )
-              )
-            ),
-            AppProjectButton(project)
-          ]
+              ),
+              AppProjectButton(project)
+            ]
+          )
         ),
         Padding(
-          padding: const AppEdgeInsets.small(top: 0),
+          padding: const AppEdgeInsets.normal(top: 0),
           child: Text(
             project.description,
             style: theme.background.normalText.over1.regular,

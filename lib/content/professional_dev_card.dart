@@ -12,7 +12,8 @@ class ProfessionalDevelopmentCard extends StatelessWidget {
   final String? certificateLink;
 
   ProfessionalDevelopmentCard(
-    this.title, this.detail,
+    this.title,
+    this.detail,
     {
       this.certificateLink
     }
@@ -44,12 +45,13 @@ class ProfessionalDevelopmentCard extends StatelessWidget {
     }
 
     return AppContainer(
-      height: 104,
       padding: const AppEdgeInsets.normal(),
       borderColor: theme.background.overColor1.withDecorationAlpha,
       borderRadius: AppTheme.allBorderRadius,
       child: Column(
-        spacing: AppLayout.shortSpacing,
+        spacing: certificateLink == null
+          ? AppLayout.smallSpacing
+          : AppLayout.normalSpacing,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
