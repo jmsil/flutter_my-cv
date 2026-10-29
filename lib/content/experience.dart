@@ -53,7 +53,7 @@ class ExperienceGroup extends StatelessWidget {
       )
     ];
 
-    return ContentGroup(
+    return ContentGroup.children(
       icon: AppIcons.briefcase,
       title: StringsModel.strings.experienceTitle,
       headerBackgroundColor: isExtendedScreen

@@ -48,7 +48,7 @@ class ListGroup extends StatelessWidget {
 
     children.removeLast();
 
-    return ContentGroup(
+    return ContentGroup.children(
       icon: icon,
       title: title,
       hasHorizontalPadding: true,

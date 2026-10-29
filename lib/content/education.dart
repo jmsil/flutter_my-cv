@@ -5,20 +5,18 @@ import 'expandable.dart';
 import 'group.dart';
 
 class EducationGroup extends ContentGroup {
-  EducationGroup() : super(
+  EducationGroup() : super.child(
     icon: AppIcons.education,
     title: StringsModel.strings.educationTitle,
     hasHorizontalPadding: false,
-    children: [
-      ExpandableContent(
-        headerTitle: StringsModel.strings.educationUniversityTitle,
-        headerDetail: StringsModel.strings.educationUniversityDetail,
-        widgetBeforeInfo: AppLink(
-          text: Strings.educationUniversityShortLink,
-          link: Strings.educationUniversityLink
-        ),
-        info: StringsModel.strings.educationUniversityInfo
-      )
-    ]
+    child: ExpandableContent(
+      headerTitle: StringsModel.strings.educationUniversityTitle,
+      headerDetail: StringsModel.strings.educationUniversityDetail,
+      widgetBeforeInfo: AppLink(
+        text: Strings.educationUniversityShortLink,
+        link: Strings.educationUniversityLink
+      ),
+      info: StringsModel.strings.educationUniversityInfo
+    )
   );
 }

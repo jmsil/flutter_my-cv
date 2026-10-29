@@ -86,24 +86,22 @@ class ProfessionalDevelopmentGroup extends StatelessWidget {
       ]
     );
 
-    return ContentGroup(
+    return ContentGroup.child(
       icon: AppIcons.trendUp,
       title: StringsModel.strings.professionalDevelopmentTitle,
       hasHorizontalPadding: true,
-      children: [
-        AppTabBar(
-          tabs: [
-            AppTabBarTab(AppIcons.certificate, StringsModel.strings.certificationsTitle),
-            AppTabBarTab(AppIcons.course, StringsModel.strings.coursesTitle),
-            AppTabBarTab(AppIcons.book, StringsModel.strings.booksTitle)
-          ],
-          pages: [
-            builtCertificationsWidget,
-            builtCoursesWidget,
-            builtBooksWidget
-          ]
-        )
-      ]
+      child: AppTabBar(
+        tabs: [
+          AppTabBarTab(AppIcons.certificate, StringsModel.strings.certificationsTitle),
+          AppTabBarTab(AppIcons.course, StringsModel.strings.coursesTitle),
+          AppTabBarTab(AppIcons.book, StringsModel.strings.booksTitle)
+        ],
+        pages: [
+          builtCertificationsWidget,
+          builtCoursesWidget,
+          builtBooksWidget
+        ]
+      )
     );
   }
 }

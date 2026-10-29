@@ -17,7 +17,16 @@ class ContentGroup extends StatelessWidget {
   final bool hasHorizontalPadding;
   final List<Widget> children;
 
-  ContentGroup({
+  ContentGroup.child({
+    required this.icon,
+    required this.title,
+    this.headerBackgroundColor,
+    required this.hasHorizontalPadding,
+    required Widget child
+  }) :
+    this.children = [child];
+
+  ContentGroup.children({
     required this.icon,
     required this.title,
     this.headerBackgroundColor,
