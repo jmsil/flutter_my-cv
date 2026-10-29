@@ -8,6 +8,7 @@ class AppWrap extends LayoutBuilder {
     double maxStretchPercent = 0.25,
     required double spacing,
     double? runSpacing,
+    bool enableIntrinsicRowHeight = false,
     required List<Widget> children
   }) : super(
     builder: (BuildContext context, BoxConstraints constraints) {
@@ -29,9 +30,16 @@ class AppWrap extends LayoutBuilder {
         for (int j = i * colCount; j < min(children.length, (i + 1) * colCount); j++)
           rowChildren.add(SizedBox(width: boxWidth, child: children[j]));
 
-        rows.add(IntrinsicHeight(
-          child: Row(spacing: spacing, children: rowChildren)
-        ));
+        Widget builtRow = Row(
+          spacing: spacing,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: rowChildren
+        );
+
+        if (enableIntrinsicRowHeight)
+          builtRow = IntrinsicHeight(child: builtRow);
+
+        rows.add(builtRow);
       }
 
       return Column(

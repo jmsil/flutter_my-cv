@@ -36,6 +36,7 @@ class IntegrationLearningExperience extends ExpandableContent {
           AppWrap(
             width: 420,
             spacing: AppLayout.normalSpacing,
+            enableIntrinsicRowHeight: true,
             children: [
               ProjectCard(theme, ApimProxyProject()),
               ProjectCard(theme, IFlowProxyProject()),

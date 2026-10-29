@@ -16,6 +16,7 @@ class ProfessionalDevelopmentGroup extends StatelessWidget {
     final Widget builtCertificationsWidget = AppWrap(
       width: _cardWidth,
       spacing: AppLayout.normalSpacing,
+      enableIntrinsicRowHeight: true,
       children: [
         ProfessionalDevelopmentCard(
           Strings.certificationCcpiTitle,
@@ -43,6 +44,7 @@ class ProfessionalDevelopmentGroup extends StatelessWidget {
     final Widget builtCoursesWidget = AppWrap(
       width: _cardWidth,
       spacing: AppLayout.normalSpacing,
+      enableIntrinsicRowHeight: true,
       children: [
         ProfessionalDevelopmentCard(
           Strings.courseSapAdvancedEventMeshTitle,
@@ -70,6 +72,7 @@ class ProfessionalDevelopmentGroup extends StatelessWidget {
     final Widget builtBooksWidget = AppWrap(
       width: _cardWidth,
       spacing: AppLayout.normalSpacing,
+      enableIntrinsicRowHeight: true,
       children: [
         ProfessionalDevelopmentCard(
           Strings.bookEnterpriseIntegrationPatternsTitle,
