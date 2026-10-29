@@ -84,7 +84,7 @@ class ExpandableContent extends StatelessWidget {
       arrowColor: theme.background.decorationColor,
       effectColor: theme.brand2.baseColor,
       isClipped: true,
-      isIntrinsicHeader: true,
+      enableIntrinsicHeaderHeight: true,
       headerPadding: _padding,
       expandablePadding: _padding,
       headerChild: builtHeaderWidget,

@@ -13,7 +13,7 @@ class MainProfileInfo extends StatelessWidget {
   final String info;
   final MainProfileInfoStyle style;
   final bool softWrap;
-  final bool hasIntrinsicWidth;
+  final bool enableIntrinsicWidth;
 
   MainProfileInfo.nameAndRoles({
     required this.style,
@@ -25,7 +25,7 @@ class MainProfileInfo extends StatelessWidget {
     this.info = isShortRoles
       ? Strings.shortRoles
       : StringsModel.strings.longRoles,
-    this.hasIntrinsicWidth = true;
+    this.enableIntrinsicWidth = true;
 
   MainProfileInfo.professionalSummary({
     required bool hasIcon,
@@ -35,7 +35,7 @@ class MainProfileInfo extends StatelessWidget {
     this.title = StringsModel.strings.professionalSummaryTitle,
     this.info = StringsModel.strings.professionalSummaryInfo,
     this.softWrap = true,
-    this.hasIntrinsicWidth = false;
+    this.enableIntrinsicWidth = false;
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +112,7 @@ class MainProfileInfo extends StatelessWidget {
       ]
     );
 
-    if (hasIntrinsicWidth)
+    if (enableIntrinsicWidth)
       builtWidget = IntrinsicWidth(child: builtWidget);
 
     return builtWidget;
