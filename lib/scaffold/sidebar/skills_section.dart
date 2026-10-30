@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../ui/container/wrap.dart';
-import '../../ui/layout/icons.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../../ui/text.dart';
@@ -28,8 +27,7 @@ class SkillsSection extends StatelessWidget {
     final List<Widget> children = [];
 
     for (String item in skills) {
-      children.add(AppIconText(
-        icon: AppIcons.topicMark,
+      children.add(AppIconText.bullet(
         text: item,
         textStyle: theme.sidebarSection.normalText.over1.regular
       ));

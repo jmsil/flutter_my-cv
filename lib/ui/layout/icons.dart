@@ -29,10 +29,10 @@ class AppIcons {
   static const IconData phone = Icons.phone_outlined;
   static const IconData settings = Icons.settings_outlined;
   static const IconData summary = Icons.format_list_bulleted;
-  static const IconData topicMark = Icons.arrow_right;
   static const IconData trendUp = Icons.trending_up_outlined;
   static const IconData webhook = Icons.webhook;
 
+  static const IconData bullet = AppIconsGenerator.bullet;
   static const IconData layout = AppIconsGenerator.layout;
   static const IconData flatLayout = AppIconsGenerator.flatLayout;
   static const IconData leftLayout = AppIconsGenerator.leftLayout;

@@ -22,6 +22,14 @@ class ProfessionalDevelopmentCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppTheme theme = context.appLayout.theme;
+
+    final Widget builtTitle = Text(
+      title,
+      style: theme.background.normalText.over1.bold,
+      maxLines: 2,
+      overflow: TextOverflow.ellipsis
+    );
+
     Widget builtDetail = Text(
       detail,
       style: theme.background.normalText.over1.italic,
@@ -55,12 +63,7 @@ class ProfessionalDevelopmentCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            title,
-            style: theme.background.normalText.over1.bold,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis
-          ),
+          builtTitle,
           builtDetail
         ]
       )

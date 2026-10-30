@@ -20,13 +20,26 @@ class AppIconText extends StatelessWidget {
     this.trailingWidget
   });
 
+  AppIconText.bullet({
+    required this.text,
+    required this.textStyle
+  }) :
+    this.icon = AppIcons.bullet,
+    this.enableOverflow = false,
+    this.trailingWidget = null;
+
   @override
   Widget build(BuildContext context) {
+    Align();
     return Row(
       spacing: AppLayout.smallSpacing,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(icon, color: textStyle.color),
+
+        icon == AppIcons.bullet
+          ? SizedBox.square(dimension: 24, child: Icon(icon, size: 9.5, color: textStyle.color))
+          : Icon(icon, color: textStyle.color),
+
         Flexible(
           child: Text(
             text,

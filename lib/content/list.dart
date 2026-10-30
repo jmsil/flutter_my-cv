@@ -29,11 +29,7 @@ class ListGroup extends StatelessWidget {
     final List<Widget> children = [];
 
     list.forEach((String listKey, List<String>? listValue) {
-      children.add(AppIconText(
-        icon: AppIcons.topicMark,
-        text: listKey,
-        textStyle: themeData.normalText.over1.bold
-      ));
+      children.add(AppIconText.bullet(text: listKey, textStyle: themeData.normalText.over1.bold));
 
       if (listValue != null) {
         children.add(AppList(
