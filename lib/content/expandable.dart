@@ -8,7 +8,7 @@ class ExpandableContent extends StatelessWidget {
   static const EdgeInsets _padding = AppEdgeInsets.normal(vertical: AppEdgeInsets.smallValue);
 
   final String headerTitle;
-  final String? headerDetail;
+  final String headerDetail;
   final Widget? widgetBeforeInfo;
   final String? info;
   final Widget? widgetAfterInfo;
@@ -16,7 +16,7 @@ class ExpandableContent extends StatelessWidget {
 
   ExpandableContent({
     required this.headerTitle,
-    this.headerDetail,
+    required this.headerDetail,
     this.widgetBeforeInfo,
     this.info,
     this.widgetAfterInfo,
@@ -26,20 +26,8 @@ class ExpandableContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppTheme theme = context.appLayout.theme;
-    Widget builtHeaderWidget = Text(
-      headerTitle, style: theme.background.normalHeader.over1.bold);
 
-    if (headerDetail != null) {
-      builtHeaderWidget = Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          builtHeaderWidget,
-          Text(headerDetail!, style: theme.background.normalText.over1.italic)
-        ]
-      );
-    }
-
-    builtHeaderWidget = Row(
+    final builtHeaderWidget = Row(
       spacing: AppLayout.smallSpacing,
       children: [
         VerticalDivider(
@@ -48,7 +36,14 @@ class ExpandableContent extends StatelessWidget {
           radius: AppTheme.circleBorderRadius
         ),
         Expanded(
-          child: builtHeaderWidget
+          child: Text.rich(
+            TextSpan(
+              children: [
+                TextSpan(text: '$headerTitle\n', style: theme.background.normalHeader.over1.bold),
+                TextSpan(text: headerDetail, style: theme.background.normalText.over1.italic)
+              ]
+            )
+          )
         )
       ]
     );
