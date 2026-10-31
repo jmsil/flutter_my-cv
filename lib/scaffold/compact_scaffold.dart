@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../content/education.dart';
@@ -14,12 +16,20 @@ class CompactScaffold extends StatefulWidget {
 }
 
 class _State extends State<CompactScaffold> {
-  static final GlobalKey<DrawerControllerState> drawerKey = GlobalKey();
+  final GlobalKey<DrawerControllerState> drawerKey = GlobalKey();
+  Timer? drawerTimer;
 
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(milliseconds: 500), openDrawer);
+    drawerTimer = Timer(const Duration(milliseconds: 500), openDrawer);
+  }
+
+  @override
+  void dispose() {
+    drawerTimer?.cancel();
+    FocusManager.instance.primaryFocus?.unfocus();
+    super.dispose();
   }
 
   @override
