@@ -39,8 +39,7 @@ class AppTheme {
       overColor1: Colors.blueGrey[50]!
     ),
     this.brand3 = brand3 ?? AppThemeData(
-      baseColor: Colors.blueGrey[200]!,
-      overColor1: Colors.black
+      baseColor: Colors.blueGrey[200]!
     ),
     this.sidebarSection = sidebarSection ?? AppThemeData(
       baseColor: Colors.black26,

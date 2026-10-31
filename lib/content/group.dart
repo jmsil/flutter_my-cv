@@ -9,7 +9,6 @@ import '../ui/overlay_bar.dart';
 class ContentGroup extends StatelessWidget {
   static const double _iconSize = 32;
   static const double _iconContainerSize = _iconSize * 2;
-  static const double _titleContainerSize = 44;
 
   final IconData icon;
   final String title;
@@ -45,10 +44,30 @@ class ContentGroup extends StatelessWidget {
       horizontal: isExtendedScreen ? 0 : null
     );
 
-    final EdgeInsets childrenPadding = AppEdgeInsets.normal(
-      top: isExtendedScreen ? 0 : null,
-      bottom: isExtendedScreen ? AppEdgeInsets.xLargeValue : null,
-      horizontal: hasHorizontalPadding ? null : 0
+    final Widget builtDivider = AppContainer(
+      height: 12,
+      color: theme.brand3.baseColor,
+      borderRadius: AppTheme.circleBorderRadius
+    );
+
+    final Widget builtIcon = _HeaderContainer(
+      theme: theme,
+      width: _iconContainerSize,
+      height: _iconContainerSize,
+      child: Icon(icon, size: _iconSize, color: theme.brand2.overColor1)
+    );
+
+    final Widget builtTitle = _HeaderContainer(
+      theme: theme,
+      width: 400,
+      height: 52,
+      padding: const AppEdgeInsets.large(vertical: 0),
+      child: Center(
+        child: Text(
+          title, style: theme.brand2.largeText.over1.bold,
+          overflow: TextOverflow.ellipsis
+        )
+      )
     );
 
     final Widget builtHeader = OverlayBar(
@@ -62,26 +81,14 @@ class ContentGroup extends StatelessWidget {
           clipBehavior: Clip.none,
           alignment: Alignment.centerLeft,
           children: [
-            AppContainer(
-              height: _titleContainerSize,
-              color: theme.brand3.baseColor,
-              margin: const EdgeInsets.only(left: _iconContainerSize / 2),
-              borderRadius: AppTheme.circleBorderRadius,
-              child: Center(
-                child: Text(title, style: theme.brand3.largeText.over1.bold)
-              )
-            ),
-            AppContainer(
-              width: _iconContainerSize,
-              height: _iconContainerSize,
-              color: theme.brand3.baseColor,
-              padding: const EdgeInsets.all(4),
-              borderRadius: AppTheme.circleBorderRadius,
-              child: AppContainer(
-                color: theme.brand2.baseColor,
-                borderRadius: AppTheme.circleBorderRadius,
-                child: Icon(icon, size: _iconSize, color: theme.brand2.overColor1)
-              )
+            builtDivider,
+            Row(
+              children: [
+                builtIcon,
+                Expanded(
+                  child: Center(child: builtTitle)
+                )
+              ]
             )
           ]
         )
@@ -92,7 +99,11 @@ class ContentGroup extends StatelessWidget {
       slivers: [
         PinnedHeaderSliver(child: builtHeader),
         SliverPadding(
-          padding: childrenPadding,
+          padding: AppEdgeInsets.normal(
+            top: isExtendedScreen ? 0 : null,
+            bottom: isExtendedScreen ? AppEdgeInsets.xLargeValue : null,
+            horizontal: hasHorizontalPadding ? null : 0
+          ),
           sliver: SliverList(
             delegate: SliverChildListDelegate(
               children,
@@ -104,4 +115,24 @@ class ContentGroup extends StatelessWidget {
       ]
     );
   }
+}
+
+class _HeaderContainer extends AppContainer {
+  _HeaderContainer({
+    required AppTheme theme,
+    super.width,
+    super.height,
+    EdgeInsets? padding,
+    required Widget child
+  }) : super(
+    color: theme.brand3.baseColor,
+    padding: const EdgeInsets.all(4),
+    borderRadius: AppTheme.circleBorderRadius,
+    child: AppContainer(
+      color: theme.brand2.baseColor,
+      padding: padding,
+      borderRadius: AppTheme.circleBorderRadius,
+      child: child
+    )
+  );
 }
