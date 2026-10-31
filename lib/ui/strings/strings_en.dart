@@ -70,7 +70,7 @@ class StringsEn extends Strings {
 
     'This API Management Proxy applies the following policies to trust and identify an end-user authenticated via Google Cloud Firebase Authentication:'
 
-    '${Strings.title('▪ ForbidResources', false)}'
+    '${Strings.title('▪ ForbidResources')}'
     'This RaiseFault policy forbids access to administrative resources. In this scenario, the Google Firebase Auth Users operations cannot be called from an end-user application.'
 
     '${Strings.title('▪ GetFirebaseJwtClaims')}'
@@ -171,7 +171,7 @@ class StringsEn extends Strings {
 
     'It is composed of the following iFlows:'
 
-    '${Strings.title('▪ Google Firebase Auth Users', false)}'
+    '${Strings.title('▪ Google Firebase Auth Users')}'
     '${Strings.widgetPlaceholder}'
 
     'This is the main iFlow which performs the actual integration. It supports the following operations:\n'
@@ -222,7 +222,7 @@ class StringsEn extends Strings {
     '▪ PATCH / - UPDATE operation.\n\n'
 
     'The XML validator schema and XSLT mapping are configured by the CamelHttpMethod and CamelHttpPath headers:'
-    '${Strings.widgetPlaceholder}\n'
+    '${Strings.widgetPlaceholder}'
 
     'The following example demonstrates the implementation of the SELECT operation:'
     '${Strings.widgetPlaceholder}';
@@ -246,7 +246,7 @@ class StringsEn extends Strings {
 
     'For demonstration purposes, the conversions between XML and JSON formats include namespace mappings:'
 
-    '${Strings.title('▪ JSON to XML', false)}'
+    '${Strings.title('▪ JSON to XML')}'
     '${Strings.widgetPlaceholder}'
     '${Strings.widgetPlaceholder}'
 
@@ -261,14 +261,14 @@ class StringsEn extends Strings {
 
     'This iFlow applies context handling and functions to map the following scenarios:'
 
-    '${Strings.title('▪ Hierarchical tree to flat tree:', false)}'
-    '${Strings.widgetPlaceholder}\n'
+    '${Strings.title('▪ Hierarchical tree to flat tree:')}'
+    '${Strings.widgetPlaceholder}'
 
     'The following example demonstrates the payload and the mapping result (not sorted):'
     '${Strings.widgetPlaceholder}'
 
     '${Strings.title('▪ Flat tree to hierarchical tree:')}'
-    '${Strings.widgetPlaceholder}\n'
+    '${Strings.widgetPlaceholder}'
 
     'The following example demonstrates the payload and the mapping result (sorted):'
     '${Strings.widgetPlaceholder}';
@@ -287,7 +287,7 @@ class StringsEn extends Strings {
     '▪ GET /?operation=Divide&paramA={T_INT}&paramB={T_INT}.\n\n'
 
     'The operation parameter defines the SoapAction header and the mappings:'
-    '${Strings.widgetPlaceholder}\n'
+    '${Strings.widgetPlaceholder}'
 
     'The paramA and paramB parameters are mapped to the SOAP request parameters:'
     '${Strings.widgetPlaceholder}';

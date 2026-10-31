@@ -3,8 +3,7 @@ abstract class Strings {
   static const String titleTag = '<ttl>';
   static const String widgetTag = '<wdg>';
   static const String widgetPlaceholder = '$splitTag$widgetTag$splitTag';
-  static String title(String title, [bool hasNewLine = true]) =>
-    '$splitTag$titleTag${hasNewLine ? '\n' : ''}$title$splitTag';
+  static String title(String title) => '$splitTag$titleTag$title$splitTag';
 
   static const String personalName = 'João Marques da Silva';
   static const String shortRoles =

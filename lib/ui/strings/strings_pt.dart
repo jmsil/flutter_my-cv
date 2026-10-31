@@ -70,7 +70,7 @@ class StringsPt extends Strings {
 
     'Este API Management Proxy aplica as seguintes políticas para confiar e identificar um usuário final autenticado via Google Cloud Firebase Authentication:'
 
-    '${Strings.title('▪ ForbidResources', false)}'
+    '${Strings.title('▪ ForbidResources')}'
     'Esta política RaiseFault proíbe o acesso a recursos administrativos. Neste cenário, as operações Google Firebase Auth Users não podem ser chamadas por uma aplicação do usuário final.'
 
     '${Strings.title('▪ GetFirebaseJwtClaims')}'
@@ -171,7 +171,7 @@ class StringsPt extends Strings {
 
     'Ela é composta pelos seguintes iFlows:'
 
-    '${Strings.title('▪ Google Firebase Auth Users', false)}'
+    '${Strings.title('▪ Google Firebase Auth Users')}'
     '${Strings.widgetPlaceholder}'
 
     'Este é o iFlow principal, o qual executa a real integração. Ele suporta as seguintes operações:\n'
@@ -222,7 +222,7 @@ class StringsPt extends Strings {
     '▪ PATCH / - Operação UPDATE.\n\n'
 
     'O esquema de validação XML e o mapeamento XSLT são configurados pelos cabeçalhos CamelHttpMethod e CamelHttpPath:'
-    '${Strings.widgetPlaceholder}\n'
+    '${Strings.widgetPlaceholder}'
 
     'O exemplo a seguir demonstra a implementação da operação SELECT:'
     '${Strings.widgetPlaceholder}';
@@ -246,7 +246,7 @@ class StringsPt extends Strings {
 
     'Para efeito de demonstração, as conversões entre os formatos XML e JSON incluem mapeamento de namespaces:'
 
-    '${Strings.title('▪ JSON para XML', false)}'
+    '${Strings.title('▪ JSON para XML')}'
     '${Strings.widgetPlaceholder}'
     '${Strings.widgetPlaceholder}'
 
@@ -261,14 +261,14 @@ class StringsPt extends Strings {
 
     'Este iFlow aplica manipulação de contexto e funções para mapear os seguintes cenários:'
 
-    '${Strings.title('▪ Árvore hierárquica para árvore plana:', false)}'
-    '${Strings.widgetPlaceholder}\n'
+    '${Strings.title('▪ Árvore hierárquica para árvore plana:')}'
+    '${Strings.widgetPlaceholder}'
 
     'O exemplo a seguir demonstra o payload e o resultado do mapeamento (não ordenado):'
     '${Strings.widgetPlaceholder}'
 
     '${Strings.title('▪ Árvore plana para árvore hierárquica:')}'
-    '${Strings.widgetPlaceholder}\n'
+    '${Strings.widgetPlaceholder}'
 
     'O exemplo a seguir demonstra o payload e o resultado do mapeamento (ordenado):'
     '${Strings.widgetPlaceholder}';
@@ -287,7 +287,7 @@ class StringsPt extends Strings {
     '▪ GET /?operation=Divide&paramA={T_INT}&paramB={T_INT}.\n\n'
 
     'O parâmetro operation configura o cabeçalho SoapAction e os mapeamentos:'
-    '${Strings.widgetPlaceholder}\n'
+    '${Strings.widgetPlaceholder}'
 
     'Os parâmetros paramA e paramB são mapeados para os parâmetros da requisição SOAP:'
     '${Strings.widgetPlaceholder}';
