@@ -102,10 +102,12 @@ class GalleryAssetsArchive extends AssetsArchive {
   Future<void> load() async {
     await super.load();
 
-    Codec thumbnailCodec = await instantiateImageCodec(_thumbnails[0]);
-    FrameInfo thumbnailFrame = await thumbnailCodec.getNextFrame();
-    _thumbnailWidth = thumbnailFrame.image.width;
-    _thumbnailHeight = thumbnailFrame.image.height;
+    Codec codec = await instantiateImageCodec(_thumbnails[0]);
+    Image image = (await codec.getNextFrame()).image;
+    _thumbnailWidth = image.width;
+    _thumbnailHeight = image.height;
+    codec.dispose();
+    image.dispose();
   }
 
   @override
