@@ -15,14 +15,20 @@ class ProjectSwaggerWidget extends StatefulWidget {
 }
 
 class _State extends State<ProjectSwaggerWidget> {
-  static const String _viewType = 'swagger-ui-view';
+  static bool isRegistered = false;
+  static const String viewType = 'swagger-ui-view';
 
   @override
   void initState() {
     super.initState();
 
+    if (isRegistered)
+      return;
+
+    isRegistered = true;
+
     platformViewRegistry.registerViewFactory(
-      _viewType,
+      viewType,
       (int viewId) {
         web.HTMLIFrameElement iFrame = web.HTMLIFrameElement();
         iFrame.src = 'swagger/dist/index.html';
@@ -76,7 +82,7 @@ class _State extends State<ProjectSwaggerWidget> {
   @override
   Widget build(BuildContext context) {
     final AppTheme theme = context.appLayout.theme;
-    final Widget htmlElementView = HtmlElementView(viewType: _viewType);
+    final Widget htmlElementView = HtmlElementView(viewType: viewType);
 
     return _FullWindowHandler(
       theme,
