@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:re_editor/re_editor.dart';
@@ -14,12 +13,36 @@ import '../layout/edge_insets.dart';
 import '../layout/layout_model.dart';
 import 'full_window_handler.dart';
 
-class ProjectCodeWidget extends StatelessWidget {
+class ProjectCodeWidget extends StatefulWidget {
   final AssetsArchive assets;
   final List<int> assetsIds;
-  final List<int> horizontalFlexes;
+  final List<int>? horizontalFlexes;
 
-  ProjectCodeWidget(this.assets, this.assetsIds, [this.horizontalFlexes = const []]);
+  ProjectCodeWidget(this.assets, this.assetsIds, [this.horizontalFlexes]);
+
+  @override
+  _State createState() => _State();
+}
+
+class _State extends State<ProjectCodeWidget> {
+  final List<CodeLineEditingController> controllers = [];
+
+  @override
+  void initState() {
+    super.initState();
+    for (int id in widget.assetsIds) {
+      controllers.add(CodeLineEditingController.fromText(
+        utf8.decode(widget.assets.getFile(id))
+      ));
+    }
+  }
+
+  @override
+  void dispose() {
+    for (CodeLineEditingController controller in controllers)
+      controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,22 +51,22 @@ class ProjectCodeWidget extends StatelessWidget {
     final List<Widget> children = [];
 
     final bool isHorizontalDirection =
-      assetsIds.length == 1 ||
-      screenWidth / assetsIds.length >= 400;
+      widget.assetsIds.length == 1 ||
+      screenWidth / widget.assetsIds.length >= 400;
 
-    for (int id in assetsIds) {
-      Widget editorWidget = _CodeEditor(theme, assets.getFile(id));
-      Widget widget = isHorizontalDirection
+    for (int i = 0; i < widget.assetsIds.length; i++) {
+      Widget editorWidget = _CodeEditor(theme, controllers[i]);
+      children.add(isHorizontalDirection
         ? Expanded(
-            flex: horizontalFlexes.isEmpty ? 1 : horizontalFlexes[assetsIds.indexOf(id)],
+            flex: widget.horizontalFlexes?[i] ?? 1,
             child: editorWidget
           )
         : _FullWindowHandler(
             theme,
             editorWidget,
             _FullWindowHandler(theme, editorWidget, null)
-          );
-      children.add(widget);
+          )
+      );
     }
 
     final Widget builtWidget = Flex(
@@ -64,12 +87,12 @@ class ProjectCodeWidget extends StatelessWidget {
 
 class _CodeEditor extends CodeEditor {
   _CodeEditor(
-    AppTheme theme, Uint8List code
+    AppTheme theme, CodeLineEditingController controller
   ) : super(
     readOnly: true,
     wordWrap: false,
     borderRadius: AppTheme.allBorderRadius,
-    controller: CodeLineEditingController.fromText(utf8.decode(code)),
+    controller: controller,
     style: CodeEditorStyle(
       fontSize: AppTheme.normalTextFontSize,
       textColor: theme.background.baseColor,
