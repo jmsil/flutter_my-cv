@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../ui/container/header_expandable.dart';
+import '../ui/container/expandable_header.dart';
 import '../ui/layout/edge_insets.dart';
 import '../ui/layout/layout_model.dart';
 
@@ -74,7 +74,7 @@ class ExpandableContent extends StatelessWidget {
           children: expandableChildren
         );
 
-    return AppHeaderExpandable(
+    return AppExpandableHeader(
       startOpen: startOpen,
       arrowColor: theme.background.decorationColor,
       effectColor: theme.brand2.baseColor,

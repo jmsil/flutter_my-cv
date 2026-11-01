@@ -5,7 +5,7 @@ import '../layout/icons.dart';
 import 'container.dart';
 import 'expandable.dart';
 
-class AppHeaderExpandable extends StatefulWidget {
+class AppExpandableHeader extends StatefulWidget {
   final bool startOpen;
   final Color arrowColor;
   final Color effectColor;
@@ -18,7 +18,7 @@ class AppHeaderExpandable extends StatefulWidget {
   final Widget? fixedChild;
   final Widget expandableChild;
 
-  AppHeaderExpandable({
+  AppExpandableHeader({
     this.startOpen = false,
     required this.arrowColor,
     required this.effectColor,
@@ -36,7 +36,7 @@ class AppHeaderExpandable extends StatefulWidget {
   _State createState() => _State(startOpen);
 }
 
-class _State extends State<AppHeaderExpandable> {
+class _State extends State<AppExpandableHeader> {
   final AppExpandableKey expandableKey;
 
   _State(bool startOpen) : expandableKey = AppExpandableKey(startOpen);

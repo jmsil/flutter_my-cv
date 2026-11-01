@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../ui/container/container.dart';
-import '../../ui/container/header_expandable.dart';
+import '../../ui/container/expandable_header.dart';
 import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/theme.dart';
 
@@ -15,7 +15,7 @@ class Section extends AppContainer {
     color: theme.sidebarSection.baseColor,
     borderRadius: AppTheme.allBorderRadius,
     isClipped: true,
-    child: AppHeaderExpandable(
+    child: AppExpandableHeader(
       startOpen: startOpen,
       arrowColor: theme.sidebarSection.decorationColor,
       effectColor: theme.sidebarSection.baseColor,
