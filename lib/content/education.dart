@@ -1,14 +1,14 @@
 import '../ui/layout/icons.dart';
+import '../ui/main_group.dart';
 import '../ui/strings/strings_model.dart';
 import '../ui/text.dart';
 import 'expandable.dart';
-import 'group.dart';
 
-class EducationGroup extends ContentGroup {
+class EducationGroup extends MainGroup {
   EducationGroup() : super.child(
     icon: AppIcons.education,
     title: StringsModel.strings.educationTitle,
-    hasHorizontalPadding: false,
+    enableBodyHorizontalPadding: false,
     child: ExpandableContent(
       headerTitle: StringsModel.strings.educationUniversityTitle,
       headerDetail: StringsModel.strings.educationUniversityDetail,

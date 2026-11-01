@@ -4,8 +4,8 @@ import '../ui/container/tabbar.dart';
 import '../ui/container/wrap.dart';
 import '../ui/layout/icons.dart';
 import '../ui/layout/layout_model.dart';
+import '../ui/main_group.dart';
 import '../ui/strings/strings_model.dart';
-import 'group.dart';
 import 'professional_dev_card.dart';
 
 class ProfessionalDevelopmentGroup extends StatelessWidget {
@@ -89,10 +89,10 @@ class ProfessionalDevelopmentGroup extends StatelessWidget {
       ]
     );
 
-    return ContentGroup.child(
+    return MainGroup.child(
       icon: AppIcons.trendUp,
       title: StringsModel.strings.professionalDevelopmentTitle,
-      hasHorizontalPadding: true,
+      enableBodyHorizontalPadding: true,
       child: AppTabBar(
         tabs: [
           AppTabBarTab(AppIcons.certificate, StringsModel.strings.certificationsTitle),

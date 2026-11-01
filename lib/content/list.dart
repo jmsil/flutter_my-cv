@@ -4,9 +4,9 @@ import '../ui/layout/edge_insets.dart';
 import '../ui/layout/icons.dart';
 import '../ui/layout/layout_model.dart';
 import '../ui/list.dart';
+import '../ui/main_group.dart';
 import '../ui/strings/strings_model.dart';
 import '../ui/text.dart';
-import 'group.dart';
 
 class ListGroup extends StatelessWidget {
   final IconData icon;
@@ -44,10 +44,10 @@ class ListGroup extends StatelessWidget {
 
     children.removeLast();
 
-    return ContentGroup.children(
+    return MainGroup.children(
       icon: icon,
       title: title,
-      hasHorizontalPadding: true,
+      enableBodyHorizontalPadding: true,
       children: children
     );
   }

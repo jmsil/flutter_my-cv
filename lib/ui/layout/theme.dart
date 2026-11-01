@@ -10,12 +10,12 @@ class AppTheme {
 
   static const double radiusValue = 16;
   static const Radius radius = Radius.circular(radiusValue);
+  static const Radius circleRadius = Radius.circular(999);
   static const BorderRadius allBorderRadius = BorderRadius.all(radius);
+  static const BorderRadius circleBorderRadius = BorderRadius.all(circleRadius);
 
   static const Curve animationCurve = Curves.decelerate;
   static const Duration animationDuration = Duration(milliseconds: 380);
-
-  static const BorderRadius circleBorderRadius = BorderRadius.all(Radius.circular(999));
 
   AppTheme({
     AppThemeData? background,
