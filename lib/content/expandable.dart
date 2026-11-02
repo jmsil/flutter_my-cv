@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../ui/container/expandable_header.dart';
+import '../ui/expandable/expandable_header.dart';
 import '../ui/layout/edge_insets.dart';
 import '../ui/layout/layout_model.dart';
 
