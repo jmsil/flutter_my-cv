@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_cv/ui/text.dart';
 
 import 'container.dart';
-import 'layout/edge_insets.dart';
 import 'layout/layout.dart';
 import 'layout/theme.dart';
 
@@ -22,11 +22,14 @@ class AppList extends StatelessWidget {
 
     for (String item in list) {
       children.add(AppContainer(
-        padding: const AppEdgeInsets.small(
-          left: AppLayout.smallSpacing, right: AppLayout.normalSpacing),
+        padding: const EdgeInsets.only(
+          left: 6, top: 6, right: AppLayout.normalSpacing, bottom: 6
+        ),
         borderColor: themeData.overColor1.withDecorationAlpha,
         borderRadius: AppTheme.circleBorderRadius,
-        child: Text('▪ $item', style: themeData.normalText.over1.regular)
+        child: AppIconText.bullet(
+          text: item, textStyle: themeData.normalText.over1.regular, enableCompactIcon: true
+        )
       ));
     }
 

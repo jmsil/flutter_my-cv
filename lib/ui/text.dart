@@ -9,6 +9,7 @@ class AppIconText extends StatelessWidget {
   final IconData icon;
   final String text;
   final TextStyle textStyle;
+  final enableCompactIcon;
   final bool enableOverflow;
   final Widget? trailingWidget;
 
@@ -18,11 +19,13 @@ class AppIconText extends StatelessWidget {
     required this.textStyle,
     this.enableOverflow = false,
     this.trailingWidget
-  });
+  }) :
+    this.enableCompactIcon = false;
 
   AppIconText.bullet({
     required this.text,
-    required this.textStyle
+    required this.textStyle,
+    this.enableCompactIcon = false
   }) :
     this.icon = AppIcons.bullet,
     this.enableOverflow = false,
@@ -32,12 +35,17 @@ class AppIconText extends StatelessWidget {
   Widget build(BuildContext context) {
     Align();
     return Row(
-      spacing: AppLayout.smallSpacing,
+      spacing: enableCompactIcon ? AppLayout.tinySpacing : AppLayout.smallSpacing,
       mainAxisSize: MainAxisSize.min,
       children: [
 
         icon == AppIcons.bullet
-          ? SizedBox.square(dimension: 24, child: Icon(icon, size: 9.5, color: textStyle.color))
+          ? SizedBox.square(
+              dimension: 24,
+              child: Center(
+                child: Icon(icon, size: enableCompactIcon? 7.5 : 9.5, color: textStyle.color)
+              )
+            )
           : Icon(icon, color: textStyle.color),
 
         Flexible(

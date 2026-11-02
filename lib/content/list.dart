@@ -34,7 +34,7 @@ class ListGroup extends StatelessWidget {
       if (listValue != null) {
         children.add(AppList(
           list: listValue,
-          padding: const AppEdgeInsets.xLarge(vertical: AppLayout.smallSpacing),
+          padding: const AppEdgeInsets.small(left: AppLayout.xLargeSpacing, right: 0),
           themeData: themeData
         ));
       }
