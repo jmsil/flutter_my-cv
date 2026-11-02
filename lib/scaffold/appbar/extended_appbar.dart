@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import '../../ui/container/container.dart';
+import '../../ui/container.dart';
 import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/layout_model.dart';
 import '../main_profile_info.dart';

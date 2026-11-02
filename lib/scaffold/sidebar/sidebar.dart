@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../ui/container/container.dart';
+import '../../ui/container.dart';
 import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';

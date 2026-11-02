@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:web/web.dart' as web;
 
 import '../../scaffold/device.dart';
-import '../container/container.dart';
+import '../container.dart';
 import '../layout/layout_model.dart';
 import 'full_window_handler.dart';
 

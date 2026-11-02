@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:my_cv/scaffold/appbar/profile_photo.dart';
 
-import '../../ui/container/container.dart';
+import '../../ui/container.dart';
 import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/overlay_bar.dart';

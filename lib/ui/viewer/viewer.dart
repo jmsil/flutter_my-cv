@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import '../../scaffold/device.dart';
-import '../container/container.dart';
+import '../container.dart';
 import '../layout/edge_insets.dart';
 import '../layout/layout_model.dart';
 

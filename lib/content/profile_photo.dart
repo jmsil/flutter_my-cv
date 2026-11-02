@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../scaffold/device.dart';
 import '../ui/assets.dart';
 import '../ui/button/ink_response.dart';
-import '../ui/container/container.dart';
+import '../ui/container.dart';
 import '../ui/layout/layout_model.dart';
 
 class ProfilePhoto extends StatelessWidget {

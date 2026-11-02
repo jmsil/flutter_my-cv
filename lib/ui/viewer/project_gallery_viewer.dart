@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import '../assets.dart';
 import '../button/button.dart';
 import '../button/ink_response.dart';
-import '../container/container.dart';
+import '../container.dart';
 import '../layout/edge_insets.dart';
 import '../layout/icons.dart';
 import '../layout/layout_model.dart';
