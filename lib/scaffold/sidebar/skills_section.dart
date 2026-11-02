@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../ui/container/wrap.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../../ui/text.dart';
+import '../../ui/wrap.dart';
 import 'section.dart';
 
 class SkillsSection extends StatelessWidget {
