@@ -109,4 +109,6 @@ extension AppThemeColorExtension on Color {
   Color get withDecorationAlpha => this.withValues(alpha: 0.16);
   Color get withDarkDecorationAlpha => this.withValues(alpha: 0.32);
   Color get withTextSelectionAlpha => this.withValues(alpha: 0.32);
+  Color get withCardFillAlpha => this.withValues(alpha: 0.08);
+  Color get withCardBorderAlpha => this.withValues(alpha: 0.64);
 }

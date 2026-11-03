@@ -1,34 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:my_cv/ui/text.dart';
 
 import 'container.dart';
-import 'layout/layout.dart';
-import 'layout/theme.dart';
+import 'layout/layout_model.dart';
+import 'text.dart';
 
 class AppList extends StatelessWidget {
   final List<String> list;
   final EdgeInsets? padding;
-  final AppThemeData themeData;
 
   AppList({
     required this.list,
-    this.padding,
-    required this.themeData
+    this.padding
   });
 
   @override
   Widget build(BuildContext context) {
+    final AppTheme theme = context.appLayout.theme;
     final List<Widget> children = [];
 
     for (String item in list) {
       children.add(AppContainer(
+        color: theme.brand3.baseColor.withCardFillAlpha,
         padding: const EdgeInsets.only(
           left: 6, top: 6, right: AppLayout.normalSpacing, bottom: 6
         ),
-        borderColor: themeData.overColor1.withDecorationAlpha,
+        borderColor: theme.brand3.baseColor.withCardBorderAlpha,
         borderRadius: AppTheme.circleBorderRadius,
         child: AppIconText.bullet(
-          text: item, textStyle: themeData.normalText.over1.regular, enableCompactIcon: true
+          text: item,
+          textStyle: theme.background.normalText.over1.regular,
+          enableCompactIcon: true
         )
       ));
     }

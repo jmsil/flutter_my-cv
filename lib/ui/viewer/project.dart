@@ -11,7 +11,8 @@ class ProjectCard extends AppContainer {
   ProjectCard(
     AppTheme theme, Project project
   ) : super(
-    borderColor: theme.background.overColor1.withDecorationAlpha,
+    color: theme.brand3.baseColor.withCardFillAlpha,
+    borderColor: theme.brand3.baseColor.withCardBorderAlpha,
     borderRadius: AppTheme.allBorderRadius,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,

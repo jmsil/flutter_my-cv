@@ -25,17 +25,18 @@ class ListGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppThemeData themeData = context.appLayout.theme.background;
+    final AppTheme theme = context.appLayout.theme;
     final List<Widget> children = [];
 
     list.forEach((String listKey, List<String>? listValue) {
-      children.add(AppIconText.bullet(text: listKey, textStyle: themeData.normalText.over1.bold));
+      children.add(AppIconText.bullet(
+        text: listKey, textStyle: theme.background.normalText.over1.bold
+      ));
 
       if (listValue != null) {
         children.add(AppList(
           list: listValue,
-          padding: const AppEdgeInsets.small(left: AppLayout.xLargeSpacing, right: 0),
-          themeData: themeData
+          padding: const AppEdgeInsets.small(left: AppLayout.xLargeSpacing, right: 0)
         ));
       }
 
