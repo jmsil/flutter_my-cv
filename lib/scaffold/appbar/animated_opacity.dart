@@ -10,9 +10,9 @@ class AppbarAnimatedOpacity extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isExpanded = AppbarModel.currentValueOf(context);
+    bool isCollapsed = AppbarModel.currentStateOf(context).isCollapsed;
     return AnimatedOpacity(
-      opacity: isExpanded ? 0 : 1,
+      opacity: isCollapsed ? 1 : 0,
       duration: AppTheme.animationDuration,
       curve: AppTheme.animationCurve,
       child: child

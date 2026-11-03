@@ -7,6 +7,11 @@ export 'animated_container.dart';
 export 'animated_opacity.dart';
 export 'animated_padding.dart';
 
+enum AppbarModelState {
+  collapsed, expanded;
+  bool get isCollapsed => this == collapsed;
+}
+
 class AppbarModel extends StatefulWidget {
   static const double collapsedHeight = 226;
   static const EdgeInsets _marginSidebar = AppEdgeInsets.normal(right: 0);
@@ -19,8 +24,8 @@ class AppbarModel extends StatefulWidget {
   @override
   _State createState() => _State();
 
-  static bool currentValueOf(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<_Notifier>()!.currentValue;
+  static AppbarModelState currentStateOf(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<_AppbarModelNotifier>()!.notifier!.value;
   }
 
   static EdgeInsets marginOf(BuildContext context) {
@@ -32,9 +37,9 @@ class AppbarModel extends StatefulWidget {
   }
 
   static double currentHeightOf(BuildContext context) {
-    return currentValueOf(context)
-      ? AppLayout.sidebarWidth - AppEdgeInsets.normalValue * 2
-      : AppbarModel.collapsedHeight;
+    return currentStateOf(context).isCollapsed
+      ? AppbarModel.collapsedHeight
+      : AppLayout.sidebarWidth - AppEdgeInsets.normalValue * 2;
   }
 
   static double currentTotalHeightOf(BuildContext context) {
@@ -42,39 +47,36 @@ class AppbarModel extends StatefulWidget {
   }
 
   static void switchStateOf(BuildContext context) {
-    context.getInheritedWidgetOfExactType<_Notifier>()!.switchState();
+    context.getInheritedWidgetOfExactType<_AppbarModelNotifier>()!.switchState();
   }
 }
 
 class _State extends State<AppbarModel> {
-  final ValueNotifier<bool> valueNotifier = ValueNotifier<bool>(false);
+  final ValueNotifier<AppbarModelState> notifier = ValueNotifier(AppbarModelState.collapsed);
 
   @override
   void dispose() {
-    valueNotifier.dispose();
+    notifier.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return _Notifier(
-      notifier: valueNotifier,
+    return _AppbarModelNotifier(
+      notifier: this.notifier,
       child: widget.child
     );
   }
 }
 
-class _Notifier extends InheritedNotifier<ValueNotifier<bool>> {
-  _Notifier({
+class _AppbarModelNotifier extends InheritedNotifier<ValueNotifier<AppbarModelState>> {
+  _AppbarModelNotifier({
     required super.notifier,
     required super.child
   });
 
   void switchState() {
-    notifier?.value = ! currentValue;
-  }
-
-  bool get currentValue {
-    return notifier?.value ?? false;
+    notifier!.value = notifier!.value.isCollapsed
+      ? AppbarModelState.expanded : AppbarModelState.collapsed;
   }
 }
