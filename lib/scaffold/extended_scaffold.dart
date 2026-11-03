@@ -4,6 +4,7 @@ import '../content/education.dart';
 import '../content/experience.dart';
 import '../content/list.dart';
 import '../content/professional_dev.dart';
+import '../ui/container.dart';
 import '../ui/layout/edge_insets.dart';
 import '../ui/layout/layout_model.dart';
 import '../ui/scroller.dart';
@@ -16,6 +17,7 @@ class ExtendedScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLayout layout = context.appLayout;
+    final AppTheme theme = layout.theme;
     final double totalCollapsedHeight = AppbarModel.totalCollapsedHeightOf(context);
 
     Widget builtWidget = Center(
@@ -33,10 +35,13 @@ class ExtendedScaffold extends StatelessWidget {
 
     builtWidget = layout.isLeftLayout
       ? Column(
-          spacing: AppLayout.largeSpacing,
+          spacing: AppLayout.xLargeSpacing,
           children: [
-            Padding(
-              padding: const AppEdgeInsets.xLarge(top: AppEdgeInsets.normalValue),
+            AppContainer(
+              color: theme.brand3.baseColor.withDecorationAlpha,
+              padding: const AppEdgeInsets.large(),
+              borderColor: theme.brand3.baseColor,
+              borderRadius: AppTheme.allBorderRadius,
               child: MainProfileInfo.professionalSummary(
                 hasIcon: true,
                 style: MainProfileInfoStyle.body
