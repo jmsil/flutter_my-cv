@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../content/education.dart';
-import '../content/experience.dart';
-import '../content/list.dart';
-import '../content/professional_dev.dart';
 import '../ui/container.dart';
 import '../ui/layout/edge_insets.dart';
 import '../ui/layout/layout_model.dart';
-import '../ui/scroller.dart';
 import 'appbar/appbar_model.dart';
 import 'appbar/extended_appbar.dart';
 import 'main_profile_info.dart';
+import 'scaffold.dart';
 import 'sidebar/sidebar.dart';
 
 class ExtendedScaffold extends StatelessWidget {
@@ -29,13 +25,7 @@ class ExtendedScaffold extends StatelessWidget {
     Widget builtWidget = Center(
       child: ConstrainedBox(
         constraints: BoxConstraints(maxWidth: 1200),
-        child: AppCustomScrollView([
-          ExperienceGroup(),
-          EducationGroup(),
-          ProfessionalDevelopmentGroup(),
-          ListGroup.languages(),
-          ListGroup.availability()
-        ])
+        child: AppScaffoldGroupsView(null)
       )
     );
 

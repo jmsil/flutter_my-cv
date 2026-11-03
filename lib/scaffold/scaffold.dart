@@ -1,0 +1,41 @@
+import 'package:flutter/material.dart';
+
+import '../content/education.dart';
+import '../content/experience.dart';
+import '../content/list.dart';
+import '../content/professional_dev.dart';
+import '../ui/layout/layout_model.dart';
+import '../ui/scroller.dart';
+import 'appbar/compact_appbar.dart';
+import 'compact_scaffold.dart';
+import 'device.dart';
+import 'extended_scaffold.dart';
+
+class AppScaffold extends ListenableBuilder {
+  AppScaffold() : super(
+    listenable: LayoutModel.instance,
+    builder: (BuildContext context, Widget? child) {
+      return Material(
+        color: context.appLayout.theme.background.baseColor,
+        child: context.isExtendedScreen
+          ? ExtendedScaffold()
+          : CompactScaffold()
+      );
+    }
+  );
+}
+
+class AppScaffoldGroupsView extends AppCustomScrollView {
+  AppScaffoldGroupsView(
+    GlobalKey<DrawerControllerState>? drawerKey
+  ) : super([
+    if (drawerKey != null)
+      CompactAppbar(drawerKey),
+
+    ExperienceGroup(),
+    EducationGroup(),
+    ProfessionalDevelopmentGroup(),
+    ListGroup.languages(),
+    ListGroup.availability()
+  ]);
+}

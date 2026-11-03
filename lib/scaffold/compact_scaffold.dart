@@ -2,12 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import '../content/education.dart';
-import '../content/experience.dart';
-import '../content/list.dart';
-import '../content/professional_dev.dart';
-import '../ui/scroller.dart';
-import 'appbar/compact_appbar.dart';
+import 'scaffold.dart';
 import 'sidebar/sidebar.dart';
 
 class CompactScaffold extends StatefulWidget {
@@ -16,13 +11,16 @@ class CompactScaffold extends StatefulWidget {
 }
 
 class _State extends State<CompactScaffold> {
-  final GlobalKey<DrawerControllerState> drawerKey = GlobalKey();
   Timer? drawerTimer;
+  final GlobalKey<DrawerControllerState> drawerKey = GlobalKey();
 
   @override
   void initState() {
     super.initState();
-    drawerTimer = Timer(const Duration(milliseconds: 500), openDrawer);
+    drawerTimer = Timer(
+      const Duration(milliseconds: 500),
+      () => drawerKey.currentState?.open()
+    );
   }
 
   @override
@@ -37,16 +35,7 @@ class _State extends State<CompactScaffold> {
     return Stack(
       clipBehavior: Clip.none,
       children: [
-        AppCustomScrollView(
-          [
-            CompactAppbar(openDrawer),
-            ExperienceGroup(),
-            EducationGroup(),
-            ProfessionalDevelopmentGroup(),
-            ListGroup.languages(),
-            ListGroup.availability()
-          ]
-        ),
+        AppScaffoldGroupsView(drawerKey),
         DrawerController(
           key: drawerKey,
           alignment: DrawerAlignment.start,
@@ -54,9 +43,5 @@ class _State extends State<CompactScaffold> {
         )
       ]
     );
-  }
-
-  void openDrawer() {
-    drawerKey.currentState?.open();
   }
 }

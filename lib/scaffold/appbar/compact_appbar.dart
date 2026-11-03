@@ -18,9 +18,9 @@ class CompactAppbar extends StatelessWidget {
     _dividerSize * AppDivider.heightFactor +
     AppLayout.normalSpacing * 2;
 
-  final void Function() onPressed;
+  final GlobalKey<DrawerControllerState> drawerKey;
 
-  CompactAppbar(this.onPressed);
+  CompactAppbar(this.drawerKey);
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class CompactAppbar extends StatelessWidget {
           height: _photoSize,
           child: ProfilePhoto(
             cacheSize: (_photoSize - ProfilePhoto.borderSize * 2).toInt(),
-            onPressed: onPressed,
+            onPressed: () => drawerKey.currentState?.open(),
           )
         ),
         MainProfileInfo.nameAndRoles(
