@@ -14,8 +14,6 @@ enum AppbarModelState {
 
 class AppbarModel extends StatefulWidget {
   static const double collapsedHeight = 226;
-  static const EdgeInsets _marginSidebar = AppEdgeInsets.normal(right: 0);
-  static const EdgeInsets _marginNoSidebar = EdgeInsets.only(bottom: AppEdgeInsets.normalValue);
 
   final Widget child;
 
@@ -29,7 +27,8 @@ class AppbarModel extends StatefulWidget {
   }
 
   static EdgeInsets marginOf(BuildContext context) {
-    return context.appLayout.showSidebarBackground ? _marginSidebar : _marginNoSidebar;
+    return context.appLayout.showSidebarBackground
+      ? const AppEdgeInsets.normal(right: 0, bottom: 0) : EdgeInsets.zero;
   }
 
   static double totalCollapsedHeightOf(BuildContext context) {

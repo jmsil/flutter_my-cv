@@ -12,6 +12,7 @@ class ExtendedAppbar extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLayout layout = context.appLayout;
     final AppTheme theme = layout.theme;
+    final EdgeInsets margin = AppbarModel.marginOf(context);
     final MainProfileInfoStyle mainProfileInfoStyle = layout.showTopbarBackground
       ? MainProfileInfoStyle.extendedTopAppbar
       : MainProfileInfoStyle.extendedFlatAppbar;
@@ -54,6 +55,9 @@ class ExtendedAppbar extends StatelessWidget {
       );
     }
 
-    return AppbarAnimatedContainer(builtWidget);
+    return AppbarAnimatedContainer(
+      margin: margin,
+      child: builtWidget
+    );
   }
 }

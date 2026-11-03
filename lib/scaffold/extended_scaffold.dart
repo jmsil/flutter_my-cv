@@ -18,12 +18,18 @@ class ExtendedScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLayout layout = context.appLayout;
     final AppTheme theme = layout.theme;
-    final double totalCollapsedHeight = AppbarModel.totalCollapsedHeightOf(context);
+    final EdgeInsets padding = AppEdgeInsets.xLarge(
+      top: layout.isLeftLayout
+        ? null
+        : AppbarModel.totalCollapsedHeightOf(context) +
+            (layout.isFlatLayout ? AppLayout.normalSpacing : AppLayout.xLargeSpacing),
+      bottom: 0
+    );
 
     Widget builtWidget = Center(
       child: ConstrainedBox(
         constraints: BoxConstraints(maxWidth: 1200),
-        child:  AppCustomScrollView([
+        child: AppCustomScrollView([
           ExperienceGroup(),
           EducationGroup(),
           ProfessionalDevelopmentGroup(),
@@ -35,7 +41,6 @@ class ExtendedScaffold extends StatelessWidget {
 
     builtWidget = layout.isLeftLayout
       ? Column(
-          spacing: AppLayout.xLargeSpacing,
           children: [
             AppContainer(
               color: theme.brand3.baseColor.withDecorationAlpha,
@@ -47,16 +52,21 @@ class ExtendedScaffold extends StatelessWidget {
                 style: MainProfileInfoStyle.body
               )
             ),
-            Expanded(child: builtWidget)
+            Expanded(
+              child: Padding(
+                padding: padding,
+                child: builtWidget
+              )
+            )
           ]
         )
       : AppbarAnimatedPadding(
-          padding: EdgeInsets.only(top: totalCollapsedHeight),
+          padding: padding,
           child: builtWidget
         );
 
     builtWidget = Row(
-      spacing: AppLayout.normalSpacing,
+      spacing: layout.isLeftLayout ? AppLayout.normalSpacing : 0,
       children: [
         AppSidebar(),
         Expanded(child: builtWidget)

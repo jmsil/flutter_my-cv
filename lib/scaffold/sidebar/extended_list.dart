@@ -18,7 +18,8 @@ class ExtendedList extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLayout layout = context.appLayout;
     final AppTheme theme = layout.theme;
-    final double totalCollapsedHeight = AppbarModel.totalCollapsedHeightOf(context);
+    final double totalCollapsedHeight =
+      AppbarModel.totalCollapsedHeightOf(context) + AppLayout.normalSpacing;
     final Color overlayColor = layout.showSidebarBackground
       ? theme.brand2.baseColor
       : theme.background.baseColor;
@@ -33,16 +34,15 @@ class ExtendedList extends StatelessWidget {
     );
 
     builtWidget = layout.isLeftLayout
-      ? Column(
-          children: [
-            _Profile(theme),
-            Expanded(
-              child: Padding(
-                padding: const AppEdgeInsets.normal(top: 0),
-                child: builtWidget
-              )
-            )
-          ]
+      ? Padding(
+          padding: const AppEdgeInsets.normal(),
+          child: Column(
+            spacing: AppLayout.normalSpacing,
+            children: [
+              _Profile(theme),
+              Expanded(child: builtWidget)
+            ]
+          )
         )
       : AppbarAnimatedPadding(
           padding: AppEdgeInsets.normal(top: totalCollapsedHeight),
@@ -57,30 +57,26 @@ class _Profile extends AppbarAnimatedContainer {
   _Profile(
     AppTheme theme
   ) : super(
-    AppContainer(
-      width: double.infinity,
+    child: AppContainer(
       color: theme.brand1.baseColor,
-      margin: const EdgeInsets.only(right: AppEdgeInsets.normalValue),
       borderRadius: BorderRadius.horizontal(
         left: const Radius.circular(ProfilePhotoAppbarStateSwitcher.circleRadiusSize),
         right: AppTheme.radius
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           ProfilePhotoAppbarStateSwitcher(),
-          Expanded(
-            child: Align(
-              alignment: Alignment.centerRight,
-              child: AppbarAnimatedPadding(
-                padding: const EdgeInsets.only(right: AppEdgeInsets.xLargeValue),
-                topFactor: 0,
-                bottomFactor: 1,
-                child: AppbarAnimatedOpacity(
-                  MainProfileInfo.nameAndRoles(
-                    style: MainProfileInfoStyle.compactAppbar,
-                    isShortRoles: true,
-                    softWrap: false
-                  )
+          Flexible(
+            child: AppbarAnimatedPadding(
+              padding: const EdgeInsets.only(right: AppEdgeInsets.xLargeValue),
+              topFactor: 0,
+              bottomFactor: 1,
+              child: AppbarAnimatedOpacity(
+                MainProfileInfo.nameAndRoles(
+                  style: MainProfileInfoStyle.compactAppbar,
+                  isShortRoles: true,
+                  softWrap: false
                 )
               )
             )

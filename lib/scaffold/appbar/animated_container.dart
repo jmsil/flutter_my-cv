@@ -4,13 +4,16 @@ import '../../ui/layout/theme.dart';
 import 'appbar_model.dart';
 
 class AppbarAnimatedContainer extends StatelessWidget {
+  final EdgeInsets? margin;
   final Widget child;
 
-  AppbarAnimatedContainer(this.child);
+  AppbarAnimatedContainer({
+    this.margin,
+    required this.child
+  });
 
   @override
   Widget build(BuildContext context) {
-    EdgeInsets margin = AppbarModel.marginOf(context);
     double height = AppbarModel.currentHeightOf(context);
     return AnimatedContainer(
       height: height,
