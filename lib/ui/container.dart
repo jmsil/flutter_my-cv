@@ -9,7 +9,7 @@ class AppContainer extends StatelessWidget {
   final double borderSize;
   final Color? borderColor;
   final BorderRadius borderRadius;
-  final bool isClipped;
+  final bool enableClip;
   final Widget? child;
 
   AppContainer({
@@ -22,7 +22,7 @@ class AppContainer extends StatelessWidget {
     this.borderSize = 1,
     this.borderColor,
     this.borderRadius = BorderRadius.zero,
-    this.isClipped = false,
+    this.enableClip = false,
     this.child
   });
 
@@ -49,7 +49,7 @@ class AppContainer extends StatelessWidget {
           ? BorderSide(width: borderSize, color: borderColor!)
           : BorderSide.none
       ),
-      clipBehavior: isClipped ? Clip.hardEdge : Clip.none,
+      clipBehavior: enableClip ? Clip.hardEdge : Clip.none,
       child: builtWidget
     );
 

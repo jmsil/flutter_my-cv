@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 class AppExpandable extends StatefulWidget {
   final EdgeInsets padding;
-  final bool isClipped;
+  final bool enableClip;
   final Widget child;
 
   AppExpandable({
     required AppExpandableKey key,
     required this.padding,
-    this.isClipped = false,
+    this.enableClip = false,
     required this.child
   }) : super(
     key: key
@@ -64,7 +64,7 @@ class _State extends State<AppExpandable> with SingleTickerProviderStateMixin {
         child: SingleChildScrollView(
           primary: false,
           padding: widget.padding,
-          clipBehavior: widget.isClipped ? Clip.hardEdge : Clip.none,
+          clipBehavior: widget.enableClip ? Clip.hardEdge : Clip.none,
           child: widget.child
         )
       )

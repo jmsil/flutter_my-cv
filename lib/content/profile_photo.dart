@@ -49,7 +49,7 @@ class ProfilePhoto extends StatelessWidget {
           ? theme.brand1.overColor1
           : theme.background.overColor1,
         borderRadius: borderRadius ?? AppTheme.circleBorderRadius,
-        isClipped: true,
+        enableClip: true,
         child: builtWidget
       )
     );

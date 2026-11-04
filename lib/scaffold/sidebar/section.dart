@@ -14,7 +14,7 @@ class Section extends AppContainer {
   }) : super(
     color: theme.sidebarSection.baseColor,
     borderRadius: AppTheme.allBorderRadius,
-    isClipped: true,
+    enableClip: true,
     child: AppExpandableHeader(
       startOpen: startOpen,
       arrowColor: theme.sidebarSection.decorationColor,

@@ -10,7 +10,7 @@ class AppExpandableHeader extends StatefulWidget {
   final bool startOpen;
   final Color arrowColor;
   final Color effectColor;
-  final bool isClipped;
+  final bool enableClip;
   final bool enableIntrinsicHeaderHeight;
   final EdgeInsets headerPadding;
   final EdgeInsets? fixedPadding;
@@ -23,7 +23,7 @@ class AppExpandableHeader extends StatefulWidget {
     this.startOpen = false,
     required this.arrowColor,
     required this.effectColor,
-    this.isClipped = false,
+    this.enableClip = false,
     this.enableIntrinsicHeaderHeight = false,
     required this.headerPadding,
     this.fixedPadding,
@@ -87,7 +87,7 @@ class _State extends State<AppExpandableHeader> {
         AppExpandable(
           key: expandableKey,
           padding: widget.expandablePadding,
-          isClipped: widget.isClipped,
+          enableClip: widget.enableClip,
           child: widget.expandableChild
         )
       ]

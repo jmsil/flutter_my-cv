@@ -106,7 +106,7 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
         key: _builtBarKey,
         width: isWindowHorizontalDirection ? widget.barSize : null,
         height: isWindowVerticalDirection ? widget.barSize : null,
-        isClipped: ! isMobileDevice,
+        enableClip: ! isMobileDevice,
         child: builtBarWidget
       )
     );
@@ -185,7 +185,7 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
             height: widget.windowHeight,
             margin: const AppEdgeInsets.normal(),
             borderRadius: AppTheme.allBorderRadius,
-            isClipped: true,
+            enableClip: true,
             child: builtWindowContentWidget
           )
         )

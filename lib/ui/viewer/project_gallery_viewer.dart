@@ -88,7 +88,7 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
           borderRadius: isSelected
             ? const BorderRadius.all(Radius.circular(12))
             : const BorderRadius.all(Radius.circular(8)),
-          isClipped: true,
+          enableClip: true,
           child: AppInkResponse(
             onPressed: () => setIndex(i),
             child: Image.memory(widget.assets.getThumbnail(i + 1), fit: BoxFit.fill)

@@ -73,7 +73,7 @@ class AppSidebar extends StatelessWidget {
           borderRadius: isExtendedScreen
             ? AppTheme.allBorderRadius
             : BorderRadius.zero,
-          isClipped: isExtendedScreen,
+          enableClip: isExtendedScreen,
           child: builtChild
         )
       : AppContainer(

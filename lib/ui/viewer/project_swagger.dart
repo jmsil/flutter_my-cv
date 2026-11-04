@@ -106,7 +106,7 @@ class _FullWindowHandler extends AppViewerFullWindowHandler {
       color: theme.background.overColor2,
       borderColor: theme.background.decorationColor.withDecorationAlpha,
       borderRadius: AppTheme.allBorderRadius,
-      isClipped: true,
+      enableClip: true,
       child: child
     ),
     fullWindowChild: fullWindowChild

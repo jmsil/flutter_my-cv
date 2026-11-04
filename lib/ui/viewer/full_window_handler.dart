@@ -38,7 +38,7 @@ class AppViewerFullWindowHandler extends StatelessWidget {
         child: AppContainer(
           margin: const AppEdgeInsets.small(),
           borderRadius: const BorderRadius.all(Radius.circular(12)),
-          isClipped: true,
+          enableClip: true,
           child: AppInkResponse(
             padding: const AppEdgeInsets.small(),
             effectColor: iconColor,
