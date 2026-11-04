@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../button/ink_response.dart';
 import '../container.dart';
+import '../layout/dimens.dart';
 import '../layout/icons.dart';
 import 'expandable.dart';
 
@@ -49,7 +50,7 @@ class _State extends State<AppExpandableHeader> {
         effectColor: widget.effectColor,
         onPressed: onPressed,
         child: Row(
-          spacing: 16,
+          spacing: AppDimens.normal,
           children: [
             Expanded(
               child: widget.headerChild

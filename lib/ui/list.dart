@@ -22,8 +22,7 @@ class AppList extends StatelessWidget {
     for (String item in list) {
       children.add(AppContainer(
         color: theme.brand3.baseColor.withCardFillAlpha,
-        padding: const EdgeInsets.only(
-          left: 6, top: 6, right: AppDimens.normal, bottom: 6),
+        padding: const AppEdgeInsets(all: 6, right: AppDimens.normal),
         borderColor: theme.brand3.baseColor.withCardBorderAlpha,
         borderRadius: AppTheme.circleBorderRadius,
         child: AppIconText.bullet(

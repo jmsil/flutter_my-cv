@@ -6,6 +6,7 @@ import 'package:web/web.dart' as web;
 
 import '../../scaffold/device.dart';
 import '../container.dart';
+import '../layout/dimens.dart';
 import '../layout/layout_model.dart';
 import 'full_window_handler.dart';
 
@@ -100,8 +101,8 @@ class _FullWindowHandler extends AppViewerFullWindowHandler {
     child: AppContainer(
       height: fullWindowChild == null ? null : 600,
       padding: AppDevice.isMobileDevice()
-        ? const EdgeInsets.only(top: 48, bottom: 16)
-        : const EdgeInsets.all(64),
+        ? const EdgeInsets.only(top: AppDimens.xxLarge, bottom: AppDimens.normal)
+        : const AppEdgeInsets.xxxLarge(),
       color: theme.background.overColor2,
       borderColor: theme.background.decorationColor.withDecorationAlpha,
       borderRadius: AppTheme.allBorderRadius,

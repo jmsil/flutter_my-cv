@@ -37,8 +37,8 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
   static const double selectedThumbnailBorderSize = 4;
   static const double unselectedThumbnailBorderSize = 2;
   static const EdgeInsets thumbnailsContainerPadding = const AppEdgeInsets.xLarge();
-  static const EdgeInsets selectedThumbnailMargin = EdgeInsets.symmetric(vertical: 12);
-  static const EdgeInsets unselectedThumbnailMargin = EdgeInsets.symmetric(
+  static const EdgeInsets selectedThumbnailMargin = const EdgeInsets.symmetric(vertical: 12);
+  static const EdgeInsets unselectedThumbnailMargin = const EdgeInsets.symmetric(
     horizontal: 12, vertical: 6
   );
 
