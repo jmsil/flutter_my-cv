@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'hover.dart';
+import 'layout/dimens.dart';
 import 'layout/icons.dart';
 import 'layout/layout_model.dart';
 
@@ -35,7 +36,7 @@ class AppIconText extends StatelessWidget {
   Widget build(BuildContext context) {
     Align();
     return Row(
-      spacing: enableCompactIcon ? AppLayout.tinySpacing : AppLayout.smallSpacing,
+      spacing: enableCompactIcon ? AppDimens.xxSmall : AppDimens.small,
       mainAxisSize: MainAxisSize.min,
       children: [
 

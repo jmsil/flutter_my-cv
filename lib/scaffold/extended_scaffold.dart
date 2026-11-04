@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../ui/container.dart';
-import '../ui/layout/edge_insets.dart';
+import '../ui/layout/dimens.dart';
 import '../ui/layout/layout_model.dart';
 import 'appbar/appbar_model.dart';
 import 'appbar/extended_appbar.dart';
@@ -18,7 +18,7 @@ class ExtendedScaffold extends StatelessWidget {
       top: layout.isLeftLayout
         ? null
         : AppbarModel.totalCollapsedHeightOf(context) +
-            (layout.isFlatLayout ? AppLayout.normalSpacing : AppLayout.xLargeSpacing),
+            (layout.isFlatLayout ? AppDimens.normal : AppDimens.xLarge),
       bottom: 0
     );
 
@@ -56,7 +56,7 @@ class ExtendedScaffold extends StatelessWidget {
         );
 
     builtWidget = Row(
-      spacing: layout.isLeftLayout ? AppLayout.normalSpacing : 0,
+      spacing: layout.isLeftLayout ? AppDimens.normal : 0,
       children: [
         AppSidebar(),
         Expanded(child: builtWidget)

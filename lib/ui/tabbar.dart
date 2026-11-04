@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'layout/edge_insets.dart';
+import 'layout/dimens.dart';
 import 'layout/icons.dart';
 import 'layout/layout_model.dart';
 import 'strings/strings_model.dart';
@@ -47,7 +47,7 @@ class AppTabBar extends StatelessWidget {
       length: tabs.length,
       animationDuration: AppTheme.animationDuration,
       child: Column(
-        spacing: AppLayout.largeSpacing,
+        spacing: AppDimens.large,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           TabBar(

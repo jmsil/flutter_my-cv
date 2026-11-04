@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../ui/layout/dimens.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../../ui/text.dart';
@@ -40,12 +41,12 @@ class SkillsSection extends StatelessWidget {
       contentWidget: allowWrapping
         ? AppWrap(
             width: 270,
-            spacing: AppLayout.xLargeSpacing,
-            runSpacing: AppLayout.smallSpacing,
+            spacing: AppDimens.xLarge,
+            runSpacing: AppDimens.small,
             children: children
           )
       : Column(
-          spacing: AppLayout.smallSpacing,
+          spacing: AppDimens.small,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: children
         )

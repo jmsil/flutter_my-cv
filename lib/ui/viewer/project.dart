@@ -3,8 +3,7 @@ import 'package:flutter/widgets.dart';
 import '../assets.dart';
 import '../button/project_button.dart';
 import '../container.dart';
-import '../layout/edge_insets.dart';
-import '../layout/layout.dart';
+import '../layout/dimens.dart';
 import '../layout/theme.dart';
 
 class ProjectCard extends AppContainer {
@@ -19,9 +18,9 @@ class ProjectCard extends AppContainer {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const AppEdgeInsets.small(left: AppEdgeInsets.normalValue),
+          padding: const AppEdgeInsets.small(left: AppDimens.normal),
           child: Row(
-            spacing: AppLayout.largeSpacing,
+            spacing: AppDimens.large,
             children: [
               Expanded(
                 child: Text(

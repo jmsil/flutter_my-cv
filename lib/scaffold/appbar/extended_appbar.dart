@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 
 import '../../content/profile_photo.dart';
 import '../../ui/container.dart';
-import '../../ui/layout/edge_insets.dart';
+import '../../ui/layout/dimens.dart';
 import '../../ui/layout/layout_model.dart';
 import '../main_profile_info.dart';
 import 'appbar_model.dart';
@@ -27,9 +27,9 @@ class ExtendedAppbar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         ProfilePhoto(
-          margin: AppEdgeInsets.normalValue,
+          margin: AppDimens.normal,
           borderRadius: const BorderRadius.all(
-            const Radius.circular(_photoRadiusSize - AppEdgeInsets.normalValue)
+            const Radius.circular(_photoRadiusSize - AppDimens.normal)
           ),
           onPressed: () => AppbarModel.switchStateOf(context)
         ),
@@ -78,7 +78,7 @@ class _TopProfile extends AppbarAnimatedPadding {
 
 class _LeftProfile extends AppbarAnimatedPadding {
   _LeftProfile() : super(
-    padding: const EdgeInsets.only(right: AppEdgeInsets.xLargeValue),
+    padding: const EdgeInsets.only(right: AppDimens.xLarge),
     topFactor: 0,
     bottomFactor: 1,
     child: AppbarAnimatedOpacity(

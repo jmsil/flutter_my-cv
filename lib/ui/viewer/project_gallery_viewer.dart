@@ -7,7 +7,7 @@ import '../assets.dart';
 import '../button/button.dart';
 import '../button/ink_response.dart';
 import '../container.dart';
-import '../layout/edge_insets.dart';
+import '../layout/dimens.dart';
 import '../layout/icons.dart';
 import '../layout/layout_model.dart';
 import '../scroller.dart';
@@ -36,7 +36,7 @@ class ProjectGalleryViewer extends AppViewer {
 class _State extends AppViewerState<ProjectGalleryViewer> {
   static const double selectedThumbnailBorderSize = 4;
   static const double unselectedThumbnailBorderSize = 2;
-  static const EdgeInsets thumbnailsContainerPadding = AppEdgeInsets.xLarge();
+  static const EdgeInsets thumbnailsContainerPadding = const AppEdgeInsets.xLarge();
   static const EdgeInsets selectedThumbnailMargin = EdgeInsets.symmetric(vertical: 12);
   static const EdgeInsets unselectedThumbnailMargin = EdgeInsets.symmetric(
     horizontal: 12, vertical: 6
@@ -156,8 +156,8 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
         Flex(
           direction: direction,
           spacing: isCompactMode
-            ? AppLayout.normalSpacing
-            : AppLayout.xLargeSpacing,
+            ? AppDimens.normal
+            : AppDimens.xLarge,
           children: [
             AppButton.icon(
               icon: isHorizontalDirection
@@ -188,9 +188,9 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
     return Padding(
       padding: isCompactMode
         ? AppEdgeInsets.normal(
-            right: isHorizontalDirection ? AppEdgeInsets.normalValue * 1.75 : null)
+            right: isHorizontalDirection ? AppDimens.normal * 1.75 : null)
         : AppEdgeInsets.large(
-            right: isHorizontalDirection ? AppEdgeInsets.largeValue * 1.75 : null),
+            right: isHorizontalDirection ? AppDimens.large * 1.75 : null),
       child: Flex(
         direction: direction,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'theme.dart';
 
 class AppLayout {
+  static const double sidebarWidth = 480;
   static final AppTheme _defaultTheme = AppTheme();
   static final AppTheme _noSidebarTheme = AppTheme(
     sidebarSection: AppThemeData(
@@ -36,19 +37,6 @@ class AppLayout {
     showSidebarBackground: true,
     theme: _defaultTheme
   );
-
-  static const double sidebarWidth = 480;
-
-  static const double tinySpacing = 2;
-  static const double shortSpacing = 4;
-  static const double smallSpacing = 8;
-  static const double normalSpacing = 16;
-  static const double largeSpacing = 24;
-  static const double xLargeSpacing = 32;
-
-  static const SizedBox tinyVerticalSpacer = SizedBox(height: tinySpacing);
-  static const SizedBox smallVerticalSpacer = SizedBox(height: smallSpacing);
-  static const SizedBox normalVerticalSpacer = SizedBox(height: normalSpacing);
 
   final bool showTopbarBackground;
   final bool showSidebarBackground;

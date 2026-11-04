@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../content/profile_photo.dart';
 import '../../ui/button/button.dart';
-import '../../ui/layout/edge_insets.dart';
+import '../../ui/layout/dimens.dart';
 import '../../ui/layout/icons.dart';
 import '../../ui/layout/theme.dart';
 import '../../ui/overlay_bar.dart';
@@ -54,13 +54,13 @@ class _Profile extends Padding {
   _Profile(
     BuildContext context, AppTheme theme
   ) : super(
-    padding: const EdgeInsets.all(AppEdgeInsets.largeValue / 2),
+    padding: const EdgeInsets.all(AppDimens.large / 2),
     child: Stack(
       fit: StackFit.expand,
       clipBehavior: Clip.none,
       children: [
         Center(
-          child: ProfilePhoto(margin: AppEdgeInsets.smallValue)
+          child: ProfilePhoto(margin: AppDimens.small)
         ),
         Align(
           alignment: Alignment.topLeft,

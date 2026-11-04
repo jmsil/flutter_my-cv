@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../ui/container.dart';
 import '../../ui/expandable/expandable_header.dart';
-import '../../ui/layout/edge_insets.dart';
+import '../../ui/layout/dimens.dart';
 import '../../ui/layout/theme.dart';
 
 class Section extends AppContainer {
@@ -19,8 +19,8 @@ class Section extends AppContainer {
       startOpen: startOpen,
       arrowColor: theme.sidebarSection.decorationColor,
       effectColor: theme.sidebarSection.baseColor,
-      headerPadding: const AppEdgeInsets.normal(left: AppEdgeInsets.largeValue),
-      expandablePadding: const AppEdgeInsets.large(top: AppEdgeInsets.smallValue),
+      headerPadding: const AppEdgeInsets.normal(left: AppDimens.large),
+      expandablePadding: const AppEdgeInsets.large(top: AppDimens.small),
       headerChild: Text(title, style: theme.sidebarSection.normalHeader.over2.bold),
       expandableChild: contentWidget
     )

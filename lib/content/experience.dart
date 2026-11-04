@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../ui/layout/dimens.dart';
 import '../ui/layout/icons.dart';
 import '../ui/layout/layout_model.dart';
 import '../ui/main_group.dart';
@@ -16,10 +17,10 @@ class ExperienceGroup extends StatelessWidget {
 
     List<Widget> children = [
       IntegrationLearningExperience(theme),
-      AppLayout.normalVerticalSpacer,
+      AppSpacing.normalV,
 
       BciFortlevExperience(theme),
-      AppLayout.normalVerticalSpacer,
+      AppSpacing.normalV,
 
       ExpandableContent(
         headerTitle: StringsModel.strings.smartNewExperienceTitle,
@@ -27,14 +28,14 @@ class ExperienceGroup extends StatelessWidget {
         widgetBeforeInfo: AppLink(text: Strings.smartNewShortLink, link: Strings.smartNewLink),
         info: StringsModel.strings.smartNewExperienceInfo
       ),
-      AppLayout.normalVerticalSpacer,
+      AppSpacing.normalV,
 
       ExpandableContent(
         headerTitle: StringsModel.strings.mobileGameExperienceTitle,
         headerDetail: Strings.mobileGameExperienceDetail,
         info: StringsModel.strings.mobileGameExperienceInfo
       ),
-      AppLayout.normalVerticalSpacer,
+      AppSpacing.normalV,
 
       ExpandableContent(
         headerTitle: StringsModel.strings.santriExperienceTitle,
@@ -42,7 +43,7 @@ class ExperienceGroup extends StatelessWidget {
         widgetBeforeInfo: AppLink(text: Strings.santriShortLink, link: Strings.santriLink),
         info: StringsModel.strings.santriExperienceInfo
       ),
-      AppLayout.normalVerticalSpacer,
+      AppSpacing.normalV,
 
       ExpandableContent(
         headerTitle: StringsModel.strings.smallErpExperienceTitle,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../ui/container.dart';
-import '../../ui/layout/edge_insets.dart';
+import '../../ui/layout/dimens.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../device.dart';
@@ -21,25 +21,25 @@ class AppSidebar extends StatelessWidget {
 
     final List<Widget> children = [
       if ( ! isExtendedScreen)
-        AppLayout.normalVerticalSpacer,
+        AppSpacing.normalV,
 
       DetailsSection(theme),
-      AppLayout.normalVerticalSpacer,
+      AppSpacing.normalV,
 
       SkillsSection.programming(),
-      AppLayout.normalVerticalSpacer,
+      AppSpacing.normalV,
 
       SkillsSection.integration(),
-      AppLayout.normalVerticalSpacer,
+      AppSpacing.normalV,
 
       AboutSection(theme)
     ];
 
     final Widget footerWidget = AppContainer(
       color: layout.showSidebarBackground ? theme.brand1.baseColor : null,
-      padding: const AppEdgeInsets.normal(vertical: AppEdgeInsets.smallValue),
+      padding: const AppEdgeInsets.normal(vertical: AppDimens.small),
       child: Row(
-        spacing: AppLayout.smallSpacing,
+        spacing: AppDimens.small,
         children: [
           FlutterLogo(size: 32),
           Expanded(

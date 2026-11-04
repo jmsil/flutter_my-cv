@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../ui/layout/edge_insets.dart';
+import '../ui/layout/dimens.dart';
 import '../ui/layout/icons.dart';
 import '../ui/layout/layout_model.dart';
 import '../ui/list.dart';
@@ -36,11 +36,11 @@ class ListGroup extends StatelessWidget {
       if (listValue != null) {
         children.add(AppList(
           list: listValue,
-          padding: const AppEdgeInsets.small(left: AppLayout.xLargeSpacing, right: 0)
+          padding: const AppEdgeInsets.small(left: AppDimens.xLarge, right: 0)
         ));
       }
 
-      children.add(AppLayout.smallVerticalSpacer);
+      children.add(AppSpacing.smallV);
     });
 
     children.removeLast();

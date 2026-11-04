@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../ui/container.dart';
-import '../ui/layout/edge_insets.dart';
+import '../ui/layout/dimens.dart';
 import '../ui/layout/layout_model.dart';
 import '../ui/strings/strings_model.dart';
 import '../ui/text.dart';
@@ -39,7 +39,7 @@ class ProfessionalDevelopmentCard extends StatelessWidget {
 
     if (certificateLink != null) {
       builtDetail = Row(
-        spacing: AppLayout.normalSpacing,
+        spacing: AppDimens.normal,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Expanded(child: builtDetail),
@@ -59,8 +59,8 @@ class ProfessionalDevelopmentCard extends StatelessWidget {
       borderRadius: AppTheme.allBorderRadius,
       child: Column(
         spacing: certificateLink == null
-          ? AppLayout.smallSpacing
-          : AppLayout.normalSpacing,
+          ? AppDimens.small
+          : AppDimens.normal,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [

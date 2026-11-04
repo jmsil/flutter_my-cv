@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../content/pdf/generator.dart';
 import '../../ui/button/button.dart';
 import '../../ui/button/popup_menu_button.dart';
+import '../../ui/layout/dimens.dart';
 import '../../ui/layout/icons.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
@@ -25,7 +26,7 @@ class Settings extends StatelessWidget {
       : theme.brand1.normalText.over1.regular;
 
     final Widget languagesWidget = Row(
-      spacing: AppLayout.smallSpacing,
+      spacing: AppDimens.small,
       children: [
         AppButton.label(
           label: Strings.languagePt,
@@ -48,7 +49,7 @@ class Settings extends StatelessWidget {
       return languagesWidget;
 
     final Widget layoutsWidget = Row(
-      spacing: AppLayout.smallSpacing,
+      spacing: AppDimens.small,
       children: [
         AppButton.icon(
           icon: AppIcons.flatLayout,
@@ -93,14 +94,14 @@ class Settings extends StatelessWidget {
           textStyle: theme.background.normalText.over1.bold
         ),
         languagesWidget,
-        AppLayout.tinyVerticalSpacer,
+        AppSpacing.xxSmallV,
         AppIconText(
           icon: AppIcons.layout,
           text: Strings.layout,
           textStyle: theme.background.normalText.over1.bold
         ),
         layoutsWidget,
-        AppLayout.normalVerticalSpacer,
+        AppSpacing.normalV,
         downloadPdfButton
       ]
     );

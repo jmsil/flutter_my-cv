@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../ui/layout/layout.dart';
+import '../../ui/layout/dimens.dart';
 import '../../ui/layout/theme.dart';
 import '../../ui/strings/strings_model.dart';
 import '../../ui/tabbar.dart';
@@ -30,12 +30,12 @@ class IntegrationLearningExperience extends ExpandableContent {
         style: theme.background.normalText.over1.regular
       ),
       portfolioPage: Column(
-        spacing: AppLayout.normalSpacing,
+        spacing: AppDimens.normal,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           AppWrap(
             width: 420,
-            spacing: AppLayout.normalSpacing,
+            spacing: AppDimens.normal,
             enableIntrinsicRowHeight: true,
             children: [
               ProjectCard(theme, ApimProxyProject()),

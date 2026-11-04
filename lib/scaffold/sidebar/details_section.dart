@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../ui/layout/dimens.dart';
 import '../../ui/layout/icons.dart';
-import '../../ui/layout/layout.dart';
 import '../../ui/layout/theme.dart';
 import '../../ui/strings/strings_model.dart';
 import '../../ui/text.dart';
@@ -13,7 +13,7 @@ class DetailsSection extends Section {
     startOpen: true,
     title: StringsModel.strings.detailsTitle,
     contentWidget: Column(
-      spacing: AppLayout.normalSpacing,
+      spacing: AppDimens.normal,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AppIconText(

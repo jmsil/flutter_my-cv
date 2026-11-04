@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../ui/layout/dimens.dart';
 import '../ui/layout/icons.dart';
-import '../ui/layout/layout_model.dart';
 import '../ui/main_group.dart';
 import '../ui/strings/strings_model.dart';
 import '../ui/tabbar.dart';
@@ -15,7 +15,7 @@ class ProfessionalDevelopmentGroup extends StatelessWidget {
   Widget build(BuildContext context) {
     final Widget builtCertificationsWidget = AppWrap(
       width: _cardWidth,
-      spacing: AppLayout.normalSpacing,
+      spacing: AppDimens.normal,
       enableIntrinsicRowHeight: true,
       children: [
         ProfessionalDevelopmentCard(
@@ -43,7 +43,7 @@ class ProfessionalDevelopmentGroup extends StatelessWidget {
 
     final Widget builtCoursesWidget = AppWrap(
       width: _cardWidth,
-      spacing: AppLayout.normalSpacing,
+      spacing: AppDimens.normal,
       enableIntrinsicRowHeight: true,
       children: [
         ProfessionalDevelopmentCard(
@@ -71,7 +71,7 @@ class ProfessionalDevelopmentGroup extends StatelessWidget {
 
     final Widget builtBooksWidget = AppWrap(
       width: _cardWidth,
-      spacing: AppLayout.normalSpacing,
+      spacing: AppDimens.normal,
       enableIntrinsicRowHeight: true,
       children: [
         ProfessionalDevelopmentCard(

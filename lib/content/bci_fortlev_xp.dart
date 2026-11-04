@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../ui/assets.dart';
-import '../ui/layout/layout.dart';
+import '../ui/layout/dimens.dart';
 import '../ui/layout/theme.dart';
 import '../ui/strings/strings_model.dart';
 import '../ui/tabbar.dart';
@@ -17,12 +17,12 @@ class BciFortlevExperience extends ExpandableContent {
     headerDetail: StringsModel.strings.fortlevExperienceDetail,
     widgetBeforeInfo: AppTabBar.summaryPortfolio(
       summaryPage: Column(
-        spacing: AppLayout.normalSpacing,
+        spacing: AppDimens.normal,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Wrap(
-            spacing: AppLayout.xLargeSpacing,
-            runSpacing: AppLayout.smallSpacing,
+            spacing: AppDimens.xLarge,
+            runSpacing: AppDimens.small,
             children: [
               AppLink(text: Strings.bciShortLink, link: Strings.bciLink),
               AppLink(text: Strings.fortlevShortLink, link: Strings.fortlevLink)

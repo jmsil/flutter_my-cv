@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../content/profile_photo.dart';
 import '../../ui/divider.dart';
-import '../../ui/layout/edge_insets.dart';
+import '../../ui/layout/dimens.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../device.dart';
@@ -16,7 +16,7 @@ class CompactAppbar extends StatelessWidget {
     _padding.vertical +
     _photoSize +
     _dividerSize * AppDivider.heightFactor +
-    AppLayout.normalSpacing * 2;
+    AppDimens.normal * 2;
 
   final GlobalKey<DrawerControllerState> drawerKey;
 
@@ -38,7 +38,7 @@ class CompactAppbar extends StatelessWidget {
     );
 
     final Widget profileWidget = Row(
-      spacing: AppLayout.largeSpacing,
+      spacing: AppDimens.large,
       children: [
         SizedBox(
           height: _photoSize,
@@ -67,7 +67,7 @@ class CompactAppbar extends StatelessWidget {
         child: Padding(
           padding: _padding,
           child: Column(
-            spacing: AppLayout.normalSpacing,
+            spacing: AppDimens.normal,
             children: [
               profileWidget,
               AppDivider(_dividerSize, theme.brand1.overColor1),

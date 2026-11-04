@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import '../scaffold/device.dart';
-import 'layout/edge_insets.dart';
+import 'layout/dimens.dart';
 import 'layout/layout_model.dart';
 
 const double _lineSize = 12;
@@ -78,7 +78,7 @@ class MainGroup extends StatelessWidget {
         SliverPadding(
           padding: AppEdgeInsets.normal(
             top: isExtendedScreen ? 0 : null,
-            bottom: isExtendedScreen ? AppEdgeInsets.xLargeValue : null,
+            bottom: isExtendedScreen ? AppDimens.xLarge : null,
             horizontal: enableBodyHorizontalPadding ? null : 0
           ),
           sliver: SliverList(

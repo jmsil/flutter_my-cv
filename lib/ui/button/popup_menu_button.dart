@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../layout/edge_insets.dart';
+import '../layout/dimens.dart';
 import '../layout/icons.dart';
 import '../layout/layout_model.dart';
 import 'button.dart';
@@ -13,8 +13,8 @@ class AppPopupMenuButton extends PopupMenuButton {
     offset: const Offset(76, -238),
     color: theme.background.baseColor,
     menuPadding: const AppEdgeInsets.small(
-      top: AppEdgeInsets.largeValue,
-      bottom: AppEdgeInsets.normalValue
+      top: AppDimens.large,
+      bottom: AppDimens.normal
     ),
     elevation: 8,
     shadowColor: Colors.black54,
@@ -32,7 +32,7 @@ class AppPopupMenuButton extends PopupMenuButton {
           child: IconTheme.merge(
             data: IconThemeData(opacity: 1.0),
             child: Column(
-              spacing: AppLayout.smallSpacing,
+              spacing: AppDimens.small,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: children
             )

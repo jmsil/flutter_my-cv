@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../ui/divider.dart';
+import '../ui/layout/dimens.dart';
 import '../ui/layout/icons.dart';
 import '../ui/layout/layout_model.dart';
 import '../ui/strings/strings_model.dart';
@@ -47,26 +48,26 @@ class MainProfileInfo extends StatelessWidget {
 
     switch (style) {
       case MainProfileInfoStyle.compactAppbar:
-        beforeDividerSpacing = AppLayout.shortSpacing;
-        afterDividerSpacing = AppLayout.shortSpacing;
+        beforeDividerSpacing = AppDimens.xSmall;
+        afterDividerSpacing = AppDimens.xSmall;
         titleStyle = theme.brand1.normalHeader.over1.bold;
         infoStyle = theme.brand1.normalText.over1.regular;
         break;
       case MainProfileInfoStyle.extendedFlatAppbar:
-        beforeDividerSpacing = AppLayout.smallSpacing;
+        beforeDividerSpacing = AppDimens.small;
         afterDividerSpacing = 0;
         titleStyle = theme.background.xLargeHeader.over1.bold;
         infoStyle = theme.background.largeText.over1.regular;
         break;
       case MainProfileInfoStyle.extendedTopAppbar:
-        beforeDividerSpacing = AppLayout.smallSpacing;
+        beforeDividerSpacing = AppDimens.small;
         afterDividerSpacing = 0;
         titleStyle = theme.brand1.largeHeader.over1.bold;
         infoStyle = theme.brand1.largeText.over1.regular;
         break;
       case MainProfileInfoStyle.body:
-        beforeDividerSpacing = AppLayout.normalSpacing;
-        afterDividerSpacing = AppLayout.normalSpacing;
+        beforeDividerSpacing = AppDimens.normal;
+        afterDividerSpacing = AppDimens.normal;
         titleStyle = theme.background.xLargeHeader.over1.bold;
         infoStyle = theme.background.xLargeText.over1.regular;
     }

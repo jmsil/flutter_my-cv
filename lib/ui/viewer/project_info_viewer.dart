@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_cv/ui/scroller.dart';
 
 import '../button/button.dart';
-import '../layout/edge_insets.dart';
+import '../layout/dimens.dart';
 import '../layout/icons.dart';
 import '../layout/layout_model.dart';
 import '../strings/strings.dart';
@@ -17,7 +17,7 @@ class ProjectInfoViewer extends AppViewer {
   ) : super(
     direction: Axis.vertical,
     windowWidth: 1560,
-    barPadding: const AppEdgeInsets.large(vertical: AppEdgeInsets.xLargeValue)
+    barPadding: const AppEdgeInsets.large(vertical: AppDimens.xLarge)
   );
 
   @override
@@ -26,11 +26,11 @@ class ProjectInfoViewer extends AppViewer {
 
 class _State extends AppViewerState<ProjectInfoViewer> {
   static const TextSpan shortSpanSpacer = TextSpan(
-    text: '\n\n\u200B', style: TextStyle(fontSize: AppLayout.shortSpacing));
+    text: '\n\n\u200B', style: TextStyle(fontSize: AppDimens.xSmall));
   static const TextSpan normalSpanSpacer = TextSpan(
-    text: '\n\u200B', style: TextStyle(fontSize: AppLayout.normalSpacing));
+    text: '\n\u200B', style: TextStyle(fontSize: AppDimens.normal));
   static const TextSpan largeSpanSpacer = TextSpan(
-    text: '\n\n\u200B', style: TextStyle(fontSize: AppLayout.largeSpacing));
+    text: '\n\n\u200B', style: TextStyle(fontSize: AppDimens.large));
 
   @override
   Widget buildBar(AppThemeData themeData) {
@@ -44,7 +44,7 @@ class _State extends AppViewerState<ProjectInfoViewer> {
     );
 
     return Row(
-      spacing: AppLayout.normalSpacing,
+      spacing: AppDimens.normal,
       children: [
         Icon(AppIcons.webhook, size: 64, color: themeData.overColor1),
         Expanded(child: builtTitleDetail),
@@ -76,7 +76,7 @@ class _State extends AppViewerState<ProjectInfoViewer> {
     addRichText(children, spans);
 
     return AppListView(
-      padding: const AppEdgeInsets.normal(bottom: AppEdgeInsets.xLargeValue),
+      padding: const AppEdgeInsets.normal(bottom: AppDimens.xLarge),
       children: children
     );
   }
@@ -85,7 +85,7 @@ class _State extends AppViewerState<ProjectInfoViewer> {
     if (spans.isNotEmpty)
       spans.add(normalSpanSpacer);
     else if (children.isNotEmpty)
-      children.add(AppLayout.normalVerticalSpacer);
+      children.add(AppSpacing.normalV);
 
     addRichText(children, spans);
     children.add(placeholders.removeAt(0));

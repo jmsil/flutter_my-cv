@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import '../../ui/layout/edge_insets.dart';
+import '../../ui/layout/dimens.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/overlay_bar.dart';
 import '../../ui/scroller.dart';
@@ -17,7 +17,7 @@ class ExtendedList extends StatelessWidget {
     final AppLayout layout = context.appLayout;
     final AppTheme theme = layout.theme;
     final double totalCollapsedHeight =
-      AppbarModel.totalCollapsedHeightOf(context) + AppLayout.normalSpacing;
+      AppbarModel.totalCollapsedHeightOf(context) + AppDimens.normal;
     final Color overlayColor = layout.showSidebarBackground
       ? theme.brand2.baseColor
       : theme.background.baseColor;
@@ -35,7 +35,7 @@ class ExtendedList extends StatelessWidget {
       ? Padding(
           padding: const AppEdgeInsets.normal(),
           child: Column(
-            spacing: AppLayout.normalSpacing,
+            spacing: AppDimens.normal,
             children: [
               ExtendedAppbar(),
               Expanded(child: builtWidget)

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../ui/expandable/expandable_header.dart';
-import '../ui/layout/edge_insets.dart';
+import '../ui/layout/dimens.dart';
 import '../ui/layout/layout_model.dart';
 
 class ExpandableContent extends StatelessWidget {
-  static const EdgeInsets _padding = AppEdgeInsets.normal(vertical: AppEdgeInsets.smallValue);
+  static const EdgeInsets _padding = AppEdgeInsets.normal(vertical: AppDimens.small);
 
   final String headerTitle;
   final String headerDetail;
@@ -28,7 +28,7 @@ class ExpandableContent extends StatelessWidget {
     final AppTheme theme = context.appLayout.theme;
 
     final builtHeaderWidget = Row(
-      spacing: AppLayout.smallSpacing,
+      spacing: AppDimens.small,
       children: [
         VerticalDivider(
           thickness: 8, width: 8,
@@ -69,7 +69,7 @@ class ExpandableContent extends StatelessWidget {
     final builtExpandableWidget = expandableChildren.length == 1
       ? expandableChildren[0]
       : Column(
-          spacing: AppLayout.normalSpacing,
+          spacing: AppDimens.normal,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: expandableChildren
         );

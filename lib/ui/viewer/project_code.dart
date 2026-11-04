@@ -9,7 +9,7 @@ import 'package:re_highlight/styles/vs2015.dart';
 
 import '../../scaffold/device.dart';
 import '../assets.dart';
-import '../layout/edge_insets.dart';
+import '../layout/dimens.dart';
 import '../layout/layout_model.dart';
 import 'full_window_handler.dart';
 
@@ -71,7 +71,7 @@ class _State extends State<ProjectCodeWidget> {
 
     final Widget builtWidget = Flex(
       direction: isHorizontalDirection ? Axis.horizontal : Axis.vertical,
-      spacing: AppLayout.normalSpacing,
+      spacing: AppDimens.normal,
       children: children
     );
 
@@ -111,8 +111,8 @@ class _CodeEditor extends CodeEditor {
     indicatorBuilder: (context, editingController, chunkController, notifier) {
       return Padding(
         padding: const EdgeInsets.only(
-          left: AppEdgeInsets.smallValue,
-          right: AppEdgeInsets.normalValue
+          left: AppDimens.small,
+          right: AppDimens.normal
         ),
         child: DefaultCodeLineNumber(
           controller: editingController,

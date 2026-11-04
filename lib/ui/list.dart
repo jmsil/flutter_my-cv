@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'container.dart';
+import 'layout/dimens.dart';
 import 'layout/layout_model.dart';
 import 'text.dart';
 
@@ -22,8 +23,7 @@ class AppList extends StatelessWidget {
       children.add(AppContainer(
         color: theme.brand3.baseColor.withCardFillAlpha,
         padding: const EdgeInsets.only(
-          left: 6, top: 6, right: AppLayout.normalSpacing, bottom: 6
-        ),
+          left: 6, top: 6, right: AppDimens.normal, bottom: 6),
         borderColor: theme.brand3.baseColor.withCardBorderAlpha,
         borderRadius: AppTheme.circleBorderRadius,
         child: AppIconText.bullet(
@@ -35,8 +35,8 @@ class AppList extends StatelessWidget {
     }
 
     Widget builtWidget = Wrap(
-      spacing: AppLayout.normalSpacing,
-      runSpacing: AppLayout.normalSpacing,
+      spacing: AppDimens.normal,
+      runSpacing: AppDimens.normal,
       children: children
     );
 
