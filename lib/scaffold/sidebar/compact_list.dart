@@ -20,32 +20,30 @@ class CompactList extends Padding {
       endSize: AppTheme.radiusValue,
       endForegroundColor: theme.brand2.baseColor,
       child: LayoutBuilder(
-        builder: (BuildContext builderContext, BoxConstraints builderConstraints) {
-          return AppCustomScrollView(
-            [
-              SliverAppBar(
-                pinned: true,
-                stretch: true,
-                collapsedHeight: 76,
-                expandedHeight: builderConstraints.maxWidth,
-                backgroundColor: theme.brand1.baseColor,
-                surfaceTintColor: Colors.transparent,
-                elevation: 12,
-                shadowColor: Colors.black45,
-                shape: RoundedRectangleBorder(borderRadius: AppTheme.allBorderRadius),
-                automaticallyImplyLeading: false,
-                flexibleSpace: _Profile(builderContext, theme)
-              ),
+        builder: (BuildContext context, BoxConstraints constraints) {
+          return AppCustomScrollView([
+            SliverAppBar(
+              pinned: true,
+              stretch: true,
+              collapsedHeight: 76,
+              expandedHeight: constraints.maxWidth,
+              backgroundColor: theme.brand1.baseColor,
+              surfaceTintColor: Colors.transparent,
+              elevation: 12,
+              shadowColor: Colors.black45,
+              shape: RoundedRectangleBorder(borderRadius: AppTheme.allBorderRadius),
+              automaticallyImplyLeading: false,
+              flexibleSpace: _Profile(context, theme)
+            ),
 
-              SliverList(
-                delegate: SliverChildListDelegate(
-                  children,
-                  addAutomaticKeepAlives: false,
-                  addRepaintBoundaries: false
-                )
+            SliverList(
+              delegate: SliverChildListDelegate(
+                children,
+                addAutomaticKeepAlives: false,
+                addRepaintBoundaries: false
               )
-            ]
-          );
+            )
+          ]);
         }
       )
     )

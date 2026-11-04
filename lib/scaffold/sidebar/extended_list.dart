@@ -1,13 +1,11 @@
 import 'package:flutter/widgets.dart';
-import 'package:my_cv/scaffold/appbar/profile_photo.dart';
 
-import '../../ui/container.dart';
 import '../../ui/layout/edge_insets.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/overlay_bar.dart';
 import '../../ui/scroller.dart';
 import '../appbar/appbar_model.dart';
-import '../main_profile_info.dart';
+import '../appbar/extended_appbar.dart';
 
 class ExtendedList extends StatelessWidget {
   final List<Widget> children;
@@ -39,7 +37,7 @@ class ExtendedList extends StatelessWidget {
           child: Column(
             spacing: AppLayout.normalSpacing,
             children: [
-              _Profile(theme),
+              ExtendedAppbar(),
               Expanded(child: builtWidget)
             ]
           )
@@ -51,38 +49,4 @@ class ExtendedList extends StatelessWidget {
 
     return builtWidget;
   }
-}
-
-class _Profile extends AppbarAnimatedContainer {
-  _Profile(
-    AppTheme theme
-  ) : super(
-    child: AppContainer(
-      color: theme.brand1.baseColor,
-      borderRadius: BorderRadius.horizontal(
-        left: const Radius.circular(ProfilePhotoAppbarStateSwitcher.circleRadiusSize),
-        right: AppTheme.radius
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          ProfilePhotoAppbarStateSwitcher(),
-          Flexible(
-            child: AppbarAnimatedPadding(
-              padding: const EdgeInsets.only(right: AppEdgeInsets.xLargeValue),
-              topFactor: 0,
-              bottomFactor: 1,
-              child: AppbarAnimatedOpacity(
-                MainProfileInfo.nameAndRoles(
-                  style: MainProfileInfoStyle.compactAppbar,
-                  isShortRoles: true,
-                  softWrap: false
-                )
-              )
-            )
-          )
-        ]
-      )
-    )
-  );
 }

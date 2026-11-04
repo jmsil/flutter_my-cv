@@ -55,7 +55,8 @@ class AppLayout {
   final AppTheme theme;
 
   bool get isFlatLayout => ! showTopbarBackground && ! showSidebarBackground;
-  bool get isLeftLayout => showSidebarBackground && ! showTopbarBackground;
+  bool get isLeftLayout => ! showTopbarBackground && showSidebarBackground;
+  bool get isFullLayout => showTopbarBackground && showSidebarBackground;
 
   AppLayout({
     required this.showTopbarBackground,

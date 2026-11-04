@@ -27,7 +27,7 @@ class AppbarModel extends StatefulWidget {
   }
 
   static EdgeInsets marginOf(BuildContext context) {
-    return context.appLayout.showSidebarBackground
+    return context.appLayout.isFullLayout
       ? const AppEdgeInsets.normal(right: 0, bottom: 0) : EdgeInsets.zero;
   }
 
