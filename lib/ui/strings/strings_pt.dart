@@ -296,7 +296,7 @@ class StringsPt extends Strings {
   @override
   String get fortlevExperienceTitle => 'Desenvolvimento de Aplicativo Flutter Mobile';
   @override
-  String get fortlevExperienceDetail => 'BCI/Fortlev ▪ Junho/2021 - Julho/2023';
+  String get fortlevExperienceDetail => 'BCI Consulting/Fortlev ▪ Junho/2021 - Julho/2023';
   @override
   String get fortlevExperienceInfo =>
     'Desenvolvi o "Mão Dupla", um app de gerenciamento de ordens de frete para a Fortlev.\n'

@@ -296,7 +296,7 @@ class StringsEn extends Strings {
   @override
   String get fortlevExperienceTitle => 'Flutter Mobile Application Development';
   @override
-  String get fortlevExperienceDetail => 'BCI/Fortlev ▪ June/2021 - July/2023';
+  String get fortlevExperienceDetail => 'BCI Consulting/Fortlev ▪ June/2021 - July/2023';
   @override
   String get fortlevExperienceInfo =>
     'Developed the "Mão Dupla" freight order management app for Fortlev.\n'
