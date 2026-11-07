@@ -33,9 +33,9 @@ class ExtendedScaffold extends StatelessWidget {
       ? Column(
           children: [
             AppContainer(
-              color: theme.brand3.baseColor.withDecorationAlpha,
+              color: theme.brand3.surfaceColor.withDecorationAlpha,
               padding: const AppEdgeInsets.large(),
-              borderColor: theme.brand3.baseColor,
+              borderColor: theme.brand3.surfaceColor,
               borderRadius: AppTheme.allBorderRadius,
               child: MainProfileInfo.professionalSummary(
                 hasIcon: true,

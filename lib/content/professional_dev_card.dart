@@ -25,14 +25,14 @@ class ProfessionalDevelopmentCard extends StatelessWidget {
 
     final Widget builtTitle = Text(
       title,
-      style: theme.background.normalText.over1.bold,
+      style: theme.background.overStyled1.normalText.bold,
       maxLines: 2,
       overflow: TextOverflow.ellipsis
     );
 
     Widget builtDetail = Text(
       detail,
-      style: theme.background.normalText.over1.italic,
+      style: theme.background.overStyled1.normalText.italic,
       maxLines: 1,
       overflow: TextOverflow.ellipsis
     );
@@ -53,9 +53,9 @@ class ProfessionalDevelopmentCard extends StatelessWidget {
     }
 
     return AppContainer(
-      color: theme.brand3.baseColor.withCardFillAlpha,
+      color: theme.brand3.surfaceColor.withCardFillAlpha,
       padding: const AppEdgeInsets.normal(),
-      borderColor: theme.brand3.baseColor.withCardBorderAlpha,
+      borderColor: theme.brand3.surfaceColor.withCardBorderAlpha,
       borderRadius: AppTheme.allBorderRadius,
       child: Column(
         spacing: certificateLink == null

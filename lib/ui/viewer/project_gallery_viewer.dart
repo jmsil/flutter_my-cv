@@ -84,7 +84,7 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
         curve: AppTheme.animationCurve,
         child: AppContainer(
           borderSize: isSelected ? selectedThumbnailBorderSize : unselectedThumbnailBorderSize,
-          borderColor: themeData.overColor1,
+          borderColor: themeData.over1.color,
           borderRadius: isSelected
             ? const BorderRadius.all(Radius.circular(12))
             : const BorderRadius.all(Radius.circular(8)),
@@ -146,7 +146,7 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
         icon: isHorizontalDirection
           ? AppIcons.back
           : AppIcons.close,
-        color: themeData.overColor1,
+        color: themeData.over1.color,
         onPressed: () => Navigator.pop(context)
       )
     );
@@ -163,14 +163,14 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
               icon: isHorizontalDirection
                 ? AppIcons.arrowLeft
                 : AppIcons.arrowUp,
-              color: themeData.overColor1,
+              color: themeData.over1.color,
               onPressed: onPrevious
             ),
             AppButton.icon(
               icon: isHorizontalDirection
                 ? AppIcons.arrowRight
                 : AppIcons.arrowDown,
-              color: themeData.overColor1,
+              color: themeData.over1.color,
               onPressed: onNext
             )
           ]
@@ -181,7 +181,7 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
     buttons.add(
       Text(
         '${index + 1}/${ widget.assets.count }',
-        style: themeData.normalText.over1.bold
+        style: themeData.overStyled1.normalText.bold
       )
     );
 

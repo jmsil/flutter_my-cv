@@ -88,11 +88,11 @@ class AppLink extends StatelessWidget {
         final AppTheme theme = context.appLayout.theme;
         final TextStyle textStyle = isOverBackground
           ? hovered
-            ? theme.background.normalText.decoration.bold
-            : theme.background.normalText.over1.regular
+            ? theme.background.decorationStyled.normalText.bold
+            : theme.background.overStyled1.normalText.regular
           : hovered
-            ? theme.sidebarSection.normalText.decoration.bold
-            : theme.sidebarSection.normalText.over1.regular;
+            ? theme.sidebarSection.decorationStyled.normalText.bold
+            : theme.sidebarSection.overStyled1.normalText.regular;
 
         return AppIconText(
           icon: icon,

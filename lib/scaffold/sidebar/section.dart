@@ -12,16 +12,16 @@ class Section extends AppContainer {
     required String title,
     required Widget contentWidget
   }) : super(
-    color: theme.sidebarSection.baseColor,
+    color: theme.sidebarSection.surfaceColor,
     borderRadius: AppTheme.allBorderRadius,
     enableClip: true,
     child: AppExpandableHeader(
       startOpen: startOpen,
-      arrowColor: theme.sidebarSection.decorationColor,
-      effectColor: theme.sidebarSection.baseColor,
+      arrowColor: theme.sidebarSection.decoration.color,
+      effectColor: theme.sidebarSection.surfaceColor,
       headerPadding: const AppEdgeInsets.normal(left: AppDimens.large),
       expandablePadding: const AppEdgeInsets.large(top: AppDimens.small),
-      headerChild: Text(title, style: theme.sidebarSection.normalHeader.over2.bold),
+      headerChild: Text(title, style: theme.sidebarSection.overStyled2.normalHeader.bold),
       expandableChild: contentWidget
     )
   );

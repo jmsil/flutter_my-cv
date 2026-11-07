@@ -29,7 +29,7 @@ class CompactAppbar extends StatelessWidget {
 
     final Text summaryTextWidget = Text(
       StringsModel.strings.professionalSummaryInfo,
-      style: DefaultTextStyle.of(context).style.merge(theme.brand1.largeText.over1.regular)
+      style: DefaultTextStyle.of(context).style.merge(theme.brand1.overStyled1.largeText.regular)
     );
 
     final double summaryBoxHeight = _getTextBoxHeight(
@@ -62,7 +62,7 @@ class CompactAppbar extends StatelessWidget {
       surfaceTintColor: Colors.transparent,
       automaticallyImplyLeading: false,
       flexibleSpace: ColoredBox(
-        color: theme.brand1.baseColor,
+        color: theme.brand1.surfaceColor,
         isAntiAlias: false,
         child: Padding(
           padding: _padding,
@@ -70,7 +70,7 @@ class CompactAppbar extends StatelessWidget {
             spacing: AppDimens.normal,
             children: [
               profileWidget,
-              AppDivider(_dividerSize, theme.brand1.overColor1),
+              AppDivider(_dividerSize, theme.brand1.over1.color),
               Flexible(
                 child: FlexibleSpaceBar(
                   background: summaryTextWidget

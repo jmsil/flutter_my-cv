@@ -37,7 +37,7 @@ class AppTabBar extends StatelessWidget {
     for (AppTabBarTab tab in tabs) {
       Widget widget = AppIconText(
         icon: tab.icon, text: tab.label,
-        textStyle: theme.background.normalHeader.over1.bold,
+        textStyle: theme.background.overStyled1.normalHeader.bold,
         enableOverflow: true
       );
       builtTabs.add(widget);
@@ -54,10 +54,10 @@ class AppTabBar extends StatelessWidget {
             dividerHeight: 0,
             indicatorWeight: 4,
             indicatorSize: TabBarIndicatorSize.tab,
-            indicatorColor: theme.background.overColor1.withDividerAlpha,
+            indicatorColor: theme.background.over1.color.withDividerAlpha,
             labelPadding: const AppEdgeInsets.small(),
             overlayColor: WidgetStateColor.resolveWith(
-              (_) => theme.brand2.baseColor.withInkEffectAlpha
+              (_) => theme.brand2.surfaceColor.withInkEffectAlpha
             ),
             tabs: builtTabs
           ),

@@ -10,8 +10,8 @@ class ProjectCard extends AppContainer {
   ProjectCard(
     AppTheme theme, Project project
   ) : super(
-    color: theme.brand3.baseColor.withCardFillAlpha,
-    borderColor: theme.brand3.baseColor.withCardBorderAlpha,
+    color: theme.brand3.surfaceColor.withCardFillAlpha,
+    borderColor: theme.brand3.surfaceColor.withCardBorderAlpha,
     borderRadius: AppTheme.allBorderRadius,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -25,7 +25,7 @@ class ProjectCard extends AppContainer {
               Expanded(
                 child: Text(
                   project.title,
-                  style: theme.background.normalHeader.over1.bold,
+                  style: theme.background.overStyled1.normalHeader.bold,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis
                 )
@@ -38,7 +38,7 @@ class ProjectCard extends AppContainer {
           padding: const AppEdgeInsets.normal(top: 0),
           child: Text(
             project.description,
-            style: theme.background.normalText.over1.regular,
+            style: theme.background.overStyled1.normalText.regular,
             maxLines: 2,
             overflow: TextOverflow.ellipsis
           )

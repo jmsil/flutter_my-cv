@@ -7,10 +7,10 @@ class AppLayout {
   static final AppTheme _defaultTheme = AppTheme();
   static final AppTheme _noSidebarTheme = AppTheme(
     sidebarSection: AppThemeData(
-      baseColor: Colors.blueGrey[900]!.withValues(alpha: 0.12),
-      overColor1: Colors.black,
-      overColor2: Colors.blueGrey[900]!,
-      decorationColor: Colors.blue[900]!
+      surfaceColor: Colors.blueGrey[900]!.withValues(alpha: 0.12),
+      over1: AppThemeDataStyledProperty(Colors.black),
+      over2: AppThemeDataStyledProperty(Colors.blueGrey[900]!),
+      decoration: AppThemeDataStyledProperty(Colors.blue[900]!)
     )
   );
 

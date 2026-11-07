@@ -46,8 +46,8 @@ class ProfilePhoto extends StatelessWidget {
         margin: margin == null ? null : EdgeInsets.all(margin!),
         borderSize: borderSize,
         borderColor: layout.showTopbarBackground || layout.showSidebarBackground
-          ? theme.brand1.overColor1
-          : theme.background.overColor1,
+          ? theme.brand1.over1.color
+          : theme.background.over1.color,
         borderRadius: borderRadius ?? AppTheme.circleBorderRadius,
         enableClip: true,
         child: builtWidget

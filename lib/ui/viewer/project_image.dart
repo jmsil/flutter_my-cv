@@ -51,11 +51,11 @@ class _FullWindowHandler extends AppViewerFullWindowHandler {
   _FullWindowHandler(
     AppTheme theme, Widget child, Widget? fullWindowChild
   ) : super(
-    iconColor: theme.background.decorationColor,
+    iconColor: theme.background.decoration.color,
     child: AppContainer(
-      color: theme.background.overColor2,
+      color: theme.background.over2.color,
       padding: const AppEdgeInsets.normal(),
-      borderColor: theme.background.decorationColor.withDecorationAlpha,
+      borderColor: theme.background.decoration.color.withDecorationAlpha,
       borderRadius: AppTheme.allBorderRadius,
       child: child
     ),

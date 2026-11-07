@@ -50,26 +50,26 @@ class MainProfileInfo extends StatelessWidget {
       case MainProfileInfoStyle.compactAppbar:
         beforeDividerSpacing = AppDimens.xSmall;
         afterDividerSpacing = AppDimens.xSmall;
-        titleStyle = theme.brand1.normalHeader.over1.bold;
-        infoStyle = theme.brand1.normalText.over1.regular;
+        titleStyle = theme.brand1.overStyled1.normalHeader.bold;
+        infoStyle = theme.brand1.overStyled1.normalText.regular;
         break;
       case MainProfileInfoStyle.extendedFlatAppbar:
         beforeDividerSpacing = AppDimens.small;
         afterDividerSpacing = 0;
-        titleStyle = theme.background.xLargeHeader.over1.bold;
-        infoStyle = theme.background.largeText.over1.regular;
+        titleStyle = theme.background.overStyled1.xLargeHeader.bold;
+        infoStyle = theme.background.overStyled1.largeText.regular;
         break;
       case MainProfileInfoStyle.extendedTopAppbar:
         beforeDividerSpacing = AppDimens.small;
         afterDividerSpacing = 0;
-        titleStyle = theme.brand1.largeHeader.over1.bold;
-        infoStyle = theme.brand1.largeText.over1.regular;
+        titleStyle = theme.brand1.overStyled1.largeHeader.bold;
+        infoStyle = theme.brand1.overStyled1.largeText.regular;
         break;
       case MainProfileInfoStyle.body:
         beforeDividerSpacing = AppDimens.normal;
         afterDividerSpacing = AppDimens.normal;
-        titleStyle = theme.background.xLargeHeader.over1.bold;
-        infoStyle = theme.background.xLargeText.over1.regular;
+        titleStyle = theme.background.overStyled1.xLargeHeader.bold;
+        infoStyle = theme.background.overStyled1.xLargeText.regular;
     }
 
     Widget builtTitleWidget = Text(title, style: titleStyle, softWrap: softWrap);

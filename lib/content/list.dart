@@ -30,7 +30,7 @@ class ListGroup extends StatelessWidget {
 
     list.forEach((String listKey, List<String>? listValue) {
       children.add(AppIconText.bullet(
-        text: listKey, textStyle: theme.background.normalText.over1.bold
+        text: listKey, textStyle: theme.background.overStyled1.normalText.bold
       ));
 
       if (listValue != null) {

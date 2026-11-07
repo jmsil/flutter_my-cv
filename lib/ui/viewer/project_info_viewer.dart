@@ -37,8 +37,10 @@ class _State extends AppViewerState<ProjectInfoViewer> {
     final Widget builtTitleDetail = Text.rich(
       TextSpan(
         children: [
-          TextSpan(text: '${widget.project.title}\n', style: themeData.largeHeader.over1.bold),
-          TextSpan(text: widget.project.description, style: themeData.largeText.over1.regular)
+          TextSpan(
+            text: '${widget.project.title}\n', style: themeData.overStyled1.largeHeader.bold),
+          TextSpan(
+            text: widget.project.description, style: themeData.overStyled1.largeText.regular)
         ]
       )
     );
@@ -46,11 +48,11 @@ class _State extends AppViewerState<ProjectInfoViewer> {
     return Row(
       spacing: AppDimens.normal,
       children: [
-        Icon(AppIcons.webhook, size: 64, color: themeData.overColor1),
+        Icon(AppIcons.webhook, size: 64, color: themeData.over1.color),
         Expanded(child: builtTitleDetail),
         AppButton.icon(
           icon: AppIcons.close,
-          color: themeData.overColor1,
+          color: themeData.over1.color,
           onPressed: () => Navigator.pop(context)
         )
       ]
@@ -97,7 +99,7 @@ class _State extends AppViewerState<ProjectInfoViewer> {
 
     spans.add(TextSpan(
       text: line.replaceAll(Strings.titleTag, ''),
-      style: themeData.normalHeader.over1.bold
+      style: themeData.overStyled1.normalHeader.bold
     ));
   }
 
@@ -109,7 +111,7 @@ class _State extends AppViewerState<ProjectInfoViewer> {
 
     spans.add(TextSpan(
       text: line.replaceAll('\n▪', '\n    ▪'),
-      style: themeData.normalText.over1.regular
+      style: themeData.overStyled1.normalText.regular
     ));
   }
 

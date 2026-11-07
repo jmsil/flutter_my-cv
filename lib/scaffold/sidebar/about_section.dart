@@ -13,7 +13,7 @@ class AboutSection extends Section {
     title: StringsModel.strings.aboutAndExpectationsTitle,
     contentWidget: Text(
       StringsModel.strings.aboutAndExpectationsInfo,
-      style: theme.sidebarSection.normalText.over1.regular
+      style: theme.sidebarSection.overStyled1.normalText.regular
     )
   );
 }

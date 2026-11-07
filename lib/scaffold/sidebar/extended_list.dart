@@ -19,8 +19,8 @@ class ExtendedList extends StatelessWidget {
     final double totalCollapsedHeight =
       AppbarModel.totalCollapsedHeightOf(context) + AppDimens.normal;
     final Color overlayColor = layout.showSidebarBackground
-      ? theme.brand2.baseColor
-      : theme.background.baseColor;
+      ? theme.brand2.surfaceColor
+      : theme.background.surfaceColor;
 
     Widget builtWidget = OverlayBar(
       radius: AppTheme.radiusValue,

@@ -30,7 +30,7 @@ class SkillsSection extends StatelessWidget {
     for (String item in skills) {
       children.add(AppIconText.bullet(
         text: item,
-        textStyle: theme.sidebarSection.normalText.over1.regular
+        textStyle: theme.sidebarSection.overStyled1.normalText.regular
       ));
     }
 

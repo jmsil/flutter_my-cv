@@ -27,7 +27,7 @@ class IntegrationLearningExperience extends ExpandableContent {
     widgetBeforeInfo: AppTabBar.summaryPortfolio(
       summaryPage: Text(
         StringsModel.strings.sapIntegrationSuiteLearningJourneyInfo,
-        style: theme.background.normalText.over1.regular
+        style: theme.background.overStyled1.normalText.regular
       ),
       portfolioPage: Column(
         spacing: AppDimens.normal,
@@ -52,7 +52,7 @@ class IntegrationLearningExperience extends ExpandableContent {
           ),
           Text(
             StringsModel.strings.integrationProjectsScriptCollectionInfo,
-            style: theme.background.normalText.decoration.italic
+            style: theme.background.decorationStyled.normalText.italic
           )
         ]
       )
