@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'layout/theme.dart';
+
 class AppContainer extends StatelessWidget {
   final double? width;
   final double? height;
@@ -69,4 +71,16 @@ class AppContainer extends StatelessWidget {
 
     return builtWidget;
   }
+}
+
+class AppCard extends AppContainer {
+  AppCard({
+    required AppTheme theme,
+    super.padding,
+    super.borderRadius = AppTheme.allBorderRadius,
+    super.child
+  }) : super(
+    color: theme.brand2.over2.color.withCardFillAlpha,
+    borderColor: theme.brand2.over2.color.withCardBorderAlpha
+  );
 }

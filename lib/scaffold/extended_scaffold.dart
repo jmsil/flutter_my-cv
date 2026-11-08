@@ -32,11 +32,9 @@ class ExtendedScaffold extends StatelessWidget {
     builtWidget = layout.isLeftLayout
       ? Column(
           children: [
-            AppContainer(
-              color: theme.brand3.surfaceColor.withDecorationAlpha,
+            AppCard(
+              theme: theme,
               padding: const AppEdgeInsets.large(),
-              borderColor: theme.brand3.surfaceColor,
-              borderRadius: AppTheme.allBorderRadius,
               child: MainProfileInfo.professionalSummary(
                 hasIcon: true,
                 style: MainProfileInfoStyle.body

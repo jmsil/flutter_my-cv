@@ -29,10 +29,8 @@ class AppTheme {
     ),
     this.brand2 = brand2 ?? AppThemeData(
       surfaceColor: Colors.blueGrey[700]!,
-      over1: AppThemeDataStyledProperty(Colors.blueGrey[50]!)
-    ),
-    this.brand3 = brand3 ?? AppThemeData(
-      surfaceColor: Colors.blueGrey[200]!
+      over1: AppThemeDataStyledProperty(Colors.blue[100]!),
+      over2: AppThemeDataBasicProperty(Colors.blueGrey[200]!)
     ),
     this.sidebarSection = sidebarSection ?? AppThemeData(
       surfaceColor: Colors.black26,
@@ -44,7 +42,6 @@ class AppTheme {
   final AppThemeData background;
   final AppThemeData brand1;
   final AppThemeData brand2;
-  final AppThemeData brand3;
   final AppThemeData sidebarSection;
 }
 
@@ -115,6 +112,6 @@ extension AppThemeColorExtension on Color {
   Color get withDecorationAlpha => this.withValues(alpha: 0.16);
   Color get withDarkDecorationAlpha => this.withValues(alpha: 0.32);
   Color get withTextSelectionAlpha => this.withValues(alpha: 0.32);
-  Color get withCardFillAlpha => this.withValues(alpha: 0.08);
-  Color get withCardBorderAlpha => this.withValues(alpha: 0.64);
+  Color get withCardFillAlpha => this.withValues(alpha: 0.12);
+  Color get withCardBorderAlpha => this.withValues(alpha: 0.48);
 }

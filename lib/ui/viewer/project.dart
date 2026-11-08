@@ -6,13 +6,11 @@ import '../container.dart';
 import '../layout/dimens.dart';
 import '../layout/theme.dart';
 
-class ProjectCard extends AppContainer {
+class ProjectCard extends AppCard {
   ProjectCard(
     AppTheme theme, Project project
   ) : super(
-    color: theme.brand3.surfaceColor.withCardFillAlpha,
-    borderColor: theme.brand3.surfaceColor.withCardBorderAlpha,
-    borderRadius: AppTheme.allBorderRadius,
+    theme: theme,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,

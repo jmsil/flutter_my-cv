@@ -118,7 +118,7 @@ class _Painter extends CustomPainter {
       canvas.drawRect(Rect.fromLTRB(0, 0, size.width, padding.top + _iconBoxSize / 2), _paint);
     }
 
-    _paint.color = theme.brand3.surfaceColor;
+    _paint.color = theme.brand2.over2.color;
     canvas.drawRRect(lineRect, _paint);
     canvas.drawRRect(iconRect, _paint);
     canvas.drawRRect(titleRect, _paint);

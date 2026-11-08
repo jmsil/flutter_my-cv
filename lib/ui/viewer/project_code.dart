@@ -122,7 +122,7 @@ class _CodeEditor extends CodeEditor {
     },
     leadingDivider: VerticalDivider(
       width: 1.5, thickness: 1.5,
-      color: theme.brand3.surfaceColor.withDividerAlpha
+      color: theme.brand2.over2.color.withDividerAlpha
     )
   );
 }

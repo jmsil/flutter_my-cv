@@ -52,11 +52,9 @@ class ProfessionalDevelopmentCard extends StatelessWidget {
       );
     }
 
-    return AppContainer(
-      color: theme.brand3.surfaceColor.withCardFillAlpha,
+    return AppCard(
+      theme: theme,
       padding: const AppEdgeInsets.normal(),
-      borderColor: theme.brand3.surfaceColor.withCardBorderAlpha,
-      borderRadius: AppTheme.allBorderRadius,
       child: Column(
         spacing: certificateLink == null
           ? AppDimens.small
