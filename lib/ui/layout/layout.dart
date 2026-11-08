@@ -10,7 +10,7 @@ class AppLayout {
       surfaceColor: Colors.blueGrey[900]!.withValues(alpha: 0.12),
       over1: AppThemeDataStyledProperty(Colors.black),
       over2: AppThemeDataStyledProperty(Colors.blueGrey[900]!),
-      decoration: AppThemeDataStyledProperty(Colors.blue[900]!)
+      decoration1: AppThemeDataStyledProperty(Colors.blue[900]!)
     )
   );
 

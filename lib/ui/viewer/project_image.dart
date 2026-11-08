@@ -15,11 +15,11 @@ class ProjectImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.appLayout.theme;
+    final AppThemeData themeData = context.appLayout.theme.viewer;
     final builtImageWidget = Image.memory(image);
 
     final Widget builtFullWindowChild = _FullWindowHandler(
-      theme,
+      themeData,
       LayoutBuilder(
         builder: (BuildContext builderContext, BoxConstraints builderConstraints) {
           return InteractiveViewer(
@@ -40,7 +40,7 @@ class ProjectImageWidget extends StatelessWidget {
     );
 
     return _FullWindowHandler(
-      theme,
+      themeData,
       builtImageWidget,
       builtFullWindowChild
     );
@@ -49,13 +49,13 @@ class ProjectImageWidget extends StatelessWidget {
 
 class _FullWindowHandler extends AppViewerFullWindowHandler {
   _FullWindowHandler(
-    AppTheme theme, Widget child, Widget? fullWindowChild
+    AppThemeData themeData, Widget child, Widget? fullWindowChild
   ) : super(
-    iconColor: theme.background.decoration.color,
+    iconColor: themeData.decoration1.color,
     child: AppContainer(
-      color: theme.background.over2.color,
+      color: Colors.white,
       padding: const AppEdgeInsets.normal(),
-      borderColor: theme.background.decoration.color.withDecorationAlpha,
+      borderColor: themeData.decoration1.color.withDecorationAlpha,
       borderRadius: AppTheme.allBorderRadius,
       child: child
     ),

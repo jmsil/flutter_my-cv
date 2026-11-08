@@ -14,14 +14,13 @@ class AppTheme {
     AppThemeData? background,
     AppThemeData? brand1,
     AppThemeData? brand2,
-    AppThemeData? brand3,
-    AppThemeData? sidebarSection
+    AppThemeData? sidebarSection,
+    AppThemeData? viewer
   }) :
     this.background = background ?? AppThemeData(
       surfaceColor: Colors.blueGrey[50]!,
       over1: AppThemeDataStyledProperty(Colors.black),
-      over2: AppThemeDataBasicProperty(Colors.white),
-      decoration: AppThemeDataStyledProperty(Colors.blue[900]!)
+      decoration1: AppThemeDataStyledProperty(Colors.blue[900]!)
     ),
     this.brand1 = brand1 ?? AppThemeData(
       surfaceColor: Colors.blueGrey[900]!,
@@ -36,13 +35,21 @@ class AppTheme {
       surfaceColor: Colors.black26,
       over1: AppThemeDataStyledProperty(Colors.blue[100]!),
       over2: AppThemeDataStyledProperty(Colors.blue[200]!),
-      decoration: AppThemeDataStyledProperty(Colors.blue[200]!)
+      decoration1: AppThemeDataStyledProperty(Colors.blue[200]!)
+    ),
+    this.viewer = viewer ?? AppThemeData(
+      surfaceColor: Colors.blueGrey[50]!,
+      over1: AppThemeDataStyledProperty(Colors.black),
+      over2: AppThemeDataBasicProperty(Colors.blueGrey[900]!),
+      decoration1: AppThemeDataBasicProperty(Colors.blue[900]!),
+      decoration2: AppThemeDataBasicProperty(Colors.blue[200]!)
     );
 
   final AppThemeData background;
   final AppThemeData brand1;
   final AppThemeData brand2;
   final AppThemeData sidebarSection;
+  final AppThemeData viewer;
 }
 
 class AppThemeTextStyle {
@@ -89,7 +96,8 @@ class AppThemeData {
     required this.surfaceColor,
     this.over1 = AppThemeDataBasicProperty.transparent,
     this.over2 = AppThemeDataBasicProperty.transparent,
-    this.decoration = AppThemeDataBasicProperty.transparent
+    this.decoration1 = AppThemeDataBasicProperty.transparent,
+    this.decoration2 = AppThemeDataBasicProperty.transparent
   });
 
   final Color surfaceColor;
@@ -100,8 +108,11 @@ class AppThemeData {
   final AppThemeDataBasicProperty over2;
   AppThemeDataStyledProperty get overStyled2 => over2 as AppThemeDataStyledProperty;
 
-  final AppThemeDataBasicProperty decoration;
-  AppThemeDataStyledProperty get decorationStyled => decoration as AppThemeDataStyledProperty;
+  final AppThemeDataBasicProperty decoration1;
+  AppThemeDataStyledProperty get decorationStyled1 => decoration1 as AppThemeDataStyledProperty;
+
+  final AppThemeDataBasicProperty decoration2;
+  AppThemeDataStyledProperty get decorationStyled2 => decoration2 as AppThemeDataStyledProperty;
 }
 
 extension AppThemeColorExtension on Color {

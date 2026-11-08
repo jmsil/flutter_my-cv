@@ -52,7 +52,7 @@ class IntegrationLearningExperience extends ExpandableContent {
           ),
           Text(
             StringsModel.strings.integrationProjectsScriptCollectionInfo,
-            style: theme.background.decorationStyled.normalText.italic
+            style: theme.background.decorationStyled1.normalText.italic
           )
         ]
       )

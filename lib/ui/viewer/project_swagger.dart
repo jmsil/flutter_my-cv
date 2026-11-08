@@ -82,29 +82,29 @@ class _State extends State<ProjectSwaggerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.appLayout.theme;
+    final AppThemeData themeData = context.appLayout.theme.viewer;
     final Widget htmlElementView = HtmlElementView(viewType: viewType);
 
     return _FullWindowHandler(
-      theme,
+      themeData,
       htmlElementView,
-      _FullWindowHandler(theme, htmlElementView, null)
+      _FullWindowHandler(themeData, htmlElementView, null)
     );
   }
 }
 
 class _FullWindowHandler extends AppViewerFullWindowHandler {
   _FullWindowHandler(
-    AppTheme theme, Widget child, Widget? fullWindowChild
+    AppThemeData themeData, Widget child, Widget? fullWindowChild
   ) : super(
-    iconColor: theme.background.decoration.color,
+    iconColor: themeData.decoration1.color,
     child: AppContainer(
       height: fullWindowChild == null ? null : 600,
       padding: AppDevice.isMobileDevice()
         ? const EdgeInsets.only(top: AppDimens.xxLarge, bottom: AppDimens.normal)
         : const AppEdgeInsets.xxxLarge(),
-      color: theme.background.over2.color,
-      borderColor: theme.background.decoration.color.withDecorationAlpha,
+      color: Colors.white,
+      borderColor: themeData.decoration1.color.withDecorationAlpha,
       borderRadius: AppTheme.allBorderRadius,
       enableClip: true,
       child: child

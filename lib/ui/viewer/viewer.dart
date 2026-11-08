@@ -80,7 +80,7 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
   Widget build(BuildContext context) {
     final Size screenSize = context.screenSize;
     final bool isMobileDevice = AppDevice.isMobileDevice();
-    final AppThemeData themeData = context.appLayout.theme.background;
+    final AppThemeData themeData = context.appLayout.theme.viewer;
 
     final bool isFloatingWindow =
       screenSize.width >= 720 && screenSize.height >= 480 && ! isMobileDevice;

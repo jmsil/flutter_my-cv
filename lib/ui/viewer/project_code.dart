@@ -46,7 +46,7 @@ class _State extends State<ProjectCodeWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.appLayout.theme;
+    final AppThemeData themeData = context.appLayout.theme.viewer;
     final double screenWidth = context.screenSize.width;
     final List<Widget> children = [];
 
@@ -55,16 +55,16 @@ class _State extends State<ProjectCodeWidget> {
       screenWidth / widget.assetsIds.length >= 400;
 
     for (int i = 0; i < widget.assetsIds.length; i++) {
-      Widget editorWidget = _CodeEditor(theme, controllers[i]);
+      Widget editorWidget = _CodeEditor(themeData, controllers[i]);
       children.add(isHorizontalDirection
         ? Expanded(
             flex: widget.horizontalFlexes?[i] ?? 1,
             child: editorWidget
           )
         : _FullWindowHandler(
-            theme,
+            themeData,
             editorWidget,
-            _FullWindowHandler(theme, editorWidget, null)
+            _FullWindowHandler(themeData, editorWidget, null)
           )
       );
     }
@@ -77,9 +77,9 @@ class _State extends State<ProjectCodeWidget> {
 
     return isHorizontalDirection
       ? _FullWindowHandler(
-          theme,
+          themeData,
           builtWidget,
-          _FullWindowHandler(theme, builtWidget, null)
+          _FullWindowHandler(themeData, builtWidget, null)
         )
       : builtWidget;
   }
@@ -87,18 +87,18 @@ class _State extends State<ProjectCodeWidget> {
 
 class _CodeEditor extends CodeEditor {
   _CodeEditor(
-    AppTheme theme, CodeLineEditingController controller
+    AppThemeData themeData, CodeLineEditingController controller
   ) : super(
     readOnly: true,
     wordWrap: false,
     borderRadius: AppTheme.allBorderRadius,
     controller: controller,
     style: CodeEditorStyle(
-      fontSize: theme.background.overStyled1.normalText.regular.fontSize,
-      textColor: theme.background.surfaceColor,
-      cursorColor: theme.background.surfaceColor,
-      backgroundColor: theme.brand1.surfaceColor,
-      selectionColor: theme.brand1.over1.color.withTextSelectionAlpha,
+      fontSize: themeData.overStyled1.normalText.regular.fontSize,
+      textColor: themeData.surfaceColor,
+      cursorColor: themeData.surfaceColor,
+      backgroundColor: themeData.over2.color,
+      selectionColor: themeData.decoration2.color.withTextSelectionAlpha,
       codeTheme: CodeHighlightTheme(
         languages: {
           'xml': CodeHighlightThemeMode(mode: langXml),
@@ -120,20 +120,23 @@ class _CodeEditor extends CodeEditor {
         )
       );
     },
-    leadingDivider: VerticalDivider(
-      width: 1.5, thickness: 1.5,
-      color: theme.brand2.over2.color.withDividerAlpha
+    leadingDivider: Padding(
+      padding: const EdgeInsets.only(right: AppDimens.xSmall),
+      child: VerticalDivider(
+        width: 1, thickness: 1,
+        color: themeData.surfaceColor.withDividerAlpha
+      )
     )
   );
 }
 
 class _FullWindowHandler extends SizedBox {
   _FullWindowHandler(
-    AppTheme theme, Widget child, Widget? fullWindowChild
+    AppThemeData themeData, Widget child, Widget? fullWindowChild
   ) : super(
     height: 326,
     child: AppViewerFullWindowHandler(
-      iconColor: theme.brand1.over1.color,
+      iconColor: themeData.decoration2.color,
       child: child,
       fullWindowChild: fullWindowChild
     )

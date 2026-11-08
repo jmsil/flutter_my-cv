@@ -17,7 +17,7 @@ class Section extends AppContainer {
     enableClip: true,
     child: AppExpandableHeader(
       startOpen: startOpen,
-      arrowColor: theme.sidebarSection.decoration.color,
+      arrowColor: theme.sidebarSection.decoration1.color,
       effectColor: theme.sidebarSection.surfaceColor,
       headerPadding: const AppEdgeInsets.normal(left: AppDimens.large),
       expandablePadding: const AppEdgeInsets.large(top: AppDimens.small),

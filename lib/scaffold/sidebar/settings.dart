@@ -18,11 +18,11 @@ class Settings extends StatelessWidget {
     final bool isExtendedScreen = context.isExtendedScreen;
 
     final TextStyle selectedStyle = isExtendedScreen
-      ? theme.background.decorationStyled.normalText.bold
+      ? theme.background.decorationStyled1.normalText.bold
       : theme.brand1.overStyled1.normalText.bold;
 
     final TextStyle unselectedStyle = isExtendedScreen
-      ? theme.background.decorationStyled.normalText.regular
+      ? theme.background.decorationStyled1.normalText.regular
       : theme.brand1.overStyled1.normalText.regular;
 
     final Widget languagesWidget = Row(
@@ -53,25 +53,25 @@ class Settings extends StatelessWidget {
       children: [
         AppButton.icon(
           icon: AppIcons.flatLayout,
-          color: theme.background.decoration.color,
+          color: theme.background.decoration1.color,
           isSelected: layout == AppLayout.flat,
           onPressed: () => setLayout(context, AppLayout.flat)
         ),
         AppButton.icon(
           icon: AppIcons.leftLayout,
-          color: theme.background.decoration.color,
+          color: theme.background.decoration1.color,
           isSelected: layout == AppLayout.left,
           onPressed: () => setLayout(context, AppLayout.left)
         ),
         AppButton.icon(
           icon: AppIcons.topLayout,
-          color: theme.background.decoration.color,
+          color: theme.background.decoration1.color,
           isSelected: layout == AppLayout.top,
           onPressed: () => setLayout(context, AppLayout.top)
         ),
         AppButton.icon(
           icon: AppIcons.fullLayout,
-          color: theme.background.decoration.color,
+          color: theme.background.decoration1.color,
           isSelected: layout == AppLayout.full,
           onPressed: () => setLayout(context, AppLayout.full)
         )
@@ -81,7 +81,7 @@ class Settings extends StatelessWidget {
     final Widget downloadPdfButton = AppMaterialButton(
       AppIcons.download,
       Strings.downloadPdf,
-      theme.background.decorationStyled.normalText.bold,
+      theme.background.decorationStyled1.normalText.bold,
       onPressed: () => downloadPdf(context, StringsModel.languageCode)
     );
 
