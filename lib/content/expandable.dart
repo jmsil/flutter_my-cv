@@ -78,7 +78,7 @@ class ExpandableContent extends StatelessWidget {
 
     return AppExpandableHeader(
       startOpen: startOpen,
-      arrowColor: theme.background.decoration1.color,
+      arrowColor: theme.background.accent1.color,
       effectColor: theme.brand2.surfaceColor,
       enableClip: true,
       enableIntrinsicHeaderHeight: true,

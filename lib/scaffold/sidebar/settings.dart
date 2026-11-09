@@ -30,7 +30,7 @@ class Settings extends StatelessWidget {
         AppMaterialButton(
           AppIcons.download,
           Strings.downloadPdf,
-          themeData.decorationStyled1.normalText.bold,
+          themeData.accentStyled1.normalText.bold,
           onPressed: () => downloadPdf(context)
         )
       ]
@@ -47,8 +47,8 @@ class _LanguagesSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppThemeData themeData = LayoutThemeModel.theme.background;
-    final TextStyle selectedStyle = themeData.decorationStyled1.normalText.bold;
-    final TextStyle unselectedStyle = themeData.decorationStyled1.normalText.regular;
+    final TextStyle selectedStyle = themeData.accentStyled1.normalText.bold;
+    final TextStyle unselectedStyle = themeData.accentStyled1.normalText.regular;
 
     return _Settings(
       AppIcons.language,
@@ -90,13 +90,13 @@ class _ThemeSettings extends StatelessWidget {
       [
         AppButton.icon(
           icon: AppIcons.themeLightMode,
-          color: themeData.decoration1.color,
+          color: themeData.accent1.color,
           isSelected: themeMode == Brightness.light,
           onPressed: () => setTheme(context, Brightness.light)
         ),
         AppButton.icon(
           icon: AppIcons.themeDarkMode,
-          color: themeData.decoration1.color,
+          color: themeData.accent1.color,
           isSelected: themeMode == Brightness.dark,
           onPressed: () => setTheme(context, Brightness.dark)
         )
@@ -122,25 +122,25 @@ class _LayoutSettings extends StatelessWidget {
       [
         AppButton.icon(
           icon: AppIcons.flatLayout,
-          color: themeData.decoration1.color,
+          color: themeData.accent1.color,
           isSelected: layoutMode.isFlat,
           onPressed: () => setLayout(context, AppLayoutMode.flat)
         ),
         AppButton.icon(
           icon: AppIcons.leftLayout,
-          color: themeData.decoration1.color,
+          color: themeData.accent1.color,
           isSelected: layoutMode.isLeft,
           onPressed: () => setLayout(context, AppLayoutMode.left)
         ),
         AppButton.icon(
           icon: AppIcons.topLayout,
-          color: themeData.decoration1.color,
+          color: themeData.accent1.color,
           isSelected: layoutMode.isTop,
           onPressed: () => setLayout(context, AppLayoutMode.top)
         ),
         AppButton.icon(
           icon: AppIcons.fullLayout,
-          color: themeData.decoration1.color,
+          color: themeData.accent1.color,
           isSelected: layoutMode.isFull,
           onPressed: () => setLayout(context, AppLayoutMode.full)
         )

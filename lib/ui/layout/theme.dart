@@ -37,13 +37,13 @@ class AppTheme {
           surfaceColor: Colors.blueGrey[50]!,
           over1: AppThemeDataStyledProperty(Colors.black),
           over2: AppThemeDataBasicProperty(Colors.blueGrey[300]!),
-          decoration1: AppThemeDataStyledProperty(Colors.blue[900]!)
+          accent1: AppThemeDataStyledProperty(Colors.blue[900]!)
         )
       : AppThemeData(
           surfaceColor: Color.alphaBlend(Colors.black38, Colors.blueGrey[900]!),
           over1: AppThemeDataStyledProperty(Colors.blueGrey[50]!),
           over2: AppThemeDataBasicProperty(Colors.blueGrey[700]!),
-          decoration1: AppThemeDataStyledProperty(Colors.blue[200]!)
+          accent1: AppThemeDataStyledProperty(Colors.blue[200]!)
         );
   }
 
@@ -80,26 +80,26 @@ class AppTheme {
             surfaceColor: Colors.blueGrey[900]!.withValues(alpha: 0.56),
             over1: AppThemeDataStyledProperty(Colors.blue[100]!),
             over2: AppThemeDataStyledProperty(Colors.blue[200]!),
-            decoration1: AppThemeDataStyledProperty(Colors.blue[200]!)
+            accent1: AppThemeDataStyledProperty(Colors.blue[200]!)
           )
         : AppThemeData(
             surfaceColor: Colors.blueGrey[800]!.withValues(alpha: 0.56),
             over1: AppThemeDataStyledProperty(Colors.blue[100]!),
             over2: AppThemeDataStyledProperty(Colors.blue[200]!),
-            decoration1: AppThemeDataStyledProperty(Colors.blue[200]!)
+            accent1: AppThemeDataStyledProperty(Colors.blue[200]!)
           )
       : isLightMode
         ? AppThemeData(
             surfaceColor: Colors.blueGrey[900]!.withValues(alpha: 0.12),
             over1: AppThemeDataStyledProperty(Colors.black),
             over2: AppThemeDataStyledProperty(Colors.blueGrey[900]!),
-            decoration1: AppThemeDataStyledProperty(Colors.blue[900]!)
+            accent1: AppThemeDataStyledProperty(Colors.blue[900]!)
           )
         : AppThemeData(
             surfaceColor: Colors.blueGrey[800]!.withValues(alpha: 0.24),
             over1: AppThemeDataStyledProperty(Colors.blue[100]!),
             over2: AppThemeDataStyledProperty(Colors.blue[200]!),
-            decoration1: AppThemeDataStyledProperty(Colors.blue[200]!)
+            accent1: AppThemeDataStyledProperty(Colors.blue[200]!)
           );
   }
 
@@ -108,8 +108,8 @@ class AppTheme {
       surfaceColor: Colors.blueGrey[50]!,
       over1: AppThemeDataStyledProperty(Colors.black),
       over2: AppThemeDataBasicProperty(Colors.blueGrey[900]!),
-      decoration1: AppThemeDataBasicProperty(Colors.blue[900]!),
-      decoration2: AppThemeDataBasicProperty(Colors.blue[200]!)
+      accent1: AppThemeDataBasicProperty(Colors.blue[900]!),
+      accent2: AppThemeDataBasicProperty(Colors.blue[200]!)
     );
   }
 }
@@ -158,8 +158,8 @@ class AppThemeData {
     required this.surfaceColor,
     this.over1 = AppThemeDataBasicProperty.transparent,
     this.over2 = AppThemeDataBasicProperty.transparent,
-    this.decoration1 = AppThemeDataBasicProperty.transparent,
-    this.decoration2 = AppThemeDataBasicProperty.transparent
+    this.accent1 = AppThemeDataBasicProperty.transparent,
+    this.accent2 = AppThemeDataBasicProperty.transparent
   });
 
   final Color surfaceColor;
@@ -170,11 +170,11 @@ class AppThemeData {
   final AppThemeDataBasicProperty over2;
   AppThemeDataStyledProperty get overStyled2 => over2 as AppThemeDataStyledProperty;
 
-  final AppThemeDataBasicProperty decoration1;
-  AppThemeDataStyledProperty get decorationStyled1 => decoration1 as AppThemeDataStyledProperty;
+  final AppThemeDataBasicProperty accent1;
+  AppThemeDataStyledProperty get accentStyled1 => accent1 as AppThemeDataStyledProperty;
 
-  final AppThemeDataBasicProperty decoration2;
-  AppThemeDataStyledProperty get decorationStyled2 => decoration2 as AppThemeDataStyledProperty;
+  final AppThemeDataBasicProperty accent2;
+  AppThemeDataStyledProperty get accentStyled2 => accent2 as AppThemeDataStyledProperty;
 }
 
 extension AppThemeColorExtension on Color {

@@ -98,7 +98,7 @@ class _CodeEditor extends CodeEditor {
       textColor: themeData.surfaceColor,
       cursorColor: themeData.surfaceColor,
       backgroundColor: themeData.over2.color,
-      selectionColor: themeData.decoration2.color.withTextSelectionAlpha,
+      selectionColor: themeData.accent2.color.withTextSelectionAlpha,
       codeTheme: CodeHighlightTheme(
         languages: {
           'xml': CodeHighlightThemeMode(mode: langXml),
@@ -136,7 +136,7 @@ class _FullWindowHandler extends SizedBox {
   ) : super(
     height: 326,
     child: AppViewerFullWindowHandler(
-      iconColor: themeData.decoration2.color,
+      iconColor: themeData.accent2.color,
       child: child,
       fullWindowChild: fullWindowChild
     )
