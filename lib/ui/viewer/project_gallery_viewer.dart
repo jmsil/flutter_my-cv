@@ -138,6 +138,7 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
   }
 
   Widget _buildBodyToolbarWidget(AppThemeData themeData, Axis direction, double size) {
+    final AppThemeDataStyledProperty themeProperty = themeData.overStyled1;
     final bool isHorizontalDirection = direction == Axis.horizontal;
     final List<Widget> buttons = [];
 
@@ -146,7 +147,7 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
         icon: isHorizontalDirection
           ? AppIcons.back
           : AppIcons.close,
-        color: themeData.over1.color,
+        themeProperty: themeProperty,
         onPressed: () => Navigator.pop(context)
       )
     );
@@ -163,14 +164,14 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
               icon: isHorizontalDirection
                 ? AppIcons.arrowLeft
                 : AppIcons.arrowUp,
-              color: themeData.over1.color,
+              themeProperty: themeProperty,
               onPressed: onPrevious
             ),
             AppButton.icon(
               icon: isHorizontalDirection
                 ? AppIcons.arrowRight
                 : AppIcons.arrowDown,
-              color: themeData.over1.color,
+              themeProperty: themeProperty,
               onPressed: onNext
             )
           ]
@@ -181,7 +182,7 @@ class _State extends AppViewerState<ProjectGalleryViewer> {
     buttons.add(
       Text(
         '${index + 1}/${ widget.assets.count }',
-        style: themeData.overStyled1.normalText.bold
+        style: themeProperty.normalText.bold
       )
     );
 

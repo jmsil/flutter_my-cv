@@ -54,9 +54,9 @@ class _State extends PopupMenuButtonState {
     final AppTheme theme = LayoutThemeModel.theme;
     return AppButton.icon(
       icon: AppIcons.settings,
-      color: layoutMode.showSidebarBackground
-        ? theme.brand1.over1.color
-        : theme.background.over1.color,
+      themeProperty: layoutMode.showSidebarBackground
+        ? theme.brand1.over1
+        : theme.background.over1,
       onPressed: showButtonMenu
     );
   }

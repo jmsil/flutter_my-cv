@@ -28,9 +28,9 @@ class Settings extends StatelessWidget {
 
         AppSpacing.xxSmallV,
         AppMaterialButton(
-          AppIcons.download,
-          Strings.downloadPdf,
-          themeData.accentStyled1.normalText.bold,
+          icon: AppIcons.download,
+          text: Strings.downloadPdf,
+          themeProperty: themeData.accentStyled1,
           onPressed: () => downloadPdf(context)
         )
       ]
@@ -46,25 +46,21 @@ class Settings extends StatelessWidget {
 class _LanguagesSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final AppThemeData themeData = LayoutThemeModel.theme.background;
-    final TextStyle selectedStyle = themeData.accentStyled1.normalText.bold;
-    final TextStyle unselectedStyle = themeData.accentStyled1.normalText.regular;
-
+    final AppThemeDataStyledProperty themeProperty =
+      LayoutThemeModel.theme.background.accentStyled1;
     return _Settings(
       AppIcons.language,
       StringsModel.strings.language,
       [
         AppButton.label(
           label: Strings.languagePt,
-          selectedStyle: selectedStyle,
-          unselectedStyle: unselectedStyle,
+          themeProperty: themeProperty,
           isSelected: StringsModel.languageCode == 'pt',
           onPressed: () => setLanguage(context, 'pt')
         ),
         AppButton.label(
           label: Strings.languageEn,
-          selectedStyle: selectedStyle,
-          unselectedStyle: unselectedStyle,
+          themeProperty: themeProperty,
           isSelected: StringsModel.languageCode != 'pt',
           onPressed: () => setLanguage(context, 'en')
         )
@@ -82,7 +78,8 @@ class _ThemeSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Brightness themeMode = LayoutThemeModel.themeMode;
-    final AppThemeData themeData = LayoutThemeModel.theme.background;
+    final AppThemeDataBasicProperty themeProperty =
+      LayoutThemeModel.theme.background.accent1;
 
     return _Settings(
       AppIcons.theme,
@@ -90,13 +87,13 @@ class _ThemeSettings extends StatelessWidget {
       [
         AppButton.icon(
           icon: AppIcons.themeLightMode,
-          color: themeData.accent1.color,
+          themeProperty: themeProperty,
           isSelected: themeMode == Brightness.light,
           onPressed: () => setTheme(context, Brightness.light)
         ),
         AppButton.icon(
           icon: AppIcons.themeDarkMode,
-          color: themeData.accent1.color,
+          themeProperty: themeProperty,
           isSelected: themeMode == Brightness.dark,
           onPressed: () => setTheme(context, Brightness.dark)
         )
@@ -114,7 +111,7 @@ class _LayoutSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLayoutMode layoutMode = LayoutThemeModel.layoutMode;
-    final AppThemeData themeData = LayoutThemeModel.theme.background;
+    final AppThemeDataBasicProperty themeProperty = LayoutThemeModel.theme.background.accent1;
 
     return _Settings(
       AppIcons.layout,
@@ -122,25 +119,25 @@ class _LayoutSettings extends StatelessWidget {
       [
         AppButton.icon(
           icon: AppIcons.flatLayout,
-          color: themeData.accent1.color,
+          themeProperty: themeProperty,
           isSelected: layoutMode.isFlat,
           onPressed: () => setLayout(context, AppLayoutMode.flat)
         ),
         AppButton.icon(
           icon: AppIcons.leftLayout,
-          color: themeData.accent1.color,
+          themeProperty: themeProperty,
           isSelected: layoutMode.isLeft,
           onPressed: () => setLayout(context, AppLayoutMode.left)
         ),
         AppButton.icon(
           icon: AppIcons.topLayout,
-          color: themeData.accent1.color,
+          themeProperty: themeProperty,
           isSelected: layoutMode.isTop,
           onPressed: () => setLayout(context, AppLayoutMode.top)
         ),
         AppButton.icon(
           icon: AppIcons.fullLayout,
-          color: themeData.accent1.color,
+          themeProperty: themeProperty,
           isSelected: layoutMode.isFull,
           onPressed: () => setLayout(context, AppLayoutMode.full)
         )

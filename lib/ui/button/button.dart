@@ -9,7 +9,7 @@ class AppButton extends StatelessWidget {
   static const double _containerSize = 36;
   static const double _iconSize = 24;
 
-  final Color color;
+  final AppThemeDataBasicProperty themeProperty;
   final bool isSelected;
   final bool _isProcessing;
   final Widget child;
@@ -17,37 +17,39 @@ class AppButton extends StatelessWidget {
 
   AppButton.label({
     required String label,
-    required TextStyle selectedStyle,
-    required TextStyle unselectedStyle,
+    required AppThemeDataStyledProperty themeProperty,
     required this.isSelected,
     required this.onPressed
   }) :
-    _isProcessing = false,
-    color = isSelected ? selectedStyle.color! : unselectedStyle.color!,
-    child = Text(label, style: isSelected ? selectedStyle : unselectedStyle);
+    this._isProcessing = false,
+    this.themeProperty = themeProperty,
+    this.child = Text(
+      label,
+      style: isSelected ? themeProperty.normalText.bold : themeProperty.normalText.regular
+    );
 
   AppButton.icon({
     required IconData icon,
-    required this.color,
+    required this.themeProperty,
     bool isProcessing = false,
     this.isSelected = false,
     required this.onPressed
   }) :
-    _isProcessing = isProcessing,
-    child = Icon(icon, size: _iconSize, color: color);
+    this._isProcessing = isProcessing,
+    this.child = Icon(icon, size: _iconSize, color: themeProperty.color);
 
   @override
   Widget build(BuildContext context) {
-    final Color inkEffectColor = color.withInkEffectAlpha;
+    final Color inkEffectColor = themeProperty.effectColor.withInkEffectAlpha;
 
     final builtChild = _isProcessing
       ? SizedBox(
           width: _iconSize,
           height: _iconSize,
           child: CircularProgressIndicator(
-            color: color,
+            color: themeProperty.color,
             strokeWidth: 3,
-            backgroundColor: color.withValues(alpha: 0.26)
+            backgroundColor: themeProperty.color.withValues(alpha: 0.26)
           )
         )
       : child;
@@ -60,7 +62,7 @@ class AppButton extends StatelessWidget {
       icon: AppContainer(
         width: _containerSize,
         height: _containerSize,
-        color: isSelected ? color.withButtonFrameAlpha : null,
+        color: isSelected ? themeProperty.color.withButtonFrameAlpha : null,
         borderRadius: AppTheme.circleBorderRadius,
         child: Center(child: builtChild)
       ),
@@ -71,25 +73,25 @@ class AppButton extends StatelessWidget {
 }
 
 class AppMaterialButton extends MaterialButton {
-  AppMaterialButton(
-    IconData icon, String text, TextStyle textStyle,
-    {
-      super.onPressed
-    }
-  ) : super(
-    color: textStyle.color?.withButtonFrameAlpha,
+  AppMaterialButton({
+    required IconData icon,
+    required String text,
+    required AppThemeDataStyledProperty themeProperty,
+    super.onPressed
+  }) : super(
+    color: themeProperty.color.withButtonFrameAlpha,
     elevation: 0,
     hoverElevation: 0,
     focusElevation: 0,
     disabledElevation: 0,
     highlightElevation: 0,
-    hoverColor: textStyle.color?.withInkEffectAlpha,
-    splashColor: textStyle.color?.withInkEffectAlpha,
-    highlightColor: textStyle.color?.withInkEffectAlpha,
+    hoverColor: themeProperty.effectColor.withInkEffectAlpha,
+    splashColor: themeProperty.effectColor.withInkEffectAlpha,
+    highlightColor: themeProperty.effectColor.withInkEffectAlpha,
     shape: RoundedRectangleBorder(borderRadius: AppTheme.allBorderRadius),
     child: Padding(
       padding: const AppEdgeInsets.small(),
-      child: AppIconText(icon: icon, text: text, textStyle: textStyle)
+      child: AppIconText(icon: icon, text: text, textStyle: themeProperty.normalText.bold)
     )
   );
 }

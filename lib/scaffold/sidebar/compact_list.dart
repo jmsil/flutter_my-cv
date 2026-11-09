@@ -66,7 +66,7 @@ class _Profile extends Padding {
           alignment: Alignment.topLeft,
           child: AppButton.icon(
             icon: AppIcons.back,
-            color: theme.brand1.over1.color,
+            themeProperty: theme.brand1.over1,
             onPressed: () => Navigator.pop(context)
           )
         )

@@ -34,13 +34,14 @@ class _State extends AppViewerState<ProjectInfoViewer> {
 
   @override
   Widget buildBar(AppThemeData themeData) {
+    final AppThemeDataStyledProperty themeProperty = themeData.overStyled1;
     final Widget builtTitleDetail = Text.rich(
       TextSpan(
         children: [
           TextSpan(
-            text: '${widget.project.title}\n', style: themeData.overStyled1.largeHeader.bold),
+            text: '${widget.project.title}\n', style: themeProperty.largeHeader.bold),
           TextSpan(
-            text: widget.project.description, style: themeData.overStyled1.largeText.regular)
+            text: widget.project.description, style: themeProperty.largeText.regular)
         ]
       )
     );
@@ -48,11 +49,11 @@ class _State extends AppViewerState<ProjectInfoViewer> {
     return Row(
       spacing: AppDimens.normal,
       children: [
-        Icon(AppIcons.webhook, size: 64, color: themeData.over1.color),
+        Icon(AppIcons.webhook, size: 64, color: themeProperty.color),
         Expanded(child: builtTitleDetail),
         AppButton.icon(
           icon: AppIcons.close,
-          color: themeData.over1.color,
+          themeProperty: themeProperty,
           onPressed: () => Navigator.pop(context)
         )
       ]
