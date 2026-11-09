@@ -35,7 +35,7 @@ class AppTheme {
     return isLightMode
       ? AppThemeData(
           surfaceColor: Colors.blueGrey[50]!,
-          over1: AppThemeDataStyledProperty(Colors.black),
+          over1: AppThemeDataStyledProperty(Colors.black, Colors.blueGrey[700]),
           over2: AppThemeDataBasicProperty(Colors.blueGrey[300]!),
           accent1: AppThemeDataStyledProperty(Colors.blue[900]!)
         )
@@ -79,7 +79,7 @@ class AppTheme {
         ? AppThemeData(
             surfaceColor: Colors.blueGrey[900]!.withValues(alpha: 0.56),
             over1: AppThemeDataStyledProperty(Colors.blue[100]!),
-            over2: AppThemeDataStyledProperty(Colors.blue[200]!),
+            over2: AppThemeDataStyledProperty(Colors.blue[200]!, Colors.black),
             accent1: AppThemeDataStyledProperty(Colors.blue[200]!)
           )
         : AppThemeData(
@@ -96,7 +96,7 @@ class AppTheme {
             accent1: AppThemeDataStyledProperty(Colors.blue[900]!)
           )
         : AppThemeData(
-            surfaceColor: Colors.blueGrey[800]!.withValues(alpha: 0.24),
+            surfaceColor: Colors.blueGrey[800]!.withValues(alpha: 0.32),
             over1: AppThemeDataStyledProperty(Colors.blue[100]!),
             over2: AppThemeDataStyledProperty(Colors.blue[200]!),
             accent1: AppThemeDataStyledProperty(Colors.blue[200]!)
@@ -106,7 +106,7 @@ class AppTheme {
   static AppThemeData _getViewerThemeData() {
     return AppThemeData(
       surfaceColor: Colors.blueGrey[50]!,
-      over1: AppThemeDataStyledProperty(Colors.black),
+      over1: AppThemeDataStyledProperty(Colors.black, Colors.blueGrey[700]),
       over2: AppThemeDataBasicProperty(Colors.blueGrey[900]!),
       accent1: AppThemeDataBasicProperty(Colors.blue[900]!),
       accent2: AppThemeDataBasicProperty(Colors.blue[200]!)

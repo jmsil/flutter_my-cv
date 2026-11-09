@@ -25,14 +25,14 @@ class ExpandableContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = LayoutThemeModel.theme;
+    final AppThemeData themeData = LayoutThemeModel.theme.background;
 
     final builtHeaderWidget = Row(
       spacing: AppDimens.small,
       children: [
         VerticalDivider(
           thickness: 8, width: 8,
-          color: theme.background.over1.color.withDecorationAlpha,
+          color: themeData.over1.color.withDecorationAlpha,
           radius: AppTheme.circleBorderRadius
         ),
         Expanded(
@@ -40,9 +40,9 @@ class ExpandableContent extends StatelessWidget {
             TextSpan(
               children: [
                 TextSpan(
-                  text: '$headerTitle\n', style: theme.background.overStyled1.normalHeader.bold),
+                  text: '$headerTitle\n', style: themeData.overStyled1.normalHeader.bold),
                 TextSpan(
-                  text: headerDetail, style: theme.background.overStyled1.normalText.italic)
+                  text: headerDetail, style: themeData.overStyled1.normalText.italic)
               ]
             )
           )
@@ -56,7 +56,7 @@ class ExpandableContent extends StatelessWidget {
       expandableChildren.add(widgetBeforeInfo!);
 
     if (info != null) {
-      Widget widget = Text(info!, style: theme.background.overStyled1.normalText.regular);
+      Widget widget = Text(info!, style: themeData.overStyled1.normalText.regular);
       expandableChildren.add(widget);
     }
 
@@ -64,7 +64,7 @@ class ExpandableContent extends StatelessWidget {
       expandableChildren.add(widgetAfterInfo!);
 
     if (expandableChildren.isEmpty) {
-      Widget widget = Text('- - -', style: theme.background.overStyled1.normalText.bold);
+      Widget widget = Text('- - -', style: themeData.overStyled1.normalText.bold);
       expandableChildren.add(widget);
     }
 
@@ -78,8 +78,8 @@ class ExpandableContent extends StatelessWidget {
 
     return AppExpandableHeader(
       startOpen: startOpen,
-      arrowColor: theme.background.accent1.color,
-      effectColor: theme.brand2.surfaceColor,
+      arrowColor: themeData.accent1.color,
+      effectColor: themeData.over1.effectColor,
       enableClip: true,
       enableIntrinsicHeaderHeight: true,
       headerPadding: _padding,

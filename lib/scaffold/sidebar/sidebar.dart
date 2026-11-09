@@ -25,7 +25,7 @@ class AppSidebar extends StatelessWidget {
       if ( ! isExtendedScreen)
         AppSpacing.normalV,
 
-      DetailsSection(theme),
+      DetailsSection(theme.sidebarSection),
       AppSpacing.normalV,
 
       SkillsSection.programming(),
@@ -34,7 +34,7 @@ class AppSidebar extends StatelessWidget {
       SkillsSection.integration(),
       AppSpacing.normalV,
 
-      AboutSection(theme)
+      AboutSection(theme.sidebarSection)
     ];
 
     final Widget footerWidget = AppContainer(

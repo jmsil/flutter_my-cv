@@ -6,14 +6,14 @@ import 'section.dart';
 
 class AboutSection extends Section {
   AboutSection(
-    AppTheme theme
+    AppThemeData themeData
   ) : super(
-    theme: theme,
+    themeData: themeData,
     startOpen: false,
     title: StringsModel.strings.aboutAndExpectationsTitle,
     contentWidget: Text(
       StringsModel.strings.aboutAndExpectationsInfo,
-      style: theme.sidebarSection.overStyled1.normalText.regular
+      style: themeData.overStyled1.normalText.regular
     )
   );
 }

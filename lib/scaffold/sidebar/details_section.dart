@@ -8,8 +8,10 @@ import '../../ui/text.dart';
 import 'section.dart';
 
 class DetailsSection extends Section {
-  DetailsSection(AppTheme theme) : super(
-    theme: theme,
+  DetailsSection(
+    AppThemeData themeData
+  ) : super(
+    themeData: themeData,
     startOpen: true,
     title: StringsModel.strings.detailsTitle,
     contentWidget: Column(
@@ -19,7 +21,7 @@ class DetailsSection extends Section {
         AppIconText(
           icon: AppIcons.local,
           text: StringsModel.strings.personalLocation,
-          textStyle: theme.sidebarSection.overStyled1.normalText.regular
+          textStyle: themeData.overStyled1.normalText.regular
         ),
         AppLink(
           icon: AppIcons.phone,

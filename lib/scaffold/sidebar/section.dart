@@ -7,21 +7,21 @@ import '../../ui/layout/theme.dart';
 
 class Section extends AppContainer {
   Section({
-    required AppTheme theme,
+    required AppThemeData themeData,
     required bool startOpen,
     required String title,
     required Widget contentWidget
   }) : super(
-    color: theme.sidebarSection.surfaceColor,
+    color: themeData.surfaceColor,
     borderRadius: AppTheme.allBorderRadius,
     enableClip: true,
     child: AppExpandableHeader(
       startOpen: startOpen,
-      arrowColor: theme.sidebarSection.accent1.color,
-      effectColor: theme.sidebarSection.surfaceColor,
+      arrowColor: themeData.accent1.color,
+      effectColor: themeData.over2.effectColor,
       headerPadding: const AppEdgeInsets.normal(left: AppDimens.large),
       expandablePadding: const AppEdgeInsets.large(top: AppDimens.small),
-      headerChild: Text(title, style: theme.sidebarSection.overStyled2.normalHeader.bold),
+      headerChild: Text(title, style: themeData.overStyled2.normalHeader.bold),
       expandableChild: contentWidget
     )
   );

@@ -24,18 +24,18 @@ class SkillsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = LayoutThemeModel.theme;
+    final AppThemeData themeData = LayoutThemeModel.theme.sidebarSection;
     final List<Widget> children = [];
 
     for (String item in skills) {
       children.add(AppIconText.bullet(
         text: item,
-        textStyle: theme.sidebarSection.overStyled1.normalText.regular
+        textStyle: themeData.overStyled1.normalText.regular
       ));
     }
 
     return Section(
-      theme: theme,
+      themeData: themeData,
       startOpen: false,
       title: title,
       contentWidget: allowWrapping
