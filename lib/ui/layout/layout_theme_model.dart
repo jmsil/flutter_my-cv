@@ -30,7 +30,6 @@ class LayoutThemeModel extends ChangeNotifier {
     this._theme = AppTheme.getTheme(_layoutMode, _themeMode);
 
   factory LayoutThemeModel._fac() {
-    WidgetsFlutterBinding.ensureInitialized();
     return LayoutThemeModel._(
       AppLayoutMode.top,
       WidgetsBinding.instance.platformDispatcher.platformBrightness
