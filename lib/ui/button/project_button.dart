@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../assets.dart';
 import '../layout/icons.dart';
-import '../layout/layout_model.dart';
-import '../viewer/project_gallery_viewer.dart';
+import '../layout/layout_theme_model.dart';
 import '../viewer/project.dart';
+import '../viewer/project_gallery_viewer.dart';
 import '../viewer/project_info_viewer.dart';
 import '../viewer/viewer.dart';
 import 'button.dart';
@@ -23,7 +23,7 @@ class _State extends State<AppProjectButton> {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.appLayout.theme;
+    final AppTheme theme = LayoutThemeModel.theme;
     return AppButton.icon(
       icon: widget.project is InfoProject ? AppIcons.info : AppIcons.gallery,
       color: theme.background.decoration1.color,

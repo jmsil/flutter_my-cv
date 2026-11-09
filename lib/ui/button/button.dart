@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../container.dart';
 import '../layout/dimens.dart';
-import '../layout/layout_model.dart';
+import '../layout/theme.dart';
 import '../text.dart';
 
 class AppButton extends StatelessWidget {

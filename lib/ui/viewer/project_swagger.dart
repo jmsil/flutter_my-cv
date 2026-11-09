@@ -7,7 +7,7 @@ import 'package:web/web.dart' as web;
 import '../../scaffold/device.dart';
 import '../container.dart';
 import '../layout/dimens.dart';
-import '../layout/layout_model.dart';
+import '../layout/layout_theme_model.dart';
 import 'full_window_handler.dart';
 
 class ProjectSwaggerWidget extends StatefulWidget {
@@ -82,7 +82,7 @@ class _State extends State<ProjectSwaggerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final AppThemeData themeData = context.appLayout.theme.viewer;
+    final AppThemeData themeData = LayoutThemeModel.theme.viewer;
     final Widget htmlElementView = HtmlElementView(viewType: viewType);
 
     return _FullWindowHandler(

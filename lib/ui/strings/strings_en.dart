@@ -35,6 +35,8 @@ class StringsEn extends Strings {
   @override
   String get language => 'Language';
   @override
+  String get theme => 'Theme';
+  @override
   String get summary => 'Summary';
   @override
   String get portfolio => 'Portfolio';

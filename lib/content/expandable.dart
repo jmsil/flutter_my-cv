@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../ui/expandable/expandable_header.dart';
 import '../ui/layout/dimens.dart';
-import '../ui/layout/layout_model.dart';
+import '../ui/layout/layout_theme_model.dart';
 
 class ExpandableContent extends StatelessWidget {
   static const EdgeInsets _padding = AppEdgeInsets.normal(vertical: AppDimens.small);
@@ -25,7 +25,7 @@ class ExpandableContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.appLayout.theme;
+    final AppTheme theme = LayoutThemeModel.theme;
 
     final builtHeaderWidget = Row(
       spacing: AppDimens.small,

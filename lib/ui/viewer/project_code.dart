@@ -10,7 +10,7 @@ import 'package:re_highlight/styles/vs2015.dart';
 import '../../scaffold/device.dart';
 import '../assets.dart';
 import '../layout/dimens.dart';
-import '../layout/layout_model.dart';
+import '../layout/layout_theme_model.dart';
 import 'full_window_handler.dart';
 
 class ProjectCodeWidget extends StatefulWidget {
@@ -46,7 +46,7 @@ class _State extends State<ProjectCodeWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final AppThemeData themeData = context.appLayout.theme.viewer;
+    final AppThemeData themeData = LayoutThemeModel.theme.viewer;
     final double screenWidth = context.screenSize.width;
     final List<Widget> children = [];
 

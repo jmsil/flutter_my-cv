@@ -80,6 +80,7 @@ abstract class Strings {
   String get aboutAndExpectationsInfo;
   String get madeWithFlutter;
   String get language;
+  String get theme;
   String get summary;
   String get portfolio;
   String get verify;

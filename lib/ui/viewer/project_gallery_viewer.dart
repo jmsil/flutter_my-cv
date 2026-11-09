@@ -9,7 +9,7 @@ import '../button/ink_response.dart';
 import '../container.dart';
 import '../layout/dimens.dart';
 import '../layout/icons.dart';
-import '../layout/layout_model.dart';
+import '../layout/theme.dart';
 import '../scroller.dart';
 import 'viewer.dart';
 

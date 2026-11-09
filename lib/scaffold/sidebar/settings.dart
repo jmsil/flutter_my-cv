@@ -5,7 +5,7 @@ import '../../ui/button/button.dart';
 import '../../ui/button/popup_menu_button.dart';
 import '../../ui/layout/dimens.dart';
 import '../../ui/layout/icons.dart';
-import '../../ui/layout/layout_model.dart';
+import '../../ui/layout/layout_theme_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../../ui/text.dart';
 import '../device.dart';
@@ -13,113 +13,165 @@ import '../device.dart';
 class Settings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final AppLayout layout = context.appLayout;
-    final AppTheme theme = layout.theme;
+    final AppThemeData themeData = LayoutThemeModel.theme.background;
     final bool isExtendedScreen = context.isExtendedScreen;
 
-    final TextStyle selectedStyle = isExtendedScreen
-      ? theme.background.decorationStyled1.normalText.bold
-      : theme.brand1.overStyled1.normalText.bold;
-
-    final TextStyle unselectedStyle = isExtendedScreen
-      ? theme.background.decorationStyled1.normalText.regular
-      : theme.brand1.overStyled1.normalText.regular;
-
-    final Widget languagesWidget = Row(
-      spacing: AppDimens.small,
+    return AppPopupMenuButton(
+      themeData: themeData,
+      spacing: AppDimens.normal,
       children: [
+        _LanguagesSettings(),
+        _ThemeSettings(),
+
+        if (isExtendedScreen)
+          _LayoutSettings(),
+
+        AppSpacing.xxSmallV,
+        AppMaterialButton(
+          AppIcons.download,
+          Strings.downloadPdf,
+          themeData.decorationStyled1.normalText.bold,
+          onPressed: () => downloadPdf(context)
+        )
+      ]
+    );
+  }
+
+  void downloadPdf(BuildContext context) {
+    Navigator.of(context).pop();
+    PdfGenerator.generateAndDownload(StringsModel.languageCode);
+  }
+}
+
+class _LanguagesSettings extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final AppThemeData themeData = LayoutThemeModel.theme.background;
+    final TextStyle selectedStyle = themeData.decorationStyled1.normalText.bold;
+    final TextStyle unselectedStyle = themeData.decorationStyled1.normalText.regular;
+
+    return _Settings(
+      AppIcons.language,
+      StringsModel.strings.language,
+      [
         AppButton.label(
           label: Strings.languagePt,
           selectedStyle: selectedStyle,
           unselectedStyle: unselectedStyle,
           isSelected: StringsModel.languageCode == 'pt',
-          onPressed: () => setLanguage(context, 'pt', isExtendedScreen)
+          onPressed: () => setLanguage(context, 'pt')
         ),
         AppButton.label(
           label: Strings.languageEn,
           selectedStyle: selectedStyle,
           unselectedStyle: unselectedStyle,
           isSelected: StringsModel.languageCode != 'pt',
-          onPressed: () => setLanguage(context, 'en', isExtendedScreen)
+          onPressed: () => setLanguage(context, 'en')
         )
       ]
     );
+  }
 
-    if ( ! isExtendedScreen)
-      return languagesWidget;
+  void setLanguage(BuildContext context, String language) {
+    Navigator.of(context).pop();
+    StringsModel.instance.setLanguage(language);
+  }
+}
 
-    final Widget layoutsWidget = Row(
-      spacing: AppDimens.small,
-      children: [
+class _ThemeSettings extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final Brightness themeMode = LayoutThemeModel.themeMode;
+    final AppThemeData themeData = LayoutThemeModel.theme.background;
+
+    return _Settings(
+      AppIcons.theme,
+      StringsModel.strings.theme,
+      [
+        AppButton.icon(
+          icon: AppIcons.themeLightMode,
+          color: themeData.decoration1.color,
+          isSelected: themeMode == Brightness.light,
+          onPressed: () => setTheme(context, Brightness.light)
+        ),
+        AppButton.icon(
+          icon: AppIcons.themeDarkMode,
+          color: themeData.decoration1.color,
+          isSelected: themeMode == Brightness.dark,
+          onPressed: () => setTheme(context, Brightness.dark)
+        )
+      ]
+    );
+  }
+
+  void setTheme(BuildContext context, Brightness themeMode) {
+    Navigator.of(context).pop();
+    LayoutThemeModel.instance.setThemeMode(themeMode);
+  }
+}
+
+class _LayoutSettings extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final AppLayoutMode layoutMode = LayoutThemeModel.layoutMode;
+    final AppThemeData themeData = LayoutThemeModel.theme.background;
+
+    return _Settings(
+      AppIcons.layout,
+      Strings.layout,
+      [
         AppButton.icon(
           icon: AppIcons.flatLayout,
-          color: theme.background.decoration1.color,
-          isSelected: layout == AppLayout.flat,
-          onPressed: () => setLayout(context, AppLayout.flat)
+          color: themeData.decoration1.color,
+          isSelected: layoutMode.isFlat,
+          onPressed: () => setLayout(context, AppLayoutMode.flat)
         ),
         AppButton.icon(
           icon: AppIcons.leftLayout,
-          color: theme.background.decoration1.color,
-          isSelected: layout == AppLayout.left,
-          onPressed: () => setLayout(context, AppLayout.left)
+          color: themeData.decoration1.color,
+          isSelected: layoutMode.isLeft,
+          onPressed: () => setLayout(context, AppLayoutMode.left)
         ),
         AppButton.icon(
           icon: AppIcons.topLayout,
-          color: theme.background.decoration1.color,
-          isSelected: layout == AppLayout.top,
-          onPressed: () => setLayout(context, AppLayout.top)
+          color: themeData.decoration1.color,
+          isSelected: layoutMode.isTop,
+          onPressed: () => setLayout(context, AppLayoutMode.top)
         ),
         AppButton.icon(
           icon: AppIcons.fullLayout,
-          color: theme.background.decoration1.color,
-          isSelected: layout == AppLayout.full,
-          onPressed: () => setLayout(context, AppLayout.full)
+          color: themeData.decoration1.color,
+          isSelected: layoutMode.isFull,
+          onPressed: () => setLayout(context, AppLayoutMode.full)
         )
       ]
     );
-
-    final Widget downloadPdfButton = AppMaterialButton(
-      AppIcons.download,
-      Strings.downloadPdf,
-      theme.background.decorationStyled1.normalText.bold,
-      onPressed: () => downloadPdf(context, StringsModel.languageCode)
-    );
-
-    return AppPopupMenuButton(
-      theme: theme,
-      children: [
-        AppIconText(
-          icon: AppIcons.language,
-          text: StringsModel.strings.language,
-          textStyle: theme.background.overStyled1.normalText.bold
-        ),
-        languagesWidget,
-        AppSpacing.xxSmallV,
-        AppIconText(
-          icon: AppIcons.layout,
-          text: Strings.layout,
-          textStyle: theme.background.overStyled1.normalText.bold
-        ),
-        layoutsWidget,
-        AppSpacing.normalV,
-        downloadPdfButton
-      ]
-    );
   }
 
-  void setLanguage(BuildContext context, String language, bool isExtendedScreen) {
-    if (isExtendedScreen)
-      Navigator.of(context).pop();
-    StringsModel.instance.setLanguage(language);
-  }
-
-  void setLayout(BuildContext context, AppLayout layout) {
+  void setLayout(BuildContext context, AppLayoutMode layoutMode) {
     Navigator.of(context).pop();
-    LayoutModel.instance.setLayout(layout);
+    LayoutThemeModel.instance.setLayoutMode(layoutMode);
   }
+}
 
-  void downloadPdf(BuildContext context, String language) {
-    Navigator.of(context).pop();
-    PdfGenerator.generateAndDownload(language);
-  }
+class _Settings extends Column {
+  _Settings(
+    IconData icon,
+    String title,
+    List<Widget> children
+  ) : super(
+    spacing: AppDimens.small,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      AppIconText(
+        icon: icon,
+        text: title,
+        textStyle: LayoutThemeModel.theme.background.overStyled1.normalText.bold
+      ),
+      Row(
+        spacing: AppDimens.normal,
+        children: children
+      )
+    ]
+  );
 }

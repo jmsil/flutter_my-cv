@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../ui/layout/dimens.dart';
 import '../ui/layout/icons.dart';
-import '../ui/layout/layout_model.dart';
+import '../ui/layout/layout_theme_model.dart';
 import '../ui/list.dart';
 import '../ui/main_group.dart';
 import '../ui/strings/strings_model.dart';
@@ -25,7 +25,7 @@ class ListGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.appLayout.theme;
+    final AppTheme theme = LayoutThemeModel.theme;
     final List<Widget> children = [];
 
     list.forEach((String listKey, List<String>? listValue) {

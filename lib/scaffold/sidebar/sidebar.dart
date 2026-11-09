@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../ui/container.dart';
 import '../../ui/layout/dimens.dart';
-import '../../ui/layout/layout_model.dart';
+import '../../ui/layout/layout_theme_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../device.dart';
 import 'about_section.dart';
@@ -13,10 +13,12 @@ import 'settings.dart';
 import 'skills_section.dart';
 
 class AppSidebar extends StatelessWidget {
+  static const double width = 480;
+
   @override
   Widget build(BuildContext context) {
-    final AppLayout layout = context.appLayout;
-    final AppTheme theme = layout.theme;
+    final AppLayoutMode layoutMode = LayoutThemeModel.layoutMode;
+    final AppTheme theme = LayoutThemeModel.theme;
     final bool isExtendedScreen = context.isExtendedScreen;
 
     final List<Widget> children = [
@@ -36,7 +38,7 @@ class AppSidebar extends StatelessWidget {
     ];
 
     final Widget footerWidget = AppContainer(
-      color: layout.showSidebarBackground ? theme.brand1.surfaceColor : null,
+      color: layoutMode.showSidebarBackground ? theme.brand1.surfaceColor : null,
       padding: const AppEdgeInsets.normal(vertical: AppDimens.small),
       child: Row(
         spacing: AppDimens.small,
@@ -45,7 +47,7 @@ class AppSidebar extends StatelessWidget {
           Expanded(
             child: Text(
               StringsModel.strings.madeWithFlutter,
-              style: layout.showSidebarBackground
+              style: layoutMode.showSidebarBackground
                 ? theme.brand1.overStyled1.normalText.regular
                 : theme.background.overStyled1.normalText.regular
             )
@@ -66,9 +68,9 @@ class AppSidebar extends StatelessWidget {
       ]
     );
 
-    return layout.showSidebarBackground
+    return layoutMode.showSidebarBackground
       ? AppContainer(
-          width: AppLayout.sidebarWidth,
+          width: width,
           color: theme.brand2.surfaceColor,
           borderRadius: isExtendedScreen
             ? AppTheme.allBorderRadius
@@ -77,7 +79,7 @@ class AppSidebar extends StatelessWidget {
           child: builtChild
         )
       : AppContainer(
-          width: AppLayout.sidebarWidth,
+          width: width,
           child: builtChild
         );
   }

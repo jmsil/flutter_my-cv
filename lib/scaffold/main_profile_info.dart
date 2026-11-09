@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../ui/divider.dart';
 import '../ui/layout/dimens.dart';
 import '../ui/layout/icons.dart';
-import '../ui/layout/layout_model.dart';
+import '../ui/layout/layout_theme_model.dart';
 import '../ui/strings/strings_model.dart';
 
 enum MainProfileInfoStyle { compactAppbar, extendedFlatAppbar, extendedTopAppbar, body }
@@ -40,7 +40,7 @@ class MainProfileInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.appLayout.theme;
+    final AppTheme theme = LayoutThemeModel.theme;
     final double beforeDividerSpacing;
     final double afterDividerSpacing;
     final TextStyle titleStyle;

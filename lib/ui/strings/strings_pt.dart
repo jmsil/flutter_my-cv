@@ -35,6 +35,8 @@ class StringsPt extends Strings {
   @override
   String get language => 'Idioma';
   @override
+  String get theme => 'Tema';
+  @override
   String get summary => 'Resumo';
   @override
   String get portfolio => 'Portfólio';

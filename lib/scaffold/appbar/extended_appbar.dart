@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import '../../content/profile_photo.dart';
 import '../../ui/container.dart';
 import '../../ui/layout/dimens.dart';
-import '../../ui/layout/layout_model.dart';
+import '../../ui/layout/layout_theme_model.dart';
 import '../main_profile_info.dart';
 import 'appbar_model.dart';
 
@@ -12,15 +12,15 @@ class ExtendedAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLayout layout = context.appLayout;
-    final AppTheme theme = layout.theme;
+    final AppLayoutMode layoutMode = LayoutThemeModel.layoutMode;
+    final AppTheme theme = LayoutThemeModel.theme;
     final EdgeInsets margin = AppbarModel.marginOf(context);
 
-    Widget builtWidget = layout.isLeftLayout
+    Widget builtWidget = layoutMode.isLeft
       ? _LeftProfile()
-      : _TopProfile(layout.showTopbarBackground
-          ? MainProfileInfoStyle.extendedTopAppbar
-          : MainProfileInfoStyle.extendedFlatAppbar
+      : _TopProfile(layoutMode.isFlat
+          ? MainProfileInfoStyle.extendedFlatAppbar
+          : MainProfileInfoStyle.extendedTopAppbar
         );
 
     builtWidget = Row(
@@ -37,7 +37,7 @@ class ExtendedAppbar extends StatelessWidget {
       ]
     );
 
-    if ( ! layout.isFlatLayout) {
+    if ( ! layoutMode.isFlat) {
       builtWidget = AppContainer(
         color: theme.brand1.surfaceColor,
         borderRadius: BorderRadius.horizontal(
@@ -53,6 +53,21 @@ class ExtendedAppbar extends StatelessWidget {
       child: builtWidget
     );
   }
+}
+
+class _LeftProfile extends AppbarAnimatedPadding {
+  _LeftProfile() : super(
+    padding: const EdgeInsets.only(right: AppDimens.xLarge),
+    topFactor: 0,
+    bottomFactor: 1,
+    child: AppbarAnimatedOpacity(
+      MainProfileInfo.nameAndRoles(
+        style: MainProfileInfoStyle.compactAppbar,
+        isShortRoles: true,
+        softWrap: false
+      )
+    )
+  );
 }
 
 class _TopProfile extends AppbarAnimatedPadding {
@@ -72,21 +87,6 @@ class _TopProfile extends AppbarAnimatedPadding {
           child: MainProfileInfo.professionalSummary(hasIcon: false, style: style)
         )
       ]
-    )
-  );
-}
-
-class _LeftProfile extends AppbarAnimatedPadding {
-  _LeftProfile() : super(
-    padding: const EdgeInsets.only(right: AppDimens.xLarge),
-    topFactor: 0,
-    bottomFactor: 1,
-    child: AppbarAnimatedOpacity(
-      MainProfileInfo.nameAndRoles(
-        style: MainProfileInfoStyle.compactAppbar,
-        isShortRoles: true,
-        softWrap: false
-      )
     )
   );
 }

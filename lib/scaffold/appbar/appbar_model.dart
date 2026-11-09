@@ -1,7 +1,8 @@
 import 'package:flutter/widgets.dart';
 
 import '../../ui/layout/dimens.dart';
-import '../../ui/layout/layout_model.dart';
+import '../../ui/layout/layout_theme_model.dart';
+import '../sidebar/sidebar.dart';
 
 export 'animated_container.dart';
 export 'animated_opacity.dart';
@@ -27,7 +28,7 @@ class AppbarModel extends StatefulWidget {
   }
 
   static EdgeInsets marginOf(BuildContext context) {
-    return context.appLayout.isFullLayout
+    return LayoutThemeModel.layoutMode.isFull
       ? const AppEdgeInsets.normal(right: 0, bottom: 0) : EdgeInsets.zero;
   }
 
@@ -38,7 +39,7 @@ class AppbarModel extends StatefulWidget {
   static double currentHeightOf(BuildContext context) {
     return currentStateOf(context).isCollapsed
       ? AppbarModel.collapsedHeight
-      : AppLayout.sidebarWidth - AppDimens.normal * 2;
+      : AppSidebar.width - AppDimens.normal * 2;
   }
 
   static double currentTotalHeightOf(BuildContext context) {

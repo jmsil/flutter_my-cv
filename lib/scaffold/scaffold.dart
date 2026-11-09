@@ -4,7 +4,7 @@ import '../content/education.dart';
 import '../content/experience.dart';
 import '../content/list.dart';
 import '../content/professional_dev.dart';
-import '../ui/layout/layout_model.dart';
+import '../ui/layout/layout_theme_model.dart';
 import '../ui/scroller.dart';
 import 'appbar/compact_appbar.dart';
 import 'compact_scaffold.dart';
@@ -13,11 +13,14 @@ import 'extended_scaffold.dart';
 
 class AppScaffold extends ListenableBuilder {
   AppScaffold() : super(
-    listenable: LayoutModel.instance,
+    listenable: LayoutThemeModel.instance,
     builder: (BuildContext context, Widget? child) {
+      final bool isExtendedScreen = context.isExtendedScreen;
+      LayoutThemeModel.instance.setLayoutModeOnScaffoldBuild(isExtendedScreen);
+
       return Material(
-        color: context.appLayout.theme.background.surfaceColor,
-        child: context.isExtendedScreen
+        color: LayoutThemeModel.theme.background.surfaceColor,
+        child: isExtendedScreen
           ? ExtendedScaffold()
           : CompactScaffold()
       );

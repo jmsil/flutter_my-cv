@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 
 import '../layout/dimens.dart';
 import '../layout/icons.dart';
-import '../layout/layout_model.dart';
+import '../layout/layout_theme_model.dart';
 import 'button.dart';
 
 class AppPopupMenuButton extends PopupMenuButton {
   AppPopupMenuButton({
-    required AppTheme theme,
+    required AppThemeData themeData,
+    required double spacing,
     required List<Widget> children
   }) : super(
-    offset: const Offset(76, -238),
-    color: theme.background.surfaceColor,
+    color: themeData.surfaceColor,
+    constraints: const BoxConstraints(maxWidth: 296),
     menuPadding: const AppEdgeInsets.small(
       top: AppDimens.large,
       bottom: AppDimens.normal
@@ -22,7 +23,7 @@ class AppPopupMenuButton extends PopupMenuButton {
       borderRadius: AppTheme.allBorderRadius,
       side: BorderSide(
         width: 1,
-        color: theme.background.decoration1.color.withWindowBorderAlpha
+        color: themeData.decoration1.color.withWindowBorderAlpha
       )
     ),
     itemBuilder: (builderContext) {
@@ -32,7 +33,7 @@ class AppPopupMenuButton extends PopupMenuButton {
           child: IconTheme.merge(
             data: IconThemeData(opacity: 1.0),
             child: Column(
-              spacing: AppDimens.small,
+              spacing: spacing,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: children
             )
@@ -49,12 +50,13 @@ class AppPopupMenuButton extends PopupMenuButton {
 class _State extends PopupMenuButtonState {
   @override
   Widget build(BuildContext context) {
-    final AppLayout layout = context.appLayout;
+    final AppLayoutMode layoutMode = LayoutThemeModel.layoutMode;
+    final AppTheme theme = LayoutThemeModel.theme;
     return AppButton.icon(
       icon: AppIcons.settings,
-      color: layout.showSidebarBackground
-        ? layout.theme.brand1.over1.color
-        : layout.theme.background.over1.color,
+      color: layoutMode.showSidebarBackground
+        ? theme.brand1.over1.color
+        : theme.background.over1.color,
       onPressed: showButtonMenu
     );
   }

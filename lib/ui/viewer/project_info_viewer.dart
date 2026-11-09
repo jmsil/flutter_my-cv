@@ -4,7 +4,7 @@ import 'package:my_cv/ui/scroller.dart';
 import '../button/button.dart';
 import '../layout/dimens.dart';
 import '../layout/icons.dart';
-import '../layout/layout_model.dart';
+import '../layout/theme.dart';
 import '../strings/strings.dart';
 import 'project.dart';
 import 'viewer.dart';

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'layout/dimens.dart';
 import 'layout/icons.dart';
-import 'layout/layout_model.dart';
+import 'layout/layout_theme_model.dart';
 import 'strings/strings_model.dart';
 import 'text.dart';
 
@@ -31,7 +31,7 @@ class AppTabBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.appLayout.theme;
+    final AppTheme theme = LayoutThemeModel.theme;
     final List<Widget> builtTabs = [];
 
     for (AppTabBarTab tab in tabs) {

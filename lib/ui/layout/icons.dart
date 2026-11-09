@@ -29,6 +29,9 @@ class AppIcons {
   static const IconData phone = Icons.phone_outlined;
   static const IconData settings = Icons.settings_outlined;
   static const IconData summary = Icons.format_list_bulleted;
+  static const IconData theme = Icons.brightness_4_outlined;
+  static const IconData themeDarkMode = Icons.dark_mode_outlined;
+  static const IconData themeLightMode = Icons.light_mode_outlined;
   static const IconData trendUp = Icons.trending_up_outlined;
   static const IconData webhook = Icons.webhook;
 

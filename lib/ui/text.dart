@@ -4,7 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'hover.dart';
 import 'layout/dimens.dart';
 import 'layout/icons.dart';
-import 'layout/layout_model.dart';
+import 'layout/layout_theme_model.dart';
 
 class AppIconText extends StatelessWidget {
   final IconData icon;
@@ -85,7 +85,7 @@ class AppLink extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppHoverWidget(
       builder: (BuildContext context, bool hovered, Widget? child) {
-        final AppTheme theme = context.appLayout.theme;
+        final AppTheme theme = LayoutThemeModel.theme;
         final TextStyle textStyle = isOverBackground
           ? hovered
             ? theme.background.decorationStyled1.normalText.bold

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'layout_theme_model.dart';
+
 class AppTheme {
   static const double radiusValue = 16;
   static const Radius radius = Radius.circular(radiusValue);
@@ -10,46 +12,106 @@ class AppTheme {
   static const Curve animationCurve = Curves.decelerate;
   static const Duration animationDuration = Duration(milliseconds: 380);
 
-  AppTheme({
-    AppThemeData? background,
-    AppThemeData? brand1,
-    AppThemeData? brand2,
-    AppThemeData? sidebarSection,
-    AppThemeData? viewer
-  }) :
-    this.background = background ?? AppThemeData(
-      surfaceColor: Colors.blueGrey[50]!,
-      over1: AppThemeDataStyledProperty(Colors.black),
-      decoration1: AppThemeDataStyledProperty(Colors.blue[900]!)
-    ),
-    this.brand1 = brand1 ?? AppThemeData(
-      surfaceColor: Colors.blueGrey[900]!,
-      over1: AppThemeDataStyledProperty(Colors.blue[200]!)
-    ),
-    this.brand2 = brand2 ?? AppThemeData(
-      surfaceColor: Colors.blueGrey[700]!,
-      over1: AppThemeDataStyledProperty(Colors.blue[100]!),
-      over2: AppThemeDataBasicProperty(Colors.blueGrey[200]!)
-    ),
-    this.sidebarSection = sidebarSection ?? AppThemeData(
-      surfaceColor: Colors.black26,
-      over1: AppThemeDataStyledProperty(Colors.blue[100]!),
-      over2: AppThemeDataStyledProperty(Colors.blue[200]!),
-      decoration1: AppThemeDataStyledProperty(Colors.blue[200]!)
-    ),
-    this.viewer = viewer ?? AppThemeData(
-      surfaceColor: Colors.blueGrey[50]!,
-      over1: AppThemeDataStyledProperty(Colors.black),
-      over2: AppThemeDataBasicProperty(Colors.blueGrey[900]!),
-      decoration1: AppThemeDataBasicProperty(Colors.blue[900]!),
-      decoration2: AppThemeDataBasicProperty(Colors.blue[200]!)
-    );
+  AppTheme._(this.background, this.brand1, this.brand2, this.sidebarSection, this.viewer);
 
   final AppThemeData background;
   final AppThemeData brand1;
   final AppThemeData brand2;
   final AppThemeData sidebarSection;
   final AppThemeData viewer;
+
+  static AppTheme getTheme(AppLayoutMode layoutMode, Brightness themeMode) {
+    final bool isLightMode = themeMode == Brightness.light;
+    return AppTheme._(
+      _getBackgroundThemeData(isLightMode),
+      _getBrand1ThemeData(isLightMode),
+      _getBrand2ThemeData(isLightMode),
+      _getSidebarSectionThemeData(layoutMode.showSidebarBackground, isLightMode),
+      _getViewerThemeData()
+    );
+  }
+
+  static AppThemeData _getBackgroundThemeData(bool isLightMode) {
+    return isLightMode
+      ? AppThemeData(
+          surfaceColor: Colors.blueGrey[50]!,
+          over1: AppThemeDataStyledProperty(Colors.black),
+          over2: AppThemeDataBasicProperty(Colors.blueGrey[300]!),
+          decoration1: AppThemeDataStyledProperty(Colors.blue[900]!)
+        )
+      : AppThemeData(
+          surfaceColor: Color.alphaBlend(Colors.black38, Colors.blueGrey[900]!),
+          over1: AppThemeDataStyledProperty(Colors.blueGrey[50]!),
+          over2: AppThemeDataBasicProperty(Colors.blueGrey[700]!),
+          decoration1: AppThemeDataStyledProperty(Colors.blue[200]!)
+        );
+  }
+
+  static AppThemeData _getBrand1ThemeData(bool isLightMode) {
+    return isLightMode
+      ? AppThemeData(
+          surfaceColor: Colors.blueGrey[900]!,
+          over1: AppThemeDataStyledProperty(Colors.blue[200]!)
+        )
+      : AppThemeData(
+          surfaceColor: Colors.blueGrey[800]!,
+          over1: AppThemeDataStyledProperty(Colors.blue[50]!)
+        );
+  }
+
+  static AppThemeData _getBrand2ThemeData(bool isLightMode) {
+    return isLightMode
+      ? AppThemeData(
+          surfaceColor: Colors.blueGrey[700]!,
+          over1: AppThemeDataStyledProperty(Colors.blue[100]!),
+          over2: AppThemeDataBasicProperty(Colors.blueGrey[200]!)
+        )
+      : AppThemeData(
+          surfaceColor: Color.alphaBlend(Colors.black12, Colors.blueGrey[900]!),
+          over1: AppThemeDataStyledProperty(Colors.blue[200]!),
+          over2: AppThemeDataBasicProperty(Colors.blueGrey[600]!)
+        );
+  }
+
+  static AppThemeData _getSidebarSectionThemeData(bool showSidebarBackground, bool isLightMode) {
+    return showSidebarBackground
+      ? isLightMode
+        ? AppThemeData(
+            surfaceColor: Colors.blueGrey[900]!.withValues(alpha: 0.56),
+            over1: AppThemeDataStyledProperty(Colors.blue[100]!),
+            over2: AppThemeDataStyledProperty(Colors.blue[200]!),
+            decoration1: AppThemeDataStyledProperty(Colors.blue[200]!)
+          )
+        : AppThemeData(
+            surfaceColor: Colors.blueGrey[800]!.withValues(alpha: 0.56),
+            over1: AppThemeDataStyledProperty(Colors.blue[100]!),
+            over2: AppThemeDataStyledProperty(Colors.blue[200]!),
+            decoration1: AppThemeDataStyledProperty(Colors.blue[200]!)
+          )
+      : isLightMode
+        ? AppThemeData(
+            surfaceColor: Colors.blueGrey[900]!.withValues(alpha: 0.12),
+            over1: AppThemeDataStyledProperty(Colors.black),
+            over2: AppThemeDataStyledProperty(Colors.blueGrey[900]!),
+            decoration1: AppThemeDataStyledProperty(Colors.blue[900]!)
+          )
+        : AppThemeData(
+            surfaceColor: Colors.blueGrey[800]!.withValues(alpha: 0.24),
+            over1: AppThemeDataStyledProperty(Colors.blue[100]!),
+            over2: AppThemeDataStyledProperty(Colors.blue[200]!),
+            decoration1: AppThemeDataStyledProperty(Colors.blue[200]!)
+          );
+  }
+
+  static AppThemeData _getViewerThemeData() {
+    return AppThemeData(
+      surfaceColor: Colors.blueGrey[50]!,
+      over1: AppThemeDataStyledProperty(Colors.black),
+      over2: AppThemeDataBasicProperty(Colors.blueGrey[900]!),
+      decoration1: AppThemeDataBasicProperty(Colors.blue[900]!),
+      decoration2: AppThemeDataBasicProperty(Colors.blue[200]!)
+    );
+  }
 }
 
 class AppThemeTextStyle {
@@ -124,5 +186,5 @@ extension AppThemeColorExtension on Color {
   Color get withDarkDecorationAlpha => this.withValues(alpha: 0.32);
   Color get withTextSelectionAlpha => this.withValues(alpha: 0.32);
   Color get withCardFillAlpha => this.withValues(alpha: 0.12);
-  Color get withCardBorderAlpha => this.withValues(alpha: 0.48);
+  Color get withCardBorderAlpha => this.withValues(alpha: 0.32);
 }

@@ -4,7 +4,7 @@ import '../scaffold/device.dart';
 import '../ui/assets.dart';
 import '../ui/button/ink_response.dart';
 import '../ui/container.dart';
-import '../ui/layout/layout_model.dart';
+import '../ui/layout/layout_theme_model.dart';
 
 class ProfilePhoto extends StatelessWidget {
   static const double borderSize = 2;
@@ -23,8 +23,9 @@ class ProfilePhoto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLayout layout = context.appLayout;
-    final AppTheme theme = layout.theme;
+    final AppLayoutMode layoutMode = LayoutThemeModel.layoutMode;
+    final AppTheme theme = LayoutThemeModel.theme;
+
     Widget builtWidget = Image.memory(
       AppAssets.profilePhoto,
       fit: BoxFit.cover,
@@ -45,9 +46,9 @@ class ProfilePhoto extends StatelessWidget {
       child: AppContainer(
         margin: margin == null ? null : EdgeInsets.all(margin!),
         borderSize: borderSize,
-        borderColor: layout.showTopbarBackground || layout.showSidebarBackground
-          ? theme.brand1.over1.color
-          : theme.background.over1.color,
+        borderColor: layoutMode.isFlat
+          ? theme.background.over1.color
+          : theme.brand1.over1.color,
         borderRadius: borderRadius ?? AppTheme.circleBorderRadius,
         enableClip: true,
         child: builtWidget

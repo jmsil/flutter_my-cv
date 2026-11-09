@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '../../scaffold/device.dart';
 import '../container.dart';
 import '../layout/dimens.dart';
-import '../layout/layout_model.dart';
+import '../layout/layout_theme_model.dart';
 
 abstract class AppViewer extends StatefulWidget {
   final Axis direction;
@@ -80,7 +80,7 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
   Widget build(BuildContext context) {
     final Size screenSize = context.screenSize;
     final bool isMobileDevice = AppDevice.isMobileDevice();
-    final AppThemeData themeData = context.appLayout.theme.viewer;
+    final AppThemeData themeData = LayoutThemeModel.theme.viewer;
 
     final bool isFloatingWindow =
       screenSize.width >= 720 && screenSize.height >= 480 && ! isMobileDevice;

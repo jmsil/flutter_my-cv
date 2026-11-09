@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../ui/container.dart';
 import '../ui/layout/dimens.dart';
-import '../ui/layout/layout_model.dart';
+import '../ui/layout/layout_theme_model.dart';
 import 'appbar/appbar_model.dart';
 import 'appbar/extended_appbar.dart';
 import 'main_profile_info.dart';
@@ -12,13 +12,13 @@ import 'sidebar/sidebar.dart';
 class ExtendedScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final AppLayout layout = context.appLayout;
-    final AppTheme theme = layout.theme;
+    final AppLayoutMode layoutMode = LayoutThemeModel.layoutMode;
+    final AppTheme theme = LayoutThemeModel.theme;
     final EdgeInsets padding = AppEdgeInsets.xLarge(
-      top: layout.isLeftLayout
+      top: layoutMode.isLeft
         ? null
         : AppbarModel.totalCollapsedHeightOf(context) +
-            (layout.isFlatLayout ? AppDimens.normal : AppDimens.xLarge),
+            (layoutMode.isFlat ? AppDimens.normal : AppDimens.xLarge),
       bottom: 0
     );
 
@@ -29,7 +29,7 @@ class ExtendedScaffold extends StatelessWidget {
       )
     );
 
-    builtWidget = layout.isLeftLayout
+    builtWidget = layoutMode.isLeft
       ? Column(
           children: [
             AppCard(
@@ -54,14 +54,14 @@ class ExtendedScaffold extends StatelessWidget {
         );
 
     builtWidget = Row(
-      spacing: layout.isLeftLayout ? AppDimens.normal : 0,
+      spacing: layoutMode.isLeft ? AppDimens.normal : 0,
       children: [
         AppSidebar(),
         Expanded(child: builtWidget)
       ]
     );
 
-    if ( ! layout.isLeftLayout) {
+    if ( ! layoutMode.isLeft) {
       builtWidget = Stack(
         clipBehavior: Clip.none,
         children: [

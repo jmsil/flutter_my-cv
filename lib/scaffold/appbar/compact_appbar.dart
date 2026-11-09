@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../content/profile_photo.dart';
 import '../../ui/divider.dart';
 import '../../ui/layout/dimens.dart';
-import '../../ui/layout/layout_model.dart';
+import '../../ui/layout/layout_theme_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../device.dart';
 import '../main_profile_info.dart';
@@ -24,7 +24,7 @@ class CompactAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = context.appLayout.theme;
+    final AppTheme theme = LayoutThemeModel.theme;
     final double screenWidth = context.screenSize.width;
 
     final Text summaryTextWidget = Text(
