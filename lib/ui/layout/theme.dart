@@ -130,8 +130,13 @@ class AppThemeTextStyle {
 class AppThemeDataBasicProperty {
   static const AppThemeDataBasicProperty transparent = AppThemeDataBasicProperty(
     Colors.transparent);
+
+  const AppThemeDataBasicProperty(this.color, [this._effectColor]);
+
   final Color color;
-  const AppThemeDataBasicProperty(this.color);
+
+  final Color? _effectColor;
+  Color get effectColor => _effectColor ?? color;
 }
 
 class AppThemeDataStyledProperty extends AppThemeDataBasicProperty {
@@ -143,7 +148,7 @@ class AppThemeDataStyledProperty extends AppThemeDataBasicProperty {
   final AppThemeTextStyle xLargeText;
 
   AppThemeDataStyledProperty(
-    super.color
+    super.color, [super._effectColor]
   ) :
     this.normalHeader = AppThemeTextStyle(16, color),
     this.normalText = AppThemeTextStyle(15, color),
