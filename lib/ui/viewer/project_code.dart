@@ -95,7 +95,7 @@ class _CodeEditor extends CodeEditor {
     controller: controller,
     style: CodeEditorStyle(
       fontSize: themeData.overStyled1.normalText.regular.fontSize,
-      textColor: themeData.surfaceColor,
+      textColor: Colors.white,
       cursorColor: themeData.surfaceColor,
       backgroundColor: themeData.over2.color,
       selectionColor: themeData.accent2.color.withTextSelectionAlpha,

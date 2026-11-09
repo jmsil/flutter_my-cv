@@ -27,7 +27,7 @@ class AppTheme {
       _getBrand1ThemeData(isLightMode),
       _getBrand2ThemeData(isLightMode),
       _getSidebarSectionThemeData(layoutMode.showSidebarBackground, isLightMode),
-      _getViewerThemeData()
+      _getViewerThemeData(isLightMode)
     );
   }
 
@@ -103,10 +103,15 @@ class AppTheme {
           );
   }
 
-  static AppThemeData _getViewerThemeData() {
+  static AppThemeData _getViewerThemeData(bool isLightMode) {
     return AppThemeData(
-      surfaceColor: Colors.blueGrey[50]!,
-      over1: AppThemeDataStyledProperty(Colors.black, Colors.blueGrey[700]),
+      surfaceColor: isLightMode
+        ? Colors.blueGrey[50]!
+        : Colors.blueGrey[200]!,
+      over1: AppThemeDataStyledProperty(
+        Colors.black,
+        isLightMode ? Colors.blueGrey[700] : null
+      ),
       over2: AppThemeDataBasicProperty(Colors.blueGrey[900]!),
       accent1: AppThemeDataBasicProperty(Colors.blue[900]!),
       accent2: AppThemeDataBasicProperty(Colors.blue[200]!)
