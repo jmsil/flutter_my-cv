@@ -1,10 +1,10 @@
 import 'package:flutter/widgets.dart';
 
+import '../../content/main_profile_info.dart';
 import '../../content/profile_photo.dart';
 import '../../ui/container.dart';
 import '../../ui/layout/dimens.dart';
 import '../../ui/layout/layout_theme_model.dart';
-import '../main_profile_info.dart';
 import 'appbar_model.dart';
 
 class ExtendedAppbar extends StatelessWidget {

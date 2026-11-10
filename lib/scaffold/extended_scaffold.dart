@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../content/main_profile_info.dart';
 import '../ui/container.dart';
 import '../ui/layout/dimens.dart';
 import '../ui/layout/layout_theme_model.dart';
 import 'appbar/appbar_model.dart';
 import 'appbar/extended_appbar.dart';
-import 'main_profile_info.dart';
 import 'scaffold.dart';
 import 'sidebar/sidebar.dart';
 
