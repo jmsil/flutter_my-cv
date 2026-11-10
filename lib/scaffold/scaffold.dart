@@ -7,9 +7,9 @@ import '../content/professional_dev.dart';
 import '../ui/layout/layout_model.dart';
 import '../ui/scroller.dart';
 import 'appbar/compact_appbar.dart';
-import 'compact_scaffold.dart';
 import 'device.dart';
 import 'extended_scaffold.dart';
+import 'scaffold_compact.dart';
 
 class AppScaffold extends ListenableBuilder {
   AppScaffold() : super(
@@ -22,7 +22,7 @@ class AppScaffold extends ListenableBuilder {
         color: LayoutModel.theme.background.surfaceColor1,
         child: isExtendedScreen
           ? ExtendedScaffold()
-          : CompactScaffold()
+          : AppScaffoldCompact()
       );
     }
   );

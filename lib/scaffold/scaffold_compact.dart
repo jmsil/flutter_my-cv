@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'scaffold.dart';
 import 'sidebar/sidebar.dart';
 
-class CompactScaffold extends StatefulWidget {
+class AppScaffoldCompact extends StatefulWidget {
   @override
   _State createState() => _State();
 }
 
-class _State extends State<CompactScaffold> {
+class _State extends State<AppScaffoldCompact> {
   Timer? drawerTimer;
   final GlobalKey<DrawerControllerState> drawerKey = GlobalKey();
 
