@@ -9,7 +9,7 @@ import 'appbar/extended_appbar.dart';
 import 'scaffold.dart';
 import 'sidebar/sidebar.dart';
 
-class ExtendedScaffold extends StatelessWidget {
+class AppScaffoldExtended extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final LayoutMode layoutMode = LayoutModel.layoutMode;

@@ -8,8 +8,8 @@ import '../ui/layout/layout_model.dart';
 import '../ui/scroller.dart';
 import 'appbar/compact_appbar.dart';
 import 'device.dart';
-import 'extended_scaffold.dart';
 import 'scaffold_compact.dart';
+import 'scaffold_extended.dart';
 
 class AppScaffold extends ListenableBuilder {
   AppScaffold() : super(
@@ -17,11 +17,10 @@ class AppScaffold extends ListenableBuilder {
     builder: (BuildContext context, Widget? child) {
       final bool isExtendedScreen = context.isExtendedScreen;
       LayoutModel.instance.setLayoutModeOnScaffoldBuild(isExtendedScreen);
-
       return Material(
         color: LayoutModel.theme.background.surfaceColor1,
         child: isExtendedScreen
-          ? ExtendedScaffold()
+          ? AppScaffoldExtended()
           : AppScaffoldCompact()
       );
     }
