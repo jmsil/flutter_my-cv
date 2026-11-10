@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../content/pdf/generator.dart';
+import '../../pdf/generator.dart';
 import '../../ui/button/button.dart';
 import '../../ui/button/popup_menu_button.dart';
 import '../../ui/layout/dimens.dart';
