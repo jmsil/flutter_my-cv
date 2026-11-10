@@ -16,9 +16,9 @@ class CompactList extends Padding {
     child: OverlayBar(
       radius: AppTheme.radiusValue,
       startSize: AppTheme.radiusValue,
-      startForegroundColor: theme.brand2.surfaceColor1,
+      startForegroundColor: theme.sidebar.surfaceColor1,
       endSize: AppTheme.radiusValue,
-      endForegroundColor: theme.brand2.surfaceColor1,
+      endForegroundColor: theme.sidebar.surfaceColor1,
       child: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
           return AppCustomScrollView([

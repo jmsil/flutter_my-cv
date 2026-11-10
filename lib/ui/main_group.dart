@@ -57,11 +57,11 @@ class MainGroup extends StatelessWidget {
           child: Row(
             spacing: headerSpacing,
             children: [
-              Icon(icon, size: _iconBoxSize / 2, color: theme.brand2.over1.color),
+              Icon(icon, size: _iconBoxSize / 2, color: theme.mainGroup.over1.color),
               Expanded(
                 child: Center(
                   child: Text(
-                    title, style: theme.brand2.overStyled1.largeText.bold,
+                    title, style: theme.mainGroup.overStyled1.largeText.bold,
                     overflow: TextOverflow.ellipsis
                   )
                 )
@@ -118,12 +118,12 @@ class _Painter extends CustomPainter {
       canvas.drawRect(Rect.fromLTRB(0, 0, size.width, padding.top + _iconBoxSize / 2), _paint);
     }
 
-    _paint.color = theme.brand2.over2.color;
+    _paint.color = theme.mainGroup.over2.color;
     canvas.drawRRect(lineRect, _paint);
     canvas.drawRRect(iconRect, _paint);
     canvas.drawRRect(titleRect, _paint);
 
-    _paint.color = theme.brand2.surfaceColor1;
+    _paint.color = theme.mainGroup.surfaceColor1;
     canvas.drawRRect(iconRect.deflate(_borderSize), _paint);
     canvas.drawRRect(titleRect.deflate(_borderSize), _paint);
   }

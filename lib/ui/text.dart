@@ -91,8 +91,8 @@ class AppLink extends StatelessWidget {
             ? theme.background.accentStyled1.normalText.bold
             : theme.background.overStyled1.normalText.regular
           : hovered
-            ? theme.sidebarSection.accentStyled1.normalText.bold
-            : theme.sidebarSection.overStyled1.normalText.regular;
+            ? theme.sidebar.accentStyled1.normalText.bold
+            : theme.sidebar.overStyled1.normalText.regular;
 
         return AppIconText(
           icon: icon,

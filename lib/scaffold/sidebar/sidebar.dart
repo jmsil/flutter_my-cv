@@ -25,7 +25,7 @@ class AppSidebar extends StatelessWidget {
       if ( ! isExtendedScreen)
         AppSpacing.normalV,
 
-      DetailsSection(theme.sidebarSection),
+      DetailsSection(),
       AppSpacing.normalV,
 
       SkillsSection.programming(),
@@ -34,7 +34,7 @@ class AppSidebar extends StatelessWidget {
       SkillsSection.integration(),
       AppSpacing.normalV,
 
-      AboutSection(theme.sidebarSection)
+      AboutSection()
     ];
 
     final Widget footerWidget = AppContainer(
@@ -71,7 +71,7 @@ class AppSidebar extends StatelessWidget {
     return layoutMode.showSidebarBackground
       ? AppContainer(
           width: width,
-          color: theme.brand2.surfaceColor1,
+          color: theme.sidebar.surfaceColor1,
           borderRadius: isExtendedScreen
             ? AppTheme.allBorderRadius
             : BorderRadius.zero,

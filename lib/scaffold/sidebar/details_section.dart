@@ -2,26 +2,23 @@ import 'package:flutter/material.dart';
 
 import '../../ui/layout/dimens.dart';
 import '../../ui/layout/icons.dart';
-import '../../ui/layout/theme.dart';
+import '../../ui/layout/layout_theme_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../../ui/text.dart';
 import 'section.dart';
 
 class DetailsSection extends Section {
-  DetailsSection(
-    AppThemeData themeData
-  ) : super(
-    themeData: themeData,
+  DetailsSection() : super(
     startOpen: true,
     title: StringsModel.strings.detailsTitle,
-    contentWidget: Column(
+    child: Column(
       spacing: AppDimens.normal,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         AppIconText(
           icon: AppIcons.local,
           text: StringsModel.strings.personalLocation,
-          textStyle: themeData.overStyled1.normalText.regular
+          textStyle: LayoutThemeModel.theme.sidebar.overStyled1.normalText.regular
         ),
         AppLink(
           icon: AppIcons.phone,

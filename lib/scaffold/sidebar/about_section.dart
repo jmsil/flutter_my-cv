@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 
-import '../../ui/layout/theme.dart';
+import '../../ui/layout/layout_theme_model.dart';
 import '../../ui/strings/strings_model.dart';
 import 'section.dart';
 
 class AboutSection extends Section {
-  AboutSection(
-    AppThemeData themeData
-  ) : super(
-    themeData: themeData,
+  AboutSection() : super(
     startOpen: false,
     title: StringsModel.strings.aboutAndExpectationsTitle,
-    contentWidget: Text(
+    child: Text(
       StringsModel.strings.aboutAndExpectationsInfo,
-      style: themeData.overStyled1.normalText.regular
+      style: LayoutThemeModel.theme.sidebar.overStyled1.normalText.regular
     )
   );
 }

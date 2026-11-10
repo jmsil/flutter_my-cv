@@ -24,7 +24,7 @@ class SkillsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppThemeData themeData = LayoutThemeModel.theme.sidebarSection;
+    final AppThemeData themeData = LayoutThemeModel.theme.sidebar;
     final List<Widget> children = [];
 
     for (String item in skills) {
@@ -35,10 +35,9 @@ class SkillsSection extends StatelessWidget {
     }
 
     return Section(
-      themeData: themeData,
       startOpen: false,
       title: title,
-      contentWidget: allowWrapping
+      child: allowWrapping
         ? AppWrap(
             width: 270,
             spacing: AppDimens.xLarge,
