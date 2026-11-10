@@ -110,11 +110,11 @@ class _Painter extends CustomPainter {
     final RRect iconRect = getIconRect();
     final RRect titleRect = getTitleRect(size);
 
-    _paint.color = theme.background.surfaceColor;
+    _paint.color = theme.background.surfaceColor1;
     canvas.drawRect(Rect.fromLTRB(0, 0, size.width, size.height), _paint);
 
     if (drawTopBackground) {
-      _paint.color = theme.brand1.surfaceColor;
+      _paint.color = theme.brand1.surfaceColor1;
       canvas.drawRect(Rect.fromLTRB(0, 0, size.width, padding.top + _iconBoxSize / 2), _paint);
     }
 
@@ -123,7 +123,7 @@ class _Painter extends CustomPainter {
     canvas.drawRRect(iconRect, _paint);
     canvas.drawRRect(titleRect, _paint);
 
-    _paint.color = theme.brand2.surfaceColor;
+    _paint.color = theme.brand2.surfaceColor1;
     canvas.drawRRect(iconRect.deflate(_borderSize), _paint);
     canvas.drawRRect(titleRect.deflate(_borderSize), _paint);
   }

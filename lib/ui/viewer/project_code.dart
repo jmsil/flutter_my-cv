@@ -96,7 +96,7 @@ class _CodeEditor extends CodeEditor {
     style: CodeEditorStyle(
       fontSize: themeData.overStyled1.normalText.regular.fontSize,
       textColor: Colors.white,
-      cursorColor: themeData.surfaceColor,
+      cursorColor: themeData.surfaceColor1,
       backgroundColor: themeData.over2.color,
       selectionColor: themeData.accent2.color.withTextSelectionAlpha,
       codeTheme: CodeHighlightTheme(
@@ -124,7 +124,7 @@ class _CodeEditor extends CodeEditor {
       padding: const EdgeInsets.only(right: AppDimens.xSmall),
       child: VerticalDivider(
         width: 1, thickness: 1,
-        color: themeData.surfaceColor.withDividerAlpha
+        color: themeData.surfaceColor1.withDividerAlpha
       )
     )
   );

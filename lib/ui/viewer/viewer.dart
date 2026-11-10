@@ -88,8 +88,8 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
     Widget builtBarWidget = AppContainer(
       padding: widget.barPadding,
       color: isMobileDevice
-        ? themeData.surfaceColor
-        : themeData.surfaceColor.withValues(alpha: 0.6),
+        ? themeData.surfaceColor1
+        : themeData.surfaceColor1.withValues(alpha: 0.6),
       child: buildBar(themeData)
     );
 
@@ -171,7 +171,7 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
       children: [
         builtBarWidget,
         Expanded(
-          child: AppContainer(color: themeData.surfaceColor, child: builtFullBodyWidget)
+          child: AppContainer(color: themeData.surfaceColor1, child: builtFullBodyWidget)
         )
       ]
     );

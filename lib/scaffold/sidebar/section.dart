@@ -12,7 +12,7 @@ class Section extends AppContainer {
     required String title,
     required Widget contentWidget
   }) : super(
-    color: themeData.surfaceColor,
+    color: themeData.surfaceColor1,
     borderRadius: AppTheme.allBorderRadius,
     enableClip: true,
     child: AppExpandableHeader(

@@ -62,7 +62,7 @@ class CompactAppbar extends StatelessWidget {
       surfaceTintColor: Colors.transparent,
       automaticallyImplyLeading: false,
       flexibleSpace: ColoredBox(
-        color: theme.brand1.surfaceColor,
+        color: theme.brand1.surfaceColor1,
         isAntiAlias: false,
         child: Padding(
           padding: _padding,

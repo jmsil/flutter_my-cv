@@ -39,7 +39,7 @@ class ExtendedAppbar extends StatelessWidget {
 
     if ( ! layoutMode.isFlat) {
       builtWidget = AppContainer(
-        color: theme.brand1.surfaceColor,
+        color: theme.brand1.surfaceColor1,
         borderRadius: BorderRadius.horizontal(
           left: const Radius.circular(_photoRadiusSize),
           right: AppTheme.radius

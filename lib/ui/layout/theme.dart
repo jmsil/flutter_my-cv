@@ -34,13 +34,13 @@ class AppTheme {
   static AppThemeData _getBackgroundThemeData(bool isLightMode) {
     return isLightMode
       ? AppThemeData(
-          surfaceColor: Colors.blueGrey[50]!,
+          surfaceColor1: Colors.blueGrey[50]!,
           over1: AppThemeDataStyledProperty(Colors.black, Colors.blueGrey[700]),
           over2: AppThemeDataBasicProperty(Colors.blueGrey[300]!),
           accent1: AppThemeDataStyledProperty(Colors.blue[900]!)
         )
       : AppThemeData(
-          surfaceColor: Color.alphaBlend(Colors.black38, Colors.blueGrey[900]!),
+          surfaceColor1: Color.alphaBlend(Colors.black38, Colors.blueGrey[900]!),
           over1: AppThemeDataStyledProperty(Colors.blueGrey[50]!),
           over2: AppThemeDataBasicProperty(Colors.blueGrey[700]!),
           accent1: AppThemeDataStyledProperty(Colors.blue[200]!)
@@ -50,11 +50,11 @@ class AppTheme {
   static AppThemeData _getBrand1ThemeData(bool isLightMode) {
     return isLightMode
       ? AppThemeData(
-          surfaceColor: Colors.blueGrey[900]!,
+          surfaceColor1: Colors.blueGrey[900]!,
           over1: AppThemeDataStyledProperty(Colors.blue[200]!)
         )
       : AppThemeData(
-          surfaceColor: Colors.blueGrey[800]!,
+          surfaceColor1: Colors.blueGrey[800]!,
           over1: AppThemeDataStyledProperty(Colors.blue[50]!)
         );
   }
@@ -62,12 +62,12 @@ class AppTheme {
   static AppThemeData _getBrand2ThemeData(bool isLightMode) {
     return isLightMode
       ? AppThemeData(
-          surfaceColor: Colors.blueGrey[700]!,
+          surfaceColor1: Colors.blueGrey[700]!,
           over1: AppThemeDataStyledProperty(Colors.blue[100]!),
           over2: AppThemeDataBasicProperty(Colors.blueGrey[200]!)
         )
       : AppThemeData(
-          surfaceColor: Color.alphaBlend(Colors.black12, Colors.blueGrey[900]!),
+          surfaceColor1: Color.alphaBlend(Colors.black12, Colors.blueGrey[900]!),
           over1: AppThemeDataStyledProperty(Colors.blue[200]!),
           over2: AppThemeDataBasicProperty(Colors.blueGrey[600]!)
         );
@@ -77,26 +77,26 @@ class AppTheme {
     return showSidebarBackground
       ? isLightMode
         ? AppThemeData(
-            surfaceColor: Colors.blueGrey[900]!.withValues(alpha: 0.56),
+            surfaceColor1: Colors.blueGrey[900]!.withValues(alpha: 0.56),
             over1: AppThemeDataStyledProperty(Colors.blue[100]!),
             over2: AppThemeDataStyledProperty(Colors.blue[200]!, Colors.black),
             accent1: AppThemeDataStyledProperty(Colors.blue[200]!)
           )
         : AppThemeData(
-            surfaceColor: Colors.blueGrey[800]!.withValues(alpha: 0.56),
+            surfaceColor1: Colors.blueGrey[800]!.withValues(alpha: 0.56),
             over1: AppThemeDataStyledProperty(Colors.blue[100]!),
             over2: AppThemeDataStyledProperty(Colors.blue[200]!),
             accent1: AppThemeDataStyledProperty(Colors.blue[200]!)
           )
       : isLightMode
         ? AppThemeData(
-            surfaceColor: Colors.blueGrey[900]!.withValues(alpha: 0.12),
+            surfaceColor1: Colors.blueGrey[900]!.withValues(alpha: 0.12),
             over1: AppThemeDataStyledProperty(Colors.black),
             over2: AppThemeDataStyledProperty(Colors.blueGrey[900]!),
             accent1: AppThemeDataStyledProperty(Colors.blue[900]!)
           )
         : AppThemeData(
-            surfaceColor: Colors.blueGrey[800]!.withValues(alpha: 0.32),
+            surfaceColor1: Colors.blueGrey[800]!.withValues(alpha: 0.32),
             over1: AppThemeDataStyledProperty(Colors.blue[100]!),
             over2: AppThemeDataStyledProperty(Colors.blue[200]!),
             accent1: AppThemeDataStyledProperty(Colors.blue[200]!)
@@ -105,7 +105,7 @@ class AppTheme {
 
   static AppThemeData _getViewerThemeData(bool isLightMode) {
     return AppThemeData(
-      surfaceColor: isLightMode
+      surfaceColor1: isLightMode
         ? Colors.blueGrey[50]!
         : Colors.blueGrey[200]!,
       over1: AppThemeDataStyledProperty(
@@ -165,14 +165,16 @@ class AppThemeDataStyledProperty extends AppThemeDataBasicProperty {
 
 class AppThemeData {
   AppThemeData({
-    required this.surfaceColor,
+    required this.surfaceColor1,
+    this.surfaceColor2 = Colors.transparent,
     this.over1 = AppThemeDataBasicProperty.transparent,
     this.over2 = AppThemeDataBasicProperty.transparent,
     this.accent1 = AppThemeDataBasicProperty.transparent,
     this.accent2 = AppThemeDataBasicProperty.transparent
   });
 
-  final Color surfaceColor;
+  final Color surfaceColor1;
+  final Color surfaceColor2;
 
   final AppThemeDataBasicProperty over1;
   AppThemeDataStyledProperty get overStyled1 => over1 as AppThemeDataStyledProperty;

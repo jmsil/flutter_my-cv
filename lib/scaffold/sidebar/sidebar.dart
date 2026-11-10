@@ -38,7 +38,7 @@ class AppSidebar extends StatelessWidget {
     ];
 
     final Widget footerWidget = AppContainer(
-      color: layoutMode.showSidebarBackground ? theme.brand1.surfaceColor : null,
+      color: layoutMode.showSidebarBackground ? theme.brand1.surfaceColor1 : null,
       padding: const AppEdgeInsets.normal(vertical: AppDimens.small),
       child: Row(
         spacing: AppDimens.small,
@@ -71,7 +71,7 @@ class AppSidebar extends StatelessWidget {
     return layoutMode.showSidebarBackground
       ? AppContainer(
           width: width,
-          color: theme.brand2.surfaceColor,
+          color: theme.brand2.surfaceColor1,
           borderRadius: isExtendedScreen
             ? AppTheme.allBorderRadius
             : BorderRadius.zero,

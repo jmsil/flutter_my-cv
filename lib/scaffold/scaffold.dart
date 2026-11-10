@@ -19,7 +19,7 @@ class AppScaffold extends ListenableBuilder {
       LayoutThemeModel.instance.setLayoutModeOnScaffoldBuild(isExtendedScreen);
 
       return Material(
-        color: LayoutThemeModel.theme.background.surfaceColor,
+        color: LayoutThemeModel.theme.background.surfaceColor1,
         child: isExtendedScreen
           ? ExtendedScaffold()
           : CompactScaffold()
