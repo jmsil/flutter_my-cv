@@ -8,7 +8,7 @@ import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../device.dart';
 
-class CompactAppbar extends StatelessWidget {
+class AppbarCompact extends StatelessWidget {
   static const EdgeInsets _padding = AppEdgeInsets.normal();
   static const double _photoSize = 110;
   static const double _dividerSize = 2;
@@ -20,7 +20,7 @@ class CompactAppbar extends StatelessWidget {
 
   final GlobalKey<DrawerControllerState> drawerKey;
 
-  CompactAppbar(this.drawerKey);
+  AppbarCompact(this.drawerKey);
 
   @override
   Widget build(BuildContext context) {

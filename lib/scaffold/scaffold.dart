@@ -6,7 +6,7 @@ import '../content/list.dart';
 import '../content/professional_dev.dart';
 import '../ui/layout/layout_model.dart';
 import '../ui/scroller.dart';
-import 'appbar/compact_appbar.dart';
+import 'appbar/appbar_compact.dart';
 import 'device.dart';
 import 'scaffold_compact.dart';
 import 'scaffold_extended.dart';
@@ -32,7 +32,7 @@ class AppScaffoldGroupsView extends AppCustomScrollView {
     GlobalKey<DrawerControllerState>? drawerKey
   ) : super([
     if (drawerKey != null)
-      CompactAppbar(drawerKey),
+      AppbarCompact(drawerKey),
 
     ExperienceGroup(),
     EducationGroup(),
