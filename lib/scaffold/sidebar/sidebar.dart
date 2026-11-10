@@ -7,9 +7,9 @@ import '../../ui/strings/strings_model.dart';
 import '../device.dart';
 import 'about_section.dart';
 import 'details_section.dart';
-import 'extended_list.dart';
 import 'settings.dart';
 import 'sidebar_compact.dart';
+import 'sidebar_extended.dart';
 import 'skills_section.dart';
 
 class AppSidebar extends StatelessWidget {
@@ -61,7 +61,7 @@ class AppSidebar extends StatelessWidget {
       children: [
         Expanded(
           child: isExtendedScreen
-            ? ExtendedList(children)
+            ? AppSidebarExtended(children)
             : AppSidebarCompact(theme, children)
         ),
         footerWidget

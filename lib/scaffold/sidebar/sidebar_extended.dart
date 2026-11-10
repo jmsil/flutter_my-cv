@@ -7,10 +7,10 @@ import '../../ui/scroller.dart';
 import '../appbar/appbar_extended.dart';
 import '../appbar/appbar_model.dart';
 
-class ExtendedList extends StatelessWidget {
+class AppSidebarExtended extends StatelessWidget {
   final List<Widget> children;
 
-  ExtendedList(this.children);
+  AppSidebarExtended(this.children);
 
   @override
   Widget build(BuildContext context) {
