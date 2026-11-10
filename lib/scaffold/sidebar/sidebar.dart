@@ -5,8 +5,8 @@ import '../../ui/layout/dimens.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../device.dart';
-import 'details_section.dart';
 import 'section_about.dart';
+import 'section_details.dart';
 import 'settings.dart';
 import 'sidebar_compact.dart';
 import 'sidebar_extended.dart';
@@ -25,7 +25,7 @@ class AppSidebar extends StatelessWidget {
       if ( ! isExtendedScreen)
         AppSpacing.normalV,
 
-      DetailsSection(),
+      SectionDetails(),
       AppSpacing.normalV,
 
       SkillsSection.programming(),

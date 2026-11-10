@@ -7,8 +7,8 @@ import '../../ui/strings/strings_model.dart';
 import '../../ui/text.dart';
 import 'section.dart';
 
-class DetailsSection extends Section {
-  DetailsSection() : super(
+class SectionDetails extends Section {
+  SectionDetails() : super(
     startOpen: true,
     title: StringsModel.strings.detailsTitle,
     child: Column(
