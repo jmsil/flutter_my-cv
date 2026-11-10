@@ -80,7 +80,7 @@ class AppCard extends AppContainer {
     super.borderRadius = AppTheme.allBorderRadius,
     super.child
   }) : super(
-    color: theme.background.over2.color.withCardFillAlpha,
-    borderColor: theme.background.over2.color.withCardBorderAlpha
+    color: theme.background.surfaceColor2.withCardFillAlpha,
+    borderColor: theme.background.surfaceColor2.withCardBorderAlpha
   );
 }

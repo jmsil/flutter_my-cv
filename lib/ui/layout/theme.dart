@@ -35,14 +35,14 @@ class AppTheme {
     return isLightMode
       ? AppThemeData(
           surfaceColor1: Colors.blueGrey[50]!,
+          surfaceColor2: Colors.blueGrey[300]!,
           over1: AppThemeDataStyledProperty(Colors.black, Colors.blueGrey[700]),
-          over2: AppThemeDataBasicProperty(Colors.blueGrey[300]!),
           accent1: AppThemeDataStyledProperty(Colors.blue[900]!)
         )
       : AppThemeData(
           surfaceColor1: Color.alphaBlend(Colors.black38, Colors.blueGrey[900]!),
+          surfaceColor2: Colors.blueGrey[700]!,
           over1: AppThemeDataStyledProperty(Colors.blueGrey[50]!),
-          over2: AppThemeDataBasicProperty(Colors.blueGrey[700]!),
           accent1: AppThemeDataStyledProperty(Colors.blue[200]!)
         );
   }
