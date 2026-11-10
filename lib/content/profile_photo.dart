@@ -24,6 +24,7 @@ class ProfilePhoto extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLayoutMode layoutMode = LayoutThemeModel.layoutMode;
+    final Brightness themeMode = LayoutThemeModel.themeMode;
     final AppTheme theme = LayoutThemeModel.theme;
 
     Widget builtWidget = Image.memory(
@@ -46,7 +47,7 @@ class ProfilePhoto extends StatelessWidget {
       child: AppContainer(
         margin: margin == null ? null : EdgeInsets.all(margin!),
         borderSize: borderSize,
-        borderColor: layoutMode.isFlat
+        borderColor: layoutMode.isFlat && themeMode.isLightMode
           ? theme.background.over1.color
           : theme.appbar.over1.color,
         borderRadius: borderRadius ?? AppTheme.circleBorderRadius,

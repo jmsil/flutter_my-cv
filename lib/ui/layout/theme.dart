@@ -21,18 +21,17 @@ class AppTheme {
   final AppThemeData viewer;
 
   static AppTheme getTheme(AppLayoutMode layoutMode, Brightness themeMode) {
-    final bool isLightMode = themeMode == Brightness.light;
     return AppTheme._(
-      _getBackgroundThemeData(isLightMode),
-      _getAppbarThemeData(layoutMode.showSidebarBackground, isLightMode),
-      _getSidebarThemeData(layoutMode.showSidebarBackground, isLightMode),
-      _getMainGroupThemeData(isLightMode),
-      _getViewerThemeData(isLightMode)
+      _getBackgroundThemeData(themeMode),
+      _getAppbarThemeData(layoutMode, themeMode),
+      _getSidebarThemeData(layoutMode, themeMode),
+      _getMainGroupThemeData(themeMode),
+      _getViewerThemeData(themeMode)
     );
   }
 
-  static AppThemeData _getBackgroundThemeData(bool isLightMode) {
-    return isLightMode
+  static AppThemeData _getBackgroundThemeData(Brightness themeMode) {
+    return themeMode.isLightMode
       ? AppThemeData(
           surfaceColor1: Colors.blueGrey[50]!,
           surfaceColor2: Colors.blueGrey[300]!,
@@ -47,20 +46,20 @@ class AppTheme {
         );
   }
 
-  static AppThemeData _getAppbarThemeData(bool showSidebarBackground, bool isLightMode) {
-    return isLightMode || showSidebarBackground
+  static AppThemeData _getAppbarThemeData(AppLayoutMode layoutMode, Brightness themeMode) {
+    return layoutMode.isTop && themeMode.isDarkMode
       ? AppThemeData(
-          surfaceColor1: Colors.blueGrey[900]!,
-          over1: AppThemeDataStyledProperty(Colors.blue[200]!)
-        )
-      : AppThemeData(
           surfaceColor1: Colors.blueGrey[800]!,
           over1: AppThemeDataStyledProperty(Colors.blue[50]!)
+        )
+      : AppThemeData(
+          surfaceColor1: Colors.blueGrey[900]!,
+          over1: AppThemeDataStyledProperty(Colors.blue[200]!)
         );
   }
 
-  static AppThemeData _getSidebarThemeData(bool showSidebarBackground, bool isLightMode) {
-    return showSidebarBackground
+  static AppThemeData _getSidebarThemeData(AppLayoutMode layoutMode, Brightness themeMode) {
+    return layoutMode.showSidebarBackground
       ? AppThemeData(
           surfaceColor1: Colors.blueGrey[700]!,
           surfaceColor2: Colors.blueGrey[900]!.withValues(alpha: 0.56),
@@ -68,7 +67,7 @@ class AppTheme {
           over2: AppThemeDataStyledProperty(Colors.blue[200]!, Colors.black),
           accent1: AppThemeDataStyledProperty(Colors.blue[200]!)
         )
-      : isLightMode
+      : themeMode.isLightMode
         ? AppThemeData(
             surfaceColor1: Colors.transparent,
             surfaceColor2: Colors.blueGrey[900]!.withValues(alpha: 0.12),
@@ -85,8 +84,8 @@ class AppTheme {
           );
   }
 
-  static AppThemeData _getMainGroupThemeData(bool isLightMode) {
-    return isLightMode
+  static AppThemeData _getMainGroupThemeData(Brightness themeMode) {
+    return themeMode.isLightMode
       ? AppThemeData(
           surfaceColor1: Colors.blueGrey[700]!,
           over1: AppThemeDataStyledProperty(Colors.blue[100]!),
@@ -99,14 +98,14 @@ class AppTheme {
         );
   }
 
-  static AppThemeData _getViewerThemeData(bool isLightMode) {
+  static AppThemeData _getViewerThemeData(Brightness themeMode) {
     return AppThemeData(
-      surfaceColor1: isLightMode
+      surfaceColor1: themeMode.isLightMode
         ? Colors.blueGrey[50]!
         : Colors.blueGrey[200]!,
       over1: AppThemeDataStyledProperty(
         Colors.black,
-        isLightMode ? Colors.blueGrey[700] : null
+        themeMode.isLightMode ? Colors.blueGrey[700] : null
       ),
       over2: AppThemeDataBasicProperty(Colors.blueGrey[900]!),
       accent1: AppThemeDataBasicProperty(Colors.blue[900]!),
@@ -195,4 +194,9 @@ extension AppThemeColorExtension on Color {
   Color get withTextSelectionAlpha => this.withValues(alpha: 0.32);
   Color get withCardFillAlpha => this.withValues(alpha: 0.12);
   Color get withCardBorderAlpha => this.withValues(alpha: 0.32);
+}
+
+extension AppThemeModeExtension on Brightness {
+  bool get isLightMode => this == Brightness.light;
+  bool get isDarkMode => this == Brightness.dark;
 }

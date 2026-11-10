@@ -6,7 +6,14 @@ import '../ui/layout/icons.dart';
 import '../ui/layout/layout_theme_model.dart';
 import '../ui/strings/strings_model.dart';
 
-enum MainProfileInfoStyle { compactAppbar, extendedFlatAppbar, extendedTopAppbar, body }
+enum MainProfileInfoStyle {
+  compactAppbar, extendedAppbar, extendedFlatAppbar, body;
+
+  bool get isCompactAppbar => this == compactAppbar;
+  bool get isExtendedAppbar => this == extendedAppbar;
+  bool get isExtendedFlatAppbar => this == extendedFlatAppbar;
+  bool get isBody => this == body;
+}
 
 class MainProfileInfo extends StatelessWidget {
   final IconData? icon;
@@ -40,41 +47,47 @@ class MainProfileInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Brightness themeMode = LayoutThemeModel.themeMode;
     final AppTheme theme = LayoutThemeModel.theme;
     final double beforeDividerSpacing;
     final double afterDividerSpacing;
     final TextStyle titleStyle;
     final TextStyle infoStyle;
 
+    final AppThemeData themeData =
+      themeMode.isLightMode && (style.isExtendedFlatAppbar || style.isBody)
+        ? theme.background
+        : theme.appbar;
+
     switch (style) {
       case MainProfileInfoStyle.compactAppbar:
         beforeDividerSpacing = AppDimens.xSmall;
         afterDividerSpacing = AppDimens.xSmall;
-        titleStyle = theme.appbar.overStyled1.normalHeader.bold;
-        infoStyle = theme.appbar.overStyled1.normalText.regular;
+        titleStyle = themeData.overStyled1.normalHeader.bold;
+        infoStyle = themeData.overStyled1.normalText.regular;
+        break;
+      case MainProfileInfoStyle.extendedAppbar:
+        beforeDividerSpacing = AppDimens.small;
+        afterDividerSpacing = 0;
+        titleStyle = themeData.overStyled1.largeHeader.bold;
+        infoStyle = themeData.overStyled1.largeText.regular;
         break;
       case MainProfileInfoStyle.extendedFlatAppbar:
         beforeDividerSpacing = AppDimens.small;
         afterDividerSpacing = 0;
-        titleStyle = theme.background.overStyled1.xLargeHeader.bold;
-        infoStyle = theme.background.overStyled1.largeText.regular;
-        break;
-      case MainProfileInfoStyle.extendedTopAppbar:
-        beforeDividerSpacing = AppDimens.small;
-        afterDividerSpacing = 0;
-        titleStyle = theme.appbar.overStyled1.largeHeader.bold;
-        infoStyle = theme.appbar.overStyled1.largeText.regular;
+        titleStyle = themeData.overStyled1.xLargeHeader.bold;
+        infoStyle = themeData.overStyled1.largeText.regular;
         break;
       case MainProfileInfoStyle.body:
         beforeDividerSpacing = AppDimens.normal;
         afterDividerSpacing = AppDimens.normal;
-        titleStyle = theme.background.overStyled1.xLargeHeader.bold;
-        infoStyle = theme.background.overStyled1.xLargeText.regular;
+        titleStyle = themeData.overStyled1.xLargeHeader.bold;
+        infoStyle = themeData.overStyled1.xLargeText.regular;
     }
 
     Widget builtTitleWidget = Text(title, style: titleStyle, softWrap: softWrap);
 
-    if (style != MainProfileInfoStyle.compactAppbar && icon != null) {
+    if ( ! style.isCompactAppbar && icon != null) {
       builtTitleWidget = Row(
         spacing: titleStyle.fontSize!,
         children: [
@@ -86,10 +99,7 @@ class MainProfileInfo extends StatelessWidget {
 
     Widget builtInfoWidget = Text(info, style: infoStyle, softWrap: softWrap);
 
-    if (
-      style == MainProfileInfoStyle.extendedFlatAppbar ||
-      style == MainProfileInfoStyle.extendedTopAppbar)
-    {
+    if (style.isExtendedAppbar || style.isExtendedFlatAppbar) {
       builtInfoWidget = Expanded(
         child: Align(
           alignment: Alignment.bottomLeft,

@@ -20,7 +20,7 @@ class ExtendedAppbar extends StatelessWidget {
       ? _LeftProfile()
       : _TopProfile(layoutMode.isFlat
           ? MainProfileInfoStyle.extendedFlatAppbar
-          : MainProfileInfoStyle.extendedTopAppbar
+          : MainProfileInfoStyle.extendedAppbar
         );
 
     builtWidget = Row(
