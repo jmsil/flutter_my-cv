@@ -7,17 +7,17 @@ import '../../ui/text.dart';
 import '../../ui/wrap.dart';
 import 'section.dart';
 
-class SkillsSection extends StatelessWidget {
+class SectionSkills extends StatelessWidget {
   final String title;
   final bool allowWrapping;
   final List<String> skills;
 
-  SkillsSection.programming() :
+  SectionSkills.programming() :
     this.title = StringsModel.strings.programmingSkillsTitle,
     this.allowWrapping = true,
     this.skills = Strings.programmingSkillsInfo;
 
-  SkillsSection.integration() :
+  SectionSkills.integration() :
     this.title = StringsModel.strings.integrationSkillsTitle,
     this.allowWrapping = false,
     this.skills = Strings.integrationSkillsInfo;

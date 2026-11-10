@@ -7,10 +7,10 @@ import '../../ui/strings/strings_model.dart';
 import '../device.dart';
 import 'section_about.dart';
 import 'section_details.dart';
+import 'section_skills.dart';
 import 'settings.dart';
 import 'sidebar_compact.dart';
 import 'sidebar_extended.dart';
-import 'skills_section.dart';
 
 class AppSidebar extends StatelessWidget {
   static const double width = 480;
@@ -28,10 +28,10 @@ class AppSidebar extends StatelessWidget {
       SectionDetails(),
       AppSpacing.normalV,
 
-      SkillsSection.programming(),
+      SectionSkills.programming(),
       AppSpacing.normalV,
 
-      SkillsSection.integration(),
+      SectionSkills.integration(),
       AppSpacing.normalV,
 
       SectionAbout()
