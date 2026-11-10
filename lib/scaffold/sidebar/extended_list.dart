@@ -4,8 +4,8 @@ import '../../ui/layout/dimens.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/overlay_bar.dart';
 import '../../ui/scroller.dart';
+import '../appbar/appbar_extended.dart';
 import '../appbar/appbar_model.dart';
-import '../appbar/extended_appbar.dart';
 
 class ExtendedList extends StatelessWidget {
   final List<Widget> children;
@@ -37,7 +37,7 @@ class ExtendedList extends StatelessWidget {
           child: Column(
             spacing: AppDimens.normal,
             children: [
-              ExtendedAppbar(),
+              AppbarExtended(),
               Expanded(child: builtWidget)
             ]
           )

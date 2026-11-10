@@ -4,8 +4,8 @@ import '../content/profile_header.dart';
 import '../ui/container.dart';
 import '../ui/layout/dimens.dart';
 import '../ui/layout/layout_model.dart';
+import 'appbar/appbar_extended.dart';
 import 'appbar/appbar_model.dart';
-import 'appbar/extended_appbar.dart';
 import 'scaffold.dart';
 import 'sidebar/sidebar.dart';
 
@@ -66,7 +66,7 @@ class AppScaffoldExtended extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           builtWidget,
-          ExtendedAppbar()
+          AppbarExtended()
         ]
       );
     }

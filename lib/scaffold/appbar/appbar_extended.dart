@@ -7,7 +7,7 @@ import '../../ui/layout/dimens.dart';
 import '../../ui/layout/layout_model.dart';
 import 'appbar_model.dart';
 
-class ExtendedAppbar extends StatelessWidget {
+class AppbarExtended extends StatelessWidget {
   static const double _photoRadiusSize = AppbarModel.collapsedHeight / 2;
 
   @override
