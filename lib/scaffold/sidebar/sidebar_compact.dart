@@ -8,8 +8,8 @@ import '../../ui/layout/theme.dart';
 import '../../ui/overlay_bar.dart';
 import '../../ui/scroller.dart';
 
-class CompactList extends Padding {
-  CompactList(
+class AppSidebarCompact extends Padding {
+  AppSidebarCompact(
     AppTheme theme, List<Widget> children
   ) : super(
     padding: const AppEdgeInsets.normal(),
