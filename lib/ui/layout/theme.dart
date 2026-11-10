@@ -20,12 +20,14 @@ class AppTheme {
   final AppThemeData mainGroup;
   final AppThemeData viewer;
 
-  static AppTheme getTheme(AppLayoutMode layoutMode, Brightness themeMode) {
+  static AppTheme getTheme(
+    AppLayoutMode layoutMode, Brightness themeMode, bool isExtendedScreen)
+  {
     final bool isLightMode = themeMode == Brightness.light;
     return AppTheme._(
       _getBackgroundThemeData(isLightMode),
-      _getAppbarThemeData(isLightMode),
-      _getSidebarThemeData(layoutMode.showSidebarBackground, isLightMode),
+      _getAppbarThemeData(isLightMode, isExtendedScreen),
+      _getSidebarThemeData(layoutMode.showSidebarBackground, isLightMode, isExtendedScreen),
       _getMainGroupThemeData(isLightMode),
       _getViewerThemeData(isLightMode)
     );
@@ -47,8 +49,8 @@ class AppTheme {
         );
   }
 
-  static AppThemeData _getAppbarThemeData(bool isLightMode) {
-    return isLightMode
+  static AppThemeData _getAppbarThemeData(bool isLightMode, bool isExtendedScreen) {
+    return isLightMode || ! isExtendedScreen
       ? AppThemeData(
           surfaceColor1: Colors.blueGrey[900]!,
           over1: AppThemeDataStyledProperty(Colors.blue[200]!)
@@ -59,9 +61,11 @@ class AppTheme {
         );
   }
 
-  static AppThemeData _getSidebarThemeData(bool showSidebarBackground, bool isLightMode) {
+  static AppThemeData _getSidebarThemeData(
+    bool showSidebarBackground, bool isLightMode, bool isExtendedScreen)
+  {
     return showSidebarBackground
-      ? isLightMode
+      ? isLightMode || ! isExtendedScreen
         ? AppThemeData(
             surfaceColor1: Colors.blueGrey[700]!,
             surfaceColor2: Colors.blueGrey[900]!.withValues(alpha: 0.56),

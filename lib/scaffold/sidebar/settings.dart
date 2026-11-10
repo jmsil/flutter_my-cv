@@ -92,8 +92,9 @@ class _ThemeSettings extends StatelessWidget {
   }
 
   void setTheme(BuildContext context, Brightness themeMode) {
+    bool isExtendedScreen = context.isExtendedScreen;
     AppPopupMenuButton.performAction(
-      context, () => LayoutThemeModel.instance.setThemeMode(themeMode)
+      context, () => LayoutThemeModel.instance.setThemeMode(themeMode, isExtendedScreen)
     );
   }
 }
