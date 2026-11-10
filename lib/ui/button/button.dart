@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../container.dart';
-import '../layout/dimens.dart';
 import '../layout/theme.dart';
 import '../text.dart';
 
@@ -79,6 +78,8 @@ class AppMaterialButton extends MaterialButton {
     required AppThemeDataStyledProperty themeProperty,
     super.onPressed
   }) : super(
+    minWidth: double.infinity,
+    height: 52,
     color: themeProperty.color.withButtonFrameAlpha,
     elevation: 0,
     hoverElevation: 0,
@@ -89,9 +90,6 @@ class AppMaterialButton extends MaterialButton {
     splashColor: themeProperty.effectColor.withInkEffectAlpha,
     highlightColor: themeProperty.effectColor.withInkEffectAlpha,
     shape: RoundedRectangleBorder(borderRadius: AppTheme.allBorderRadius),
-    child: Padding(
-      padding: const AppEdgeInsets.small(),
-      child: AppIconText(icon: icon, text: text, textStyle: themeProperty.normalText.bold)
-    )
+    child: AppIconText(icon: icon, text: text, textStyle: themeProperty.normalText.bold)
   );
 }

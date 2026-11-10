@@ -18,7 +18,6 @@ class Settings extends StatelessWidget {
 
     return AppPopupMenuButton(
       themeData: themeData,
-      spacing: AppDimens.normal,
       children: [
         _LanguagesSettings(),
         _ThemeSettings(),
@@ -26,20 +25,10 @@ class Settings extends StatelessWidget {
         if (isExtendedScreen)
           _LayoutSettings(),
 
-        AppSpacing.xxSmallV,
-        AppMaterialButton(
-          icon: AppIcons.download,
-          text: Strings.downloadPdf,
-          themeProperty: themeData.accentStyled1,
-          onPressed: () => downloadPdf(context)
-        )
+        AppSpacing.normalV,
+        _DownloadPdfButton()
       ]
     );
-  }
-
-  void downloadPdf(BuildContext context) {
-    Navigator.of(context).pop();
-    PdfGenerator.generateAndDownload(StringsModel.languageCode);
   }
 }
 
@@ -69,8 +58,9 @@ class _LanguagesSettings extends StatelessWidget {
   }
 
   void setLanguage(BuildContext context, String language) {
-    Navigator.of(context).pop();
-    StringsModel.instance.setLanguage(language);
+    AppPopupMenuButton.performAction(
+      context, () => StringsModel.instance.setLanguage(language)
+    );
   }
 }
 
@@ -102,8 +92,9 @@ class _ThemeSettings extends StatelessWidget {
   }
 
   void setTheme(BuildContext context, Brightness themeMode) {
-    Navigator.of(context).pop();
-    LayoutThemeModel.instance.setThemeMode(themeMode);
+    AppPopupMenuButton.performAction(
+      context, () => LayoutThemeModel.instance.setThemeMode(themeMode)
+    );
   }
 }
 
@@ -146,8 +137,28 @@ class _LayoutSettings extends StatelessWidget {
   }
 
   void setLayout(BuildContext context, AppLayoutMode layoutMode) {
-    Navigator.of(context).pop();
-    LayoutThemeModel.instance.setLayoutMode(layoutMode);
+    AppPopupMenuButton.performAction(
+      context, () => LayoutThemeModel.instance.setLayoutMode(layoutMode)
+    );
+  }
+}
+
+class _DownloadPdfButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final AppThemeData themeData = LayoutThemeModel.theme.background;
+    return AppMaterialButton(
+      icon: AppIcons.download,
+      text: Strings.downloadPdf,
+      themeProperty: themeData.accentStyled1,
+      onPressed: () => _downloadPdf(context)
+    );
+  }
+
+  void _downloadPdf(BuildContext context) {
+    AppPopupMenuButton.performAction(
+      context, () => PdfGenerator.generateAndDownload(StringsModel.languageCode)
+    );
   }
 }
 
@@ -168,7 +179,8 @@ class _Settings extends Column {
       Row(
         spacing: AppDimens.normal,
         children: children
-      )
+      ),
+      AppSpacing.normalV
     ]
   );
 }
