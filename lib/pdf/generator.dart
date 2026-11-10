@@ -10,7 +10,7 @@ import 'education.dart';
 import 'experience.dart';
 import 'languages.dart';
 import 'online_resume.dart';
-import 'professional_development.dart';
+import 'professional_dev.dart';
 import 'professional_summary.dart';
 import 'profile.dart';
 import 'theme.dart';
