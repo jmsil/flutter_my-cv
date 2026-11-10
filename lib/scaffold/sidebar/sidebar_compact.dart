@@ -4,50 +4,56 @@ import '../../content/profile_photo.dart';
 import '../../ui/button/button.dart';
 import '../../ui/layout/dimens.dart';
 import '../../ui/layout/icons.dart';
-import '../../ui/layout/theme.dart';
+import '../../ui/layout/layout_model.dart';
 import '../../ui/overlay_bar.dart';
 import '../../ui/scroller.dart';
 
-class AppSidebarCompact extends Padding {
-  AppSidebarCompact(
-    AppTheme theme, List<Widget> children
-  ) : super(
-    padding: const AppEdgeInsets.normal(),
-    child: OverlayBar(
-      radius: AppTheme.radiusValue,
-      startSize: AppTheme.radiusValue,
-      startForegroundColor: theme.sidebar.surfaceColor1,
-      endSize: AppTheme.radiusValue,
-      endForegroundColor: theme.sidebar.surfaceColor1,
-      child: LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-          return AppCustomScrollView([
-            SliverAppBar(
-              pinned: true,
-              stretch: true,
-              collapsedHeight: 76,
-              expandedHeight: constraints.maxWidth,
-              backgroundColor: theme.appbar.surfaceColor1,
-              surfaceTintColor: Colors.transparent,
-              elevation: 12,
-              shadowColor: Colors.black45,
-              shape: RoundedRectangleBorder(borderRadius: AppTheme.allBorderRadius),
-              automaticallyImplyLeading: false,
-              flexibleSpace: _Profile(context, theme)
-            ),
+class AppSidebarCompact extends StatelessWidget {
+  final List<Widget> children;
 
-            SliverList(
-              delegate: SliverChildListDelegate(
-                children,
-                addAutomaticKeepAlives: false,
-                addRepaintBoundaries: false
+  AppSidebarCompact(this.children);
+
+  @override
+  Widget build(BuildContext context) {
+    final AppTheme theme = LayoutModel.theme;
+    return Padding(
+      padding: const AppEdgeInsets.normal(),
+      child: OverlayBar(
+        radius: AppTheme.radiusValue,
+        startSize: AppTheme.radiusValue,
+        startForegroundColor: theme.sidebar.surfaceColor1,
+        endSize: AppTheme.radiusValue,
+        endForegroundColor: theme.sidebar.surfaceColor1,
+        child: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            return AppCustomScrollView([
+              SliverAppBar(
+                pinned: true,
+                stretch: true,
+                collapsedHeight: 76,
+                expandedHeight: constraints.maxWidth,
+                backgroundColor: theme.appbar.surfaceColor1,
+                surfaceTintColor: Colors.transparent,
+                elevation: 12,
+                shadowColor: Colors.black45,
+                shape: RoundedRectangleBorder(borderRadius: AppTheme.allBorderRadius),
+                automaticallyImplyLeading: false,
+                flexibleSpace: _Profile(context, theme)
+              ),
+
+              SliverList(
+                delegate: SliverChildListDelegate(
+                  children,
+                  addAutomaticKeepAlives: false,
+                  addRepaintBoundaries: false
+                )
               )
-            )
-          ]);
-        }
+            ]);
+          }
+        )
       )
-    )
-  );
+    );
+  }
 }
 
 class _Profile extends Padding {

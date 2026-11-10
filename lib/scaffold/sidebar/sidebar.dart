@@ -62,7 +62,7 @@ class AppSidebar extends StatelessWidget {
         Expanded(
           child: isExtendedScreen
             ? AppSidebarExtended(children)
-            : AppSidebarCompact(theme, children)
+            : AppSidebarCompact(children)
         ),
         footerWidget
       ]
