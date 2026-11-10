@@ -30,7 +30,7 @@ class AppPopupMenuButton extends MenuAnchor {
       return AppButton.icon(
         icon: AppIcons.settings,
         themeProperty: layoutMode.showSidebarBackground
-          ? theme.brand1.over1
+          ? theme.appbar.over1
           : theme.background.over1,
         onPressed: controller.open
       );

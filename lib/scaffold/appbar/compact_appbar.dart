@@ -24,12 +24,12 @@ class CompactAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = LayoutThemeModel.theme;
+    final AppThemeData themeData = LayoutThemeModel.theme.appbar;
     final double screenWidth = context.screenSize.width;
 
     final Text summaryTextWidget = Text(
       StringsModel.strings.professionalSummaryInfo,
-      style: DefaultTextStyle.of(context).style.merge(theme.brand1.overStyled1.largeText.regular)
+      style: DefaultTextStyle.of(context).style.merge(themeData.overStyled1.largeText.regular)
     );
 
     final double summaryBoxHeight = _getTextBoxHeight(
@@ -62,7 +62,7 @@ class CompactAppbar extends StatelessWidget {
       surfaceTintColor: Colors.transparent,
       automaticallyImplyLeading: false,
       flexibleSpace: ColoredBox(
-        color: theme.brand1.surfaceColor1,
+        color: themeData.surfaceColor1,
         isAntiAlias: false,
         child: Padding(
           padding: _padding,
@@ -70,7 +70,7 @@ class CompactAppbar extends StatelessWidget {
             spacing: AppDimens.normal,
             children: [
               profileWidget,
-              AppDivider(_dividerSize, theme.brand1.over1.color),
+              AppDivider(_dividerSize, themeData.over1.color),
               Flexible(
                 child: FlexibleSpaceBar(
                   background: summaryTextWidget

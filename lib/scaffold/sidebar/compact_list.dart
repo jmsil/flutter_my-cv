@@ -27,7 +27,7 @@ class CompactList extends Padding {
               stretch: true,
               collapsedHeight: 76,
               expandedHeight: constraints.maxWidth,
-              backgroundColor: theme.brand1.surfaceColor1,
+              backgroundColor: theme.appbar.surfaceColor1,
               surfaceTintColor: Colors.transparent,
               elevation: 12,
               shadowColor: Colors.black45,
@@ -66,7 +66,7 @@ class _Profile extends Padding {
           alignment: Alignment.topLeft,
           child: AppButton.icon(
             icon: AppIcons.back,
-            themeProperty: theme.brand1.over1,
+            themeProperty: theme.appbar.over1,
             onPressed: () => Navigator.pop(context)
           )
         )

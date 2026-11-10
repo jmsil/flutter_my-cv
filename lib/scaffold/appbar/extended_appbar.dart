@@ -13,7 +13,7 @@ class ExtendedAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLayoutMode layoutMode = LayoutThemeModel.layoutMode;
-    final AppTheme theme = LayoutThemeModel.theme;
+    final AppThemeData themeData = LayoutThemeModel.theme.appbar;
     final EdgeInsets margin = AppbarModel.marginOf(context);
 
     Widget builtWidget = layoutMode.isLeft
@@ -39,7 +39,7 @@ class ExtendedAppbar extends StatelessWidget {
 
     if ( ! layoutMode.isFlat) {
       builtWidget = AppContainer(
-        color: theme.brand1.surfaceColor1,
+        color: themeData.surfaceColor1,
         borderRadius: BorderRadius.horizontal(
           left: const Radius.circular(_photoRadiusSize),
           right: AppTheme.radius

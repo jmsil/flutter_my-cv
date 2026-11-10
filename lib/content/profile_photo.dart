@@ -48,7 +48,7 @@ class ProfilePhoto extends StatelessWidget {
         borderSize: borderSize,
         borderColor: layoutMode.isFlat
           ? theme.background.over1.color
-          : theme.brand1.over1.color,
+          : theme.appbar.over1.color,
         borderRadius: borderRadius ?? AppTheme.circleBorderRadius,
         enableClip: true,
         child: builtWidget

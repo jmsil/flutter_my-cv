@@ -114,7 +114,7 @@ class _Painter extends CustomPainter {
     canvas.drawRect(Rect.fromLTRB(0, 0, size.width, size.height), _paint);
 
     if (drawTopBackground) {
-      _paint.color = theme.brand1.surfaceColor1;
+      _paint.color = theme.appbar.surfaceColor1;
       canvas.drawRect(Rect.fromLTRB(0, 0, size.width, padding.top + _iconBoxSize / 2), _paint);
     }
 

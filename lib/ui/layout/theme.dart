@@ -12,21 +12,21 @@ class AppTheme {
   static const Curve animationCurve = Curves.decelerate;
   static const Duration animationDuration = Duration(milliseconds: 380);
 
-  AppTheme._(this.background, this.brand1, this.mainGroup, this.sidebar, this.viewer);
+  AppTheme._(this.background, this.appbar, this.sidebar, this.mainGroup, this.viewer);
 
   final AppThemeData background;
-  final AppThemeData brand1;
-  final AppThemeData mainGroup;
+  final AppThemeData appbar;
   final AppThemeData sidebar;
+  final AppThemeData mainGroup;
   final AppThemeData viewer;
 
   static AppTheme getTheme(AppLayoutMode layoutMode, Brightness themeMode) {
     final bool isLightMode = themeMode == Brightness.light;
     return AppTheme._(
       _getBackgroundThemeData(isLightMode),
-      _getBrand1ThemeData(isLightMode),
-      _getMainGroupThemeData(isLightMode),
+      _getAppbarThemeData(isLightMode),
       _getSidebarThemeData(layoutMode.showSidebarBackground, isLightMode),
+      _getMainGroupThemeData(isLightMode),
       _getViewerThemeData(isLightMode)
     );
   }
@@ -47,7 +47,7 @@ class AppTheme {
         );
   }
 
-  static AppThemeData _getBrand1ThemeData(bool isLightMode) {
+  static AppThemeData _getAppbarThemeData(bool isLightMode) {
     return isLightMode
       ? AppThemeData(
           surfaceColor1: Colors.blueGrey[900]!,
@@ -56,20 +56,6 @@ class AppTheme {
       : AppThemeData(
           surfaceColor1: Colors.blueGrey[800]!,
           over1: AppThemeDataStyledProperty(Colors.blue[50]!)
-        );
-  }
-
-  static AppThemeData _getMainGroupThemeData(bool isLightMode) {
-    return isLightMode
-      ? AppThemeData(
-          surfaceColor1: Colors.blueGrey[700]!,
-          over1: AppThemeDataStyledProperty(Colors.blue[100]!),
-          over2: AppThemeDataBasicProperty(Colors.blueGrey[200]!)
-        )
-      : AppThemeData(
-          surfaceColor1: Colors.blueGrey[900]!,
-          over1: AppThemeDataStyledProperty(Colors.blue[200]!),
-          over2: AppThemeDataBasicProperty(Colors.blueGrey[600]!)
         );
   }
 
@@ -105,6 +91,20 @@ class AppTheme {
             over2: AppThemeDataStyledProperty(Colors.blue[200]!),
             accent1: AppThemeDataStyledProperty(Colors.blue[200]!)
           );
+  }
+
+  static AppThemeData _getMainGroupThemeData(bool isLightMode) {
+    return isLightMode
+      ? AppThemeData(
+          surfaceColor1: Colors.blueGrey[700]!,
+          over1: AppThemeDataStyledProperty(Colors.blue[100]!),
+          over2: AppThemeDataBasicProperty(Colors.blueGrey[200]!)
+        )
+      : AppThemeData(
+          surfaceColor1: Colors.blueGrey[900]!,
+          over1: AppThemeDataStyledProperty(Colors.blue[200]!),
+          over2: AppThemeDataBasicProperty(Colors.blueGrey[600]!)
+        );
   }
 
   static AppThemeData _getViewerThemeData(bool isLightMode) {

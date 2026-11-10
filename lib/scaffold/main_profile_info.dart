@@ -50,8 +50,8 @@ class MainProfileInfo extends StatelessWidget {
       case MainProfileInfoStyle.compactAppbar:
         beforeDividerSpacing = AppDimens.xSmall;
         afterDividerSpacing = AppDimens.xSmall;
-        titleStyle = theme.brand1.overStyled1.normalHeader.bold;
-        infoStyle = theme.brand1.overStyled1.normalText.regular;
+        titleStyle = theme.appbar.overStyled1.normalHeader.bold;
+        infoStyle = theme.appbar.overStyled1.normalText.regular;
         break;
       case MainProfileInfoStyle.extendedFlatAppbar:
         beforeDividerSpacing = AppDimens.small;
@@ -62,8 +62,8 @@ class MainProfileInfo extends StatelessWidget {
       case MainProfileInfoStyle.extendedTopAppbar:
         beforeDividerSpacing = AppDimens.small;
         afterDividerSpacing = 0;
-        titleStyle = theme.brand1.overStyled1.largeHeader.bold;
-        infoStyle = theme.brand1.overStyled1.largeText.regular;
+        titleStyle = theme.appbar.overStyled1.largeHeader.bold;
+        infoStyle = theme.appbar.overStyled1.largeText.regular;
         break;
       case MainProfileInfoStyle.body:
         beforeDividerSpacing = AppDimens.normal;
