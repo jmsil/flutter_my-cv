@@ -6,7 +6,7 @@ import '../ui/layout/icons.dart';
 import '../ui/layout/layout_theme_model.dart';
 import '../ui/strings/strings_model.dart';
 
-enum MainProfileInfoStyle {
+enum ProfileHeaderStyle {
   compactAppbar, extendedAppbar, extendedFlatAppbar, body;
 
   bool get isCompactAppbar => this == compactAppbar;
@@ -15,15 +15,15 @@ enum MainProfileInfoStyle {
   bool get isBody => this == body;
 }
 
-class MainProfileInfo extends StatelessWidget {
+class ProfileHeader extends StatelessWidget {
   final IconData? icon;
   final String title;
   final String info;
-  final MainProfileInfoStyle style;
+  final ProfileHeaderStyle style;
   final bool softWrap;
   final bool enableIntrinsicWidth;
 
-  MainProfileInfo.nameAndRoles({
+  ProfileHeader.nameAndRoles({
     required this.style,
     required bool isShortRoles,
     this.softWrap = true
@@ -35,7 +35,7 @@ class MainProfileInfo extends StatelessWidget {
       : StringsModel.strings.longRoles,
     this.enableIntrinsicWidth = true;
 
-  MainProfileInfo.professionalSummary({
+  ProfileHeader.professionalSummary({
     required bool hasIcon,
     required this.style,
   }) :
@@ -60,25 +60,25 @@ class MainProfileInfo extends StatelessWidget {
         : theme.appbar;
 
     switch (style) {
-      case MainProfileInfoStyle.compactAppbar:
+      case ProfileHeaderStyle.compactAppbar:
         beforeDividerSpacing = AppDimens.xSmall;
         afterDividerSpacing = AppDimens.xSmall;
         titleStyle = themeData.overStyled1.normalHeader.bold;
         infoStyle = themeData.overStyled1.normalText.regular;
         break;
-      case MainProfileInfoStyle.extendedAppbar:
+      case ProfileHeaderStyle.extendedAppbar:
         beforeDividerSpacing = AppDimens.small;
         afterDividerSpacing = 0;
         titleStyle = themeData.overStyled1.largeHeader.bold;
         infoStyle = themeData.overStyled1.largeText.regular;
         break;
-      case MainProfileInfoStyle.extendedFlatAppbar:
+      case ProfileHeaderStyle.extendedFlatAppbar:
         beforeDividerSpacing = AppDimens.small;
         afterDividerSpacing = 0;
         titleStyle = themeData.overStyled1.xLargeHeader.bold;
         infoStyle = themeData.overStyled1.largeText.regular;
         break;
-      case MainProfileInfoStyle.body:
+      case ProfileHeaderStyle.body:
         beforeDividerSpacing = AppDimens.normal;
         afterDividerSpacing = AppDimens.normal;
         titleStyle = themeData.overStyled1.xLargeHeader.bold;

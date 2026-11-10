@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../content/main_profile_info.dart';
+import '../../content/profile_header.dart';
 import '../../content/profile_photo.dart';
 import '../../ui/divider.dart';
 import '../../ui/layout/dimens.dart';
@@ -47,8 +47,8 @@ class CompactAppbar extends StatelessWidget {
             onPressed: () => drawerKey.currentState?.open(),
           )
         ),
-        MainProfileInfo.nameAndRoles(
-          style: MainProfileInfoStyle.compactAppbar,
+        ProfileHeader.nameAndRoles(
+          style: ProfileHeaderStyle.compactAppbar,
           isShortRoles: screenWidth <= 430
         )
       ]

@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import '../../content/main_profile_info.dart';
+import '../../content/profile_header.dart';
 import '../../content/profile_photo.dart';
 import '../../ui/container.dart';
 import '../../ui/layout/dimens.dart';
@@ -19,8 +19,8 @@ class ExtendedAppbar extends StatelessWidget {
     Widget builtWidget = layoutMode.isLeft
       ? _LeftProfile()
       : _TopProfile(layoutMode.isFlat
-          ? MainProfileInfoStyle.extendedFlatAppbar
-          : MainProfileInfoStyle.extendedAppbar
+          ? ProfileHeaderStyle.extendedFlatAppbar
+          : ProfileHeaderStyle.extendedAppbar
         );
 
     builtWidget = Row(
@@ -61,8 +61,8 @@ class _LeftProfile extends AppbarAnimatedPadding {
     topFactor: 0,
     bottomFactor: 1,
     child: AppbarAnimatedOpacity(
-      MainProfileInfo.nameAndRoles(
-        style: MainProfileInfoStyle.compactAppbar,
+      ProfileHeader.nameAndRoles(
+        style: ProfileHeaderStyle.compactAppbar,
         isShortRoles: true,
         softWrap: false
       )
@@ -72,7 +72,7 @@ class _LeftProfile extends AppbarAnimatedPadding {
 
 class _TopProfile extends AppbarAnimatedPadding {
   _TopProfile(
-    MainProfileInfoStyle style
+    ProfileHeaderStyle style
   ) : super(
     padding: const AppEdgeInsets.large(left: 0, vertical: 36),
     topFactor: 0.25,
@@ -80,11 +80,11 @@ class _TopProfile extends AppbarAnimatedPadding {
     child: Row(
       children: [
         Spacer(flex: 1),
-        MainProfileInfo.nameAndRoles(style: style, isShortRoles: false),
+        ProfileHeader.nameAndRoles(style: style, isShortRoles: false),
         Spacer(flex: 2),
         Expanded(
           flex: 16,
-          child: MainProfileInfo.professionalSummary(hasIcon: false, style: style)
+          child: ProfileHeader.professionalSummary(hasIcon: false, style: style)
         )
       ]
     )

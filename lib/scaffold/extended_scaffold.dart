@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../content/main_profile_info.dart';
+import '../content/profile_header.dart';
 import '../ui/container.dart';
 import '../ui/layout/dimens.dart';
 import '../ui/layout/layout_theme_model.dart';
@@ -35,9 +35,9 @@ class ExtendedScaffold extends StatelessWidget {
             AppCard(
               theme: theme,
               padding: const AppEdgeInsets.large(),
-              child: MainProfileInfo.professionalSummary(
+              child: ProfileHeader.professionalSummary(
                 hasIcon: true,
-                style: MainProfileInfoStyle.body
+                style: ProfileHeaderStyle.body
               )
             ),
             Expanded(
