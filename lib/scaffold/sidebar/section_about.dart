@@ -4,8 +4,8 @@ import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
 import 'section.dart';
 
-class AboutSection extends Section {
-  AboutSection() : super(
+class SectionAbout extends Section {
+  SectionAbout() : super(
     startOpen: false,
     title: StringsModel.strings.aboutAndExpectationsTitle,
     child: Text(

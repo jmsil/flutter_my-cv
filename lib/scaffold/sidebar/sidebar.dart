@@ -5,8 +5,8 @@ import '../../ui/layout/dimens.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../device.dart';
-import 'about_section.dart';
 import 'details_section.dart';
+import 'section_about.dart';
 import 'settings.dart';
 import 'sidebar_compact.dart';
 import 'sidebar_extended.dart';
@@ -34,7 +34,7 @@ class AppSidebar extends StatelessWidget {
       SkillsSection.integration(),
       AppSpacing.normalV,
 
-      AboutSection()
+      SectionAbout()
     ];
 
     final Widget footerWidget = AppContainer(
