@@ -20,14 +20,12 @@ class AppTheme {
   final AppThemeData mainGroup;
   final AppThemeData viewer;
 
-  static AppTheme getTheme(
-    AppLayoutMode layoutMode, Brightness themeMode, bool isExtendedScreen)
-  {
+  static AppTheme getTheme(AppLayoutMode layoutMode, Brightness themeMode) {
     final bool isLightMode = themeMode == Brightness.light;
     return AppTheme._(
       _getBackgroundThemeData(isLightMode),
-      _getAppbarThemeData(isLightMode, isExtendedScreen),
-      _getSidebarThemeData(layoutMode.showSidebarBackground, isLightMode, isExtendedScreen),
+      _getAppbarThemeData(layoutMode.showSidebarBackground, isLightMode),
+      _getSidebarThemeData(layoutMode.showSidebarBackground, isLightMode),
       _getMainGroupThemeData(isLightMode),
       _getViewerThemeData(isLightMode)
     );
@@ -49,8 +47,8 @@ class AppTheme {
         );
   }
 
-  static AppThemeData _getAppbarThemeData(bool isLightMode, bool isExtendedScreen) {
-    return isLightMode || ! isExtendedScreen
+  static AppThemeData _getAppbarThemeData(bool showSidebarBackground, bool isLightMode) {
+    return isLightMode || showSidebarBackground
       ? AppThemeData(
           surfaceColor1: Colors.blueGrey[900]!,
           over1: AppThemeDataStyledProperty(Colors.blue[200]!)
@@ -61,25 +59,15 @@ class AppTheme {
         );
   }
 
-  static AppThemeData _getSidebarThemeData(
-    bool showSidebarBackground, bool isLightMode, bool isExtendedScreen)
-  {
+  static AppThemeData _getSidebarThemeData(bool showSidebarBackground, bool isLightMode) {
     return showSidebarBackground
-      ? isLightMode || ! isExtendedScreen
-        ? AppThemeData(
-            surfaceColor1: Colors.blueGrey[700]!,
-            surfaceColor2: Colors.blueGrey[900]!.withValues(alpha: 0.56),
-            over1: AppThemeDataStyledProperty(Colors.blue[100]!),
-            over2: AppThemeDataStyledProperty(Colors.blue[200]!, Colors.black),
-            accent1: AppThemeDataStyledProperty(Colors.blue[200]!)
-          )
-        : AppThemeData(
-            surfaceColor1: Color.alphaBlend(Colors.black12, Colors.blueGrey[900]!),
-            surfaceColor2: Colors.blueGrey[800]!.withValues(alpha: 0.56),
-            over1: AppThemeDataStyledProperty(Colors.blue[100]!),
-            over2: AppThemeDataStyledProperty(Colors.blue[200]!),
-            accent1: AppThemeDataStyledProperty(Colors.blue[200]!)
-          )
+      ? AppThemeData(
+          surfaceColor1: Colors.blueGrey[700]!,
+          surfaceColor2: Colors.blueGrey[900]!.withValues(alpha: 0.56),
+          over1: AppThemeDataStyledProperty(Colors.blue[100]!),
+          over2: AppThemeDataStyledProperty(Colors.blue[200]!, Colors.black),
+          accent1: AppThemeDataStyledProperty(Colors.blue[200]!)
+        )
       : isLightMode
         ? AppThemeData(
             surfaceColor1: Colors.transparent,

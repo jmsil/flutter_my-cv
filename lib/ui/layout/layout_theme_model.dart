@@ -27,7 +27,7 @@ class LayoutThemeModel extends ChangeNotifier {
     this._layoutMode,
     this._themeMode
   ) :
-    this._theme = AppTheme.getTheme(_layoutMode, _themeMode, false);
+    this._theme = AppTheme.getTheme(_layoutMode, _themeMode);
 
   factory LayoutThemeModel._fac() {
     return LayoutThemeModel._(
@@ -39,15 +39,15 @@ class LayoutThemeModel extends ChangeNotifier {
   void setLayoutMode(AppLayoutMode layoutMode) {
     if (layoutMode != _layoutMode) {
       _layoutMode = layoutMode;
-      _setTheme(false);
+      _setTheme();
       notifyListeners();
     }
   }
 
-  void setThemeMode(Brightness themeMode, bool isExtendedScreen) {
+  void setThemeMode(Brightness themeMode) {
     if (themeMode != _themeMode) {
       _themeMode = themeMode;
-      _setTheme(isExtendedScreen);
+      _setTheme();
       notifyListeners();
     }
   }
@@ -57,18 +57,18 @@ class LayoutThemeModel extends ChangeNotifier {
       if (_layoutModeToRestore != null) {
         _layoutMode = _layoutModeToRestore!;
         _layoutModeToRestore = null;
-        _setTheme(true);
+        _setTheme();
       }
     }
-    else if (_layoutModeToRestore == null) {
+    else if (_layoutMode != AppLayoutMode.full) {
       _layoutModeToRestore = _layoutMode;
       _layoutMode = AppLayoutMode.full;
-      _setTheme(false);
+      _setTheme();
     }
   }
 
-  void _setTheme(bool isExtendedScreen) {
-    _theme = AppTheme.getTheme(_layoutMode, _themeMode, isExtendedScreen);
+  void _setTheme() {
+    _theme = AppTheme.getTheme(_layoutMode, _themeMode);
   }
 
   static AppLayoutMode get layoutMode => instance._layoutMode;
