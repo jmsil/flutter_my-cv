@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../ui/layout/dimens.dart';
-import '../../ui/layout/layout_theme_model.dart';
+import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../../ui/text.dart';
 import '../../ui/wrap.dart';
@@ -24,7 +24,7 @@ class SkillsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppThemeData themeData = LayoutThemeModel.theme.sidebar;
+    final AppThemeData themeData = LayoutModel.theme.sidebar;
     final List<Widget> children = [];
 
     for (String item in skills) {

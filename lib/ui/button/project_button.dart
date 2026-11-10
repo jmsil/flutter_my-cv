@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../assets.dart';
 import '../layout/icons.dart';
-import '../layout/layout_theme_model.dart';
+import '../layout/layout_model.dart';
 import '../viewer/project.dart';
 import '../viewer/project_gallery_viewer.dart';
 import '../viewer/project_info_viewer.dart';
@@ -23,7 +23,7 @@ class _State extends State<AppProjectButton> {
 
   @override
   Widget build(BuildContext context) {
-    final AppThemeDataBasicProperty themeProperty = LayoutThemeModel.theme.background.accent1;
+    final AppThemeDataBasicProperty themeProperty = LayoutModel.theme.background.accent1;
     return AppButton.icon(
       icon: widget.project is InfoProject ? AppIcons.info : AppIcons.gallery,
       themeProperty: themeProperty,

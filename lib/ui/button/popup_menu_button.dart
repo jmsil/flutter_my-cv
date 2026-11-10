@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../layout/dimens.dart';
 import '../layout/icons.dart';
-import '../layout/layout_theme_model.dart';
+import '../layout/layout_model.dart';
 import 'button.dart';
 
 class AppPopupMenuButton extends MenuAnchor {
@@ -25,8 +25,8 @@ class AppPopupMenuButton extends MenuAnchor {
       ))
     ),
     builder: (BuildContext context, MenuController controller, Widget? child) {
-      final AppLayoutMode layoutMode = LayoutThemeModel.layoutMode;
-      final AppTheme theme = LayoutThemeModel.theme;
+      final LayoutMode layoutMode = LayoutModel.layoutMode;
+      final AppTheme theme = LayoutModel.theme;
       return AppButton.icon(
         icon: AppIcons.settings,
         themeProperty: layoutMode.showSidebarBackground

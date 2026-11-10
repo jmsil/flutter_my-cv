@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../scaffold/device.dart';
 import 'layout/dimens.dart';
-import 'layout/layout_theme_model.dart';
+import 'layout/layout_model.dart';
 
 const double _lineSize = 12;
 const double _borderSize = 4;
@@ -38,7 +38,7 @@ class MainGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = LayoutThemeModel.theme;
+    final AppTheme theme = LayoutModel.theme;
     final bool isExtendedScreen = context.isExtendedScreen;
     final double headerSpacing = _iconBoxSize / 4;
 

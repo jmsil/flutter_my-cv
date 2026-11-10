@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'layout_theme_model.dart';
+import 'layout_model.dart';
 
 class AppTheme {
   static const double radiusValue = 16;
@@ -20,7 +20,7 @@ class AppTheme {
   final AppThemeData mainGroup;
   final AppThemeData viewer;
 
-  static AppTheme getTheme(AppLayoutMode layoutMode, Brightness themeMode) {
+  static AppTheme getTheme(LayoutMode layoutMode, Brightness themeMode) {
     return AppTheme._(
       _getBackgroundThemeData(themeMode),
       _getAppbarThemeData(layoutMode, themeMode),
@@ -46,7 +46,7 @@ class AppTheme {
         );
   }
 
-  static AppThemeData _getAppbarThemeData(AppLayoutMode layoutMode, Brightness themeMode) {
+  static AppThemeData _getAppbarThemeData(LayoutMode layoutMode, Brightness themeMode) {
     return layoutMode.isTop && themeMode.isDarkMode
       ? AppThemeData(
           surfaceColor1: Colors.blueGrey[800]!,
@@ -58,7 +58,7 @@ class AppTheme {
         );
   }
 
-  static AppThemeData _getSidebarThemeData(AppLayoutMode layoutMode, Brightness themeMode) {
+  static AppThemeData _getSidebarThemeData(LayoutMode layoutMode, Brightness themeMode) {
     return layoutMode.showSidebarBackground
       ? AppThemeData(
           surfaceColor1: Colors.blueGrey[700]!,

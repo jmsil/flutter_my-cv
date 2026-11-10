@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../ui/layout/layout_theme_model.dart';
+import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
 import 'section.dart';
 
@@ -10,7 +10,7 @@ class AboutSection extends Section {
     title: StringsModel.strings.aboutAndExpectationsTitle,
     child: Text(
       StringsModel.strings.aboutAndExpectationsInfo,
-      style: LayoutThemeModel.theme.sidebar.overStyled1.normalText.regular
+      style: LayoutModel.theme.sidebar.overStyled1.normalText.regular
     )
   );
 }

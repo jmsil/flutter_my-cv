@@ -4,7 +4,7 @@ import 'theme.dart';
 
 export 'theme.dart';
 
-enum AppLayoutMode {
+enum LayoutMode {
   flat, left, top, full;
 
   bool get isFlat => this == flat;
@@ -15,28 +15,28 @@ enum AppLayoutMode {
   bool get showSidebarBackground => isLeft || isFull;
 }
 
-class LayoutThemeModel extends ChangeNotifier {
-  static final LayoutThemeModel instance = LayoutThemeModel._fac();
+class LayoutModel extends ChangeNotifier {
+  static final LayoutModel instance = LayoutModel._fac();
 
-  AppLayoutMode _layoutMode;
-  AppLayoutMode? _layoutModeToRestore;
+  LayoutMode _layoutMode;
+  LayoutMode? _layoutModeToRestore;
   Brightness _themeMode;
   AppTheme _theme;
 
-  LayoutThemeModel._(
+  LayoutModel._(
     this._layoutMode,
     this._themeMode
   ) :
     this._theme = AppTheme.getTheme(_layoutMode, _themeMode);
 
-  factory LayoutThemeModel._fac() {
-    return LayoutThemeModel._(
-      AppLayoutMode.top,
+  factory LayoutModel._fac() {
+    return LayoutModel._(
+      LayoutMode.top,
       WidgetsBinding.instance.platformDispatcher.platformBrightness
     );
   }
 
-  void setLayoutMode(AppLayoutMode layoutMode) {
+  void setLayoutMode(LayoutMode layoutMode) {
     if (layoutMode != _layoutMode) {
       _layoutMode = layoutMode;
       _setTheme();
@@ -60,9 +60,9 @@ class LayoutThemeModel extends ChangeNotifier {
         _setTheme();
       }
     }
-    else if (_layoutMode != AppLayoutMode.full) {
+    else if (_layoutMode != LayoutMode.full) {
       _layoutModeToRestore = _layoutMode;
-      _layoutMode = AppLayoutMode.full;
+      _layoutMode = LayoutMode.full;
       _setTheme();
     }
   }
@@ -71,7 +71,7 @@ class LayoutThemeModel extends ChangeNotifier {
     _theme = AppTheme.getTheme(_layoutMode, _themeMode);
   }
 
-  static AppLayoutMode get layoutMode => instance._layoutMode;
+  static LayoutMode get layoutMode => instance._layoutMode;
   static Brightness get themeMode => instance._themeMode;
   static AppTheme get theme => instance._theme;
 }

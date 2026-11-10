@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'container.dart';
 import 'layout/dimens.dart';
-import 'layout/layout_theme_model.dart';
+import 'layout/layout_model.dart';
 import 'text.dart';
 
 class AppList extends StatelessWidget {
@@ -16,7 +16,7 @@ class AppList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = LayoutThemeModel.theme;
+    final AppTheme theme = LayoutModel.theme;
     final List<Widget> children = [];
 
     for (String item in list) {

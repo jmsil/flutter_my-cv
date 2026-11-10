@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../content/profile_header.dart';
 import '../ui/container.dart';
 import '../ui/layout/dimens.dart';
-import '../ui/layout/layout_theme_model.dart';
+import '../ui/layout/layout_model.dart';
 import 'appbar/appbar_model.dart';
 import 'appbar/extended_appbar.dart';
 import 'scaffold.dart';
@@ -12,8 +12,8 @@ import 'sidebar/sidebar.dart';
 class ExtendedScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final AppLayoutMode layoutMode = LayoutThemeModel.layoutMode;
-    final AppTheme theme = LayoutThemeModel.theme;
+    final LayoutMode layoutMode = LayoutModel.layoutMode;
+    final AppTheme theme = LayoutModel.theme;
     final EdgeInsets padding = AppEdgeInsets.xLarge(
       top: layoutMode.isLeft
         ? null

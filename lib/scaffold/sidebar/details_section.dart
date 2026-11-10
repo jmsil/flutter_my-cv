@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../ui/layout/dimens.dart';
 import '../../ui/layout/icons.dart';
-import '../../ui/layout/layout_theme_model.dart';
+import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../../ui/text.dart';
 import 'section.dart';
@@ -18,7 +18,7 @@ class DetailsSection extends Section {
         AppIconText(
           icon: AppIcons.local,
           text: StringsModel.strings.personalLocation,
-          textStyle: LayoutThemeModel.theme.sidebar.overStyled1.normalText.regular
+          textStyle: LayoutModel.theme.sidebar.overStyled1.normalText.regular
         ),
         AppLink(
           icon: AppIcons.phone,

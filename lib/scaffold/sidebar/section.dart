@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../ui/container.dart';
 import '../../ui/expandable/expandable_header.dart';
 import '../../ui/layout/dimens.dart';
-import '../../ui/layout/layout_theme_model.dart';
+import '../../ui/layout/layout_model.dart';
 
 class Section extends StatelessWidget {
   final bool startOpen;
@@ -18,7 +18,7 @@ class Section extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppThemeData themeData = LayoutThemeModel.theme.sidebar;
+    final AppThemeData themeData = LayoutModel.theme.sidebar;
     return AppContainer(
       color: themeData.surfaceColor2,
       borderRadius: AppTheme.allBorderRadius,

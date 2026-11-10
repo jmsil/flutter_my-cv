@@ -4,7 +4,7 @@ import '../../content/profile_header.dart';
 import '../../content/profile_photo.dart';
 import '../../ui/container.dart';
 import '../../ui/layout/dimens.dart';
-import '../../ui/layout/layout_theme_model.dart';
+import '../../ui/layout/layout_model.dart';
 import 'appbar_model.dart';
 
 class ExtendedAppbar extends StatelessWidget {
@@ -12,8 +12,8 @@ class ExtendedAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLayoutMode layoutMode = LayoutThemeModel.layoutMode;
-    final AppThemeData themeData = LayoutThemeModel.theme.appbar;
+    final LayoutMode layoutMode = LayoutModel.layoutMode;
+    final AppThemeData themeData = LayoutModel.theme.appbar;
     final EdgeInsets margin = AppbarModel.marginOf(context);
 
     Widget builtWidget = layoutMode.isLeft

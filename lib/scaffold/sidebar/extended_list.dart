@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
 import '../../ui/layout/dimens.dart';
-import '../../ui/layout/layout_theme_model.dart';
+import '../../ui/layout/layout_model.dart';
 import '../../ui/overlay_bar.dart';
 import '../../ui/scroller.dart';
 import '../appbar/appbar_model.dart';
@@ -14,8 +14,8 @@ class ExtendedList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLayoutMode layoutMode = LayoutThemeModel.layoutMode;
-    final AppTheme theme = LayoutThemeModel.theme;
+    final LayoutMode layoutMode = LayoutModel.layoutMode;
+    final AppTheme theme = LayoutModel.theme;
     final double totalCollapsedHeight =
       AppbarModel.totalCollapsedHeightOf(context) + AppDimens.normal;
     final Color overlayColor = layoutMode.showSidebarBackground

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../ui/container.dart';
 import '../../ui/layout/dimens.dart';
-import '../../ui/layout/layout_theme_model.dart';
+import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../device.dart';
 import 'about_section.dart';
@@ -17,8 +17,8 @@ class AppSidebar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppLayoutMode layoutMode = LayoutThemeModel.layoutMode;
-    final AppTheme theme = LayoutThemeModel.theme;
+    final LayoutMode layoutMode = LayoutModel.layoutMode;
+    final AppTheme theme = LayoutModel.theme;
     final bool isExtendedScreen = context.isExtendedScreen;
 
     final List<Widget> children = [

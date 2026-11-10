@@ -5,7 +5,7 @@ import '../../ui/button/button.dart';
 import '../../ui/button/popup_menu_button.dart';
 import '../../ui/layout/dimens.dart';
 import '../../ui/layout/icons.dart';
-import '../../ui/layout/layout_theme_model.dart';
+import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../../ui/text.dart';
 import '../device.dart';
@@ -13,7 +13,7 @@ import '../device.dart';
 class Settings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final AppThemeData themeData = LayoutThemeModel.theme.background;
+    final AppThemeData themeData = LayoutModel.theme.background;
     final bool isExtendedScreen = context.isExtendedScreen;
 
     return AppPopupMenuButton(
@@ -36,7 +36,7 @@ class _LanguagesSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppThemeDataStyledProperty themeProperty =
-      LayoutThemeModel.theme.background.accentStyled1;
+      LayoutModel.theme.background.accentStyled1;
     return _Settings(
       AppIcons.language,
       StringsModel.strings.language,
@@ -67,9 +67,9 @@ class _LanguagesSettings extends StatelessWidget {
 class _ThemeSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Brightness themeMode = LayoutThemeModel.themeMode;
+    final Brightness themeMode = LayoutModel.themeMode;
     final AppThemeDataBasicProperty themeProperty =
-      LayoutThemeModel.theme.background.accent1;
+      LayoutModel.theme.background.accent1;
 
     return _Settings(
       AppIcons.theme,
@@ -93,7 +93,7 @@ class _ThemeSettings extends StatelessWidget {
 
   void setTheme(BuildContext context, Brightness themeMode) {
     AppPopupMenuButton.performAction(
-      context, () => LayoutThemeModel.instance.setThemeMode(themeMode)
+      context, () => LayoutModel.instance.setThemeMode(themeMode)
     );
   }
 }
@@ -101,8 +101,8 @@ class _ThemeSettings extends StatelessWidget {
 class _LayoutSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final AppLayoutMode layoutMode = LayoutThemeModel.layoutMode;
-    final AppThemeDataBasicProperty themeProperty = LayoutThemeModel.theme.background.accent1;
+    final LayoutMode layoutMode = LayoutModel.layoutMode;
+    final AppThemeDataBasicProperty themeProperty = LayoutModel.theme.background.accent1;
 
     return _Settings(
       AppIcons.layout,
@@ -112,33 +112,33 @@ class _LayoutSettings extends StatelessWidget {
           icon: AppIcons.flatLayout,
           themeProperty: themeProperty,
           isSelected: layoutMode.isFlat,
-          onPressed: () => setLayout(context, AppLayoutMode.flat)
+          onPressed: () => setLayout(context, LayoutMode.flat)
         ),
         AppButton.icon(
           icon: AppIcons.leftLayout,
           themeProperty: themeProperty,
           isSelected: layoutMode.isLeft,
-          onPressed: () => setLayout(context, AppLayoutMode.left)
+          onPressed: () => setLayout(context, LayoutMode.left)
         ),
         AppButton.icon(
           icon: AppIcons.topLayout,
           themeProperty: themeProperty,
           isSelected: layoutMode.isTop,
-          onPressed: () => setLayout(context, AppLayoutMode.top)
+          onPressed: () => setLayout(context, LayoutMode.top)
         ),
         AppButton.icon(
           icon: AppIcons.fullLayout,
           themeProperty: themeProperty,
           isSelected: layoutMode.isFull,
-          onPressed: () => setLayout(context, AppLayoutMode.full)
+          onPressed: () => setLayout(context, LayoutMode.full)
         )
       ]
     );
   }
 
-  void setLayout(BuildContext context, AppLayoutMode layoutMode) {
+  void setLayout(BuildContext context, LayoutMode layoutMode) {
     AppPopupMenuButton.performAction(
-      context, () => LayoutThemeModel.instance.setLayoutMode(layoutMode)
+      context, () => LayoutModel.instance.setLayoutMode(layoutMode)
     );
   }
 }
@@ -146,7 +146,7 @@ class _LayoutSettings extends StatelessWidget {
 class _DownloadPdfButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final AppThemeData themeData = LayoutThemeModel.theme.background;
+    final AppThemeData themeData = LayoutModel.theme.background;
     return AppMaterialButton(
       icon: AppIcons.download,
       text: Strings.downloadPdf,
@@ -174,7 +174,7 @@ class _Settings extends Column {
       AppIconText(
         icon: icon,
         text: title,
-        textStyle: LayoutThemeModel.theme.background.overStyled1.normalText.bold
+        textStyle: LayoutModel.theme.background.overStyled1.normalText.bold
       ),
       Row(
         spacing: AppDimens.normal,

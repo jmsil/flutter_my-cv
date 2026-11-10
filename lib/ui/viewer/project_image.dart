@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../container.dart';
 import '../layout/dimens.dart';
-import '../layout/layout_theme_model.dart';
+import '../layout/layout_model.dart';
 import 'full_window_handler.dart';
 
 class ProjectImageWidget extends StatelessWidget {
@@ -15,7 +15,7 @@ class ProjectImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppThemeData themeData = LayoutThemeModel.theme.viewer;
+    final AppThemeData themeData = LayoutModel.theme.viewer;
     final builtImageWidget = Image.memory(image);
 
     final Widget builtFullWindowChild = _FullWindowHandler(

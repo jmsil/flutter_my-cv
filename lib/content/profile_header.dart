@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../ui/divider.dart';
 import '../ui/layout/dimens.dart';
 import '../ui/layout/icons.dart';
-import '../ui/layout/layout_theme_model.dart';
+import '../ui/layout/layout_model.dart';
 import '../ui/strings/strings_model.dart';
 
 enum ProfileHeaderStyle {
@@ -47,8 +47,8 @@ class ProfileHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Brightness themeMode = LayoutThemeModel.themeMode;
-    final AppTheme theme = LayoutThemeModel.theme;
+    final Brightness themeMode = LayoutModel.themeMode;
+    final AppTheme theme = LayoutModel.theme;
     final double beforeDividerSpacing;
     final double afterDividerSpacing;
     final TextStyle titleStyle;
