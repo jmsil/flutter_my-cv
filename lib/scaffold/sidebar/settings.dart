@@ -25,7 +25,7 @@ class Settings extends StatelessWidget {
         if (isExtendedScreen)
           _LayoutSettings(),
 
-        AppSpacing.normalV,
+        AppSpacing.largeV,
         _DownloadPdfButton()
       ]
     );
@@ -181,7 +181,7 @@ class _Settings extends Column {
         spacing: AppDimens.normal,
         children: children
       ),
-      AppSpacing.normalV
+      AppSpacing.smallV
     ]
   );
 }

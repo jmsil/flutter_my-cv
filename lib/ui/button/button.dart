@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../container.dart';
+import '../layout/dimens.dart';
 import '../layout/theme.dart';
 import '../text.dart';
 
@@ -79,8 +80,9 @@ class AppMaterialButton extends MaterialButton {
     super.onPressed
   }) : super(
     minWidth: double.infinity,
-    height: 52,
+    height: 48,
     color: themeProperty.color.withButtonFrameAlpha,
+    padding: const EdgeInsets.symmetric(horizontal: AppDimens.xxLarge),
     elevation: 0,
     hoverElevation: 0,
     focusElevation: 0,
