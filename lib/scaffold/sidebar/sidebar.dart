@@ -13,8 +13,6 @@ import 'sidebar_compact.dart';
 import 'sidebar_extended.dart';
 
 class AppSidebar extends StatelessWidget {
-  static const double width = 480;
-
   @override
   Widget build(BuildContext context) {
     final LayoutMode layoutMode = LayoutModel.layoutMode;
@@ -70,7 +68,7 @@ class AppSidebar extends StatelessWidget {
 
     return layoutMode.showSidebarBackground
       ? AppContainer(
-          width: width,
+          width: LayoutModel.sidebarWidth,
           color: theme.sidebar.surfaceColor1,
           borderRadius: isExtendedScreen
             ? AppTheme.allBorderRadius
@@ -79,7 +77,7 @@ class AppSidebar extends StatelessWidget {
           child: builtChild
         )
       : AppContainer(
-          width: width,
+          width: LayoutModel.sidebarWidth,
           child: builtChild
         );
   }

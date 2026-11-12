@@ -2,7 +2,6 @@ import 'package:flutter/widgets.dart';
 
 import '../../ui/layout/dimens.dart';
 import '../../ui/layout/layout_model.dart';
-import '../sidebar/sidebar.dart';
 
 export 'animated_container.dart';
 export 'animated_opacity.dart';
@@ -39,7 +38,7 @@ class AppbarModel extends StatefulWidget {
   static double currentHeightOf(BuildContext context) {
     return currentStateOf(context).isCollapsed
       ? AppbarModel.collapsedHeight
-      : AppSidebar.width - AppDimens.normal * 2;
+      : LayoutModel.sidebarWidth - AppDimens.normal * 2;
   }
 
   static double currentTotalHeightOf(BuildContext context) {

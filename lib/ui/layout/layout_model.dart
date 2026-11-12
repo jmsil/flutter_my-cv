@@ -16,6 +16,7 @@ enum LayoutMode {
 }
 
 class LayoutModel extends ChangeNotifier {
+  static const double sidebarWidth = 480;
   static final LayoutModel instance = LayoutModel._(
     LayoutMode.top,
     WidgetsBinding.instance.platformDispatcher.platformBrightness
