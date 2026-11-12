@@ -4,7 +4,7 @@ import '../../ui/layout/dimens.dart';
 import '../../ui/layout/theme.dart';
 import '../../ui/strings/strings_model.dart';
 import '../../ui/tabbar.dart';
-import '../../ui/viewer/project.dart';
+import '../../ui/viewer/project_card.dart';
 import '../../ui/wrap.dart';
 import '../expandable.dart';
 import 'apim_proxy.dart';

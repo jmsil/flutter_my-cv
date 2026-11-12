@@ -7,6 +7,7 @@ import '../ui/strings/strings_model.dart';
 import '../ui/tabbar.dart';
 import '../ui/text.dart';
 import '../ui/viewer/project.dart';
+import '../ui/viewer/project_card.dart';
 import 'expandable.dart';
 
 class BciFortlevExperience extends ExpandableContent {

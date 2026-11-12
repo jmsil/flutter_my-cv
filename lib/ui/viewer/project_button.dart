@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../assets.dart';
+import '../button/button.dart';
 import '../layout/icons.dart';
 import '../layout/layout_model.dart';
-import '../viewer/project.dart';
-import '../viewer/project_gallery_viewer.dart';
-import '../viewer/project_info_viewer.dart';
-import '../viewer/viewer.dart';
-import 'button.dart';
+import 'project.dart';
+import 'project_gallery_viewer.dart';
+import 'project_info_viewer.dart';
+import 'viewer.dart';
 
 class AppProjectButton extends StatefulWidget {
   final Project project;
