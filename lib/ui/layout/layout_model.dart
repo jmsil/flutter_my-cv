@@ -16,7 +16,10 @@ enum LayoutMode {
 }
 
 class LayoutModel extends ChangeNotifier {
-  static final LayoutModel instance = LayoutModel._fac();
+  static final LayoutModel instance = LayoutModel._(
+    LayoutMode.top,
+    WidgetsBinding.instance.platformDispatcher.platformBrightness
+  );
 
   LayoutMode _layoutMode;
   LayoutMode? _layoutModeToRestore;
@@ -28,13 +31,6 @@ class LayoutModel extends ChangeNotifier {
     this._themeMode
   ) :
     this._theme = AppTheme(_layoutMode, _themeMode);
-
-  factory LayoutModel._fac() {
-    return LayoutModel._(
-      LayoutMode.top,
-      WidgetsBinding.instance.platformDispatcher.platformBrightness
-    );
-  }
 
   void setLayoutMode(LayoutMode layoutMode) {
     if (layoutMode != _layoutMode) {

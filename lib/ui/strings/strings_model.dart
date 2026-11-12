@@ -7,7 +7,9 @@ import 'strings_pt.dart';
 export 'strings.dart';
 
 class StringsModel extends ChangeNotifier {
-  static final StringsModel instance = StringsModel._fac();
+  static final StringsModel instance = StringsModel._(
+    WidgetsBinding.instance.platformDispatcher.locale.languageCode
+  );
 
   String _languageCode;
   Strings _strings;
@@ -16,12 +18,6 @@ class StringsModel extends ChangeNotifier {
     this._languageCode
   ) :
     this._strings = _getStrings(_languageCode);
-
-  factory StringsModel._fac() {
-    return StringsModel._(
-      WidgetsBinding.instance.platformDispatcher.locale.languageCode
-    );
-  }
 
   void setLanguage(String languageCode) {
     if (languageCode != _languageCode) {
