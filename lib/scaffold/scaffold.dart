@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../content/education.dart';
-import '../content/experience.dart';
-import '../content/list.dart';
-import '../content/professional_dev.dart';
 import '../ui/layout/device.dart';
 import '../ui/layout/layout_model.dart';
-import '../ui/scroller.dart';
-import 'appbar/appbar_compact.dart';
 import 'scaffold_compact.dart';
 import 'scaffold_extended.dart';
 
@@ -25,19 +19,4 @@ class AppScaffold extends ListenableBuilder {
       );
     }
   );
-}
-
-class AppScaffoldGroupsView extends AppCustomScrollView {
-  AppScaffoldGroupsView(
-    GlobalKey<DrawerControllerState>? drawerKey
-  ) : super([
-    if (drawerKey != null)
-      AppbarCompact(drawerKey),
-
-    ExperienceGroup(),
-    EducationGroup(),
-    ProfessionalDevelopmentGroup(),
-    ListGroup.languages(),
-    ListGroup.availability()
-  ]);
 }

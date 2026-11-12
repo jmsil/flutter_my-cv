@@ -6,7 +6,7 @@ import '../ui/layout/dimens.dart';
 import '../ui/layout/layout_model.dart';
 import 'appbar/appbar_extended.dart';
 import 'appbar/appbar_model.dart';
-import 'scaffold.dart';
+import 'scaffold_groups.dart';
 import 'sidebar/sidebar.dart';
 
 class AppScaffoldExtended extends StatelessWidget {

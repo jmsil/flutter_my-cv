@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import 'scaffold.dart';
+import 'scaffold_groups.dart';
 import 'sidebar/sidebar.dart';
 
 class AppScaffoldCompact extends StatefulWidget {
