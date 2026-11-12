@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:my_cv/ui/layout/theme.dart';
+import 'package:material_ui/material_ui.dart';
+
+import 'layout/theme.dart';
 
 class AppDivider extends Divider {
   static const double heightFactor = 4;

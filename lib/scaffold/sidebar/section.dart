@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import '../../ui/container.dart';
 import '../../ui/expandable/expandable_header.dart';

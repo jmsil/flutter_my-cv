@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import '../../pdf/generator.dart';
 import '../../ui/button/button.dart';

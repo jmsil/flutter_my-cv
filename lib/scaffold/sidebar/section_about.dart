@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';

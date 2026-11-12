@@ -1,12 +1,12 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../content/profile_header.dart';
 import '../../content/profile_photo.dart';
 import '../../ui/divider.dart';
+import '../../ui/layout/device.dart';
 import '../../ui/layout/dimens.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
-import '../../ui/layout/device.dart';
 
 class AppbarCompact extends StatelessWidget {
   static const EdgeInsets _padding = AppEdgeInsets.normal();

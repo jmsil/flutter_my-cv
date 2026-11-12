@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:my_cv/ui/scroller.dart';
+import 'package:flutter/widgets.dart';
 
 import '../button/button.dart';
 import '../layout/dimens.dart';
 import '../layout/icons.dart';
 import '../layout/theme.dart';
+import '../scroller.dart';
 import '../strings/strings.dart';
 import 'project.dart';
 import 'viewer.dart';
