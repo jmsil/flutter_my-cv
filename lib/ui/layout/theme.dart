@@ -12,23 +12,20 @@ class AppTheme {
   static const Curve animationCurve = Curves.decelerate;
   static const Duration animationDuration = Duration(milliseconds: 380);
 
-  AppTheme._(this.background, this.appbar, this.sidebar, this.mainGroup, this.viewer);
+  AppTheme(
+    LayoutMode layoutMode, Brightness themeMode
+  ) :
+    this.background = _getBackgroundThemeData(themeMode),
+    this.appbar = _getAppbarThemeData(layoutMode, themeMode),
+    this.sidebar = _getSidebarThemeData(layoutMode, themeMode),
+    this.mainGroup = _getMainGroupThemeData(themeMode),
+    this.viewer = _getViewerThemeData(themeMode);
 
   final AppThemeData background;
   final AppThemeData appbar;
   final AppThemeData sidebar;
   final AppThemeData mainGroup;
   final AppThemeData viewer;
-
-  static AppTheme getTheme(LayoutMode layoutMode, Brightness themeMode) {
-    return AppTheme._(
-      _getBackgroundThemeData(themeMode),
-      _getAppbarThemeData(layoutMode, themeMode),
-      _getSidebarThemeData(layoutMode, themeMode),
-      _getMainGroupThemeData(themeMode),
-      _getViewerThemeData(themeMode)
-    );
-  }
 
   static AppThemeData _getBackgroundThemeData(Brightness themeMode) {
     return themeMode.isLightMode

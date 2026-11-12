@@ -27,7 +27,7 @@ class LayoutModel extends ChangeNotifier {
     this._layoutMode,
     this._themeMode
   ) :
-    this._theme = AppTheme.getTheme(_layoutMode, _themeMode);
+    this._theme = AppTheme(_layoutMode, _themeMode);
 
   factory LayoutModel._fac() {
     return LayoutModel._(
@@ -68,7 +68,7 @@ class LayoutModel extends ChangeNotifier {
   }
 
   void _setTheme() {
-    _theme = AppTheme.getTheme(_layoutMode, _themeMode);
+    _theme = AppTheme(_layoutMode, _themeMode);
   }
 
   static LayoutMode get layoutMode => instance._layoutMode;
