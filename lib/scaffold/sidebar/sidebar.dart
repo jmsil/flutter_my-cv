@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../../ui/container.dart';
+import '../../ui/layout/device.dart';
 import '../../ui/layout/dimens.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
-import '../device.dart';
 import 'section_about.dart';
 import 'section_details.dart';
 import 'section_skills.dart';

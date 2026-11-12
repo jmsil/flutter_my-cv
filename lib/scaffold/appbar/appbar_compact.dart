@@ -6,7 +6,7 @@ import '../../ui/divider.dart';
 import '../../ui/layout/dimens.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
-import '../device.dart';
+import '../../ui/layout/device.dart';
 
 class AppbarCompact extends StatelessWidget {
   static const EdgeInsets _padding = AppEdgeInsets.normal();

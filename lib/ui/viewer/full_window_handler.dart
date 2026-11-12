@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../scaffold/device.dart';
 import '../button/ink_response.dart';
 import '../container.dart';
 import '../hover.dart';
+import '../layout/device.dart';
 import '../layout/dimens.dart';
 import '../layout/icons.dart';
 import 'viewer.dart';

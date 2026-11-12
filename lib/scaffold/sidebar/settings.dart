@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import '../../pdf/generator.dart';
 import '../../ui/button/button.dart';
 import '../../ui/button/popup_menu_button.dart';
+import '../../ui/layout/device.dart';
 import '../../ui/layout/dimens.dart';
 import '../../ui/layout/icons.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../../ui/text.dart';
-import '../device.dart';
 
 class Settings extends StatelessWidget {
   @override

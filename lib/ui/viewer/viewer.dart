@@ -2,8 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import '../../scaffold/device.dart';
 import '../container.dart';
+import '../layout/device.dart';
 import '../layout/dimens.dart';
 import '../layout/layout_model.dart';
 

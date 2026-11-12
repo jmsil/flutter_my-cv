@@ -7,8 +7,8 @@ import 'package:re_highlight/languages/json.dart';
 import 'package:re_highlight/languages/xml.dart';
 import 'package:re_highlight/styles/vs2015.dart';
 
-import '../../scaffold/device.dart';
 import '../assets.dart';
+import '../layout/device.dart';
 import '../layout/dimens.dart';
 import '../layout/layout_model.dart';
 import 'full_window_handler.dart';
