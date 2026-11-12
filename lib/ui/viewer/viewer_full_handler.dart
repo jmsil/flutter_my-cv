@@ -8,12 +8,12 @@ import '../layout/dimens.dart';
 import '../layout/icons.dart';
 import 'viewer.dart';
 
-class AppViewerFullWindowHandler extends StatelessWidget {
+class AppViewerFullHandler extends StatelessWidget {
   final Color iconColor;
   final Widget child;
   final Widget? fullWindowChild;
 
-  AppViewerFullWindowHandler({
+  AppViewerFullHandler({
     required this.iconColor,
     required this.child,
     this.fullWindowChild

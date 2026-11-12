@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import '../container.dart';
 import '../layout/dimens.dart';
 import '../layout/layout_model.dart';
-import 'full_window_handler.dart';
+import 'viewer_full_handler.dart';
 
 class ProjectImageWidget extends StatelessWidget {
   final Uint8List image;
@@ -18,7 +18,7 @@ class ProjectImageWidget extends StatelessWidget {
     final AppThemeData themeData = LayoutModel.theme.viewer;
     final builtImageWidget = Image.memory(image);
 
-    final Widget builtFullWindowChild = _FullWindowHandler(
+    final Widget builtFullWindowChild = _ViewerFullHandler(
       themeData,
       LayoutBuilder(
         builder: (BuildContext builderContext, BoxConstraints builderConstraints) {
@@ -39,7 +39,7 @@ class ProjectImageWidget extends StatelessWidget {
       null
     );
 
-    return _FullWindowHandler(
+    return _ViewerFullHandler(
       themeData,
       builtImageWidget,
       builtFullWindowChild
@@ -47,8 +47,8 @@ class ProjectImageWidget extends StatelessWidget {
   }
 }
 
-class _FullWindowHandler extends AppViewerFullWindowHandler {
-  _FullWindowHandler(
+class _ViewerFullHandler extends AppViewerFullHandler {
+  _ViewerFullHandler(
     AppThemeData themeData, Widget child, Widget? fullWindowChild
   ) : super(
     iconColor: themeData.accent1.color,

@@ -11,7 +11,7 @@ import '../assets.dart';
 import '../layout/device.dart';
 import '../layout/dimens.dart';
 import '../layout/layout_model.dart';
-import 'full_window_handler.dart';
+import 'viewer_full_handler.dart';
 
 class ProjectCodeWidget extends StatefulWidget {
   final AssetsArchive assets;
@@ -61,10 +61,10 @@ class _State extends State<ProjectCodeWidget> {
             flex: widget.horizontalFlexes?[i] ?? 1,
             child: editorWidget
           )
-        : _FullWindowHandler(
+        : _ViewerFullHandler(
             themeData,
             editorWidget,
-            _FullWindowHandler(themeData, editorWidget, null)
+            _ViewerFullHandler(themeData, editorWidget, null)
           )
       );
     }
@@ -76,10 +76,10 @@ class _State extends State<ProjectCodeWidget> {
     );
 
     return isHorizontalDirection
-      ? _FullWindowHandler(
+      ? _ViewerFullHandler(
           themeData,
           builtWidget,
-          _FullWindowHandler(themeData, builtWidget, null)
+          _ViewerFullHandler(themeData, builtWidget, null)
         )
       : builtWidget;
   }
@@ -130,12 +130,12 @@ class _CodeEditor extends CodeEditor {
   );
 }
 
-class _FullWindowHandler extends SizedBox {
-  _FullWindowHandler(
+class _ViewerFullHandler extends SizedBox {
+  _ViewerFullHandler(
     AppThemeData themeData, Widget child, Widget? fullWindowChild
   ) : super(
     height: 326,
-    child: AppViewerFullWindowHandler(
+    child: AppViewerFullHandler(
       iconColor: themeData.accent2.color,
       child: child,
       fullWindowChild: fullWindowChild

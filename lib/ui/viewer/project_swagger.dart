@@ -8,7 +8,7 @@ import '../container.dart';
 import '../layout/device.dart';
 import '../layout/dimens.dart';
 import '../layout/layout_model.dart';
-import 'full_window_handler.dart';
+import 'viewer_full_handler.dart';
 
 class ProjectSwaggerWidget extends StatefulWidget {
   @override
@@ -85,16 +85,16 @@ class _State extends State<ProjectSwaggerWidget> {
     final AppThemeData themeData = LayoutModel.theme.viewer;
     final Widget htmlElementView = HtmlElementView(viewType: viewType);
 
-    return _FullWindowHandler(
+    return _ViewerFullHandler(
       themeData,
       htmlElementView,
-      _FullWindowHandler(themeData, htmlElementView, null)
+      _ViewerFullHandler(themeData, htmlElementView, null)
     );
   }
 }
 
-class _FullWindowHandler extends AppViewerFullWindowHandler {
-  _FullWindowHandler(
+class _ViewerFullHandler extends AppViewerFullHandler {
+  _ViewerFullHandler(
     AppThemeData themeData, Widget child, Widget? fullWindowChild
   ) : super(
     iconColor: themeData.accent1.color,
