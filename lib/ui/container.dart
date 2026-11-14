@@ -51,17 +51,12 @@ class AppContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget? builtWidget = child;
-    final BorderSide? borderSide = borderColor != null && borderSize > 0
-      ? BorderSide(width: borderSize, color: borderColor!) : null;
+    final BorderSide? borderSide = borderColor == null || borderSize <= 0
+      ? null : BorderSide(width: borderSize, color: borderColor!);
+    final EdgeInsets? builtPadding = _getPadding(borderSide != null);
 
-    if (padding != null || borderSide != null) {
-      builtWidget = Padding(
-        padding:
-          (padding ?? EdgeInsets.zero) +
-          (borderSide == null ? EdgeInsets.zero : EdgeInsets.all(borderSize)),
-        child: builtWidget
-      );
-    }
+    if (builtPadding != null)
+      builtWidget = Padding(padding: builtPadding, child: builtWidget);
 
     builtWidget = gradientColor == null
       ? Material(
@@ -94,8 +89,8 @@ class AppContainer extends StatelessWidget {
         );
 
     if (width != null || height != null) {
-      builtWidget = ConstrainedBox(
-        constraints: BoxConstraints.expand(width: width, height: height),
+      builtWidget = SizedBox(
+        width: width, height: height,
         child: builtWidget
       );
     }
@@ -104,6 +99,21 @@ class AppContainer extends StatelessWidget {
       builtWidget = Padding(padding: margin!, child: builtWidget);
 
     return builtWidget;
+  }
+
+  EdgeInsets? _getPadding(bool hasBorder) {
+    if (hasBorder) {
+      return padding == null
+        ? EdgeInsets.all(borderSize)
+        : EdgeInsets.fromLTRB(
+            padding!.left + borderSize,
+            padding!.top + borderSize,
+            padding!.right + borderSize,
+            padding!.bottom + borderSize
+          );
+    }
+
+    return padding;
   }
 }
 
