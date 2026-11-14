@@ -11,6 +11,8 @@ class AppContainer extends StatelessWidget {
   final double borderSize;
   final Color? borderColor;
   final BorderRadius borderRadius;
+  final Color? gradientColor;
+  final Axis gradientAxis;
   final bool enableClip;
   final Widget? child;
 
@@ -26,34 +28,70 @@ class AppContainer extends StatelessWidget {
     this.borderRadius = BorderRadius.zero,
     this.enableClip = false,
     this.child
-  });
+  }) :
+    gradientColor = null,
+    gradientAxis = Axis.horizontal;
+
+  AppContainer.gradient({
+    this.width,
+    this.height,
+    required Color color,
+    this.margin,
+    this.padding,
+    this.borderSize = 1,
+    this.borderColor,
+    this.borderRadius = BorderRadius.zero,
+    this.gradientColor,
+    this.gradientAxis = Axis.horizontal,
+    this.child
+  }) :
+    this.color = color,
+    this.enableClip = true;
 
   @override
   Widget build(BuildContext context) {
     Widget? builtWidget = child;
-    final bool hasBorder = borderColor != null && borderSize > 0;
+    final BorderSide? borderSide = borderColor != null && borderSize > 0
+      ? BorderSide(width: borderSize, color: borderColor!) : null;
 
-    if (padding != null || hasBorder) {
+    if (padding != null || borderSide != null) {
       builtWidget = Padding(
         padding:
           (padding ?? EdgeInsets.zero) +
-          (hasBorder ? EdgeInsets.all(borderSize) : EdgeInsets.zero),
+          (borderSide == null ? EdgeInsets.zero : EdgeInsets.all(borderSize)),
         child: builtWidget
       );
     }
 
-    builtWidget = Material(
-      color: color,
-      type: color == null ? MaterialType.transparency : MaterialType.canvas,
-      shape: RoundedRectangleBorder(
-        borderRadius: borderRadius,
-        side: hasBorder
-          ? BorderSide(width: borderSize, color: borderColor!)
-          : BorderSide.none
-      ),
-      clipBehavior: enableClip ? Clip.hardEdge : Clip.none,
-      child: builtWidget
-    );
+    builtWidget = gradientColor == null
+      ? Material(
+          color: color,
+          type: color == null ? MaterialType.transparency : MaterialType.canvas,
+          shape: RoundedRectangleBorder(
+            borderRadius: borderRadius,
+            side: borderSide ?? BorderSide.none
+          ),
+          clipBehavior: enableClip ? Clip.hardEdge : Clip.none,
+          child: builtWidget
+        )
+      : DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: gradientAxis == Axis.horizontal
+                ? Alignment.topCenter : Alignment.centerLeft,
+              end: gradientAxis == Axis.horizontal
+                ? Alignment.bottomCenter : Alignment.centerRight,
+              colors: [
+                color!,
+                Color.alphaBlend(gradientColor!.withDecorationAlpha, color!),
+                color!
+              ]
+            ),
+            borderRadius: borderRadius,
+            border: borderSide == null ? null : Border.fromBorderSide(borderSide)
+          ),
+          child: builtWidget
+        );
 
     if (width != null || height != null) {
       builtWidget = ConstrainedBox(
@@ -62,12 +100,8 @@ class AppContainer extends StatelessWidget {
       );
     }
 
-    if (margin != null) {
-      builtWidget = Padding(
-        padding: margin!,
-        child: builtWidget
-      );
-    }
+    if (margin != null)
+      builtWidget = Padding(padding: margin!, child: builtWidget);
 
     return builtWidget;
   }

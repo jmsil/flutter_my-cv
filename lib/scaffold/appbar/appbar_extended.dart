@@ -8,7 +8,8 @@ import '../../ui/layout/layout_model.dart';
 import 'appbar_model.dart';
 
 class AppbarExtended extends StatelessWidget {
-  static const double _photoRadiusSize = AppbarModel.collapsedHeight / 2;
+  static const double _leftRadiusSize = AppbarModel.collapsedHeight / 2;
+  static const double _photoMarginSize = AppDimens.normal;
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +28,9 @@ class AppbarExtended extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         ProfilePhoto(
-          margin: AppDimens.normal,
+          margin: _photoMarginSize,
           borderRadius: const BorderRadius.all(
-            const Radius.circular(_photoRadiusSize - AppDimens.normal)
+            const Radius.circular(_leftRadiusSize - _photoMarginSize)
           ),
           onPressed: () => AppbarModel.switchStateOf(context)
         ),
@@ -38,12 +39,14 @@ class AppbarExtended extends StatelessWidget {
     );
 
     if ( ! layoutMode.isFlat) {
-      builtWidget = AppContainer(
+      builtWidget = AppContainer.gradient(
         color: themeData.surfaceColor1,
+        borderColor: layoutMode.isLeft ? null : themeData.over1.color.withDecorationAlpha,
         borderRadius: BorderRadius.horizontal(
-          left: const Radius.circular(_photoRadiusSize),
+          left: const Radius.circular(_leftRadiusSize),
           right: AppTheme.radius
         ),
+        gradientColor: themeData.over1.color,
         child: builtWidget
       );
     }

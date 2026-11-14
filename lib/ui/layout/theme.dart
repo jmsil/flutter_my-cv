@@ -38,7 +38,7 @@ class AppTheme {
       : AppThemeData(
           surfaceColor1: Color.alphaBlend(Colors.black38, Colors.blueGrey[900]!),
           surfaceColor2: Colors.blueGrey[700]!,
-          over1: AppThemeDataStyledProperty(Colors.blueGrey[50]!),
+          over1: AppThemeDataStyledProperty(Colors.grey[200]!),
           accent1: AppThemeDataStyledProperty(Colors.blue[200]!)
         );
   }
@@ -47,10 +47,10 @@ class AppTheme {
     return layoutMode.isTop && themeMode.isDarkMode
       ? AppThemeData(
           surfaceColor1: Colors.blueGrey[800]!,
-          over1: AppThemeDataStyledProperty(Colors.blue[50]!)
+          over1: AppThemeDataStyledProperty(Colors.blue[100]!)
         )
       : AppThemeData(
-          surfaceColor1: Colors.blueGrey[900]!,
+          surfaceColor1: Color.alphaBlend(Colors.black12, Colors.blueGrey[900]!),
           over1: AppThemeDataStyledProperty(Colors.blue[200]!)
         );
   }
@@ -59,7 +59,7 @@ class AppTheme {
     return layoutMode.showSidebarBackground
       ? AppThemeData(
           surfaceColor1: Colors.blueGrey[700]!,
-          surfaceColor2: Colors.blueGrey[900]!.withValues(alpha: 0.56),
+          surfaceColor2: Colors.blueGrey[900]!.withValues(alpha: 0.6),
           over1: AppThemeDataStyledProperty(Colors.blue[100]!),
           over2: AppThemeDataStyledProperty(Colors.blue[200]!, Colors.black),
           accent1: AppThemeDataStyledProperty(Colors.blue[200]!)

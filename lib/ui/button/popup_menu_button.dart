@@ -12,8 +12,8 @@ class AppPopupMenuButton extends MenuAnchor {
   }) : super(
     animated: true,
     consumeOutsideTap: true,
-    alignmentOffset: const Offset(80, -60),
     style: MenuStyle(
+      alignment: Alignment.topCenter,
       padding: WidgetStateProperty.resolveWith((_) => const AppEdgeInsets.large()),
       backgroundColor: WidgetStateProperty.resolveWith((_) => themeData.surfaceColor1),
       elevation: WidgetStateProperty.resolveWith((_) => 8),

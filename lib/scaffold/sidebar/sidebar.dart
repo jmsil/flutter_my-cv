@@ -16,7 +16,7 @@ class AppSidebar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final LayoutMode layoutMode = LayoutModel.layoutMode;
-    final AppTheme theme = LayoutModel.theme;
+    final AppThemeData themeData = LayoutModel.theme.sidebar;
     final bool isExtendedScreen = context.isExtendedScreen;
 
     final List<Widget> children = [
@@ -25,60 +25,75 @@ class AppSidebar extends StatelessWidget {
 
       SectionDetails(),
       AppSpacing.normalV,
-
       SectionSkills.programming(),
       AppSpacing.normalV,
-
       SectionSkills.integration(),
       AppSpacing.normalV,
-
       SectionAbout()
     ];
 
-    final Widget footerWidget = AppContainer(
-      color: layoutMode.showSidebarBackground ? theme.appbar.surfaceColor1 : null,
-      padding: const AppEdgeInsets.normal(vertical: AppDimens.small),
-      child: Row(
-        spacing: AppDimens.small,
-        children: [
-          FlutterLogo(size: 32),
-          Expanded(
-            child: Text(
-              StringsModel.strings.madeWithFlutter,
-              style: layoutMode.showSidebarBackground
-                ? theme.appbar.overStyled1.normalText.regular
-                : theme.background.overStyled1.normalText.regular
-            )
-          ),
-          Settings()
-        ]
-      )
-    );
-
-    final Widget builtChild = Column(
+    final Widget builtWidget = Column(
       children: [
         Expanded(
           child: isExtendedScreen
             ? AppSidebarExtended(children)
             : AppSidebarCompact(children)
         ),
-        footerWidget
+        _Footer()
+      ]
+    );
+
+    return layoutMode.showSidebarBackground
+      ? AppContainer.gradient(
+          width: LayoutModel.sidebarWidth,
+          color: themeData.surfaceColor1,
+          borderRadius: isExtendedScreen
+            ? AppTheme.allBorderRadius
+            : BorderRadius.zero,
+          gradientColor: themeData.accent1.color,
+          gradientAxis: Axis.vertical,
+          child: builtWidget
+        )
+      : SizedBox(
+          width: LayoutModel.sidebarWidth,
+          child: builtWidget
+        );
+  }
+}
+
+class _Footer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final LayoutMode layoutMode = LayoutModel.layoutMode;
+    final AppTheme theme = LayoutModel.theme;
+
+    final Widget builtWidget = Row(
+      spacing: AppDimens.small,
+      children: [
+        FlutterLogo(size: 32),
+        Expanded(
+          child: Text(
+            StringsModel.strings.madeWithFlutter,
+            style: layoutMode.showSidebarBackground
+              ? theme.appbar.overStyled1.normalText.regular
+              : theme.background.overStyled1.normalText.regular
+          )
+        ),
+        Settings()
       ]
     );
 
     return layoutMode.showSidebarBackground
       ? AppContainer(
-          width: LayoutModel.sidebarWidth,
-          color: theme.sidebar.surfaceColor1,
-          borderRadius: isExtendedScreen
-            ? AppTheme.allBorderRadius
-            : BorderRadius.zero,
-          enableClip: isExtendedScreen,
-          child: builtChild
+          color: theme.appbar.surfaceColor1,
+          margin: const AppEdgeInsets.normal(top: 0),
+          padding: const AppEdgeInsets.normal(vertical: AppDimens.small),
+          borderRadius: AppTheme.allBorderRadius,
+          child: builtWidget
         )
-      : AppContainer(
-          width: LayoutModel.sidebarWidth,
-          child: builtChild
+      : Padding(
+          padding: const AppEdgeInsets.normal(vertical: AppDimens.small),
+          child: builtWidget
         );
   }
 }
