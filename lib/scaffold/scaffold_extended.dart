@@ -23,8 +23,8 @@ class AppScaffoldExtended extends StatelessWidget {
     );
 
     Widget builtWidget = Center(
-      child: ConstrainedBox(
-        constraints: BoxConstraints(maxWidth: 1200),
+      child: SizedBox(
+        width: 1200,
         child: AppScaffoldGroupsView(null)
       )
     );
