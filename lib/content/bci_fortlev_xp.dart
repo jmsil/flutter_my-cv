@@ -5,7 +5,7 @@ import '../ui/layout/dimens.dart';
 import '../ui/layout/theme.dart';
 import '../ui/strings/strings_model.dart';
 import '../ui/tabbar.dart';
-import '../ui/text.dart';
+import '../ui/text/link.dart';
 import '../ui/viewer/project.dart';
 import '../ui/viewer/project_card.dart';
 import 'expandable.dart';

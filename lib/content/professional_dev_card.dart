@@ -4,7 +4,7 @@ import '../ui/container.dart';
 import '../ui/layout/dimens.dart';
 import '../ui/layout/layout_model.dart';
 import '../ui/strings/strings_model.dart';
-import '../ui/text.dart';
+import '../ui/text/link.dart';
 
 class ProfessionalDevelopmentCard extends StatelessWidget {
   final String title;

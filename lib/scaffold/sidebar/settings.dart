@@ -8,7 +8,7 @@ import '../../ui/layout/dimens.dart';
 import '../../ui/layout/icons.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
-import '../../ui/text.dart';
+import '../../ui/text/icon_text.dart';
 
 class Settings extends StatelessWidget {
   @override

@@ -5,7 +5,7 @@ import '../ui/layout/icons.dart';
 import '../ui/layout/layout_model.dart';
 import '../ui/main_group.dart';
 import '../ui/strings/strings_model.dart';
-import '../ui/text.dart';
+import '../ui/text/link.dart';
 import 'bci_fortlev_xp.dart';
 import 'expandable.dart';
 import 'integration_learning_xp/integration_learning_xp.dart';

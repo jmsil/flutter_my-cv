@@ -3,7 +3,7 @@ import 'package:material_ui/material_ui.dart';
 import '../container.dart';
 import '../layout/dimens.dart';
 import '../layout/theme.dart';
-import '../text.dart';
+import '../text/icon_text.dart';
 
 class AppButton extends StatelessWidget {
   static const double _containerSize = 36;

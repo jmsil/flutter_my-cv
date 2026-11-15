@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'container.dart';
 import 'layout/dimens.dart';
 import 'layout/layout_model.dart';
-import 'text.dart';
+import 'text/icon_text.dart';
 
 class AppList extends StatelessWidget {
   final List<String> list;

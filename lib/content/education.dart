@@ -1,7 +1,7 @@
 import '../ui/layout/icons.dart';
 import '../ui/main_group.dart';
 import '../ui/strings/strings_model.dart';
-import '../ui/text.dart';
+import '../ui/text/link.dart';
 import 'expandable.dart';
 
 class EducationGroup extends MainGroup {

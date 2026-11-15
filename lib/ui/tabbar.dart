@@ -4,7 +4,7 @@ import 'layout/dimens.dart';
 import 'layout/icons.dart';
 import 'layout/layout_model.dart';
 import 'strings/strings_model.dart';
-import 'text.dart';
+import 'text/icon_text.dart';
 
 class AppTabBar extends StatelessWidget {
   final List<AppTabBarTab> tabs;

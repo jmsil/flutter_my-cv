@@ -6,7 +6,7 @@ import '../ui/layout/layout_model.dart';
 import '../ui/list.dart';
 import '../ui/main_group.dart';
 import '../ui/strings/strings_model.dart';
-import '../ui/text.dart';
+import '../ui/text/icon_text.dart';
 
 class ListGroup extends StatelessWidget {
   final IconData icon;
