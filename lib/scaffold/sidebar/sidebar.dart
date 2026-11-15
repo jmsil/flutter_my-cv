@@ -47,9 +47,7 @@ class AppSidebar extends StatelessWidget {
       ? AppContainer.gradient(
           width: LayoutModel.sidebarWidth,
           color: themeData.surfaceColor1,
-          borderRadius: isExtendedScreen
-            ? AppTheme.allBorderRadius
-            : BorderRadius.zero,
+          borderRadius: isExtendedScreen ? AppTheme.allBorderRadius : null,
           gradientColor: themeData.accent1.color,
           gradientAxis: Axis.vertical,
           child: builtWidget

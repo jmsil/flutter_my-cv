@@ -10,7 +10,7 @@ class AppContainer extends StatelessWidget {
   final EdgeInsets? padding;
   final double borderSize;
   final Color? borderColor;
-  final BorderRadius borderRadius;
+  final BorderRadius? borderRadius;
   final Color? gradientColor;
   final Axis gradientAxis;
   final bool enableClip;
@@ -25,7 +25,7 @@ class AppContainer extends StatelessWidget {
     this.padding,
     this.borderSize = 1,
     this.borderColor,
-    this.borderRadius = BorderRadius.zero,
+    this.borderRadius,
     this.enableClip = false,
     this.child
   }) :
@@ -40,7 +40,7 @@ class AppContainer extends StatelessWidget {
     this.padding,
     this.borderSize = 1,
     this.borderColor,
-    this.borderRadius = BorderRadius.zero,
+    this.borderRadius,
     this.gradientColor,
     this.gradientAxis = Axis.horizontal,
     this.child
@@ -62,10 +62,12 @@ class AppContainer extends StatelessWidget {
       ? Material(
           color: color,
           type: color == null ? MaterialType.transparency : MaterialType.canvas,
-          shape: RoundedRectangleBorder(
-            borderRadius: borderRadius,
-            side: borderSide ?? BorderSide.none
-          ),
+          shape: borderRadius != null || borderSide != null
+            ? RoundedRectangleBorder(
+                borderRadius: borderRadius ?? BorderRadius.zero,
+                side: borderSide ?? BorderSide.none
+              )
+            : null,
           clipBehavior: enableClip ? Clip.hardEdge : Clip.none,
           child: builtWidget
         )
