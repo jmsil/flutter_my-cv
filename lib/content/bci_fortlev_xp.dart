@@ -25,8 +25,16 @@ class BciFortlevExperience extends ExpandableContent {
             spacing: AppDimens.xLarge,
             runSpacing: AppDimens.small,
             children: [
-              AppLink(text: Strings.bciShortLink, link: Strings.bciLink),
-              AppLink(text: Strings.fortlevShortLink, link: Strings.fortlevLink)
+              AppLink(
+                text: Strings.bciShortLink,
+                link: Strings.bciLink,
+                themeData: theme.background
+              ),
+              AppLink(
+                text: Strings.fortlevShortLink,
+                link: Strings.fortlevLink,
+                themeData: theme.background
+              )
             ]
           ),
           Text(

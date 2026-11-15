@@ -1,4 +1,5 @@
 import '../ui/layout/icons.dart';
+import '../ui/layout/layout_model.dart';
 import '../ui/main_group.dart';
 import '../ui/strings/strings_model.dart';
 import '../ui/text/link.dart';
@@ -14,7 +15,8 @@ class EducationGroup extends MainGroup {
       headerDetail: StringsModel.strings.educationUniversityDetail,
       widgetBeforeInfo: AppLink(
         text: Strings.educationUniversityShortLink,
-        link: Strings.educationUniversityLink
+        link: Strings.educationUniversityLink,
+        themeData: LayoutModel.theme.background
       ),
       info: StringsModel.strings.educationUniversityInfo
     )

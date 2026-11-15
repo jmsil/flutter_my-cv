@@ -25,18 +25,18 @@ class SectionDetails extends Section {
           icon: AppIcons.phone,
           text: Strings.personalPhone,
           link: Strings.personalPhoneLink,
-          isOverBackground: false
+          themeData: LayoutModel.theme.sidebar
         ),
         AppLink(
           icon: AppIcons.mail,
           text: Strings.personalEmail,
           link: Strings.personalEmailLink,
-          isOverBackground: false
+          themeData: LayoutModel.theme.sidebar
         ),
         AppLink(
           icon: AppIcons.code,
           text: Strings.personalGitHubLink,
-          isOverBackground: false
+          themeData: LayoutModel.theme.sidebar
         )
       ]
     )

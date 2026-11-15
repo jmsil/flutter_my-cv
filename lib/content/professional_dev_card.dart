@@ -46,6 +46,7 @@ class ProfessionalDevelopmentCard extends StatelessWidget {
           AppLink(
             text: StringsModel.strings.verify,
             link: certificateLink,
+            themeData: theme.background,
             alwaysShowTrailingIcon: true
           )
         ]

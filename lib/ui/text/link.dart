@@ -12,14 +12,14 @@ class AppLink extends StatelessWidget {
   final IconData icon;
   final String text;
   final String? link;
-  final bool isOverBackground;
+  final AppThemeData themeData;
   final bool alwaysShowTrailingIcon;
 
   AppLink({
     this.icon = AppIcons.link,
     required this.text,
     this.link,
-    this.isOverBackground = true,
+    required this.themeData,
     this.alwaysShowTrailingIcon = false
   });
 
@@ -27,26 +27,21 @@ class AppLink extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppHoverWidget(
       builder: (BuildContext context, bool hovered, Widget? child) {
-        final AppTheme theme = LayoutModel.theme;
-        final TextStyle textStyle = isOverBackground
-          ? hovered
-            ? theme.background.accentStyled1.normalText.bold
-            : theme.background.overStyled1.normalText.regular
-          : hovered
-            ? theme.sidebar.accentStyled1.normalText.bold
-            : theme.sidebar.overStyled1.normalText.regular;
-
         return AppIconText(
           icon: icon,
           text: text,
-          textStyle: textStyle,
+          textStyle: hovered
+            ? themeData.accentStyled1.normalText.bold
+            : themeData.overStyled1.normalText.regular,
           trailingWidget: SizedBox(
             width: _trailingIconSize, height: 24,
             child: hovered || alwaysShowTrailingIcon
               ? Icon(
                   AppIcons.openInNew,
                   size: _trailingIconSize,
-                  color: hovered ? textStyle.color : textStyle.color?.withDarkDecorationAlpha
+                  color: hovered
+                    ? themeData.accent1.color
+                    : themeData.over1.color.withDarkDecorationAlpha
                 )
               : null
           )
