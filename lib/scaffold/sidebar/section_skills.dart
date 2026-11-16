@@ -5,7 +5,7 @@ import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../../ui/text/icon_text.dart';
 import '../../ui/wrap.dart';
-import 'section.dart';
+import 'sidebar_section.dart';
 
 class SectionSkills extends StatelessWidget {
   final String title;
@@ -39,7 +39,7 @@ class SectionSkills extends StatelessWidget {
       ));
     }
 
-    return Section(
+    return SidebarSection(
       startOpen: startOpen,
       title: title,
       child: enableWrapping

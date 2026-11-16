@@ -2,9 +2,9 @@ import 'package:flutter/widgets.dart';
 
 import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
-import 'section.dart';
+import 'sidebar_section.dart';
 
-class SectionAbout extends Section {
+class SectionAbout extends SidebarSection {
   SectionAbout() : super(
     startOpen: false,
     title: StringsModel.strings.aboutAndExpectationsTitle,

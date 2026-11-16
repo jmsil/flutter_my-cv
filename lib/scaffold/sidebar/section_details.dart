@@ -8,7 +8,7 @@ import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../../ui/text/icon_text.dart';
 import '../../ui/text/link.dart';
-import 'section.dart';
+import 'sidebar_section.dart';
 
 enum SectionDetailsStyle {
   expandable, appbarHorizontal, appbarVertical;
@@ -75,7 +75,7 @@ class SectionDetails extends StatelessWidget {
 
     switch(style) {
       case SectionDetailsStyle.expandable:
-        return Section(
+        return SidebarSection(
           startOpen: true,
           title: StringsModel.strings.detailsTitle,
           child: Column(

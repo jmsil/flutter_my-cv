@@ -5,12 +5,12 @@ import '../../ui/expandable/expandable_header.dart';
 import '../../ui/layout/dimens.dart';
 import '../../ui/layout/layout_model.dart';
 
-class Section extends StatelessWidget {
+class SidebarSection extends StatelessWidget {
   final bool startOpen;
   final String title;
   final Widget child;
 
-  Section({
+  SidebarSection({
     required this.startOpen,
     required this.title,
     required this.child
