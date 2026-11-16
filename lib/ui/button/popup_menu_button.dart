@@ -14,14 +14,14 @@ class AppPopupMenuButton extends MenuAnchor {
     consumeOutsideTap: true,
     style: MenuStyle(
       alignment: Alignment.topCenter,
-      padding: WidgetStateProperty.resolveWith((_) => const AppEdgeInsets.large()),
+      padding: WidgetStateProperty.resolveWith((_) => const AppEdgeInsets.normal()),
       backgroundColor: WidgetStateProperty.resolveWith((_) => themeData.surfaceColor1),
       elevation: WidgetStateProperty.resolveWith((_) => 8),
       shadowColor: WidgetStateProperty.resolveWith((_) => Colors.black54),
       mouseCursor: WidgetStateProperty.resolveWith((_) => SystemMouseCursors.basic),
       shape: WidgetStateProperty.resolveWith((_) => RoundedRectangleBorder(
         borderRadius: AppTheme.allBorderRadius,
-        side: BorderSide(width: 1, color: themeData.accent1.color.withWindowBorderAlpha)
+        side: BorderSide(width: 1, color: themeData.accent1.color.withDarkDecorationAlpha)
       ))
     ),
     builder: (BuildContext context, MenuController controller, Widget? child) {

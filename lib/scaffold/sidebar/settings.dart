@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import '../../pdf/generator.dart';
 import '../../ui/button/button.dart';
 import '../../ui/button/popup_menu_button.dart';
+import '../../ui/container.dart';
 import '../../ui/layout/device.dart';
 import '../../ui/layout/dimens.dart';
 import '../../ui/layout/icons.dart';
@@ -15,17 +16,20 @@ class Settings extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppThemeData themeData = LayoutModel.theme.background;
     final bool isExtendedScreen = context.isExtendedScreen;
-
     return AppPopupMenuButton(
       themeData: themeData,
       children: [
         _LanguagesSettings(),
+        AppSpacing.smallV,
         _ThemeSettings(),
+        AppSpacing.smallV,
 
-        if (isExtendedScreen)
+        if (isExtendedScreen) ...[
           _LayoutSettings(),
+          AppSpacing.smallV
+        ],
 
-        AppSpacing.largeV,
+        AppSpacing.smallV,
         _DownloadPdfButton()
       ]
     );
@@ -35,8 +39,7 @@ class Settings extends StatelessWidget {
 class _LanguagesSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final AppThemeDataStyledProperty themeProperty =
-      LayoutModel.theme.background.accentStyled1;
+    final AppThemeDataStyledProperty themeProperty = LayoutModel.theme.background.accentStyled1;
     return _Settings(
       AppIcons.language,
       StringsModel.strings.language,
@@ -68,9 +71,7 @@ class _ThemeSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Brightness themeMode = LayoutModel.themeMode;
-    final AppThemeDataBasicProperty themeProperty =
-      LayoutModel.theme.background.accent1;
-
+    final AppThemeDataBasicProperty themeProperty = LayoutModel.theme.background.accent1;
     return _Settings(
       AppIcons.theme,
       StringsModel.strings.theme,
@@ -103,7 +104,6 @@ class _LayoutSettings extends StatelessWidget {
   Widget build(BuildContext context) {
     final LayoutMode layoutMode = LayoutModel.layoutMode;
     final AppThemeDataBasicProperty themeProperty = LayoutModel.theme.background.accent1;
-
     return _Settings(
       AppIcons.layout,
       Strings.layout,
@@ -162,25 +162,32 @@ class _DownloadPdfButton extends StatelessWidget {
   }
 }
 
-class _Settings extends Column {
-  _Settings(
-    IconData icon,
-    String title,
-    List<Widget> children
-  ) : super(
-    spacing: AppDimens.small,
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      AppIconText(
-        icon: icon,
-        text: title,
-        textStyle: LayoutModel.theme.background.overStyled1.normalText.bold
-      ),
-      Row(
-        spacing: AppDimens.normal,
-        children: children
-      ),
-      AppSpacing.smallV
-    ]
-  );
+class _Settings extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final List<Widget> children;
+
+  _Settings(this.icon, this.title, this.children);
+
+  @override
+  Widget build(BuildContext contxt) {
+    final AppThemeData themeData = LayoutModel.theme.background;
+    return AppContainer(
+      color: themeData.surfaceColor2.withCardFillAlpha,
+      padding: const AppEdgeInsets.normal(bottom: AppDimens.small),
+      borderRadius: AppTheme.allBorderRadius,
+      child: Column(
+        spacing: AppDimens.small,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          AppIconText(
+            icon: icon,
+            text: title,
+            textStyle: themeData.overStyled1.normalText.bold
+          ),
+          Row(spacing: AppDimens.normal, children: children)
+        ]
+      )
+    );
+  }
 }
