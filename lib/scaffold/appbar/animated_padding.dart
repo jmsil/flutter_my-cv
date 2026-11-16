@@ -19,8 +19,8 @@ class AppbarAnimatedPadding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double deltaHeight =
-      AppbarModel.currentTotalHeightOf(context) -
-      AppbarModel.totalCollapsedHeightOf(context);
+      AppbarModel.currentHeightOf(context) -
+      AppbarModel.collapsedHeight;
 
     return AnimatedPadding(
       padding: padding.copyWith(

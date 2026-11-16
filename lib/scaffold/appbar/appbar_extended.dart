@@ -5,36 +5,41 @@ import '../../content/profile_photo.dart';
 import '../../ui/container.dart';
 import '../../ui/layout/dimens.dart';
 import '../../ui/layout/layout_model.dart';
+import '../sidebar/section_details.dart';
 import 'appbar_model.dart';
 
 class AppbarExtended extends StatelessWidget {
-  static const double _leftRadiusSize = AppbarModel.collapsedHeight / 2;
-  static const double _photoMarginSize = AppDimens.normal;
-
   @override
   Widget build(BuildContext context) {
     final LayoutMode layoutMode = LayoutModel.layoutMode;
     final AppThemeData themeData = LayoutModel.theme.appbar;
-    final EdgeInsets margin = AppbarModel.marginOf(context);
 
-    Widget builtWidget = layoutMode.isLeft
-      ? _LeftProfile()
-      : _TopProfile(layoutMode.isFlat
-          ? ProfileHeaderStyle.extendedFlatAppbar
-          : ProfileHeaderStyle.extendedAppbar
-        );
-
-    builtWidget = Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    Widget builtWidget = Column(
       children: [
-        ProfilePhoto(
-          margin: _photoMarginSize,
-          borderRadius: const BorderRadius.all(
-            const Radius.circular(_leftRadiusSize - _photoMarginSize)
-          ),
-          onPressed: () => AppbarModel.switchStateOf(context)
+        AppbarAnimatedContainer(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ProfilePhoto(
+                margin: const AppEdgeInsets.normal(),
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(AppbarModel.collapsedHeight / 2 - AppDimens.normal)),
+                onPressed: () => AppbarModel.switchStateOf(context)
+              ),
+              Flexible(child: layoutMode.isLeft
+                ? _LeftProfile()
+                : _TopProfile(layoutMode.isFlat
+                    ? ProfileHeaderStyle.extendedFlatAppbar
+                    : ProfileHeaderStyle.extendedAppbar
+                  )
+              )
+            ]
+          )
         ),
-        Flexible(child: builtWidget)
+        SectionDetails(layoutMode.isLeft
+          ? SectionDetailsStyle.appbarVertical
+          : SectionDetailsStyle.appbarHorizontal
+        )
       ]
     );
 
@@ -42,19 +47,13 @@ class AppbarExtended extends StatelessWidget {
       builtWidget = AppContainer.gradient(
         color: themeData.surfaceColor1,
         borderColor: layoutMode.isLeft ? null : themeData.over1.color.withDecorationAlpha,
-        borderRadius: BorderRadius.horizontal(
-          left: const Radius.circular(_leftRadiusSize),
-          right: AppTheme.radius
-        ),
+        borderRadius: AppTheme.allBorderRadius,
         gradientColor: themeData.over1.color,
         child: builtWidget
       );
     }
 
-    return AppbarAnimatedContainer(
-      margin: margin,
-      child: builtWidget
-    );
+    return builtWidget;
   }
 }
 
@@ -87,7 +86,7 @@ class _TopProfile extends AppbarAnimatedPadding {
         Spacer(flex: 2),
         Expanded(
           flex: 16,
-          child: ProfileHeader.professionalSummary(hasIcon: false, style: style)
+          child: ProfileHeader.professionalSummary(enableIcon: false, style: style)
         )
       ]
     )

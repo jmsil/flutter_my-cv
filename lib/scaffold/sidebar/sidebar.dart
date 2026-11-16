@@ -18,16 +18,18 @@ class AppSidebar extends StatelessWidget {
     final LayoutMode layoutMode = LayoutModel.layoutMode;
     final AppThemeData themeData = LayoutModel.theme.sidebar;
     final bool isExtendedScreen = context.isExtendedScreen;
+    final bool skillsStartOpen = isExtendedScreen && ! layoutMode.isLeft;
 
     final List<Widget> children = [
-      if ( ! isExtendedScreen)
+      if ( ! isExtendedScreen) ...[
         AppSpacing.normalV,
+        SectionDetails(SectionDetailsStyle.expandable),
+        AppSpacing.normalV
+      ],
 
-      SectionDetails(),
+      SectionSkills.programming(startOpen: skillsStartOpen),
       AppSpacing.normalV,
-      SectionSkills.programming(),
-      AppSpacing.normalV,
-      SectionSkills.integration(),
+      SectionSkills.integration(startOpen: skillsStartOpen),
       AppSpacing.normalV,
       SectionAbout()
     ];
@@ -64,6 +66,7 @@ class _Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     final LayoutMode layoutMode = LayoutModel.layoutMode;
     final AppTheme theme = LayoutModel.theme;
+    final bool isExtendedScreen = context.isExtendedScreen;
 
     final Widget builtWidget = Row(
       spacing: AppDimens.small,
@@ -84,9 +87,8 @@ class _Footer extends StatelessWidget {
     return layoutMode.showSidebarBackground
       ? AppContainer(
           color: theme.appbar.surfaceColor1,
-          margin: const AppEdgeInsets.normal(top: 0),
           padding: const AppEdgeInsets.normal(vertical: AppDimens.small),
-          borderRadius: AppTheme.allBorderRadius,
+          borderRadius: isExtendedScreen ? AppTheme.bottomBorderRadius : null,
           child: builtWidget
         )
       : Padding(

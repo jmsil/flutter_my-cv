@@ -3,10 +3,15 @@ import 'package:material_ui/material_ui.dart';
 import 'layout_model.dart';
 
 class AppTheme {
+  static final AppThemeDataStyledProperty _blue100 = AppThemeDataStyledProperty(Colors.blue[100]!);
+  static final AppThemeDataStyledProperty _blue200 = AppThemeDataStyledProperty(Colors.blue[200]!);
+  static final AppThemeDataStyledProperty _blue900 = AppThemeDataStyledProperty(Colors.blue[900]!);
+
   static const double radiusValue = 16;
   static const Radius radius = Radius.circular(radiusValue);
   static const Radius circleRadius = Radius.circular(999);
   static const BorderRadius allBorderRadius = BorderRadius.all(radius);
+  static const BorderRadius bottomBorderRadius = BorderRadius.vertical(bottom: radius);
   static const BorderRadius circleBorderRadius = BorderRadius.all(circleRadius);
 
   static const Curve animationCurve = Curves.decelerate;
@@ -28,30 +33,36 @@ class AppTheme {
   final AppThemeData viewer;
 
   static AppThemeData _getBackgroundThemeData(Brightness themeMode) {
-    return themeMode.isLightMode
+    return themeMode.isLight
       ? AppThemeData(
           surfaceColor1: Colors.blueGrey[50]!,
           surfaceColor2: Colors.blueGrey[300]!,
           over1: AppThemeDataStyledProperty(Colors.black, Colors.blueGrey[700]),
-          accent1: AppThemeDataStyledProperty(Colors.blue[900]!)
+          accent1: _blue900
         )
       : AppThemeData(
           surfaceColor1: Color.alphaBlend(Colors.black38, Colors.blueGrey[900]!),
           surfaceColor2: Colors.blueGrey[700]!,
           over1: AppThemeDataStyledProperty(Colors.grey[200]!),
-          accent1: AppThemeDataStyledProperty(Colors.blue[200]!)
+          accent1: _blue200
         );
   }
 
   static AppThemeData _getAppbarThemeData(LayoutMode layoutMode, Brightness themeMode) {
-    return layoutMode.isTop && themeMode.isDarkMode
+    return layoutMode.isTop && themeMode.isDark
       ? AppThemeData(
           surfaceColor1: Colors.blueGrey[800]!,
-          over1: AppThemeDataStyledProperty(Colors.blue[100]!)
+          surfaceColor2: Colors.blueGrey[900]!,
+          over1: _blue100,
+          accent1: _blue200
         )
       : AppThemeData(
           surfaceColor1: Color.alphaBlend(Colors.black12, Colors.blueGrey[900]!),
-          over1: AppThemeDataStyledProperty(Colors.blue[200]!)
+          surfaceColor2: themeMode.isLight
+            ? Colors.blueGrey[700]!
+            : Color.alphaBlend(Colors.black38, Colors.blueGrey[900]!),
+          over1: _blue200,
+          accent1: _blue100
         );
   }
 
@@ -59,54 +70,54 @@ class AppTheme {
     return layoutMode.showSidebarBackground
       ? AppThemeData(
           surfaceColor1: Colors.blueGrey[700]!,
-          surfaceColor2: Colors.blueGrey[900]!.withValues(alpha: 0.6),
-          over1: AppThemeDataStyledProperty(Colors.blue[100]!),
+          surfaceColor2: Colors.black.withValues(alpha: 0.34),
+          over1: _blue100,
           over2: AppThemeDataStyledProperty(Colors.blue[200]!, Colors.black),
-          accent1: AppThemeDataStyledProperty(Colors.blue[200]!)
+          accent1: _blue200
         )
-      : themeMode.isLightMode
+      : themeMode.isLight
         ? AppThemeData(
             surfaceColor1: Colors.transparent,
             surfaceColor2: Colors.blueGrey[900]!.withValues(alpha: 0.12),
             over1: AppThemeDataStyledProperty(Colors.black),
             over2: AppThemeDataStyledProperty(Colors.blueGrey[900]!),
-            accent1: AppThemeDataStyledProperty(Colors.blue[900]!)
+            accent1: _blue900
           )
         : AppThemeData(
             surfaceColor1: Colors.transparent,
             surfaceColor2: Colors.blueGrey[800]!.withValues(alpha: 0.32),
-            over1: AppThemeDataStyledProperty(Colors.blue[100]!),
-            over2: AppThemeDataStyledProperty(Colors.blue[200]!),
-            accent1: AppThemeDataStyledProperty(Colors.blue[200]!)
+            over1: _blue100,
+            over2: _blue200,
+            accent1: _blue200
           );
   }
 
   static AppThemeData _getMainGroupThemeData(Brightness themeMode) {
-    return themeMode.isLightMode
+    return themeMode.isLight
       ? AppThemeData(
           surfaceColor1: Colors.blueGrey[700]!,
-          over1: AppThemeDataStyledProperty(Colors.blue[100]!),
+          over1: _blue100,
           over2: AppThemeDataBasicProperty(Colors.blueGrey[200]!)
         )
       : AppThemeData(
           surfaceColor1: Colors.blueGrey[900]!,
-          over1: AppThemeDataStyledProperty(Colors.blue[200]!),
+          over1: _blue200,
           over2: AppThemeDataBasicProperty(Colors.blueGrey[600]!)
         );
   }
 
   static AppThemeData _getViewerThemeData(Brightness themeMode) {
     return AppThemeData(
-      surfaceColor1: themeMode.isLightMode
+      surfaceColor1: themeMode.isLight
         ? Colors.blueGrey[50]!
         : Colors.blueGrey[200]!,
       over1: AppThemeDataStyledProperty(
         Colors.black,
-        themeMode.isLightMode ? Colors.blueGrey[700] : null
+        themeMode.isLight ? Colors.blueGrey[700] : null
       ),
       over2: AppThemeDataBasicProperty(Colors.blueGrey[900]!),
-      accent1: AppThemeDataBasicProperty(Colors.blue[900]!),
-      accent2: AppThemeDataBasicProperty(Colors.blue[200]!)
+      accent1: _blue900,
+      accent2: _blue200
     );
   }
 }
@@ -194,6 +205,6 @@ extension AppThemeColorExtension on Color {
 }
 
 extension AppThemeModeExtension on Brightness {
-  bool get isLightMode => this == Brightness.light;
-  bool get isDarkMode => this == Brightness.dark;
+  bool get isLight => this == Brightness.light;
+  bool get isDark => this == Brightness.dark;
 }

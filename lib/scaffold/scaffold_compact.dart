@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:material_ui/material_ui.dart';
 
+import 'appbar/appbar_compact.dart';
 import 'scaffold_groups.dart';
 import 'sidebar/sidebar.dart';
 
@@ -35,7 +36,9 @@ class _State extends State<AppScaffoldCompact> {
     return Stack(
       clipBehavior: Clip.none,
       children: [
-        AppScaffoldGroupsView(drawerKey),
+        AppScaffoldGroupsView(
+          AppbarCompact(drawerKey)
+        ),
         DrawerController(
           key: drawerKey,
           alignment: DrawerAlignment.start,

@@ -66,7 +66,7 @@ class _Profile extends Padding {
       clipBehavior: Clip.none,
       children: [
         Center(
-          child: ProfilePhoto(margin: AppDimens.small)
+          child: ProfilePhoto(margin: const AppEdgeInsets.small())
         ),
         Align(
           alignment: Alignment.topLeft,

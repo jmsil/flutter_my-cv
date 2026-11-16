@@ -36,10 +36,10 @@ class ProfileHeader extends StatelessWidget {
     this.enableIntrinsicWidth = true;
 
   ProfileHeader.professionalSummary({
-    required bool hasIcon,
+    required bool enableIcon,
     required this.style,
   }) :
-    this.icon = hasIcon ? AppIcons.summary : null,
+    this.icon = enableIcon ? AppIcons.summary : null,
     this.title = StringsModel.strings.professionalSummaryTitle,
     this.info = StringsModel.strings.professionalSummaryInfo,
     this.softWrap = true,
@@ -55,7 +55,7 @@ class ProfileHeader extends StatelessWidget {
     final TextStyle infoStyle;
 
     final AppThemeData themeData =
-      themeMode.isLightMode && (style.isExtendedFlatAppbar || style.isBody)
+      themeMode.isLight && (style.isExtendedFlatAppbar || style.isBody)
         ? theme.background
         : theme.appbar;
 

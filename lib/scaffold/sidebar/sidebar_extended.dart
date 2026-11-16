@@ -5,7 +5,6 @@ import '../../ui/layout/layout_model.dart';
 import '../../ui/overlay_bar.dart';
 import '../../ui/scroller.dart';
 import '../appbar/appbar_extended.dart';
-import '../appbar/appbar_model.dart';
 
 class AppSidebarExtended extends StatelessWidget {
   final List<Widget> children;
@@ -16,8 +15,6 @@ class AppSidebarExtended extends StatelessWidget {
   Widget build(BuildContext context) {
     final LayoutMode layoutMode = LayoutModel.layoutMode;
     final AppTheme theme = LayoutModel.theme;
-    final double totalCollapsedHeight =
-      AppbarModel.totalCollapsedHeightOf(context) + AppDimens.normal;
     final Color overlayColor = layoutMode.showSidebarBackground
       ? theme.sidebar.surfaceColor1
       : theme.background.surfaceColor1;
@@ -31,22 +28,19 @@ class AppSidebarExtended extends StatelessWidget {
       child: AppListView(children: children)
     );
 
-    builtWidget = layoutMode.isLeft
-      ? Padding(
-          padding: const AppEdgeInsets.normal(),
-          child: Column(
-            spacing: AppDimens.normal,
-            children: [
-              AppbarExtended(),
-              Expanded(child: builtWidget)
-            ]
-          )
-        )
-      : AppbarAnimatedPadding(
-          padding: AppEdgeInsets.normal(top: totalCollapsedHeight),
-          child: builtWidget
-        );
+    if (layoutMode.isLeft) {
+      builtWidget = Column(
+        spacing: AppDimens.normal,
+        children: [
+          AppbarExtended(),
+          Expanded(child: builtWidget)
+        ]
+      );
+    }
 
-    return builtWidget;
+    return Padding(
+      padding: const AppEdgeInsets.normal(),
+      child: builtWidget
+    );
   }
 }

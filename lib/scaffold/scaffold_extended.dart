@@ -13,45 +13,36 @@ class AppScaffoldExtended extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final LayoutMode layoutMode = LayoutModel.layoutMode;
+    final Brightness themeMode = LayoutModel.themeMode;
     final AppTheme theme = LayoutModel.theme;
-    final EdgeInsets padding = AppEdgeInsets.xLarge(
-      top: layoutMode.isLeft
-        ? null
-        : AppbarModel.totalCollapsedHeightOf(context) +
-            (layoutMode.isFlat ? AppDimens.normal : AppDimens.xLarge),
-      bottom: 0
-    );
+    final double headerSpacing = themeMode.isLight ? AppDimens.small : AppDimens.normal;
 
-    Widget builtWidget = Center(
-      child: SizedBox(
-        width: 1200,
-        child: AppScaffoldGroupsView(null)
+    Widget builtWidget = Padding(
+      padding: AppEdgeInsets.xLarge(top: AppDimens.xLarge - headerSpacing, bottom: 0),
+      child: Center(
+        child: SizedBox(
+          width: 1200,
+          child: AppScaffoldGroupsView(null)
+        )
       )
     );
 
-    builtWidget = layoutMode.isLeft
-      ? Column(
-          children: [
-            AppCard(
-              theme: theme,
-              padding: const AppEdgeInsets.large(),
-              child: ProfileHeader.professionalSummary(
-                hasIcon: true,
-                style: ProfileHeaderStyle.body
-              )
-            ),
-            Expanded(
-              child: Padding(
-                padding: padding,
-                child: builtWidget
-              )
+    if (layoutMode.isLeft) {
+      builtWidget = Column(
+        spacing: headerSpacing,
+        children: [
+          AppCard(
+            theme: theme,
+            padding: const AppEdgeInsets.large(),
+            child: ProfileHeader.professionalSummary(
+              enableIcon: true,
+              style: ProfileHeaderStyle.body
             )
-          ]
-        )
-      : AppbarAnimatedPadding(
-          padding: padding,
-          child: builtWidget
-        );
+          ),
+          Expanded(child: builtWidget)
+        ]
+      );
+    }
 
     builtWidget = Row(
       spacing: layoutMode.isLeft ? AppDimens.normal : 0,
@@ -62,11 +53,11 @@ class AppScaffoldExtended extends StatelessWidget {
     );
 
     if ( ! layoutMode.isLeft) {
-      builtWidget = Stack(
-        clipBehavior: Clip.none,
+      builtWidget = Column(
+        spacing: headerSpacing,
         children: [
-          builtWidget,
-          AppbarExtended()
+          AppbarExtended(),
+          Expanded(child: builtWidget)
         ]
       );
     }

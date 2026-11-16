@@ -8,6 +8,7 @@ import 'package:re_highlight/languages/xml.dart';
 import 'package:re_highlight/styles/vs2015.dart';
 
 import '../assets.dart';
+import '../divider.dart';
 import '../layout/device.dart';
 import '../layout/dimens.dart';
 import '../layout/layout_model.dart';
@@ -122,10 +123,7 @@ class _CodeEditor extends CodeEditor {
     },
     leadingDivider: Padding(
       padding: const EdgeInsets.only(right: AppDimens.xSmall),
-      child: VerticalDivider(
-        width: 1, thickness: 1,
-        color: themeData.surfaceColor1.withDividerAlpha
-      )
+      child: AppVerticalDivider(1, themeData.surfaceColor1)
     )
   );
 }

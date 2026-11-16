@@ -9,17 +9,22 @@ import 'section.dart';
 
 class SectionSkills extends StatelessWidget {
   final String title;
-  final bool allowWrapping;
+  final bool enableWrapping;
+  final bool startOpen;
   final List<String> skills;
 
-  SectionSkills.programming() :
+  SectionSkills.programming(
+    {required this.startOpen}
+  ) :
     this.title = StringsModel.strings.programmingSkillsTitle,
-    this.allowWrapping = true,
+    this.enableWrapping = true,
     this.skills = Strings.programmingSkillsInfo;
 
-  SectionSkills.integration() :
+  SectionSkills.integration(
+    {required this.startOpen}
+  ) :
     this.title = StringsModel.strings.integrationSkillsTitle,
-    this.allowWrapping = false,
+    this.enableWrapping = false,
     this.skills = Strings.integrationSkillsInfo;
 
   @override
@@ -35,9 +40,9 @@ class SectionSkills extends StatelessWidget {
     }
 
     return Section(
-      startOpen: false,
+      startOpen: startOpen,
       title: title,
-      child: allowWrapping
+      child: enableWrapping
         ? AppWrap(
             width: 270,
             spacing: AppDimens.xLarge,

@@ -4,7 +4,7 @@ publish_to: 'none'
 description: A Flutter project for my personal online CV.
 
 environment:
-  sdk: ^2.17.0
+  sdk: ^3.0.0
 
 dependencies:
   archive: ^4.0.9

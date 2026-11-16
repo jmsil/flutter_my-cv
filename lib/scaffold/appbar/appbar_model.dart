@@ -26,23 +26,10 @@ class AppbarModel extends StatefulWidget {
     return context.dependOnInheritedWidgetOfExactType<_AppbarModelNotifier>()!.notifier!.value;
   }
 
-  static EdgeInsets marginOf(BuildContext context) {
-    return LayoutModel.layoutMode.isFull
-      ? const AppEdgeInsets.normal(right: 0, bottom: 0) : EdgeInsets.zero;
-  }
-
-  static double totalCollapsedHeightOf(BuildContext context) {
-    return collapsedHeight + marginOf(context).vertical;
-  }
-
   static double currentHeightOf(BuildContext context) {
     return currentStateOf(context).isCollapsed
       ? AppbarModel.collapsedHeight
       : LayoutModel.sidebarWidth - AppDimens.normal * 2;
-  }
-
-  static double currentTotalHeightOf(BuildContext context) {
-    return currentHeightOf(context) + marginOf(context).vertical;
   }
 
   static void switchStateOf(BuildContext context) {

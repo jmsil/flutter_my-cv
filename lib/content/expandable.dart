@@ -1,5 +1,6 @@
 import 'package:material_ui/material_ui.dart';
 
+import '../ui/divider.dart';
 import '../ui/expandable/expandable_header.dart';
 import '../ui/layout/dimens.dart';
 import '../ui/layout/layout_model.dart';
@@ -30,11 +31,7 @@ class ExpandableContent extends StatelessWidget {
     final builtHeaderWidget = Row(
       spacing: AppDimens.small,
       children: [
-        VerticalDivider(
-          thickness: 8, width: 8,
-          color: themeData.over1.color.withDecorationAlpha,
-          radius: AppTheme.circleBorderRadius
-        ),
+        AppVerticalDivider(8, themeData.over1.color),
         Expanded(
           child: Text.rich(
             TextSpan(

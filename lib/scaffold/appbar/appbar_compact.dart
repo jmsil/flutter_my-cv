@@ -15,7 +15,7 @@ class AppbarCompact extends StatelessWidget {
   static final double _collapsedHeight =
     _padding.vertical +
     _photoSize +
-    _dividerSize * AppDivider.heightFactor +
+    _dividerSize * AppDivider.sizeFactor +
     AppDimens.normal * 2;
 
   final GlobalKey<DrawerControllerState> drawerKey;
