@@ -8,17 +8,17 @@ import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../../ui/text/icon_text.dart';
 import '../../ui/text/link.dart';
-import 'sidebar_section.dart';
+import '../sidebar/sidebar_section.dart';
 
-enum SectionDetailsStyle {
+enum ProfileDetailsStyle {
   expandable, appbarHorizontal, appbarVertical;
   bool get isExpandable => this == expandable;
 }
 
-class SectionDetails extends StatelessWidget {
-  final SectionDetailsStyle style;
+class ProfileDetails extends StatelessWidget {
+  final ProfileDetailsStyle style;
 
-  SectionDetails(this.style);
+  ProfileDetails(this.style);
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +28,12 @@ class SectionDetails extends StatelessWidget {
       : layoutMode.isFlat ? LayoutModel.theme.sidebar : LayoutModel.theme.appbar;
 
     final Widget? builtDivider = switch(style) {
-      SectionDetailsStyle.expandable => null,
-      SectionDetailsStyle.appbarHorizontal => SizedBox(
+      ProfileDetailsStyle.expandable => null,
+      ProfileDetailsStyle.appbarHorizontal => SizedBox(
         height: 32,
         child: AppVerticalDivider(2, themeData.over1.color)
       ),
-      SectionDetailsStyle.appbarVertical => AppDivider(2, themeData.over1.color)
+      ProfileDetailsStyle.appbarVertical => AppDivider(2, themeData.over1.color)
     };
 
     final List<Widget> children = [
@@ -74,7 +74,7 @@ class SectionDetails extends StatelessWidget {
     ];
 
     switch(style) {
-      case SectionDetailsStyle.expandable:
+      case ProfileDetailsStyle.expandable:
         return SidebarSection(
           startOpen: true,
           title: StringsModel.strings.detailsTitle,
@@ -84,7 +84,7 @@ class SectionDetails extends StatelessWidget {
             children: children
           )
         );
-      case SectionDetailsStyle.appbarHorizontal:
+      case ProfileDetailsStyle.appbarHorizontal:
         return AppContainer(
           height: 56,
           color: themeData.surfaceColor2,
@@ -98,7 +98,7 @@ class SectionDetails extends StatelessWidget {
             children: children
           )
         );
-      case SectionDetailsStyle.appbarVertical:
+      case ProfileDetailsStyle.appbarVertical:
         return AppContainer(
           color: themeData.surfaceColor1,
           padding: const AppEdgeInsets.large(),

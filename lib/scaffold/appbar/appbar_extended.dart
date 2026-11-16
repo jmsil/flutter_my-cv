@@ -3,8 +3,8 @@ import 'package:flutter/widgets.dart';
 import '../../ui/container.dart';
 import '../../ui/layout/dimens.dart';
 import '../../ui/layout/layout_model.dart';
-import '../sidebar/section_details.dart';
 import 'appbar_model.dart';
+import 'profile_details.dart';
 import 'profile_header.dart';
 import 'profile_photo.dart';
 
@@ -36,9 +36,9 @@ class AppbarExtended extends StatelessWidget {
             ]
           )
         ),
-        SectionDetails(layoutMode.isLeft
-          ? SectionDetailsStyle.appbarVertical
-          : SectionDetailsStyle.appbarHorizontal
+        ProfileDetails(layoutMode.isLeft
+          ? ProfileDetailsStyle.appbarVertical
+          : ProfileDetailsStyle.appbarHorizontal
         )
       ]
     );
