@@ -1,12 +1,12 @@
 import 'package:material_ui/material_ui.dart';
 
-import '../../content/profile_photo.dart';
 import '../../ui/button/button.dart';
 import '../../ui/layout/dimens.dart';
 import '../../ui/layout/icons.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/overlay_bar.dart';
 import '../../ui/scroller.dart';
+import '../appbar/profile_photo.dart';
 
 class AppSidebarCompact extends StatelessWidget {
   final List<Widget> children;

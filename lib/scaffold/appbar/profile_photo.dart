@@ -1,10 +1,10 @@
 import 'package:flutter/widgets.dart';
 
-import '../ui/assets.dart';
-import '../ui/button/ink_response.dart';
-import '../ui/container.dart';
-import '../ui/layout/device.dart';
-import '../ui/layout/layout_model.dart';
+import '../../ui/assets.dart';
+import '../../ui/button/ink_response.dart';
+import '../../ui/container.dart';
+import '../../ui/layout/device.dart';
+import '../../ui/layout/layout_model.dart';
 
 class ProfilePhoto extends StatelessWidget {
   static const double borderSize = 2;
