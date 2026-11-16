@@ -11,6 +11,9 @@ class AppTheme {
   static const Radius radius = Radius.circular(radiusValue);
   static const Radius circleRadius = Radius.circular(999);
   static const BorderRadius allBorderRadius = BorderRadius.all(radius);
+  static const BorderRadius leftBorderRadius = BorderRadius.horizontal(left: radius);
+  static const BorderRadius topBorderRadius = BorderRadius.vertical(top: radius);
+  static const BorderRadius rightBorderRadius = BorderRadius.horizontal(right: radius);
   static const BorderRadius bottomBorderRadius = BorderRadius.vertical(bottom: radius);
   static const BorderRadius circleBorderRadius = BorderRadius.all(circleRadius);
 

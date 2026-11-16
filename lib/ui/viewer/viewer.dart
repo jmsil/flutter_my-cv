@@ -86,29 +86,29 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
       screenSize.width >= 720 && screenSize.height >= 480 && ! isMobileDevice;
 
     Widget builtBarWidget = AppContainer(
+      key: _builtBarKey,
+      width: isWindowHorizontalDirection ? widget.barSize : null,
+      height: isWindowVerticalDirection ? widget.barSize : null,
       padding: widget.barPadding,
       color: isMobileDevice
         ? themeData.surfaceColor1
         : themeData.surfaceColor1.withValues(alpha: 0.6),
+      borderRadius: isFloatingWindow
+        ? isWindowHorizontalDirection ? AppTheme.leftBorderRadius : AppTheme.topBorderRadius
+        : null,
       child: buildBar(themeData)
     );
 
-    if ( ! isMobileDevice) {
-      builtBarWidget = BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
-        child: builtBarWidget
-      );
-    }
-
     builtBarWidget = Offstage(
       offstage: _isCompactMode,
-      child: AppContainer(
-        key: _builtBarKey,
-        width: isWindowHorizontalDirection ? widget.barSize : null,
-        height: isWindowVerticalDirection ? widget.barSize : null,
-        enableClip: ! isMobileDevice,
-        child: builtBarWidget
-      )
+      child: isMobileDevice
+        ? builtBarWidget
+        : ClipRect(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+              child: builtBarWidget
+            )
+          )
     );
 
     final Widget builtFullBodyWidget = LayoutBuilder(
@@ -171,7 +171,14 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
       children: [
         builtBarWidget,
         Expanded(
-          child: AppContainer(color: themeData.surfaceColor1, child: builtFullBodyWidget)
+          child: AppContainer(
+            color: themeData.surfaceColor1,
+            borderRadius: isFloatingWindow
+              ? isWindowHorizontalDirection
+                ? AppTheme.rightBorderRadius : AppTheme.bottomBorderRadius
+              : null,
+            child: builtFullBodyWidget
+          )
         )
       ]
     );
@@ -184,8 +191,6 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
             width: widget.windowWidth,
             height: widget.windowHeight,
             margin: const AppEdgeInsets.normal(),
-            borderRadius: AppTheme.allBorderRadius,
-            enableClip: true,
             child: builtWindowContentWidget
           )
         )
