@@ -46,7 +46,7 @@ class AppContainer extends StatelessWidget {
     this.child
   }) :
     this.color = color,
-    this.enableClip = true;
+    this.enableClip = false;
 
   @override
   Widget build(BuildContext context) {
