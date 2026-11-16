@@ -1,12 +1,12 @@
 import 'package:flutter/widgets.dart';
 
-import '../../content/profile_header.dart';
 import '../../content/profile_photo.dart';
 import '../../ui/container.dart';
 import '../../ui/layout/dimens.dart';
 import '../../ui/layout/layout_model.dart';
 import '../sidebar/section_details.dart';
 import 'appbar_model.dart';
+import 'profile_header.dart';
 
 class AppbarExtended extends StatelessWidget {
   @override

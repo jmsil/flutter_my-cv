@@ -1,10 +1,10 @@
 import 'package:flutter/widgets.dart';
 
-import '../ui/divider.dart';
-import '../ui/layout/dimens.dart';
-import '../ui/layout/icons.dart';
-import '../ui/layout/layout_model.dart';
-import '../ui/strings/strings_model.dart';
+import '../../ui/divider.dart';
+import '../../ui/layout/dimens.dart';
+import '../../ui/layout/icons.dart';
+import '../../ui/layout/layout_model.dart';
+import '../../ui/strings/strings_model.dart';
 
 enum ProfileHeaderStyle {
   compactAppbar, extendedAppbar, extendedFlatAppbar, body;

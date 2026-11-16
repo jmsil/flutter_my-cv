@@ -1,11 +1,11 @@
 import 'package:flutter/widgets.dart';
 
-import '../content/profile_header.dart';
 import '../ui/container.dart';
 import '../ui/layout/dimens.dart';
 import '../ui/layout/layout_model.dart';
 import 'appbar/appbar_extended.dart';
 import 'appbar/appbar_model.dart';
+import 'appbar/profile_header.dart';
 import 'scaffold_groups.dart';
 import 'sidebar/sidebar.dart';
 
