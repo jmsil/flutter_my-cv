@@ -99,7 +99,7 @@ class _CodeEditor extends CodeEditor {
       textColor: Colors.white,
       cursorColor: themeData.surfaceColor1,
       backgroundColor: themeData.over2.color,
-      selectionColor: themeData.accent2.color.withTextSelectionAlpha,
+      selectionColor: themeData.accent2.color.withHighDecorationAlpha,
       codeTheme: CodeHighlightTheme(
         languages: {
           'xml': CodeHighlightThemeMode(mode: langXml),

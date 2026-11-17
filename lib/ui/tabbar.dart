@@ -55,7 +55,7 @@ class AppTabBar extends StatelessWidget {
             dividerHeight: 0,
             indicatorWeight: 4,
             indicatorSize: TabBarIndicatorSize.tab,
-            indicatorColor: themeProperty.color.withDividerAlpha,
+            indicatorColor: themeProperty.color.withMidDecorationAlpha,
             labelPadding: const AppEdgeInsets.small(),
             overlayColor: WidgetStateProperty.resolveWith(
               (_) => themeProperty.effectColor.withInkEffectAlpha

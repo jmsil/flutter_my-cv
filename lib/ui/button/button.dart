@@ -49,7 +49,7 @@ class AppButton extends StatelessWidget {
           child: CircularProgressIndicator(
             color: themeProperty.color,
             strokeWidth: 3,
-            backgroundColor: themeProperty.color.withValues(alpha: 0.26)
+            backgroundColor: themeProperty.color.withMidDecorationAlpha
           )
         )
       : child;
@@ -62,7 +62,7 @@ class AppButton extends StatelessWidget {
       icon: AppContainer(
         width: _containerSize,
         height: _containerSize,
-        color: isSelected ? themeProperty.color.withButtonFrameAlpha : null,
+        color: isSelected ? themeProperty.color.withDecorationAlpha : null,
         borderRadius: AppTheme.circleBorderRadius,
         child: Center(child: builtChild)
       ),
@@ -81,7 +81,7 @@ class AppMaterialButton extends MaterialButton {
   }) : super(
     minWidth: double.infinity,
     height: 48,
-    color: themeProperty.color.withButtonFrameAlpha,
+    color: themeProperty.color.withDecorationAlpha,
     padding: const EdgeInsets.symmetric(horizontal: AppDimens.xxLarge),
     elevation: 0,
     hoverElevation: 0,

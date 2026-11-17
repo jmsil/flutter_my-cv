@@ -33,7 +33,7 @@ abstract class AppViewer extends StatefulWidget {
         opaque: AppDevice.isMobileDevice(),
         barrierLabel: '',
         barrierDismissible: true,
-        barrierColor: Colors.black.withValues(alpha: 0.7),
+        barrierColor: Colors.black.withViewerBackgroundAlpha,
         transitionDuration: AppTheme.animationDuration,
         reverseTransitionDuration: AppTheme.animationDuration,
 
@@ -92,7 +92,7 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
       padding: widget.barPadding,
       color: isMobileDevice
         ? themeData.surfaceColor1
-        : themeData.surfaceColor1.withValues(alpha: 0.6),
+        : themeData.surfaceColor1.withViewerBarAlpha,
       borderRadius: isFloatingWindow
         ? isWindowHorizontalDirection ? AppTheme.leftBorderRadius : AppTheme.topBorderRadius
         : null,

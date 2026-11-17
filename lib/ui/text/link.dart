@@ -41,7 +41,7 @@ class AppLink extends StatelessWidget {
                   size: _trailingIconSize,
                   color: hovered
                     ? themeData.accent1.color
-                    : themeData.over1.color.withDarkDecorationAlpha
+                    : themeData.over1.color.withHighDecorationAlpha
                 )
               : null
           )

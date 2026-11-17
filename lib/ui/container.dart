@@ -127,6 +127,6 @@ class AppCard extends AppContainer {
     super.child
   }) : super(
     color: theme.background.surfaceColor2.withCardFillAlpha,
-    borderColor: theme.background.surfaceColor2.withCardBorderAlpha
+    borderColor: theme.background.surfaceColor2.withHighDecorationAlpha
   );
 }

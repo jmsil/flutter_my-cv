@@ -21,7 +21,7 @@ class AppPopupMenuButton extends MenuAnchor {
       mouseCursor: WidgetStateProperty.resolveWith((_) => SystemMouseCursors.basic),
       shape: WidgetStateProperty.resolveWith((_) => RoundedRectangleBorder(
         borderRadius: AppTheme.allBorderRadius,
-        side: BorderSide(width: 1, color: themeData.accent1.color.withDarkDecorationAlpha)
+        side: BorderSide(width: 1, color: themeData.accent1.color.withHighDecorationAlpha)
       ))
     ),
     builder: (BuildContext context, MenuController controller, Widget? child) {

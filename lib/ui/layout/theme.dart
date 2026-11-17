@@ -196,14 +196,13 @@ class AppThemeData {
 }
 
 extension AppThemeColorExtension on Color {
-  Color get withInkEffectAlpha => this.withValues(alpha: 0.12);
-  Color get withButtonFrameAlpha => this.withValues(alpha: 0.16);
-  Color get withDividerAlpha => this.withValues(alpha: 0.24);
   Color get withDecorationAlpha => this.withValues(alpha: 0.16);
-  Color get withDarkDecorationAlpha => this.withValues(alpha: 0.32);
-  Color get withTextSelectionAlpha => this.withValues(alpha: 0.32);
+  Color get withMidDecorationAlpha => this.withValues(alpha: 0.24);
+  Color get withHighDecorationAlpha => this.withValues(alpha: 0.32);
+  Color get withInkEffectAlpha => this.withValues(alpha: 0.12);
   Color get withCardFillAlpha => this.withValues(alpha: 0.12);
-  Color get withCardBorderAlpha => this.withValues(alpha: 0.32);
+  Color get withViewerBackgroundAlpha => this.withValues(alpha: 0.7);
+  Color get withViewerBarAlpha => this.withValues(alpha: 0.6);
 }
 
 extension AppThemeModeExtension on Brightness {

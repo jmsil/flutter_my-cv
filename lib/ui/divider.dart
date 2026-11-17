@@ -10,7 +10,7 @@ class AppDivider extends Divider {
   ) : super(
     thickness: thickness,
     height: thickness * sizeFactor,
-    color: color.withDividerAlpha,
+    color: color.withMidDecorationAlpha,
     radius: AppTheme.circleBorderRadius
   );
 }
@@ -21,7 +21,7 @@ class AppVerticalDivider extends VerticalDivider {
   ) : super(
     thickness: thickness,
     width: thickness,
-    color: color.withDividerAlpha,
+    color: color.withMidDecorationAlpha,
     radius: AppTheme.circleBorderRadius
   );
 }
