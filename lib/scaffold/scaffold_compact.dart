@@ -1,38 +1,13 @@
-import 'dart:async';
-
 import 'package:material_ui/material_ui.dart';
 
 import 'appbar/appbar_compact.dart';
 import 'scaffold_groups.dart';
 import 'sidebar/sidebar.dart';
 
-class AppScaffoldCompact extends StatefulWidget {
-  @override
-  _State createState() => _State();
-}
-
-class _State extends State<AppScaffoldCompact> {
-  Timer? drawerTimer;
-  final GlobalKey<DrawerControllerState> drawerKey = GlobalKey();
-
-  @override
-  void initState() {
-    super.initState();
-    drawerTimer = Timer(
-      const Duration(milliseconds: 500),
-      () => drawerKey.currentState?.open()
-    );
-  }
-
-  @override
-  void dispose() {
-    drawerTimer?.cancel();
-    FocusManager.instance.primaryFocus?.unfocus();
-    super.dispose();
-  }
-
+class AppScaffoldCompact extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<DrawerControllerState> drawerKey = GlobalObjectKey('app-scaffold-compact');
     return Stack(
       clipBehavior: Clip.none,
       children: [

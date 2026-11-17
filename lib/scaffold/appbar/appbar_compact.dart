@@ -1,8 +1,10 @@
 import 'package:material_ui/material_ui.dart';
 
+import '../../ui/container.dart';
 import '../../ui/divider.dart';
 import '../../ui/layout/device.dart';
 import '../../ui/layout/dimens.dart';
+import '../../ui/layout/icons.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
 import 'profile_header.dart';
@@ -40,16 +42,29 @@ class AppbarCompact extends StatelessWidget {
     final Widget profileWidget = Row(
       spacing: AppDimens.large,
       children: [
-        SizedBox(
-          height: _photoSize,
-          child: ProfilePhoto(
-            cacheSize: (_photoSize - ProfilePhoto.borderSize * 2).toInt(),
-            onPressed: () => drawerKey.currentState?.open(),
-          )
+        Stack(
+          clipBehavior: Clip.none,
+          children: [
+            ProfilePhoto(
+              size: _photoSize,
+              cacheSize: (_photoSize - ProfilePhoto.borderSize * 2).toInt(),
+              onPressed: () => drawerKey.currentState?.open()
+            ),
+            AppContainer(
+              color: themeData.over1.color,
+              padding: const AppEdgeInsets.xSmall(),
+              borderSize: ProfilePhoto.borderSize * 1.25,
+              borderColor: themeData.surfaceColor1,
+              borderRadius: AppTheme.circleBorderRadius,
+              child: Icon(AppIcons.menu, size: 16, color: themeData.surfaceColor1)
+            )
+          ]
         ),
-        ProfileHeader.nameAndRoles(
-          style: ProfileHeaderStyle.compactAppbar,
-          isShortRoles: screenWidth <= 430
+        Expanded(
+          child: ProfileHeader.nameAndRoles(
+            style: ProfileHeaderStyle.compactAppbar,
+            isShortRoles: screenWidth <= 430
+          )
         )
       ]
     );

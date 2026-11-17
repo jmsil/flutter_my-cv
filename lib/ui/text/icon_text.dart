@@ -31,12 +31,10 @@ class AppIconText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Align();
     return Row(
       spacing: enableCompactIcon ? AppDimens.xxSmall : AppDimens.small,
       mainAxisSize: MainAxisSize.min,
       children: [
-
         icon == AppIcons.bullet
           ? SizedBox.square(
               dimension: 24,

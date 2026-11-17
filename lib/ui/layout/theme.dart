@@ -44,7 +44,7 @@ class AppTheme {
           accent1: _blue900
         )
       : AppThemeData(
-          surfaceColor1: Color.alphaBlend(Colors.black38, Colors.blueGrey[900]!),
+          surfaceColor1: Color.alphaBlend(Colors.black45, Colors.blueGrey[900]!),
           surfaceColor2: Colors.blueGrey[700]!,
           over1: AppThemeDataStyledProperty(Colors.grey[200]!),
           accent1: _blue200

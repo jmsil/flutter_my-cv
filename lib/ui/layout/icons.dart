@@ -25,6 +25,7 @@ class AppIcons {
   static const IconData link = Icons.link;
   static const IconData local = Icons.room_outlined;
   static const IconData mail = Icons.mail_outlined;
+  static const IconData menu = Icons.menu;
   static const IconData openInNew = Icons.open_in_new_outlined;
   static const IconData phone = Icons.phone_outlined;
   static const IconData settings = Icons.settings_outlined;

@@ -95,7 +95,8 @@ class MainGroup extends StatelessWidget {
 }
 
 class _Painter extends CustomPainter {
-  static final Paint _paint = Paint();
+  static final Paint _paint = Paint()
+    ..isAntiAlias = false;
 
   final AppTheme theme;
   final EdgeInsets padding;
