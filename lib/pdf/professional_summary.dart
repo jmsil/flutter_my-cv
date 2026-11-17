@@ -10,11 +10,11 @@ class PdfProfessionalSummary extends PdfMainGroup {
       PdfText(StringsModel.strings.professionalSummaryInfo, style: PdfTheme.largeTextStyle),
       PdfSubGroup.info(
         title: StringsModel.strings.programmingSkillsTitle,
-        info: Strings.programmingSkillsInfo.join(' ${PdfText.bulletReplacer} ')
+        info: Strings.programmingSkillsInfo.join(PdfText.listJoiner)
       ),
       PdfSubGroup.info(
         title: StringsModel.strings.integrationSkillsTitle,
-        info: Strings.integrationSkillsInfo.join(' ${PdfText.bulletReplacer} ')
+        info: Strings.integrationSkillsInfo.join(PdfText.listJoiner)
       )
     ]
   );

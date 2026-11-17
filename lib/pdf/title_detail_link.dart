@@ -1,24 +1,20 @@
 import 'package:pdf/widgets.dart';
 
-import '../../ui/strings/strings_model.dart';
 import 'text.dart';
 import 'theme.dart';
 
 class PdfTitleDetailLinkTable extends Table {
   PdfTitleDetailLinkTable({
-    bool isColumn0Flex = false,
-    bool isColumn1Flex = false,
-    bool isColumn2Flex = false,
+    bool isTitleFlex = false,
+    bool isDetailFlex = false,
     bool isSpacingFlex = true,
     required List<PdfTitleDetailLinkRow> children
   }) : super(
     columnWidths: {
       0: const IntrinsicColumnWidth(),
-      1: isColumn0Flex ? const FlexColumnWidth() : const IntrinsicColumnWidth(),
+      1: isTitleFlex ? const FlexColumnWidth() : const IntrinsicColumnWidth(),
       2: isSpacingFlex ? const FlexColumnWidth() : const IntrinsicColumnWidth(),
-      3: isColumn1Flex ? const FlexColumnWidth() : const IntrinsicColumnWidth(),
-      4: isSpacingFlex ? const FlexColumnWidth() : const IntrinsicColumnWidth(),
-      5: isColumn2Flex ? const FlexColumnWidth() : const IntrinsicColumnWidth()
+      3: isDetailFlex ? const FlexColumnWidth() : const IntrinsicColumnWidth()
     },
     children: _getChildrenWithSpace(children)
   );
@@ -47,15 +43,13 @@ class PdfTitleDetailLinkRow extends TableRow {
   ) : super(
     children: [
       PdfText(PdfText.bulletReplacer + ' ', style: PdfTheme.normalTextBoldStyle),
-      PdfText(title, style: PdfTheme.normalTextBoldStyle),
+
+      certificationLink == null
+        ? PdfText(title, style: PdfTheme.normalTextBoldStyle)
+        : PdfLink(title, certificationLink, true),
+
       PdfTheme.xLargeHorizontalSpace,
-      PdfText(detail, style: PdfTheme.normalTextItalicStyle),
-
-      if (certificationLink != null)
-        PdfTheme.xLargeHorizontalSpace,
-
-      if (certificationLink != null)
-        PdfLink(StringsModel.strings.verify, certificationLink)
+      PdfText(detail, style: PdfTheme.normalTextItalicStyle)
     ]
   );
 }

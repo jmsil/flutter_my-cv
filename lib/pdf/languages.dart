@@ -12,14 +12,14 @@ class PdfLanguages extends StatelessWidget {
 
     StringsModel.strings.languagesInfo.forEach((String listKey, List<String>? listValue) {
       children.add(PdfTitleDetailLinkRow(
-        listKey, listValue!.join(' ${PdfText.bulletReplacer} ')
+        listKey, listValue!.join(PdfText.listJoiner)
       ));
     });
 
     return PdfMainGroup.child(
       title: StringsModel.strings.languagesTitle,
       child: PdfTitleDetailLinkTable(
-        isColumn1Flex: true,
+        isDetailFlex: true,
         isSpacingFlex: false,
         children: children
       )

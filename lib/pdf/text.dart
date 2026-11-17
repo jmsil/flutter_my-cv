@@ -4,6 +4,7 @@ import 'theme.dart';
 
 class PdfText extends Text {
   static const String bulletReplacer = '–';
+  static const String listJoiner = ' – ';
 
   PdfText(
     String text,
@@ -16,8 +17,13 @@ class PdfText extends Text {
 }
 
 class PdfLink extends UrlLink {
-  PdfLink(String text, String url) : super(
+  PdfLink(
+    String text, String url, bool enableBoldStyle
+  ) : super(
     destination: url,
-    child: PdfText(text, style: PdfTheme.normalTextLinkStyle)
+    child: PdfText(
+      text,
+      style: enableBoldStyle ? PdfTheme.normalTextLinkBoldStyle: PdfTheme.normalTextLinkStyle
+    )
   );
 }

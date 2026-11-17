@@ -22,6 +22,10 @@ class PdfTheme {
     fontSize: _normalFontSize, fontStyle: FontStyle.italic);
   static final TextStyle normalTextLinkStyle = TextStyle(
     fontSize: _normalFontSize, color: PdfColors.blue900, decoration: TextDecoration.underline);
+  static final TextStyle normalTextLinkBoldStyle = TextStyle(
+    fontSize: _normalFontSize, color: PdfColors.blue900,
+    fontWeight: FontWeight.bold, decoration: TextDecoration.underline
+  );
   static final TextStyle largeTextStyle = TextStyle(fontSize: _largeFontSize);
   static final TextStyle largeTextBoldStyle = TextStyle(
     fontSize: _largeFontSize, fontWeight: FontWeight.bold);

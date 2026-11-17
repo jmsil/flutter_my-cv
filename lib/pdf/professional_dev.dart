@@ -51,7 +51,7 @@ class PdfProfessionalDevelopment extends PdfMainGroup {
       PdfSubGroup.child(
         title: StringsModel.strings.booksTitle,
         child: PdfTitleDetailLinkTable(
-          isColumn0Flex: true,
+          isTitleFlex: true,
           isSpacingFlex: false,
           children: [
             PdfTitleDetailLinkRow(
