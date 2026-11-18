@@ -23,7 +23,7 @@ class PdfMainGroup extends _Group {
   @override
   Widget buildTitle() {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
         color: PdfTheme.decorationColor,
         borderRadius: BorderRadius.circular(12)

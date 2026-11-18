@@ -26,7 +26,7 @@ class PdfGenerator {
       MultiPage(
         pageTheme: PageTheme(
           pageFormat: PdfPageFormat.a4,
-          margin: const EdgeInsets.all(48),
+          margin: EdgeInsets.all(PdfTheme.xxLargeDimen),
           buildBackground: (Context context) => FullPage(
             ignoreMargins: true,
             child: Container(color: PdfTheme.backgroundColor)

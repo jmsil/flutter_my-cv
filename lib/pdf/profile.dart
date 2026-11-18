@@ -17,7 +17,7 @@ class PdfProfile extends StatelessWidget {
           PdfTheme.xxLargeSpacerH,
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: PdfTheme.normalSpacing),
+              padding: EdgeInsets.symmetric(vertical: PdfTheme.normalDimen),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,8 +29,8 @@ class PdfProfile extends StatelessWidget {
                   ),
                   PdfDivider(),
                   Wrap(
-                    spacing: PdfTheme.smallSpacing,
-                    runSpacing: PdfTheme.xSmallSpacing,
+                    spacing: PdfTheme.smallDimen,
+                    runSpacing: PdfTheme.xSmallDimen,
                     children: [
                       PdfText(
                         StringsModel.strings.personalLocation, style: PdfTheme.normalTextStyle),

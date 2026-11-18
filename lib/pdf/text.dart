@@ -3,10 +3,6 @@ import 'package:pdf/widgets.dart';
 import 'theme.dart';
 
 class PdfText extends Text {
-  static const String bulletReplacer = '–';
-  static const String listJoiner = ' – ';
-  static const String listJoinerPipe = ' | ';
-
   PdfText(
     String text,
     {
@@ -15,6 +11,10 @@ class PdfText extends Text {
   ) : super(
     text.replaceAll('▪', bulletReplacer)
   );
+
+  static String get bulletReplacer => '–';
+  static String get listJoiner => ' – ';
+  static String get listJoinerPipe => ' | ';
 }
 
 class PdfLink extends UrlLink {
