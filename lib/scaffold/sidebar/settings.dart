@@ -149,7 +149,7 @@ class _DownloadPdfButton extends StatelessWidget {
     final AppThemeData themeData = LayoutModel.theme.background;
     return AppMaterialButton(
       icon: AppIcons.download,
-      text: Strings.downloadPdf,
+      text: StringsModel.strings.downloadCv,
       themeProperty: themeData.accentStyled1,
       onPressed: () => _downloadPdf(context)
     );
@@ -170,7 +170,7 @@ class _Settings extends StatelessWidget {
   _Settings(this.icon, this.title, this.children);
 
   @override
-  Widget build(BuildContext contxt) {
+  Widget build(BuildContext context) {
     final AppThemeData themeData = LayoutModel.theme.background;
     return AppContainer(
       color: themeData.surfaceColor2.withCardFillAlpha,

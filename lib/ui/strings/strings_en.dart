@@ -37,6 +37,8 @@ class StringsEn extends Strings {
   @override
   String get theme => 'Theme';
   @override
+  String get downloadCv => 'Download CV';
+  @override
   String get summary => 'Summary';
   @override
   String get portfolio => 'Portfolio';

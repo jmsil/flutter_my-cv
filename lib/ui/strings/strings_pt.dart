@@ -37,6 +37,8 @@ class StringsPt extends Strings {
   @override
   String get theme => 'Tema';
   @override
+  String get downloadCv => 'Baixar CV';
+  @override
   String get summary => 'Resumo';
   @override
   String get portfolio => 'Portfólio';

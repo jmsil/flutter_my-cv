@@ -20,7 +20,6 @@ abstract class Strings {
   static const String languagePt = 'Pt';
   static const String languageEn = 'En';
   static const String layout = 'Layout';
-  static const String downloadPdf = 'Download PDF';
   static const String sapIntegrationSuiteLearningJourneyDetail = '03/2025 - 07/2026';
   static const String integrationProjectApimProxyTitle = 'API Management Proxy';
   static const String integrationProjectIFlowProxyTitle = 'Integration Flow Proxy';
@@ -83,6 +82,7 @@ abstract class Strings {
   String get madeWithFlutter;
   String get language;
   String get theme;
+  String get downloadCv;
   String get summary;
   String get portfolio;
   String get verify;
