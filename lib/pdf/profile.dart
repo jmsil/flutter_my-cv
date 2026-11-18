@@ -2,6 +2,7 @@ import 'package:pdf/widgets.dart';
 
 import '../../ui/assets.dart';
 import '../../ui/strings/strings_model.dart';
+import 'divider.dart';
 import 'text.dart';
 import 'theme.dart';
 
@@ -11,33 +12,38 @@ class PdfProfile extends StatelessWidget {
     return SizedBox(
       height: 100,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          ClipOval(
-            child: Image(MemoryImage(AppAssets.profilePhoto))
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: PdfTheme.normalSpacing),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                PdfText(Strings.personalName, style: PdfTheme.xLargeTextBoldStyle),
-                PdfText(StringsModel.strings.longRoles, style: PdfTheme.normalTextStyle)
-              ]
-            )
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: PdfTheme.normalSpacing),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                PdfText(StringsModel.strings.personalLocation, style: PdfTheme.normalTextStyle),
-                PdfLink(Strings.personalPhone, Strings.personalPhoneLink, false),
-                PdfLink(Strings.personalEmail, Strings.personalEmailLink, false),
-                PdfLink(Strings.personalGitHubLink, Strings.personalGitHubLink, false)
-              ]
+          ClipOval(child: Image(MemoryImage(AppAssets.profilePhoto))),
+          PdfTheme.xxLargeSpacerH,
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: PdfTheme.normalSpacing),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  PdfText(Strings.personalName, style: PdfTheme.xLargeTextBoldStyle),
+                  PdfText(
+                    StringsModel.strings.longRoles.replaceAll('\n', PdfText.listJoinerPipe),
+                    style: PdfTheme.normalTextStyle
+                  ),
+                  PdfDivider(),
+                  Wrap(
+                    spacing: PdfTheme.smallSpacing,
+                    runSpacing: PdfTheme.xSmallSpacing,
+                    children: [
+                      PdfText(
+                        StringsModel.strings.personalLocation, style: PdfTheme.normalTextStyle),
+                      PdfText(PdfText.listJoinerPipe, style: PdfTheme.normalTextStyle),
+                      PdfLink(Strings.personalPhone, Strings.personalPhoneLink, false),
+                      PdfText(PdfText.listJoinerPipe, style: PdfTheme.normalTextStyle),
+                      PdfLink(Strings.personalEmail, Strings.personalEmailLink, false),
+                      PdfText(PdfText.listJoinerPipe, style: PdfTheme.normalTextStyle),
+                      PdfLink(Strings.personalGitHubLink, Strings.personalGitHubLink, false)
+                    ]
+                  )
+                ]
+              )
             )
           )
         ]

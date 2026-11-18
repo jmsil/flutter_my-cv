@@ -5,6 +5,7 @@ import 'theme.dart';
 class PdfText extends Text {
   static const String bulletReplacer = '–';
   static const String listJoiner = ' – ';
+  static const String listJoinerPipe = ' | ';
 
   PdfText(
     String text,

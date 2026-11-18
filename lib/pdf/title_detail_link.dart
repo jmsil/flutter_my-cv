@@ -3,53 +3,48 @@ import 'package:pdf/widgets.dart';
 import 'text.dart';
 import 'theme.dart';
 
-class PdfTitleDetailLinkTable extends Table {
-  PdfTitleDetailLinkTable({
-    bool isTitleFlex = false,
-    bool isDetailFlex = false,
-    bool isSpacingFlex = true,
-    required List<PdfTitleDetailLinkRow> children
-  }) : super(
-    columnWidths: {
-      0: const IntrinsicColumnWidth(),
-      1: isTitleFlex ? const FlexColumnWidth() : const IntrinsicColumnWidth(),
-      2: isSpacingFlex ? const FlexColumnWidth() : const IntrinsicColumnWidth(),
-      3: isDetailFlex ? const FlexColumnWidth() : const IntrinsicColumnWidth()
-    },
-    children: _getChildrenWithSpace(children)
-  );
+class PdfTitleDetailLinkTable extends StatelessWidget {
+  final List<PdfTitleDetailLinkRow> rows;
 
-  static List<TableRow> _getChildrenWithSpace(List<PdfTitleDetailLinkRow> children) {
-    final List<TableRow> childrenWithSpace = [];
-    final TableRow spaceRow = TableRow(children: [PdfTheme.smallVerticalSpace]);
+  PdfTitleDetailLinkTable(this.rows);
 
-    for (PdfTitleDetailLinkRow child in children) {
-      childrenWithSpace.add(child);
-      childrenWithSpace.add(spaceRow);
+  @override
+  Widget build(Context context) {
+    final List<Widget> builtChildren = [];
+
+    for (PdfTitleDetailLinkRow row in rows) {
+      builtChildren.add(_Row(row.title, row.detail, row.link));
+      builtChildren.add(PdfTheme.smallSpacerV);
     }
 
-    childrenWithSpace.removeLast();
-    return childrenWithSpace;
+    builtChildren.removeLast();
+
+    return Column(children: builtChildren);
   }
 }
 
-class PdfTitleDetailLinkRow extends TableRow {
-  PdfTitleDetailLinkRow(
-    String title,
-    String detail,
-    {
-      String? certificationLink
-    }
+class _Row extends Row {
+  _Row(
+    String title, String detail, String? link
   ) : super(
     children: [
-      PdfText(PdfText.bulletReplacer + ' ', style: PdfTheme.normalTextBoldStyle),
+      PdfText(PdfText.bulletReplacer, style: PdfTheme.normalTextBoldStyle),
+      PdfTheme.xSmallSpacerH,
 
-      certificationLink == null
+      link == null
         ? PdfText(title, style: PdfTheme.normalTextBoldStyle)
-        : PdfLink(title, certificationLink, true),
+        : PdfLink(title, link, true),
 
-      PdfTheme.xLargeHorizontalSpace,
+      PdfText(PdfText.listJoinerPipe, style: PdfTheme.normalTextStyle),
       PdfText(detail, style: PdfTheme.normalTextItalicStyle)
     ]
   );
+}
+
+class PdfTitleDetailLinkRow {
+  final String title;
+  final String detail;
+  final String? link;
+
+  PdfTitleDetailLinkRow(this.title, this.detail, [this.link]);
 }

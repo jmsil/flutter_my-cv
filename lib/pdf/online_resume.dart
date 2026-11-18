@@ -10,9 +10,9 @@ class PdfOnlineResume extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        PdfTheme.largeVerticalSpace,
+        PdfTheme.largeSpacerV,
         Text(StringsModel.strings.visitOnlineResume, style: PdfTheme.normalTextStyle),
-        PdfTheme.tinyVerticalSpace,
+        PdfTheme.xSmallSpacerV,
         PdfLink(Strings.personalOnlineResumeLink, Strings.personalOnlineResumeLink, false)
       ]
     );

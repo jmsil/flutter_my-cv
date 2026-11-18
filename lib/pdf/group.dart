@@ -1,5 +1,6 @@
 import 'package:pdf/widgets.dart';
 
+import 'divider.dart';
 import 'text.dart';
 import 'theme.dart';
 
@@ -15,19 +16,27 @@ class PdfMainGroup extends _Group {
   PdfMainGroup.children({
     required super.title,
     required super.children
-  }) : super(addStartSpacing: true);
+  }) : super(
+    addStartSpacing: true
+  );
 
   @override
   Widget buildTitle() {
     return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(6),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
         color: PdfTheme.decorationColor,
-        borderRadius: BorderRadius.circular(16)
+        borderRadius: BorderRadius.circular(12)
       ),
-      child: Center(
-        child: PdfText(title, style: PdfTheme.largeTextBoldStyle)
+      child: Row(
+        children: [
+          Container(
+            width: 6, height: 6,
+            decoration: BoxDecoration(color: PdfTheme.bulletColor, shape: BoxShape.circle)
+          ),
+          PdfTheme.smallSpacerH,
+          PdfText(title, style: PdfTheme.largeTextBoldStyle)
+        ]
       )
     );
   }
@@ -65,13 +74,8 @@ class PdfSubGroup extends _Group {
       builtTitle = Row(
         children: [
           builtTitle,
-          PdfTheme.normalHorizontalSpace,
-          Expanded(
-            child: Divider(
-              thickness: 1.5,
-              color: PdfTheme.decorationColor
-            )
-          )
+          PdfTheme.normalSpacerH,
+          Expanded(child: PdfDivider())
         ]
       );
     }
@@ -107,7 +111,7 @@ abstract class _Group extends StatelessWidget {
 
     for (Widget child in children) {
       builtChildren.add(child);
-      builtChildren.add(PdfTheme.largeVerticalSpace);
+      builtChildren.add(PdfTheme.largeSpacerV);
     }
 
     builtChildren.removeLast();
@@ -116,10 +120,10 @@ abstract class _Group extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (addStartSpacing)
-          PdfTheme.xLargeVerticalSpace,
+          PdfTheme.xLargeSpacerV,
 
         buildTitle(),
-        PdfTheme.normalVerticalSpace,
+        PdfTheme.normalSpacerV,
         ...builtChildren
       ]
     );
