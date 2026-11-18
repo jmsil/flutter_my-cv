@@ -15,7 +15,7 @@ class BciFortlevExperience extends ExpandableContent {
     AppTheme theme
   ) : super(
     headerTitle: StringsModel.strings.fortlevExperienceTitle,
-    headerDetail: StringsModel.strings.fortlevExperienceDetail,
+    headerDetail: Strings.fortlevExperienceDetail,
     widgetBeforeInfo: AppTabBar.summaryPortfolio(
       summaryPage: Column(
         spacing: AppDimens.normal,

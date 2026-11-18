@@ -7,13 +7,13 @@ class PdfExperience extends PdfMainGroup {
     children: [
       PdfSubGroup.info(
         title: StringsModel.strings.sapIntegrationSuiteLearningJourneyTitle,
-        detail: StringsModel.strings.sapIntegrationSuiteLearningJourneyDetail,
+        detail: Strings.sapIntegrationSuiteLearningJourneyDetail,
         info: StringsModel.strings.sapIntegrationSuiteLearningJourneyInfo,
         addDivider: false
       ),
       PdfSubGroup.info(
         title: StringsModel.strings.fortlevExperienceTitle,
-        detail: StringsModel.strings.fortlevExperienceDetail,
+        detail: Strings.fortlevExperienceDetail,
         info: StringsModel.strings.fortlevExperienceInfo
       ),
       PdfSubGroup.info(

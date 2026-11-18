@@ -47,8 +47,6 @@ class StringsPt extends Strings {
   @override
   String get sapIntegrationSuiteLearningJourneyTitle => 'Desenvolvimento/Certificação SAP Integration Suite';
   @override
-  String get sapIntegrationSuiteLearningJourneyDetail => '2023 - Março/2025 - Julho/2026';
-  @override
   String get sapIntegrationSuiteLearningJourneyInfo =>
     'Completei a Developing with SAP Integration Suite Learning Journey e cursos, focando nos fundamentos de integração empresarial e exercícios práticos para a certificação SAP Certified - Integration Developer.\n\n'
 
@@ -298,8 +296,6 @@ class StringsPt extends Strings {
   @override
   String get fortlevExperienceTitle => 'Desenvolvimento de Aplicativo Flutter Mobile';
   @override
-  String get fortlevExperienceDetail => 'BCI Consulting/Fortlev ▪ Junho/2021 - Julho/2023';
-  @override
   String get fortlevExperienceInfo =>
     'Desenvolvi o "Mão Dupla", um app de gerenciamento de ordens de frete para a Fortlev.\n'
     'Colaborei com gerentes e usuários como Analista Desenvolvedor para coletar e definir requisitos funcionais e técnicos.\n\n'
@@ -336,7 +332,7 @@ class StringsPt extends Strings {
   @override
   String get santriExperienceTitle => 'Desenvolvimento de Aplicação ERP';
   @override
-  String get santriExperienceDetail => 'Santri Sistemas ▪ Outubro/2007 - Abril/2012';
+  String get santriExperienceDetail => 'Santri Sistemas ▪ 10/2007 - 04/2012';
   @override
   String get santriExperienceInfo =>
     'Contribuí para o desenvolvimento da aplicação cliente-servidor ADM utilizando Delphi (RAD Studio) e banco de dados Oracle com PL/SQL na Santri Sistemas.\n\n'

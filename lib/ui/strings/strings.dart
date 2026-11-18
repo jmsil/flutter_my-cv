@@ -21,6 +21,7 @@ abstract class Strings {
   static const String languageEn = 'En';
   static const String layout = 'Layout';
   static const String downloadPdf = 'Download PDF';
+  static const String sapIntegrationSuiteLearningJourneyDetail = '03/2025 - 07/2026';
   static const String integrationProjectApimProxyTitle = 'API Management Proxy';
   static const String integrationProjectIFlowProxyTitle = 'Integration Flow Proxy';
   static const String integrationProjectExceptionHandlerTitle = 'Exception Handler';
@@ -31,11 +32,12 @@ abstract class Strings {
   static const String integrationProjectConversionsAndFtpTitle = 'Conversions and FTP';
   static const String integrationProjectMappingsTitle = 'Mappings';
   static const String integrationProjectCalculatorTitle = 'Calculator';
+  static const String fortlevExperienceDetail = 'BCI Consulting/Fortlev ▪ 06/2021 - 07/2023';
   static const String bciShortLink = 'BCI Consulting.com';
   static const String bciLink = 'https://www.bci-consulting.com';
   static const String fortlevShortLink = 'Fortlev.com';
   static const String fortlevLink = 'https://www.fortlev.com.br';
-  static const String smartNewExperienceDetail = 'SmartNew System ▪ 2021';
+  static const String smartNewExperienceDetail = 'SmartNew System ▪ 01/2021 - 05/2021';
   static const String smartNewShortLink = 'SmartNew System.com';
   static const String smartNewLink = 'https://telemetria.smartnewsystem.com';
   static const String mobileGameExperienceDetail = '2013 - 2020';
@@ -86,7 +88,6 @@ abstract class Strings {
   String get verify;
   String get experienceTitle;
   String get sapIntegrationSuiteLearningJourneyTitle;
-  String get sapIntegrationSuiteLearningJourneyDetail;
   String get sapIntegrationSuiteLearningJourneyInfo;
   String get integrationProjectApimProxyDescription;
   String get integrationProjectApimProxyInfo;
@@ -110,7 +111,6 @@ abstract class Strings {
   String get integrationProjectCalculatorInfo;
   String get integrationProjectsScriptCollectionInfo;
   String get fortlevExperienceTitle;
-  String get fortlevExperienceDetail;
   String get fortlevExperienceInfo;
   String get fortlevProjectMaoDuplaTitle;
   String get fortlevProjectMaoDuplaDescription;

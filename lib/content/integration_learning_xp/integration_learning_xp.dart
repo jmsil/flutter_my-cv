@@ -23,7 +23,7 @@ class IntegrationLearningExperience extends ExpandableContent {
     AppTheme theme
   ) : super(
     headerTitle: StringsModel.strings.sapIntegrationSuiteLearningJourneyTitle,
-    headerDetail: StringsModel .strings.sapIntegrationSuiteLearningJourneyDetail,
+    headerDetail: Strings.sapIntegrationSuiteLearningJourneyDetail,
     widgetBeforeInfo: AppTabBar.summaryPortfolio(
       summaryPage: Text(
         StringsModel.strings.sapIntegrationSuiteLearningJourneyInfo,
