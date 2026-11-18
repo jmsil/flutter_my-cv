@@ -14,7 +14,7 @@ class PdfProfile extends StatelessWidget {
       child: Row(
         children: [
           ClipOval(child: Image(MemoryImage(AppAssets.profilePhoto))),
-          PdfTheme.xxLargeSpacerH,
+          PdfTheme.xLargeSpacerH,
           Expanded(
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: PdfTheme.normalDimen),

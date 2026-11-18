@@ -10,8 +10,7 @@ class PdfTheme {
   static double get smallDimen => 8;
   static double get normalDimen => 12;
   static double get largeDimen => 24;
-  static double get xLargeDimen => 32;
-  static double get xxLargeDimen => 48;
+  static double get xLargeDimen => 48;
 
   static PdfColor get backgroundColor => PdfColors.blueGrey50;
   static PdfColor get decorationColor => PdfColors.blueGrey100;
@@ -42,6 +41,5 @@ class PdfTheme {
   static SizedBox get normalSpacerH => SizedBox(width: normalDimen);
   static SizedBox get normalSpacerV => SizedBox(height: normalDimen);
   static SizedBox get largeSpacerV => SizedBox(height: largeDimen);
-  static SizedBox get xLargeSpacerV => SizedBox(height: xLargeDimen);
-  static SizedBox get xxLargeSpacerH => SizedBox(width: xxLargeDimen);
+  static SizedBox get xLargeSpacerH => SizedBox(width: xLargeDimen);
 }

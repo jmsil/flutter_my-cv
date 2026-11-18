@@ -120,7 +120,7 @@ abstract class _Group extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (addStartSpacing)
-          PdfTheme.xLargeSpacerV,
+          PdfTheme.largeSpacerV,
 
         buildTitle(),
         PdfTheme.normalSpacerV,
