@@ -36,7 +36,7 @@ class ExperienceGroup extends StatelessWidget {
 
       ExpandableContent(
         headerTitle: StringsModel.strings.mobileGameExperienceTitle,
-        headerDetail: Strings.mobileGameExperienceDetail,
+        headerDetail: StringsModel.strings.mobileGameExperienceDetail,
         info: StringsModel.strings.mobileGameExperienceInfo
       ),
       AppSpacing.normalV,

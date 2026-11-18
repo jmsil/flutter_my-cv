@@ -39,10 +39,9 @@ abstract class Strings {
   static const String smartNewExperienceDetail = 'SmartNew System ▪ 01/2021 - 05/2021';
   static const String smartNewShortLink = 'SmartNew System.com';
   static const String smartNewLink = 'https://telemetria.smartnewsystem.com';
-  static const String mobileGameExperienceDetail = '2013 - 2020';
   static const String santriShortLink = 'Santri.com';
   static const String santriLink = 'https://www.santri.com.br';
-  static const String smallErpExperienceDetail = '2006 - 2007';
+  static const String smallErpExperienceDetail = 'Freelance ▪ 2006 - 2007';
   static const String educationUniversityShortLink = 'Estacio.com';
   static const String educationUniversityLink = 'https://estacio.br';
   static const String bookDelphiBibleDetail = 'Marco Cantù';
@@ -117,6 +116,7 @@ abstract class Strings {
   String get smartNewExperienceTitle;
   String get smartNewExperienceInfo;
   String get mobileGameExperienceTitle;
+  String get mobileGameExperienceDetail;
   String get mobileGameExperienceInfo;
   String get santriExperienceTitle;
   String get santriExperienceDetail;

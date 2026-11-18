@@ -23,7 +23,7 @@ class PdfExperience extends PdfMainGroup {
       ),
       PdfSubGroup.info(
         title: StringsModel.strings.mobileGameExperienceTitle,
-        detail: Strings.mobileGameExperienceDetail,
+        detail: StringsModel.strings.mobileGameExperienceDetail,
         info: StringsModel.strings.mobileGameExperienceInfo
       ),
       PdfSubGroup.info(

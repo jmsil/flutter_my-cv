@@ -323,6 +323,8 @@ class StringsEn extends Strings {
   @override
   String get mobileGameExperienceTitle => 'Casual Game Design and Development';
   @override
+  String get mobileGameExperienceDetail => 'Self-Employed ▪ 2013 - 2020';
+  @override
   String get mobileGameExperienceInfo =>
     'Developed a personal 2D casual game project for mobile devices.\n\n'
 

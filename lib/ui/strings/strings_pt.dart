@@ -323,6 +323,8 @@ class StringsPt extends Strings {
   @override
   String get mobileGameExperienceTitle => 'Design e Desenvolvimento de Jogos Casuais';
   @override
+  String get mobileGameExperienceDetail => 'Autônomo ▪ 2013 - 2020';
+  @override
   String get mobileGameExperienceInfo =>
     'Desenvolvi um projeto pessoal de um jogo casual 2D para dispositivos móveis.\n\n'
 
