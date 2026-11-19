@@ -336,14 +336,15 @@ class StringsPt extends Strings {
   @override
   String get santriExperienceTitle => 'Desenvolvimento de Aplicação ERP';
   @override
-  String get santriExperienceDetail => 'Santri Sistemas ▪ 10/2007 - 04/2012';
+  String get santriExperienceDetail => 'Santri Soluções ▪ 10/2007 - 04/2012';
   @override
   String get santriExperienceInfo =>
-    'Contribuí para o desenvolvimento da aplicação cliente-servidor ADM utilizando Delphi (RAD Studio) e banco de dados Oracle com PL/SQL na Santri Sistemas.\n\n'
+    'Contribuí para o desenvolvimento da aplicação cliente-servidor ADM utilizando Delphi (RAD Studio) e banco de dados Oracle com PL/SQL na Santri.\n\n'
 
-    'Analisei, especifiquei e implementei demandas dos clientes sob supervisão do Analista de Sistemas sênior.\n\n'
+    'Analisei, especifiquei e implementei demandas dos clientes sob supervisão do Analista de Sistemas Sênior.\n\n'
 
-    'Como desenvolvedor mais experiente da equipe, minhas atribuições incluíam introduzir e auxiliar os novos membros com os padrões de desenvolvimento adotados.\n'
+    'Como desenvolvedor mais experiente da equipe, minhas atribuições incluíam introduzir e auxiliar os novos membros com os padrões de desenvolvimento adotados.\n\n'
+
     'Liderei uma pequena equipe por um curto período antes de deixar a empresa.';
   @override
   String get smallErpExperienceTitle => 'Desenvolvimento de Aplicação ERP';

@@ -336,14 +336,15 @@ class StringsEn extends Strings {
   @override
   String get santriExperienceTitle => 'ERP Application Development';
   @override
-  String get santriExperienceDetail => 'Santri Systems ▪ 10/2007 - 04/2012';
+  String get santriExperienceDetail => 'Santri Solutions ▪ 10/2007 - 04/2012';
   @override
   String get santriExperienceInfo =>
-    'Contributed to developing the ADM client-server application using Delphi (RAD Studio) and Oracle with PL/SQL at Santri Systems.\n\n'
+    'Contributed to developing the ADM client-server application using Delphi (RAD Studio) and Oracle with PL/SQL at Santri.\n\n'
 
     'Analyzed, specified, and implemented customer requirements under the supervision of a Senior Systems Analyst.\n\n'
 
-    'As the most experienced developer on the team, my responsibilities included introducing and assisting new members with the adopted development standards.\n'
+    'As the most experienced developer on the team, my responsibilities included introducing and assisting new members with the adopted development standards.\n\n'
+
     'Led a small team for a short period before leaving the company.';
   @override
   String get smallErpExperienceTitle => 'ERP Application Development';
