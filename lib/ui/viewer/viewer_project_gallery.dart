@@ -13,10 +13,10 @@ import '../layout/theme.dart';
 import '../scroller.dart';
 import 'viewer.dart';
 
-class ProjectGalleryViewer extends AppViewer {
+class ViewerProjectGallery extends AppViewer {
   final GalleryAssetsArchive assets;
 
-  ProjectGalleryViewer(this.assets) : super(
+  ViewerProjectGallery(this.assets) : super(
     direction: Axis.horizontal,
     windowWidth: assets.aspectRatio < 1 ? 1400 : 1800,
     windowHeight: 980,
@@ -33,7 +33,7 @@ class ProjectGalleryViewer extends AppViewer {
   _State createState() => _State();
 }
 
-class _State extends AppViewerState<ProjectGalleryViewer> {
+class _State extends AppViewerState<ViewerProjectGallery> {
   static const double selectedThumbnailBorderSize = 4;
   static const double unselectedThumbnailBorderSize = 2;
   static const EdgeInsets thumbnailsContainerPadding = const AppEdgeInsets.xLarge();
