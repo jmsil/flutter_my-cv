@@ -9,10 +9,10 @@ import '../strings/strings.dart';
 import 'project.dart';
 import 'viewer.dart';
 
-class ProjectInfoViewer extends AppViewer {
+class ViewerProjectInfo extends AppViewer {
   final InfoProject project;
 
-  ProjectInfoViewer(
+  ViewerProjectInfo(
     this.project
   ) : super(
     direction: Axis.vertical,
@@ -24,7 +24,7 @@ class ProjectInfoViewer extends AppViewer {
   _State createState() => _State();
 }
 
-class _State extends AppViewerState<ProjectInfoViewer> {
+class _State extends AppViewerState<ViewerProjectInfo> {
   static const TextSpan shortSpanSpacer = TextSpan(
     text: '\n\n\u200B', style: TextStyle(fontSize: AppDimens.xSmall));
   static const TextSpan normalSpanSpacer = TextSpan(

@@ -5,9 +5,9 @@ import '../button/button.dart';
 import '../layout/icons.dart';
 import '../layout/layout_model.dart';
 import 'project.dart';
-import 'project_info_viewer.dart';
 import 'viewer.dart';
 import 'viewer_project_gallery.dart';
+import 'viewer_project_info.dart';
 
 class AppProjectButton extends StatefulWidget {
   final Project project;
@@ -48,7 +48,7 @@ class _State extends State<AppProjectButton> {
     }
 
     if (widget.project is InfoProject)
-      AppViewer.show(context, ProjectInfoViewer(widget.project as InfoProject));
+      AppViewer.show(context, ViewerProjectInfo(widget.project as InfoProject));
     else
       AppViewer.show(context, ViewerProjectGallery(widget.project.assets as GalleryAssetsArchive));
   }
