@@ -131,75 +131,72 @@ class _State extends AppViewerState<ViewerProjectGallery> {
   }
 
   @override
-  Widget? buildBodyRightToolbar(AppThemeData themeData, double width) {
-    return buildBodyToolbar(themeData, Axis.vertical, width);
+  Widget? buildBodyRightToolbar(AppThemeData themeData, double height) {
+    return buildBodyToolbar(themeData, Axis.vertical, height);
   }
 
   @override
-  Widget? buildBodyBottomToolbar(AppThemeData themeData, double height) {
-    return buildBodyToolbar(themeData, Axis.horizontal, height);
+  Widget? buildBodyBottomToolbar(AppThemeData themeData, double width) {
+    return buildBodyToolbar(themeData, Axis.horizontal, width);
   }
 
   Widget buildBodyToolbar(AppThemeData themeData, Axis direction, double size) {
     final AppThemeDataStyledProperty themeProperty = themeData.overStyled1;
     final bool isHorizontalDirection = direction == Axis.horizontal;
-    final List<Widget> buttons = [];
 
-    buttons.add(
-      AppButton.icon(
-        icon: isHorizontalDirection
-          ? AppIcons.back
-          : AppIcons.close,
-        themeProperty: themeProperty,
-        onPressed: () => Navigator.pop(context)
-      )
-    );
-
-    if (size >= 380) {
-      buttons.add(
-        Flex(
-          direction: direction,
-          spacing: isCompactMode
-            ? AppDimens.normal
-            : AppDimens.xLarge,
-          children: [
-            AppButton.icon(
-              icon: isHorizontalDirection
-                ? AppIcons.arrowLeft
-                : AppIcons.arrowUp,
-              themeProperty: themeProperty,
-              onPressed: onPrevious
-            ),
-            AppButton.icon(
-              icon: isHorizontalDirection
-                ? AppIcons.arrowRight
-                : AppIcons.arrowDown,
-              themeProperty: themeProperty,
-              onPressed: onNext
-            )
-          ]
+    final List<Widget> children = [
+      Expanded(
+        child: Align(
+          alignment: isHorizontalDirection ? Alignment.center : Alignment.topCenter,
+          child: AppButton.icon(
+            icon: isHorizontalDirection ? AppIcons.back : AppIcons.close,
+            themeProperty: themeProperty,
+            onPressed: () => Navigator.pop(context)
+          )
         )
-      );
-    }
+      ),
 
-    buttons.add(
-      Text(
-        '${index + 1}/${ widget.assets.count }',
-        style: themeProperty.normalText.bold
+      if (size >= (isHorizontalDirection ? 380 : 320)) ...[
+        AppButton.icon(
+          icon: isHorizontalDirection
+            ? AppIcons.arrowLeft
+            : AppIcons.arrowUp,
+          themeProperty: themeProperty,
+          onPressed: onPrevious
+        ),
+
+        isHorizontalDirection
+          ? isCompactMode ? AppSpacing.normalH : AppSpacing.xLargeH
+          : isCompactMode ? AppSpacing.normalV : AppSpacing.xLargeV,
+
+        AppButton.icon(
+          icon: isHorizontalDirection
+            ? AppIcons.arrowRight
+            : AppIcons.arrowDown,
+          themeProperty: themeProperty,
+          onPressed: onNext
+        )
+      ],
+
+      Expanded(
+        child: Align(
+          alignment: isHorizontalDirection ? Alignment.center : Alignment.bottomCenter,
+          child: Text(
+            '${index + 1}/${widget.assets.count}',
+            style: themeProperty.normalText.bold
+          )
+        )
       )
-    );
+    ];
 
     return Padding(
       padding: isCompactMode
         ? AppEdgeInsets.normal(
-            right: isHorizontalDirection ? AppDimens.normal * 1.75 : null)
-        : AppEdgeInsets.large(
-            right: isHorizontalDirection ? AppDimens.large * 1.75 : null),
-      child: Flex(
-        direction: direction,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: buttons
-      )
+            left: isHorizontalDirection ? null : 0,
+            top: isHorizontalDirection ? 0 : null
+          )
+        : const AppEdgeInsets.large(),
+      child: Flex(direction: direction, children: children)
     );
   }
 

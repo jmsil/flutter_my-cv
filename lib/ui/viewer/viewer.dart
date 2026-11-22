@@ -271,9 +271,9 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
 
   Widget buildBody(AppThemeData themeData, double width, double height);
 
-  Widget? buildBodyRightToolbar(AppThemeData themeData, double width) => null;
+  Widget? buildBodyRightToolbar(AppThemeData themeData, double height) => null;
 
-  Widget? buildBodyBottomToolbar(AppThemeData themeData, double height) => null;
+  Widget? buildBodyBottomToolbar(AppThemeData themeData, double width) => null;
 }
 
 class _Offstage extends Offstage {
