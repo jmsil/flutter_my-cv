@@ -22,7 +22,7 @@ class ViewerProjectGallery extends AppViewer {
     direction: Axis.horizontal,
     width: assets.aspectRatio < 1 ? 1400 : 1800,
     height: 980,
-    maxBarRatio: 0.25,
+    maxBarRatio: 0.28,
     bodyAspectRatio: assets.aspectRatio
   );
 
@@ -67,7 +67,7 @@ class _State extends AppViewerState<ViewerProjectGallery> {
   }
 
   @override
-  Widget buildBar(AppThemeData themeData, Size screenSize) {
+  Widget buildBar(AppThemeData themeData, double width, double height) {
     final List<Widget> thumbnails = [];
 
     for (int i = 0; i < widget.assets.count; i++) {
@@ -114,7 +114,7 @@ class _State extends AppViewerState<ViewerProjectGallery> {
       onVerticalDragEnd: onDrag,
       child: Center(
         child: Container(
-          margin: isCompactMode
+          margin: mode.isCompactMode
             ? const AppEdgeInsets.normal()
             : const AppEdgeInsets.xLarge(),
           decoration: BoxDecoration(
@@ -166,8 +166,8 @@ class _State extends AppViewerState<ViewerProjectGallery> {
         ),
 
         isHorizontalDirection
-          ? isCompactMode ? AppSpacing.normalH : AppSpacing.xLargeH
-          : isCompactMode ? AppSpacing.normalV : AppSpacing.xLargeV,
+          ? mode.isCompactMode ? AppSpacing.normalH : AppSpacing.xLargeH
+          : mode.isCompactMode ? AppSpacing.normalV : AppSpacing.xLargeV,
 
         AppButton.icon(
           icon: isHorizontalDirection
@@ -190,7 +190,7 @@ class _State extends AppViewerState<ViewerProjectGallery> {
     ];
 
     return Padding(
-      padding: isCompactMode
+      padding: mode.isCompactMode
         ? AppEdgeInsets.normal(
             left: isHorizontalDirection ? null : 0,
             top: isHorizontalDirection ? 0 : null

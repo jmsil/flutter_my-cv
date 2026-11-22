@@ -33,16 +33,16 @@ class _State extends AppViewerState<ViewerProjectInfo> {
     text: '\n\n\u200B', style: TextStyle(fontSize: AppDimens.large));
 
   @override
-  Widget buildBar(AppThemeData themeData, Size screenSize) {
-    return buildBarUtil(themeData, screenSize, false);
+  Widget buildBar(AppThemeData themeData, double width, double height) {
+    return buildBarUtil(themeData, width, height, false);
   }
 
   @override
-  Widget buildCompactModeBar(AppThemeData themeData, Size screenSize) {
-    return buildBarUtil(themeData, screenSize, true);
+  Widget buildCompactModeBar(AppThemeData themeData, double width, double height) {
+    return buildBarUtil(themeData, width, height, true);
   }
 
-  Widget buildBarUtil(AppThemeData themeData, Size screenSize, bool isCompactMode) {
+  Widget buildBarUtil(AppThemeData themeData, double width, double height, bool isCompactMode) {
     final AppThemeDataStyledProperty themeProperty = themeData.overStyled1;
     final builtIcon = Icon(
       AppIcons.webhook,
@@ -67,7 +67,7 @@ class _State extends AppViewerState<ViewerProjectInfo> {
       padding: isCompactMode
         ? const AppEdgeInsets.normal()
         : const AppEdgeInsets.large(vertical: AppDimens.xLarge),
-      child: screenSize.width < 460
+      child: width < 460
         ? Column(
             spacing: AppDimens.small,
             crossAxisAlignment: CrossAxisAlignment.start,
