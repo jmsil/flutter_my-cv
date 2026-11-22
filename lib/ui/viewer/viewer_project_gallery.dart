@@ -16,16 +16,13 @@ import 'viewer.dart';
 class ViewerProjectGallery extends AppViewer {
   final GalleryAssetsArchive assets;
 
-  ViewerProjectGallery(this.assets) : super(
+  ViewerProjectGallery(
+    this.assets
+  ) : super(
     direction: Axis.horizontal,
-    windowWidth: assets.aspectRatio < 1 ? 1400 : 1800,
-    windowHeight: 980,
-    barSize:
-      assets.thumbnailWidth +
-      _State.unselectedThumbnailBorderSize * 2 +
-      _State.unselectedThumbnailMargin.horizontal +
-      _State.thumbnailsContainerPadding.horizontal,
-    barPadding: _State.thumbnailsContainerPadding,
+    width: assets.aspectRatio < 1 ? 1400 : 1800,
+    height: 980,
+    maxBarRatio: 0.25,
     bodyAspectRatio: assets.aspectRatio
   );
 
@@ -36,16 +33,14 @@ class ViewerProjectGallery extends AppViewer {
 class _State extends AppViewerState<ViewerProjectGallery> {
   static const double selectedThumbnailBorderSize = 4;
   static const double unselectedThumbnailBorderSize = 2;
-  static const EdgeInsets thumbnailsContainerPadding = const AppEdgeInsets.xLarge();
-  static const EdgeInsets selectedThumbnailMargin = const EdgeInsets.symmetric(vertical: 12);
-  static const EdgeInsets unselectedThumbnailMargin = const EdgeInsets.symmetric(
-    horizontal: 12, vertical: 6
-  );
+  static const EdgeInsets thumbnailsPadding = AppEdgeInsets.xLarge(vertical: AppDimens.large);
+  static const EdgeInsets selectedThumbnailMargin = EdgeInsets.symmetric(vertical: 12);
+  static const EdgeInsets unselectedThumbnailMargin = EdgeInsets.symmetric(
+    horizontal: 12, vertical: 6);
 
   final List<GlobalKey> thumbnailKeys = [];
   final ScrollController scrollController = ScrollController(
-    debugLabel: 'gallery_viewer_thumbnails'
-  );
+    debugLabel: 'gallery_viewer_thumbnails');
 
   int index = 0;
 
@@ -72,7 +67,7 @@ class _State extends AppViewerState<ViewerProjectGallery> {
   }
 
   @override
-  Widget buildBar(AppThemeData themeData) {
+  Widget buildBar(AppThemeData themeData, Size screenSize) {
     final List<Widget> thumbnails = [];
 
     for (int i = 0; i < widget.assets.count; i++) {
@@ -97,17 +92,26 @@ class _State extends AppViewerState<ViewerProjectGallery> {
       thumbnails.add(thumbnail);
     }
 
-    return AppListView(
-      controller: scrollController,
-      children: thumbnails
+    return SizedBox(
+      width: widget.assets.thumbnailWidth +
+        unselectedThumbnailBorderSize * 2 +
+        unselectedThumbnailMargin.horizontal +
+        thumbnailsPadding.horizontal,
+      child: Padding(
+        padding: thumbnailsPadding,
+        child: AppListView(
+          controller: scrollController,
+          children: thumbnails
+        )
+      )
     );
   }
 
   @override
   Widget buildBody(AppThemeData themeData, double width, double height) {
     return GestureDetector(
-      onHorizontalDragEnd: _onDrag,
-      onVerticalDragEnd: _onDrag,
+      onHorizontalDragEnd: onDrag,
+      onVerticalDragEnd: onDrag,
       child: Center(
         child: Container(
           margin: isCompactMode
@@ -128,15 +132,15 @@ class _State extends AppViewerState<ViewerProjectGallery> {
 
   @override
   Widget? buildBodyRightToolbar(AppThemeData themeData, double width) {
-    return _buildBodyToolbarWidget(themeData, Axis.vertical, width);
+    return buildBodyToolbar(themeData, Axis.vertical, width);
   }
 
   @override
   Widget? buildBodyBottomToolbar(AppThemeData themeData, double height) {
-    return _buildBodyToolbarWidget(themeData, Axis.horizontal, height);
+    return buildBodyToolbar(themeData, Axis.horizontal, height);
   }
 
-  Widget _buildBodyToolbarWidget(AppThemeData themeData, Axis direction, double size) {
+  Widget buildBodyToolbar(AppThemeData themeData, Axis direction, double size) {
     final AppThemeDataStyledProperty themeProperty = themeData.overStyled1;
     final bool isHorizontalDirection = direction == Axis.horizontal;
     final List<Widget> buttons = [];
@@ -209,7 +213,7 @@ class _State extends AppViewerState<ViewerProjectGallery> {
       setIndex(index + 1);
   }
 
-  void _onDrag(DragEndDetails details) {
+  void onDrag(DragEndDetails details) {
     if (details.primaryVelocity! > 0)
       onPrevious();
     else if (details.primaryVelocity! < 0)

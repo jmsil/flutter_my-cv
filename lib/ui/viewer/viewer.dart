@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'dart:ui';
 
 import 'package:material_ui/material_ui.dart';
@@ -9,18 +10,16 @@ import '../layout/layout_model.dart';
 
 abstract class AppViewer extends StatefulWidget {
   final Axis direction;
-  final double? windowWidth;
-  final double? windowHeight;
-  final double? barSize;
-  final EdgeInsets barPadding;
+  final double? width;
+  final double? height;
+  final double maxBarRatio;
   final double? bodyAspectRatio;
 
   AppViewer({
     required this.direction,
-    this.windowWidth,
-    this.windowHeight,
-    this.barSize,
-    required this.barPadding,
+    this.width,
+    this.height,
+    required this.maxBarRatio,
     this.bodyAspectRatio
   });
 
@@ -54,10 +53,10 @@ abstract class AppViewer extends StatefulWidget {
 }
 
 abstract class AppViewerState<T extends AppViewer> extends State<T> {
-  final GlobalKey _builtWindowContentKey = GlobalKey();
-  final GlobalKey _builtBarKey = GlobalKey();
-  final GlobalKey _builtBodyRightToolbarKey = GlobalKey();
-  final GlobalKey _builtBodyBottomToolbarKey = GlobalKey();
+  final GlobalKey _windowContentKey = GlobalKey();
+  final GlobalKey _barKey = GlobalKey();
+  final GlobalKey _bodyRightToolbarKey = GlobalKey();
+  final GlobalKey _bodyBottomToolbarKey = GlobalKey();
   final ValueNotifier<Widget?> _valueNotifier = ValueNotifier(null);
 
   bool _isCompactMode = false;
@@ -66,9 +65,15 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
   bool get isWindowHorizontalDirection => widget.direction == Axis.horizontal;
   bool get isWindowVerticalDirection => widget.direction == Axis.vertical;
 
-  late Axis _bodyDirection = widget.direction;
+  Axis _bodyDirection = Axis.vertical;
   bool get isBodyHorizontalDirection => _bodyDirection == Axis.horizontal;
   bool get isBodyVerticalDirection => _bodyDirection == Axis.vertical;
+
+  @override
+  void initState() {
+    super.initState();
+    _bodyDirection = widget.direction;
+  }
 
   @override
   void dispose() {
@@ -78,41 +83,46 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = context.screenSize;
     final bool isMobileDevice = AppDevice.isMobileDevice();
+    final Size screenSize = context.screenSize;
     final AppThemeData themeData = LayoutModel.theme.viewer;
+    final bool isFullWindowMode = isMobileDevice || _getIsFullWindowMode(screenSize);
 
-    final bool isFloatingWindow =
-      screenSize.width >= 720 && screenSize.height >= 480 && ! isMobileDevice;
+    Widget builtBarWidget = _Offstage(_barKey, _isCompactMode, buildBar(themeData, screenSize));
+    final Widget? builtCompactModeBarWidget = buildCompactModeBar(themeData, screenSize);
 
-    Widget builtBarWidget = AppContainer(
-      key: _builtBarKey,
-      width: isWindowHorizontalDirection ? widget.barSize : null,
-      height: isWindowVerticalDirection ? widget.barSize : null,
-      padding: widget.barPadding,
+    if (builtCompactModeBarWidget != null) {
+      builtBarWidget = Stack(
+        clipBehavior: Clip.none,
+        children: [
+          builtBarWidget,
+          _Offstage(null, ! _isCompactMode, builtCompactModeBarWidget)
+        ]
+      );
+    }
+
+    builtBarWidget = AppContainer(
       color: isMobileDevice
         ? themeData.surfaceColor1
         : themeData.surfaceColor1.withViewerBarAlpha,
-      borderRadius: isFloatingWindow
-        ? isWindowHorizontalDirection ? AppTheme.leftBorderRadius : AppTheme.topBorderRadius
-        : null,
-      child: buildBar(themeData)
+      borderRadius: isFullWindowMode
+        ? null
+        : isWindowHorizontalDirection ? AppTheme.leftBorderRadius : AppTheme.topBorderRadius,
+      child: builtBarWidget
     );
 
-    builtBarWidget = Offstage(
-      offstage: _isCompactMode,
-      child: isMobileDevice
-        ? builtBarWidget
-        : ClipRect(
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
-              child: builtBarWidget
-            )
+    builtBarWidget = isMobileDevice
+      ? builtBarWidget
+      : ClipRect(
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+            child: builtBarWidget
           )
-    );
+        );
 
     final Widget builtFullBodyWidget = LayoutBuilder(
       builder: (BuildContext fullBodyContext, BoxConstraints fullBodyConstraints) {
+
         Widget builtBodyWidget = LayoutBuilder(
           builder: (BuildContext bodyContext, BoxConstraints bodyConstraints) {
             return _Notifier(
@@ -135,12 +145,8 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
           builtBodyWidget = Row(
             children: [
               Expanded(child: builtBodyWidget),
-              Offstage(
-                offstage: isBodyVerticalDirection,
-                child: KeyedSubtree(
-                  key: _builtBodyRightToolbarKey,
-                  child: builtBodyRightToolbarWidget
-                )
+              _Offstage(
+                _bodyRightToolbarKey, isBodyVerticalDirection, builtBodyRightToolbarWidget
               )
             ]
           );
@@ -150,12 +156,8 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
           builtBodyWidget = Column(
             children: [
               Expanded(child: builtBodyWidget),
-              Offstage(
-                offstage: isBodyHorizontalDirection,
-                child: KeyedSubtree(
-                  key: _builtBodyBottomToolbarKey,
-                  child: builtBodyBottomToolbarWidget
-                )
+              _Offstage(
+                _bodyBottomToolbarKey, isBodyHorizontalDirection, builtBodyBottomToolbarWidget
               )
             ]
           );
@@ -166,17 +168,19 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
     );
 
     final Widget builtWindowContentWidget = Flex(
-      key: _builtWindowContentKey,
+      key: _windowContentKey,
       direction: widget.direction,
       children: [
         builtBarWidget,
         Expanded(
           child: AppContainer(
             color: themeData.surfaceColor1,
-            borderRadius: isFloatingWindow
-              ? isWindowHorizontalDirection
-                ? AppTheme.rightBorderRadius : AppTheme.bottomBorderRadius
-              : null,
+            borderRadius: isFullWindowMode
+              ? null
+              : _isCompactMode && builtCompactModeBarWidget == null
+                ? AppTheme.allBorderRadius
+                : isWindowHorizontalDirection
+                  ? AppTheme.rightBorderRadius : AppTheme.bottomBorderRadius,
             child: builtFullBodyWidget
           )
         )
@@ -185,27 +189,38 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
 
     WidgetsBinding.instance.addPostFrameCallback(_setCompactModeAndBodyDirection);
 
-    return isFloatingWindow
-      ? Center(
+    return isFullWindowMode
+      ? builtWindowContentWidget
+      : Center(
           child: AppContainer(
-            width: widget.windowWidth,
-            height: widget.windowHeight,
+            width: widget.width,
+            height: widget.height,
             margin: const AppEdgeInsets.normal(),
             child: builtWindowContentWidget
           )
-        )
-      : builtWindowContentWidget;
+        );
+  }
+
+  bool _getIsFullWindowMode(Size screenSize) {
+    final double looseWidth = widget.width ?? double.infinity;
+    final double looseHeight = widget.height ?? double.infinity;
+    return
+      screenSize.width <= max(min(1024, looseWidth), (widget.width ?? 0) * 0.75) &&
+        screenSize.height <= looseHeight ||
+      screenSize.height <= max(min(1024, looseHeight), (widget.height ?? 0) * 0.75) &&
+        screenSize.width <= looseWidth;
   }
 
   void _setCompactModeAndBodyDirection(Duration timeStamp) {
-    final Size barSize = _builtBarKey.currentContext?.size ?? Size.zero;
-    final Size? rightToolbarSize = _builtBodyRightToolbarKey.currentContext?.size;
-    final Size? bottomToolbarSize = _builtBodyBottomToolbarKey.currentContext?.size;
-    final Size windowContentSize = _builtWindowContentKey.currentContext?.size ?? Size.zero;
+    final Size barSize = _barKey.currentContext?.size ?? Size.zero;
+    final Size? rightToolbarSize = _bodyRightToolbarKey.currentContext?.size;
+    final Size? bottomToolbarSize = _bodyBottomToolbarKey.currentContext?.size;
+    final Size windowContentSize = _windowContentKey.currentContext?.size ?? Size.zero;
 
     final bool newIsCompactMode =
       (isWindowHorizontalDirection ? barSize.width : barSize.height) /
-      (isWindowHorizontalDirection ? windowContentSize.width : windowContentSize.height) > 0.3;
+      (isWindowHorizontalDirection ? windowContentSize.width : windowContentSize.height) >
+      widget.maxBarRatio;
 
     final double fullBodyWidth =
       windowContentSize.width -
@@ -250,13 +265,26 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
     }
   }
 
-  Widget buildBar(AppThemeData themeData);
+  Widget buildBar(AppThemeData themeData, Size screenSize);
+
+  Widget? buildCompactModeBar(AppThemeData themeData, Size screenSize) => null;
 
   Widget buildBody(AppThemeData themeData, double width, double height);
 
   Widget? buildBodyRightToolbar(AppThemeData themeData, double width) => null;
 
   Widget? buildBodyBottomToolbar(AppThemeData themeData, double height) => null;
+}
+
+class _Offstage extends Offstage {
+  _Offstage(
+    Key? key, bool offstage,Widget child
+  ) : super(
+    offstage: offstage,
+    child: key == null
+      ? child
+      : KeyedSubtree(key: key, child: child)
+  );
 }
 
 class _IndexedStack extends StatelessWidget {

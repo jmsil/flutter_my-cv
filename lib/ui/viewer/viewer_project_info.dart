@@ -16,8 +16,8 @@ class ViewerProjectInfo extends AppViewer {
     this.project
   ) : super(
     direction: Axis.vertical,
-    windowWidth: 1560,
-    barPadding: const AppEdgeInsets.large(vertical: AppDimens.xLarge)
+    width: 1560,
+    maxBarRatio: 0.18
   );
 
   @override
@@ -33,30 +33,69 @@ class _State extends AppViewerState<ViewerProjectInfo> {
     text: '\n\n\u200B', style: TextStyle(fontSize: AppDimens.large));
 
   @override
-  Widget buildBar(AppThemeData themeData) {
+  Widget buildBar(AppThemeData themeData, Size screenSize) {
+    return buildBarUtil(themeData, screenSize, false);
+  }
+
+  @override
+  Widget buildCompactModeBar(AppThemeData themeData, Size screenSize) {
+    return buildBarUtil(themeData, screenSize, true);
+  }
+
+  Widget buildBarUtil(AppThemeData themeData, Size screenSize, bool isCompactMode) {
     final AppThemeDataStyledProperty themeProperty = themeData.overStyled1;
-    final Widget builtTitleDetail = Text.rich(
-      TextSpan(
-        children: [
-          TextSpan(
-            text: '${widget.project.title}\n', style: themeProperty.largeHeader.bold),
-          TextSpan(
-            text: widget.project.description, style: themeProperty.largeText.regular)
-        ]
-      )
+    final builtIcon = Icon(
+      AppIcons.webhook,
+      size: isCompactMode ? AppDimens.xxLarge : AppDimens.xxxLarge,
+      color: themeProperty.color
+    );
+    final Widget builtTitle = Text(
+      widget.project.title,
+      style: isCompactMode ? themeProperty.normalHeader.bold : themeProperty.largeHeader.bold
+    );
+    final Widget builtDescription = Text(
+      widget.project.description,
+      style: isCompactMode ? themeProperty.normalText.regular : themeProperty.largeText.regular
+    );
+    final Widget builtCloseButton = AppButton.icon(
+      icon: AppIcons.close,
+      themeProperty: themeProperty,
+      onPressed: () => Navigator.pop(context)
     );
 
-    return Row(
-      spacing: AppDimens.normal,
-      children: [
-        Icon(AppIcons.webhook, size: 64, color: themeProperty.color),
-        Expanded(child: builtTitleDetail),
-        AppButton.icon(
-          icon: AppIcons.close,
-          themeProperty: themeProperty,
-          onPressed: () => Navigator.pop(context)
-        )
-      ]
+    return Padding(
+      padding: isCompactMode
+        ? const AppEdgeInsets.normal()
+        : const AppEdgeInsets.large(vertical: AppDimens.xLarge),
+      child: screenSize.width < 460
+        ? Column(
+            spacing: AppDimens.small,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                spacing: AppDimens.normal,
+                children: [
+                  builtIcon,
+                  Expanded(child: builtTitle),
+                  builtCloseButton
+                ]
+              ),
+              builtDescription
+            ]
+          )
+        : Row(
+            spacing: AppDimens.normal,
+            children: [
+              builtIcon,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [builtTitle, builtDescription]
+                )
+              ),
+              builtCloseButton
+            ]
+          )
     );
   }
 

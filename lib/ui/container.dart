@@ -17,7 +17,6 @@ class AppContainer extends StatelessWidget {
   final Widget? child;
 
   AppContainer({
-    super.key,
     this.width,
     this.height,
     this.color,
