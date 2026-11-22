@@ -61,6 +61,7 @@ class AppContainer extends StatelessWidget {
       ? Material(
           color: color,
           type: color == null ? MaterialType.transparency : MaterialType.canvas,
+          animationDuration: Duration.zero,
           shape: borderRadius != null || borderSide != null
             ? RoundedRectangleBorder(
                 borderRadius: borderRadius ?? BorderRadius.zero,

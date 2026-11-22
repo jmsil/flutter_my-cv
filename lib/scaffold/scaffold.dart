@@ -13,6 +13,7 @@ class AppScaffold extends ListenableBuilder {
       LayoutModel.instance.setLayoutModeOnScaffoldBuild(isExtendedScreen);
       return Material(
         color: LayoutModel.theme.background.surfaceColor1,
+        animationDuration: Duration.zero,
         child: isExtendedScreen
           ? AppScaffoldExtended()
           : AppScaffoldCompact()
