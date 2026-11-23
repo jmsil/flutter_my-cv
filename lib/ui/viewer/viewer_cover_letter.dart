@@ -16,11 +16,9 @@ class ViewerCoverLetter extends AppViewer {
   final String role;
   final List<String> info;
 
-  ViewerCoverLetter({
-    required this.companyName,
-    required this.role,
-    required this.info
-  }) : super(
+  ViewerCoverLetter._(
+    this.companyName, this.role, this.info
+  ) : super(
     direction: Axis.vertical,
     width: 800,
     maxBarRatio: 0.18
@@ -28,6 +26,14 @@ class ViewerCoverLetter extends AppViewer {
 
   @override
   _State createState() => _State();
+
+  static void show({
+    required String companyName,
+    required String role,
+    required List<String> info
+  }) {
+    AppViewer.show(ViewerCoverLetter._(companyName, role, info));
+  }
 }
 
 class _State extends AppViewerState<ViewerCoverLetter> {

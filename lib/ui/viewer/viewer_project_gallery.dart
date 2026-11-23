@@ -17,7 +17,7 @@ import 'viewer.dart';
 class ViewerProjectGallery extends AppViewer {
   final GalleryAssetsArchive assets;
 
-  ViewerProjectGallery(
+  ViewerProjectGallery._(
     this.assets
   ) : super(
     direction: Axis.horizontal,
@@ -29,6 +29,10 @@ class ViewerProjectGallery extends AppViewer {
 
   @override
   _State createState() => _State();
+
+  static void show(GalleryAssetsArchive assets) {
+    AppViewer.show(ViewerProjectGallery._(assets));
+  }
 }
 
 class _State extends AppViewerState<ViewerProjectGallery> {

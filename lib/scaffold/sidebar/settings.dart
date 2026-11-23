@@ -10,7 +10,6 @@ import '../../ui/layout/icons.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../../ui/text/icon_text.dart';
-import '../../ui/viewer/viewer.dart';
 import '../../ui/viewer/viewer_cover_letter.dart';
 
 class Settings extends StatelessWidget {
@@ -163,12 +162,10 @@ class _CoverLetterButton extends StatelessWidget {
     AppPopupMenuButton.performAction(
       context,
       () {
-        AppViewer.show(
-          ViewerCoverLetter(
-            companyName: 'Company Name',
-            role: StringsModel.strings.roles.split('\n')[1],
-            info: StringsModel.strings.coverLetterSapIsInfo('Company Name')
-          )
+        ViewerCoverLetter.show(
+          companyName: 'Company Name',
+          role: StringsModel.strings.roles.split('\n')[1],
+          info: StringsModel.strings.coverLetterSapIsInfo('Company Name')
         );
       }
     );

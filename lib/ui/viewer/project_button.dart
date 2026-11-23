@@ -5,7 +5,6 @@ import '../button/button.dart';
 import '../layout/icons.dart';
 import '../layout/layout_model.dart';
 import 'project.dart';
-import 'viewer.dart';
 import 'viewer_project_gallery.dart';
 import 'viewer_project_info.dart';
 
@@ -48,9 +47,9 @@ class _State extends State<AppProjectButton> {
     }
 
     if (widget.project is InfoProject)
-      AppViewer.show(ViewerProjectInfo(widget.project as InfoProject));
+      ViewerProjectInfo.show(widget.project as InfoProject);
     else
-      AppViewer.show(ViewerProjectGallery(widget.project.assets as GalleryAssetsArchive));
+      ViewerProjectGallery.show(widget.project.assets as GalleryAssetsArchive);
   }
 
   void setIsLoading(bool value) {

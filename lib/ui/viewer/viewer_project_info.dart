@@ -13,7 +13,7 @@ import 'viewer.dart';
 class ViewerProjectInfo extends AppViewer {
   final InfoProject project;
 
-  ViewerProjectInfo(
+  ViewerProjectInfo._(
     this.project
   ) : super(
     direction: Axis.vertical,
@@ -23,6 +23,10 @@ class ViewerProjectInfo extends AppViewer {
 
   @override
   _State createState() => _State();
+
+  static void show(InfoProject project) {
+    AppViewer.show(ViewerProjectInfo._(project));
+  }
 }
 
 class _State extends AppViewerState<ViewerProjectInfo> {
