@@ -4,13 +4,29 @@ class StringsEn extends Strings {
   @override
   String get appName => 'Welcome to My Online Resume';
   @override
-  String get longRoles =>
+  String get roles =>
     'Flutter Developer\n'
     'SAP Integration Suite Developer';
   @override
   String get professionalSummaryTitle => 'Professional Summary';
   @override
   String get professionalSummaryInfo => 'Senior software developer with over 15 years of experience in client-server commercial applications (ERP), Android mobile apps, casual game design and development, and cross-platform applications using the Flutter framework.';
+  @override
+  List<String> coverLetterSapIsInfo(String companyName) => [
+    'Dear ${companyName} recruiting team,',
+
+    'I would like to express my interest in opportunities for the SAP Integration Suite Developer role. With a strong background in developing large-scale enterprise software (ERP) and mobile applications, I have focused my senior technical expertise on architecting and implementing robust, secure enterprise integration flows.\n\n'
+
+    'I solidified this specialization by completing SAP’s Developing with SAP Integration Suite learning journey, backed by my official SAP Integration Developer (C_CPI) certification and proven credentials in API Management, Cloud Integration, and Event Mesh. I have hands-on experience implementing core integration techniques, including advanced security orchestration (such as mTLS, OAuth2, and Google Firebase Authentication JWT validation), custom scripting, complex data mapping, XSLT/XML/JSON transformations, and asynchronous event-driven communication.\n\n'
+
+    'I put this combination of senior development experience and SAP ecosystem knowledge into practice while working as a Developer Analyst for Fortlev. There, I helped automate logistics processes by building a mobile application integrated with the SAP TM (Transportation Management) module. Beyond my core technical skills, I bring strong business analysis and requirements specification experience, a collaborative approach to working with multiple stakeholders, and a background in leading and mentoring tech teams.\n\n'
+
+    'I am excited about the opportunity to bring value to your clients through my software development and systems integration skills. Thank you for your time and consideration, and I look forward to the opportunity to discuss my qualifications in a technical interview.\n\n'
+
+    'Sincerely,',
+
+    '${Strings.personalName}.'
+  ];
   @override
   String get detailsTitle => 'Details';
   @override
@@ -38,6 +54,8 @@ class StringsEn extends Strings {
   String get theme => 'Theme';
   @override
   String get downloadCv => 'Download CV';
+  @override
+  String get coverLetter => 'Cover Letter';
   @override
   String get summary => 'Summary';
   @override

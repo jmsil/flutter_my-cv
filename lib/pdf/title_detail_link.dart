@@ -1,5 +1,6 @@
 import 'package:pdf/widgets.dart';
 
+import '../ui/strings/strings.dart';
 import 'text.dart';
 import 'theme.dart';
 
@@ -35,7 +36,7 @@ class _Row extends Row {
         ? PdfText(title, style: PdfTheme.normalTextBoldStyle)
         : PdfLink(title, link, true),
 
-      PdfText(PdfText.listJoinerPipe, style: PdfTheme.normalTextStyle),
+      PdfText(Strings.pipeJoiner, style: PdfTheme.normalTextStyle),
       PdfText(detail, style: PdfTheme.normalTextItalicStyle)
     ]
   );

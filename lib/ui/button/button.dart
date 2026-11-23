@@ -82,7 +82,7 @@ class AppMaterialButton extends MaterialButton {
     minWidth: double.infinity,
     height: 48,
     color: themeProperty.color.withDecorationAlpha,
-    padding: const EdgeInsets.symmetric(horizontal: AppDimens.xxLarge),
+    padding: const EdgeInsets.symmetric(horizontal: AppDimens.xLarge),
     elevation: 0,
     hoverElevation: 0,
     focusElevation: 0,
@@ -92,6 +92,11 @@ class AppMaterialButton extends MaterialButton {
     splashColor: themeProperty.effectColor.withInkEffectAlpha,
     highlightColor: themeProperty.effectColor.withInkEffectAlpha,
     shape: RoundedRectangleBorder(borderRadius: AppTheme.allBorderRadius),
-    child: AppIconText(icon: icon, text: text, textStyle: themeProperty.normalText.bold)
+    child: AppIconText(
+      icon: icon,
+      text: text,
+      textStyle: themeProperty.normalText.bold,
+      enableOverflow: true
+    )
   );
 }

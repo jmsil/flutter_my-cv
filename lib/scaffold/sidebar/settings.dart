@@ -10,6 +10,8 @@ import '../../ui/layout/icons.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../../ui/text/icon_text.dart';
+import '../../ui/viewer/viewer.dart';
+import '../../ui/viewer/viewer_cover_letter.dart';
 
 class Settings extends StatelessWidget {
   @override
@@ -30,7 +32,9 @@ class Settings extends StatelessWidget {
         ],
 
         AppSpacing.smallV,
-        _DownloadPdfButton()
+        _CoverLetterButton(),
+        AppSpacing.smallV,
+        _DownloadCvButton()
       ]
     );
   }
@@ -48,19 +52,19 @@ class _LanguagesSettings extends StatelessWidget {
           label: Strings.languagePt,
           themeProperty: themeProperty,
           isSelected: StringsModel.languageCode == 'pt',
-          onPressed: () => setLanguage(context, 'pt')
+          onPressed: () => onPressed(context, 'pt')
         ),
         AppButton.label(
           label: Strings.languageEn,
           themeProperty: themeProperty,
           isSelected: StringsModel.languageCode != 'pt',
-          onPressed: () => setLanguage(context, 'en')
+          onPressed: () => onPressed(context, 'en')
         )
       ]
     );
   }
 
-  void setLanguage(BuildContext context, String language) {
+  void onPressed(BuildContext context, String language) {
     AppPopupMenuButton.performAction(
       context, () => StringsModel.instance.setLanguage(language)
     );
@@ -80,19 +84,19 @@ class _ThemeSettings extends StatelessWidget {
           icon: AppIcons.themeLightMode,
           themeProperty: themeProperty,
           isSelected: themeMode == Brightness.light,
-          onPressed: () => setTheme(context, Brightness.light)
+          onPressed: () => onPressed(context, Brightness.light)
         ),
         AppButton.icon(
           icon: AppIcons.themeDarkMode,
           themeProperty: themeProperty,
           isSelected: themeMode == Brightness.dark,
-          onPressed: () => setTheme(context, Brightness.dark)
+          onPressed: () => onPressed(context, Brightness.dark)
         )
       ]
     );
   }
 
-  void setTheme(BuildContext context, Brightness themeMode) {
+  void onPressed(BuildContext context, Brightness themeMode) {
     AppPopupMenuButton.performAction(
       context, () => LayoutModel.instance.setThemeMode(themeMode)
     );
@@ -112,38 +116,67 @@ class _LayoutSettings extends StatelessWidget {
           icon: AppIcons.flatLayout,
           themeProperty: themeProperty,
           isSelected: layoutMode.isFlat,
-          onPressed: () => setLayout(context, LayoutMode.flat)
+          onPressed: () => onPressed(context, LayoutMode.flat)
         ),
         AppButton.icon(
           icon: AppIcons.leftLayout,
           themeProperty: themeProperty,
           isSelected: layoutMode.isLeft,
-          onPressed: () => setLayout(context, LayoutMode.left)
+          onPressed: () => onPressed(context, LayoutMode.left)
         ),
         AppButton.icon(
           icon: AppIcons.topLayout,
           themeProperty: themeProperty,
           isSelected: layoutMode.isTop,
-          onPressed: () => setLayout(context, LayoutMode.top)
+          onPressed: () => onPressed(context, LayoutMode.top)
         ),
         AppButton.icon(
           icon: AppIcons.fullLayout,
           themeProperty: themeProperty,
           isSelected: layoutMode.isFull,
-          onPressed: () => setLayout(context, LayoutMode.full)
+          onPressed: () => onPressed(context, LayoutMode.full)
         )
       ]
     );
   }
 
-  void setLayout(BuildContext context, LayoutMode layoutMode) {
+  void onPressed(BuildContext context, LayoutMode layoutMode) {
     AppPopupMenuButton.performAction(
       context, () => LayoutModel.instance.setLayoutMode(layoutMode)
     );
   }
 }
 
-class _DownloadPdfButton extends StatelessWidget {
+class _CoverLetterButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final AppThemeData themeData = LayoutModel.theme.background;
+    return AppMaterialButton(
+      icon: AppIcons.mail,
+      text: StringsModel.strings.coverLetter,
+      themeProperty: themeData.accentStyled1,
+      onPressed: () => onPressed(context)
+    );
+  }
+
+  void onPressed(BuildContext context) {
+    AppPopupMenuButton.performAction(
+      context,
+      () {
+        AppViewer.show(
+          context,
+          ViewerCoverLetter(
+            companyName: 'Company Name',
+            role: StringsModel.strings.roles.split('\n')[1],
+            info: StringsModel.strings.coverLetterSapIsInfo('Company Name')
+          )
+        );
+      }
+    );
+  }
+}
+
+class _DownloadCvButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppThemeData themeData = LayoutModel.theme.background;
@@ -151,13 +184,13 @@ class _DownloadPdfButton extends StatelessWidget {
       icon: AppIcons.download,
       text: StringsModel.strings.downloadCv,
       themeProperty: themeData.accentStyled1,
-      onPressed: () => _downloadPdf(context)
+      onPressed: () => onPressed(context)
     );
   }
 
-  void _downloadPdf(BuildContext context) {
+  void onPressed(BuildContext context) {
     AppPopupMenuButton.performAction(
-      context, () => PdfGenerator.generateAndDownload(StringsModel.languageCode)
+      context, PdfGenerator.downloadCv
     );
   }
 }

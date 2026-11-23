@@ -4,7 +4,7 @@ import '../../ui/strings/strings_model.dart';
 import 'text.dart';
 import 'theme.dart';
 
-class PdfOnlineResume extends StatelessWidget {
+class PdfOnlineCv extends StatelessWidget {
   @override
   Widget build(Context context) {
     return Column(
@@ -13,7 +13,7 @@ class PdfOnlineResume extends StatelessWidget {
         PdfTheme.largeSpacerV,
         Text(StringsModel.strings.visitOnlineResume, style: PdfTheme.normalTextStyle),
         PdfTheme.xSmallSpacerV,
-        PdfLink(Strings.personalOnlineResumeLink, Strings.personalOnlineResumeLink, false)
+        PdfLink(Strings.personalCvLink, Strings.personalCvLink, false)
       ]
     );
   }

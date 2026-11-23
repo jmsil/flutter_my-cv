@@ -14,7 +14,6 @@ class PdfText extends Text {
 
   static String get bulletReplacer => '–';
   static String get listJoiner => ' – ';
-  static String get listJoinerPipe => ' | ';
 }
 
 class PdfLink extends UrlLink {

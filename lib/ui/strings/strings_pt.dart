@@ -4,13 +4,29 @@ class StringsPt extends Strings {
   @override
   String get appName => 'Bem-vindo(a) ao Meu Currículo Online';
   @override
-  String get longRoles =>
+  String get roles =>
     'Desenvolvedor Flutter\n'
     'Desenvolvedor SAP Integration Suite';
   @override
   String get professionalSummaryTitle => 'Resumo Profissional';
   @override
   String get professionalSummaryInfo => 'Desenvolvedor de software sênior com mais de 15 anos de experiência em aplicações comerciais cliente-servidor (ERP), aplicativos móveis Android, design e desenvolvimento de jogos casuais, e aplicações multiplataforma com o framework Flutter.';
+  @override
+  List<String> coverLetterSapIsInfo(String companyName) => [
+    'Prezada equipe de recrutamento da ${companyName},',
+
+    'Gostaria de manifestar meu interesse em oportunidades para o cargo de desenvolvedor SAP Integration Suite. Com uma sólida trajetória no desenvolvimento de softwares de grande porte (ERP) e aplicativos móveis, venho direcionando minha senioridade técnica para arquitetar e implementar fluxos de integração empresarial robustos e seguros.\n\n'
+
+    'Consolidei essa especialização ao concluir a jornada de aprendizado Developing with SAP Integration Suite da SAP, validada pela certificação oficial SAP Integration Developer (C_CPI) e chancelas de mercado em API Management, Cloud Integration e Event Mesh. Tenho domínio prático na implementação das principais técnicas de integração, incluindo a orquestração avançada de segurança (como mTLS, OAuth2 e validação de JWT Google Firebase Authentication), desenvolvimento de scripts avançados, mapeamento complexo de dados, conversões XSLT/XML/JSON e comunicação assíncrona orientada a eventos.\n\n'
+
+    'A união entre a minha bagagem sênior em desenvolvimento e o ecossistema SAP foi demonstrada na prática quando atuei como Analista Desenvolvedor para a Fortlev. Na ocasião, apoiei a automatização de processos de logística ao desenvolver um aplicativo móvel integrado ao módulo SAP TM (Transportation Management). Além da competência puramente técnica, trago a maturidade de quem sabe analisar e especificar demandas de negócio, facilidade para cooperar com múltiplos parceiros e experiência prévia na liderança e mentoria técnica de equipes de tecnologia.\n\n'
+
+    'Estou entusiasmado com a possibilidade de agregar valor aos seus clientes por meio das minhas habilidades em desenvolvimento e integração de sistemas. Agradeço a atenção e coloco-me à disposição para uma entrevista técnica.\n\n'
+
+    'Atenciosamente,',
+
+    '${Strings.personalName}.'
+  ];
   @override
   String get detailsTitle => 'Detalhes';
   @override
@@ -38,6 +54,8 @@ class StringsPt extends Strings {
   String get theme => 'Tema';
   @override
   String get downloadCv => 'Baixar CV';
+  @override
+  String get coverLetter => 'Carta Apresentação';
   @override
   String get summary => 'Resumo';
   @override

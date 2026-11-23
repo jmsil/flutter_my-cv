@@ -32,7 +32,7 @@ class ProfileHeader extends StatelessWidget {
     this.title = Strings.personalName,
     this.info = isShortRoles
       ? Strings.shortRoles
-      : StringsModel.strings.longRoles,
+      : StringsModel.strings.roles,
     this.enableIntrinsicWidth = true;
 
   ProfileHeader.professionalSummary({

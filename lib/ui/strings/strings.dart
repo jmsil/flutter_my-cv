@@ -4,6 +4,7 @@ abstract class Strings {
   static const String widgetTag = '<wdg>';
   static const String widgetPlaceholder = '$splitTag$widgetTag$splitTag';
   static String title(String title) => '$splitTag$titleTag$title$splitTag';
+  static const String pipeJoiner = ' | ';
 
   static const String personalName = 'João Marques da Silva';
   static const String shortRoles =
@@ -14,7 +15,7 @@ abstract class Strings {
   static const String personalEmail = 'jmsilva.inbox@gmail.com';
   static const String personalEmailLink = 'mailto:$personalEmail';
   static const String personalGitHubLink = 'https://github.com/jmsil';
-  static const String personalOnlineResumeLink = 'https://flutter-my-cv.firebaseapp.com';
+  static const String personalCvLink = 'https://flutter-my-cv.firebaseapp.com';
   static const List<String> programmingSkillsInfo = ['Dart/Flutter', 'Android SDK', 'Java', 'Groovy', 'C/C++', 'Oracle Database', 'MySQL Database', 'PL/SQL', 'Git'];
   static const List<String> integrationSkillsInfo = ['SAP Cloud Integration', 'SAP API Management', 'SAP (Advanced) Event Mesh'];
   static const String languagePt = 'Pt';
@@ -69,9 +70,10 @@ abstract class Strings {
   static const String _mooviEducationCertificateHost = 'https://moovi.curseduca.pro/verify/';
 
   String get appName;
-  String get longRoles;
+  String get roles;
   String get professionalSummaryTitle;
   String get professionalSummaryInfo;
+  List<String> coverLetterSapIsInfo(String companyName);
   String get detailsTitle;
   String get personalLocation;
   String get programmingSkillsTitle;
@@ -82,6 +84,7 @@ abstract class Strings {
   String get language;
   String get theme;
   String get downloadCv;
+  String get coverLetter;
   String get summary;
   String get portfolio;
   String get verify;
