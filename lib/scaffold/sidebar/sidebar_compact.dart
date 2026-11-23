@@ -4,6 +4,7 @@ import '../../ui/button/button.dart';
 import '../../ui/layout/dimens.dart';
 import '../../ui/layout/icons.dart';
 import '../../ui/layout/layout_model.dart';
+import '../../ui/navigator.dart';
 import '../../ui/overlay_bar.dart';
 import '../../ui/scroller.dart';
 import '../appbar/profile_photo.dart';
@@ -38,7 +39,7 @@ class AppSidebarCompact extends StatelessWidget {
                 shadowColor: Colors.black45,
                 shape: RoundedRectangleBorder(borderRadius: AppTheme.allBorderRadius),
                 automaticallyImplyLeading: false,
-                flexibleSpace: _Profile(context, theme)
+                flexibleSpace: _Profile(theme)
               ),
 
               SliverList(
@@ -58,7 +59,7 @@ class AppSidebarCompact extends StatelessWidget {
 
 class _Profile extends Padding {
   _Profile(
-    BuildContext context, AppTheme theme
+    AppTheme theme
   ) : super(
     padding: const EdgeInsets.all(AppDimens.large / 2),
     child: Stack(
@@ -73,7 +74,7 @@ class _Profile extends Padding {
           child: AppButton.icon(
             icon: AppIcons.back,
             themeProperty: theme.appbar.over1,
-            onPressed: () => Navigator.pop(context)
+            onPressed: AppNavigator.pop
           )
         )
       ]

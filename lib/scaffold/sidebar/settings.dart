@@ -164,7 +164,6 @@ class _CoverLetterButton extends StatelessWidget {
       context,
       () {
         AppViewer.show(
-          context,
           ViewerCoverLetter(
             companyName: 'Company Name',
             role: StringsModel.strings.roles.split('\n')[1],

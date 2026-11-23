@@ -48,9 +48,9 @@ class _State extends State<AppProjectButton> {
     }
 
     if (widget.project is InfoProject)
-      AppViewer.show(context, ViewerProjectInfo(widget.project as InfoProject));
+      AppViewer.show(ViewerProjectInfo(widget.project as InfoProject));
     else
-      AppViewer.show(context, ViewerProjectGallery(widget.project.assets as GalleryAssetsArchive));
+      AppViewer.show(ViewerProjectGallery(widget.project.assets as GalleryAssetsArchive));
   }
 
   void setIsLoading(bool value) {

@@ -7,6 +7,7 @@ import '../container.dart';
 import '../layout/device.dart';
 import '../layout/dimens.dart';
 import '../layout/layout_model.dart';
+import '../navigator.dart';
 
 enum AppViewerMode {
   expanded, compactWithBar, compactNoBar;
@@ -34,25 +35,8 @@ abstract class AppViewer extends StatefulWidget {
   @override
   AppViewerState createState();
 
-  static void show(BuildContext context, AppViewer viewer) {
-    Navigator.of(context).push(
-      PageRouteBuilder(
-        opaque: AppDevice.isMobileDevice(),
-        barrierLabel: '',
-        barrierDismissible: true,
-        barrierColor: Colors.black.withViewerBackgroundAlpha,
-        transitionDuration: AppTheme.animationDuration,
-        reverseTransitionDuration: AppTheme.animationDuration,
-
-        transitionsBuilder: (transCtx, transAnim, transSecAnim, transChild) {
-          return FadeUpwardsPageTransitionsBuilder().buildTransitions(
-            null, transCtx, transAnim, transSecAnim, transChild
-          );
-        },
-
-        pageBuilder: (pageCtx, pageAnim, pageSecAnim) => viewer
-      )
-    );
+  static void show(AppViewer viewer) {
+    AppNavigator.show(isOpaque: AppDevice.isMobileDevice(), child: viewer);
   }
 
   static void setFullWindowOf(BuildContext context, Widget? widget) {

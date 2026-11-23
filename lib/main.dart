@@ -2,6 +2,7 @@ import 'package:material_ui/material_ui.dart';
 
 import 'scaffold/scaffold.dart';
 import 'ui/assets.dart';
+import 'ui/navigator.dart';
 import 'ui/scroller.dart';
 import 'ui/strings/strings_model.dart';
 
@@ -14,6 +15,7 @@ void main() async {
       builder: (_, __) {
         return MaterialApp(
           title: StringsModel.strings.appName,
+          navigatorKey: AppNavigator.key,
           scrollBehavior: AppScrollBehavior(),
           home: AppScaffold(),
           debugShowCheckedModeBanner: false

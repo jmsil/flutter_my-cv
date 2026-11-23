@@ -10,6 +10,7 @@ import '../container.dart';
 import '../layout/dimens.dart';
 import '../layout/icons.dart';
 import '../layout/theme.dart';
+import '../navigator.dart';
 import '../scroller.dart';
 import 'viewer.dart';
 
@@ -151,7 +152,7 @@ class _State extends AppViewerState<ViewerProjectGallery> {
           child: AppButton.icon(
             icon: isHorizontalDirection ? AppIcons.back : AppIcons.close,
             themeProperty: themeProperty,
-            onPressed: () => Navigator.pop(context)
+            onPressed: AppNavigator.pop
           )
         )
       ),

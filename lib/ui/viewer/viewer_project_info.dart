@@ -4,6 +4,7 @@ import '../button/button.dart';
 import '../layout/dimens.dart';
 import '../layout/icons.dart';
 import '../layout/theme.dart';
+import '../navigator.dart';
 import '../scroller.dart';
 import '../strings/strings.dart';
 import 'project.dart';
@@ -60,7 +61,7 @@ class _State extends AppViewerState<ViewerProjectInfo> {
     final Widget builtCloseButton = AppButton.icon(
       icon: AppIcons.close,
       themeProperty: themeProperty,
-      onPressed: () => Navigator.pop(context)
+      onPressed: AppNavigator.pop
     );
 
     return Padding(
