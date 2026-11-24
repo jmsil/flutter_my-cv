@@ -5,7 +5,7 @@ import '../layout/dimens.dart';
 import '../layout/theme.dart';
 import '../text/icon_text.dart';
 
-class AppButton extends StatelessWidget {
+class AppIconButton extends StatelessWidget {
   static const double _containerSize = 36;
   static const double _iconSize = 24;
 
@@ -15,7 +15,17 @@ class AppButton extends StatelessWidget {
   final Widget child;
   final void Function() onPressed;
 
-  AppButton.label({
+  AppIconButton({
+    required IconData icon,
+    required this.themeProperty,
+    bool isProcessing = false,
+    this.isSelected = false,
+    required this.onPressed
+  }) :
+    this._isProcessing = isProcessing,
+    this.child = Icon(icon, size: _iconSize, color: themeProperty.color);
+
+  AppIconButton.label({
     required String label,
     required AppThemeDataStyledProperty themeProperty,
     required this.isSelected,
@@ -27,16 +37,6 @@ class AppButton extends StatelessWidget {
       label,
       style: isSelected ? themeProperty.normalText.bold : themeProperty.normalText.regular
     );
-
-  AppButton.icon({
-    required IconData icon,
-    required this.themeProperty,
-    bool isProcessing = false,
-    this.isSelected = false,
-    required this.onPressed
-  }) :
-    this._isProcessing = isProcessing,
-    this.child = Icon(icon, size: _iconSize, color: themeProperty.color);
 
   @override
   Widget build(BuildContext context) {
@@ -72,8 +72,8 @@ class AppButton extends StatelessWidget {
   }
 }
 
-class AppMaterialButton extends MaterialButton {
-  AppMaterialButton({
+class AppButton extends MaterialButton {
+  AppButton({
     required IconData icon,
     String? text,
     required AppThemeDataStyledProperty themeProperty,

@@ -62,7 +62,7 @@ class _State extends AppViewerState<ViewerProjectInfo> {
       widget.project.description,
       style: isCompactMode ? themeProperty.normalText.regular : themeProperty.largeText.regular
     );
-    final Widget builtCloseButton = AppButton.icon(
+    final Widget builtCloseButton = AppIconButton(
       icon: AppIcons.close,
       themeProperty: themeProperty,
       onPressed: AppNavigator.pop

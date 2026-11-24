@@ -27,7 +27,7 @@ class AppPopupMenuButton extends MenuAnchor {
     builder: (BuildContext context, MenuController controller, Widget? child) {
       final LayoutMode layoutMode = LayoutModel.layoutMode;
       final AppTheme theme = LayoutModel.theme;
-      return AppButton.icon(
+      return AppIconButton(
         icon: AppIcons.settings,
         themeProperty: layoutMode.showSidebarBackground
           ? theme.appbar.over1

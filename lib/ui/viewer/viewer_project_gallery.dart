@@ -153,7 +153,7 @@ class _State extends AppViewerState<ViewerProjectGallery> {
       Expanded(
         child: Align(
           alignment: isHorizontalDirection ? Alignment.center : Alignment.topCenter,
-          child: AppButton.icon(
+          child: AppIconButton(
             icon: isHorizontalDirection ? AppIcons.back : AppIcons.close,
             themeProperty: themeProperty,
             onPressed: AppNavigator.pop
@@ -162,7 +162,7 @@ class _State extends AppViewerState<ViewerProjectGallery> {
       ),
 
       if (size >= (isHorizontalDirection ? 380 : 320)) ...[
-        AppButton.icon(
+        AppIconButton(
           icon: isHorizontalDirection
             ? AppIcons.arrowLeft
             : AppIcons.arrowUp,
@@ -174,7 +174,7 @@ class _State extends AppViewerState<ViewerProjectGallery> {
           ? mode.isCompactMode ? AppSpacing.normalH : AppSpacing.xLargeH
           : mode.isCompactMode ? AppSpacing.normalV : AppSpacing.xLargeV,
 
-        AppButton.icon(
+        AppIconButton(
           icon: isHorizontalDirection
             ? AppIcons.arrowRight
             : AppIcons.arrowDown,

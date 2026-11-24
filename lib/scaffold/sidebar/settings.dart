@@ -48,13 +48,13 @@ class _LanguagesSettings extends StatelessWidget {
       AppIcons.language,
       StringsModel.strings.language,
       [
-        AppButton.label(
+        AppIconButton.label(
           label: Strings.languagePt,
           themeProperty: themeProperty,
           isSelected: StringsModel.languageCode == 'pt',
           onPressed: () => onPressed(context, 'pt')
         ),
-        AppButton.label(
+        AppIconButton.label(
           label: Strings.languageEn,
           themeProperty: themeProperty,
           isSelected: StringsModel.languageCode != 'pt',
@@ -80,13 +80,13 @@ class _ThemeSettings extends StatelessWidget {
       AppIcons.theme,
       StringsModel.strings.theme,
       [
-        AppButton.icon(
+        AppIconButton(
           icon: AppIcons.themeLightMode,
           themeProperty: themeProperty,
           isSelected: themeMode == Brightness.light,
           onPressed: () => onPressed(context, Brightness.light)
         ),
-        AppButton.icon(
+        AppIconButton(
           icon: AppIcons.themeDarkMode,
           themeProperty: themeProperty,
           isSelected: themeMode == Brightness.dark,
@@ -112,25 +112,25 @@ class _LayoutSettings extends StatelessWidget {
       AppIcons.layout,
       Strings.layout,
       [
-        AppButton.icon(
+        AppIconButton(
           icon: AppIcons.flatLayout,
           themeProperty: themeProperty,
           isSelected: layoutMode.isFlat,
           onPressed: () => onPressed(context, LayoutMode.flat)
         ),
-        AppButton.icon(
+        AppIconButton(
           icon: AppIcons.leftLayout,
           themeProperty: themeProperty,
           isSelected: layoutMode.isLeft,
           onPressed: () => onPressed(context, LayoutMode.left)
         ),
-        AppButton.icon(
+        AppIconButton(
           icon: AppIcons.topLayout,
           themeProperty: themeProperty,
           isSelected: layoutMode.isTop,
           onPressed: () => onPressed(context, LayoutMode.top)
         ),
-        AppButton.icon(
+        AppIconButton(
           icon: AppIcons.fullLayout,
           themeProperty: themeProperty,
           isSelected: layoutMode.isFull,
@@ -151,7 +151,7 @@ class _CoverLetterButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppThemeData themeData = LayoutModel.theme.background;
-    return AppMaterialButton(
+    return AppButton(
       icon: AppIcons.mail,
       text: StringsModel.strings.coverLetter,
       themeProperty: themeData.accentStyled1,
@@ -183,7 +183,7 @@ class _DownloadCvButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppThemeData themeData = LayoutModel.theme.background;
-    return AppMaterialButton(
+    return AppButton(
       icon: AppIcons.download,
       text: StringsModel.strings.downloadCv,
       themeProperty: themeData.accentStyled1,

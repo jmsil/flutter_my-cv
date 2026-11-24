@@ -23,7 +23,7 @@ class _State extends State<AppProjectButton> {
   @override
   Widget build(BuildContext context) {
     final AppThemeDataBasicProperty themeProperty = LayoutModel.theme.background.accent1;
-    return AppButton.icon(
+    return AppIconButton(
       icon: widget.project is InfoProject ? AppIcons.info : AppIcons.gallery,
       themeProperty: themeProperty,
       isProcessing: isProcessing,

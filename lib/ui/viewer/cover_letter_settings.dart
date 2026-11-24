@@ -61,12 +61,12 @@ class _State extends State<CoverLetterSettingsSelector> {
       spacing: AppDimens.normal,
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        AppMaterialButton(
+        AppButton(
           icon: AppIcons.close,
           themeProperty: themeData.accentStyled1,
           onPressed: AppNavigator.pop
         ),
-        AppMaterialButton(
+        AppButton(
           icon: AppIcons.check,
           text: Strings.ok,
           themeProperty: themeData.accentStyled1,
