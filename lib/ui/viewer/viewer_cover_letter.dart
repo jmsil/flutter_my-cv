@@ -115,13 +115,14 @@ class _State extends AppViewerState<ViewerCoverLetter> {
         spacing: AppDimens.normal,
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          AppButton.icon(
+          AppMaterialButton(
             icon: AppIcons.copy,
             themeProperty: themeData.accentStyled1,
             onPressed: onPressedCopy
           ),
-          AppButton.icon(
+          AppMaterialButton(
             icon: AppIcons.download,
+            text: StringsModel.strings.download,
             themeProperty: themeData.accentStyled1,
             onPressed: onPressedDownload
           )

@@ -10,6 +10,7 @@ import '../../ui/layout/icons.dart';
 import '../../ui/layout/layout_model.dart';
 import '../../ui/strings/strings_model.dart';
 import '../../ui/text/icon_text.dart';
+import '../../ui/viewer/cover_letter_settings.dart';
 import '../../ui/viewer/viewer_cover_letter.dart';
 
 class Settings extends StatelessWidget {
@@ -154,19 +155,25 @@ class _CoverLetterButton extends StatelessWidget {
       icon: AppIcons.mail,
       text: StringsModel.strings.coverLetter,
       themeProperty: themeData.accentStyled1,
+      expands: true,
       onPressed: () => onPressed(context)
     );
   }
 
   void onPressed(BuildContext context) {
+
     AppPopupMenuButton.performAction(
       context,
-      () {
-        ViewerCoverLetter.show(
-          companyName: 'Company Name',
-          role: StringsModel.strings.roles.split('\n')[1],
-          info: StringsModel.strings.coverLetterSapIsInfo('Company Name')
-        );
+      () async {
+        final CoverLetterSettings? settings = await CoverLetterSettingsSelector.show();
+
+        if (settings != null) {
+          ViewerCoverLetter.show(
+            companyName: settings.companyName,
+            role: settings.role,
+            info: settings.coverLetter
+          );
+        }
       }
     );
   }
@@ -180,6 +187,7 @@ class _DownloadCvButton extends StatelessWidget {
       icon: AppIcons.download,
       text: StringsModel.strings.downloadCv,
       themeProperty: themeData.accentStyled1,
+      expands: true,
       onPressed: () => onPressed(context)
     );
   }

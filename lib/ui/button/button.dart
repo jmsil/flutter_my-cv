@@ -75,14 +75,15 @@ class AppButton extends StatelessWidget {
 class AppMaterialButton extends MaterialButton {
   AppMaterialButton({
     required IconData icon,
-    required String text,
+    String? text,
     required AppThemeDataStyledProperty themeProperty,
+    bool expands = false,
     super.onPressed
   }) : super(
-    minWidth: double.infinity,
+    minWidth: expands ? double.infinity : 0,
     height: 48,
-    color: themeProperty.color.withDecorationAlpha,
-    padding: const EdgeInsets.symmetric(horizontal: AppDimens.xLarge),
+    color: text == null ? Colors.transparent : themeProperty.color.withDecorationAlpha,
+    padding: EdgeInsets.symmetric(horizontal: text == null ? AppDimens.large : AppDimens.xLarge),
     elevation: 0,
     hoverElevation: 0,
     focusElevation: 0,
@@ -92,11 +93,13 @@ class AppMaterialButton extends MaterialButton {
     splashColor: themeProperty.effectColor.withInkEffectAlpha,
     highlightColor: themeProperty.effectColor.withInkEffectAlpha,
     shape: RoundedRectangleBorder(borderRadius: AppTheme.allBorderRadius),
-    child: AppIconText(
-      icon: icon,
-      text: text,
-      textStyle: themeProperty.normalText.bold,
-      enableOverflow: true
-    )
+    child: text == null
+      ? Icon(icon, color: themeProperty.color)
+      : AppIconText(
+          icon: icon,
+          text: text,
+          textStyle: themeProperty.normalText.bold,
+          enableOverflow: true
+        )
   );
 }

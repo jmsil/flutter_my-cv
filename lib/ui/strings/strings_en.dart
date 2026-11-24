@@ -53,9 +53,13 @@ class StringsEn extends Strings {
   @override
   String get theme => 'Theme';
   @override
+  String get download => 'Download';
+  @override
   String get downloadCv => 'Download CV';
   @override
   String get coverLetter => 'Cover Letter';
+  @override
+  String get company => 'Company';
   @override
   String get summary => 'Summary';
   @override

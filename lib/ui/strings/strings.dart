@@ -18,6 +18,7 @@ abstract class Strings {
   static const String personalCvLink = 'https://flutter-my-cv.firebaseapp.com';
   static const List<String> programmingSkillsInfo = ['Dart/Flutter', 'Android SDK', 'Java', 'Groovy', 'C/C++', 'Oracle Database', 'MySQL Database', 'PL/SQL', 'Git'];
   static const List<String> integrationSkillsInfo = ['SAP Cloud Integration', 'SAP API Management', 'SAP (Advanced) Event Mesh'];
+  static const String ok = 'Ok';
   static const String languagePt = 'Pt';
   static const String languageEn = 'En';
   static const String layout = 'Layout';
@@ -83,8 +84,10 @@ abstract class Strings {
   String get madeWithFlutter;
   String get language;
   String get theme;
+  String get download;
   String get downloadCv;
   String get coverLetter;
+  String get company;
   String get summary;
   String get portfolio;
   String get verify;

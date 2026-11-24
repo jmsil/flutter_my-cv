@@ -12,6 +12,8 @@ class AppIcons {
   static const IconData book = Icons.auto_stories_outlined;
   static const IconData briefcase = Icons.business_center_outlined;
   static const IconData certificate = Icons.card_membership_outlined;
+  static const IconData check = Icons.check;
+  static const IconData checkCircle = Icons.check_circle;
   static const IconData close = Icons.close;
   static const IconData code = Icons.code;
   static const IconData copy = Icons.content_copy;

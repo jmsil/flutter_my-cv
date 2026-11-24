@@ -205,6 +205,11 @@ extension AppThemeColorExtension on Color {
   Color get withViewerBarAlpha => this.withValues(alpha: 0.6);
 }
 
+extension AppTextStyleExtension on TextStyle {
+  TextStyle get withHighDecorationAlpha => this.copyWith(
+    color: this.color?.withHighDecorationAlpha);
+}
+
 extension AppThemeModeExtension on Brightness {
   bool get isLight => this == Brightness.light;
   bool get isDark => this == Brightness.dark;
