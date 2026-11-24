@@ -200,14 +200,14 @@ extension AppThemeColorExtension on Color {
   Color get withMidDecorationAlpha => this.withValues(alpha: 0.24);
   Color get withHighDecorationAlpha => this.withValues(alpha: 0.32);
   Color get withInkEffectAlpha => this.withValues(alpha: 0.12);
+  Color get withHintAlpha => this.withValues(alpha: 0.64);
   Color get withCardFillAlpha => this.withValues(alpha: 0.12);
   Color get withViewerBackgroundAlpha => this.withValues(alpha: 0.7);
   Color get withViewerBarAlpha => this.withValues(alpha: 0.6);
 }
 
 extension AppTextStyleExtension on TextStyle {
-  TextStyle get withHighDecorationAlpha => this.copyWith(
-    color: this.color?.withHighDecorationAlpha);
+  TextStyle get withHintAlpha => this.copyWith(color: this.color?.withHintAlpha);
 }
 
 extension AppThemeModeExtension on Brightness {

@@ -34,8 +34,7 @@ class _State extends State<CoverLetterSettingsSelector> {
   @override
   Widget build(BuildContext context) {
     final AppThemeData themeData = LayoutModel.theme.background;
-    final TextStyle decorationStyle =
-      themeData.overStyled1.normalText.regular.withHighDecorationAlpha;
+    final TextStyle hintStyle = themeData.overStyled1.normalText.regular.withHintAlpha;
 
     final Widget builtTextField = TextField(
       controller: controller,
@@ -44,8 +43,8 @@ class _State extends State<CoverLetterSettingsSelector> {
       textCapitalization: TextCapitalization.words,
       maxLength: 40,
       decoration: InputDecoration(
-        label: Text(StringsModel.strings.company, style: decorationStyle),
-        counterStyle: decorationStyle,
+        label: Text(StringsModel.strings.company, style: hintStyle),
+        counterStyle: hintStyle,
         visualDensity: VisualDensity.standard,
         border: WidgetStateInputBorder.resolveWith(
           (_) => UnderlineInputBorder(borderSide: BorderSide(color: themeData.over1.color))
