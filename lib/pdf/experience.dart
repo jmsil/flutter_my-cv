@@ -6,9 +6,9 @@ class PdfExperience extends PdfMainGroup {
     title: StringsModel.strings.experienceTitle,
     children: [
       PdfSubGroup.info(
-        title: StringsModel.strings.sapIntegrationSuiteLearningJourneyTitle,
-        detail: Strings.sapIntegrationSuiteLearningJourneyDetail,
-        info: StringsModel.strings.sapIntegrationSuiteLearningJourneyInfo,
+        title: StringsModel.strings.sapIsLearningJourneyTitle,
+        detail: Strings.sapIsLearningJourneyDetail,
+        info: StringsModel.strings.sapIsLearningJourneyInfo,
         addDivider: false
       ),
       PdfSubGroup.info(

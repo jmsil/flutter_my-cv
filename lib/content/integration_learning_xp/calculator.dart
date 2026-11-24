@@ -7,9 +7,9 @@ import '../../ui/viewer/project_image.dart';
 
 class CalculatorProject extends InfoProject {
   CalculatorProject() : super(
-    Strings.integrationProjectCalculatorTitle,
-    StringsModel.strings.integrationProjectCalculatorDescription,
-    StringsModel.strings.integrationProjectCalculatorInfo,
+    Strings.sapIsProjectCalculatorTitle,
+    StringsModel.strings.sapIsProjectCalculatorDescription,
+    StringsModel.strings.sapIsProjectCalculatorInfo,
     AppAssets.calculatorAssets
   );
 

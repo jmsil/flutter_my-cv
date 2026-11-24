@@ -7,9 +7,9 @@ import '../../ui/viewer/project_image.dart';
 
 class InterStatementOauth2MtlsProject extends InfoProject {
   InterStatementOauth2MtlsProject() : super(
-    Strings.integrationProjectInterStatementOauth2MtlsTitle,
-    StringsModel.strings.integrationProjectInterStatementOauth2MtlsDescription,
-    StringsModel.strings.integrationProjectInterStatementOauth2MtlsInfo,
+    Strings.sapIsProjectInterStatementOauth2MtlsTitle,
+    StringsModel.strings.sapIsProjectInterStatementOauth2MtlsDescription,
+    StringsModel.strings.sapIsProjectInterStatementOauth2MtlsInfo,
     AppAssets.interStatementOauth2MtlsAssets
   );
 

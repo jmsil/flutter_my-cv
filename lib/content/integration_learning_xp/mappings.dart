@@ -8,9 +8,9 @@ import '../../ui/viewer/project_image.dart';
 
 class MappingsProject extends InfoProject {
   MappingsProject() : super(
-    Strings.integrationProjectMappingsTitle,
-    StringsModel.strings.integrationProjectMappingsDescription,
-    StringsModel.strings.integrationProjectMappingsInfo,
+    Strings.sapIsProjectMappingsTitle,
+    StringsModel.strings.sapIsProjectMappingsDescription,
+    StringsModel.strings.sapIsProjectMappingsInfo,
     AppAssets.mappingsAssets
   );
 

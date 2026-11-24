@@ -7,9 +7,9 @@ import '../../ui/viewer/project_image.dart';
 
 class GoogleFirebaseAuthUsersProject extends InfoProject {
   GoogleFirebaseAuthUsersProject() : super(
-    Strings.integrationProjectGoogleFirebaseAuthUsersTitle,
-    StringsModel.strings.integrationProjectGoogleFirebaseAuthUsersDescription,
-    StringsModel.strings.integrationProjectGoogleFirebaseAuthUsersInfo,
+    Strings.sapIsProjectGoogleFirebaseAuthUsersTitle,
+    StringsModel.strings.sapIsProjectGoogleFirebaseAuthUsersDescription,
+    StringsModel.strings.sapIsProjectGoogleFirebaseAuthUsersInfo,
     AppAssets.googleFirebaseAuthUsersAssets
   );
 

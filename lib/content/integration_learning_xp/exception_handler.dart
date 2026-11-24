@@ -8,9 +8,9 @@ import '../../ui/viewer/project_image.dart';
 
 class ExceptionHandlerProject extends InfoProject {
   ExceptionHandlerProject() : super(
-    Strings.integrationProjectExceptionHandlerTitle,
-    StringsModel.strings.integrationProjectExceptionHandlerDescription,
-    StringsModel.strings.integrationProjectExceptionHandlerInfo,
+    Strings.sapIsProjectExceptionHandlerTitle,
+    StringsModel.strings.sapIsProjectExceptionHandlerDescription,
+    StringsModel.strings.sapIsProjectExceptionHandlerInfo,
     AppAssets.exceptionHandlerAssets
   );
 

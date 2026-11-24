@@ -69,9 +69,9 @@ class StringsPt extends Strings {
   @override
   String get experienceTitle => 'Experiência';
   @override
-  String get sapIntegrationSuiteLearningJourneyTitle => 'Desenvolvimento/Certificação SAP Integration Suite';
+  String get sapIsLearningJourneyTitle => 'Desenvolvimento/Certificação SAP Integration Suite';
   @override
-  String get sapIntegrationSuiteLearningJourneyInfo =>
+  String get sapIsLearningJourneyInfo =>
     'Completei a Developing with SAP Integration Suite Learning Journey e cursos, focando nos fundamentos de integração empresarial e exercícios práticos para a certificação SAP Certified - Integration Developer.\n\n'
 
     'O portfólio resultante implementa as principais técnicas de integração abaixo:\n'
@@ -85,9 +85,9 @@ class StringsPt extends Strings {
     '▪ Consumo dinâmico de serviço SOAP via parâmetros de requisição e mapeamentos.\n'
     '▪ Conexão com banco de dados SQL Server.';
   @override
-  String get integrationProjectApimProxyDescription => 'Permite que aplicações do usuário final se conectem ao Cloud Integration com um token JWT do Firebase.';
+  String get sapIsProjectApimProxyDescription => 'Permite que aplicações do usuário final se conectem ao Cloud Integration com um token JWT do Firebase.';
   @override
-  String get integrationProjectApimProxyInfo =>
+  String get sapIsProjectApimProxyInfo =>
     '${Strings.widgetPlaceholder}'
 
     'Aplicações do usuário final devem se autenticar em sistemas backend com credenciais que permitem o sistema backend confiar e identificar o usuário da requisição.\n\n'
@@ -121,9 +121,9 @@ class StringsPt extends Strings {
     'Os recursos estão documentados no API Management seguindo a especificação OpenAPI:'
     '${Strings.widgetPlaceholder}';
   @override
-  String get integrationProjectIFlowProxyDescription => 'Valida requisições e gerencia o roteamento para os iFlows.';
+  String get sapIsProjectIFlowProxyDescription => 'Valida requisições e gerencia o roteamento para os iFlows.';
   @override
-  String get integrationProjectIFlowProxyInfo =>
+  String get sapIsProjectIFlowProxyInfo =>
     '${Strings.widgetPlaceholder}'
 
     'Este iFlow é o ponto de entrada para todos os iFlows do projeto. Ele executa as seguintes operações:\n'
@@ -153,9 +153,9 @@ class StringsPt extends Strings {
     'O script a seguir trata exceções de iFlows não publicados, exceções do proxy, e exceções de iFlows internos:'
     '${Strings.widgetPlaceholder}';
   @override
-  String get integrationProjectExceptionHandlerDescription => 'Salva dados da mensagem no Message Processing Log e envia emails de alerta.';
+  String get sapIsProjectExceptionHandlerDescription => 'Salva dados da mensagem no Message Processing Log e envia emails de alerta.';
   @override
-  String get integrationProjectExceptionHandlerInfo =>
+  String get sapIsProjectExceptionHandlerInfo =>
     '${Strings.widgetPlaceholder}'
 
     'Este iFlow é responsável por manipular as exceções de todo o projeto.\n\n'
@@ -168,9 +168,9 @@ class StringsPt extends Strings {
     'Exceções comuns relacionadas a formatos de payload incorretos, erros de validação de esquemas, e conflitos de banco de dados são tratadas como má requisição do usuário.\n'
     'Exceções HTTP e SOAP são tratadas ou propagadas dependendo do código de retorno.';
   @override
-  String get integrationProjectOAuth2TokensHandlerDescription => 'Gera, armazena em cache, e gerencia o prazo de expiração de tokens OAuth2.';
+  String get sapIsProjectOAuth2TokensHandlerDescription => 'Gera, armazena em cache, e gerencia o prazo de expiração de tokens OAuth2.';
   @override
-  String get integrationProjectOAuth2TokensHandlerInfo =>
+  String get sapIsProjectOAuth2TokensHandlerInfo =>
     '${Strings.widgetPlaceholder}'
 
     'Este iFlow gerencia o ciclo de vida de tokens OAuth2 para os seguintes cenários:\n'
@@ -188,9 +188,9 @@ class StringsPt extends Strings {
     'Os scripts a seguir são o centro da solução. Eles implementam o tratamento dos tokens e dos artefatos de segurança:'
     '${Strings.widgetPlaceholder}';
   @override
-  String get integrationProjectGoogleFirebaseAuthUsersDescription => 'Gerencia usuários finais no serviço Google Firebase Authentication.';
+  String get sapIsProjectGoogleFirebaseAuthUsersDescription => 'Gerencia usuários finais no serviço Google Firebase Authentication.';
   @override
-  String get integrationProjectGoogleFirebaseAuthUsersInfo =>
+  String get sapIsProjectGoogleFirebaseAuthUsersInfo =>
     'Esta solução tem o objetivo de replicar usuários do sistema SAP (e.g., Business Partners) para o serviço Google Firebase Authentication de modo que eles possam se autenticar em aplicações do usuário final que implementam a solução Firebase Authentication.\n\n'
 
     'Ela é composta pelos seguintes iFlows:'
@@ -219,9 +219,9 @@ class StringsPt extends Strings {
 
     'Este iFlow retorna todas as respostas armazenadas pendentes e as remove do armazenamento.';
   @override
-  String get integrationProjectInterStatementOauth2MtlsDescription => 'Consulta extrato bancário por período da minha conta empresarial do Banco Inter.';
+  String get sapIsProjectInterStatementOauth2MtlsDescription => 'Consulta extrato bancário por período da minha conta empresarial do Banco Inter.';
   @override
-  String get integrationProjectInterStatementOauth2MtlsInfo =>
+  String get sapIsProjectInterStatementOauth2MtlsInfo =>
     '${Strings.widgetPlaceholder}'
 
     'Este iFlow implementa uma integração de API que requer autorização OAuth2 e Mutual TLS handshake.\n\n'
@@ -233,9 +233,9 @@ class StringsPt extends Strings {
     'A requisição tem o seguinte formato:\n'
     'GET /?start-date={T_DATE}&end-date={T_DATE}.';
   @override
-  String get integrationProjectSqlServerWithXsltDescription => 'Conecta a um banco de dados SQL Server via JDBC e executa operações básicas.';
+  String get sapIsProjectSqlServerWithXsltDescription => 'Conecta a um banco de dados SQL Server via JDBC e executa operações básicas.';
   @override
-  String get integrationProjectSqlServerWithXsltInfo =>
+  String get sapIsProjectSqlServerWithXsltInfo =>
     '${Strings.widgetPlaceholder}'
 
     'Este iFlow utiliza XSLT para transformar uma requisição no formato JSON para o formato XML requerido pelo adaptador JDBC.\n\n'
@@ -251,9 +251,9 @@ class StringsPt extends Strings {
     'O exemplo a seguir demonstra a implementação da operação SELECT:'
     '${Strings.widgetPlaceholder}';
   @override
-  String get integrationProjectConversionsAndFtpDescription => 'Converte o payload de/para diferentes formatos e salva o resultado em um servidor FTP.';
+  String get sapIsProjectConversionsAndFtpDescription => 'Converte o payload de/para diferentes formatos e salva o resultado em um servidor FTP.';
   @override
-  String get integrationProjectConversionsAndFtpInfo =>
+  String get sapIsProjectConversionsAndFtpInfo =>
     '${Strings.widgetPlaceholder}'
 
     'Este iFlow implementa as conversões mais comuns.\n'
@@ -278,9 +278,9 @@ class StringsPt extends Strings {
     '${Strings.widgetPlaceholder}'
     '${Strings.widgetPlaceholder}';
   @override
-  String get integrationProjectMappingsDescription => 'Mapeia árvores de dados hierárquicas e planas.';
+  String get sapIsProjectMappingsDescription => 'Mapeia árvores de dados hierárquicas e planas.';
   @override
-  String get integrationProjectMappingsInfo =>
+  String get sapIsProjectMappingsInfo =>
     '${Strings.widgetPlaceholder}'
 
     'Este iFlow aplica manipulação de contexto e funções para mapear os seguintes cenários:'
@@ -297,9 +297,9 @@ class StringsPt extends Strings {
     'O exemplo a seguir demonstra o payload e o resultado do mapeamento (ordenado):'
     '${Strings.widgetPlaceholder}';
   @override
-  String get integrationProjectCalculatorDescription => 'Consome o webservice público Calculator (http://www.dneonline.com/calculator.asmx).';
+  String get sapIsProjectCalculatorDescription => 'Consome o webservice público Calculator (http://www.dneonline.com/calculator.asmx).';
   @override
-  String get integrationProjectCalculatorInfo =>
+  String get sapIsProjectCalculatorInfo =>
     '${Strings.widgetPlaceholder}'
 
     'Este iFlow implementa dinamicamente as quatro operações disponíveis no webservice SOAP público Calculator.\n\n'
@@ -316,7 +316,7 @@ class StringsPt extends Strings {
     'Os parâmetros paramA e paramB são mapeados para os parâmetros da requisição SOAP:'
     '${Strings.widgetPlaceholder}';
   @override
-  String get integrationProjectsScriptCollectionInfo => '*A coleção de scripts do projeto está no meu GitHub.';
+  String get sapIsProjectsScriptCollectionInfo => '*A coleção de scripts do projeto está no meu GitHub.';
   @override
   String get fortlevExperienceTitle => 'Desenvolvimento de Aplicativo Flutter Mobile';
   @override

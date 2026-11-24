@@ -8,9 +8,9 @@ import '../../ui/viewer/project_image.dart';
 
 class OAuth2TokensHandlerProject extends InfoProject {
   OAuth2TokensHandlerProject() : super(
-    Strings.integrationProjectOAuth2TokensHandlerTitle,
-    StringsModel.strings.integrationProjectOAuth2TokensHandlerDescription,
-    StringsModel.strings.integrationProjectOAuth2TokensHandlerInfo,
+    Strings.sapIsProjectOAuth2TokensHandlerTitle,
+    StringsModel.strings.sapIsProjectOAuth2TokensHandlerDescription,
+    StringsModel.strings.sapIsProjectOAuth2TokensHandlerInfo,
     AppAssets.oAuth2TokensHandlerAssets
   );
 

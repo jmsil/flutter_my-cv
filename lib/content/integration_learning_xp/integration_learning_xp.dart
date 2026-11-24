@@ -22,11 +22,11 @@ class IntegrationLearningExperience extends ExpandableContent {
   IntegrationLearningExperience(
     AppTheme theme
   ) : super(
-    headerTitle: StringsModel.strings.sapIntegrationSuiteLearningJourneyTitle,
-    headerDetail: Strings.sapIntegrationSuiteLearningJourneyDetail,
+    headerTitle: StringsModel.strings.sapIsLearningJourneyTitle,
+    headerDetail: Strings.sapIsLearningJourneyDetail,
     widgetBeforeInfo: AppTabBar.summaryPortfolio(
       summaryPage: Text(
-        StringsModel.strings.sapIntegrationSuiteLearningJourneyInfo,
+        StringsModel.strings.sapIsLearningJourneyInfo,
         style: theme.background.overStyled1.normalText.regular
       ),
       portfolioPage: Column(
@@ -51,7 +51,7 @@ class IntegrationLearningExperience extends ExpandableContent {
             ]
           ),
           Text(
-            StringsModel.strings.integrationProjectsScriptCollectionInfo,
+            StringsModel.strings.sapIsProjectsScriptCollectionInfo,
             style: theme.background.accentStyled1.normalText.italic
           )
         ]

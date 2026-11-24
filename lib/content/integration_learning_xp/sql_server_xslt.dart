@@ -8,9 +8,9 @@ import '../../ui/viewer/project_image.dart';
 
 class SqlServerXsltProject extends InfoProject {
   SqlServerXsltProject() : super(
-    Strings.integrationProjectSqlServerWithXsltTitle,
-    StringsModel.strings.integrationProjectSqlServerWithXsltDescription,
-    StringsModel.strings.integrationProjectSqlServerWithXsltInfo,
+    Strings.sapIsProjectSqlServerWithXsltTitle,
+    StringsModel.strings.sapIsProjectSqlServerWithXsltDescription,
+    StringsModel.strings.sapIsProjectSqlServerWithXsltInfo,
     AppAssets.sqlServerWithXsltAssets
   );
 

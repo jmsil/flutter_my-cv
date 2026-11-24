@@ -8,9 +8,9 @@ import '../../ui/viewer/project_image.dart';
 
 class IFlowProxyProject extends InfoProject {
   IFlowProxyProject() : super(
-    Strings.integrationProjectIFlowProxyTitle,
-    StringsModel.strings.integrationProjectIFlowProxyDescription,
-    StringsModel.strings.integrationProjectIFlowProxyInfo,
+    Strings.sapIsProjectIFlowProxyTitle,
+    StringsModel.strings.sapIsProjectIFlowProxyDescription,
+    StringsModel.strings.sapIsProjectIFlowProxyInfo,
     AppAssets.iFlowProxyAssets
   );
 

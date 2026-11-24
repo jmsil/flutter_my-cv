@@ -8,9 +8,9 @@ import '../../ui/viewer/project_image.dart';
 
 class ConversionsFtpProject extends InfoProject {
   ConversionsFtpProject() : super(
-    Strings.integrationProjectConversionsAndFtpTitle,
-    StringsModel.strings.integrationProjectConversionsAndFtpDescription,
-    StringsModel.strings.integrationProjectConversionsAndFtpInfo,
+    Strings.sapIsProjectConversionsAndFtpTitle,
+    StringsModel.strings.sapIsProjectConversionsAndFtpDescription,
+    StringsModel.strings.sapIsProjectConversionsAndFtpInfo,
     AppAssets.conversionsAndFtpAssets
   );
 

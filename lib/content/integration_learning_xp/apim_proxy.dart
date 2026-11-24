@@ -8,9 +8,9 @@ import '../../ui/viewer/project_swagger.dart';
 
 class ApimProxyProject extends InfoProject {
   ApimProxyProject() : super(
-    Strings.integrationProjectApimProxyTitle,
-    StringsModel.strings.integrationProjectApimProxyDescription,
-    StringsModel.strings.integrationProjectApimProxyInfo,
+    Strings.sapIsProjectApimProxyTitle,
+    StringsModel.strings.sapIsProjectApimProxyDescription,
+    StringsModel.strings.sapIsProjectApimProxyInfo,
     AppAssets.apimProxyAssets
   );
 
