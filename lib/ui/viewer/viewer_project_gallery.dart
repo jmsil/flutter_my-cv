@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/services.dart';
 import 'package:material_ui/material_ui.dart';
 
@@ -23,7 +21,7 @@ class ViewerProjectGallery extends AppViewer {
     direction: Axis.horizontal,
     width: assets.aspectRatio < 1 ? 1400 : 1800,
     height: 980,
-    maxBarRatio: 0.28,
+    barRatioForCompactMode: 0.28,
     bodyAspectRatio: assets.aspectRatio
   );
 
@@ -42,6 +40,7 @@ class _State extends AppViewerState<ViewerProjectGallery> {
   static const EdgeInsets selectedThumbnailMargin = EdgeInsets.symmetric(vertical: 12);
   static const EdgeInsets unselectedThumbnailMargin = EdgeInsets.symmetric(
     horizontal: 12, vertical: 6);
+  static const double imageRadiusRatio = 0.035;
 
   final List<GlobalKey> thumbnailKeys = [];
   final ScrollController scrollController = ScrollController(
@@ -114,18 +113,25 @@ class _State extends AppViewerState<ViewerProjectGallery> {
 
   @override
   Widget buildBody(AppThemeData themeData, double width, double height) {
+    final EdgeInsets margin = mode.isCompactMode
+      ? const AppEdgeInsets.normal()
+      : const AppEdgeInsets.xLarge();
+    final double radiusSize = (
+      widget.assets.aspectRatio < 1
+        ? height - margin.vertical
+        : width - margin.horizontal
+    ) * imageRadiusRatio;
+
     return GestureDetector(
       onHorizontalDragEnd: onDrag,
       onVerticalDragEnd: onDrag,
       child: Center(
         child: Container(
-          margin: mode.isCompactMode
-            ? const AppEdgeInsets.normal()
-            : const AppEdgeInsets.xLarge(),
+          margin: margin,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(min(min(width, height) * 0.025, 12) * 2.67),
+            borderRadius: BorderRadius.circular(radiusSize),
             boxShadow: [
-              BoxShadow(color: Colors.black38, blurRadius: 16)
+              BoxShadow(color: Colors.black38, blurRadius: AppDimens.normal)
             ]
           ),
           clipBehavior: Clip.hardEdge,

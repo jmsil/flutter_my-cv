@@ -9,18 +9,18 @@ import '../layout/layout_model.dart';
 import '../navigator.dart';
 import '../strings/strings_model.dart';
 
-class CoverLetterSettingsSelector extends StatefulWidget {
-  CoverLetterSettingsSelector._();
+class CoverLetterSettingsDialog extends StatefulWidget {
+  CoverLetterSettingsDialog._();
 
   @override
   _State createState() => _State();
 
   static Future<CoverLetterSettings?> show() {
-    return AppNavigator.show(isOpaque: false, child: CoverLetterSettingsSelector._());
+    return AppNavigator.show(isOpaque: false, child: CoverLetterSettingsDialog._());
   }
 }
 
-class _State extends State<CoverLetterSettingsSelector> {
+class _State extends State<CoverLetterSettingsDialog> {
   final TextEditingController controller = TextEditingController();
   final List<String> roles = StringsModel.strings.roles.split('\n');
   int roleIdx = 1;
@@ -65,11 +65,13 @@ class _State extends State<CoverLetterSettingsSelector> {
           themeProperty: themeData.accentStyled1,
           onPressed: AppNavigator.pop
         ),
-        AppButton(
-          icon: AppIcons.check,
-          text: Strings.ok,
-          themeProperty: themeData.accentStyled1,
-          onPressed: onPressedOk
+        Flexible(
+          child: AppButton(
+            icon: AppIcons.check,
+            text: Strings.ok,
+            themeProperty: themeData.accentStyled1,
+            onPressed: onPressedOk
+          )
         )
       ]
     );

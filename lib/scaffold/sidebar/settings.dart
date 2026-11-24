@@ -165,7 +165,7 @@ class _CoverLetterButton extends StatelessWidget {
     AppPopupMenuButton.performAction(
       context,
       () async {
-        final CoverLetterSettings? settings = await CoverLetterSettingsSelector.show();
+        final CoverLetterSettings? settings = await CoverLetterSettingsDialog.show();
 
         if (settings != null) {
           ViewerCoverLetter.show(

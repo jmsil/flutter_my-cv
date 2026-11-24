@@ -21,7 +21,8 @@ class ViewerCoverLetter extends AppViewer {
   ) : super(
     direction: Axis.vertical,
     width: 800,
-    maxBarRatio: 0.18
+    barRatioForCompactMode: 0.18,
+    crossAxisSizeForCompactMode: 480
   );
 
   @override
@@ -92,11 +93,13 @@ class _State extends AppViewerState<ViewerCoverLetter> {
   @override
   Widget buildBody(AppThemeData themeData, double width, double height) {
     final AppThemeDataStyledProperty themeProperty = themeData.overStyled1;
+    final double paddingRatio = AppDimens.xxxLarge / widget.width!;
+    final double padding = width > 400
+      ? (width * paddingRatio / AppDimens.normal).round() * AppDimens.normal
+      : AppDimens.normal;
+
     return AppListView(
-      padding: width < 420
-        ? const AppEdgeInsets.normal()
-        : width < 640
-          ? const AppEdgeInsets.xLarge() : const AppEdgeInsets.xxxLarge(),
+      padding: EdgeInsets.all(padding),
       children: [
         Text(widget.info[0], style: themeProperty.normalHeader.bold),
         AppSpacing.xLargeV,
@@ -120,11 +123,13 @@ class _State extends AppViewerState<ViewerCoverLetter> {
             themeProperty: themeData.accentStyled1,
             onPressed: onPressedCopy
           ),
-          AppButton(
-            icon: AppIcons.download,
-            text: StringsModel.strings.download,
-            themeProperty: themeData.accentStyled1,
-            onPressed: onPressedDownload
+          Flexible(
+            child: AppButton(
+              icon: AppIcons.download,
+              text: StringsModel.strings.download,
+              themeProperty: themeData.accentStyled1,
+              onPressed: onPressedDownload
+            )
           )
         ]
       )

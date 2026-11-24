@@ -18,7 +18,8 @@ class ViewerProjectInfo extends AppViewer {
   ) : super(
     direction: Axis.vertical,
     width: 1560,
-    maxBarRatio: 0.18
+    barRatioForCompactMode: 0.18,
+    crossAxisSizeForCompactMode: 520
   );
 
   @override
@@ -72,7 +73,7 @@ class _State extends AppViewerState<ViewerProjectInfo> {
       padding: isCompactMode
         ? const AppEdgeInsets.normal()
         : const AppEdgeInsets.large(vertical: AppDimens.xLarge),
-      child: width < 460
+      child: isCompactMode
         ? Column(
             spacing: AppDimens.small,
             crossAxisAlignment: CrossAxisAlignment.start,

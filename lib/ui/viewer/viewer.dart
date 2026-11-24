@@ -21,14 +21,16 @@ abstract class AppViewer extends StatefulWidget {
   final Axis direction;
   final double? width;
   final double? height;
-  final double maxBarRatio;
+  final double barRatioForCompactMode;
+  final double? crossAxisSizeForCompactMode;
   final double? bodyAspectRatio;
 
   AppViewer({
     required this.direction,
     this.width,
     this.height,
-    required this.maxBarRatio,
+    required this.barRatioForCompactMode,
+    this.crossAxisSizeForCompactMode,
     this.bodyAspectRatio
   });
 
@@ -55,12 +57,12 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
   AppViewerMode _mode = AppViewerMode.expanded;
   AppViewerMode get mode => _mode;
 
-  bool get isWindowHorizontalDirection => widget.direction == Axis.horizontal;
-  bool get isWindowVerticalDirection => widget.direction == Axis.vertical;
+  bool get isWindowH => widget.direction == Axis.horizontal;
+  bool get isWindowV => widget.direction == Axis.vertical;
 
   Axis _bodyDirection = Axis.vertical;
-  bool get isBodyHorizontalDirection => _bodyDirection == Axis.horizontal;
-  bool get isBodyVerticalDirection => _bodyDirection == Axis.vertical;
+  bool get isBodyH => _bodyDirection == Axis.horizontal;
+  bool get isBodyV => _bodyDirection == Axis.vertical;
 
   @override
   void initState() {
@@ -105,7 +107,7 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
             : themeData.surfaceColor1.withViewerBarAlpha,
           borderRadius: isFullWindowMode
             ? null
-            : isWindowHorizontalDirection ? AppTheme.leftBorderRadius : AppTheme.topBorderRadius,
+            : isWindowH ? AppTheme.leftBorderRadius : AppTheme.topBorderRadius,
           child: builtBarWidget
         );
 
@@ -145,9 +147,7 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
           builtBodyWidget = Row(
             children: [
               Expanded(child: builtBodyWidget),
-              _Offstage(
-                _bodyRightToolbarKey, isBodyVerticalDirection, builtBodyRightToolbarWidget
-              )
+              _Offstage(_bodyRightToolbarKey, isBodyV, builtBodyRightToolbarWidget)
             ]
           );
         }
@@ -156,9 +156,7 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
           builtBodyWidget = Column(
             children: [
               Expanded(child: builtBodyWidget),
-              _Offstage(
-                _bodyBottomToolbarKey, isBodyHorizontalDirection, builtBodyBottomToolbarWidget
-              )
+              _Offstage(_bodyBottomToolbarKey, isBodyH, builtBodyBottomToolbarWidget)
             ]
           );
         }
@@ -179,7 +177,7 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
               ? null
               : _mode.isCompactNoBar
                 ? AppTheme.allBorderRadius
-                : isWindowHorizontalDirection
+                : isWindowH
                   ? AppTheme.rightBorderRadius : AppTheme.bottomBorderRadius,
             child: builtFullBodyWidget
           )
@@ -213,16 +211,18 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
   }
 
   void _setCompactModeAndBodyDirection(Duration timeStamp) {
+    final Size windowSize = _windowContentKey.currentContext?.size ?? Size.zero;
     final Size barSize = _barKey.currentContext?.size ?? Size.zero;
     final Size? compactBarSize = _compactBarKey.currentContext?.size;
     final Size? rightToolbarSize = _bodyRightToolbarKey.currentContext?.size;
     final Size? bottomToolbarSize = _bodyBottomToolbarKey.currentContext?.size;
-    final Size windowContentSize = _windowContentKey.currentContext?.size ?? Size.zero;
 
     final bool newIsCompactMode =
-      (isWindowHorizontalDirection ? barSize.width : barSize.height) /
-      (isWindowHorizontalDirection ? windowContentSize.width : windowContentSize.height) >
-      widget.maxBarRatio;
+      (isWindowH ? barSize.width : barSize.height) /
+        (isWindowH ? windowSize.width : windowSize.height) >= widget.barRatioForCompactMode
+      ||
+      (isWindowH ? windowSize.height : windowSize.width) <=
+        (widget.crossAxisSizeForCompactMode ?? 0);
 
     final AppViewerMode newMode = newIsCompactMode
       ? compactBarSize == null
@@ -230,20 +230,29 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
       : AppViewerMode.expanded;
 
     final double fullBodyWidth =
-      windowContentSize.width - (isWindowHorizontalDirection
-        ? newMode.isExpanded ? barSize.width : compactBarSize?.width ?? 0
-        : 0
+      windowSize.width - (
+        isWindowH
+          ? newMode.isExpanded ? barSize.width : compactBarSize?.width ?? 0
+          : 0
       );
 
     final double fullBodyHeight =
-      windowContentSize.height - (isWindowVerticalDirection
-        ? newMode.isExpanded ? barSize.height : compactBarSize?.height ?? 0
-        : 0
+      windowSize.height - (
+        isWindowV
+          ? newMode.isExpanded ? barSize.height : compactBarSize?.height ?? 0
+          : 0
       );
 
     Axis newBodyDirection = _bodyDirection;
 
-    if (widget.bodyAspectRatio != null) {
+    if (widget.bodyAspectRatio == null) {
+      double rightToolbarRatio = (rightToolbarSize?.width ?? double.infinity) / fullBodyWidth;
+      double bottomToolbarRatio = (bottomToolbarSize?.height ?? double.infinity) / fullBodyHeight;
+      newBodyDirection = rightToolbarRatio < bottomToolbarRatio
+        ? Axis.horizontal
+        : Axis.vertical;
+    }
+    else {
       double bodyWidth = fullBodyWidth - (rightToolbarSize?.width ?? 0);
       double bodyHeight = fullBodyHeight - (bottomToolbarSize?.height ?? 0);
 
@@ -257,13 +266,6 @@ abstract class AppViewerState<T extends AppViewer> extends State<T> {
         rightToolbarSize != null
       )
         newBodyDirection = Axis.horizontal;
-    }
-    else {
-      double rightToolbarRatio = (rightToolbarSize?.width ?? double.infinity) / fullBodyWidth;
-      double bottomToolbarRatio = (bottomToolbarSize?.height ?? double.infinity) / fullBodyHeight;
-      newBodyDirection = rightToolbarRatio < bottomToolbarRatio
-        ? Axis.horizontal
-        : Axis.vertical;
     }
 
     if (newMode != _mode || newBodyDirection != _bodyDirection) {
