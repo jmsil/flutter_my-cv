@@ -61,7 +61,7 @@ class MainGroup extends StatelessWidget {
               Expanded(
                 child: Center(
                   child: Text(
-                    title, style: theme.mainGroup.overStyled1.largeText.bold,
+                    title, style: theme.mainGroup.overStyled1.largeHeader.bold,
                     overflow: TextOverflow.ellipsis
                   )
                 )

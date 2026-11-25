@@ -156,8 +156,7 @@ class _State extends AppViewerState<ViewerProjectInfo> {
       spans.add(normalSpanSpacer);
 
     spans.add(TextSpan(
-      text: line.replaceAll('\n▪', '\n    ▪'),
-      style: themeData.overStyled1.normalText.regular
+      text: line, style: themeData.overStyled1.normalText.regular
     ));
   }
 

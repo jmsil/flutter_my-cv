@@ -63,8 +63,8 @@ class ProfileHeader extends StatelessWidget {
       case ProfileHeaderStyle.compactAppbar:
         beforeDividerSpacing = AppDimens.xSmall;
         afterDividerSpacing = AppDimens.xSmall;
-        titleStyle = themeData.overStyled1.normalHeader.bold;
-        infoStyle = themeData.overStyled1.normalText.regular;
+        titleStyle = themeData.overStyled1.largeHeader.bold;
+        infoStyle = themeData.overStyled1.largeText.regular;
         break;
       case ProfileHeaderStyle.extendedAppbar:
         beforeDividerSpacing = AppDimens.small;

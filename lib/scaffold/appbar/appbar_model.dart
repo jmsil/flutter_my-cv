@@ -13,7 +13,7 @@ enum AppbarModelState {
 }
 
 class AppbarModel extends StatefulWidget {
-  static const double collapsedHeight = 226;
+  static const double collapsedHeight = 220;
 
   final Widget child;
 

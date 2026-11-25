@@ -86,9 +86,9 @@ class ProfileDetails extends StatelessWidget {
         );
       case ProfileDetailsStyle.appbarHorizontal:
         return AppContainer(
+          height: AppDimens.xxLarge,
           color: themeData.surfaceColor2,
           margin: const AppEdgeInsets.small(top: 0),
-          padding: const AppEdgeInsets.normal(),
           borderRadius: layoutMode.isFlat
             ? AppTheme.allBorderRadius
             : const BorderRadius.all(Radius.circular(12)),

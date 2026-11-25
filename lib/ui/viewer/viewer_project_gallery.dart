@@ -194,7 +194,7 @@ class _State extends AppViewerState<ViewerProjectGallery> {
           alignment: isHorizontalDirection ? Alignment.center : Alignment.bottomCenter,
           child: Text(
             '${index + 1}/${widget.assets.count}',
-            style: themeProperty.normalText.bold
+            style: themeProperty.largeText.bold
           )
         )
       )

@@ -162,9 +162,9 @@ class AppThemeDataStyledProperty extends AppThemeDataBasicProperty {
     super.color, [super._effectColor]
   ) :
     this.normalHeader = AppThemeTextStyle(16, color),
-    this.normalText = AppThemeTextStyle(15, color),
+    this.normalText = AppThemeTextStyle(14, color),
     this.largeHeader = AppThemeTextStyle(18, color),
-    this.largeText = AppThemeTextStyle(17, color),
+    this.largeText = AppThemeTextStyle(16, color),
     this.xLargeHeader = AppThemeTextStyle(20, color),
     this.xLargeText = AppThemeTextStyle(18, color);
 }

@@ -59,7 +59,7 @@ class AppbarExtended extends StatelessWidget {
 
 class _LeftProfile extends AppbarAnimatedPadding {
   _LeftProfile() : super(
-    padding: const EdgeInsets.only(right: AppDimens.xLarge),
+    padding: const EdgeInsets.only(right: AppDimens.large),
     topFactor: 0,
     bottomFactor: 1,
     child: AppbarAnimatedOpacity(

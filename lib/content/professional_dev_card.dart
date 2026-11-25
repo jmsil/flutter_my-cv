@@ -25,14 +25,14 @@ class ProfessionalDevelopmentCard extends StatelessWidget {
 
     final Widget builtTitle = Text(
       title,
-      style: themeData.overStyled1.normalText.bold,
+      style: themeData.overStyled1.normalHeader.bold,
       maxLines: 2,
       overflow: TextOverflow.ellipsis
     );
 
     Widget builtDetail = Text(
       detail,
-      style: themeData.overStyled1.normalText.italic,
+      style: themeData.overStyled1.normalText.italic.withHintAlpha,
       maxLines: 1,
       overflow: TextOverflow.ellipsis
     );
