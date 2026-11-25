@@ -18,7 +18,6 @@ class AppbarExtended extends StatelessWidget {
       children: [
         AppbarAnimatedContainer(
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ProfilePhoto(
                 margin: const AppEdgeInsets.normal(),
@@ -59,12 +58,12 @@ class AppbarExtended extends StatelessWidget {
 
 class _LeftProfile extends AppbarAnimatedPadding {
   _LeftProfile() : super(
-    padding: const EdgeInsets.only(right: AppDimens.large),
+    padding: const AppEdgeInsets.xxLarge(left: AppDimens.small, right: 0),
     topFactor: 0,
     bottomFactor: 1,
     child: AppbarAnimatedOpacity(
       ProfileHeader.nameAndRoles(
-        style: ProfileHeaderStyle.compactAppbar,
+        style: ProfileHeaderStyle.extendedAppbar,
         isShortRoles: true,
         softWrap: false
       )

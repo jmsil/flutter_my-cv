@@ -63,7 +63,7 @@ class AppbarCompact extends StatelessWidget {
         Expanded(
           child: ProfileHeader.nameAndRoles(
             style: ProfileHeaderStyle.compactAppbar,
-            isShortRoles: screenWidth <= 430
+            isShortRoles: screenWidth <= 390
           )
         )
       ]
