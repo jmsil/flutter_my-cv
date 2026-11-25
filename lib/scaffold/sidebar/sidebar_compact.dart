@@ -17,6 +17,8 @@ class AppSidebarCompact extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppTheme theme = LayoutModel.theme;
+    final double collapsedHeight = AppIconButton.size + _Profile._buttonPadding.vertical;
+
     return Padding(
       padding: const AppEdgeInsets.normal(),
       child: OverlayBar(
@@ -31,7 +33,8 @@ class AppSidebarCompact extends StatelessWidget {
               SliverAppBar(
                 pinned: true,
                 stretch: true,
-                collapsedHeight: 76,
+                toolbarHeight: collapsedHeight,
+                collapsedHeight: collapsedHeight,
                 expandedHeight: constraints.maxWidth,
                 backgroundColor: theme.appbar.surfaceColor1,
                 surfaceTintColor: Colors.transparent,
@@ -57,27 +60,28 @@ class AppSidebarCompact extends StatelessWidget {
   }
 }
 
-class _Profile extends Padding {
+class _Profile extends Stack {
+  static const EdgeInsets _buttonPadding = AppEdgeInsets.small();
+
   _Profile(
     AppTheme theme
   ) : super(
-    padding: const EdgeInsets.all(AppDimens.large / 2),
-    child: Stack(
-      fit: StackFit.expand,
-      clipBehavior: Clip.none,
-      children: [
-        Center(
-          child: ProfilePhoto(margin: const AppEdgeInsets.small())
-        ),
-        Align(
-          alignment: Alignment.topLeft,
+    clipBehavior: Clip.none,
+    children: [
+      Center(
+        child: ProfilePhoto(margin: const AppEdgeInsets.large())
+      ),
+      Align(
+        alignment: Alignment.topLeft,
+        child: Padding(
+          padding: _buttonPadding,
           child: AppIconButton(
             icon: AppIcons.back,
             themeProperty: theme.appbar.over1,
             onPressed: AppNavigator.pop
           )
         )
-      ]
-    )
+      )
+    ]
   );
 }

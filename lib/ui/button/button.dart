@@ -6,8 +6,10 @@ import '../layout/theme.dart';
 import '../text/icon_text.dart';
 
 class AppIconButton extends StatelessWidget {
-  static const double _containerSize = 36;
+  static final double size = _containerSize + _padding.vertical;
   static const double _iconSize = 24;
+  static const double _containerSize = 36;
+  static const _padding = AppEdgeInsets.small();
 
   final AppThemeDataBasicProperty themeProperty;
   final bool isSelected;
@@ -55,6 +57,7 @@ class AppIconButton extends StatelessWidget {
       : child;
 
     return IconButton(
+      padding: _padding,
       iconSize: _containerSize,
       splashColor: inkEffectColor,
       hoverColor: inkEffectColor,
