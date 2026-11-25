@@ -105,7 +105,7 @@ class AppTheme {
       : AppThemeData(
           surfaceColor1: Colors.blueGrey[900]!,
           over1: _blue200,
-          over2: AppThemeDataBasicProperty(Colors.blueGrey[600]!)
+          over2: AppThemeDataBasicProperty(Colors.blueGrey[700]!)
         );
   }
 

@@ -37,9 +37,9 @@ class ExpandableContent extends StatelessWidget {
             TextSpan(
               children: [
                 TextSpan(
-                  text: '$headerTitle\n', style: themeData.overStyled1.normalHeader.bold),
+                  text: headerTitle + '\n', style: themeData.overStyled1.normalHeader.bold),
                 TextSpan(
-                  text: headerDetail, style: themeData.overStyled1.normalText.italic)
+                  text: headerDetail, style: themeData.overStyled1.normalText.italic.withHintAlpha)
               ]
             )
           )
