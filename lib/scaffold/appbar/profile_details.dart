@@ -30,7 +30,7 @@ class ProfileDetails extends StatelessWidget {
     final Widget? builtDivider = switch(style) {
       ProfileDetailsStyle.expandable => null,
       ProfileDetailsStyle.appbarHorizontal => SizedBox(
-        height: 32,
+        height: AppDimens.large,
         child: AppVerticalDivider(2, themeData.over1.color)
       ),
       ProfileDetailsStyle.appbarVertical => AppDivider(2, themeData.over1.color)
@@ -86,9 +86,9 @@ class ProfileDetails extends StatelessWidget {
         );
       case ProfileDetailsStyle.appbarHorizontal:
         return AppContainer(
-          height: 56,
           color: themeData.surfaceColor2,
-          margin: const AppEdgeInsets.small(),
+          margin: const AppEdgeInsets.small(top: 0),
+          padding: const AppEdgeInsets.normal(),
           borderRadius: layoutMode.isFlat
             ? AppTheme.allBorderRadius
             : const BorderRadius.all(Radius.circular(12)),
