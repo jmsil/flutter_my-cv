@@ -7,10 +7,10 @@ import 'layout/dimens.dart';
 import 'layout/layout_model.dart';
 
 const double _lineSize = 6;
-const double _borderSize = 4;
-const double _iconBoxSize = 64;
+const double _borderSize = AppDimens.xSmall;
+const double _iconBoxSize = AppDimens.xxxLarge;
 const double _titleBoxWidth = 400;
-const double _titleBoxHeight = 52;
+const double _titleBoxHeight = AppDimens.xxLarge;
 
 class MainGroup extends StatelessWidget {
   final IconData icon;
@@ -61,7 +61,7 @@ class MainGroup extends StatelessWidget {
               Expanded(
                 child: Center(
                   child: Text(
-                    title, style: theme.mainGroup.overStyled1.largeHeader.bold,
+                    title, style: theme.mainGroup.overStyled1.normalHeader.bold,
                     overflow: TextOverflow.ellipsis
                   )
                 )
