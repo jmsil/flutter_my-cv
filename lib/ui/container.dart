@@ -118,15 +118,3 @@ class AppContainer extends StatelessWidget {
     return padding;
   }
 }
-
-class AppCard extends AppContainer {
-  AppCard({
-    required AppTheme theme,
-    super.padding,
-    super.borderRadius = AppTheme.allBorderRadius,
-    super.child
-  }) : super(
-    color: theme.background.surfaceColor2.withCardFillAlpha,
-    borderColor: theme.background.surfaceColor2.withHighDecorationAlpha
-  );
-}

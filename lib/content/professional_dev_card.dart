@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import '../ui/container.dart';
+import '../ui/card.dart';
 import '../ui/layout/dimens.dart';
 import '../ui/layout/layout_model.dart';
 import '../ui/strings/strings_model.dart';
@@ -21,18 +21,18 @@ class ProfessionalDevelopmentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppTheme theme = LayoutModel.theme;
+    final AppThemeData themeData = LayoutModel.theme.background;
 
     final Widget builtTitle = Text(
       title,
-      style: theme.background.overStyled1.normalText.bold,
+      style: themeData.overStyled1.normalText.bold,
       maxLines: 2,
       overflow: TextOverflow.ellipsis
     );
 
     Widget builtDetail = Text(
       detail,
-      style: theme.background.overStyled1.normalText.italic,
+      style: themeData.overStyled1.normalText.italic,
       maxLines: 1,
       overflow: TextOverflow.ellipsis
     );
@@ -46,7 +46,7 @@ class ProfessionalDevelopmentCard extends StatelessWidget {
           AppLink(
             text: StringsModel.strings.verify,
             link: certificateLink,
-            themeData: theme.background,
+            themeData: themeData,
             alwaysShowTrailingIcon: true
           )
         ]
@@ -54,8 +54,8 @@ class ProfessionalDevelopmentCard extends StatelessWidget {
     }
 
     return AppCard(
-      theme: theme,
       padding: const AppEdgeInsets.normal(),
+      enableHoverEffect: true,
       child: Column(
         spacing: certificateLink == null
           ? AppDimens.small

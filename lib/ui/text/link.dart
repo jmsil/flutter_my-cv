@@ -25,7 +25,7 @@ class AppLink extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppHoverWidget(
+    return AppHover(
       builder: (BuildContext context, bool hovered, Widget? child) {
         return AppIconText(
           icon: icon,

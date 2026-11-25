@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import '../container.dart';
+import '../card.dart';
 import '../layout/dimens.dart';
 import '../layout/theme.dart';
 import 'project.dart';
@@ -10,7 +10,7 @@ class ProjectCard extends AppCard {
   ProjectCard(
     AppTheme theme, Project project
   ) : super(
-    theme: theme,
+    enableHoverEffect: true,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,

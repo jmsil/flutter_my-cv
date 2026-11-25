@@ -23,7 +23,7 @@ class AppViewerFullHandler extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppDevice.isMobileDevice()
       ? overlayBuilder(context, true, child)
-      : AppHoverWidget(
+      : AppHover(
           child: child,
           builder: overlayBuilder
         );

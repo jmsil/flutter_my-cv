@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import '../ui/container.dart';
+import '../ui/card.dart';
 import '../ui/layout/dimens.dart';
 import '../ui/layout/layout_model.dart';
 import 'appbar/appbar_extended.dart';
@@ -14,7 +14,6 @@ class AppScaffoldExtended extends StatelessWidget {
   Widget build(BuildContext context) {
     final LayoutMode layoutMode = LayoutModel.layoutMode;
     final Brightness themeMode = LayoutModel.themeMode;
-    final AppTheme theme = LayoutModel.theme;
     final double headerSpacing = themeMode.isLight ? AppDimens.small : AppDimens.normal;
 
     Widget builtWidget = Padding(
@@ -32,7 +31,6 @@ class AppScaffoldExtended extends StatelessWidget {
         spacing: headerSpacing,
         children: [
           AppCard(
-            theme: theme,
             padding: const AppEdgeInsets.large(),
             child: ProfileHeader.professionalSummary(
               enableIcon: true,

@@ -2,12 +2,12 @@ import 'package:flutter/widgets.dart';
 
 import 'button/ink_response.dart';
 
-class AppHoverWidget extends StatefulWidget {
+class AppHover extends StatefulWidget {
   final Widget? child;
   final Widget Function(BuildContext context, bool hovered, Widget? child) builder;
   final void Function()? onPressed;
 
-  AppHoverWidget({
+  AppHover({
     this.child,
     required this.builder,
     this.onPressed
@@ -17,7 +17,7 @@ class AppHoverWidget extends StatefulWidget {
   _State createState() => _State();
 }
 
-class _State extends State<AppHoverWidget> {
+class _State extends State<AppHover> {
   bool hovered = false;
 
   @override
