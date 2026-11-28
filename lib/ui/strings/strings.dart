@@ -1,4 +1,80 @@
-abstract class Strings {
+abstract class Strings({
+  required final String appName,
+  required final String roles,
+  required final String professionalSummaryTitle,
+  required final String professionalSummaryInfo,
+  required final String detailsTitle,
+  required final String personalLocation,
+  required final String programmingSkillsTitle,
+  required final String integrationSkillsTitle,
+  required final String aboutAndExpectationsTitle,
+  required final String aboutAndExpectationsInfo,
+  required final String madeWithFlutter,
+  required final String language,
+  required final String theme,
+  required final String download,
+  required final String downloadCv,
+  required final String coverLetter,
+  required final String company,
+  required final String summary,
+  required final String portfolio,
+  required final String verify,
+  required final String experienceTitle,
+  required final String sapIsLearningJourneyTitle,
+  required final String sapIsLearningJourneyInfo,
+  required final String sapIsProjectApimProxyDescription,
+  required final String sapIsProjectApimProxyInfo,
+  required final String sapIsProjectIFlowProxyDescription,
+  required final String sapIsProjectIFlowProxyInfo,
+  required final String sapIsProjectExceptionHandlerDescription,
+  required final String sapIsProjectExceptionHandlerInfo,
+  required final String sapIsProjectOAuth2TokensHandlerDescription,
+  required final String sapIsProjectOAuth2TokensHandlerInfo,
+  required final String sapIsProjectGoogleFirebaseAuthUsersDescription,
+  required final String sapIsProjectGoogleFirebaseAuthUsersInfo,
+  required final String sapIsProjectInterStatementOauth2MtlsDescription,
+  required final String sapIsProjectInterStatementOauth2MtlsInfo,
+  required final String sapIsProjectSqlServerWithXsltDescription,
+  required final String sapIsProjectSqlServerWithXsltInfo,
+  required final String sapIsProjectConversionsAndFtpDescription,
+  required final String sapIsProjectConversionsAndFtpInfo,
+  required final String sapIsProjectMappingsDescription,
+  required final String sapIsProjectMappingsInfo,
+  required final String sapIsProjectCalculatorDescription,
+  required final String sapIsProjectCalculatorInfo,
+  required final String sapIsProjectsScriptCollectionInfo,
+  required final String fortlevExperienceTitle,
+  required final String fortlevExperienceInfo,
+  required final String fortlevProjectMaoDuplaTitle,
+  required final String fortlevProjectMaoDuplaDescription,
+  required final String smartNewExperienceTitle,
+  required final String smartNewExperienceInfo,
+  required final String mobileGameExperienceTitle,
+  required final String mobileGameExperienceDetail,
+  required final String mobileGameExperienceInfo,
+  required final String santriExperienceTitle,
+  required final String santriExperienceDetail,
+  required final String santriExperienceInfo,
+  required final String smallErpExperienceTitle,
+  required final String smallErpExperienceInfo,
+  required final String educationTitle,
+  required final String educationUniversityTitle,
+  required final String educationUniversityDetail,
+  required final String educationUniversityInfo,
+  required final String professionalDevelopmentTitle,
+  required final String certificationsTitle,
+  required final String coursesTitle,
+  required final String booksTitle,
+  required final String bookDelphiBibleTitle,
+  required final String bookGoogleAndroidTitle,
+  required final String courseOracleTitle,
+  required final String courseSapCloudIntegrationImmersionTitle,
+  required final String languagesTitle,
+  required final Map<String, List<String>?> languagesInfo,
+  required final String availabilityTitle,
+  required final Map<String, List<String>?> availabilityInfo,
+  required final String visitOnlineResume
+}) {
   static const String splitTag = '<spt>';
   static const String titleTag = '<ttl>';
   static const String widgetTag = '<wdg>';
@@ -70,80 +146,5 @@ abstract class Strings {
   static const String mooviEducationCoursesDetail = 'Moovi Education';
   static const String _mooviEducationCertificateHost = 'https://moovi.curseduca.pro/verify/';
 
-  String get appName;
-  String get roles;
-  String get professionalSummaryTitle;
-  String get professionalSummaryInfo;
   List<String> coverLetterSapIsInfo(String companyName);
-  String get detailsTitle;
-  String get personalLocation;
-  String get programmingSkillsTitle;
-  String get integrationSkillsTitle;
-  String get aboutAndExpectationsTitle;
-  String get aboutAndExpectationsInfo;
-  String get madeWithFlutter;
-  String get language;
-  String get theme;
-  String get download;
-  String get downloadCv;
-  String get coverLetter;
-  String get company;
-  String get summary;
-  String get portfolio;
-  String get verify;
-  String get experienceTitle;
-  String get sapIsLearningJourneyTitle;
-  String get sapIsLearningJourneyInfo;
-  String get sapIsProjectApimProxyDescription;
-  String get sapIsProjectApimProxyInfo;
-  String get sapIsProjectIFlowProxyDescription;
-  String get sapIsProjectIFlowProxyInfo;
-  String get sapIsProjectExceptionHandlerDescription;
-  String get sapIsProjectExceptionHandlerInfo;
-  String get sapIsProjectOAuth2TokensHandlerDescription;
-  String get sapIsProjectOAuth2TokensHandlerInfo;
-  String get sapIsProjectGoogleFirebaseAuthUsersDescription;
-  String get sapIsProjectGoogleFirebaseAuthUsersInfo;
-  String get sapIsProjectInterStatementOauth2MtlsDescription;
-  String get sapIsProjectInterStatementOauth2MtlsInfo;
-  String get sapIsProjectSqlServerWithXsltDescription;
-  String get sapIsProjectSqlServerWithXsltInfo;
-  String get sapIsProjectConversionsAndFtpDescription;
-  String get sapIsProjectConversionsAndFtpInfo;
-  String get sapIsProjectMappingsDescription;
-  String get sapIsProjectMappingsInfo;
-  String get sapIsProjectCalculatorDescription;
-  String get sapIsProjectCalculatorInfo;
-  String get sapIsProjectsScriptCollectionInfo;
-  String get fortlevExperienceTitle;
-  String get fortlevExperienceInfo;
-  String get fortlevProjectMaoDuplaTitle;
-  String get fortlevProjectMaoDuplaDescription;
-  String get smartNewExperienceTitle;
-  String get smartNewExperienceInfo;
-  String get mobileGameExperienceTitle;
-  String get mobileGameExperienceDetail;
-  String get mobileGameExperienceInfo;
-  String get santriExperienceTitle;
-  String get santriExperienceDetail;
-  String get santriExperienceInfo;
-  String get smallErpExperienceTitle;
-  String get smallErpExperienceInfo;
-  String get educationTitle;
-  String get educationUniversityTitle;
-  String get educationUniversityDetail;
-  String get educationUniversityInfo;
-  String get professionalDevelopmentTitle;
-  String get certificationsTitle;
-  String get coursesTitle;
-  String get booksTitle;
-  String get bookDelphiBibleTitle;
-  String get bookGoogleAndroidTitle;
-  String get courseOracleTitle;
-  String get courseSapCloudIntegrationImmersionTitle;
-  String get languagesTitle;
-  Map<String, List<String>?> get languagesInfo;
-  String get availabilityTitle;
-  Map<String, List<String>?> get availabilityInfo;
-  String get visitOnlineResume;
 }
